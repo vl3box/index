@@ -3,8 +3,8 @@
 
         <!-- 群号 -->
         <RightSideMsg>
-            <em>家园玩法交流群</em> :
-            <strong><a href="https://jq.qq.com/?_wv=1027&k=InbtJGcw">658035079</a></strong>
+            <em>官方反馈交流群</em> :
+            <strong><a href="https://jq.qq.com/?_wv=1027&k=e7hkOVtL">2471800</a></strong>
         </RightSideMsg>
 
         <!-- 排行榜 -->

@@ -1,65 +1,126 @@
-// 列表
-.m-nav {
-    .u-title {
-        padding: 10px;
-        border-bottom: 1px solid #eee;
-        margin:0;
-    }
+.c-sidebar-left-inner{
+    overflow: visible;
 }
-.m-nav-group {
-    margin-top:5px;
-    margin-bottom:10px;
-    a {
+.m-nav{
+    .u-version{
+        max-width:85%;
         .db;
-        // border-bottom: 1px solid #eee;
-        .fz(14px, 32px);
-        padding: 5px 25px;
-        color: #555;
-        svg{
-            .y(-3px);
-            .mr(5px);
-            fill:#555;
+        .mt(10px);
+        .ml(10px);
+    }
+
+    @darkgreen:#1d3740;
+
+    .u-info{
+        .clearfix;
+        padding:5px 20px;
+        background-color:@darkgreen;
+        .r(4px);
+        .pr;
+    }
+    .u-branch{
+        .pa;.lb(180px,0);
+        pointer-events:none;
+        .w(80%);
+    }
+    .u-girl{
+        .fl;
+        .size(80px);
+        // .mr(20px);
+    }
+    .u-info-list{
+        padding:5px 0;
+        .fz(12px,24px);
+        color:#fff;
+        // color:@color;
+        a{color:#fff;}
+        // a{color:@color;}
+        a:hover{
+            color:#f1b2cb;
+        }
+        .u-pic{
             .size(16px);
+            .y(-3px);
+            .mr(10px);
         }
+        .u-info-item{
+            .db;
+        }
+    }
+    .u-weibo{
+        .db;
+    }
+    .u-wechat{
+        .db;
+        b{
+            // font-weight:600;
+            font-weight:400;
+        }
+    }
+}
 
-        .u-fav,.u-pass,.u-user,.u-avatar{
-            .size(14px);
-            .y(-2px);
-        }
-        .u-blank{
-            .mt(7px);
+.m-navlist{
+    .mt(20px);
+    .u-title{
+        margin: 15px 0 10px 0;
+        padding: 0 5px 10px 5px;
+        border-bottom: 1px solid #e4e7ed;
+        font-weight:normal;
+        text-rendering:optimizelegibility;
+        .fz(13px);
+        letter-spacing:0.2px;
+
+        i{.mr(5px);.lh(16px);.fz(16px);}
+
+        .u-more{
             .fr;
-            .size(12px);
+            .fz(12px);
+            color:#888;
+            &:hover{
+                color:@pink;
+            }
         }
+    }
+    .u-list{
+        padding:0;
+        margin:0;
 
-        &:hover {
-            // background-color: #fff;
+        li{
+            .nobreak;
+            .fz(12px,28px);
+            color:#666;
+            padding:0 5px;
+        }
+        a{
             color:@darkblue;
-            svg{fill:@darkblue;}
+        }
+        a:hover{
+            color:@pink;
+            box-shadow:0 1px 0 @pink;
         }
 
-        border-top:1px solid transparent;
-        border-bottom:1px solid transparent;
-    }
-    .router-link-exact-active,.on {
-        background-color: #fff;
-        color:@darkblue;
-        svg{fill:@darkblue;}
-        .bold;
-        border-top:1px solid #eee;
-        border-bottom:1px solid #eee;
-    }
-}
-
-// 移动端侧边栏显示列表页导航
-.p-single{
-    .m-list-nav{.none;}
-}
-@media screen and (max-width:@ipad){
-    .m-single-nav{
-        .none;
-    }
-    .p-single{
-        .m-list-nav{.db;}
+        em{
+            font-style:normal;
+            // &:before{
+            //     content:'[';
+            //     padding-right:3px;
+            // }
+            &:after{
+                // content:']';
+                content:'／';
+                padding-left:4px;
+                // padding-right:3px;
+                color:#888;
+            }
+            .mr(4px);
+        }
+        i{
+            font-style:normal;
+            &:after{
+                content:"»";
+                color:#888;
+            }
+            .mr(8px);
+        }
     }
 }

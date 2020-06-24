@@ -1,13 +1,24 @@
+.c-sidebar-left{
+    top : @header-height !important;
+}
+.c-main{
+    .mt(@header-height) !important;
+}
+
 .m-main{
-    padding:20px 30px;
+    padding:20px;
+    display: flex;
 }
-@media screen and (max-width:@ipad){
-    .m-main{
-        padding:10px 20px;
-    }
+
+.m-primary{
+    .w(1100px);
+    .mr(20px);
 }
-@media screen and (max-width:@phone){
-    .m-main{
-        padding:10px 15px;
-    }
+.m-extend{
+    // .pa;.rt(0);
+    background-color:@bg-light;
+    // .h(800px);
+    flex:1;
+    border:1px solid #eee;
+    .r(4px);
 }

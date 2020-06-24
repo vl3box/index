@@ -1,29 +1,53 @@
 <template>
     <nav class="m-nav">
-        <single_nav v-if="mode == 'single'" />
-        <list_nav />
+        <img class="u-version" src="../assets/img/left/version.png" alt="" />
+        <div class="u-info">
+            <div class="u-info-list">
+                <a
+                    href="https://weibo.com/jx3box"
+                    class="u-info-item u-weibo"
+                    target="_blank"
+                >
+                    <img
+                        class="u-pic u-weibo-pic"
+                        svg-inline
+                        src="../assets/img/left/weibo.svg"
+                    />JX3BOX盒子娘</a
+                >
+                <span class="u-info-item u-wechat">
+                    <img
+                        class="u-pic u-wechat-pic"
+                        svg-inline
+                        src="../assets/img/left/wechat.svg"
+                    /><b>JX3BOX</b>（微信公众号）</span
+                >
+                <a
+                    href="https://v2.jx3box.com/tool/?pid=15591#/"
+                    class="u-info-item u-qq"
+                    target="_blank"
+                >
+                    <img
+                        class="u-pic u-qq-pic"
+                        svg-inline
+                        src="../assets/img/left/qq.svg"
+                    />JX3BOX（QQ机器人）</a
+                >
+            </div>
+            <img class="u-branch" src="../assets/img/left/branch.png" alt="" />
+        </div>
     </nav>
 </template>
 
 <script>
-import single_nav from "./single_nav";
-import list_nav from "./list_nav";
 export default {
     name: "Nav",
     data: function() {
         return {};
     },
-    computed: {
-        mode: function() {
-            return this.$store.state.mode;
-        },
-    },
+    computed: {},
     methods: {},
     mounted: function() {},
-    components:{
-        single_nav,
-        list_nav,
-    }
+    components: {},
 };
 </script>
 

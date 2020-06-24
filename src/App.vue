@@ -1,41 +1,36 @@
 <template>
-    <div id="app" :class="{ 'p-list': mode == 'list', 'p-single': mode == 'single' }">
+    <div
+        id="app"
+    >
         <Header></Header>
-        <Breadcrumb
-            name="频道名称"
-            slug="slug"
-            root="/slug"
-            :publishEnable="true"
-            :adminEnable="true"
-            :feedbackEnable="true"
-        >
-            <img slot="logo" svg-inline src="./assets/img/logo.svg" />
-            <Info />
-        </Breadcrumb>
         <LeftSidebar>
             <Nav />
+            <notice />
+            <activity />
+            <gamenews />
         </LeftSidebar>
-        <Main :withoutRight="false">
-            <single v-if="mode == 'single'" />
-            <div class="m-main" v-else>
-                <tabs />
-                <router-view />
+        <Main :withoutRight="true">
+            <div class="m-main">
+                <div class="m-primary">
+                    <slider />
+                    <box />
+                </div>
+                <div class="m-extend">
+
+                </div>
             </div>
-            <RightSidebar>
-                <Extend />
-            </RightSidebar>
             <Footer></Footer>
         </Main>
     </div>
 </template>
 
 <script>
-import Info from "@/components/Info.vue";
 import Nav from "@/components/Nav.vue";
-import Extend from "@/components/Extend.vue";
-import tabs from "@/components/tabs";
-import single from "@/components/single.vue";
-const { getRewrite } = require("@jx3box/jx3box-common/js/utils");
+import gamenews from "@/components/gamenews.vue";
+import slider from "@/components/slider.vue";
+import activity from "@/components/activity.vue";
+import notice from "@/components/notice.vue";
+import box from "@/components/box.vue";
 
 export default {
     name: "App",
@@ -44,26 +39,15 @@ export default {
         return {};
     },
     computed: {
-        mode: function() {
-            return this.$store.state.mode;
-        },
     },
     methods: {},
-    beforeCreate: function() {
-        let params = new URLSearchParams(location.search);
-        this.$store.state.pid = params.get("pid") || getRewrite("pid");
-        this.$store.state.mode = this.$store.state.pid ? "single" : "list";
-
-        // 根据情况选择subtype取值
-        // this.$store.state.subtype = getRewrite("subtype");
-        // this.$store.state.subtype = this.$route.params.subtype;
-    },
     components: {
-        Info,
         Nav,
-        Extend,
-        tabs,
-        single
+        activity,
+        gamenews,
+        notice,
+        slider,
+        box
     },
 };
 </script>
