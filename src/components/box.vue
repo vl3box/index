@@ -302,7 +302,8 @@
                 </a>
             </li>
             <li>
-                <a class="u-item" href="https://j3cx.com/exam/" :target="target">
+                <a class="u-item" href="https://www.jx3pzcx.cn/exam/" :target="target">
+                <!-- TODO:https://j3cx.com/exam/ -->
                     <img
                         class="u-pic"
                         svg-inline
