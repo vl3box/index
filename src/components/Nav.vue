@@ -22,7 +22,7 @@
                     /><b>JX3BOX</b>（微信公众号）</span
                 >
                 <a
-                    href="https://v2.jx3box.com/tool/?pid=15591#/"
+                    href="/tool/?pid=15591"
                     class="u-info-item u-qq"
                     target="_blank"
                 >
