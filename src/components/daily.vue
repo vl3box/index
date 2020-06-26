@@ -1,8 +1,8 @@
 <template>
     <div class="m-daily">
         <div class="m-daily-header">
-            <div class="u-month"><span>六</span><span>月</span></div>
-            <div class="u-date">26</div>
+            <div class="u-month"><span>{{month}}</span><span>月</span></div>
+            <div class="u-date">{{date}}</div>
         </div>
         <div class="m-daily-content">
             <el-row>
@@ -42,15 +42,37 @@
 </template>
 
 <script>
+const number_map = {
+    "1":"一",
+    "2":"二",
+    "3":"三",
+    "4":"四",
+    "5":"五",
+    "6":"六",
+    "7":"七",
+    "8":"八",
+    "9":"九",
+    "10":"十",
+    "11":"十一",
+    "12":"十二",
+}
 export default {
     name: "daily",
     props: [],
     data: function() {
-        return {};
+        return {
+            month : '',
+            date : ''
+        };
     },
-    computed: {},
+    computed: {
+    },
     methods: {},
-    mounted: function() {},
+    created: function() {
+        let dt = new Date()
+        this.month = number_map[dt.getMonth() + 1]
+        this.date = dt.getDate()
+    },
     components: {},
 };
 </script>

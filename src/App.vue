@@ -18,7 +18,7 @@
                 <div class="m-extend">
                     <daily />
                     <servers  />
-                    <price />
+                    <!-- <price /> -->
                 </div>
             </div>
             <Footer></Footer>
@@ -35,7 +35,7 @@ import notice from "@/components/notice.vue";
 import box from "@/components/box.vue";
 import daily from "@/components/daily.vue";
 import servers from "@/components/servers.vue";
-import price from "@/components/price.vue";
+// import price from "@/components/price.vue";
 
 export default {
     name: "App",
@@ -55,7 +55,7 @@ export default {
         box,
         daily,
         servers,
-        price
+        // price
     },
 };
 </script>

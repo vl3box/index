@@ -11,14 +11,28 @@
 }
 
 .m-primary{
-    .w(1100px);
+    flex:1;
     .mr(20px);
 }
 .m-extend{
-    // .pa;.rt(0);
-    // .h(800px);
-    flex:1;
-    max-width:480px;
+    .w(460px);
+}
+@media screen and (max-width:@smallpc){
+    .m-extend{
+        .w(400px);
+    }
+}
+@media screen and (max-width:@notebook){
+    .m-main{
+        .db;
+    }
+    .m-primary{
+        .mr(0);
+    }
+    .m-extend{
+        .mt(20px);
+        .w(auto);
+    }
 }
 
 .m-sideblock{

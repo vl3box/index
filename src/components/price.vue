@@ -29,7 +29,6 @@ export default {
             data.forEach((item) => {
                 if (item.serverName == item.mainServer) {
                     this.data.push(item);
-                    console.log(this)
                 }
             });
         });
