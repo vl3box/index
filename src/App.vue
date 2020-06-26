@@ -16,7 +16,9 @@
                     <box />
                 </div>
                 <div class="m-extend">
-
+                    <daily />
+                    <servers  />
+                    <price />
                 </div>
             </div>
             <Footer></Footer>
@@ -31,6 +33,9 @@ import slider from "@/components/slider.vue";
 import activity from "@/components/activity.vue";
 import notice from "@/components/notice.vue";
 import box from "@/components/box.vue";
+import daily from "@/components/daily.vue";
+import servers from "@/components/servers.vue";
+import price from "@/components/price.vue";
 
 export default {
     name: "App",
@@ -47,7 +52,10 @@ export default {
         gamenews,
         notice,
         slider,
-        box
+        box,
+        daily,
+        servers,
+        price
     },
 };
 </script>

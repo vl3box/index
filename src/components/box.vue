@@ -181,6 +181,17 @@
             </li>
 
             <li class="u-app-start">
+                <a class="u-item" href="/fb/#/rank" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/trophy2.svg"
+                    />
+                    <span class="u-txt">百强排行</span>
+                    <i class="u-mark ishot">HOT</i>
+                </a>
+            </li>
+            <li>
                 <a class="u-item" href="/fb/#/skill" :target="target">
                     <img
                         class="u-pic"

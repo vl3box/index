@@ -14,12 +14,16 @@
                         src="../assets/img/left/weibo.svg"
                     />JX3BOX盒子娘</a
                 >
-                <span class="u-info-item u-wechat">
+                <a
+                    class="u-info-item u-wechat"
+                    href="/tool/?pid=15641"
+                    target="_blank"
+                >
                     <img
                         class="u-pic u-wechat-pic"
                         svg-inline
                         src="../assets/img/left/wechat.svg"
-                    /><b>JX3BOX</b>（微信公众号）</span
+                    /><b>JX3BOX</b>（微信公众号）</a
                 >
                 <a
                     href="/tool/?pid=15591"
