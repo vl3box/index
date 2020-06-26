@@ -37,7 +37,7 @@
                     />JX3BOX（QQ机器人）</a
                 >
             </div>
-            <img class="u-branch" src="../assets/img/left/branch.png" alt="" />
+            <!-- <img class="u-branch" src="../assets/img/left/branch.png" alt="" /> -->
         </div>
     </nav>
 </template>

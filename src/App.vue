@@ -5,9 +5,9 @@
         <Header></Header>
         <LeftSidebar>
             <Nav />
-            <notice />
-            <activity />
             <gamenews />
+            <activity />
+            <notice />
         </LeftSidebar>
         <Main :withoutRight="true">
             <div class="m-main">
