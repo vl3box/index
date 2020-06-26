@@ -100,7 +100,7 @@
             </li>
 
             <li class="u-app-start">
-                <a class="u-item" href="/app/database" :target="target">
+                <a class="u-item u-doing" href="/app/database" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
