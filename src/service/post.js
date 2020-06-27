@@ -5,15 +5,8 @@ const API_SINGLE = __server + "post/find";
 import failCallback from '../utils/fail'
 
 function getPosts(params,vm) {
-    let query = {
-        type: "fb",
-    };
-    if (params) {
-        query = Object.assign(query, params);
-    }
-
     return axios.get(API_LIST, {
-        params: query,
+        params: params,
     }).catch((err) => {
         failCallback(err,vm)
     })

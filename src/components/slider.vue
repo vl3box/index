@@ -1,5 +1,5 @@
 <template>
-    <el-carousel :interval="5000" arrow="always" class="m-slider" v-if="data.length">
+    <el-carousel :interval="5000" arrow="always" class="m-slider" v-if="data.length" >
         <el-carousel-item v-for="(item,i) in data" :key="i">
             <a class="u-pic" :href="item.link" :style="{backgroundColor:item.bgcolor}" :target="target"><img :src="item.img"></a>
         </el-carousel-item>
