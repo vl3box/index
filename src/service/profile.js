@@ -14,4 +14,13 @@ function getServer(uid){
     })
 }
 
-export {getServer}
+const profile = 'user/profile'
+function getProfile(){
+    return $.get(profile).then((res) => {
+        return res.data.data
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+export {getServer,getProfile}

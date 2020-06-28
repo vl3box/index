@@ -1,12 +1,10 @@
 <template>
     <div class="m-box">
-        <h2 class="u-title">
-            <span class="u-title-label"
-                ><i class="el-icon-box"></i> 魔盒矩阵</span
-            >
-        </h2>
+        <div class="m-sideblock-header">
+            <i class="el-icon-box"></i>
+            <span class="u-title">魔盒矩阵</span>
+        </div>
         <ul class="u-list">
-            <!-- 栏目 -->
             <li>
                 <a class="u-item" href="/macro" :target="target">
                     <img
@@ -119,6 +117,15 @@
                 </a>
             </li>
 
+
+        <!-- </ul> -->
+        <!-- <h2 class="u-title">
+            <span class="u-title-label"
+                ><i class="el-icon-box"></i> 应用矩阵</span
+            >
+        </h2>
+        <ul class="u-list"> -->
+
             <li class="u-app-start">
                 <a class="u-item u-doing" href="/app/database" :target="target">
                     <img
@@ -218,7 +225,7 @@
                         src="../assets/img/box/trophy2.svg"
                     />
                     <span class="u-txt">百强排行</span>
-                    <i class="u-mark ishot">HOT</i>
+                    <!-- <i class="u-mark ishot">HOT</i> -->
                 </a>
             </li>
             <li>

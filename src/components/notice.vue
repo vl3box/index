@@ -1,15 +1,18 @@
 <template>
-    <div class="m-navlist m-notice">
-        <h2 class="u-title"><i class="el-icon-message-solid"></i>更新动态</h2>
-        <ul class="u-list" v-if="data.length">
-            <li v-for="(item,i) in data" :key="i">
-                <em>{{item.updated_at | simpledate}}</em>
+    <div class="m-sideblock m-notice">
+        <div class="m-sideblock-header">
+            <i class="el-icon-s-opportunity"></i
+            ><span class="u-title">更新动态</span>
+        </div>
+        <ul class="m-sideblock-list u-list" v-if="data.length">
+            <li v-for="(item, i) in data" :key="i">
+                <em>{{ item.updated_at | simpledate }}</em>
                 <a
                     :href="item.link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    :style="{color:item.color}"
-                    >{{item.title}}</a
+                    :style="{ color: item.color }"
+                    >{{ item.title }}</a
                 >
             </li>
         </ul>
@@ -18,27 +21,31 @@
 
 <script>
 import { getNews } from "../service/index";
-import {simpledate} from '../utils/simpledate'
+import { simpledate } from "../utils/simpledate";
 export default {
     name: "notice",
     props: [],
     data: function() {
         return {
-            data : []
+            data: [],
         };
     },
     computed: {},
     methods: {},
-    filters : {
-        simpledate : function (val){
-            return simpledate(val)            
-        }
+    filters: {
+        simpledate: function(val) {
+            return simpledate(val);
+        },
     },
     beforeCreate: function() {
-        getNews('news',5).then((data) => {
-            this.data = data
-        })
+        getNews("news", 5).then((data) => {
+            this.data = data;
+        });
     },
     components: {},
 };
 </script>
+
+<style lang="less">
+@import "../assets/css/notice.less";
+</style>

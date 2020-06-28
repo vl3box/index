@@ -1,7 +1,7 @@
 <template>
     <nav class="m-nav">
-        <img class="u-version" src="../assets/img/left/version.png" alt="" />
-        <div class="u-info">
+        <!-- <img class="u-version" src="../assets/img/left/version.png" alt="" /> -->
+        <!-- <div class="u-info">
             <div class="u-info-list">
                 <a
                     href="https://weibo.com/jx3box"
@@ -37,8 +37,8 @@
                     />JX3BOX（QQ机器人）</a
                 >
             </div>
-            <!-- <img class="u-branch" src="../assets/img/left/branch.png" alt="" /> -->
-        </div>
+            <img class="u-branch" src="../assets/img/left/branch.png" alt="" />
+        </div> -->
     </nav>
 </template>
 

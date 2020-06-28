@@ -14,6 +14,7 @@
                 >
                     <span class="u-status" :class="{on:item.connectState}"></span>
                     <span class="u-name">{{item.serverName}}</span>
+                    <span class="u-myserver" v-if="server == item.serverName"><i class="el-icon-star-on"></i></span>
                 </div>
             </div>
         </div>
@@ -21,7 +22,6 @@
 </template>
 
 <script>
-// import { zone_dict } from "@jx3box/jx3box-data/data/server/server.json";
 import { getServers } from "../service/spider";
 export default {
     name: "servers",
@@ -31,12 +31,17 @@ export default {
             data: [],
         };
     },
-    computed: {},
+    computed: {
+        server: function() {
+            if (this.$store.state.isLogin) {
+                return this.$store.state.profile.server;
+            } else {
+                return "";
+            }
+        },
+    },
     methods: {},
     mounted: function() {
-        // for (let key in zone_dict) {
-        //     this.data[zone_dict[key]] = [];
-        // }
         getServers().then((data) => {
             data.forEach((item) => {
                 if (item.serverName == item.mainServer) {

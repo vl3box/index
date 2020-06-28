@@ -5,19 +5,10 @@ Vue.use(Vuex);
 
 let store = {
     state: {
-        // 模式
-        mode : '',
-
-        // 列表
-        subtype : '',
-
-        // 单页
-        pid : 0,
-        post : {},
-        meta : {},
-        setting : {},
-        author : {},
-        status : false,
+        profile : {
+            server : '蝶恋花'
+        },
+        isLogin : false
     },
     mutations: {
     },

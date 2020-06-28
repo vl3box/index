@@ -1,10 +1,11 @@
 <template>
-    <div class="m-navlist m-gamenews">
-        <h2 class="u-title">
-            <i class="el-icon-collection-tag"></i>游戏更新
-            <a class="u-more" href="https://jx3.xoyo.com/allnews/" target="_blank" rel="noopener noreferrer">查看更多 &raquo;</a>
-        </h2>
-        <ul class="u-list" v-if="data.length">
+    <div class="m-gamenews m-sideblock">
+        <div class="m-sideblock-header">
+            <i class="el-icon-message-solid"></i
+            ><span class="u-title">游戏更新</span>
+            <a href="https://jx3.xoyo.com/allnews/" class="u-more" target="_blank" rel="noopener noreferrer">查看全部 &raquo;</a>
+        </div>
+        <ul class="m-sideblock-list u-list" v-if="data.length">
             <li v-for="(item,i) in data" :key="i">
                 <em>{{item.time | dateFormat}}</em>
                 <a
@@ -50,3 +51,7 @@ export default {
     components: {},
 };
 </script>
+
+<style lang="less">
+@import "../assets/css/gamenews.less";
+</style>

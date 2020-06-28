@@ -6,43 +6,43 @@
             <a href="/app/price" class="u-more">查看全部 &raquo;</a>
         </div>
         <div class="m-price-content">
-            <el-row class="u-group">
-                <el-col :span="4"
-                    ><div class="u-label">
+            <el-row class="u-group" type="flex" >
+                <el-col class="u-label" :span="4"
+                    ><div>
                         <em>当前最高</em>
                         <b>{{ highest_server }}</b>
                     </div></el-col
                 >
-                <el-col :span="16"
+                <el-col :span="15"
                     ><div class="u-progress">
                         <b
                             class="u-bar"
                             :style="{ width: highest_bar }"
                         ></b></div
                 ></el-col>
-                <el-col :span="4"
-                    ><div class="u-price">
+                <el-col class="u-price" :span="5"
+                    ><div>
                         <b>{{ highest }}</b
                         ><em>金/元</em>
                     </div></el-col
                 >
             </el-row>
-            <el-row class="u-group">
-                <el-col :span="4"
-                    ><div class="u-label">
+            <el-row class="u-group" type="flex" >
+                <el-col class="u-label" :span="4"
+                    ><div>
                         <em>当前最低</em>
                         <b>{{ lowest_server }}</b>
                     </div></el-col
                 >
-                <el-col :span="16"
+                <el-col :span="15"
                     ><div class="u-progress">
                         <b
                             class="u-bar"
                             :style="{ width: lowest_bar }"
                         ></b></div
                 ></el-col>
-                <el-col :span="4"
-                    ><div class="u-price">
+                <el-col class="u-price" :span="5"
+                    ><div>
                         <b>{{ lowest }}</b
                         ><em>金/元</em>
                     </div></el-col
@@ -57,7 +57,6 @@
 <script>
 import { server_dict } from "@jx3box/jx3box-data/data/server/server.json";
 import { getPrice } from "../service/spider";
-import { getServer } from "../service/profile";
 import _ from "lodash";
 import { Line } from "@antv/g2plot";
 import User from "@jx3box/jx3box-common/js/user";
@@ -74,7 +73,6 @@ export default {
             lowest: "",
             lowest_server: "",
             chartsData: [],
-            custom_server: "",
             dates: [],
         };
     },
@@ -90,6 +88,13 @@ export default {
                 ? server_dict[this.custom_server]
                 : "全服均价趋势";
         },
+        custom_server:function (){
+            if(this.$store.state.isLogin){
+                return this.getServerGate(this.$store.state.profile.server)
+            }else{
+                return ''
+            }
+        }
     },
     methods: {
         buildDates: function() {
@@ -103,6 +108,16 @@ export default {
             }
             return sevenDatesList.reverse();
         },
+        getServerGate : function (val){
+            let gates = Object.keys(server_dict)
+            let servers = Object.values(server_dict)
+            let i = servers.indexOf(val)
+            if(i >= 0){
+                return gates[i]
+            }else{
+                return false
+            }
+        },
         getData() {
             return getPrice().then((data) => {
                 let current = _.get(data, "gate0000");
@@ -115,7 +130,7 @@ export default {
 
                 let trends = [];
                 let chartsData = [];
-                if (this.custom_server) {
+                if (this.custom_server && data[this.custom_server]) {
                     trends = data[this.custom_server]["trends"]
                         .split(",")
                         .slice(0, 7)
@@ -128,56 +143,68 @@ export default {
                 }
                 trends.forEach((item, i) => {
                     chartsData.push({
-                        日期: this.dates[i],
-                        均价: item,
+                        date: this.dates[i],
+                        均价: ~~item,
                     });
                 });
                 this.chartsData = chartsData;
+                let min = Math.min(...trends);
+                let max = Math.max(...trends);
+                return { chartsData, min, max };
             });
         },
-        doCharts() {
+        doCharts({ chartsData, min, max }) {
+            if (!chartsData.length) return;
+
             const linePlot = new Line(
                 document.getElementById("index-price-charts"),
                 {
                     title: {
                         visible: false,
-                        // text : this.chart_title
                     },
                     description: {
                         visible: false,
                     },
                     forceFit: true,
                     padding: "auto",
-                    data: this.chartsData,
-                    xField: "日期",
+                    data: chartsData,
+                    xField: "date",
                     yField: "均价",
                     point: {
                         visible: true,
+                        size: 5,
+                        style: {
+                            fill: "#2593fc",
+                            stroke: "#fff",
+                            lineWidth: 2,
+                        },
                     },
                     label: {
                         visible: true,
                         type: "point",
                     },
+                    // lineSize: 3,
+                    yAxis: {
+                        min: min,
+                        max: max,
+                    },
+                    guideLine: [
+                        {
+                            type: "mean",
+                            lineStyle: {
+                                stroke: "#f93",
+                            },
+                            text: {},
+                        },
+                    ],
                 }
             );
             linePlot.render();
         },
-        checkServer: function() {
-            if (User.isLogin()) {
-                return getServer(User.getInfo().uid).then((data) => {
-                    this.custom_server = data.data.value;
-                });
-            }
-            return new Promise((resolve, reject) => {
-                resolve(true);
-            });
-        },
         install() {
             this.dates = this.buildDates();
-            this.checkServer().then(() => {
-                this.getData().then(() => {
-                    this.doCharts();
-                });
+            this.getData().then((data) => {
+                this.doCharts(data);
             });
         },
     },

@@ -1,17 +1,23 @@
 .m-servers-content{
-    padding:10px 0 10px 20px;
+    padding:15px 0 15px 15px;
 
     .clearfix;
+    .u-list{
+        padding:0;
+        .clearfix;
+    }
     .u-item{
         .fl;
-        .w(88px);
-        .mr(20px);
+        .w(80px);
+        .mr(15px);
         cursor: default;
+        .nobreak;
 
         color:#666;
         &:hover{
             color:#555;
         }
+        .pr;
     }
     .u-status{
         .dbi;.y;
@@ -22,12 +28,23 @@
             background-color:#c6e48b;
         }
     }
+    .u-myserver{
+        // .pa;.rt(0);
+        .fz(14px);
+        color:#f93;
+    }
     .u-name{
-        .fz(12px,26px);
+        .fz(12px,30px);
     }
 }
 @media screen and (max-width:375px){
     .m-servers-content .u-item{
         .w(50%);.mr(0);
     }
+}
+
+.m-servers{
+    background-color: #fff;
+    border: 1px solid @border-hr;
+    .mt(20px);
 }
