@@ -19,11 +19,18 @@
                 >
                 </el-option>
             </el-select>
-            <a href="/house/#/flower" class="u-more" target="_blank">查看全部 &raquo;</a>
+            <a href="/app/flower" class="u-more" target="_blank"
+                >查看全部 &raquo;</a
+            >
         </div>
         <div class="m-flower-content" v-if="data.length">
             <el-row :gutter="40">
-                <el-col :span="12" class="u-flower" v-for="(item, i) in data" :key="i">
+                <el-col
+                    :span="12"
+                    class="u-flower"
+                    v-for="(item, i) in data"
+                    :key="i"
+                >
                     <span class="u-title">
                         <span class="u-name">{{ item.name }}</span>
                         <span class="u-icons">
@@ -46,15 +53,25 @@
                         </span>
                     </span>
                     <div class="u-desc">
-                        <span class="u-line"
-                            >当前最高分线 : <b>{{ item.line }}</b></span
+                        当前最高分线 :
+                        <span
+                            class="u-line"
+                            v-for="(line, i) in item.line"
+                            :key="line + i"
+                            title="点击快速复制"
+                            v-clipboard:copy="line"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                            ><b>{{ line }}</b
+                            >线</span
                         >
-                        <span class="u-price">价格 : {{ item.price }}园宅币</span>
+                        <span class="u-price"
+                            >价格 : {{ item.price }}园宅币</span
+                        >
                     </div>
                 </el-col>
             </el-row>
         </div>
-        
     </div>
 </template>
 
@@ -70,8 +87,8 @@ export default {
         return {
             data: [],
             types,
-            current_server : '蝶恋花',
-            servers
+            current_server: "蝶恋花",
+            servers,
         };
     },
     computed: {
@@ -85,29 +102,48 @@ export default {
     },
     watch: {
         server: function(newdata) {
-            this.current_server = newdata
+            this.current_server = newdata;
             this.loadData(this.server);
         },
     },
     methods: {
         loadData: function(server) {
-            if(server){
+            if (server) {
                 getFlowerRank(server).then((data) => {
                     let list = [];
                     for (let name in types) {
+                        let lines = data[name] ? data[name]["maxLine"].slice(0, 3) : [];
+                        lines.forEach((item, i) => {
+                            lines[i] = item && item.replace(" 线", "");
+                        });
+
+                        let max = data[name] ? ~~data[name]["max"] : '-'
                         list.push({
                             name,
-                            line: data[name]["line"],
-                            price: ~~data[name]["price"],
+                            line: lines,
+                            price: max,
                         });
                     }
                     this.data = list;
                 });
             }
         },
-        changeServer : function (){
-            this.loadData(this.current_server)
-        }
+        changeServer: function() {
+            this.loadData(this.current_server);
+        },
+        onCopy: function(val) {
+            this.$notify({
+                title: "复制成功",
+                message: "复制内容 : " + val.text,
+                type: "success",
+            });
+        },
+        onError: function() {
+            this.$notify.error({
+                title: "复制失败",
+                message: "请手动复制",
+            });
+        },
     },
     filters: {
         iconURL: function(id) {

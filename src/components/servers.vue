@@ -7,14 +7,21 @@
         </div>
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">
-                <div
-                    class="u-item"
-                    v-for="(item, i) in data"
-                    :key="i"
-                >
-                    <span class="u-status" :class="{on:item.connectState}"></span>
-                    <span class="u-name">{{item.serverName}}</span>
-                    <span class="u-myserver" v-if="server == item.serverName"><i class="el-icon-star-on"></i></span>
+                <div class="u-item" v-for="(item, i) in data" :key="i">
+                    <el-tooltip
+                        class="item"
+                        effect="dark"
+                        :content="item.serverName"
+                        placement="top"
+                    >
+                        <span
+                            class="u-status"
+                            :class="{ on: item.connectState }"
+                        ></span>
+                    </el-tooltip>
+
+                    <span class="u-name">{{ item.serverName }}</span>
+                    <!-- <span class="u-myserver" v-if="server == item.serverName"><i class="el-icon-star-on"></i></span> -->
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@
         </div>
         <ul class="u-list">
             <li v-for="(item, j) in data" :key="j">
-                <a class="u-link" :href="item.pid | postLink">
+                <a class="u-link" :href="item.pid | postLink" target="_blank">
                     <span class="u-order" :class="highlight(j)">{{
                         j + 1
                     }}</span>

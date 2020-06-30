@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/item" :target="target" title="即将上线">
                     <img
                         class="u-pic"
                         svg-inline
@@ -107,7 +107,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/wiki" :target="target" title="即将上线">
                     <img
                         class="u-pic"
                         svg-inline
@@ -127,13 +127,14 @@
         <ul class="u-list"> -->
 
             <li class="u-app-start">
-                <a class="u-item u-doing" href="/app/database" :target="target">
+                <a class="u-item" href="/app/database" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/database.svg"
                     />
                     <span class="u-txt">数据库</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
@@ -157,6 +158,17 @@
                 </a>
             </li>
             <li>
+                <a class="u-item" href="/app/macroeditor" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/macroeditor.svg"
+                    />
+                    <span class="u-txt">宏编辑器</span>
+                    <i class="u-mark isnew">NEW</i>
+                </a>
+            </li>
+            <li>
                 <a class="u-item" href="/app/servers" :target="target">
                     <img
                         class="u-pic"
@@ -177,17 +189,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item" href="/app/translator" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/translator.svg"
-                    />
-                    <span class="u-txt">繁体转换</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/share/#/parse" :target="target">
+                <a class="u-item" href="/app/facedata" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
@@ -197,7 +199,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item" href="/house/#/furniture" :target="target">
+                <a class="u-item" href="/app/furniture" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
@@ -207,7 +209,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item" href="/house/#/flower" :target="target">
+                <a class="u-item" href="/app/flower" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
@@ -239,6 +241,16 @@
                 </a>
             </li>
             <li>
+                <a class="u-item u-doing" href="/bps/#/lua" :target="target" title="即将上线">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/role.svg"
+                    />
+                    <span class="u-txt">职业源码</span>
+                </a>
+            </li>
+            <li>
                 <a class="u-item u-doing" href="/fb/#/drop" :target="target" title="即将上线">
                     <img
                         class="u-pic"
@@ -249,27 +261,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/role.svg"
-                    />
-                    <span class="u-txt">职业源码</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/macroeditor.svg"
-                    />
-                    <span class="u-txt">宏编辑器</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/app/dbm" :target="target" title="即将上线">
                     <img
                         class="u-pic"
                         svg-inline
@@ -279,7 +271,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/app/flog" :target="target" title="即将上线">
                     <img
                         class="u-pic"
                         svg-inline
@@ -289,13 +281,23 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/app/team" :target="target" title="即将上线">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/team.svg"
                     />
                     <span class="u-txt">团队OA</span>
+                </a>
+            </li>
+            <li>
+                <a class="u-item" href="/app/translator" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/translator.svg"
+                    />
+                    <span class="u-txt">繁体转换</span>
                 </a>
             </li>
 
@@ -330,8 +332,7 @@
                 </a>
             </li>
             <li>
-                <a class="u-item" href="https://www.jx3pzcx.cn/exam/" :target="target">
-                <!-- TODO:https://j3cx.com/exam/ -->
+                <a class="u-item" href="https://j3cx.com/exam/" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
@@ -341,13 +342,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="https://www.j3cx.com/serendipity/" :target="target">
+                <a class="u-item" href="https://j3cx.com/serendipity" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/qiyu.svg"
                     />
                     <span class="u-txt">奇遇查询</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>

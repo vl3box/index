@@ -1,0 +1,83 @@
+<template>
+    <div class="m-newpost m-sideblock">
+        <div class="m-newpost-header m-sideblock-header">
+            <i class="el-icon-s-management"></i>
+            <span class="u-title">最近更新</span>
+        </div>
+        <div class="m-newpost-content">
+            <div class="u-post" v-for="(item, i) in data" :key="i">
+            <a class="u-author" :href="authorLink(item.author.uid)">
+                <img class="u-avatar"
+                    :src="showAvatar(item.author.avatar)"
+                    :alt="item.author.name"
+                />
+            </a>
+            <a
+                class="u-title"
+                :href="postLink(item.post.post_type, item.post.ID)"
+                :target="target"
+                >{{ item.post.post_title || "无标题" }}</a
+            >
+            <div class="u-info">
+                <i class="el-icon-collection-tag"></i> 栏目 : <a class="u-type" :href="'/' + item.post.post_type">{{item.post.post_type | formatTypeName}}</a> -  
+                <span class="u-date">更新于 {{item.post.post_modified | dateFormat}}</span>
+            </div>
+            <!-- <div class="u-desc">
+                {{
+                    item.post.post_excerpt ||
+                        item.post.post_title ||
+                        "作者很懒,什么也没有留下"
+                }}
+            </div> -->
+        </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { getPosts } from "../service/post";
+import {
+    postLink,
+    buildTarget,
+    authorLink,
+    showAvatar,
+} from "@jx3box/jx3box-common/js/utils";
+import {__postType} from '@jx3box/jx3box-common/js/jx3box.json'
+import dateFormat from '../utils/moment'
+export default {
+    name: "newpost",
+    props: [],
+    data: function() {
+        return {
+            data: [],
+            postLink,
+            target: buildTarget(),
+            authorLink,
+            showAvatar,
+        };
+    },
+    computed: {},
+    methods: {},
+    filters : {
+        formatTypeName : function (type){
+            return __postType[type]
+        },
+        dateFormat: function(val) {
+            return dateFormat(val);
+        },
+    },
+    mounted: function() {
+        getPosts(this).then((data) => {
+            console.log(data);
+            this.data = data;
+        });
+    },
+    components: {
+        
+    },
+};
+</script>
+
+<style lang="less">
+@import "../assets/css/newpost.less";
+</style>

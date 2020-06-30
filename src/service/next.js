@@ -1,8 +1,8 @@
 import axios from "axios";
 import { __next } from "@jx3box/jx3box-common/js/jx3box.json";
 
-const flower = __next + 'api/flower/price/max-index';    //TODO:
-// const flower = '/api/flower/price/max-index';
+const flower = __next + 'api/flower/price/rank';    //TODO:
+// const flower = '/api/flower/price/rank';
 
 const macro = __next + 'api/macro/overview'
 // const macro = '/api/macro/overview'

@@ -8,10 +8,15 @@
     border:1px solid @border-hr;
     .r(4px);
 
+    .u-slider{
+        .h(100%);
+    }
+
     .u-pic {
         .db;
         .size(100%);
         .pr;
+        .h(100%);
         img {
             .h(100%);
             .auto(x);
@@ -36,4 +41,28 @@
         .u-pic {
         }
     }
+}
+.slick-track,.slick-list{
+    .h(100%);
+}
+.slick-slide > div{
+    .h(100%);
+}
+.slick-dots{
+    bottom:10px;
+}
+.slick-dots li.slick-active button:before{
+    color:#fff;
+}
+.slick-arrow{
+    .z(1);
+}
+.slick-prev{
+    left:10px;
+}
+.slick-next{
+    right:30px;
+}
+.slick-prev:before, .slick-next:before{
+    .fz(40px);
 }

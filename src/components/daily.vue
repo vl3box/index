@@ -4,7 +4,7 @@
             <div class="u-month"><span>{{month}}</span><span>月</span></div>
             <div class="u-date">{{date}}</div>
         </div>
-        <!-- <div class="m-daily-content">
+        <div class="m-daily-content">
             <el-row>
                 <el-col :span="8"
                     ><div class="u-block">
@@ -37,7 +37,7 @@
                     </div></el-col
                 >
             </el-row>
-        </div> -->
+        </div>
     </div>
 </template>
 
