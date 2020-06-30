@@ -29,12 +29,13 @@ export default {
             settings: {
                 dots: true,
                 dotsClass: "slick-dots custom-dot-class",
-                edgeFriction: 0.35,
+                edgeFriction: 0.5,
                 infinite: true,
-                speed: 500,
+                speed: 800,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 autoplay: true,
+                autoplaySpeed: 4000,
             },
         };
     },
