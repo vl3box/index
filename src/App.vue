@@ -17,7 +17,7 @@
 
                 <div class="m-misc">
                     <Nav />
-                    <daily />
+                    <!-- <daily /> -->
                     <servers />
                     <price />
                     <macrorank />
@@ -63,7 +63,7 @@ export default {
         notice,
         bigbang,
         box,
-        daily,
+        // daily,
         servers,
         price,
         flower,
