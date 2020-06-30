@@ -3,7 +3,7 @@
         <el-carousel
             v-if="data.length"
             trigger="click"
-            height="100px"
+            height="160px"
             indicator-position="none"
             :interval="6000"
         >
