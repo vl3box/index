@@ -1,5 +1,5 @@
 <template>
-    <VueSlickCarousel v-bind="settings" class="m-slider" v-if="data.length">
+    <div class="m-slider" v-if="data.length" id="m-home-slider">
         <div
             class="u-slider"
             v-for="(item, i) in data"
@@ -10,15 +10,12 @@
                 <img :src="item.img" />
             </a>
         </div>
-    </VueSlickCarousel>
+    </div>
 </template>
 
 <script>
 import { buildTarget, resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 import { getNews } from "../service/index";
-import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
     name: "bigbang",
@@ -26,17 +23,6 @@ export default {
     data: function() {
         return {
             data: [],
-            settings: {
-                dots: true,
-                dotsClass: "slick-dots custom-dot-class",
-                edgeFriction: 0.5,
-                infinite: true,
-                speed: 800,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 4000,
-            },
         };
     },
     computed: {
@@ -53,10 +39,14 @@ export default {
             this.data = data;
         });
     },
-    mounted: function() {},
-    components: {
-        VueSlickCarousel,
+    updated: function() {
+        $("#m-home-slider").slick({
+            infinite: true,
+            autoplay: true,
+            dots: true,
+        });
     },
+    components: {},
 };
 </script>
 

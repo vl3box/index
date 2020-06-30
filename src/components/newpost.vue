@@ -5,31 +5,51 @@
             <span class="u-title">最近更新</span>
         </div>
         <div class="m-newpost-content">
-            <div class="u-post" v-for="(item, i) in data" :key="i">
-            <a class="u-author" :href="authorLink(item.author.uid)">
-                <img class="u-avatar"
+            <a
+                class="u-post"
+                v-for="(item, i) in data"
+                :key="i"
+                :href="postLink(item.post.post_type, item.post.ID)"
+                :target="target"
+            >
+                <img
+                    class="u-avatar"
                     :src="showAvatar(item.author.avatar)"
                     :alt="item.author.name"
                 />
+                <div class="u-info">
+                    <i class="el-icon-collection-tag"></i>
+                    <span
+                        class="u-type"
+                        :href="'/' + item.post.post_type"
+                        target="_blank"
+                        >{{ item.post.post_type | formatTypeName }}</span
+                    >
+                    ／
+                    <span
+                        class="u-author"
+                        :href="authorLink(item.author.uid)"
+                        target="_blank"
+                    >
+                        {{ item.author.name }}
+                    </span>
+                    -
+                    <span class="u-date"
+                        >更新于 {{ item.post.post_modified | dateFormat }}</span
+                    >
+                </div>
+                <span class="u-title">
+                    <i class="el-icon-reading"></i>
+                    {{ item.post.post_title || "无标题" }}</span
+                >
+                <!-- <div class="u-desc">
+                    {{
+                        item.post.post_excerpt ||
+                            item.post.post_title ||
+                            "作者很懒,什么也没有留下"
+                    }}
+                </div> -->
             </a>
-            <a
-                class="u-title"
-                :href="postLink(item.post.post_type, item.post.ID)"
-                :target="target"
-                >{{ item.post.post_title || "无标题" }}</a
-            >
-            <div class="u-info">
-                <i class="el-icon-collection-tag"></i> 栏目 : <a class="u-type" :href="'/' + item.post.post_type">{{item.post.post_type | formatTypeName}}</a> -  
-                <span class="u-date">更新于 {{item.post.post_modified | dateFormat}}</span>
-            </div>
-            <!-- <div class="u-desc">
-                {{
-                    item.post.post_excerpt ||
-                        item.post.post_title ||
-                        "作者很懒,什么也没有留下"
-                }}
-            </div> -->
-        </div>
         </div>
     </div>
 </template>
@@ -42,8 +62,8 @@ import {
     authorLink,
     showAvatar,
 } from "@jx3box/jx3box-common/js/utils";
-import {__postType} from '@jx3box/jx3box-common/js/jx3box.json'
-import dateFormat from '../utils/moment'
+import { __postType } from "@jx3box/jx3box-common/js/jx3box.json";
+import dateFormat from "../utils/moment";
 export default {
     name: "newpost",
     props: [],
@@ -58,9 +78,9 @@ export default {
     },
     computed: {},
     methods: {},
-    filters : {
-        formatTypeName : function (type){
-            return __postType[type]
+    filters: {
+        formatTypeName: function(type) {
+            return __postType[type];
         },
         dateFormat: function(val) {
             return dateFormat(val);
@@ -68,13 +88,11 @@ export default {
     },
     mounted: function() {
         getPosts(this).then((data) => {
-            console.log(data);
+            // console.log(data);
             this.data = data;
         });
     },
-    components: {
-        
-    },
+    components: {},
 };
 </script>
 
