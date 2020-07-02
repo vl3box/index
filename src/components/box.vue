@@ -241,23 +241,25 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/bps/#/lua" :target="target" title="即将上线">
+                <a class="u-item" href="/bps/#/lua" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/role.svg"
                     />
                     <span class="u-txt">职业源码</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/fb/#/drop" :target="target" title="即将上线">
+                <a class="u-item" href="/fb/#/drop" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/drop.svg"
                     />
                     <span class="u-txt">副本掉落</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
