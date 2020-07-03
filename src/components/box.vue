@@ -81,7 +81,7 @@
                     <img
                         class="u-pic"
                         svg-inline
-                        src="../assets/img/box/share.svg"
+                        src="../assets/img/box/face.svg"
                     />
                     <span class="u-txt">捏脸分享</span>
                 </a>
@@ -104,6 +104,17 @@
                         src="../assets/img/box/bbs.svg"
                     />
                     <span class="u-txt">茶馆交流</span>
+                </a>
+            </li>
+            <li>
+                <a class="u-item u-doing" href="/emotion" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/pig.svg"
+                    />
+                    <span class="u-txt">沙雕表情</span>
+                    <!-- <i class="u-mark isnew">NEW</i> -->
                 </a>
             </li>
             <li>
@@ -282,6 +293,17 @@
                 </a>
             </li>
             <li>
+                <a class="u-item u-doing" href="/exam" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/100.svg"
+                    />
+                    <span class="u-txt">趣味题库</span>
+                    <!-- <i class="u-mark isnew">NEW</i> -->
+                </a>
+            </li>
+            <li>
                 <a class="u-item" href="/app/translator" :target="target">
                     <img
                         class="u-pic"
@@ -330,6 +352,7 @@
                         src="../assets/img/box/keju.svg"
                     />
                     <span class="u-txt">科举题库</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
