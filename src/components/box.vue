@@ -241,14 +241,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/fb/#/drop" :target="target">
+                <a class="u-item" href="/fb/#/drop" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/drop.svg"
                     />
                     <span class="u-txt">副本掉落</span>
-                    <!-- <i class="u-mark isnew">NEW</i> -->
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
