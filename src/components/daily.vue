@@ -4,10 +4,9 @@
             <div class="u-month"><span>{{month}}</span><span>月</span></div>
             <div class="u-date">{{date}}</div>
         </div> -->
-        <div class="m-daily-header m-sideblock-header">
+        <!-- <div class="m-daily-header m-sideblock-header">
             <i class="el-icon-s-order"></i
             ><span class="u-title">今日日常</span>
-            <!-- <a href="/app/price" class="u-more">查看全部 &raquo;</a> -->
         </div>
         <div class="m-daily-content">
             <el-row>
@@ -43,7 +42,7 @@
                 >
             </el-row>
             <p class="u-tip">♥ 愿等一接口,白首不相离</p>
-        </div>
+        </div> -->
     </div>
 </template>
 
