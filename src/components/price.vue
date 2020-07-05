@@ -58,7 +58,6 @@
                 <el-col :span="15"
                     ><div
                         class="u-progress"
-                        :title="yesterday_avg + ' → ' + today_avg"
                     >
                         <b
                             class="u-bar u-yesterday"
@@ -67,7 +66,9 @@
                         <b
                             class="u-bar u-today"
                             :style="{ width: today_avg_per }"
-                        ></b></div
+                        ></b>
+                        <b class="u-num">{{yesterday_avg}} → {{today_avg}}</b>
+                    </div
                 ></el-col>
                 <el-col class="u-price" :span="5"
                     ><div>
@@ -134,7 +135,7 @@ export default {
         },
         yesterday_avg: function() {
             if (this.custom_server) {
-                return this.data[this.custom_server]['yesterday_average']
+                return _.get(this.data[this.custom_server],'yesterday_average')
             } else {
                 let len = this.yesterday_avg_list.length;
                 let total = 0;
@@ -153,7 +154,7 @@ export default {
         },
         today_avg: function() {
             if (this.custom_server) {
-                return this.data[this.custom_server]['average']
+                return _.get(this.data[this.custom_server],'average')
             } else {
                 if (!this.today_avg_list) return;
 
