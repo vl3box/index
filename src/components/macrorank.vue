@@ -1,5 +1,5 @@
 <template>
-    <div class="m-rank-macro m-rank">
+    <div class="m-rank-macro m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
             <span class="u-title">云端宏热榜</span>

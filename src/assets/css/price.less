@@ -1,19 +1,23 @@
 .m-price{
-    background-color: #fff;
-    border: 1px solid @border-hr;
-    .mt(20px);
+    // background-color: #fff;
+    // border: 1px solid @border-hr;
     .r(4px);
+
+    .m-sideblock-header{
+        padding-left:0;
+        padding-right:0;
+    }
 }
 .m-price-content{
-    padding:15px 20px 0 20px;
+    padding:15px 0 0 5px;
 
+    .fz(12px);
     .u-group{
         .mb(10px);
     }
 
     .u-label{
         // .fl;
-        .fz(12px);
         em{
             font-style: normal;
             .db;
@@ -25,6 +29,7 @@
 
     .u-progress{
         // .fl;
+        .pr;
         .db;
         .h(14px);
         .mt(10px);
@@ -33,7 +38,7 @@
             .db;
             // background-color:#FAA524;
             background-color:#f93;
-            .h(100%);
+            .h(14px);
         }
     }
 
@@ -47,6 +52,29 @@
             color:#777;
             font-style: normal;
         }
+    }
+
+    .u-trend{
+        padding: 15px 10px;
+        border-radius: 4px;
+        background: #337ab7;
+        color: #fff;
+    }
+    .u-summary{
+        .x;
+        em{
+            font-style: normal;
+            .db;
+            .mb(2px);
+            color:#f1f1f1;
+        }
+        b{
+            .fz(14px,2);
+        }
+    }
+    .u-today{
+        .pa;.tm(0.5);
+        .lt(0);
     }
 }
 .m-price-charts-title{

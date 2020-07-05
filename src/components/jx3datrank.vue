@@ -1,5 +1,5 @@
 <template>
-    <div class="m-rank-jx3dat m-rank">
+    <div class="m-rank-jx3dat m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
             <span class="u-title">团控数据热榜</span>

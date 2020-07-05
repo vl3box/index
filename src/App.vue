@@ -8,21 +8,20 @@
                 <flower />
                 <newpost />
 
-                <div class="m-extend">
+                <div class="m-left">
                     <gamenews />
-                    <activity />
-                    <notice />
-                    <contact />
-                </div>
-
-                <div class="m-misc">
-                    <Nav />
-                    <!-- <daily /> -->
                     <servers />
                     <price />
-                    <macrorank />
-                    <jx3datrank />
-                    <!-- <p class="u-pi">没有美工我瞎撸的啊，兄弟别催，明天有想法了再优化这半边，灵魂画手请直接PO图Q群2471800 <span>—— 又当产品又当设计又当编辑的苦逼开发</span></p> -->
+                    <daily />
+                </div>
+
+                <div class="m-right">
+                    <!-- <Nav /> -->
+                    <activity />
+                    <notice />
+                    <macrorank/>
+                    <jx3datrank/>
+                    <contact />
                 </div>
 
                 <Footer></Footer>
@@ -33,7 +32,7 @@
 </template>
 
 <script>
-import Nav from "@/components/Nav.vue";
+// import Nav from "@/components/Nav.vue";
 import gamenews from "@/components/gamenews.vue";
 import bigbang from "@/components/bigbang.vue";
 import activity from "@/components/activity.vue";
@@ -57,13 +56,13 @@ export default {
     computed: {},
     methods: {},
     components: {
-        Nav,
+        // Nav,
         activity,
         gamenews,
         notice,
         bigbang,
         box,
-        // daily,
+        daily,
         servers,
         price,
         flower,

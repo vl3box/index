@@ -1,5 +1,6 @@
 .m-servers-content{
-    padding:15px 0 15px 15px;
+    // padding:15px 0 15px 15px;
+    padding:10px 0;
 
     .clearfix;
     .u-list{
@@ -10,7 +11,8 @@
         .fl;
         // .w(80px);
         // .mr(15px);
-        .mr(5px);
+        .mr(6px);
+        .mb(6px);
         cursor: default;
         .nobreak;
 
@@ -21,7 +23,8 @@
         .pr;
     }
     .u-status{
-        .dbi;.y;
+        .db;
+        // .dbi;.y;
         .size(12px);
         // .size(8px);
         background-color:#aaa;
@@ -40,14 +43,16 @@
         .none;
     }
 }
-// @media screen and (max-width:375px){
-//     .m-servers-content .u-item{
-//         .w(50%);.mr(0);
-//     }
-// }
 
 .m-servers{
-    background-color: #fff;
-    border: 1px solid @border-hr;
-    // .mt(20px);
+    .m-sideblock-header{
+        padding-left:0;
+        padding-right:0;
+    }
+}
+@media screen and (max-width:1279px){
+    .m-servers-content{
+        padding-left:10px;
+        padding-right:10px;
+    }
 }
