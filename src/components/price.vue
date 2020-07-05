@@ -115,7 +115,7 @@ export default {
         chart_title: function() {
             return this.custom_server
                 ? server_dict[this.custom_server]
-                : "全服均价趋势";
+                : "全服";
         },
         custom_server: function() {
             if (this.$store.state.isLogin) {
