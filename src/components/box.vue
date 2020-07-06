@@ -263,6 +263,17 @@
                 </a>
             </li>
             <li>
+                <a class="u-item" href="/fb/#/gem" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/gem.svg"
+                    />
+                    <span class="u-txt">瑰石查询</span>
+                    <i class="u-mark isnew">NEW</i>
+                </a>
+            </li>
+            <li>
                 <a class="u-item u-doing" href="/app/dbm" :target="target" title="即将上线">
                     <img
                         class="u-pic"
@@ -364,16 +375,6 @@
                     />
                     <span class="u-txt">奇遇查询</span>
                     <i class="u-mark isnew">NEW</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="https://www.j3pz.com/tools/prediction/" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/guishi.svg"
-                    />
-                    <span class="u-txt">瑰石查询</span>
                 </a>
             </li>
         </ul>
