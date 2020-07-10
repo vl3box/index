@@ -80,6 +80,9 @@ import { getFlowerRank } from "../service/next";
 import types from "../assets/data/flower.json";
 import { __iconPath } from "@jx3box/jx3box-common/js/jx3box.json";
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
+// 繁體
+import traditional_servers from "@jx3box/jx3box-data/data/server/server_international.json";
+import dict from '@/assets/data/flower_dict.json'
 export default {
     name: "flower",
     props: [],
@@ -99,6 +102,9 @@ export default {
                 return localStorage.getItem("flower_server") || "蝶恋花";
             }
         },
+        isTraditional : function (){
+            return traditional_servers.includes(this.current_server)
+        }
     },
     watch: {
         server: function(newdata) {
@@ -110,6 +116,10 @@ export default {
         loadData: function(server) {
             if (server) {
                 getFlowerRank(server).then((data) => {
+                    if(this.isTraditional){
+                        data = this.transformData(data)
+                    }
+
                     let list = [];
                     for (let name in types) {
                         let lines = data[name] ? data[name]["maxLine"].slice(0, 3) : [];
@@ -143,6 +153,14 @@ export default {
                 title: "复制失败",
                 message: "请手动复制",
             });
+        },
+        transformData : function (data){
+            let _data = JSON.stringify(data)
+            dict.tr.forEach((key,i) => {
+                let re = new RegExp(key,'g')
+                _data = _data.replace(re,dict.cn[i])
+            })
+            return JSON.parse(_data)
         },
     },
     filters: {
