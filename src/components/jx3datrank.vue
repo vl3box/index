@@ -65,7 +65,7 @@ export default {
     },
     filters: {
         postLink: function(pid) {
-            return "/jx3dat?pid=" + pid;
+            return "/jx3dat/?pid=" + pid;
         },
     },
     created: function() {

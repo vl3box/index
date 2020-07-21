@@ -45,7 +45,7 @@ export default {
     },
     filters : {
         postLink : function (pid){
-            return '/macro?pid=' + pid
+            return '/macro/?pid=' + pid
         },
     },
     created: function() {
