@@ -95,8 +95,11 @@ export default {
         };
     },
     computed: {
+        isLogin : function (){
+            return this.$store.state.isLogin
+        },
         server: function() {
-            if (this.$store.state.isLogin) {
+            if (this.isLogin) {
                 return this.$store.state.profile.server;
             } else {
                 return localStorage.getItem("flower_server") || "蝶恋花";

@@ -7,6 +7,7 @@
                 <box />
                 <flower />
                 <newpost />
+                <guide />
 
                 <div class="m-left">
                     <gamenews />
@@ -46,6 +47,7 @@ import contact from "@/components/contact.vue";
 import macrorank from "@/components/macrorank.vue";
 import jx3datrank from "@/components/jx3datrank.vue";
 import newpost from "@/components/newpost.vue";
+import guide from "@/components/guide.vue";
 import { getProfile } from "./service/profile";
 export default {
     name: "App",
@@ -69,7 +71,8 @@ export default {
         contact,
         macrorank,
         jx3datrank,
-        newpost
+        newpost,
+        guide
     },
     created: function() {
         getProfile().then((data) => {

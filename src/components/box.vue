@@ -24,6 +24,7 @@
                         src="../assets/img/box/jx3dat.svg"
                     />
                     <span class="u-txt">插件数据</span>
+                    <i class="u-mark ishot">HOT</i>
                 </a>
             </li>
             <li>
@@ -34,6 +35,7 @@
                         src="../assets/img/box/fb.svg"
                     />
                     <span class="u-txt">副本专栏</span>
+                    <i class="u-mark ishot">HOT</i>
                 </a>
             </li>
             <li>
@@ -44,6 +46,7 @@
                         src="../assets/img/box/bps.svg"
                     />
                     <span class="u-txt">职业专栏</span>
+                    <i class="u-mark ishot">HOT</i>
                 </a>
             </li>
             <li>
@@ -54,16 +57,18 @@
                         src="../assets/img/box/cj.svg"
                     />
                     <span class="u-txt">成就百科</span>
+                    <i class="u-mark ishot">HOT</i>
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/item" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/item" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/item.svg"
                     />
                     <span class="u-txt">物品百科</span>
+                    <!-- <i class="u-mark isbeta">BETA</i> -->
                 </a>
             </li>
             <li>
@@ -114,17 +119,18 @@
                         src="../assets/img/box/pig.svg"
                     />
                     <span class="u-txt">沙雕表情</span>
-                    <!-- <i class="u-mark isnew">NEW</i> -->
+                    <!-- <i class="u-mark isbeta">BETA</i> -->
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/wiki" :target="target" title="即将上线">
+                <a class="u-item u-doing" href="/wiki" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/wiki.svg"
                     />
                     <span class="u-txt">剑三百科</span>
+                    <!-- <i class="u-mark isbeta">BETA</i> -->
                 </a>
             </li>
 
@@ -145,7 +151,6 @@
                         src="../assets/img/box/database.svg"
                     />
                     <span class="u-txt">数据库</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
@@ -176,7 +181,6 @@
                         src="../assets/img/box/macroeditor.svg"
                     />
                     <span class="u-txt">宏编辑器</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
@@ -259,7 +263,6 @@
                         src="../assets/img/box/drop.svg"
                     />
                     <span class="u-txt">副本掉落</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
@@ -270,7 +273,6 @@
                         src="../assets/img/box/gem.svg"
                     />
                     <span class="u-txt">瑰石查询</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
@@ -283,7 +285,7 @@
                     <span class="u-txt">数据构建</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a class="u-item u-doing" href="/app/flog" :target="target" title="即将上线">
                     <img
                         class="u-pic"
@@ -292,7 +294,7 @@
                     />
                     <span class="u-txt">战斗分析</span>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a class="u-item u-doing" href="/app/team" :target="target" title="即将上线">
                     <img
@@ -311,7 +313,7 @@
                         src="../assets/img/box/100.svg"
                     />
                     <span class="u-txt">趣味题库</span>
-                    <!-- <i class="u-mark isnew">NEW</i> -->
+                    <!-- <i class="u-mark isbeta">BETA</i> -->
                 </a>
             </li>
             <li>
@@ -356,6 +358,17 @@
                 </a>
             </li>
             <li>
+                <a class="u-item" href="http://j3dps.com/fightlog" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/flog.svg"
+                    />
+                    <span class="u-txt">战斗复盘</span>
+                    <i class="u-mark isnew">NEW</i>
+                </a>
+            </li>
+            <li>
                 <a class="u-item" href="https://j3cx.com/exam/" :target="target">
                     <img
                         class="u-pic"
@@ -363,7 +376,6 @@
                         src="../assets/img/box/keju.svg"
                     />
                     <span class="u-txt">科举题库</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
@@ -374,7 +386,6 @@
                         src="../assets/img/box/qiyu.svg"
                     />
                     <span class="u-txt">奇遇查询</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
         </ul>
