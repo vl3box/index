@@ -95,14 +95,11 @@ export default {
         };
     },
     computed: {
-        isLogin : function (){
-            return this.$store.state.isLogin
-        },
         server: function() {
-            if (this.isLogin) {
-                return this.$store.state.profile.server;
+            if (this.$store.state.isLogin) {
+                return this.$store.state.profile.server || '蝶恋花';
             } else {
-                return localStorage.getItem("flower_server") || "蝶恋花";
+                return localStorage.getItem("flower_server") || '蝶恋花';
             }
         },
         isTraditional : function (){
@@ -112,7 +109,7 @@ export default {
     watch: {
         server: function(newdata) {
             this.current_server = newdata;
-            this.loadData(this.current_server);
+            this.loadData(newdata);
         },
     },
     methods: {
@@ -171,8 +168,9 @@ export default {
             return __iconPath + "icon/" + id + ".png";
         },
     },
-    created: function() {
-        this.loadData(this.server);
+    mounted: function() {
+        this.current_server = this.server;
+        this.loadData(this.server)
     },
     components: {},
 };
