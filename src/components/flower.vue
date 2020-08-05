@@ -90,7 +90,7 @@ export default {
         return {
             data: [],
             types,
-            current_server: "蝶恋花",
+            current_server: "",
             servers,
         };
     },
@@ -112,7 +112,7 @@ export default {
     watch: {
         server: function(newdata) {
             this.current_server = newdata;
-            this.loadData(this.server);
+            this.loadData(this.current_server);
         },
     },
     methods: {

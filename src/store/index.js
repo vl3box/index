@@ -6,7 +6,7 @@ Vue.use(Vuex);
 let store = {
     state: {
         profile : {
-            server : '蝶恋花'
+            server : ''
         },
         isLogin : false
     },
