@@ -78,7 +78,7 @@
 <script>
 import { getFlowerRank } from "../service/next";
 import types from "../assets/data/flower.json";
-import { __iconPath } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __iconPath,__ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
 // 繁體
 import traditional_servers from "@jx3box/jx3box-data/data/server/server_international.json";
@@ -165,7 +165,7 @@ export default {
     },
     filters: {
         iconURL: function(id) {
-            return __iconPath + "icon/" + id + ".png";
+            return __ossMirror + "icon/" + id + ".png";
         },
     },
     mounted: function() {
