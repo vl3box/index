@@ -123,14 +123,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/wiki" :target="target">
+                <a class="u-item" href="/wiki" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/wiki.svg"
                     />
                     <span class="u-txt">剑三百科</span>
-                    <!-- <i class="u-mark isbeta">BETA</i> -->
+                    <i class="u-mark isbeta">BETA</i>
                 </a>
             </li>
 
