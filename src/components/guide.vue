@@ -1,12 +1,12 @@
 <template>
     <div class="m-guide m-sideblock">
-        <div class="m-guide-header m-sideblock-header">
+        <!-- <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-guide"></i>
             <span class="u-title">游戏指南</span>
         </div>
         <div class="m-guide-content">
 
-        </div>
+        </div> -->
     </div>
 </template>
 
