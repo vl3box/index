@@ -19,6 +19,22 @@
                 >
                 </el-option>
             </el-select>
+            <el-select
+                class="m-flower-select"
+                v-model="map"
+                filterable
+                placeholder="选择小区"
+                size="mini"
+                @change="loadData"
+            >
+                <el-option
+                    v-for="item in maps"
+                    :key="item"
+                    :label="item"
+                    :value="item"
+                >
+                </el-option>
+            </el-select>
             <a href="/app/flower" class="u-more" target="_blank"
                 >查看全部 &raquo;</a
             >
@@ -83,6 +99,7 @@ import servers from "@jx3box/jx3box-data/data/server/server_list.json";
 // 繁體
 import traditional_servers from "@jx3box/jx3box-data/data/server/server_international.json";
 import dict from '@/assets/data/flower_dict.json'
+import maps from '@/assets/data/flower_maps.json'
 export default {
     name: "flower",
     props: [],
@@ -92,6 +109,7 @@ export default {
             types,
             current_server: "",
             servers,
+            map : ''
         };
     },
     computed: {
@@ -104,42 +122,51 @@ export default {
         },
         isTraditional : function (){
             return traditional_servers.includes(this.current_server)
-        }
+        },
+        maps : function (){
+            if(this.isTraditional){
+                return maps['tr']
+            }
+            return maps['cn']
+        },
     },
     watch: {
         server: function(newdata) {
             this.current_server = newdata;
-            this.loadData(newdata);
+            this.map = this.maps[0]
+            this.loadData();
         },
     },
     methods: {
-        loadData: function(server) {
-            if (server) {
-                getFlowerRank(server).then((data) => {
-                    if(this.isTraditional){
-                        data = this.transformData(data)
-                    }
+        loadData: function() {
+            getFlowerRank({
+                server : this.current_server,
+                map : this.map
+            }).then((data) => {
+                if(this.isTraditional){
+                    data = this.transformData(data)
+                }
 
-                    let list = [];
-                    for (let name in types) {
-                        let lines = data[name] ? data[name]["maxLine"].slice(0, 3) : [];
-                        lines.forEach((item, i) => {
-                            lines[i] = item && item.replace(" 线", "");
-                        });
+                let list = [];
+                for (let name in types) {
+                    let lines = data[name] ? data[name]["maxLine"]['length'] && data[name]["maxLine"].slice(0, 3) : [];
+                    lines.forEach((item, i) => {
+                        lines[i] = item && item.replace(" 线", "");
+                    });
 
-                        let max = data[name] ? ~~data[name]["max"] : '-'
-                        list.push({
-                            name,
-                            line: lines,
-                            price: max,
-                        });
-                    }
-                    this.data = list;
-                });
-            }
+                    let max = data[name] ? ~~data[name]["max"] : '-'
+                    list.push({
+                        name,
+                        line: lines,
+                        price: max,
+                    });
+                }
+                this.data = list;
+            });
         },
         changeServer: function() {
-            this.loadData(this.current_server);
+            this.map = this.maps[0]
+            this.loadData();
         },
         onCopy: function(val) {
             this.$notify({
@@ -170,7 +197,8 @@ export default {
     },
     mounted: function() {
         this.current_server = this.server;
-        this.loadData(this.server)
+        this.map = this.maps[0]
+        this.loadData()
     },
     components: {},
 };

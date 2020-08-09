@@ -10,12 +10,10 @@ const macro = __next + 'api/macro/overview'
 const jx3dat = __next + "api/plugins/jx3dat/rank";
 // const jx3dat = "/api/plugins/jx3dat/rank";
 
-function getFlowerRank(server) {
+function getFlowerRank(query) {
     return axios
         .get(flower, {
-            params: {
-                server: server,
-            },
+            params: query,
             withCredentials: true,
         })
         .then((res) => {
