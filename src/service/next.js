@@ -1,10 +1,10 @@
 import axios from "axios";
-import { __next } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __next, __bb } from "@jx3box/jx3box-common/js/jx3box.json";
 
-const flower = __next + 'api/flower/price/rank';    //TODO:
+const flower = __next + "api/flower/price/rank"; //TODO:
 // const flower = '/api/flower/price/rank';
 
-const macro = __next + 'api/macro/overview'
+const macro = __next + "api/macro/overview";
 // const macro = '/api/macro/overview'
 
 const jx3dat = __next + "api/plugins/jx3dat/rank";
@@ -21,10 +21,10 @@ function getFlowerRank(query) {
         })
         .catch((err) => {
             console.log(err);
-        })
+        });
 }
 
-function getMacroRank(limit){
+function getMacroRank(limit) {
     return axios
         .get(macro, {
             params: {
@@ -40,12 +40,12 @@ function getMacroRank(limit){
         });
 }
 
-function getJx3datRank(limit){
+function getJx3datRank(limit) {
     return axios
-        .get(jx3dat,{
-            params : {
-                pageSize : limit
-            }
+        .get(jx3dat, {
+            params: {
+                pageSize: limit,
+            },
         })
         .then((res) => {
             return res.data;
@@ -54,4 +54,25 @@ function getJx3datRank(limit){
             console.log(err);
         });
 }
-export { getFlowerRank,getMacroRank,getJx3datRank };
+
+const wiki = __next + 'api/summary/visit/rank'
+// const wiki = "/api/summary/visit/rank";
+function getWikiRank() {
+    return axios.get(wiki, {
+        params: {
+            postType: "wiki",
+            postAction: "views",
+            pageSize: 10,
+        },
+    });
+}
+
+function getWikiList(list) {
+    return axios.get(__bb + "api/wiki/search/", {
+        params: {
+            list: list,
+        },
+    });
+}
+
+export { getFlowerRank, getMacroRank, getJx3datRank, getWikiRank, getWikiList };

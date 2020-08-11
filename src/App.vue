@@ -20,6 +20,7 @@
                     <!-- <Nav /> -->
                     <activity />
                     <notice />
+                    <wikirank/>
                     <macrorank/>
                     <jx3datrank/>
                     <contact />
@@ -46,6 +47,7 @@ import flower from "@/components/flower.vue";
 import contact from "@/components/contact.vue";
 import macrorank from "@/components/macrorank.vue";
 import jx3datrank from "@/components/jx3datrank.vue";
+import wikirank from "@/components/wikirank.vue";
 import newpost from "@/components/newpost.vue";
 import guide from "@/components/guide.vue";
 import { getProfile } from "./service/profile";
@@ -71,6 +73,7 @@ export default {
         contact,
         macrorank,
         jx3datrank,
+        wikirank,
         newpost,
         guide
     },
