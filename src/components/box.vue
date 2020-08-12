@@ -61,14 +61,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/item" :target="target">
+                <a class="u-item" href="/item" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/item.svg"
                     />
                     <span class="u-txt">物品百科</span>
-                    <!-- <i class="u-mark isbeta">BETA</i> -->
+                    <i class="u-mark isbeta">BETA</i>
                 </a>
             </li>
             <li>
