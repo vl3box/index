@@ -306,14 +306,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/exam" :target="target">
+                <a class="u-item" href="/exam" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/100.svg"
                     />
                     <span class="u-txt">趣味题库</span>
-                    <!-- <i class="u-mark isbeta">BETA</i> -->
+                    <i class="u-mark isbeta">BETA</i>
                 </a>
             </li>
             <li>
