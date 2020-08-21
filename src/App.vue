@@ -14,6 +14,7 @@
                     <servers />
                     <price />
                     <daily />
+                    <ad />
                 </div>
 
                 <div class="m-right">
@@ -41,6 +42,7 @@ import activity from "@/components/activity.vue";
 import notice from "@/components/notice.vue";
 import box from "@/components/box.vue";
 import daily from "@/components/daily.vue";
+import ad from "@/components/ad.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
 import flower from "@/components/flower.vue";
@@ -67,6 +69,7 @@ export default {
         bigbang,
         box,
         daily,
+        ad,
         servers,
         price,
         flower,
