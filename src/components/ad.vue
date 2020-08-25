@@ -3,16 +3,16 @@
         <el-carousel
             v-if="data.length"
             trigger="click"
-            height="340px"
             indicator-position="none"
             :interval="6000"
         >
             <el-carousel-item v-for="(item, i) in data" :key="i">
-                <a :href="item.link" rel="noopener noreferrer" target="_blank"
+                <a :href="item.link" rel="noopener" target="_blank"
                     ><img :src="item.img"
                 /></a>
             </el-carousel-item>
         </el-carousel>
+        <span class="u-mark"><i class="el-icon-info"></i> 推广</span>
     </div>
 </template>
 
