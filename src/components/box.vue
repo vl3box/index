@@ -68,7 +68,7 @@
                         src="../assets/img/box/item.svg"
                     />
                     <span class="u-txt">物品百科</span>
-                    <i class="u-mark isbeta">BETA</i>
+                    <!-- <i class="u-mark isbeta">BETA</i> -->
                 </a>
             </li>
             <li>
@@ -112,14 +112,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/emotion" :target="target">
+                <a class="u-item" href="/emotion" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/pig.svg"
                     />
                     <span class="u-txt">沙雕表情</span>
-                    <!-- <i class="u-mark isbeta">BETA</i> -->
+                    <i class="u-mark isdoing">ING</i>
                 </a>
             </li>
             <li>
@@ -130,7 +130,6 @@
                         src="../assets/img/box/wiki.svg"
                     />
                     <span class="u-txt">剑三百科</span>
-                    <i class="u-mark isbeta">BETA</i>
                 </a>
             </li>
 
@@ -231,6 +230,7 @@
                         src="../assets/img/box/flower.svg"
                     />
                     <span class="u-txt">实时花价</span>
+                    <i class="u-mark ishot">HOT</i>
                 </a>
             </li>
 
@@ -276,13 +276,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item u-doing" href="/app/dbm" :target="target" title="即将上线">
+                <a class="u-item" href="/dbm" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/jx3datbuilder.svg"
                     />
                     <span class="u-txt">数据构建</span>
+                    <i class="u-mark isdoing">ING</i>
                 </a>
             </li>
             <!-- <li>
@@ -300,7 +301,7 @@
                     <img
                         class="u-pic"
                         svg-inline
-                        src="../assets/img/box/team.svg"
+                        src="../assets/img/box/oa.svg"
                     />
                     <span class="u-txt">团队OA</span>
                 </a>
@@ -313,7 +314,6 @@
                         src="../assets/img/box/100.svg"
                     />
                     <span class="u-txt">趣味题库</span>
-                    <i class="u-mark isbeta">BETA</i>
                 </a>
             </li>
             <li>
@@ -365,7 +365,6 @@
                         src="../assets/img/box/flog.svg"
                     />
                     <span class="u-txt">战斗复盘</span>
-                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>
