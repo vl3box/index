@@ -150,6 +150,7 @@
                         src="../assets/img/box/database.svg"
                     />
                     <span class="u-txt">数据库</span>
+                    <i class="u-mark ishot">HOT</i>
                 </a>
             </li>
             <li>
@@ -170,6 +171,7 @@
                         src="../assets/img/box/icons.svg"
                     />
                     <span class="u-txt">图标大全</span>
+                    <!-- <i class="u-mark ishot">HOT</i> -->
                 </a>
             </li>
             <li>
