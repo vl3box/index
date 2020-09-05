@@ -19,15 +19,17 @@
     .u-list {
         // border: 1px solid #eee;
         margin: 0 0 0 0;
-        padding: 20px 20px 0 20px;
+        padding: 10px 0 10px 10px;
         list-style: none;
         .clearfix;
 
         li {
             .fl;
             .db;
-            .mr(20px);
-            .mb(20px);
+            // .mr(20px);
+            // .mb(20px);
+            padding:10px;
+            margin:0;
         }
         
     }
@@ -115,16 +117,33 @@
         border:none;
         .u-list{
             padding:0;
-            li{
-                .mr(10px);
-                .mb(10px);
-            }
-        }
-        .u-item{
-            // .w(64px);
         }
         .u-txt{
             .lh(32px);
+        }
+    }
+}
+@media screen and (max-width:375px){
+    .m-box{
+        .u-list{
+            li{
+                padding:5px;
+            }
+        }
+    }
+}
+@media screen and (max-width:370px){
+    .m-box{
+        .u-item{
+            .size(62px);
+        }
+        .u-pic{
+            .size(24px);
+        }
+        .u-txt{
+            .pa;.w(100%);
+            .lb(0,-2px);
+            .fz(10px);
         }
     }
 }
