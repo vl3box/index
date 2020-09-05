@@ -112,14 +112,14 @@
                 </a>
             </li>
             <li>
-                <a class="u-item" href="/emotion" :target="target">
+                <a class="u-item u-doing" href="/emotion" :target="target">
                     <img
                         class="u-pic"
                         svg-inline
                         src="../assets/img/box/pig.svg"
                     />
                     <span class="u-txt">沙雕表情</span>
-                    <i class="u-mark isdoing">ING</i>
+                    <!-- <i class="u-mark isdoing">ING</i> -->
                 </a>
             </li>
             <li>
@@ -130,6 +130,7 @@
                         src="../assets/img/box/wiki.svg"
                     />
                     <span class="u-txt">剑三百科</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
 
@@ -202,6 +203,16 @@
                         src="../assets/img/box/price.svg"
                     />
                     <span class="u-txt">金价走势</span>
+                </a>
+            </li>
+            <li>
+                <a class="u-item u-doing" href="/shop" :target="target">
+                    <img
+                        class="u-pic"
+                        svg-inline
+                        src="../assets/img/box/shop.svg"
+                    />
+                    <span class="u-txt">交易行</span>
                 </a>
             </li>
             <li>
@@ -316,6 +327,7 @@
                         src="../assets/img/box/100.svg"
                     />
                     <span class="u-txt">趣味题库</span>
+                    <i class="u-mark isnew">NEW</i>
                 </a>
             </li>
             <li>

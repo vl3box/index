@@ -55,7 +55,7 @@ function getJx3datRank(limit) {
         });
 }
 
-const wiki = __next + 'api/summary/visit/rank'
+const wiki = __next + "api/summary/visit/rank";
 // const wiki = "/api/summary/visit/rank";
 function getWikiRank() {
     return axios.get(wiki, {
@@ -75,4 +75,34 @@ function getWikiList(list) {
     });
 }
 
-export { getFlowerRank, getMacroRank, getJx3datRank, getWikiRank, getWikiList };
+const exam = __next + 'api/summary/visit/rank'
+// const exam = "/api/summary/visit/rank";
+function getExamRank() {
+    return axios.get(exam, {
+        params: {
+            postType: "paper",
+            postAction: "views",
+            pageSize: 10,
+        },
+    });
+}
+
+const paper = __next + 'api/question/user-exam-paper'
+// const paper = '/api/question/user-exam-paper'
+function getPaperList(list){
+    return axios.get(paper, {
+        params: {
+            list: list,
+        },
+    });
+}
+
+export {
+    getFlowerRank,
+    getMacroRank,
+    getJx3datRank,
+    getWikiRank,
+    getWikiList,
+    getExamRank,
+    getPaperList
+};
