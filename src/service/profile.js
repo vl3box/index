@@ -39,8 +39,8 @@ function getMeta(key) {
 
 function setMeta(key, val) {
     return $.post(server, {
-        key,
-        val,
+        key: key,
+        value: val,
     }).catch((err) => {
         console.log(err);
     });
