@@ -16,6 +16,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     :style="{ color: item.color }"
+                    :class="{isHighlight : !!item.color}"
                     >{{ item.title }}</a
                 >
             </li>
