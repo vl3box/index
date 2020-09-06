@@ -213,6 +213,7 @@ export default {
                     try {
                         let data = JSON.parse(val);
                         this.buildData(data);
+                        localStorage.setItem(KEY, this.setting);
 
                         this.$notify({
                             title: "成功",
