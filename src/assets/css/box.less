@@ -5,17 +5,6 @@
     .r(4px);
     .pr;
 
-    // .u-title {
-    //     .fz(14px);
-    //     // margin: -10px 0 10px 0;
-    //     padding: 0;
-    //     .u-title-label {
-    //         background-color: #fff;
-    //         padding: 0 10px;
-    //         .ml(10px);
-    //     }
-    //     // .pa;.rb(0);
-    // }
     .u-list {
         // border: 1px solid #eee;
         margin: 0 0 0 0;
@@ -26,10 +15,12 @@
         li {
             .fl;
             .db;
-            // .mr(20px);
-            // .mb(20px);
             padding:10px;
             margin:0;
+
+            &.hidden{
+                .none;
+            }
         }
         
     }
@@ -62,6 +53,12 @@
         .db;
         .auto(x);
         fill: @color;
+        .tm(0.7);
+    }
+    .u-item:hover{
+        .u-pic{
+            .tm(0.9);
+        }
     }
     .u-txt {
         .fz(12px, 2);
@@ -102,6 +99,9 @@
         .fz(12px);
         font-weight:300;
     }
+    .u-control{
+        .none;
+    }
 }
 @media screen and (max-width:@smallpc){
     .m-box .u-app-start{
@@ -141,9 +141,61 @@
             .size(24px);
         }
         .u-txt{
-            .pa;.w(100%);
-            .lb(0,-2px);
-            .fz(10px);
+            .lh(20px);
+        }
+    }
+}
+
+.m-box-op{
+    .pa;.rt(5px);
+
+    .u-custom{
+        &.on{
+            background: #fff;
+            border-color: @color-link;
+            color: @color-link;
+        }
+    }
+}
+@media screen and (max-width:@phone){
+    .m-box-op{
+        .ps;
+        .x;
+        .mt(5px);
+    }
+}
+
+.m-box{
+    .u-list.isEditMode{
+        li{
+            .db !important;
+        }
+        .u-item{
+            border:1px dashed #ddd;
+            .pr;
+        }
+        .u-control{
+            .db;
+            .mt(5px);
+
+            i{
+                color:#888;
+                padding:0 5px;
+                &:hover{
+                    color:@pink;
+                }
+            }
+        }
+        .u-pic{
+            &.hidden{
+                .tm(0.2);
+            }
+        }
+        .u-txt{
+            .none;
+        }
+        .u-break.on{
+            color:@pink;
         }
     }
 }

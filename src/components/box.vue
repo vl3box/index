@@ -4,423 +4,339 @@
             <i class="el-icon-box"></i>
             <span class="u-title">魔盒矩阵</span>
         </div>
-        <ul class="u-list">
-            <li>
-                <a class="u-item" href="/macro" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/macro.svg"
-                    />
-                    <span class="u-txt">云端宏</span>
-                    <i class="u-mark ishot">HOT</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/jx3dat" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/jx3dat.svg"
-                    />
-                    <span class="u-txt">插件数据</span>
-                    <i class="u-mark ishot">HOT</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/fb" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/fb.svg"
-                    />
-                    <span class="u-txt">副本专栏</span>
-                    <i class="u-mark ishot">HOT</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/bps" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/bps.svg"
-                    />
-                    <span class="u-txt">职业专栏</span>
-                    <i class="u-mark ishot">HOT</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/cj" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/cj.svg"
-                    />
-                    <span class="u-txt">成就百科</span>
-                    <i class="u-mark ishot">HOT</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/item" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/item.svg"
-                    />
-                    <span class="u-txt">物品百科</span>
-                    <!-- <i class="u-mark isbeta">BETA</i> -->
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/house" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/house.svg"
-                    />
-                    <span class="u-txt">家园分享</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/share" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/face.svg"
-                    />
-                    <span class="u-txt">捏脸分享</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/tool" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/tool.svg"
-                    />
-                    <span class="u-txt">工具教程</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/bbs" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/bbs.svg"
-                    />
-                    <span class="u-txt">茶馆交流</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item u-doing" href="/emotion" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/pig.svg"
-                    />
-                    <span class="u-txt">沙雕表情</span>
-                    <!-- <i class="u-mark isdoing">ING</i> -->
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/wiki" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/wiki.svg"
-                    />
-                    <span class="u-txt">剑三百科</span>
-                    <i class="u-mark isnew">NEW</i>
-                </a>
-            </li>
-
-
-        <!-- </ul> -->
-        <!-- <h2 class="u-title">
-            <span class="u-title-label"
-                ><i class="el-icon-box"></i> 应用矩阵</span
+        <draggable
+            class="u-list"
+            :class="{ isEditMode: options.sort }"
+            element="ul"
+            v-model="data"
+            @change="update"
+            :options="options"
+        >
+            <li
+                v-for="(item, key) in data"
+                :key="key"
+                :class="{
+                    'u-app-start': isLF(item.uuid),
+                    hidden: !canSee(item.uuid),
+                }"
             >
-        </h2>
-        <ul class="u-list"> -->
-
-            <li class="u-app-start">
-                <a class="u-item" href="/app/database" :target="target">
+                <a
+                    :href="options.sort ? '' : item.href"
+                    :target="item.skip ? '_blank' : target"
+                    class="u-item"
+                    :class="{ 'u-doing': !item.status }"
+                >
                     <img
                         class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/database.svg"
+                        :src="item.img"
+                        :class="{ hidden: !canSee(item.uuid) }"
                     />
-                    <span class="u-txt">数据库</span>
-                    <i class="u-mark ishot">HOT</i>
+                    <span class="u-txt">
+                        {{ showAbbr ? item.abbr : item.name }}
+                    </span>
+                    <i
+                        v-if="item.hasMark"
+                        class="u-mark"
+                        :class="item.markcls"
+                        >{{ item.mark }}</i
+                    >
+                    <span class="u-control">
+                        <i
+                            class="u-break el-icon-scissors"
+                            title="换行"
+                            :class="{ on: isLF(item.uuid) }"
+                            @click.prevent="cut(item.uuid)"
+                        ></i>
+                        <i
+                            class="u-hide el-icon-delete"
+                            title="隐藏"
+                            v-if="canSee(item.uuid)"
+                            @click.prevent="hideIt(item.uuid)"
+                        ></i>
+                        <i
+                            class="u-show el-icon-view"
+                            title="显示"
+                            v-if="!canSee(item.uuid)"
+                            @click.prevent="showIt(item.uuid)"
+                        ></i>
+                    </span>
                 </a>
             </li>
-            <li>
-                <a class="u-item" href="/app/talent" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/talent.svg"
-                    />
-                    <span class="u-txt">奇穴模拟</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/icons" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/icons.svg"
-                    />
-                    <span class="u-txt">图标大全</span>
-                    <!-- <i class="u-mark ishot">HOT</i> -->
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/macroeditor" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/macroeditor.svg"
-                    />
-                    <span class="u-txt">宏编辑器</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/servers" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/servers.svg"
-                    />
-                    <span class="u-txt">开服监控</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/price" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/price.svg"
-                    />
-                    <span class="u-txt">金价走势</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item u-doing" href="/shop" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/shop.svg"
-                    />
-                    <span class="u-txt">交易行</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/facedata" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/mirror.svg"
-                    />
-                    <span class="u-txt">妆容解析</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/furniture" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/furniture.svg"
-                    />
-                    <span class="u-txt">家具大全</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/flower" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/flower.svg"
-                    />
-                    <span class="u-txt">实时花价</span>
-                    <i class="u-mark ishot">HOT</i>
-                </a>
-            </li>
-
-            <li class="u-app-start">
-                <a class="u-item" href="/fb/#/rank" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/trophy2.svg"
-                    />
-                    <span class="u-txt">百强排行</span>
-                    <!-- <i class="u-mark ishot">HOT</i> -->
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/fb/#/skill" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/skull.svg"
-                    />
-                    <span class="u-txt">副本数据</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/fb/#/drop" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/drop.svg"
-                    />
-                    <span class="u-txt">副本掉落</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/fb/#/gem" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/gem.svg"
-                    />
-                    <span class="u-txt">瑰石查询</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/dbm" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/jx3datbuilder.svg"
-                    />
-                    <span class="u-txt">数据构建</span>
-                    <i class="u-mark isdoing">ING</i>
-                </a>
-            </li>
-            <!-- <li>
-                <a class="u-item u-doing" href="/app/flog" :target="target" title="即将上线">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/flog.svg"
-                    />
-                    <span class="u-txt">战斗分析</span>
-                </a>
-            </li> -->
-            <li>
-                <a class="u-item u-doing" href="/app/team" :target="target" title="即将上线">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/oa.svg"
-                    />
-                    <span class="u-txt">团队OA</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/exam" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/100.svg"
-                    />
-                    <span class="u-txt">趣味题库</span>
-                    <i class="u-mark isnew">NEW</i>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="/app/translator" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/translator.svg"
-                    />
-                    <span class="u-txt">繁体转换</span>
-                </a>
-            </li>
-
-            <li class="u-app-start">
-                <a class="u-item" href="https://www.j3pz.com/" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/j3pz.svg"
-                    />
-                    <span class="u-txt">在线配装</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="https://www.j3pz.com/tools/haste/" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/speed.svg"
-                    />
-                    <span class="u-txt">急速阈值</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="http://minamistudio.online/jx3simulator/index.html" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/minami.svg"
-                    />
-                    <span class="u-txt">DPS模拟</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="http://j3dps.com/fightlog" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/flog.svg"
-                    />
-                    <span class="u-txt">战斗复盘</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="https://j3cx.com/exam/" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/keju.svg"
-                    />
-                    <span class="u-txt">科举题库</span>
-                </a>
-            </li>
-            <li>
-                <a class="u-item" href="https://j3cx.com/serendipity" :target="target">
-                    <img
-                        class="u-pic"
-                        svg-inline
-                        src="../assets/img/box/qiyu.svg"
-                    />
-                    <span class="u-txt">奇遇查询</span>
-                </a>
-            </li>
-        </ul>
+        </draggable>
+        <div class="m-box-op">
+            <el-button
+                plain
+                class="u-reset"
+                size="mini"
+                icon="el-icon-refresh-left"
+                v-if="defined"
+                @click="reset"
+                >恢复默认</el-button
+            >
+            <el-button
+                plain
+                class="u-reset"
+                size="mini"
+                icon="el-icon-download"
+                @click="downBoxSetting"
+                v-if="isLogin"
+                >重新同步</el-button
+            >
+            <el-button
+                plain
+                class="u-custom"
+                size="mini"
+                icon="el-icon-setting"
+                @click="active"
+                v-if="!options.sort"
+                >自定义</el-button
+            >
+            <el-button
+                plain
+                class="u-custom"
+                size="mini"
+                icon="el-icon-check"
+                @click="save"
+                v-if="options.sort"
+                >保存</el-button
+            >
+        </div>
     </div>
 </template>
 
 <script>
-import {buildTarget} from '@jx3box/jx3box-common/js/utils'
+import origin from "@/assets/data/box.json";
+const KEY = "boxmatrix";
+const default_order = [
+    "macro",
+    "jx3dat",
+    "fb",
+    "bps",
+    "cj",
+    "item",
+    "house",
+    "share",
+    "tool",
+    "bbs",
+    "emotion",
+    "wiki",
+    "database",
+    "talent",
+    "icons",
+    "macroeditor",
+    "servers",
+    "price",
+    "shop",
+    "facedata",
+    "furniture",
+    "flower",
+    "fbrank",
+    "fbdata",
+    "fbdrop",
+    "fbgem",
+    "dbm",
+    "team",
+    "exam",
+    "translator",
+    "j3pz",
+    "haste",
+    "minami",
+    "j3dps",
+    "keju",
+    "qiyu",
+];
+const default_data = [];
+default_order.forEach((uuid, i) => {
+    default_data.push(origin[uuid]);
+});
+const default_lf = ["database", "fbrank", "j3pz"]
+
+import { buildTarget } from "@jx3box/jx3box-common/js/utils";
+import draggable from "vuedraggable";
+import User from "@jx3box/jx3box-common/js/user";
+import { getMeta, setMeta } from "@/service/profile.js";
+import _ from 'lodash'
 export default {
     name: "box",
     props: [],
     data: function() {
-        return {};
+        return {
+            origin: origin,
+            data: default_data,
+            order: [],
+            lf: default_lf,
+            hide: [],
+            options: {
+                sort: false,
+            },
+            showAbbr: window.innerWidth < 370,
+            isLogin: User.isLogin(),
+            defined: false,
+        };
     },
     computed: {
-        target : function (){
-            return buildTarget()
-        }
+        target: function() {
+            return buildTarget();
+        },
+        custom: function() {
+            return {
+                order: this.order,
+                hide: this.hide,
+                lf: this.lf,
+            };
+        },
+        setting: function() {
+            return JSON.stringify(this.custom);
+        },
     },
-    methods: {},
-    mounted: function() {},
-    components: {},
+    methods: {
+        initData: function() {
+            // 不管登录与否，默认都优先从本地获取配置
+            this.getBoxSetting();
+        },
+        getBoxSetting: function() {
+            let val = localStorage.getItem(KEY);
+            if (val) {
+                try {
+                    let data = JSON.parse(val);
+                    this.buildData(data);
+                } catch (e) {
+                    console.log("[getBoxSetting]本地设置数据解析异常", e);
+                }
+            }
+        },
+        downBoxSetting: function() {
+            // 手动从服务器读取
+            getMeta(KEY).then((res) => {
+                let val = res.data.data.value;
+                if (val) {
+                    try {
+                        let data = JSON.parse(val);
+                        this.buildData(data);
+
+                        this.$notify({
+                            title: "成功",
+                            message: "远程数据同步至本地",
+                            type: "success",
+                        });
+                    } catch (e) {
+                        console.log("[downBoxSetting]远程设置数据解析异常", e);
+                    }
+                }
+                this.$notify({
+                    title: "消息",
+                    message: "服务器上没有保存相关设置",
+                });
+            });
+        },
+        buildData: function(data) {
+
+            if (data['order'] && data['order']['length']) {
+                this.defined = true;
+
+                // 对比新旧的长度,补充新加项目
+                if(data['order']['length'] != default_order.length){
+                    let diff = _.difference(default_order, data['order'])
+                    this.order = data['order'].concat(diff)
+                }else{
+                    this.order =  data['order'];
+                }
+
+                let custom_data = [];
+                data['order'].forEach((uuid, i) => {
+                    // 自动移除已经删除的项
+                    if(this.origin[uuid]){
+                        custom_data.push(this.origin[uuid]);
+                    }
+                });
+                this.data = custom_data;
+            }
+            if (data['hide'] && data['hide']['length']) {
+                this.hide = data['hide'];
+                this.defined = true;
+            }
+            if (data['lf'] && data['lf']['length']) {
+                this.lf = data['lf'];
+                this.defined = true;
+            }
+        },
+        active: function() {
+            this.options.sort = true;
+        },
+        update: function(val) {
+            let order = [];
+            this.data.forEach((item, i) => {
+                order.push(item.uuid);
+            });
+            this.order = order;
+            this.defined = true;
+        },
+        save: function() {
+            this.options.sort = false;
+            if (this.defined) {
+                // 本地
+                localStorage.setItem(KEY, this.setting);
+                // 远程,如果是登录用户还需要远程保存
+                if (this.isLogin) {
+                    setMeta(KEY, this.setting);
+                }
+            }
+        },
+        reset: function() {
+            // 当前
+            this.data = default_data;
+            this.order = [];
+            this.lf = default_lf;
+            this.hide = [];
+            this.defined = false;
+
+            // 本地
+            localStorage.removeItem(KEY);
+            // 远程,如果是登录用户还需要远程清空
+            if (this.isLogin) {
+                setMeta(KEY, "");
+            }
+
+            this.$forceUpdate();
+        },
+        canSee: function(uuid) {
+            return !this.hide.includes(uuid);
+        },
+        hideIt: function(uuid) {
+            this.hide.push(uuid);
+            this.defined = true;
+        },
+        showIt: function(uuid) {
+            let i = this.hide.indexOf(uuid);
+            this.hide.splice(i, 1);
+            this.defined = true;
+        },
+        isLF: function(uuid) {
+            return this.lf.includes(uuid);
+        },
+        cut: function(uuid) {
+            if (this.isLF(uuid)) {
+                let i = this.lf.indexOf(uuid);
+                this.lf.splice(i, 1);
+            } else {
+                this.lf.push(uuid);
+            }
+            this.defined = true;
+        },
+    },
+    watch: {
+        // order: {
+        //     deep: true,
+        //     handler: function(val) {
+        //     },
+        // },
+    },
+    mounted: function() {
+        this.initData();
+    },
+    components: {
+        draggable,
+    },
 };
 </script>
 
