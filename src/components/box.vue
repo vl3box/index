@@ -12,68 +12,66 @@
             @change="update"
             :options="options"
         >
-            <transition-group>
-                <li
-                    v-for="(item, key) in data"
-                    :key="key"
-                    class="u-item-wrapper"
-                    :class="{
-                        'u-lf': isLF(item.uuid),
-                        hidden: !canSee(item.uuid),
-                    }"
+            <li
+                v-for="(item, key) in data"
+                :key="key"
+                class="u-item-wrapper"
+                :class="{
+                    'u-lf': isLF(item.uuid),
+                    hidden: !canSee(item.uuid),
+                }"
+            >
+                <el-tooltip
+                    class="item"
+                    effect="dark"
+                    :content="item.name"
+                    :disabled="options.disabled"
+                    placement="top"
+                    :open-delay="50"
                 >
-                    <el-tooltip
-                        class="item"
-                        effect="dark"
-                        :content="item.name"
-                        :disabled="options.disabled"
-                        placement="top"
-                        :open-delay="50"
+                    <a
+                        :href="!options.disabled ? '' : item.href"
+                        :target="item.skip ? '_blank' : target"
+                        class="u-item"
+                        :class="{ 'u-doing': !item.status }"
                     >
-                        <a
-                            :href="!options.disabled ? '' : item.href"
-                            :target="item.skip ? '_blank' : target"
-                            class="u-item"
-                            :class="{ 'u-doing': !item.status }"
+                        <img
+                            class="u-pic"
+                            :src="item.img"
+                            :class="{ hidden: !canSee(item.uuid) }"
+                        />
+                        <span class="u-txt">
+                            {{ showAbbr ? item.abbr : item.name }}
+                        </span>
+                        <i
+                            v-if="item.hasMark"
+                            class="u-mark"
+                            :class="item.markcls"
+                            >{{ item.mark }}</i
                         >
-                            <img
-                                class="u-pic"
-                                :src="item.img"
-                                :class="{ hidden: !canSee(item.uuid) }"
-                            />
-                            <span class="u-txt">
-                                {{ showAbbr ? item.abbr : item.name }}
-                            </span>
+                        <span class="u-control">
                             <i
-                                v-if="item.hasMark"
-                                class="u-mark"
-                                :class="item.markcls"
-                                >{{ item.mark }}</i
-                            >
-                            <span class="u-control">
-                                <i
-                                    class="u-break el-icon-scissors"
-                                    title="换行"
-                                    :class="{ on: isLF(item.uuid) }"
-                                    @click.prevent="cut(item.uuid)"
-                                ></i>
-                                <i
-                                    class="u-hide el-icon-delete"
-                                    title="隐藏"
-                                    v-if="canSee(item.uuid)"
-                                    @click.prevent="hideIt(item.uuid)"
-                                ></i>
-                                <i
-                                    class="u-show el-icon-view"
-                                    title="显示"
-                                    v-if="!canSee(item.uuid)"
-                                    @click.prevent="showIt(item.uuid)"
-                                ></i>
-                            </span>
-                        </a>
-                    </el-tooltip>
-                </li>
-            </transition-group>
+                                class="u-break el-icon-scissors"
+                                title="换行"
+                                :class="{ on: isLF(item.uuid) }"
+                                @click.prevent="cut(item.uuid)"
+                            ></i>
+                            <i
+                                class="u-hide el-icon-delete"
+                                title="隐藏"
+                                v-if="canSee(item.uuid)"
+                                @click.prevent="hideIt(item.uuid)"
+                            ></i>
+                            <i
+                                class="u-show el-icon-view"
+                                title="显示"
+                                v-if="!canSee(item.uuid)"
+                                @click.prevent="showIt(item.uuid)"
+                            ></i>
+                        </span>
+                    </a>
+                </el-tooltip>
+            </li>
         </draggable>
         <div class="m-box-op">
             <el-button
