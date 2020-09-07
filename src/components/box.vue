@@ -6,62 +6,74 @@
         </div>
         <draggable
             class="u-list"
-            :class="{ isEditMode: options.sort }"
+            :class="{ isEditMode: !options.disabled }"
             element="ul"
             v-model="data"
             @change="update"
             :options="options"
         >
-            <li
-                v-for="(item, key) in data"
-                :key="key"
-                :class="{
-                    'u-app-start': isLF(item.uuid),
-                    hidden: !canSee(item.uuid),
-                }"
-            >
-                <a
-                    :href="options.sort ? '' : item.href"
-                    :target="item.skip ? '_blank' : target"
-                    class="u-item"
-                    :class="{ 'u-doing': !item.status }"
+            <transition-group>
+                <li
+                    v-for="(item, key) in data"
+                    :key="key"
+                    class="u-item-wrapper"
+                    :class="{
+                        'u-lf': isLF(item.uuid),
+                        hidden: !canSee(item.uuid),
+                    }"
                 >
-                    <img
-                        class="u-pic"
-                        :src="item.img"
-                        :class="{ hidden: !canSee(item.uuid) }"
-                    />
-                    <span class="u-txt">
-                        {{ showAbbr ? item.abbr : item.name }}
-                    </span>
-                    <i
-                        v-if="item.hasMark"
-                        class="u-mark"
-                        :class="item.markcls"
-                        >{{ item.mark }}</i
+                    <el-tooltip
+                        class="item"
+                        effect="dark"
+                        :content="item.name"
+                        :disabled="options.disabled"
+                        placement="top"
+                        :open-delay="50"
                     >
-                    <span class="u-control">
-                        <i
-                            class="u-break el-icon-scissors"
-                            title="换行"
-                            :class="{ on: isLF(item.uuid) }"
-                            @click.prevent="cut(item.uuid)"
-                        ></i>
-                        <i
-                            class="u-hide el-icon-delete"
-                            title="隐藏"
-                            v-if="canSee(item.uuid)"
-                            @click.prevent="hideIt(item.uuid)"
-                        ></i>
-                        <i
-                            class="u-show el-icon-view"
-                            title="显示"
-                            v-if="!canSee(item.uuid)"
-                            @click.prevent="showIt(item.uuid)"
-                        ></i>
-                    </span>
-                </a>
-            </li>
+                        <a
+                            :href="!options.disabled ? '' : item.href"
+                            :target="item.skip ? '_blank' : target"
+                            class="u-item"
+                            :class="{ 'u-doing': !item.status }"
+                        >
+                            <img
+                                class="u-pic"
+                                :src="item.img"
+                                :class="{ hidden: !canSee(item.uuid) }"
+                            />
+                            <span class="u-txt">
+                                {{ showAbbr ? item.abbr : item.name }}
+                            </span>
+                            <i
+                                v-if="item.hasMark"
+                                class="u-mark"
+                                :class="item.markcls"
+                                >{{ item.mark }}</i
+                            >
+                            <span class="u-control">
+                                <i
+                                    class="u-break el-icon-scissors"
+                                    title="换行"
+                                    :class="{ on: isLF(item.uuid) }"
+                                    @click.prevent="cut(item.uuid)"
+                                ></i>
+                                <i
+                                    class="u-hide el-icon-delete"
+                                    title="隐藏"
+                                    v-if="canSee(item.uuid)"
+                                    @click.prevent="hideIt(item.uuid)"
+                                ></i>
+                                <i
+                                    class="u-show el-icon-view"
+                                    title="显示"
+                                    v-if="!canSee(item.uuid)"
+                                    @click.prevent="showIt(item.uuid)"
+                                ></i>
+                            </span>
+                        </a>
+                    </el-tooltip>
+                </li>
+            </transition-group>
         </draggable>
         <div class="m-box-op">
             <el-button
@@ -88,7 +100,7 @@
                 size="mini"
                 icon="el-icon-setting"
                 @click="active"
-                v-if="!options.sort"
+                v-if="!!options.disabled"
                 >自定义</el-button
             >
             <el-button
@@ -97,7 +109,7 @@
                 size="mini"
                 icon="el-icon-check"
                 @click="save"
-                v-if="options.sort"
+                v-if="!options.disabled"
                 >保存</el-button
             >
         </div>
@@ -149,13 +161,13 @@ const default_data = [];
 default_order.forEach((uuid, i) => {
     default_data.push(origin[uuid]);
 });
-const default_lf = ["database", "fbrank", "j3pz"]
+const default_lf = ["database", "fbrank", "j3pz"];
 
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/profile.js";
-import _ from 'lodash'
+import _ from "lodash";
 export default {
     name: "box",
     props: [],
@@ -167,7 +179,8 @@ export default {
             lf: default_lf,
             hide: [],
             options: {
-                sort: false,
+                disabled: true,
+                animation: 150,
             },
             showAbbr: window.innerWidth < 370,
             isLogin: User.isLogin(),
@@ -231,38 +244,37 @@ export default {
             });
         },
         buildData: function(data) {
-
-            if (data['order'] && data['order']['length']) {
+            if (data["order"] && data["order"]["length"]) {
                 this.defined = true;
 
                 // 对比新旧的长度,补充新加项目
-                if(data['order']['length'] != default_order.length){
-                    let diff = _.difference(default_order, data['order'])
-                    this.order = data['order'].concat(diff)
-                }else{
-                    this.order =  data['order'];
+                if (data["order"]["length"] != default_order.length) {
+                    let diff = _.difference(default_order, data["order"]);
+                    this.order = data["order"].concat(diff);
+                } else {
+                    this.order = data["order"];
                 }
 
                 let custom_data = [];
-                data['order'].forEach((uuid, i) => {
+                data["order"].forEach((uuid, i) => {
                     // 自动移除已经删除的项
-                    if(this.origin[uuid]){
+                    if (this.origin[uuid]) {
                         custom_data.push(this.origin[uuid]);
                     }
                 });
                 this.data = custom_data;
             }
-            if (data['hide'] && data['hide']['length']) {
-                this.hide = data['hide'];
+            if (data["hide"] && data["hide"]["length"]) {
+                this.hide = data["hide"];
                 this.defined = true;
             }
-            if (data['lf'] && data['lf']['length']) {
-                this.lf = data['lf'];
+            if (data["lf"] && data["lf"]["length"]) {
+                this.lf = data["lf"];
                 this.defined = true;
             }
         },
         active: function() {
-            this.options.sort = true;
+            this.options.disabled = false;
         },
         update: function(val) {
             let order = [];
@@ -273,7 +285,7 @@ export default {
             this.defined = true;
         },
         save: function() {
-            this.options.sort = false;
+            this.options.disabled = true;
             if (this.defined) {
                 // 本地
                 localStorage.setItem(KEY, this.setting);
@@ -284,21 +296,34 @@ export default {
             }
         },
         reset: function() {
-            // 当前
-            this.data = default_data;
-            this.order = [];
-            this.lf = default_lf;
-            this.hide = [];
-            this.defined = false;
+            this.$alert("确定重置为默认排序吗？", "消息", {
+                confirmButtonText: "确定",
+                callback: (action) => {
+                    if (action == "confirm") {
+                        // 当前
+                        this.data = default_data;
+                        this.order = [];
+                        this.lf = default_lf;
+                        this.hide = [];
+                        this.defined = false;
 
-            // 本地
-            localStorage.removeItem(KEY);
-            // 远程,如果是登录用户还需要远程清空
-            if (this.isLogin) {
-                setMeta(KEY, "");
-            }
+                        // 本地
+                        localStorage.removeItem(KEY);
+                        // 远程,如果是登录用户还需要远程清空
+                        if (this.isLogin) {
+                            setMeta(KEY, "");
+                        }
 
-            this.$forceUpdate();
+                        this.$forceUpdate();
+
+                        this.$notify({
+                            title: "成功",
+                            message: "魔盒矩阵已重置为默认状态",
+                            type: "success",
+                        });
+                    }
+                },
+            });
         },
         canSee: function(uuid) {
             return !this.hide.includes(uuid);

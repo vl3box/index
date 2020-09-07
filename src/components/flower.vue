@@ -20,7 +20,7 @@
                 </el-option>
             </el-select>
             <el-select
-                class="m-flower-select"
+                class="m-flower-select m-flower-select-community"
                 v-model="map"
                 filterable
                 placeholder="选择小区"
