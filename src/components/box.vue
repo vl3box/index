@@ -234,11 +234,12 @@ export default {
                     } catch (e) {
                         console.log("[downBoxSetting]远程设置数据解析异常", e);
                     }
+                }else{
+                    this.$notify({
+                        title: "消息",
+                        message: "服务器上没有保存相关设置",
+                    });
                 }
-                this.$notify({
-                    title: "消息",
-                    message: "服务器上没有保存相关设置",
-                });
             });
         },
         buildData: function(data) {
