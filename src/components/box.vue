@@ -238,6 +238,7 @@ export default {
                     this.$notify({
                         title: "消息",
                         message: "服务器上没有保存相关设置",
+                        type: "info",
                     });
                 }
             });
