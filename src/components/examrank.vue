@@ -56,7 +56,7 @@ export default {
             result.forEach((item) => {
                 if (item.name.startsWith("paper")) {
                     let id = item.name.split("-").pop();
-                    list.push(id);
+                    if(!isNaN(id)) list.push(id);
                     this.views.push(item.value["7days"]);
                 }
             });
