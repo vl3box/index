@@ -313,7 +313,7 @@
         "img": "./img/box/100.svg",
         "name": "趣味题库",
         "abbr": "题库",
-        "hasMark": true,
+        "hasMark": false,
         "markcls": "isnew",
         "mark": "NEW",
         "status": true
