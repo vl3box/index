@@ -192,7 +192,7 @@ export default {
     },
     filters: {
         iconURL: function(id) {
-            return __ossMirror + "icon/" + id + ".png";
+            return __iconPath + "icon/" + id + ".png";
         },
     },
     mounted: function() {
