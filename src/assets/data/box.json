@@ -115,9 +115,9 @@
         "img": "./img/box/pig.svg",
         "name": "沙雕表情",
         "abbr": "表情",
-        "hasMark": false,
-        "markcls": "ishot",
-        "mark": "HOT",
+        "hasMark": true,
+        "markcls": "isdoing",
+        "mark": "ING",
         "status": false
     },
     "wiki": {
@@ -126,7 +126,7 @@
         "img": "./img/box/wiki.svg",
         "name": "剑三百科",
         "abbr": "百科",
-        "hasMark": true,
+        "hasMark": false,
         "markcls": "isnew",
         "mark": "NEW",
         "status": true
@@ -243,14 +243,14 @@
     },
     "fbrank": {
         "uuid": "fbrank",
-        "href": "/fb/#/rank",
+        "href": "/rank",
         "img": "./img/box/trophy2.svg",
         "name": "百强排行",
         "abbr": "百强榜",
-        "hasMark": false,
-        "markcls": "ishot",
-        "mark": "HOT",
-        "status": true
+        "hasMark": true,
+        "markcls": "isnew",
+        "mark": "NEW",
+        "status": false
     },
     "fbdata": {
         "uuid": "fbdata",
@@ -294,7 +294,7 @@
         "hasMark": true,
         "markcls": "isdoing",
         "mark": "ING",
-        "status": true
+        "status": false
     },
     "team": {
         "uuid": "team",
@@ -302,9 +302,9 @@
         "img": "./img/box/oa.svg",
         "name": "团队管理",
         "abbr": "团队",
-        "hasMark": false,
-        "markcls": "isdoing",
-        "mark": "ING",
+        "hasMark": true,
+        "markcls": "isnew",
+        "mark": "NEW",
         "status": false
     },
     "exam": {

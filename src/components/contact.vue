@@ -5,10 +5,10 @@
             ><span class="u-title">关注我们</span>
         </div>
         <div class="m-contact-content">
-            <img class="u-wechat" src="../assets/img/right/qr.png" alt="">
+            <img class="u-wechat" src="../assets/img/right/qrcode.png" alt="">
             <div class="u-list">
-                <span class="u-weibo u-item">官方微博：<a href="https://weibo.com/jx3box" target="_blank">JX3BOX盒子娘</a></span>
-            <span class="u-weixin u-item">微信公众号：<b>JX3BOX</b></span>
+                <span class="u-weibo u-item">官方微博：<a href="https://weibo.com/jx3box" target="_blank">JX3BOX魔盒</a></span>
+            <span class="u-weixin u-item">微信公众号：<b>2KOG</b></span>
             </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
 import axios from "axios";
 import { __next, __bb } from "@jx3box/jx3box-common/js/jx3box.json";
+// import {  __bb } from "@jx3box/jx3box-common/js/jx3box.json";
+// const __next = '/'
 
 const flower = __next + "api/flower/price/rank"; //TODO:
 // const flower = '/api/flower/price/rank';

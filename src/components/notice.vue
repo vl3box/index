@@ -3,9 +3,22 @@
         <div class="m-sideblock-header">
             <i class="el-icon-s-opportunity"></i
             ><span class="u-title">站内动态</span>
-            <span class="u-more u-admin" v-if="isSuper">
-                <a href="/admin" target="_blank" rel="noopener noreferrer">管理面板</a> | 
-                <a href="https://os.jx3box.com/admin/user/login" target="_blank" rel="noopener noreferrer">百科审核</a>
+            <span class="u-more u-admin">
+                <template v-if="isSuper">
+                    <a href="/admin" target="_blank" rel="noopener noreferrer"
+                        >管理面板</a
+                    >
+                    <span> | </span>
+                    <a
+                        href="https://os.jx3box.com/admin/user/login"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >百科审核</a
+                    >
+                </template>
+                <a v-else href="https://www.jx3box.com/bbs/?subtype=5#/"
+                    ><i class="el-icon-question"></i>反馈建议</a
+                >
             </span>
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">
@@ -16,7 +29,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     :style="{ color: item.color }"
-                    :class="{isHighlight : !!item.color}"
+                    :class="{ isHighlight: !!item.color }"
                     >{{ item.title }}</a
                 >
             </li>
@@ -27,14 +40,14 @@
 <script>
 import { getNews } from "../service/index";
 import { simpledate } from "../utils/simpledate";
-import User from '@jx3box/jx3box-common/js/user'
+import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "notice",
     props: [],
     data: function() {
         return {
             data: [],
-            isSuper : false
+            isSuper: false,
         };
     },
     computed: {},
@@ -49,8 +62,8 @@ export default {
             this.data = data;
         });
     },
-    created : function (){
-        this.isSuper = !!(User.getInfo().group > 60)  
+    created: function() {
+        this.isSuper = !!(User.getInfo().group > 60)
     },
     components: {},
 };

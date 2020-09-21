@@ -3,7 +3,7 @@
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
             <span class="u-title">云端宏热榜</span>
-            <a href="/macro/#/rank" class="u-more">更多&raquo;</a>
+            <a href="/macro/#/rank" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
         </div>
         <ul class="u-list">
             <li v-for="(item, j) in data" :key="j">

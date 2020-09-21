@@ -8,7 +8,7 @@ function getPosts(vm) {
     return axios
         .get(API_LIST, {
             params: {
-                per: 20,
+                per: 10,
                 clean:1
             },
         })

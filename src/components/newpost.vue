@@ -3,6 +3,7 @@
         <div class="m-newpost-header m-sideblock-header">
             <i class="el-icon-s-management"></i>
             <span class="u-title">最近更新</span>
+            <a href="https://www.jx3box.com/dashboard/publish/#/" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-edit"></i> 发布作品</a>
         </div>
         <div class="m-newpost-content">
             <a
@@ -33,9 +34,8 @@
                     >
                         {{ item.author.name }}
                     </span>
-                    -
                     <span class="u-date"
-                        >更新于 {{ item.post.post_modified | dateFormat }}</span
+                        ><i class="el-icon-refresh"></i> {{ item.post.post_modified | dateFormat }}</span
                     >
                 </div>
                 <span class="u-title">

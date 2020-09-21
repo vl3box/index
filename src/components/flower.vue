@@ -36,7 +36,7 @@
                 </el-option>
             </el-select>
             <a href="/app/flower" class="u-more" target="_blank"
-                >查看全部 &raquo;</a
+                ><i class="el-icon-more"></i></a
             >
         </div>
         <div class="m-flower-content" v-if="data.length">

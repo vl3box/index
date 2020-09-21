@@ -21,11 +21,11 @@
                     <!-- <Nav /> -->
                     <activity />
                     <notice />
+                    <contact />
                     <wikirank/>
                     <macrorank/>
                     <jx3datrank/>
                     <examrank/>
-                    <contact />
                 </div>
 
                 <Footer></Footer>
