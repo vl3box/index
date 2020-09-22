@@ -12,6 +12,7 @@ function getCjPnt() {
         Accept: "application/prs.helper.v2+json",
         params: {
             checked: "pending",
+            type:"achievement"
         },
     });
 }
