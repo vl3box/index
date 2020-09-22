@@ -7,12 +7,12 @@ function getWikiPnt() {
     });
 }
 
-function getCjPnt() {
+function getCjPnt(type) {
     return axios.get(__helperUrl + "api/wiki/post/total", {
         Accept: "application/prs.helper.v2+json",
         params: {
             checked: "pending",
-            type:"achievement"
+            type:type
         },
     });
 }

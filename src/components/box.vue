@@ -188,7 +188,8 @@ export default {
             isAdmin : User.isAdmin(),
             pop : {
                 cj : false,
-                wiki : false
+                wiki : false,
+                item : false
             }
         };
     },
@@ -360,8 +361,11 @@ export default {
             getWikiPnt().then((res) => {
                 this.pop.wiki = !!res.data.data
             })
-            getCjPnt().then((res) => {
+            getCjPnt('achievement').then((res) => {
                 this.pop.cj = !!res.data.data.total
+            })
+            getCjPnt('item').then((res) => {
+                this.pop.item = !!res.data.data.total
             })
         }
     },
