@@ -105,6 +105,21 @@
     .u-control{
         .none;
     }
+
+    @keyframes popBlink{
+        from{.tm(0.5);}
+        to{.tm(1);}
+    }
+    .u-pop{
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 16px;
+        background-color: #f00;
+        animation:popBlink 0.5s infinite ease-in-out;
+    }
 }
 @media screen and (max-width:@smallpc){
     .m-box .u-lf{

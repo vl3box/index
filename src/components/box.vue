@@ -69,6 +69,7 @@
                                 @click.prevent="showIt(item.uuid)"
                             ></i>
                         </span>
+                        <i class="u-pop" v-if="isAdmin && pop[item.uuid]"></i>
                     </a>
                 </el-tooltip>
             </li>
@@ -165,6 +166,7 @@ import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/profile.js";
+import { getWikiPnt, getCjPnt } from '@/service/admin.js'
 import _ from "lodash";
 export default {
     name: "box",
@@ -183,6 +185,11 @@ export default {
             showAbbr: window.innerWidth < 370,
             isLogin: User.isLogin(),
             defined: false,
+            isAdmin : User.isAdmin(),
+            pop : {
+                cj : false,
+                wiki : false
+            }
         };
     },
     computed: {
@@ -349,6 +356,14 @@ export default {
             }
             this.defined = true;
         },
+        getPop : function (){
+            getWikiPnt().then((res) => {
+                this.pop.wiki = !!res.data.data
+            })
+            getCjPnt().then((res) => {
+                this.pop.cj = !!res.data.data.total
+            })
+        }
     },
     watch: {
         // order: {
@@ -359,6 +374,7 @@ export default {
     },
     mounted: function() {
         this.initData();
+        if(this.isAdmin) this.getPop()
     },
     components: {
         draggable,
