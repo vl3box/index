@@ -87,7 +87,9 @@ export default {
         getProfile().then((data) => {
             if (data) {
                 this.$store.state.isLogin = true;
-                this.$store.state.profile = data;
+                this.$store.state.profile = {
+                    server : data.jx3_server
+                };
             }
         });
     },

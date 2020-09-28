@@ -16,7 +16,7 @@ function getServer(uid) {
         });
 }
 
-const profile = "user/profile";
+const profile = "user/me";
 function getProfile() {
     return $.get(profile)
         .then((res) => {
