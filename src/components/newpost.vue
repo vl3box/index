@@ -63,7 +63,7 @@ import {
     showAvatar,
 } from "@jx3box/jx3box-common/js/utils";
 import { __postType } from "@jx3box/jx3box-common/js/jx3box.json";
-import dateFormat from "../utils/moment";
+import {showRecently} from "../utils/moment";
 export default {
     name: "newpost",
     props: [],
@@ -83,7 +83,7 @@ export default {
             return __postType[type];
         },
         dateFormat: function(val) {
-            return dateFormat(val);
+            return showRecently(val);
         },
     },
     mounted: function() {

@@ -5,8 +5,10 @@
             <div class="m-primary">
                 <bigbang />
                 <box />
+                <event />
                 <flower />
                 <newpost />
+                <team />
                 <!-- <guide /> -->
 
                 <div class="m-left">
@@ -46,6 +48,7 @@ import daily from "@/components/daily.vue";
 import ad from "@/components/ad.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
+import event from "@/components/event.vue";
 import flower from "@/components/flower.vue";
 import contact from "@/components/contact.vue";
 import macrorank from "@/components/macrorank.vue";
@@ -53,6 +56,7 @@ import jx3datrank from "@/components/jx3datrank.vue";
 import wikirank from "@/components/wikirank.vue";
 import examrank from "@/components/examrank.vue";
 import newpost from "@/components/newpost.vue";
+import team from "@/components/team.vue";
 // import guide from "@/components/guide.vue";
 import { getProfile } from "./service/profile";
 export default {
@@ -81,6 +85,8 @@ export default {
         examrank,
         wikirank,
         newpost,
+        event,
+        team
         // guide
     },
     created: function() {

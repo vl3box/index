@@ -250,7 +250,7 @@
         "hasMark": true,
         "markcls": "isnew",
         "mark": "NEW",
-        "status": false
+        "status": true
     },
     "fbdata": {
         "uuid": "fbdata",
@@ -305,7 +305,7 @@
         "hasMark": true,
         "markcls": "isnew",
         "mark": "NEW",
-        "status": false
+        "status": true
     },
     "exam": {
         "uuid": "exam",
