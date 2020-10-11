@@ -10,7 +10,6 @@
                 <!-- TODO:交易数据 -->
                 <!-- TODO:110玩法引导 -->
                 <!-- <guide /> -->
-                <!-- TODO:沙雕表情 -->
                 <newpost />
                 <!-- TODO:金价数据 -->
                 <team />
@@ -20,7 +19,7 @@
                     <servers />
                     <price />
                     <!-- TODO:日常 -->
-                    <daily />
+                    <!-- <daily /> -->
                     <ad />
                 </div>
 
@@ -35,6 +34,7 @@
                     <!-- TODO:DPS天梯 -->
                     <wikirank/>
                     <examrank/>
+                    <!-- TODO:最新沙雕表情 -->
                 </div>
 
                 <Footer></Footer>
@@ -51,7 +51,7 @@ import bigbang from "@/components/bigbang.vue";
 import activity from "@/components/activity.vue";
 import notice from "@/components/notice.vue";
 import box from "@/components/box.vue";
-import daily from "@/components/daily.vue";
+// import daily from "@/components/daily.vue";
 import ad from "@/components/ad.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
@@ -82,7 +82,7 @@ export default {
         notice,
         bigbang,
         box,
-        daily,
+        // daily,
         ad,
         servers,
         price,

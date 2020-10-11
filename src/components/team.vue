@@ -49,16 +49,13 @@
                     <i class="u-status" v-if="item.status" title="已认证"
                         ><img svg-inline src="../assets/img/center/verify.svg"
                     /></i>
+                    <span class="u-meta u-server">
+                        <em>{{ item.server }}</em>
+                    </span>
                 </span>
-                <span class="u-meta">
-                    <span class="u-server">
-                        <em>服务器</em>
-                        {{ item.server }}
-                    </span>
-                    <span class="u-time">
-                        <em>最后更新</em>
-                        {{ item.updated_at | showTime }}
-                    </span>
+                <span class="u-time">
+                    <i class="el-icon-refresh"></i>
+                    {{ item.updated_at | showTime }}
                 </span>
                 <span class="u-recruit">{{
                     item.recruit || item.desc
@@ -78,7 +75,7 @@ import {
 } from "@jx3box/jx3box-common/js/utils";
 import { __ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
 import lodash from "lodash";
-import { showTime } from "@/utils/moment.js";
+import { showTime,showRecently } from "@/utils/moment.js";
 import { getTeams } from "@/service/team.js";
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
 export default {
@@ -140,18 +137,15 @@ export default {
                     this.loading = false;
                 });
         },
-        // changePage: function() {
-        //     window.scrollTo(0, 0);
-        // },
     },
     filters: {
-        showTime: showTime,
+        showTime: showRecently,
         showLogo: showAvatar,
     },
     watch: {
-        // params: function(newparams) {
-        //     this.loadData();
-        // },
+        params: function(newparams) {
+            this.loadData();
+        },
     },
     mounted: function() {
         this.loadData();

@@ -40,7 +40,11 @@
             .mb(10px);
         }
         .u-name{
-            .w(160px);
+            .w(135px);
+        }
+        .pr;
+        .u-more{
+            .pa;.rt(10px,3px);
         }
     }
 }
@@ -50,19 +54,21 @@
     .mt(20px);
 
     .u-list {
-        padding: 0 10px;
+        padding: 0;
         margin: 0;
         list-style: none;
     }
     .u-item {
+        @s:42px;
         .db;
         .pr;
-        padding-left: 68px + 15px;
-        min-height: 68px;
+        padding-left: @s + 25px;
+        min-height: @s;
         border-bottom: 1px solid @border;
         // &:last-child{border-bottom:none;}
         padding-bottom: 15px;
         padding-top: 15px;
+        padding-right: 10px;
         color: @color;
         &:hover {
             background-color: @bg-light;
@@ -70,16 +76,17 @@
 
         .u-pic {
             .db;
-            .size(68px);
+            .size(@s);
             border: 1px solid #eee;
             .pa;
-            .lt(0, 15px);
+            .lt(10px, 15px);
+            .r(4px);
         }
         .u-name {
             .fz(15px, 1.2);
             .bold;
             .db;
-            .mb(5px);
+            // .mb(5px);
             color: @color-link;
         }
         .u-status {
@@ -97,14 +104,15 @@
             }
         }
         .u-meta {
-            .db;
+            // .db;
             .fz(12px, 1.8);
             .pr;
             left: -2px;
+            font-weight:normal;
 
             em {
                 margin-right: 5px;
-                background-color: #eee;
+                background-color: #f6f8fa;
                 padding: 2px 5px;
                 border-radius: 2px;
                 font-style: normal;
@@ -116,9 +124,15 @@
             }
         }
 
+        .u-server{
+            .ml(5px);
+        }
+
         .u-time {
             .fz(12px);
-            color: #888;
+            color: #999;
+
+            .pa;.rt(10px,15px);
         }
         .u-recruit {
             .db;
@@ -150,6 +164,10 @@
                     }
                 }
             }
+            // padding-left:48px + 15px;
+            // .u-pic{
+            //     .size(48px);
+            // }
         }
     }
 }
