@@ -7,8 +7,8 @@
         <div class="m-contact-content">
             <img class="u-wechat" src="../assets/img/right/qrcode.png" alt="">
             <div class="u-list">
-                <span class="u-weibo u-item">官方微博：<a href="https://weibo.com/jx3box" target="_blank">JX3BOX魔盒</a></span>
-            <span class="u-weixin u-item">微信公众号：<b>2KOG</b></span>
+                <span class="u-weibo u-item"><em>官方微博：</em><a href="https://weibo.com/jx3box" target="_blank">JX3BOX魔盒</a></span>
+            <span class="u-weixin u-item"><em>微信公众号：</em><b>2KOG</b></span>
             </div>
         </div>
     </div>

@@ -25,7 +25,6 @@
                 </div>
 
                 <div class="m-right">
-                    <!-- <Nav /> -->
                     <activity />
                     <notice />
                     <!-- TODO:客户端下载、QQ机器人 -->
