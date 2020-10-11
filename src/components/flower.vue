@@ -9,7 +9,6 @@
                 filterable
                 placeholder="选择服务器"
                 size="mini"
-                @change="changeServer"
             >
                 <el-option
                     v-for="item in servers"
@@ -21,7 +20,7 @@
             </el-select>
             <el-select
                 class="m-flower-select m-flower-select-community"
-                v-model="map"
+                v-model="current_map"
                 filterable
                 placeholder="选择小区"
                 size="mini"
@@ -92,6 +91,7 @@
 </template>
 
 <script>
+import User from '@jx3box/jx3box-common/js/user'
 import { getFlowerRank } from "../service/next";
 import types from "../assets/data/flower.json";
 import { __iconPath,__ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
@@ -107,17 +107,21 @@ export default {
         return {
             data: [],
             types,
-            current_server: "",
             servers,
-            map : ''
+            isLogin : User.isLogin(),
+            current_server: "蝶恋花",
+            current_map : '广陵邑',
         };
     },
     computed: {
+        default_server : function (){
+            return this.$store.state.server
+        },
         server: function() {
-            if (this.$store.state.isLogin) {
-                return this.$store.state.profile.server || '蝶恋花';
+            if (this.isLogin) {
+                return this.$store.state.server || '蝶恋花'
             } else {
-                return localStorage.getItem("flower_server") || '蝶恋花';
+                return localStorage.getItem("flower_server") || '蝶恋花'
             }
         },
         isTraditional : function (){
@@ -129,19 +133,30 @@ export default {
             }
             return maps['cn']
         },
+        map : function (){
+            return this.maps[0] || '广陵邑'
+        }
     },
     watch: {
         server: function(newdata) {
             this.current_server = newdata;
-            this.map = this.maps[0]
             this.loadData();
         },
+        current_server : function (){
+            this.loadData();
+        },
+        map : function (newdata){
+            this.current_map = newdata
+        },
+        current_map : function (){
+            this.loadData();
+        }
     },
     methods: {
         loadData: function() {
             getFlowerRank({
                 server : this.current_server,
-                map : this.map
+                map : this.current_map
             }).then((data) => {
                 if(this.isTraditional){
                     data = this.transformData(data)
@@ -163,10 +178,6 @@ export default {
                 }
                 this.data = list;
             });
-        },
-        changeServer: function() {
-            this.map = this.maps[0]
-            this.loadData();
         },
         onCopy: function(val) {
             this.$notify({
@@ -196,8 +207,6 @@ export default {
         },
     },
     mounted: function() {
-        this.current_server = this.server;
-        this.map = this.maps[0]
         this.loadData()
     },
     components: {},

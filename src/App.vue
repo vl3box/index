@@ -7,14 +7,19 @@
                 <box />
                 <event />
                 <flower />
-                <newpost />
-                <team />
+                <!-- TODO:交易数据 -->
+                <!-- TODO:110玩法引导 -->
                 <!-- <guide /> -->
+                <!-- TODO:沙雕表情 -->
+                <newpost />
+                <!-- TODO:金价数据 -->
+                <team />
 
                 <div class="m-left">
                     <gamenews />
                     <servers />
                     <price />
+                    <!-- TODO:日常 -->
                     <daily />
                     <ad />
                 </div>
@@ -23,10 +28,13 @@
                     <!-- <Nav /> -->
                     <activity />
                     <notice />
+                    <!-- TODO:客户端下载、QQ机器人 -->
                     <contact />
-                    <wikirank/>
+                    <!-- TODO:DPS天梯 -->
+                    <cjrank/>
                     <macrorank/>
                     <jx3datrank/>
+                    <wikirank/>
                     <examrank/>
                 </div>
 
@@ -58,6 +66,7 @@ import examrank from "@/components/examrank.vue";
 import newpost from "@/components/newpost.vue";
 import team from "@/components/team.vue";
 // import guide from "@/components/guide.vue";
+import cjrank from "@/components/cjrank.vue";
 import { getProfile } from "./service/profile";
 export default {
     name: "App",
@@ -86,16 +95,14 @@ export default {
         wikirank,
         newpost,
         event,
-        team
-        // guide
+        team,
+        // guide,
+        cjrank,
     },
     created: function() {
         getProfile().then((data) => {
             if (data) {
-                this.$store.state.isLogin = true;
-                this.$store.state.profile = {
-                    server : data.jx3_server
-                };
+                this.$store.state.server = data.jx3_server
             }
         });
     },

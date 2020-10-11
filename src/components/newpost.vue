@@ -2,7 +2,7 @@
     <div class="m-newpost m-sideblock">
         <div class="m-newpost-header m-sideblock-header">
             <i class="el-icon-s-management"></i>
-            <span class="u-title">最近更新</span>
+            <span class="u-title">最新作品</span>
             <a href="https://www.jx3box.com/dashboard/publish/#/" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-edit"></i> 发布作品</a>
         </div>
         <div class="m-newpost-content">

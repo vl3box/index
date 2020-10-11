@@ -6,9 +6,9 @@ Vue.use(Vuex);
 let store = {
     state: {
         profile : {
-            server : ''
+            server : '蝶恋花'
         },
-        isLogin : false
+        server : '蝶恋花'
     },
     mutations: {
     },
