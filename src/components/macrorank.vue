@@ -3,17 +3,17 @@
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
             <span class="u-title">云端宏热榜</span>
-            <a href="/macro/#/rank" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
+            <a href="/macro/#/rank" class="u-more" title="查看更多"
+                ><i class="el-icon-more"></i
+            ></a>
         </div>
         <ul class="u-list">
             <li v-for="(item, j) in data" :key="j">
                 <a class="u-link" :href="item.pid | postLink" target="_blank">
-                    <span class="u-order" :class="highlight(j)">{{
-                        j + 1
-                    }}</span>
+                    <img class="u-xf" :src="item.xf | showIcon">
                     <span class="u-name">{{ item.author }}#{{ item.v }}</span>
                     <span class="u-per">
-                        <em class="u-count">+ {{ item["7days"] }}</em>
+                        <em class="u-count"><i class="el-icon-download"></i> {{ item['7days'] }}</em>
                     </span>
                 </a>
             </li>
@@ -22,41 +22,38 @@
 </template>
 
 <script>
-import { getMacroRank } from "../service/next";
+import { getMacroRank } from "../service/macro";
+import { getLink } from "@jx3box/jx3box-common/js/utils";
+import {__imgPath} from '@jx3box/jx3box-common/js/jx3box.json'
 export default {
     name: "macrorank",
     props: [],
     data: function() {
         return {
-            data : []
+            data: [],
         };
     },
     computed: {},
     methods: {
-        highlight : function (i){
-            if(i == 0){
-                return 't1'
-            }else if(i == 1){
-                return 't2'
-            }else if(i == 2) {
-                return 't3'
-            }
-        },
     },
-    filters : {
-        postLink : function (pid){
-            return '/macro/?pid=' + pid
+    filters: {
+        postLink: function(pid) {
+            return getLink("macro", pid);
         },
+        showIcon : function (xfid){
+            let id = xfid || 0
+            return __imgPath + 'image/xf/' + id + '.png'
+        }
     },
     created: function() {
-        getMacroRank(10).then((data) => {
-            this.data = data.slice(0, 10);
-        });
+        getMacroRank().then((res) => {
+            this.data = res.data.slice(0, 10);
+        })
     },
     components: {},
 };
 </script>
 
-<style lang="less">
-@import "../assets/css/rank.less";
-</style>
+// <style lang="less">
+// @import "../assets/css/rank.less";
+// </style>

@@ -5,14 +5,15 @@
 .m-rank {
     .mt(20px);
 
-    // .tm(0.5);
-    transition:0.2s ease-in-out;
-    &:hover{
-        .tm(1);
-    }
-
-    .u-icon {
-        .y(-3px);
+    .u-more {
+        .fr;
+        .fz(12px, 26px);
+        .pointer;
+        font-weight: normal;
+        color: #999;
+        &:hover {
+            color: @pink;
+        }
     }
 
     .u-list {
@@ -49,40 +50,40 @@
 
     .t1 {
         color: #fff;
-        background-color: #00d0f1;
+        background-color: rgb(255,124,184);
     }
     .t2 {
         color: #fff;
-        background-color: #f93;
+        background-color: rgb(0,215,223);
     }
     .t3 {
         color: #fff;
-        background-color: #444;
+        background-color:rgb(255,228,112);
     }
 
-    .u-more {
-        .fr;
-        .fz(12px, 26px);
-        .pointer;
-        font-weight: normal;
-        color: #999;
-        &:hover {
-            color: @pink;
-        }
+    .u-icon {
+        .y;
+        .size(24px);
+        .r(4px);
+        .mr(8px);
+    }
+
+    .u-xf {
+        .y;
+        .size(18px);
+        .mr(8px);
+        .ml(2px);
     }
 
     .u-trending {
-        .ml(10px);
-    }
-
-    .u-per {
-        .fr;
-        .pa;
-        .rt(0);
-        background-color:#fff;
-        .z(1);
-        padding: 0 5px;
-        // background-color: @bg-gray;
+        .mr(8px);
+        .ml(5px);
+        &.el-icon-caret-top{
+            color:#fc3c3c;
+        }
+        &.el-icon-caret-bottom{
+            color:#49c10f;
+        }
     }
 
     .u-link {
@@ -95,14 +96,26 @@
         }
     }
     .u-name {
-        color: #656565;
+        color: #777;
     }
+
+    .u-per {
+        .fr;
+        .pa;
+        .rt(0);
+        background-color:#fff;
+        .z(1);
+        padding: 0 5px;
+        // background-color: @bg-gray;
+    }
+
     .u-count {
         .fz(10px);
         .db;
-        color: @darkblue;
+        color: #aaa;
         margin-right: 2px;
         font-style:normal;
-        transform: scale(0.7);
+        transform: scale(0.75);
+        font-family: Tahoma, Verdana, Geneva, sans-serif;
     }
 }

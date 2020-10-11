@@ -30,10 +30,10 @@
                     <notice />
                     <!-- TODO:客户端下载、QQ机器人 -->
                     <contact />
-                    <!-- TODO:DPS天梯 -->
                     <cjrank/>
                     <macrorank/>
                     <jx3datrank/>
+                    <!-- TODO:DPS天梯 -->
                     <wikirank/>
                     <examrank/>
                 </div>

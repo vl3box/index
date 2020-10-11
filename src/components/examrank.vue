@@ -22,7 +22,9 @@
 </template>
 
 <script>
-import { getExamRank,getPaperList } from "../service/next";
+import { getExamRank,getPaperList } from "@/service/exam";
+import highlight from '@/utils/highlight'
+import { getLink } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "examrank",
     props: [],
@@ -34,19 +36,11 @@ export default {
     },
     computed: {},
     methods: {
-        highlight: function(i) {
-            if (i == 0) {
-                return "t1";
-            } else if (i == 1) {
-                return "t2";
-            } else if (i == 2) {
-                return "t3";
-            }
-        },
+        highlight,
     },
     filters: {
         postLink: function(pid) {
-            return "/exam/#/paper/" + pid;
+            return getLink('paper',pid)
         },
     },
     created: function() {
@@ -60,15 +54,17 @@ export default {
                     this.views.push(item.value["7days"]);
                 }
             });
-            getPaperList(list.join(",")).then((res) => {
+            return list.join(",")
+        }).then((list) => {
+            getPaperList(list).then((res) => {
                 this.data = res.data.data;
             });
-        });
+        })
     },
     components: {},
 };
 </script>
 
-<style lang="less">
+// <style lang="less">
 // @import "../assets/css/rank.less";
-</style>
+// </style>

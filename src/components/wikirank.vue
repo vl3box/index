@@ -22,7 +22,9 @@
 </template>
 
 <script>
-import { getWikiRank,getWikiList } from "../service/next";
+import { getWikiRank,getWikiList } from "@/service/wiki";
+import highlight from '@/utils/highlight'
+import { getLink } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "wikirank",
     props: [],
@@ -34,19 +36,11 @@ export default {
     },
     computed: {},
     methods: {
-        highlight : function (i){
-            if(i == 0){
-                return 't1'
-            }else if(i == 1){
-                return 't2'
-            }else if(i == 2) {
-                return 't3'
-            }
-        },
+        highlight,
     },
     filters : {
         postLink : function (pid){
-            return '/wiki/?pid=' + pid
+            return getLink('wiki',pid)
         },
     },
     created: function() {
@@ -60,15 +54,17 @@ export default {
                     this.views.push(item.value["7days"]);
                 }
             });
-            getWikiList(list.join(",")).then((res) => {
+            return list.join(",")
+        }).then((list) => {
+            getWikiList(list).then((res) => {
                 this.data = res.data.data.data;
             });
-        });
+        })
     },
     components: {},
 };
 </script>
 
-<style lang="less">
-@import "../assets/css/rank.less";
-</style>
+// <style lang="less">
+// @import "../assets/css/rank.less";
+// </style>

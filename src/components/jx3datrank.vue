@@ -3,14 +3,14 @@
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
             <span class="u-title">团控订阅号热榜</span>
-            <a href="/jx3dat/#/rank" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
+            <a href="/jx3dat/#/rank" class="u-more" title="查看更多"
+                ><i class="el-icon-more"></i
+            ></a>
         </div>
         <ul class="u-list">
             <li v-for="(item, j) in data" :key="j">
                 <a class="u-link" :href="item.pid | postLink" target="_blank">
-                    <span class="u-order" :class="highlight(j)">{{
-                        j + 1
-                    }}</span>
+                    <i class="u-trending" :class="calcTrending(item.yesterday,item.before2)"></i>
                     <span class="u-name"
                         >{{ item.author
                         }}<span v-if="item.v != '默认版'"
@@ -18,22 +18,7 @@
                         ></span
                     >
                     <span class="u-per">
-                        <em class="u-count">+ {{ item["7days"] }}</em>
-                        <!-- <i
-                        class="el-icon-top u-trending"
-                        v-if="trending(item) > 0"
-                        >{{ (trending(item) * 100).toFixed(2) + "%" }}</i
-                    >
-                    <i
-                        class="el-icon-bottom u-trending"
-                        v-if="trending(item) < 0"
-                        >{{ (trending(item) * 100).toFixed(2) + "%" }}</i
-                    >
-                    <span
-                        class="u-trending u-trending-keep"
-                        v-if="trending(item) == 0"
-                        >-</span
-                    > -->
+                        <em class="u-count"><i class="el-icon-download"></i> {{ item["7days"] }}</em>
                     </span>
                 </a>
             </li>
@@ -42,7 +27,8 @@
 </template>
 
 <script>
-import { getJx3datRank } from "../service/next";
+import { getJx3datRank } from "@/service/jx3dat";
+import { getLink } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "jx3datrank",
     props: [],
@@ -53,30 +39,24 @@ export default {
     },
     computed: {},
     methods: {
-        highlight: function(i) {
-            if (i == 0) {
-                return "t1";
-            } else if (i == 1) {
-                return "t2";
-            } else if (i == 2) {
-                return "t3";
-            }
-        },
+        calcTrending : function (yesterday,before2){
+            return yesterday - before2 > 0 ? 'el-icon-caret-top' : 'el-icon-caret-bottom'
+        }
     },
     filters: {
         postLink: function(pid) {
-            return "/jx3dat/?pid=" + pid;
+            return getLink("jx3dat", pid);
         },
     },
     created: function() {
-        getJx3datRank(10).then((data) => {
-            this.data = data.slice(0, 10);
+        getJx3datRank().then((res) => {
+            this.data = res.data.slice(0, 10);
         });
     },
     components: {},
 };
 </script>
 
-<style lang="less">
+// <style lang="less">
 // @import "../assets/css/rank.less";
-</style>
+// </style>
