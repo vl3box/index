@@ -118,49 +118,12 @@
 <script>
 import origin from "@/assets/data/box.json";
 const KEY = "boxmatrix";
-const default_order = [
-    "macro",
-    "jx3dat",
-    "fb",
-    "bps",
-    "cj",
-    "item",
-    "house",
-    "share",
-    "tool",
-    "bbs",
-    "emotion",
-    "wiki",
-    "database",
-    "talent",
-    "icons",
-    "macroeditor",
-    "servers",
-    "price",
-    "shop",
-    "facedata",
-    "furniture",
-    "flower",
-    "fbrank",
-    "fbdata",
-    "fbdrop",
-    "fbgem",
-    "dbm",
-    "team",
-    "exam",
-    "translator",
-    "j3pz",
-    "haste",
-    "minami",
-    "j3dps",
-    "keju",
-    "qiyu",
-];
+import default_order from '@/assets/data/box_default.json'
 const default_data = [];
 default_order.forEach((uuid, i) => {
     default_data.push(origin[uuid]);
 });
-const default_lf = ["database", "fbrank", "j3pz"];
+const default_lf = ["database", "fbdata", "j3pz"];
 
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";

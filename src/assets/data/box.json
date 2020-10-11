@@ -101,7 +101,7 @@
     "bbs": {
         "uuid": "bbs",
         "href": "/bbs",
-        "img": "./img/box/bbs.svg",
+        "img": "./img/box/bbs_solid.svg",
         "name": "茶馆交流",
         "abbr": "茶馆",
         "hasMark": false,
@@ -115,7 +115,7 @@
         "img": "./img/box/pig.svg",
         "name": "沙雕表情",
         "abbr": "表情",
-        "hasMark": true,
+        "hasMark": false,
         "markcls": "isdoing",
         "mark": "ING",
         "status": false
@@ -244,8 +244,8 @@
     "fbrank": {
         "uuid": "fbrank",
         "href": "/rank",
-        "img": "./img/box/trophy2.svg",
-        "name": "百强排行",
+        "img": "./img/box/rank2_on.svg",
+        "name": "秘境百强",
         "abbr": "百强榜",
         "hasMark": true,
         "markcls": "isnew",
@@ -291,7 +291,7 @@
         "img": "./img/box/jx3datbuilder.svg",
         "name": "数据构建",
         "abbr": "云数据",
-        "hasMark": true,
+        "hasMark": false,
         "markcls": "isdoing",
         "mark": "ING",
         "status": false
@@ -299,7 +299,7 @@
     "team": {
         "uuid": "team",
         "href": "/team",
-        "img": "./img/box/oa.svg",
+        "img": "./img/box/team_on.svg",
         "name": "团队管理",
         "abbr": "团队",
         "hasMark": true,

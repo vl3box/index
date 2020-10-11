@@ -16,9 +16,7 @@
                         >百科审核</a
                     >
                 </template>
-                <a v-else href="https://www.jx3box.com/bbs/?subtype=5#/"
-                    ><i class="el-icon-question"></i>反馈建议</a
-                >
+                <a v-else href="/bbs/?subtype=5#/" class="u-help"><img svg-inline src="../assets/img/right/feedback.svg" /></a>
             </span>
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">
