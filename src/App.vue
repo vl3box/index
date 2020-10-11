@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Header></Header>
+        <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-primary">
                 <bigbang />

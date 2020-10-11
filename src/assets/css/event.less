@@ -2,9 +2,26 @@
     .mt(20px);
     a{
         .db;
+        .pr;
+        .h(100%);
     }
     img{
         .h(160px);
+        // 默认1100*160
         .db;.auto(x);
+    }
+}
+@media screen and (max-width:@ipad){
+    .m-event{
+        .el-carousel__container{
+            .h(60px) !important;
+            img{
+                .h(60px);
+                .w(412px);
+                .pa;left:50%;
+                transform: translateX(-50%);
+                max-width:none;
+            }
+        }
     }
 }
