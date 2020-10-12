@@ -66,6 +66,7 @@
         .size(24px);
         .r(4px);
         .mr(8px);
+        .ml(2px);
     }
 
     .u-xf {
@@ -117,5 +118,13 @@
         font-style:normal;
         transform: scale(0.75);
         font-family: Tahoma, Verdana, Geneva, sans-serif;
+    }
+}
+
+@media screen and (max-width:@phone){
+    .m-rank{
+        .u-icon{
+            .ml(0);
+        }
     }
 }
