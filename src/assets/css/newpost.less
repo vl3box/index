@@ -8,6 +8,25 @@
     .u-more{
         color:@primary !important;
     }
+    .u-links{
+        .fz(13px,15px);
+        .ml(10px);
+        a{
+            padding:0 8px;
+            border-right:1px solid #ccc;
+            &:hover{
+                color:@pink;
+            }
+            &:last-child{
+                border-right:none;
+            }
+        }
+    }
+}
+@media screen and (max-width:@ipad){
+    .m-newpost-header{
+        .u-links{.none;}
+    }
 }
 
 .m-newpost-content{

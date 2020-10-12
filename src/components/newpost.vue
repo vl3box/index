@@ -3,6 +3,9 @@
         <div class="m-newpost-header m-sideblock-header">
             <i class="el-icon-s-management"></i>
             <span class="u-title">最新作品</span>
+            <span class="u-links">
+                <a :href="'/' + item.slug" target="_blank" v-for="(item,i) in links" :key="i">{{item.label}}</a>
+            </span>
             <a href="https://www.jx3box.com/dashboard/publish/#/" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-edit"></i> 发布作品</a>
         </div>
         <div class="m-newpost-content">
@@ -74,6 +77,48 @@ export default {
             target: buildTarget(),
             authorLink,
             showAvatar,
+            links : [
+                {
+                    label : '宏库',
+                    slug : 'macro'
+                },
+                {
+                    label : '插件',
+                    slug : 'jx3dat'
+                },
+                {
+                    label : '副本',
+                    slug : 'fb'
+                },
+                {
+                    label : '职业',
+                    slug : 'bps'
+                },
+                {
+                    label : '成就',
+                    slug : 'cj'
+                },
+                {
+                    label : '物品',
+                    slug : 'item'
+                },
+                {
+                    label : '家园',
+                    slug : 'house'
+                },
+                {
+                    label : '捏脸',
+                    slug : 'share'
+                },
+                {
+                    label : '工具',
+                    slug : 'tool'
+                },
+                {
+                    label : '讨论',
+                    slug : 'bbs'
+                }
+            ]
         };
     },
     computed: {},
