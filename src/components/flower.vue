@@ -109,7 +109,7 @@ export default {
             types,
             servers,
             isLogin : User.isLogin(),
-            current_server: "蝶恋花",
+            current_server: "",
             current_map : '广陵邑',
         };
     },
@@ -140,7 +140,6 @@ export default {
     watch: {
         server: function(newdata) {
             this.current_server = newdata;
-            this.loadData();
         },
         current_server : function (){
             this.loadData();
