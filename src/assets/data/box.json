@@ -101,7 +101,7 @@
     "bbs": {
         "uuid": "bbs",
         "href": "/bbs",
-        "img": "./img/box/bbs_solid.svg",
+        "img": "./img/box/bbs.svg",
         "name": "茶馆交流",
         "abbr": "茶馆",
         "hasMark": false,

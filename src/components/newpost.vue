@@ -103,6 +103,10 @@ export default {
                     slug : 'item'
                 },
                 {
+                    label : '工具',
+                    slug : 'tool'
+                },
+                {
                     label : '家园',
                     slug : 'house'
                 },
@@ -111,11 +115,15 @@ export default {
                     slug : 'share'
                 },
                 {
-                    label : '工具',
-                    slug : 'tool'
+                    label : '百科',
+                    slug : 'wiki'
                 },
+                // {
+                //     label : '表情',
+                //     slug : 'emotion'
+                // },
                 {
-                    label : '讨论',
+                    label : '茶馆',
                     slug : 'bbs'
                 }
             ]
