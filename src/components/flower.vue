@@ -206,6 +206,7 @@ export default {
         },
     },
     mounted: function() {
+        this.current_server = this.server
         this.loadData()
     },
     components: {},
