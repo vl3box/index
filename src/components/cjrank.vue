@@ -9,7 +9,7 @@
         </div>
         <ul class="u-list" v-if="data && data.length">
             <li v-for="(item, j) in data" :key="j">
-                <a class="u-link" :href="item.link" target="_blank">
+                <a class="u-link" :href="item.id | postLink" target="_blank">
                     <img class="u-icon" :src="item.icon | showIcon">
                     <span class="u-name">{{ item.name }}</span>
                     <span class="u-per">
@@ -64,9 +64,8 @@ export default {
             getCjList(ids).then((res) => {
                 this.achievements = res.data.data.achievements
                 this.achievements.forEach((item,i) => {
-                    this.data[i]['name'] = item.Name;
-                    this.data[i]['icon'] = item.IconID;
-                    this.data[i]['link'] = item.Link;
+                    this.data[i]['name'] = item.Name
+                    this.data[i]['icon'] = item.IconID
                 })
             })
         })
