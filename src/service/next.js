@@ -15,12 +15,15 @@ function getFlowerRank(query) {
         });
 }
 
-function getRank(type, limit = 10) {
+function getRank(type, limit = 10, sort = '30days') {
     return axios
         .get(__next + "api/summary/visit/rank", {
-            postType: type,
-            postAction: "views",
-            pageSize: limit,
+            params : {
+                postType: type,
+                postAction: "views",
+                pageSize: limit,
+                sort: sort,
+            },
         })
         .catch((err) => {
             console.log(err);
