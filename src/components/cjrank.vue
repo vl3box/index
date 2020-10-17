@@ -64,8 +64,10 @@ export default {
             getCjList(ids).then((res) => {
                 this.achievements = res.data.data.achievements
                 this.achievements.forEach((item,i) => {
-                    this.data[i]['name'] = item.Name
-                    this.data[i]['icon'] = item.IconID
+                    if (item) {
+                        this.data[i]['name'] = item.Name
+                        this.data[i]['icon'] = item.IconID
+                    }
                 })
             })
         })
