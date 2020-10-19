@@ -72,6 +72,7 @@ import {
     publishLink,
     showAvatar,
     resolveImagePath,
+    getThumbnail
 } from "@jx3box/jx3box-common/js/utils";
 import { __ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
 import lodash from "lodash";
@@ -140,7 +141,9 @@ export default {
     },
     filters: {
         showTime: showRecently,
-        showLogo: showAvatar,
+        showLogo: function (val){
+            return getThumbnail(val,42,true)
+        },
     },
     watch: {
         params: function(newparams) {

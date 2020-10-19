@@ -9,11 +9,11 @@
         </div>
         <ul class="u-list" v-if="data && data.length">
             <li v-for="(item, j) in data" :key="j">
-                <a class="u-link" :href="item.id | postLink" target="_blank">
-                    <img class="u-icon" :src="item.icon | showIcon">
-                    <span class="u-name">{{ item.name }}</span>
+                <a class="u-link" :href="item.ID | postLink" target="_blank">
+                    <img class="u-icon" :src="item.IconID | showIcon">
+                    <span class="u-name">{{ item.Name }}</span>
                     <span class="u-per">
-                        <em class="u-count">+ {{ item.views }}</em>
+                        <em class="u-count">+ {{ item.rank }}</em>
                     </span>
                 </a>
             </li>
@@ -32,7 +32,7 @@ export default {
     data: function() {
         return {
             data: [],
-            achievements : []
+            ranks: [],
         };
     },
     computed: {},
@@ -50,23 +50,37 @@ export default {
         getRank("cj").then((res) => {
             let list = res.data.slice(0, 10);
             let ids = []
+            this.ranks = [];
             list.forEach((item) => {
                 let id = item.name.split('-').pop()
                 ids.push(id)
-                this.data.push({
-                    id : id,
-                    views : item.value['30days'],
-                    name : '-'
-                })
+                this.ranks[id] = item.value['30days'];
             })
             return ids
         }).then((ids) => {
-            getCjList(ids).then((res) => {
-                this.achievements = res.data.data.achievements
-                this.achievements.forEach((item,i) => {
-                    this.data[i]['name'] = item.Name
-                    this.data[i]['icon'] = item.IconID
-                })
+            getCjList({ids: ids, limit: ids.length}).then((res) => {
+                let data = res.data;
+                if (data.code === 200) {
+                    data = data.data.achievements;
+
+                    // 使用ID作为键值
+                    let achievements = {};
+                    for (let i in data) if(data[i]) achievements[data[i].ID] = data[i];
+
+                    // 数据填充保持原有排序
+                    let output = [];
+                    for (let i in ids) {
+                        let id = ids[i];
+                        let achievement = achievements[id];
+                        if (achievement) {
+                            achievement.rank = this.ranks[id];
+                            output.push(achievement);
+                        } else {
+                            console.log(`找不到成就${id}`);
+                        }
+                    }
+                    this.data = output;
+                }
             })
         })
     },

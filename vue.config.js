@@ -29,6 +29,12 @@ module.exports = {
                 "onProxyReq": function (request) {
                     request.setHeader("origin", "");
                 }
+            },
+            "/team": {
+                "target": process.env["DEV_SERVER"] == "true" ? "http://localhost:51818" : "https://next.jx3box.com",
+                "onProxyReq": function (request) {
+                    request.setHeader("origin", "");
+                }
             }
         },
         disableHostCheck: true

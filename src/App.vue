@@ -7,12 +7,12 @@
                 <box />
                 <event />
                 <flower />
+                <team />
                 <!-- TODO:交易数据 -->
                 <!-- TODO:110玩法引导 -->
                 <!-- <guide /> -->
                 <newpost />
                 <!-- TODO:金价数据 -->
-                <team />
 
                 <div class="m-left">
                     <gamenews />

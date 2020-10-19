@@ -1,5 +1,5 @@
 import axios from "axios";
-import { __next } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __next, __server } from "@jx3box/jx3box-common/js/jx3box.json";
 import Vue from "vue";
 import { Message, Notification } from "element-ui";
 Vue.prototype.$notify = Notification;
@@ -28,15 +28,21 @@ function installInterceptors(target) {
 installInterceptors(axios);
 installInterceptors($);
 
+const $server = axios.create({
+    withCredentials: true,
+    baseURL: __server,
+});
 const $next = axios.create({
     withCredentials: true,
-    baseURL: process.env.NODE_ENV === 'production' ?  __next : '/',
+    baseURL: process.env.NODE_ENV === "production" ? __next : "/",
 });
 function installNextInterceptors(target) {
     target["interceptors"]["response"].use(
         function(response) {
-            if(response.data.code){
-                broadcast.$message.error(`[${response.data.code}]${response.data.msg}`);
+            if (response.data.code) {
+                broadcast.$message.error(
+                    `[${response.data.code}]${response.data.msg}`
+                );
                 return Promise.reject(response);
             }
             return response;
@@ -53,5 +59,6 @@ function installNextInterceptors(target) {
     );
 }
 installNextInterceptors($next);
+installNextInterceptors($server);
 
-export { $, axios, $next };
+export { $, axios, $next, $server };

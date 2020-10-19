@@ -2,7 +2,7 @@ import { $next } from "./axios";
 
 function getJx3datRank(limit = 10) {
     return $next
-        .get(__next + "api/plugins/jx3dat/rank", {
+        .get("api/plugins/jx3dat/rank", {
             params: {
                 pageSize: limit,
             },

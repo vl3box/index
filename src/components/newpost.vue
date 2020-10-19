@@ -4,9 +4,21 @@
             <i class="el-icon-s-management"></i>
             <span class="u-title">最新作品</span>
             <span class="u-links">
-                <a :href="'/' + item.slug" target="_blank" v-for="(item,i) in links" :key="i">{{item.label}}</a>
+                <a
+                    :href="'/' + item.slug"
+                    target="_blank"
+                    v-for="(item, i) in links"
+                    :key="i"
+                    >{{ item.label }}</a
+                >
             </span>
-            <a href="https://www.jx3box.com/dashboard/publish/#/" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-edit"></i> 发布作品</a>
+            <a
+                href="https://www.jx3box.com/dashboard/publish/#/"
+                class="u-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="el-icon-edit"></i> 发布作品</a
+            >
         </div>
         <div class="m-newpost-content">
             <a
@@ -38,7 +50,8 @@
                         {{ item.author.name }}
                     </span>
                     <span class="u-date"
-                        ><i class="el-icon-refresh"></i> {{ item.post.post_modified | dateFormat }}</span
+                        ><i class="el-icon-refresh"></i>
+                        {{ item.post.post_modified | dateFormat }}</span
                     >
                 </div>
                 <span class="u-title">
@@ -66,7 +79,7 @@ import {
     showAvatar,
 } from "@jx3box/jx3box-common/js/utils";
 import { __postType } from "@jx3box/jx3box-common/js/jx3box.json";
-import {showRecently} from "../utils/moment";
+import { showRecently } from "../utils/moment";
 export default {
     name: "newpost",
     props: [],
@@ -77,56 +90,56 @@ export default {
             target: buildTarget(),
             authorLink,
             showAvatar,
-            links : [
+            links: [
                 {
-                    label : '宏库',
-                    slug : 'macro'
+                    label: "宏库",
+                    slug: "macro",
                 },
                 {
-                    label : '插件',
-                    slug : 'jx3dat'
+                    label: "插件",
+                    slug: "jx3dat",
                 },
                 {
-                    label : '副本',
-                    slug : 'fb'
+                    label: "副本",
+                    slug: "fb",
                 },
                 {
-                    label : '职业',
-                    slug : 'bps'
+                    label: "职业",
+                    slug: "bps",
                 },
                 {
-                    label : '成就',
-                    slug : 'cj'
+                    label: "成就",
+                    slug: "cj",
                 },
                 {
-                    label : '物品',
-                    slug : 'item'
+                    label: "物品",
+                    slug: "item",
                 },
                 {
-                    label : '工具',
-                    slug : 'tool'
+                    label: "工具",
+                    slug: "tool",
                 },
                 {
-                    label : '家园',
-                    slug : 'house'
+                    label: "家园",
+                    slug: "house",
                 },
                 {
-                    label : '捏脸',
-                    slug : 'share'
+                    label: "捏脸",
+                    slug: "share",
                 },
                 {
-                    label : '百科',
-                    slug : 'wiki'
+                    label: "百科",
+                    slug: "wiki",
                 },
                 // {
                 //     label : '表情',
                 //     slug : 'emotion'
                 // },
                 {
-                    label : '茶馆',
-                    slug : 'bbs'
-                }
-            ]
+                    label: "茶馆",
+                    slug: "bbs",
+                },
+            ],
         };
     },
     computed: {},
@@ -140,9 +153,8 @@ export default {
         },
     },
     mounted: function() {
-        getPosts(this).then((data) => {
-            // console.log(data);
-            this.data = data;
+        getPosts().then((res) => {
+            this.data = res.data.data.list;
         });
     },
     components: {},
