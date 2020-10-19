@@ -1,8 +1,7 @@
-import axios from "axios";
-import { __next } from "@jx3box/jx3box-common/js/jx3box.json";
+import {$next} from './axios';
 
 function getExamRank() {
-    return axios.get(__next + "api/summary/visit/rank", {
+    return $next.get("api/summary/visit/rank", {
         params: {
             postType: "paper",
             postAction: "views",
@@ -12,7 +11,7 @@ function getExamRank() {
 }
 
 function getPaperList(list) {
-    return axios.get(__next + "api/question/user-exam-paper", {
+    return $next.get("api/question/user-exam-paper", {
         params: {
             list: list,
         },

@@ -1,8 +1,7 @@
-import axios from "axios";
-import { __next } from "@jx3box/jx3box-common/js/jx3box.json";
+import { $next } from "./axios";
 
 function getJx3datRank(limit = 10) {
-    return axios
+    return $next
         .get(__next + "api/plugins/jx3dat/rank", {
             params: {
                 pageSize: limit,

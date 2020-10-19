@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { __bb, __helperUrl } from "@jx3box/jx3box-common/js/jx3box.json";
 
 function getWikiPnt() {

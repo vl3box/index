@@ -1,5 +1,5 @@
+import axios from 'axios';
 import { __helperUrl } from "@jx3box/jx3box-common/js/jx3box.json";
-import axios from "axios";
 
 function getCjList(idlist) {
     let arr = idlist || []

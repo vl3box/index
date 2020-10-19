@@ -1,9 +1,8 @@
-import axios from "axios";
-import { __server, __next } from "@jx3box/jx3box-common/js/jx3box.json";
+import { $next, $server } from "./axios";
 
 function getMacroRank(limit = 10) {
-    return axios
-        .get(__next + "api/macro/overview", {
+    return $next
+        .get("api/macro/overview", {
             params: {
                 size: limit,
                 // _no_cache:1,
@@ -15,8 +14,8 @@ function getMacroRank(limit = 10) {
 }
 
 function getMacroList(idlist) {
-    return axios
-        .get(__server + "post/list", {
+    return $server
+        .get("post/list", {
             params: {
                 list: idlist,
                 mode: "simple",

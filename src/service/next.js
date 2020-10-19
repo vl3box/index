@@ -1,9 +1,8 @@
-import axios from "axios";
-import { __next, __bb } from "@jx3box/jx3box-common/js/jx3box.json";
+import { $next } from "./axios";
 
 function getFlowerRank(query) {
-    return axios
-        .get(__next + "api/flower/price/rank", {
+    return $next
+        .get("api/flower/price/rank", {
             params: query,
             withCredentials: true,
         })
@@ -16,8 +15,8 @@ function getFlowerRank(query) {
 }
 
 function getRank(type, limit = 10) {
-    return axios
-        .get(__next + "api/summary/visit/rank", {
+    return $next
+        .get("api/summary/visit/rank", {
             postType: type,
             postAction: "views",
             pageSize: limit,

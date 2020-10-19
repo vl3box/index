@@ -1,4 +1,4 @@
-import { $next } from "@jx3box/jx3box-common/js/axios";
+import { $next } from "./axios";
 
 function getMyTeams(params) {
     return $next.get("team/my-team", {

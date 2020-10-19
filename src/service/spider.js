@@ -1,5 +1,5 @@
-import { __spider } from "@jx3box/jx3box-common/js/jx3box.json";
 import axios from "axios";
+import { __spider } from "@jx3box/jx3box-common/js/jx3box.json";
 
 const news = __spider + "jx3news";
 function getGameNews() {

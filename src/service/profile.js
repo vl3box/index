@@ -1,13 +1,13 @@
-import { $ } from "./axios";
+import { $server } from "@jx3box/jx3box-common/js/axios";
 
-const server = "user/meta";
 function getServer(uid) {
-    return $.get(server, {
-        params: {
-            key: "jx3price",
-            uid: uid,
-        },
-    })
+    return $server
+        .get("user/meta", {
+            params: {
+                key: "jx3price",
+                uid: uid,
+            },
+        })
         .then((res) => {
             return res.data;
         })
@@ -16,9 +16,9 @@ function getServer(uid) {
         });
 }
 
-const profile = "user/me";
 function getProfile() {
-    return $.get(profile)
+    return $server
+        .get("user/me")
         .then((res) => {
             return res.data.data;
         })
@@ -28,22 +28,26 @@ function getProfile() {
 }
 
 function getMeta(key) {
-    return $.get(server, {
-        params: {
-            key: key,
-        },
-    }).catch((err) => {
-        console.log(err);
-    });
+    return $server
+        .get("user/meta", {
+            params: {
+                key: key,
+            },
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 function setMeta(key, val) {
-    return $.post(server, {
-        key: key,
-        value: val,
-    }).catch((err) => {
-        console.log(err);
-    });
+    return $server
+        .post("user/meta", {
+            key: key,
+            value: val,
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 export { getServer, getProfile, getMeta, setMeta };
