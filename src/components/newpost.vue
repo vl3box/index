@@ -30,7 +30,7 @@
             >
                 <img
                     class="u-avatar"
-                    :src="showAvatar(item.author.avatar)"
+                    :src="item.author.avatar | showAvatar"
                     :alt="item.author.name"
                 />
                 <div class="u-info">
@@ -58,13 +58,6 @@
                     <i class="el-icon-reading"></i>
                     {{ item.post.post_title || "无标题" }}</span
                 >
-                <!-- <div class="u-desc">
-                    {{
-                        item.post.post_excerpt ||
-                            item.post.post_title ||
-                            "作者很懒,什么也没有留下"
-                    }}
-                </div> -->
             </a>
         </div>
     </div>
@@ -77,8 +70,9 @@ import {
     buildTarget,
     authorLink,
     showAvatar,
+    getThumbnail
 } from "@jx3box/jx3box-common/js/utils";
-import { __postType } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __postType,default_avatar } from "@jx3box/jx3box-common/js/jx3box.json";
 import { showRecently } from "../utils/moment";
 export default {
     name: "newpost",
@@ -89,7 +83,6 @@ export default {
             postLink,
             target: buildTarget(),
             authorLink,
-            showAvatar,
             links: [
                 {
                     label: "宏库",
@@ -151,6 +144,10 @@ export default {
         dateFormat: function(val) {
             return showRecently(val);
         },
+        showAvatar : function (val){
+            let avatar = val || default_avatar
+            return getThumbnail(avatar,24,true)
+        }
     },
     mounted: function() {
         getPosts().then((res) => {

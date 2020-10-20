@@ -5,8 +5,11 @@
 }
 
 .m-newpost-header{
-    .u-more{
-        color:@primary !important;
+    &.m-sideblock-header .u-more{
+        color:@primary;
+        &:hover{
+            color:@pink;
+        }
     }
     .u-links{
         .fz(13px,15px);

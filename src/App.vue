@@ -25,7 +25,6 @@
                     <activity />
                     <notice />
                     <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
-                    
                     <cjrank/>
                     <macrorank/>
                     <jx3datrank/>

@@ -22,15 +22,30 @@
             .pointer;
         }
     }
-    .u-more{
-        color:@color-link !important;
-        .lh(28px);
-    }
     .el-icon-search{
         .fz(14px) !important;
     }
     .el-input-group__append{
         padding:0 10px;
+    }
+
+    .u-misc{
+        .fr;
+
+        .u-more{
+            color:@color-link;
+            .lh(28px);
+            .ml(20px);
+            i{
+                .mr(2px);
+            }
+            .el-icon-map-location{
+                .mr(5px);
+            }
+        }
+        a:hover{
+            color:@pink;
+        }
     }
 }
 @media screen and (max-width:@phone){
@@ -43,7 +58,7 @@
             .w(135px);
         }
         .pr;
-        .u-more{
+        .u-misc{
             .pa;.rt(10px,3px);
         }
     }

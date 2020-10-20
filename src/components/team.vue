@@ -31,7 +31,10 @@
                     @click="loadData"
                 ></i
             ></el-input>
-            <a href="/team/#/org/setting" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-edit"></i> 发布招募</a>
+            <div class="u-misc">
+                <a href="/team/#/org/setting" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-microphone"></i>发布招募</a>
+                <a href="/team" class="u-more" target="_blank" rel="noopener noreferrer"><i class="el-icon-map-location"></i>团队广场</a>
+            </div>
         </div>
         <div class="u-list" v-if="data && data.length">
             <a
