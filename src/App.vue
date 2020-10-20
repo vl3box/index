@@ -7,27 +7,25 @@
                 <box />
                 <event />
                 <flower />
+                <!-- TODO:交易数据+金价数据整合 -->
                 <team />
-                <!-- TODO:交易数据 -->
-                <!-- TODO:110玩法引导 -->
-                <!-- <guide /> -->
+                <!-- TODO:110玩法引导 <guide /> -->
                 <newpost />
-                <!-- TODO:金价数据 -->
+                
 
                 <div class="m-left">
                     <gamenews />
                     <servers />
                     <price />
-                    <!-- TODO:日常 -->
-                    <!-- <daily /> -->
+                    <!-- TODO:日常 <daily /> -->
                     <ad />
                 </div>
 
                 <div class="m-right">
                     <activity />
                     <notice />
-                    <!-- TODO:客户端下载、QQ机器人 -->
-                    <contact />
+                    <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
+                    
                     <cjrank/>
                     <macrorank/>
                     <jx3datrank/>
