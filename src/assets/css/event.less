@@ -15,12 +15,19 @@
         .w(200px);
         .dbi;.y(top);
         .mr(20px);
+
+        &:hover{
+            img{
+                filter: saturate(150%) brightness(120%);
+            }
+        }
     }
     img{
         // .h(160px);
         // 默认1100*160
         .db;.auto(x);
         .size(100%);
+        transition:0.2s ease-in-out;
     }
 }
 @media screen and (max-width:@ipad){
