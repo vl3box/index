@@ -1,29 +1,39 @@
 .m-event{
     .mt(20px);
-    box-shadow:0 0 3px rgba(0,0,0,.2);
+    // box-shadow:0 0 3px rgba(0,0,0,.2);
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #e1e4e8;
+    .r(4px);
+    white-space: nowrap;
+    overflow: hidden;
     a{
         .db;
         .pr;
-        .h(100%);
-        .r(4px);
+        // .h(100%);
+        // .r(4px);
+        .w(200px);
+        .dbi;.y(top);
+        .mr(20px);
     }
     img{
-        .h(160px);
+        // .h(160px);
         // 默认1100*160
         .db;.auto(x);
+        .size(100%);
     }
 }
 @media screen and (max-width:@ipad){
     .m-event{
-        .el-carousel__container{
-            .h(60px) !important;
-            img{
-                .h(60px);
-                .w(412px);
-                .pa;left:50%;
-                transform: translateX(-50%);
-                max-width:none;
-            }
-        }
+        // .el-carousel__container{
+        //     .h(60px) !important;
+        //     img{
+        //         .h(60px);
+        //         .w(412px);
+        //         .pa;left:50%;
+        //         transform: translateX(-50%);
+        //         max-width:none;
+        //     }
+        // }
     }
 }

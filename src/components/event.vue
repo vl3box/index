@@ -1,22 +1,13 @@
 <template>
-    <div class="m-event">
-        <el-carousel
-            v-if="data.length"
-            trigger="click"
-            height="160px"
-            indicator-position="none"
-            :interval="6000"
-        >
-            <el-carousel-item v-for="(item, i) in data" :key="i">
-                <a
-                    :href="item.link"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    :style="{ backgroundColor: item.bgcolor }"
-                    ><img :src="item.img"
-                /></a>
-            </el-carousel-item>
-        </el-carousel>
+    <div class="m-event" id="m-event">
+        <a
+            v-for="(item, i) in data"
+            :key="i"
+            :href="item.link"
+            rel="noopener noreferrer"
+            target="_blank"
+            ><img :src="item.img"
+        /></a>
     </div>
 </template>
 
@@ -39,6 +30,13 @@ export default {
                 item.img = resolveImagePath(item.img);
             });
             this.data = data;
+        });
+    },
+    updated: function() {
+        $("#m-event").slick({
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 5,
         });
     },
     components: {},
