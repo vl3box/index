@@ -37,7 +37,7 @@
                     >
                         <img
                             class="u-pic"
-                            :src="item.img"
+                            :src="item.img | getBoxIcon"
                             :class="{ hidden: !canSee(item.uuid) }"
                         />
                         <span class="u-txt">
@@ -116,9 +116,9 @@
 </template>
 
 <script>
-import origin from "@/assets/data/box.json";
+import origin from "@jx3box/jx3box-common/data/box.json";
 const KEY = "boxmatrix";
-import default_order from '@/assets/data/box_default.json'
+import default_order from "@/assets/data/box_default.json";
 const default_data = [];
 default_order.forEach((uuid, i) => {
     default_data.push(origin[uuid]);
@@ -129,7 +129,8 @@ import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/profile.js";
-import { getWikiPnt, getCjPnt } from '@/service/admin.js'
+import { getWikiPnt, getCjPnt } from "@/service/admin.js";
+import { __imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
 import _ from "lodash";
 export default {
     name: "box",
@@ -148,12 +149,12 @@ export default {
             showAbbr: window.innerWidth < 370,
             isLogin: User.isLogin(),
             defined: false,
-            isAdmin : User.isAdmin(),
-            pop : {
-                cj : false,
-                wiki : false,
-                item : false
-            }
+            isAdmin: User.isAdmin(),
+            pop: {
+                cj: false,
+                wiki: false,
+                item: false,
+            },
         };
     },
     computed: {
@@ -205,7 +206,7 @@ export default {
                     } catch (e) {
                         console.log("[downBoxSetting]远程设置数据解析异常", e);
                     }
-                }else{
+                } else {
                     this.$notify({
                         title: "消息",
                         message: "服务器上没有保存相关设置",
@@ -320,17 +321,17 @@ export default {
             }
             this.defined = true;
         },
-        getPop : function (){
+        getPop: function() {
             getWikiPnt().then((res) => {
-                this.pop.wiki = !!res.data.data
-            })
-            getCjPnt('achievement').then((res) => {
-                this.pop.cj = !!res.data.data.total
-            })
-            getCjPnt('item').then((res) => {
-                this.pop.item = !!res.data.data.total
-            })
-        }
+                this.pop.wiki = !!res.data.data;
+            });
+            getCjPnt("achievement").then((res) => {
+                this.pop.cj = !!res.data.data.total;
+            });
+            getCjPnt("item").then((res) => {
+                this.pop.item = !!res.data.data.total;
+            });
+        },
     },
     watch: {
         // order: {
@@ -341,7 +342,12 @@ export default {
     },
     mounted: function() {
         this.initData();
-        if(this.isAdmin) this.getPop()
+        if (this.isAdmin) this.getPop();
+    },
+    filters : {
+        getBoxIcon : function (val){
+            return __imgPath + 'image' + val
+        }
     },
     components: {
         draggable,

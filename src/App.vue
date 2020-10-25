@@ -11,7 +11,6 @@
                 <team />
                 <!-- TODO:110玩法引导 <guide /> -->
                 <newpost />
-                
 
                 <div class="m-left">
                     <gamenews />
@@ -25,17 +24,16 @@
                     <activity />
                     <notice />
                     <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
-                    <cjrank/>
-                    <macrorank/>
-                    <jx3datrank/>
+                    <cjrank />
+                    <macrorank />
+                    <jx3datrank />
                     <!-- TODO:DPS天梯 -->
-                    <wikirank/>
-                    <examrank/>
+                    <wikirank />
+                    <examrank />
                     <!-- TODO:最新沙雕表情 -->
                 </div>
 
                 <Footer></Footer>
-
             </div>
         </div>
     </div>
@@ -64,6 +62,7 @@ import team from "@/components/team.vue";
 // import guide from "@/components/guide.vue";
 import cjrank from "@/components/cjrank.vue";
 import { getProfile } from "./service/profile";
+import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "App",
     props: [],
@@ -96,11 +95,13 @@ export default {
         cjrank,
     },
     created: function() {
-        getProfile().then((data) => {
-            if (data) {
-                this.$store.state.server = data.jx3_server
-            }
-        });
+        if (User.isLogin()) {
+            getProfile().then((data) => {
+                if (data) {
+                    this.$store.state.server = data.jx3_server;
+                }
+            });
+        }
     },
 };
 </script>
