@@ -103,7 +103,6 @@ export default {
             return getPrice().then((res) => {
                 if (!res.code) {
                     this.origin = res.data.data;
-                    console.log(this.data);
                 }
             });
         },

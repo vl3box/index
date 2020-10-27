@@ -25,7 +25,6 @@ function installInterceptors(target) {
         }
     );
 }
-installInterceptors(axios);
 installInterceptors($);
 
 const $server = axios.create({

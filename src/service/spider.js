@@ -42,7 +42,7 @@ function getPrice() {
     let time = ~~(Date.now() / 1000)
     let token = md5(time + 'secret')
     return axios
-        .get('http://box.arkwish.com/api/gold',{
+        .get('https://box.arkwish.com/api/gold',{
             params : {
                 access_token : token,
                 ts : time
