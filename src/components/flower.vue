@@ -2,7 +2,7 @@
     <div class="m-flower m-sideblock">
         <div class="m-flower-header m-sideblock-header">
             <i class="u-icon">✿</i>
-            <span class="u-title">实时花价</span>
+            <a class="u-title" href="/app/flower" target="_blank">实时花价</a>
             <el-select
                 class="m-flower-select"
                 v-model="current_server"

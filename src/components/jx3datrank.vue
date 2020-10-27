@@ -2,8 +2,8 @@
     <div class="m-rank-jx3dat m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
-            <span class="u-title">团控订阅号热榜</span>
-            <a href="/jx3dat/#/rank" class="u-more" title="查看更多"
+            <a class="u-title" href="/jx3dat" target="_blank">团控订阅号热榜</a>
+            <a href="/jx3dat/#/rank" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
         </div>

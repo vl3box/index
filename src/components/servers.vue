@@ -2,8 +2,8 @@
     <div class="m-servers m-sideblock">
         <div class="m-servers-header m-sideblock-header">
             <i class="el-icon-s-platform"></i
-            ><span class="u-title">开服状态</span>
-            <a href="/app/servers" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
+            ><a class="u-title" href="/app/servers" target="_blank">开服状态</a>
+            <a href="/app/servers" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
         </div>
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">

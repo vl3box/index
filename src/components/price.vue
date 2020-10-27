@@ -2,8 +2,8 @@
     <div class="m-price m-sideblock">
         <div class="m-price-header m-sideblock-header">
             <i class="el-icon-s-marketing"></i
-            ><span class="u-title">金价走势</span>
-            <a href="/app/price" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
+            ><a class="u-title" href="/app/price" target="_blank">金价走势</a>
+            <a href="/app/price" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
         </div>
         <div class="m-price-content">
             <el-row class="u-group" type="flex">

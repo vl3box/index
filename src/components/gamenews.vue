@@ -2,7 +2,7 @@
     <div class="m-gamenews m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-message-solid"></i
-            ><span class="u-title">游戏更新</span>
+            ><a class="u-title" href="https://jx3.xoyo.com/allnews/" target="_blank">游戏更新</a>
             <a href="https://jx3.xoyo.com/allnews/" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部"><i class="el-icon-more"></i></a>
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">

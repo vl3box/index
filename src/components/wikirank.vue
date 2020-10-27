@@ -2,8 +2,8 @@
     <div class="m-rank-wiki m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
-            <span class="u-title">百科词条热榜</span>
-            <a href="/wiki" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
+            <a class="u-title" href="/wiki" target="_blank">百科词条热榜</a>
+            <a href="/wiki" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
         </div>
         <ul class="u-list">
             <li v-for="(item, i) in data" :key="i">

@@ -2,8 +2,8 @@
     <div class="m-rank-macro m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
-            <span class="u-title">云端宏热榜</span>
-            <a href="/macro/#/rank" class="u-more" title="查看更多"
+            <a class="u-title" href="/macro" target="_blank">云端宏热榜</a>
+            <a href="/macro/#/rank" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
         </div>

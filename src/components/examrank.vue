@@ -2,8 +2,8 @@
     <div class="m-rank-exam m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
-            <span class="u-title">题库试卷热榜</span>
-            <a href="/exam/" class="u-more" title="查看更多"><i class="el-icon-more"></i></a>
+            <a class="u-title" href="/exam" target="_blank">题库试卷热榜</a>
+            <a href="/exam/" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
         </div>
         <ul class="u-list">
             <li v-for="(item, i) in data" :key="i">

@@ -1,9 +1,9 @@
 <template>
     <div class="m-index-recruit m-sideblock">
         <div class="m-index-recruit-header m-sideblock-header">
-            <h2 class="u-title">
+            <a class="u-title" href="/team" target="_blank">
                 <i class="el-icon-data-analysis"></i> 团队招募
-            </h2>
+            </a>
             <el-select
                 class="u-server u-select"
                 v-model="server"
