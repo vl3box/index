@@ -13,7 +13,6 @@
 .u-guide-block{
 
     border-right:1px solid #eee;
-    border-bottom:1px solid #eee;
     &.u-guide-pvp{
         border-right:none;
     }
@@ -25,6 +24,7 @@
         .fz(14px,40px);
         background-color:@bg-light;
         border-bottom:1px solid #eee;
+        border-top:1px solid #eee;
     }
 
     .u-list{
@@ -59,6 +59,12 @@
         color:@pink;
     }
 
+}
+
+.u-guide-pve,.u-guide-pvp,.u-guide-pvx{
+    .u-title{
+        border-top:none;
+    }
 }
 
 @media screen and (max-width:@phone){
