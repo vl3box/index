@@ -1,6 +1,6 @@
 <template>
     <div class="m-live">
-
+        <!-- <iframe src="https://open.douyu.com/tpl/h5/chain2/jdxoubyoux/534490" frameborder="0"></iframe> -->
     </div>
 </template>
 

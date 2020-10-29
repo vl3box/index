@@ -66,7 +66,7 @@
                             <a href="/bps/?pid=18030" target="_blank">110技能属性及变化</a>
                             <a href="/bps/?pid=5556" target="_blank">全职业属性/技能机制</a>
                             
-                            <a href="/bps/?pid=18257#/" target="_blank">110 PVE输出配装</a>
+                            <a href="/bps/?pid=18257#/" target="_blank">110PVE输出配装</a>
                             <a href="/bps/?pid=7694#/" target="_blank">110气纯白皮书</a>
                             <a href="/bps/?pid=18374#/" target="_blank">110丐帮进阶攻略</a>
                             <a href="/bps/?pid=18375#/" target="_blank">110苍云输出指南</a>

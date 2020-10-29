@@ -5,12 +5,13 @@
             <div class="m-primary">
                 <live />
                 <bigbang />
-                <box />
                 <event />
+                <box />
                 <flower />
                 <!-- TODO:沙雕表情 -->
                 <guide />
                 <newpost />
+                <!-- TODO:剑三直播 -->
                 <team />
 
                 <div class="m-left">
