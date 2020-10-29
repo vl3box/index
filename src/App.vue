@@ -3,14 +3,14 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-primary">
+                <live />
                 <bigbang />
                 <box />
                 <event />
                 <flower />
-                <!-- TODO:110玩法引导 <guide /> -->
                 <!-- TODO:沙雕表情 -->
+                <guide />
                 <newpost />
-                <!-- TODO:剑三直播 -->
                 <team />
 
                 <div class="m-left">
@@ -58,7 +58,8 @@ import wikirank from "@/components/wikirank.vue";
 import examrank from "@/components/examrank.vue";
 import newpost from "@/components/newpost.vue";
 import team from "@/components/team.vue";
-// import guide from "@/components/guide.vue";
+import guide from "@/components/guide.vue";
+import live from "@/components/live.vue";
 import cjrank from "@/components/cjrank.vue";
 import { getProfile } from "./service/profile";
 import User from "@jx3box/jx3box-common/js/user";
@@ -90,8 +91,9 @@ export default {
         newpost,
         event,
         team,
-        // guide,
+        guide,
         cjrank,
+        live
     },
     created: function() {
         if (User.isLogin()) {

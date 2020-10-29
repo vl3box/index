@@ -5,5 +5,65 @@
 }
 
 .m-guide-content{
-    
+    .el-col,.el-row{
+        .h(100%);
+    }
+}
+
+.u-guide-block{
+
+    border-right:1px solid #eee;
+    border-bottom:1px solid #eee;
+    &.u-guide-pvp{
+        border-right:none;
+    }
+
+    .u-title{
+        margin:0;
+        .x;
+        padding:0;
+        .fz(14px,40px);
+        background-color:@bg-light;
+        border-bottom:1px solid #eee;
+    }
+
+    .u-list{
+        .fz(13px,2);
+        padding:10px 20px;
+        .clearfix;
+    }
+
+    a{
+        .db;
+        .fl;
+        .mb(5px);
+        min-width:30%;
+        span{
+            color:#888;
+            .ml(5px);
+            .fz(12px);
+        }
+    }
+
+    &.u-guide-bps{
+        border-bottom:none;
+        a{
+            min-width:25%;
+        }
+    }
+    &.u-guide-other{
+        border-bottom:none;
+    }
+
+    a:hover{
+        color:@pink;
+    }
+
+}
+
+@media screen and (max-width:@phone){
+    .u-guide-block a{
+        .nobreak;
+        .w(100%);
+    }
 }
