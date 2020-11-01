@@ -3,7 +3,7 @@ import { __server } from "@jx3box/jx3box-common/js/jx3box.json";
 import { installNextInterceptors } from "@jx3box/jx3box-common/js/axios";
 const $server = axios.create({
     withCredentials: true,
-    baseURL: process.env.NODE_ENV === "production" ? __next : "/",
+    baseURL: process.env.NODE_ENV === "production" ? __server : "/",
 });
 installNextInterceptors($server);
 
