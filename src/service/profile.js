@@ -1,20 +1,11 @@
-import { $server } from "@jx3box/jx3box-common/js/axios";
-
-function getServer(uid) {
-    return $server
-        .get("user/meta", {
-            params: {
-                key: "jx3price",
-                uid: uid,
-            },
-        })
-        .then((res) => {
-            return res.data;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
+import axios from "axios";
+import { __server } from "@jx3box/jx3box-common/js/jx3box.json";
+import { installNextInterceptors } from "@jx3box/jx3box-common/js/axios";
+const $server = axios.create({
+    withCredentials: true,
+    baseURL: process.env.NODE_ENV === "production" ? __next : "/",
+});
+installNextInterceptors($server);
 
 function getProfile() {
     return $server
@@ -22,9 +13,6 @@ function getProfile() {
         .then((res) => {
             return res.data.data;
         })
-        .catch((err) => {
-            console.log(err);
-        });
 }
 
 function getMeta(key) {
@@ -34,9 +22,6 @@ function getMeta(key) {
                 key: key,
             },
         })
-        .catch((err) => {
-            console.log(err);
-        });
 }
 
 function setMeta(key, val) {
@@ -45,9 +30,6 @@ function setMeta(key, val) {
             key: key,
             value: val,
         })
-        .catch((err) => {
-            console.log(err);
-        });
 }
 
-export { getServer, getProfile, getMeta, setMeta };
+export { getProfile, getMeta, setMeta };

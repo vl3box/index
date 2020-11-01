@@ -35,7 +35,10 @@ module.exports = {
                 "onProxyReq": function (request) {
                     request.setHeader("origin", "");
                 }
-            }
+            },
+            "/user": {
+                "target": "https://server.jx3box.com",
+            },
         },
         disableHostCheck: true
     },

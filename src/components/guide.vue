@@ -67,11 +67,11 @@
                             <a href="/bps/?pid=5556" target="_blank">全职业属性/技能机制</a>
                             
                             <a href="/bps/?pid=18257#/" target="_blank">110PVE输出配装</a>
-                            <a href="/bps/?pid=7694#/" target="_blank">110气纯白皮书</a>
-                            <a href="/bps/?pid=18374#/" target="_blank">110丐帮进阶攻略</a>
-                            <a href="/bps/?pid=18375#/" target="_blank">110苍云输出指南</a>
+                            <a href="/bps/?pid=7694#/" target="_blank"><i class="i-school-cy"></i>110【气纯】白皮书</a>
+                            <a href="/bps/?pid=18374#/" target="_blank"><i class="i-school-gb"></i>110【丐帮】进阶攻略</a>
+                            <a href="/bps/?pid=18375#/" target="_blank"><i class="i-school-cangyun"></i>110【苍云】输出指南</a>
 
-                            <a href="">-</a>
+                            <a href="/bps/?pid=18435#/" target="_blank"><i class="i-school-cj"></i>110【藏剑】PVE指南</a>
                             <a href="">-</a>
                             <a href="">-</a>
                             <a href="">-</a>
