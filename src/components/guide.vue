@@ -3,6 +3,7 @@
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-guide"></i>
             <span class="u-title">游戏指南</span>
+            <a href="/bps" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部"><i class="el-icon-more"></i></a>
         </div>
         <div class="m-guide-content">
             <el-row>
@@ -59,22 +60,31 @@
             <el-row>
                 <el-col :span="16">
                     <div class="u-guide-block u-guide-bps">
-                        <h5 class="u-title">门派指南</h5>
+                        <h5 class="u-title">110级 - 门派指南</h5>
                         <div class="u-list">
                             <a href="/bps/?pid=18308#/" target="_blank">110属性变化探讨</a>
                             <a href="/bps/?pid=18327#/" target="_blank">110防御心法变化</a>
                             <a href="/bps/?pid=18030" target="_blank">110技能属性及变化</a>
-                            <a href="/bps/?pid=5556" target="_blank">全职业属性/技能机制</a>
-                            
                             <a href="/bps/?pid=18257#/" target="_blank">110PVE输出配装</a>
-                            <a href="/bps/?pid=7694#/" target="_blank"><i class="i-school-cy"></i>110【气纯】白皮书</a>
-                            <a href="/bps/?pid=18374#/" target="_blank"><i class="i-school-gb"></i>110【丐帮】进阶攻略</a>
-                            <a href="/bps/?pid=18375#/" target="_blank"><i class="i-school-cangyun"></i>110【苍云】输出指南</a>
 
+                            <a href="/bps/?pid=7694#/" target="_blank"><i class="i-xf-qc"></i>110【气纯】白皮书</a>
+                            <!-- <img class="i-icon-new" src="../assets/img/new.gif"> -->
+                            <a href="/bps/?pid=18374#/" target="_blank"><i class="i-school-gb"></i>110【丐帮】进阶攻略</a>
+                            <a href="/bps/?pid=18375#/" target="_blank"><i class="i-xf-cangyun"></i>110【苍云】输出指南</a>
                             <a href="/bps/?pid=18435#/" target="_blank"><i class="i-school-cj"></i>110【藏剑】PVE指南</a>
-                            <a href="">-</a>
-                            <a href="">-</a>
-                            <a href="">-</a>
+
+                            <a href="/bps/?pid=18496#/" target="_blank"><i class="i-school-pl"></i>110【蓬莱】PVE心得</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
+                            <a href="" target="_blank">-</a>
                         </div>
                     </div>
                 </el-col>
@@ -83,17 +93,21 @@
                         <h5 class="u-title">通用</h5>
                         <div class="u-list">
 
-                            <a href="/bps/?pid=5443#/" target="_blank">坦克全知识点</a>
-                            <a href="/bps/?pid=13980#/" target="_blank">仇恨系数表</a>
+                            <a href="/bps/?pid=5556" target="_blank">全职业属性与技能机制</a>
+                            <a href="/wiki/?pid=108#/" target="_blank">宏指南<span>(小白必看)</span></a>
+
+                            <a href="/bps/?pid=5443#/" target="_blank">坦克全知识点解析</a>
+                            <a href="/bps/?pid=13980#/" target="_blank">心法仇恨系数表</a>
+
                             <a href="/bps/?pid=11744#/" target="_blank">全职业打断一览</a>
-                            <a href="/bps/?pid=799#/" target="_blank">Buff类型一览</a>
+                            <a href="/bps/?pid=799#/" target="_blank">全Buff类型一览</a>
 
                             <a href="/bps/?pid=12752#/" target="_blank">伤害精确算法</a>
                             <a href="/bps/?pid=14786#/" target="_blank">BOSS伤害精确算法</a>
-                            <a href="/bps/?pid=7609#/" target="_blank">无视防御叠加</a>
+
+                            <a href="/bps/?pid=7609#/" target="_blank">无视防御叠加算法</a>
                             <a href="/bps/?pid=14194#/" target="_blank">AOE减伤机制</a>
 
-                            <a href="/wiki/?pid=108#/" target="_blank">宏指南<span>(小白必看)</span></a>
                         </div>
                     </div>
                 </el-col>
