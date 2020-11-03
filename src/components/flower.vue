@@ -37,6 +37,7 @@
             <a href="/app/flower" class="u-more" target="_blank"
                 ><i class="el-icon-more"></i></a
             >
+            <a href="/app/flower" class="u-crop" target="_blank">+ 新增作物 <img src="../assets/img/new2.gif"></a>
         </div>
         <div class="m-flower-content" v-if="data.length">
             <el-row :gutter="40">
