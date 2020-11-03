@@ -86,6 +86,7 @@
                     </div>
                 </el-col>
             </el-row>
+            <a class="u-all" href="/app/flower" target="_blank"><i class="el-icon-d-arrow-right"></i> 查看更多</a>
         </div>
     </div>
 </template>
