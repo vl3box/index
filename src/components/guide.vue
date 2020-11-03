@@ -60,7 +60,7 @@
             <el-row>
                 <el-col :span="16">
                     <div class="u-guide-block u-guide-bps">
-                        <h5 class="u-title">110级 - 门派指南</h5>
+                        <h5 class="u-title">110级 - 全门派指南 <img src="../assets/img/new2.gif"></h5>
                         <div class="u-list">
                             <a href="/bps/?pid=18308#/" target="_blank"><i class="i-school-null"></i>110属性变化探讨</a>
                             <a href="/bps/?pid=18327#/" target="_blank"><i class="i-school-null"></i>110防御心法变化</a>
@@ -73,7 +73,6 @@
                             <a href="" target="_blank">-</a>
 
                             <a href="/bps/?pid=7694#/" target="_blank"><i class="i-xf-qc"></i>【气纯】白皮书</a>
-                            <!-- <img class="i-icon-new" src="../assets/img/new.gif"> -->
                             <a href="/bps/?pid=18374#/" target="_blank"><i class="i-school-gb"></i>【丐帮】进阶攻略</a>
                             <a href="/bps/?pid=18375#/" target="_blank"><i class="i-xf-cangyun"></i>【苍云】输出指南</a>
                             <a href="/bps/?pid=18435#/" target="_blank"><i class="i-school-cj"></i>【藏剑】PVE指南</a>
