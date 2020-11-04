@@ -25,7 +25,7 @@ export default {
     computed: {},
     methods: {},
     beforeCreate: function() {
-        getNews("event").then((data) => {
+        getNews("event",10).then((data) => {
             data.forEach((item) => {
                 item.img = resolveImagePath(item.img);
             });

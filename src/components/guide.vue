@@ -69,7 +69,7 @@
 
                             <a href="/bps/?pid=18527#/" target="_blank"><i class="i-school-ytz"></i>【衍天宗】入门</a>
                             <a href="/macro/?pid=18376#/" target="_blank"><i class="i-school-ytz"></i>【衍天宗】简易宏</a>
-                            <a href="" target="_blank">-</a>
+                            <a href="/bps/?pid=17780#/" target="_blank"><i class="i-school-ytz"></i>【衍天宗】属性详解</a>
                             <a href="" target="_blank">-</a>
 
                             <a href="/bps/?pid=7694#/" target="_blank"><i class="i-xf-qc"></i>【气纯】白皮书</a>
@@ -81,8 +81,9 @@
                             <a href="/bps/?pid=18555#/" target="_blank"><i class="i-xf-jy"></i>【惊羽】秋声流</a>
                             <a href="" target="_blank">-</a>
                             <a href="" target="_blank">-</a>
-                            <a href="" target="_blank">-</a>
-                            <a href="" target="_blank">-</a>
+
+                            <a href="/bps/?pid=18358#/" target="_blank"><i class="i-xf-xz"></i>【相知】奶歌达摩洞</a>
+                            <a href="/bps/?pid=18504#/" target="_blank"><i class="i-xf-ys"></i>【云裳】奶秀达摩洞</a>
                             <a href="" target="_blank">-</a>
                             <a href="" target="_blank">-</a>
                         </div>
