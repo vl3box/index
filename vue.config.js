@@ -36,6 +36,12 @@ module.exports = {
                     request.setHeader("origin", "");
                 }
             },
+            "/xoyo": {
+                "target": process.env["DEV_SERVER"] == "true" ? "http://localhost:51818" : "https://next.jx3box.com",
+                "onProxyReq": function (request) {
+                    request.setHeader("origin", "");
+                }
+            },
             "/user": {
                 "target": "https://server.jx3box.com",
             },

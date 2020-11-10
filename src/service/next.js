@@ -29,4 +29,12 @@ function getRank(type, limit = 10, sort = "30days") {
         });
 }
 
-export { getFlowerRank, getRank };
+function getDaily(date){
+    return $next.get('xoyo/daily/task',{
+        params : {
+            date : date //int,时间戳，单位秒
+        }
+    })
+}
+
+export { getFlowerRank, getRank,getDaily };

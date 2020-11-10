@@ -1,68 +1,82 @@
 .m-daily{
-    // background-color:@bg-light;
-    // border:1px solid #eee;
-    // .r(6px);
-
-    // .mb(10px);
-    .mt(20px);
 }
-// .m-daily-header{    //#1d3740
-//     background:url('../img/right/dailybg.png') @bg-black no-repeat right bottom;
+.m-daily-header{    //#1d3740
+    background:url('../img/right/dailybg.png') @bg-black no-repeat right bottom;
 
-//     .r(6px);
-//     border-bottom-left-radius:0;
-//     border-bottom-right-radius:0;
+    .r(6px);
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
 
-//     color:#fff;
+    color:#fff;
 
-//     .h(100px);
-//     box-sizing: border-box;
+    .h(100px);
+    box-sizing: border-box;
+    padding:10px !important;
 
-//     .u-month{
-//         padding:14px 14px 14px 20px;
-//         .fz(30px,32px);
-//         span{
-//             .db;
-//         }
-//         .fl;
-//     }
-//     .u-date{
-//         .fz(75px,100px);
-//         .bold;
-//     }
-// }
+    .u-time{
+        .fz(13px);
+    }
+
+    .pr;
+    .u-wechat{
+        .pa;.rt(10px);
+        .size(80px);
+    }
+
+    .u-list{
+        .mt(10px);
+    }
+
+    .u-item{
+        .fz(12px,2);
+        .db;
+        a{
+            color:#fff;
+        }
+
+        a:hover{
+            color:@blue;
+        }
+
+        em{
+            font-style: normal;
+            color:#ccc;
+        }
+    }
+
+    .isHighlight{
+        .bold;
+    }
+}
 
 .m-daily-content{
     padding-bottom:10px;
-    .u-block{
-        .indent(40px);
-    }
     .u-title{
         .fz(14px,20px);
         border-bottom:1px solid #e4e7ed;
         padding-bottom:10px;
-    }
-    .u-pve{
-        color:#079800;
-    }
-    .u-pvp{
-        color:#bb1a00;
-    }
-    .u-pvx{
-        color:#f1a400;
+        .x;
     }
     ul{
         padding:0;
         margin:0;
         list-style:none;
+        .mt(10px);
     }
     li{
-        .fz(12px,24px);
+        .fz(12px,28px);
         .nobreak;
-    }
-    .u-tip{
-        .x;
-        .fz(12px,2);
-        color:#888;
+
+        em{
+            font-style: normal;
+            background-color:#eee;
+            color:#fff;
+            padding:2px 5px;
+            .r(2px);
+            .mr(5px);
+        }
+
+        &:first-child em{background-color:#079800;}
+        &:nth-child(2n) em{background-color:#bb1a00;}    //#f1a400
     }
 }

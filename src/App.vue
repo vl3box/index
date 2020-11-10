@@ -15,22 +15,23 @@
                 <team />
 
                 <div class="m-left">
+                    <daily />
                     <gamenews />
                     <servers />
                     <price />
-                    <!-- TODO:日常 <daily /> -->
                 </div>
 
                 <div class="m-right">
-                    <activity />
                     <notice />
-                    <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
+                    <!-- TODO:当前赛季百强 -->
                     <cjrank />
                     <macrorank />
                     <jx3datrank />
                     <!-- TODO:DPS天梯 -->
                     <wikirank />
                     <examrank />
+                    <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
+                    <!-- <activity /> -->
                 </div>
 
                 <Footer></Footer>
@@ -46,7 +47,7 @@ import bigbang from "@/components/bigbang.vue";
 import activity from "@/components/activity.vue";
 import notice from "@/components/notice.vue";
 import box from "@/components/box.vue";
-// import daily from "@/components/daily.vue";
+import daily from "@/components/daily.vue";
 // import ad from "@/components/ad.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
@@ -74,12 +75,12 @@ export default {
     methods: {},
     components: {
         // Nav,
-        activity,
+        // activity,
         gamenews,
         notice,
         bigbang,
         box,
-        // daily,
+        daily,
         // ad,
         servers,
         price,

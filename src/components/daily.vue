@@ -1,82 +1,80 @@
 <template>
     <div class="m-daily m-sideblock">
-        <!-- <div class="m-daily-header">
-            <div class="u-month"><span>{{month}}</span><span>月</span></div>
-            <div class="u-date">{{date}}</div>
-        </div> -->
-        <!-- <div class="m-daily-header m-sideblock-header">
-            <i class="el-icon-s-order"></i
-            ><span class="u-title">今日日常</span>
+        <div class="m-daily-header m-sideblock-header">
+            <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
+            <img class="u-wechat" src="../assets/img/right/qrcode.png" alt="" />
+            <div class="u-list">
+                <span class="u-weibo u-item">
+                    <em>官博：</em>
+                    <a href="https://weibo.com/jx3box" target="_blank"
+                        >JX3BOX魔盒</a
+                    >
+                </span>
+                <span class="u-item" v-if="data && data.length">
+                    <em>今日头条：</em>
+                    <span v-for="(item, i) in data" :key="i">
+                        <a
+                            :href="item.link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            :style="{ color: item.color }"
+                            :class="{ isHighlight: !!item.color }"
+                            >{{ item.title }}
+                        </a>
+                    </span>
+                </span>
+            </div>
         </div>
         <div class="m-daily-content">
-            <el-row>
-                <el-col :span="8"
-                    ><div class="u-block">
-                        <h2 class="u-title u-pve">PVE</h2>
-                        <ul>
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                        </ul>
-                    </div></el-col
-                >
-                <el-col :span="8"
-                    ><div class="u-block">
-                        <h2 class="u-title u-pvp">PVP</h2>
-                        <ul>
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                        </ul>
-                    </div></el-col
-                >
-                <el-col :span="8"
-                    ><div class="u-block">
-                        <h2 class="u-title u-pvx">其它</h2>
-                        <ul>
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                        </ul>
-                    </div></el-col
-                >
-            </el-row>
-            <p class="u-tip">♥ 愿等一接口,白首不相离</p>
-        </div> -->
+            <ul>
+                <li v-for="(item, i) in list" :key="i">
+                    <em>{{item.taskType}}</em><span>{{ item.activityName }}</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <script>
-const number_map = {
-    "1":"一",
-    "2":"二",
-    "3":"三",
-    "4":"四",
-    "5":"五",
-    "6":"六",
-    "7":"七",
-    "8":"八",
-    "9":"九",
-    "10":"十",
-    "11":"十一",
-    "12":"十二",
-}
+import { getNews } from "../service/index";
+import { getDaily } from "../service/next";
 export default {
     name: "daily",
     props: [],
     data: function() {
         return {
-            month : '',
-            date : ''
+            year: "",
+            month: "",
+            date: "",
+            data: [],
+            list: [],
         };
     },
-    computed: {
-    },
+    computed: {},
     methods: {},
     created: function() {
-        let dt = new Date()
-        this.month = number_map[dt.getMonth() + 1]
-        this.date = dt.getDate()
+        let dt = new Date();
+        this.year = dt.getFullYear();
+        this.month = dt.getMonth() + 1;
+        this.date = dt.getDate();
+    },
+    beforeCreate: function() {
+        getNews("bigbang", 1).then((data) => {
+            this.data = data;
+        });
+
+        let dt = new Date();
+        let hour = dt.getHours();
+        let q;
+        if (hour > 0 && hour < 9) {
+            q = ~~((Date.now() - 86400000) / 1000);
+        } else {
+            q = ~~(Date.now() / 1000);
+        }
+
+        getDaily(q).then((res) => {
+            this.list = res.data.data;
+        });
     },
     components: {},
 };
