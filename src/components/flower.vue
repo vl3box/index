@@ -97,7 +97,7 @@ import User from '@jx3box/jx3box-common/js/user'
 import { getFlowerRank } from "../service/next";
 import types from "../assets/data/flower.json";
 import { __iconPath,__ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
-import servers from "@jx3box/jx3box-data/data/server/server_list.json";
+import servers from "@jx3box/jx3box-data/data/server/flower_server.json";
 // 繁體
 import traditional_servers from "@jx3box/jx3box-data/data/server/server_international.json";
 import dict from '@/assets/data/flower_dict.json'

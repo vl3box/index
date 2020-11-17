@@ -79,8 +79,8 @@
 
                             <a href="/bps/?pid=18496#/" target="_blank"><i class="i-school-pl"></i>【蓬莱】PVE心得</a>
                             <a href="/bps/?pid=18555#/" target="_blank"><i class="i-xf-jy"></i>【惊羽】秋声流</a>
-                            <a href="" target="_blank">-</a>
-                            <a href="" target="_blank">-</a>
+                            <a href="/bps/?pid=18854" target="_blank"><i class="i-xf-fy"></i>【焚影】PVE指南</a>
+                            <a href="/bps/?pid=18970#/" target="_blank"><i class="i-xf-bx"></i>【冰心】110笔记</a>
 
                             <a href="/bps/?pid=18358#/" target="_blank"><i class="i-xf-xz"></i>【相知】奶歌达摩洞</a>
                             <a href="/bps/?pid=18504#/" target="_blank"><i class="i-xf-ys"></i>【云裳】奶秀达摩洞</a>
