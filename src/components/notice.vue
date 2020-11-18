@@ -10,7 +10,7 @@
                     >
                     <span> | </span>
                     <a
-                        href="https://os.jx3box.com/admin/user/login"
+                        href="https://os.jx3box.com/admin/admin/login"
                         target="_blank"
                         rel="noopener noreferrer"
                         >后台管理</a
