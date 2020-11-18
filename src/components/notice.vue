@@ -6,14 +6,14 @@
             <span class="u-more u-admin">
                 <template v-if="isSuper">
                     <a href="/admin" target="_blank" rel="noopener noreferrer"
-                        >管理面板</a
+                        >海报管理</a
                     >
                     <span> | </span>
                     <a
                         href="https://os.jx3box.com/admin/user/login"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >百科审核</a
+                        >后台管理</a
                     >
                 </template>
                 <a v-else href="/bbs/?subtype=5#/" class="u-help"><img svg-inline src="../assets/img/right/feedback.svg" /></a>
