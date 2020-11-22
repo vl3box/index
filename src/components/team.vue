@@ -45,7 +45,8 @@
                 target="_blank"
             >
                 <span class="u-pic">
-                    <img :src="item.logo | showLogo" />
+                    <img :src="item.logo | showLogo" v-if="item.logo" />
+                    <img src="../assets/img/center/null.png" v-else/>
                 </span>
                 <span class="u-name">
                     {{ item.name }}
