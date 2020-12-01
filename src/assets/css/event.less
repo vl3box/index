@@ -31,17 +31,17 @@
         transition:0.2s ease-in-out;
     }
 }
-@media screen and (max-width:@ipad){
+@media screen and (max-width:@phone){
     .m-event{
-        // .el-carousel__container{
-        //     .h(60px) !important;
-        //     img{
-        //         .h(60px);
-        //         .w(412px);
-        //         .pa;left:50%;
-        //         transform: translateX(-50%);
-        //         max-width:none;
-        //     }
-        // }
+        .slick-prev:before, .slick-next:before{
+            font-size:20px;
+            .size(20px);
+        }
+        .slick-next{
+            right:0;
+        }
+        .slick-prev{
+            left:0;
+        }
     }
 }
