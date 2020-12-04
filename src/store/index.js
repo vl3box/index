@@ -8,7 +8,13 @@ let store = {
         profile : {
             server : '蝶恋花'
         },
-        server : '蝶恋花'
+        server : '蝶恋花',
+        config : {
+            index_live_status : 0,
+            index_video_status : 0,
+            index_live_url : '',
+            index_video_url : ''
+        }
     },
     mutations: {
     },

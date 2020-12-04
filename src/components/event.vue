@@ -22,7 +22,11 @@ export default {
             data: [],
         };
     },
-    computed: {},
+    computed: {
+        player_status : function (){
+            return this.$store.state.config.index_live_status || this.$store.state.config.index_video_status
+        },
+    },
     methods: {},
     beforeCreate: function() {
         getNews("event",10).then((data) => {

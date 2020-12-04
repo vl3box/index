@@ -16,4 +16,8 @@ function getNews(type, limit = 5) {
         });
 }
 
-export { getNews };
+function getConfig() {
+    return $server.get("index/config");
+}
+
+export { getNews, getConfig };

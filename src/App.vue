@@ -65,6 +65,7 @@ import live from "@/components/live.vue";
 import cjrank from "@/components/cjrank.vue";
 import { getProfile } from "./service/profile";
 import User from "@jx3box/jx3box-common/js/user";
+import { getConfig } from "@/service/index.js";
 export default {
     name: "App",
     props: [],
@@ -105,6 +106,19 @@ export default {
                 }
             });
         }
+
+        getConfig().then((res) => {
+            let data = res.data.data
+            let _data = {}
+            if(data){
+                data.forEach((item) => {
+                    _data[item.key] = item.val
+                })
+            }
+            this.$store.state.config = _data
+        })
+
+        
     },
 };
 </script>

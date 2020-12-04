@@ -1,26 +1,37 @@
 <template>
     <div class="m-live">
-        <!-- <iframe src="https://open.douyu.com/tpl/h5/chain2/jdxoubyoux/534490" frameborder="0"></iframe> -->
+        <iframe :src="live_url" frameborder="0" v-if="live_status"></iframe>
+        <iframe :src="video_url" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" v-if="video_status"></iframe>
     </div>
 </template>
 
 <script>
-    export default {
-        name : '',
-        props:[],
-        data : function(){
-            return {
-                
-            }
+export default {
+    name: "",
+    props: [],
+    data: function() {
+        return {};
+    },
+    computed: {
+        live_url : function (){
+            return this.$store.state.config.index_live_url
         },
-        computed:{},
-        methods:{},
-        mounted:function(){},
-        components : {
-        }
-    }
+        live_status : function (){
+            return ~~this.$store.state.config.index_live_status
+        },
+        video_url : function (){
+            return this.$store.state.config.index_video_url
+        },
+        video_status : function (){
+            return ~~this.$store.state.config.index_video_status
+        },
+    },
+    methods: {},
+    mounted: function() {},
+    components: {},
+};
 </script>
 
 <style lang="less">
-    @import '../assets/css/live.less';
+@import "../assets/css/live.less";
 </style>
