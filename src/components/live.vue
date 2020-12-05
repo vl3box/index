@@ -1,5 +1,5 @@
 <template>
-    <div class="m-live">
+    <div class="m-live" v-if="live_status || video_status">
         <iframe :src="live_url" frameborder="0" v-if="live_status"></iframe>
         <iframe :src="video_url" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" v-if="video_status"></iframe>
     </div>
