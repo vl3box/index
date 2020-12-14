@@ -10,10 +10,17 @@
         }
         margin: 0 10px 0 0;
     }
+    .u-condition{
+        .dbi;
+    }
     .u-server{
         .y(-2px);
         .w(120px);
         .mr(10px);
+    }
+    .u-isVerified,.u-type{
+        .y(-2px);
+        .ml(10px);
     }
     .u-name{
         .w(auto);
@@ -60,6 +67,13 @@
         .pr;
         .u-misc{
             .pa;.rt(10px,3px);
+        }
+    }
+}
+@media screen and (max-width:@phone){
+    .m-index-recruit-header{
+        .u-condition{
+            .none;
         }
     }
 }
@@ -154,6 +168,17 @@
             .fz(12px, 2.5);
             color: #666;
             .nobreak;
+        }
+
+
+        .u-tag{
+            border:1px solid #dc1578;
+            background-color:#ff2072;
+            color:#fff;
+            &::before{
+                content:'♥';
+                .mr(5px);
+            }
         }
     }
 
