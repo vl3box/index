@@ -89,7 +89,7 @@
                         <h5 class="u-title">特效武器大全 <img src="../assets/img/new2.gif"></h5>
                         <div class="u-list">
                             <a href="/bps/?pid=9315#/" target="_blank"><i class="i-xf-hj"></i>【花间】雪凤冰王笛</a>
-                            <a href="血影天宇舞姬" target="_blank"><i class="i-xf-ys"></i>【云裳】血影天宇舞姬</a>
+                            <a href="/bps/?pid=7386#/" target="_blank"><i class="i-xf-ys"></i>【云裳】血影天宇舞姬</a>
                             <a href="/bps/?pid=19622#/" target="_blank"><i class="i-xf-fy"></i>【焚影】圆月双角</a>
                             <a href="/bps/?pid=17518#/" target="_blank"><i class="i-xf-cangyun"></i>【苍云】斩马刑天</a>
                             <a href="/bps/?pid=9102#/" target="_blank"><i class="i-xf-qc"></i>【气纯】腾空</a>
