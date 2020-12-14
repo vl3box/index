@@ -60,7 +60,7 @@
             <el-row>
                 <el-col :span="16">
                     <div class="u-guide-block u-guide-bps">
-                        <h5 class="u-title">110级 - 全门派指南 <img src="../assets/img/new2.gif"></h5>
+                        <h5 class="u-title">110级 - 全门派指南</h5>
                         <div class="u-list">
                             <a href="/bps/?pid=18308#/" target="_blank"><i class="i-school-null"></i>110属性变化探讨</a>
                             <a href="/bps/?pid=18327#/" target="_blank"><i class="i-school-null"></i>110防御心法变化</a>
@@ -82,10 +82,19 @@
                             <a href="/bps/?pid=18854" target="_blank"><i class="i-xf-fy"></i>【焚影】PVE指南</a>
                             <a href="/bps/?pid=18970#/" target="_blank"><i class="i-xf-bx"></i>【冰心】110笔记</a>
 
-                            <a href="/bps/?pid=18746#/" target="_blank"><i class="i-xf-mw"></i>【莫问】莫问大徽循环</a>
-                            <a href="" target="_blank">-</a>
-                            <a href="" target="_blank">-</a>
-                            <a href="" target="_blank">-</a>
+                            <a href="/bps/?pid=18746#/" target="_blank"><i class="i-xf-mw"></i>【莫问】大徽循环</a>
+                            <a href="/bps/?pid=19452#/" target="_blank"><i class="i-xf-xz"></i>【相知】达摩洞攻略</a>
+                            <a href="/bps/?pid=19670#/" target="_blank"><i class="i-xf-bt"></i>【补天】收益分析对比</a>
+                        </div>
+                        <h5 class="u-title">特效武器大全 <img src="../assets/img/new2.gif"></h5>
+                        <div class="u-list">
+                            <a href="/bps/?pid=9315#/" target="_blank"><i class="i-xf-hj"></i>【花间】雪凤冰王笛</a>
+                            <a href="血影天宇舞姬" target="_blank"><i class="i-xf-ys"></i>【云裳】血影天宇舞姬</a>
+                            <a href="/bps/?pid=19622#/" target="_blank"><i class="i-xf-fy"></i>【焚影】圆月双角</a>
+                            <a href="/bps/?pid=17518#/" target="_blank"><i class="i-xf-cangyun"></i>【苍云】斩马刑天</a>
+                            <a href="/bps/?pid=9102#/" target="_blank"><i class="i-xf-qc"></i>【气纯】腾空</a>
+                            <a href="/bps/?pid=7555#/" target="_blank"><i class="i-xf-jc"></i>【剑纯】画影</a>
+                            <a href="/bps/?pid=13036#/" target="_blank"><i class="i-xf-ws"></i>【藏剑】岚尘金蛇</a>
                         </div>
                     </div>
                 </el-col>
