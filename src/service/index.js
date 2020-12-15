@@ -1,8 +1,9 @@
-import { $server } from "@jx3box/jx3box-common/js/axios";
+import { axios } from "@jx3box/jx3box-common/js/axios";
+import { __server } from "@jx3box/jx3box-common/js/jx3box.json";
 
 function getNews(type, limit = 5) {
-    return $server
-        .get("index/list", {
+    return axios
+        .get(__server + "index/list", {
             params: {
                 type,
                 limit,
@@ -17,7 +18,7 @@ function getNews(type, limit = 5) {
 }
 
 function getConfig() {
-    return $server.get("index/config");
+    return axios.get(__server + "index/config");
 }
 
 export { getNews, getConfig };
