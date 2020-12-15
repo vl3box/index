@@ -101,7 +101,7 @@
                             <a href="/bps/?pid=9102#/" target="_blank"><i class="i-xf-qc"></i>【气纯】腾空</a>
                             <a href="/bps/?pid=7555#/" target="_blank"><i class="i-xf-jc"></i>【剑纯】画影</a>
                             <a href="/bps/?pid=13036#/" target="_blank"><i class="i-xf-ws"></i>【藏剑】岚尘金蛇</a>
-                            <a href="/bps/?pid=12181#/" target="_blank"><i class="i-xf-ws"></i>【霸刀】五项斩</a>
+                            <a href="/bps/?pid=12181#/" target="_blank"><i class="i-xf-bd"></i>【霸刀】五项斩</a>
                             
                         </div>
                     </div>
