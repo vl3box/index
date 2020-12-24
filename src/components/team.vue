@@ -71,7 +71,7 @@
         </div>
         <div class="u-list" v-if="data && data.length">
             <el-row :gutter="20">
-                <el-col :span="6"  v-for="(item, i) in data" :key="i"
+                <el-col :span="6" v-for="(item, i) in data" :key="i"
                     ><div>
                         <a
                             class="u-item"
@@ -101,16 +101,15 @@
                                 <span class="u-meta u-server">
                                     <em>{{ item.server }}</em>
                                 </span>
+                                <span
+                                    class="u-tag"
+                                    v-if="isGoodTeam(item.tags)"
+                                ></span>
                             </span>
                             <!-- <span class="u-time">
                                 <i class="el-icon-refresh"></i>
                                 {{ item.updated_at | showTime }}
                             </span> -->
-                            <span
-                                class="u-tag"
-                                v-if="item.tags | isGoodTeam"
-                                >可教学</span
-                            >
                             <span class="u-recruit">{{
                                 item.recruit || item.desc
                             }}</span>
@@ -185,7 +184,7 @@ export default {
                 recruit: 1, //有招募的
                 server: this.server,
                 name: this.name,
-                tag: this.tag,
+                tag: this.tag && this.tag.join(','),
             };
             if (this.isVerified) {
                 params.status = 1;
@@ -206,15 +205,15 @@ export default {
                     this.loading = false;
                 });
         },
+        isGoodTeam: function(val) {
+            return val && val.includes("可教学");
+        },
     },
     filters: {
         showTime: showRecently,
         showLogo: function(val) {
             return getThumbnail(val, 42, true);
         },
-        isGoodTeam : function (val){
-            return val && val.includes('可教学')
-        }
     },
     watch: {
         params: function(newparams) {
