@@ -8,8 +8,9 @@
             ></a>
         </div>
         <div class="m-flower-content m-flower-side">
-            <a href="/tool/?pid=20274#/" target="_blank">❤️ 游戏内查询花价</a> | 
-            <a href="/app/flower" target="_blank">网站查询</a>
+            <!-- <a href="/tool/?pid=20274#/" target="_blank">❤️ 游戏内查询花价</a> | 
+            <a href="/app/flower" target="_blank">网站查询</a> -->
+            <a href="https://www.jx3box.com/tool/?pid=20274#/"><img :src="flower_banner"></a>
         </div>
     </div>
 </template>
@@ -18,7 +19,7 @@
 import User from "@jx3box/jx3box-common/js/user";
 import { getFlowerRank } from "../service/next";
 import types from "../assets/data/flower.json";
-import { __iconPath, __ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __iconPath, __ossMirror,__imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
 import servers from "@jx3box/jx3box-data/data/server/flower_server.json";
 // 繁體
 import traditional_servers from "@jx3box/jx3box-data/data/server/server_international.json";
@@ -35,6 +36,7 @@ export default {
             isLogin: User.isLogin(),
             current_server: "",
             current_map: "广陵邑",
+            flower_banner : __imgPath + 'image/index/flower.png'
         };
     },
     computed: {
