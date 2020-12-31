@@ -71,7 +71,7 @@
         </div>
         <div class="u-list" v-if="data && data.length">
             <el-row :gutter="20">
-                <el-col :span="6" v-for="(item, i) in data" :key="i"
+                <el-col :span="12" v-for="(item, i) in data" :key="i"
                     ><div>
                         <a
                             class="u-item"
