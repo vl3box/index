@@ -7,9 +7,9 @@
                 <bigbang />
                 <event />
                 <box />
+                <guide />
                 <flower />
                 <!-- TODO:沙雕表情 -->
-                <guide />
                 <newpost />
                 <!-- TODO:剑三直播 -->
                 <team />
