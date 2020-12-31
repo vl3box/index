@@ -5,11 +5,9 @@
     "bps",
     "cj",
     "item",
-    "tool",
-    "house",
-    "share",
     "wiki",
-    "emotion",
+    "share",
+    "tool",
     "bbs",
     "database",
     "talent",
@@ -33,5 +31,6 @@
     "minami",
     "j3dps",
     "keju",
-    "qiyu"
+    "qiyu",
+    "house"
 ]

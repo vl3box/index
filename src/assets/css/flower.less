@@ -1,7 +1,7 @@
 .m-flower{
     .mt(20px);
     background-color: #fff;
-    border: 1px solid @border-hr;
+    // border: 1px solid @border-hr;
     .r(4px);
 }
 .m-flower-header{
@@ -26,6 +26,14 @@
             color:#f39;
         }
     }
+    .u-filter{
+        .mt(5px);
+        .m-flower-select{
+            .w(40%);
+            .fl;
+        }
+        .clearfix;
+    }
 }
 @media screen and (max-width:@phone){
     .m-flower-header{
@@ -44,6 +52,7 @@
     .u-flower{
         .mb(12px);
         border-bottom:1px solid @border;
+        // border-bottom:1px dotted @border;
         padding-bottom:12px;
     }
 
@@ -168,5 +177,13 @@
 @media screen and (max-width:370px){
     .m-flower-select{
         .w(90px);
+    }
+}
+
+.m-flower-side{
+    .x;
+    padding:20px;
+    a:hover{
+        color:@pink;
     }
 }

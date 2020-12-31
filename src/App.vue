@@ -8,7 +8,6 @@
                 <event />
                 <box />
                 <guide />
-                <flower />
                 <!-- TODO:沙雕表情 -->
                 <newpost />
                 <!-- TODO:剑三直播 -->
@@ -19,6 +18,7 @@
                     <gamenews />
                     <servers />
                     <price />
+                    <flower />
                 </div>
 
                 <div class="m-right">
