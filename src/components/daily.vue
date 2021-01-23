@@ -8,10 +8,15 @@
                     <img svg-inline src="../assets/img/weibo.svg" />
                     <em>官博：</em>
                     <a href="https://weibo.com/jx3box" target="_blank"
-                        >JX3BOX魔盒</a
+                        ><b>JX3BOX魔盒</b></a
                     >
                 </span>
-                <span class="u-item" v-if="data && data.length">
+                <span class="u-weixin u-item">
+                    <img svg-inline src="../assets/img/wechat.svg" />
+                    <em>微信公众号：</em>
+                    <b>JX3BOX</b>
+                </span>
+                <!-- <span class="u-item" v-if="data && data.length">
                     <em>今日头条：</em>
                     <span v-for="(item, i) in data" :key="i">
                         <a
@@ -23,7 +28,7 @@
                             >{{ item.title }}
                         </a>
                     </span>
-                </span>
+                </span> -->
             </div>
         </div>
         <div class="m-daily-content">
@@ -47,7 +52,7 @@ export default {
             year: "",
             month: "",
             date: "",
-            data: [],
+            // data: [],
             list: [],
         };
     },
@@ -60,9 +65,9 @@ export default {
         this.date = dt.getDate();
     },
     beforeCreate: function() {
-        getNews("bigbang", 1).then((data) => {
-            this.data = data;
-        });
+        // getNews("bigbang", 1).then((data) => {
+        //     this.data = data;
+        // });
 
         let dt = new Date();
         let hour = dt.getHours();

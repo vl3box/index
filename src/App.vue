@@ -23,12 +23,12 @@
 
                 <div class="m-right">
                     <notice />
-                    <!-- TODO:当前赛季百强 -->
                     <cjrank />
                     <macrorank />
                     <jx3datrank />
                     <!-- TODO:DPS天梯 -->
                     <wikirank />
+                    <collectionrank />
                     <examrank />
                     <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
                     <!-- <activity /> -->
@@ -63,6 +63,7 @@ import team from "@/components/team.vue";
 import guide from "@/components/guide.vue";
 import live from "@/components/live.vue";
 import cjrank from "@/components/cjrank.vue";
+import collectionrank from "@/components/collectionrank.vue";
 import { getProfile } from "./service/profile";
 import User from "@jx3box/jx3box-common/js/user";
 import { getConfig } from "@/service/index.js";
@@ -96,7 +97,8 @@ export default {
         team,
         guide,
         cjrank,
-        live
+        live,
+        collectionrank
     },
     created: function() {
         if (User.isLogin()) {

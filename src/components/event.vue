@@ -1,5 +1,5 @@
 <template>
-    <div class="m-event" id="m-event">
+    <div class="m-event" id="m-event" v-if="event_status">
         <a
             v-for="(item, i) in data"
             :key="i"
@@ -26,6 +26,9 @@ export default {
         player_status : function (){
             return this.$store.state.config.index_live_status || this.$store.state.config.index_video_status
         },
+        event_status : function (){
+            return ~~this.$store.state.config.event_status
+        }
     },
     methods: {},
     beforeCreate: function() {

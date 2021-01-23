@@ -1,5 +1,5 @@
 import axios from "axios";
-import { __next, __server } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __next, __server,__helperUrl } from "@jx3box/jx3box-common/js/jx3box.json";
 import Vue from "vue";
 import { Message, Notification } from "element-ui";
 Vue.prototype.$notify = Notification;
@@ -60,4 +60,10 @@ function installNextInterceptors(target) {
 installNextInterceptors($next);
 installNextInterceptors($server);
 
-export { $, axios, $next, $server };
+const $http = axios.create({
+    withCredentials: true,
+    baseURL: process.env.NODE_ENV === "production" ? __helperUrl : "/",
+});
+installInterceptors($http);
+
+export { $, axios, $next, $server,$http };

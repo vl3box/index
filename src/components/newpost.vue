@@ -112,10 +112,10 @@ export default {
                     label: "工具",
                     slug: "tool",
                 },
-                {
-                    label: "家园",
-                    slug: "house",
-                },
+                // {
+                //     label: "家园",
+                //     slug: "house",
+                // },
                 {
                     label: "捏脸",
                     slug: "share",
@@ -128,6 +128,10 @@ export default {
                 //     label : '表情',
                 //     slug : 'emotion'
                 // },
+                {
+                    label: "小册",
+                    slug: "collection",
+                },
                 {
                     label: "茶馆",
                     slug: "bbs",
