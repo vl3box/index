@@ -127,14 +127,16 @@
     computed: {},
     methods: {},
     mounted() {
-      getMenuGroups([
-        'guide-pve',
-        'guide-pvx',
-        'guide-pvp',
-        'guide-bps-kungfu',
-        'guide-bps-weapon',
-        'guide-other',
-      ]).then(
+      getMenuGroups({
+        names: [
+          'guide-pve',
+          'guide-pvx',
+          'guide-pvp',
+          'guide-bps-kungfu',
+          'guide-bps-weapon',
+          'guide-other',
+        ]
+      }).then(
         (res) => {
           let data = res.data;
           if (data.code === 200) {
