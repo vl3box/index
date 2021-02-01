@@ -54,14 +54,17 @@ export default {
         },
     },
     created: function() {
-        getStatRank("collection", "views", 10, "7days")
+        getStatRank("collection")
             .then((res) => {
                 let result = res.data;
                 let list = [];
                 result.forEach((item) => {
                     let id = item.name;
-                    list.push(id);
-                    this.views.push(item.value["7days"]);
+                    if(id.includes('collection')){
+                        list.push(id.slice('collection-'.length,id.length));
+                        console.log(id)
+                        this.views.push(item.value["7days"]);
+                    }
                 });
                 return list
             })
