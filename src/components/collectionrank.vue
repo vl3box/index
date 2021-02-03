@@ -62,7 +62,6 @@ export default {
                     let id = item.name;
                     if(id.includes('collection')){
                         list.push(id.slice('collection-'.length,id.length));
-                        console.log(id)
                         this.views.push(item.value["7days"]);
                     }
                 });

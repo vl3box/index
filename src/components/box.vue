@@ -129,7 +129,7 @@ import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/profile.js";
-import { getWikiPnt, getCjPnt } from "@/service/admin.js";
+import { getWikiPnt } from "@/service/admin.js";
 import { __imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
 import _ from "lodash";
 export default {
@@ -322,13 +322,13 @@ export default {
             this.defined = true;
         },
         getPop: function() {
-            getWikiPnt().then((res) => {
-                this.pop.wiki = !!res.data.data;
+            getWikiPnt('knowledge').then((res) => {
+                this.pop.wiki = !!res.data.data.total;
             });
-            getCjPnt("achievement").then((res) => {
+            getWikiPnt("achievement").then((res) => {
                 this.pop.cj = !!res.data.data.total;
             });
-            getCjPnt("item").then((res) => {
+            getWikiPnt("item").then((res) => {
                 this.pop.item = !!res.data.data.total;
             });
         },
