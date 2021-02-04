@@ -1,5 +1,5 @@
 <template>
-    <div class="m-slider" v-if="data.length && !player_status" id="m-home-slider">
+    <div class="m-slider" v-if="data && data.length && !player_status" id="m-home-slider">
         <div
             class="u-slider"
             v-for="(item, i) in data"

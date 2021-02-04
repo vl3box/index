@@ -1,22 +1,11 @@
-import { $next, axios } from "./axios";
-import { __bb } from "@jx3box/jx3box-common/js/jx3box.json";
+import { axios } from "./axios";
+import { __helperUrl } from "@jx3box/jx3box-common/js/jx3box.json";
 
-function getWikiRank() {
-    return $next.get("api/summary/visit/rank", {
-        params: {
-            postType: "wiki",
-            postAction: "views",
-            pageSize: 10,
-        },
+function getWikiList(params) {
+    return axios.get(`${__helperUrl}api/knowledges`, {
+        headers: { Accept: "application/prs.helper.v2+json" },
+        params: params,
     });
 }
 
-function getWikiList(list) {
-    return axios.get(__bb + "api/wiki/search/", {
-        params: {
-            list: list,
-        },
-    });
-}
-
-export { getWikiRank, getWikiList };
+export { getWikiList };

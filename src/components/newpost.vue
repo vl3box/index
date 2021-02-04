@@ -108,9 +108,13 @@ export default {
                     label: "物品",
                     slug: "item",
                 },
+                // {
+                //     label: "任务",
+                //     slug: "quest",
+                // },
                 {
-                    label: "工具",
-                    slug: "tool",
+                    label: "百科",
+                    slug: "wiki",
                 },
                 // {
                 //     label: "家园",
@@ -120,17 +124,13 @@ export default {
                     label: "捏脸",
                     slug: "share",
                 },
-                {
-                    label: "百科",
-                    slug: "wiki",
-                },
                 // {
                 //     label : '表情',
                 //     slug : 'emotion'
                 // },
                 {
-                    label: "小册",
-                    slug: "collection",
+                    label: "工具",
+                    slug: "tool",
                 },
                 {
                     label: "茶馆",

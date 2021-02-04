@@ -27,7 +27,7 @@
                     <macrorank />
                     <jx3datrank />
                     <!-- TODO:DPS天梯 -->
-                    <!-- <wikirank /> -->
+                    <wikirank />
                     <collectionrank />
                     <examrank />
                     <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
@@ -56,7 +56,7 @@ import flower from "@/components/flower.vue";
 import contact from "@/components/contact.vue";
 import macrorank from "@/components/macrorank.vue";
 import jx3datrank from "@/components/jx3datrank.vue";
-// import wikirank from "@/components/wikirank.vue";
+import wikirank from "@/components/wikirank.vue";
 import examrank from "@/components/examrank.vue";
 import newpost from "@/components/newpost.vue";
 import team from "@/components/team.vue";
@@ -91,7 +91,7 @@ export default {
         macrorank,
         jx3datrank,
         examrank,
-        // wikirank,
+        wikirank,
         newpost,
         event,
         team,

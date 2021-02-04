@@ -37,21 +37,29 @@
         background-color: @bg-light;
         .pr;
         overflow: hidden;
+        .u-pic-hover{
+            .none;
+        }
     }
     .u-item:not(.u-doing){
         &:hover {
             border-color: #39d45d;
             // outline:2px solid @bg-black;
             box-shadow:0 0 5px rgba(0,0,0,.1);
-            .u-pic {
-                fill: @bg-black;
-            }
             .u-txt{
                 color:#666;
             }
+            .u-pic {
+                fill: @bg-black;
+                // .tm(0.9);
+                .none;
+            }
+            .u-pic-hover{
+                .db;
+            }
         }
     }
-    .u-pic {
+    .u-pic,.u-pic-hover {
         .size(32px);
         .db;
         .auto(x);

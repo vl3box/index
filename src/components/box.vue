@@ -40,6 +40,11 @@
                             :src="item.img | getBoxIcon"
                             :class="{ hidden: !canSee(item.uuid) }"
                         />
+                        <img
+                            class="u-pic-hover"
+                            svg-inline
+                            :src="item.hover | getBoxIcon"
+                        />
                         <span class="u-txt">
                             {{ showAbbr ? item.abbr : item.name }}
                         </span>
@@ -116,14 +121,14 @@
 </template>
 
 <script>
+import _ from "lodash";
 import origin from "@jx3box/jx3box-common/data/box.json";
 const KEY = "boxmatrix";
-import default_order from "@/assets/data/box_default.json";
 const default_data = [];
-default_order.forEach((uuid, i) => {
+_.each(origin,(val,uuid) => {
     default_data.push(origin[uuid]);
-});
-const default_lf = ["database", "fbdata", "j3pz"];
+})
+const default_lf = ["database", "team", "j3pz"];
 
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";
@@ -131,7 +136,7 @@ import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/profile.js";
 import { getWikiPnt } from "@/service/admin.js";
 import { __imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
-import _ from "lodash";
+
 export default {
     name: "box",
     props: [],
@@ -152,7 +157,7 @@ export default {
             isAdmin: User.isAdmin(),
             pop: {
                 cj: false,
-                wiki: false,
+                knowledge: false,
                 item: false,
             },
         };
@@ -322,8 +327,8 @@ export default {
             this.defined = true;
         },
         getPop: function() {
-            getWikiPnt('knowledge').then((res) => {
-                this.pop.wiki = !!res.data.data.total;
+            getWikiPnt("knowledge").then((res) => {
+                this.pop.knowledge = !!res.data.data.total;
             });
             getWikiPnt("achievement").then((res) => {
                 this.pop.cj = !!res.data.data.total;
@@ -344,10 +349,10 @@ export default {
         this.initData();
         if (this.isAdmin) this.getPop();
     },
-    filters : {
-        getBoxIcon : function (val){
-            return __imgPath + 'image' + val
-        }
+    filters: {
+        getBoxIcon: function(val) {
+            return __imgPath + "image" + val;
+        },
     },
     components: {
         draggable,
