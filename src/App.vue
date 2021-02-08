@@ -19,6 +19,8 @@
                     <servers />
                     <price />
                     <flower />
+                    <!-- TODO:账号同步工具 -->
+                    <!-- TODO:APP下载 -->
                 </div>
 
                 <div class="m-right">
@@ -30,8 +32,7 @@
                     <wikirank />
                     <collectionrank />
                     <examrank />
-                    <contact /><!-- TODO:客户端下载、QQ机器人（整合至activity位置） -->
-                    <!-- <activity /> -->
+                    <contact />
                 </div>
 
                 <Footer></Footer>

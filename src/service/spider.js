@@ -37,20 +37,29 @@ function getServers() {
 //         });
 // }
 
-const md5 = require('js-md5');
+const md5 = require("js-md5");
 function getPrice() {
-    let time = ~~(Date.now() / 1000)
-    let token = md5(time + 'secret')
+    let time = ~~(Date.now() / 1000);
+    let token = md5(time + "secret");
     return axios
-        .get('https://box.arkwish.com/api/gold',{
-            params : {
-                access_token : token,
-                ts : time
-            }
+        .get("https://box.arkwish.com/api/gold", {
+            params: {
+                access_token: token,
+                ts: time,
+            },
         })
         .catch((err) => {
             console.log(err);
         });
 }
 
-export { getGameNews, getServers, getPrice };
+// 美人图
+function getMeirentu(server = "蝶恋花") {
+    return axios.get(__spider + "meirentu", {
+        params: {
+            server: server,
+        },
+    });
+}
+
+export { getGameNews, getServers, getPrice, getMeirentu };
