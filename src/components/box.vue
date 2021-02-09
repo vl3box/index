@@ -129,7 +129,10 @@ _.each(origin,(val,uuid) => {
     default_data.push(origin[uuid]);
 })
 const default_lf = ["database", "team", "j3pz"];
-
+let default_order = []
+_.each(default_data,(item) => {
+    default_order.push(item.uuid)
+})
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
