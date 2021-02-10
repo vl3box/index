@@ -64,7 +64,18 @@
                                 </el-option>
                             </el-select>
                         </td>
-                        <td>{{ meirentu || "今日暂无画像" }}</td>
+                        <td>
+                            <el-tooltip
+                                class="item"
+                                effect="dark"
+                                :content="meirentu.desc"
+                                placement="bottom"
+                            >
+                                <div>{{
+                                    meirentu.name || "今日暂无画像"
+                                }}</div>
+                            </el-tooltip>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -95,9 +106,9 @@ export default {
         };
     },
     computed: {
-        default_server : function (){
-            return this.$store.state.server
-        }
+        default_server: function() {
+            return this.$store.state.server;
+        },
     },
     methods: {
         initDate: function() {
@@ -142,16 +153,16 @@ export default {
         },
     },
     mounted: function() {
-        this.server = this.default_server
+        this.server = this.default_server;
         this.initDate();
         this.loadDaily();
-        this.loadMeirentu()
+        this.loadMeirentu();
     },
-    watch : {
-        server : function (){
-            this.loadMeirentu()
+    watch: {
+        server: function() {
+            this.loadMeirentu();
         },
-    }
+    },
 };
 </script>
 
