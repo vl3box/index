@@ -114,16 +114,16 @@ export default {
                 // },
                 {
                     label: "百科",
-                    slug: "wiki",
+                    slug: "knowledge",
                 },
                 // {
                 //     label: "家园",
                 //     slug: "house",
                 // },
-                {
-                    label: "捏脸",
-                    slug: "share",
-                },
+                // {
+                //     label: "捏脸",
+                //     slug: "share",
+                // },
                 // {
                 //     label : '表情',
                 //     slug : 'emotion'

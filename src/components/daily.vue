@@ -68,7 +68,7 @@
                             <el-tooltip
                                 class="item"
                                 effect="dark"
-                                :content="meirentu.desc"
+                                :content="meirentu.desc || '无'"
                                 placement="bottom"
                             >
                                 <div>{{
