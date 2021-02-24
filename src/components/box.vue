@@ -122,7 +122,7 @@
 
 <script>
 import _ from "lodash";
-import origin from "@jx3box/jx3box-common/data/box.json";
+import origin from "@jx3box/jx3box-data/data/common/box.json";
 const KEY = "boxmatrix";
 const default_data = [];
 _.each(origin,(val,uuid) => {
