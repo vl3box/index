@@ -10,7 +10,7 @@
         <div class="m-flower-content m-flower-side">
             <!-- <a href="/tool/?pid=20274#/" target="_blank">❤️ 游戏内查询花价</a> | 
             <a href="/app/flower" target="_blank">网站查询</a> -->
-            <a href="https://www.jx3box.com/tool/?pid=20274#/"><img :src="flower_banner"></a>
+            <a href="https://www.jx3box.com/tool/20274/"><img :src="flower_banner"></a>
         </div>
     </div>
 </template>
