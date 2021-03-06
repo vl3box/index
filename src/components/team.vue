@@ -54,7 +54,7 @@
             </div>
             <div class="u-misc">
                 <a
-                    href="/team/#/org/setting"
+                    href="/team/org/add"
                     class="u-more"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -75,7 +75,7 @@
                     ><div>
                         <a
                             class="u-item"
-                            :href="'/team/#/org/view/' + item.ID"
+                            :href="item.ID | teamLink"
                             target="_blank"
                         >
                             <span class="u-pic">
@@ -131,6 +131,7 @@ import {
     showAvatar,
     resolveImagePath,
     getThumbnail,
+    getLink
 } from "@jx3box/jx3box-common/js/utils";
 import { __ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
 import lodash from "lodash";
@@ -214,6 +215,9 @@ export default {
         showLogo: function(val) {
             return getThumbnail(val, 42, true);
         },
+        teamLink : function (val){
+            return getLink('org',val)
+        }
     },
     watch: {
         params: function(newparams) {
