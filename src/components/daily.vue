@@ -68,11 +68,11 @@
                             <el-tooltip
                                 class="item"
                                 effect="dark"
-                                :content="meirentu.desc || '无'"
+                                :content="meirentu && meirentu.desc || '无'"
                                 placement="bottom"
                             >
                                 <div>{{
-                                    meirentu.name || "今日暂无画像"
+                                    meirentu && meirentu.name || "今日暂无画像"
                                 }}</div>
                             </el-tooltip>
                         </td>
