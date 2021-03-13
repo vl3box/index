@@ -25,33 +25,28 @@ function getServers() {
         });
 }
 
-// const price = __spider + "jx3price";
+const price = __spider + "jx3price";
+function getPrice() {
+    return axios.get(price).catch((err) => {
+        console.log("获取金价行情", err);
+    });
+}
+
+// const md5 = require("js-md5");
 // function getPrice() {
+//     let time = ~~(Date.now() / 1000);
+//     let token = md5(time + "secret");
 //     return axios
-//         .get(price)
-//         .then((res) => {
-//             return res.data;
+//         .get("https://box.arkwish.com/api/gold", {
+//             params: {
+//                 access_token: token,
+//                 ts: time,
+//             },
 //         })
 //         .catch((err) => {
-//             console.log("获取金价行情", err);
+//             console.log(err);
 //         });
 // }
-
-const md5 = require("js-md5");
-function getPrice() {
-    let time = ~~(Date.now() / 1000);
-    let token = md5(time + "secret");
-    return axios
-        .get("https://box.arkwish.com/api/gold", {
-            params: {
-                access_token: token,
-                ts: time,
-            },
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
 
 // 美人图
 function getMeirentu(server = "蝶恋花") {

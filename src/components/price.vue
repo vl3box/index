@@ -101,7 +101,7 @@ export default {
     methods: {
         getData() {
             return getPrice().then((res) => {
-                if (!res.code) {
+                if (!res.data.code) {
                     this.origin = res.data.data;
                 }
             });
