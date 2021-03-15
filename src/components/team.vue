@@ -133,7 +133,7 @@ import {
     getThumbnail,
     getLink
 } from "@jx3box/jx3box-common/js/utils";
-import { __ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __ossMirror } from "@jx3box/jx3box-common/data/jx3box.json";
 import lodash from "lodash";
 import { showTime, showRecently } from "@/utils/moment.js";
 import { getTeams } from "@/service/team.js";

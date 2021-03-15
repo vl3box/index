@@ -31,6 +31,7 @@
                     <!-- TODO:DPS天梯 -->
                     <wikirank />
                     <collectionrank />
+                    <namespace/>
                     <examrank />
                     <contact />
                 </div>
@@ -65,6 +66,7 @@ import guide from "@/components/guide.vue";
 import live from "@/components/live.vue";
 import cjrank from "@/components/cjrank.vue";
 import collectionrank from "@/components/collectionrank.vue";
+import namespace from '@/components/namespace.vue';
 import { getProfile } from "./service/profile";
 import User from "@jx3box/jx3box-common/js/user";
 import { getConfig } from "@/service/index.js";
@@ -91,6 +93,7 @@ export default {
         contact,
         macrorank,
         jx3datrank,
+        namespace,
         examrank,
         wikirank,
         newpost,

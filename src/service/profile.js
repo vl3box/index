@@ -1,5 +1,5 @@
 import axios from "axios";
-import { __server } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __server } from "@jx3box/jx3box-common/data/jx3box.json";
 import { installNextInterceptors } from "@jx3box/jx3box-common/js/axios";
 const $server = axios.create({
     withCredentials: true,

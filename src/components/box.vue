@@ -138,7 +138,7 @@ import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/profile.js";
 import { getWikiPnt } from "@/service/admin.js";
-import { __imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 
 export default {
     name: "box",

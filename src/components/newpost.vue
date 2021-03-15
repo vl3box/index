@@ -72,7 +72,7 @@ import {
     showAvatar,
     getThumbnail
 } from "@jx3box/jx3box-common/js/utils";
-import { __postType,default_avatar } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __postType,default_avatar } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "../utils/moment";
 export default {
     name: "newpost",

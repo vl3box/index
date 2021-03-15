@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { __bb, __helperUrl } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __bb, __helperUrl } from "@jx3box/jx3box-common/data/jx3box.json";
 
 // function getWikiPnt() {
 //     return axios.get(__bb + "admin/wiki/user_item/pending_cnt", {

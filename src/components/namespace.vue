@@ -2,11 +2,11 @@
     <div class="m-rank-collection m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
-            <a class="u-title" href="/collection" target="_blank"
-                >剑三小册热榜</a
+            <a class="u-title" href="/bbs/#/namespace" target="_blank"
+                >剑三铭牌热榜</a
             >
             <a
-                href="/collection"
+                href="/bbs/#/namespace"
                 class="u-more"
                 title="查看更多"
                 target="_blank"
@@ -31,12 +31,11 @@
 
 <script>
 import { getStatRank } from "@jx3box/jx3box-common/js/stat.js";
-import { getLink } from "@jx3box/jx3box-common/js/utils";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { getCollections } from "@/service/collection.js";
+import { getNamespace } from "@/service/namespace.js";
 import highlight from '@/utils/highlight'
 export default {
-    name: "collectionrank",
+    name: "namespacerank",
     props: [],
     data: function() {
         return {
@@ -48,27 +47,23 @@ export default {
     methods: {
         highlight,
     },
-    filters: {
-        postLink: function(id) {
-            return getLink("collection", id);
-        },
-    },
+ 
     created: function() {
-        getStatRank("collection")
+        getStatRank("namespace")
             .then((res) => {
                 let result = res.data;
                 let list = [];
                 result.forEach((item) => {
                     let id = item.name;
-                    if(id.includes('collection')){
-                        list.push(id.slice('collection-'.length,id.length));
+                    if(id.includes('namespace')){
+                        list.push(id.slice('namespace-'.length,id.length));
                         this.views.push(item.value["7days"]);
                     }
                 });
                 return list
             })
             .then((list) => {
-                getCollections({ ids: list, limit: 10 }).then((res) => {
+                getNamespace({ ids: list, limit: 10 }).then((res) => {
                     let data = []
                     res.data.data.data.forEach((item) => {
                         if(item){
