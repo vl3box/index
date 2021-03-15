@@ -2,7 +2,9 @@
     <div class="m-rank-wiki m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
-            <a class="u-title" href="/knowledge" target="_blank">百科词条热榜</a>
+            <a class="u-title" href="/knowledge" target="_blank"
+                >百科词条热榜</a
+            >
             <a href="/knowledge" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
@@ -24,8 +26,7 @@
 </template>
 
 <script>
-import { getWikiList } from "@/service/wiki";
-import { getStatRank } from "@jx3box/jx3box-common/js/stat";
+import { getRank, getKnowledges } from "@/service/rank";
 import highlight from "@/utils/highlight";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
 export default {
@@ -34,7 +35,8 @@ export default {
     data: function() {
         return {
             data: [],
-            views: [],
+            ids : [],
+            views : []
         };
     },
     computed: {},
@@ -47,32 +49,21 @@ export default {
         },
     },
     created: function() {
-        getStatRank('knowledge')
-            .then((res) => {
-                let result = res.data;
-                let list = [];
-                result.forEach((item) => {
-                    if (item.name.startsWith("knowledge")) {
-                        let id = item.name.split("-").pop();
-                        list.push(id);
-                        this.views.push(item.value["7days"]);
+        getRank("knowledge").then(([ids,views]) => {
+            this.ids = ids
+            this.views = views
+            getKnowledges({ ids: ids, limit: ids.length }).then((res) => {
+                let list = res.data.data.data || []
+                let data = []
+                list.forEach((item,i) => {
+                    if (item) {
+                        item.views = views[i]
+                        data.push(item)
                     }
                 });
-                return list//.join(",");
-            })
-            .then((list) => {
-                getWikiList({
-                    ids : list
-                }).then((res) => {
-                    let data = res.data.data.data;
-                    data.forEach((item,i) => {
-                        if(item){
-                            item.views = this.views[i]
-                            this.data.push(item)
-                        }
-                    })
-                });
+                this.data = data;
             });
+        });
     },
     components: {},
 };

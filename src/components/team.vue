@@ -131,12 +131,12 @@ import {
     showAvatar,
     resolveImagePath,
     getThumbnail,
-    getLink
+    getLink,
 } from "@jx3box/jx3box-common/js/utils";
-import { __ossMirror } from "@jx3box/jx3box-common/js/jx3box.json";
+import { __ossMirror } from "@jx3box/jx3box-common/data/jx3box.json";
 import lodash from "lodash";
 import { showTime, showRecently } from "@/utils/moment.js";
-import { getTeams } from "@/service/team.js";
+import { getTeams } from "@/service/index.js";
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
 import tags from "@/assets/data/team_tags.json";
 export default {
@@ -185,7 +185,7 @@ export default {
                 recruit: 1, //有招募的
                 server: this.server,
                 name: this.name,
-                tag: this.tag && this.tag.join(','),
+                tag: this.tag && this.tag.join(","),
             };
             if (this.isVerified) {
                 params.status = 1;
@@ -215,9 +215,9 @@ export default {
         showLogo: function(val) {
             return getThumbnail(val, 42, true);
         },
-        teamLink : function (val){
-            return getLink('org',val)
-        }
+        teamLink: function(val) {
+            return getLink("org", val);
+        },
     },
     watch: {
         params: function(newparams) {

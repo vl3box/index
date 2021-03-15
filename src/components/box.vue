@@ -122,23 +122,24 @@
 
 <script>
 import _ from "lodash";
-import origin from "@jx3box/jx3box-data/data/common/box.json";
+import origin from "@jx3box/jx3box-data/data/box/box.json";
 const KEY = "boxmatrix";
 const default_data = [];
-_.each(origin,(val,uuid) => {
+_.each(origin, (val, uuid) => {
     default_data.push(origin[uuid]);
-})
+});
 const default_lf = ["database", "team", "j3pz"];
-let default_order = []
-_.each(default_data,(item) => {
-    default_order.push(item.uuid)
-})
+let default_order = [];
+_.each(default_data, (item) => {
+    default_order.push(item.uuid);
+});
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
-import { getMeta, setMeta } from "@/service/profile.js";
-import { getWikiPnt } from "@/service/admin.js";
-import { __imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
+
+import { getMeta, setMeta } from "@/service/user.js";
+import { getWikiPnt } from "@/service/setting.js";
 
 export default {
     name: "box",

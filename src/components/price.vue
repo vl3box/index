@@ -45,7 +45,7 @@
 
 <script>
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
-import { getPrice } from "../service/spider";
+import { getPrice } from "@/service/spider";
 import _ from "lodash";
 import { Line } from "@antv/g2plot";
 import User from "@jx3box/jx3box-common/js/user";
@@ -89,14 +89,14 @@ export default {
                 return "";
             }
         },
-        my_server : function (){
-            return this.$store.state.server
-        }
+        my_server: function() {
+            return this.$store.state.server;
+        },
     },
-    watch : {
-        my_server : function (val){
-            if(val) this.server = val
-        }
+    watch: {
+        my_server: function(val) {
+            if (val) this.server = val;
+        },
     },
     methods: {
         getData() {

@@ -85,7 +85,7 @@
 
 <script>
 import { getNews } from "@/service/index";
-import { getDaily } from "@/service/next";
+import { getDaily } from "@/service/spider";
 import { getMeirentu } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import User from "@jx3box/jx3box-common/js/user";

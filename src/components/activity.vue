@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import {buildTarget,resolveImagePath} from '@jx3box/jx3box-common/js/utils'
-import { getNews } from "../service/index";
+import { buildTarget, resolveImagePath } from "@jx3box/jx3box-common/js/utils";
+import { getNews } from "@/service/index";
 export default {
     name: "activity",
     props: [],
@@ -32,8 +32,8 @@ export default {
     beforeCreate: function() {
         getNews("activity").then((data) => {
             data.forEach((item) => {
-                item.img = resolveImagePath(item.img)
-            })
+                item.img = resolveImagePath(item.img);
+            });
             this.data = data;
         });
     },

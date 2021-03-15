@@ -1,69 +1,31 @@
-import axios from "axios";
-import { __next, __server,__helperUrl } from "@jx3box/jx3box-common/js/jx3box.json";
-import Vue from "vue";
-import { Message, Notification } from "element-ui";
-Vue.prototype.$notify = Notification;
-Vue.prototype.$message = Message;
-const broadcast = new Vue();
-
-const $ = axios.create({
-    withCredentials: true,
+import { axios } from "axios";
+import { $https, $_https } from "@jx3box/jx3box-common/js/https.js";
+const $helper = $https("helper", {
+    proxy: false,
+    interceptor: "helper",
+    mute: true,
 });
-function installInterceptors(target) {
-    target["interceptors"]["response"].use(
-        function(response) {
-            return response;
-        },
-        function(err) {
-            if (err.response && err.response.data) {
-                broadcast.$message.error(`${err.response.data.msg}`);
-            } else {
-                broadcast.$message.error("网络请求异常");
-            }
-            console.log(err);
-            return Promise.reject(err);
-        }
-    );
-}
-installInterceptors($);
-
-const $server = axios.create({
-    withCredentials: true,
-    baseURL: __server,
+const $old_server = $https("server", {
+    proxy: false,
+    mute: true,
 });
-const $next = axios.create({
-    withCredentials: true,
-    baseURL: process.env.NODE_ENV === "production" ? __next : "/",
+const $server = $https("server", {
+    proxy: false,
+    interceptor: "next",
+    mute: true,
 });
-function installNextInterceptors(target) {
-    target["interceptors"]["response"].use(
-        function(response) {
-            if (response.data.code) {
-                broadcast.$message.error(
-                    `[${response.data.code}]${response.data.msg}`
-                );
-                return Promise.reject(response);
-            }
-            return response;
-        },
-        function(err) {
-            if (err.response && err.response.data) {
-                broadcast.$message.error(`${err.response.data.msg}`);
-            } else {
-                broadcast.$message.error("网络请求异常");
-            }
-            console.log(err);
-            return Promise.reject(err);
-        }
-    );
-}
-installNextInterceptors($next);
-installNextInterceptors($server);
-
-const $http = axios.create({
-    withCredentials: true,
-    baseURL: process.env.NODE_ENV === "production" ? __helperUrl : "/",
+const $_server = $_https("server", {
+    proxy: true,
+    interceptor: "next",
+    mute: true,
 });
-installInterceptors($http);
-
-export { $, axios, $next, $server,$http };
+const $next = $https("next", {
+    proxy: true,
+    interceptor: "next",
+    mute: true,
+});
+const $spider = $https("spider", {
+    proxy: false,
+    mute: true,
+});
+export { $helper, $server, $next, axios, $spider, $_server, $old_server };

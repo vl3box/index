@@ -16,7 +16,9 @@
                         >后台管理</a
                     >
                 </template>
-                <a v-else href="/bbs/?subtype=5#/" class="u-help"><img svg-inline src="../assets/img/right/feedback.svg" /></a>
+                <a v-else href="/bbs/?subtype=5#/" class="u-help"
+                    ><img svg-inline src="../assets/img/right/feedback.svg"
+                /></a>
             </span>
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">
@@ -36,7 +38,7 @@
 </template>
 
 <script>
-import { getNews } from "../service/index";
+import { getNews } from "@/service/index";
 import { simpledate } from "../utils/simpledate";
 import User from "@jx3box/jx3box-common/js/user";
 export default {
@@ -61,7 +63,7 @@ export default {
         });
     },
     created: function() {
-        this.isSuper = !!(User.getInfo().group > 60)
+        this.isSuper = !!(User.getInfo().group > 60);
     },
     components: {},
 };

@@ -8,7 +8,7 @@
                 <event />
                 <box />
                 <guide />
-                <!-- TODO:沙雕表情 -->
+                <!-- TODO:表情+骚话 -->
                 <newpost />
                 <!-- TODO:剑三直播 -->
                 <team />
@@ -18,7 +18,6 @@
                     <gamenews />
                     <servers />
                     <price />
-                    <flower />
                     <!-- TODO:账号同步工具 -->
                     <!-- TODO:APP下载 -->
                 </div>
@@ -32,6 +31,7 @@
                     <wikirank />
                     <collectionrank />
                     <examrank />
+                    <namespacerank />
                     <contact />
                 </div>
 
@@ -42,32 +42,34 @@
 </template>
 
 <script>
-// import Nav from "@/components/Nav.vue";
-import gamenews from "@/components/gamenews.vue";
-import bigbang from "@/components/bigbang.vue";
-import activity from "@/components/activity.vue";
-import notice from "@/components/notice.vue";
 import box from "@/components/box.vue";
+import notice from "@/components/notice.vue";
+import bigbang from "@/components/bigbang.vue";
+import event from "@/components/event.vue";
+import live from "@/components/live.vue";
+import contact from "@/components/contact.vue";
+import activity from "@/components/activity.vue";
+
 import daily from "@/components/daily.vue";
-// import ad from "@/components/ad.vue";
+import gamenews from "@/components/gamenews.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
-import event from "@/components/event.vue";
-import flower from "@/components/flower.vue";
-import contact from "@/components/contact.vue";
-import macrorank from "@/components/macrorank.vue";
-import jx3datrank from "@/components/jx3datrank.vue";
-import wikirank from "@/components/wikirank.vue";
-import examrank from "@/components/examrank.vue";
+
+import macrorank from "@/components/rank_macro.vue";
+import jx3datrank from "@/components/rank_jx3dat.vue";
+import examrank from "@/components/rank_exam.vue";
+import wikirank from "@/components/rank_knowledges.vue";
+import cjrank from "@/components/rank_achievements.vue";
+import collectionrank from "@/components/rank_collections.vue";
+import namespacerank from "@/components/rank_namespaces.vue";
+
 import newpost from "@/components/newpost.vue";
 import team from "@/components/team.vue";
 import guide from "@/components/guide.vue";
-import live from "@/components/live.vue";
-import cjrank from "@/components/cjrank.vue";
-import collectionrank from "@/components/collectionrank.vue";
-import { getProfile } from "./service/profile";
+
 import User from "@jx3box/jx3box-common/js/user";
-import { getConfig } from "@/service/index.js";
+import { getProfile } from "@/service/user";
+import { getConfig } from "@/service/setting.js";
 export default {
     name: "App",
     props: [],
@@ -77,29 +79,29 @@ export default {
     computed: {},
     methods: {},
     components: {
-        // Nav,
-        // activity,
-        gamenews,
+        box,
         notice,
         bigbang,
-        box,
+        event,
+        live,
+        contact,
+
         daily,
-        // ad,
+        gamenews,
         servers,
         price,
-        flower,
-        contact,
+
+        cjrank,
         macrorank,
         jx3datrank,
-        examrank,
         wikirank,
+        collectionrank,
+        namespacerank,
+        examrank,
+
         newpost,
-        event,
         team,
         guide,
-        cjrank,
-        live,
-        collectionrank
     },
     created: function() {
         if (User.isLogin()) {
@@ -111,17 +113,15 @@ export default {
         }
 
         getConfig().then((res) => {
-            let data = res.data.data
-            let _data = {}
-            if(data){
+            let data = res.data.data;
+            let _data = {};
+            if (data) {
                 data.forEach((item) => {
-                    _data[item.key] = item.val
-                })
+                    _data[item.key] = item.val;
+                });
             }
-            this.$store.state.config = _data
-        })
-
-        
+            this.$store.state.config = _data;
+        });
     },
 };
 </script>

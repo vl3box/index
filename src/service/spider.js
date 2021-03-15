@@ -1,35 +1,27 @@
-import axios from "axios";
-import { __spider } from "@jx3box/jx3box-common/js/jx3box.json";
+import { $spider, $next } from "./axios";
 
-const news = __spider + "jx3news";
-function getGameNews() {
-    return axios
-        .get(news)
-        .then((res) => {
-            return res.data;
-        })
-        .catch((err) => {
-            console.log("获取游戏公告", err);
-        });
-}
-
-const servers = __spider + "jx3servers";
-function getServers() {
-    return axios
-        .get(servers)
-        .then((res) => {
-            return res.data.data;
-        })
-        .catch((err) => {
-            console.log("获取开服列表", err);
-        });
-}
-
-const price = __spider + "jx3price";
-function getPrice() {
-    return axios.get(price).catch((err) => {
-        console.log("获取金价行情", err);
+function getDaily(date) {
+    return $next.get("/xoyo/daily/task", {
+        params: {
+            date: date, //int,时间戳，单位秒
+        },
     });
+}
+
+function getGameNews() {
+    return $spider.get("/jx3news").then((res) => {
+        return res.data;
+    });
+}
+
+function getServers() {
+    return $spider.get("/jx3servers").then((res) => {
+        return res.data.data;
+    });
+}
+
+function getPrice() {
+    return $spider.get("/jx3price");
 }
 
 // const md5 = require("js-md5");
@@ -50,11 +42,11 @@ function getPrice() {
 
 // 美人图
 function getMeirentu(server = "蝶恋花") {
-    return axios.get(__spider + "meirentu", {
+    return $spider.get("/meirentu", {
         params: {
             server: server,
         },
     });
 }
 
-export { getGameNews, getServers, getPrice, getMeirentu };
+export { getGameNews, getServers, getPrice, getMeirentu, getDaily };

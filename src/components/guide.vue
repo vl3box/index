@@ -146,7 +146,7 @@
 </template>
 
 <script>
-import { getMenuGroups } from "../service/menu_group";
+import { getMenuGroups } from "@/service/setting";
 
 export default {
     name: "guide",

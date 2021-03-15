@@ -21,7 +21,7 @@
                     }}</span>
                     <span class="u-name">{{ item.title }}</span>
                     <span class="u-per">
-                        <em class="u-count">+ {{ views[i] }}</em>
+                        <em class="u-count">+ {{ item.views }}</em>
                     </span>
                 </a>
             </li>
@@ -30,18 +30,18 @@
 </template>
 
 <script>
-import { getStatRank } from "@jx3box/jx3box-common/js/stat.js";
+import { getRank,getCollections } from "@/service/rank.js";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
-import { __imgPath } from "@jx3box/jx3box-common/js/jx3box.json";
-import { getCollections } from "@/service/collection.js";
-import highlight from '@/utils/highlight'
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import highlight from "@/utils/highlight";
 export default {
     name: "collectionrank",
     props: [],
     data: function() {
         return {
             data: [],
-            views: [],
+            ids : [],
+            views : []
         };
     },
     computed: {},
@@ -54,30 +54,21 @@ export default {
         },
     },
     created: function() {
-        getStatRank("collection")
-            .then((res) => {
-                let result = res.data;
-                let list = [];
-                result.forEach((item) => {
-                    let id = item.name;
-                    if(id.includes('collection')){
-                        list.push(id.slice('collection-'.length,id.length));
-                        this.views.push(item.value["7days"]);
+        getRank("collection").then(([ids,views]) => {
+            this.ids = ids
+            this.views = views
+            getCollections({ ids: ids, limit: ids.length }).then((res) => {
+                let list = res.data.data.data || []
+                let data = []
+                list.forEach((item,i) => {
+                    if (item) {
+                        item.views = views[i]
+                        data.push(item)
                     }
                 });
-                return list
-            })
-            .then((list) => {
-                getCollections({ ids: list, limit: 10 }).then((res) => {
-                    let data = []
-                    res.data.data.data.forEach((item) => {
-                        if(item){
-                            data.push(item)
-                        }
-                    })
-                    this.data = data
-                });
+                this.data = data;
             });
+        });
     },
     components: {},
 };

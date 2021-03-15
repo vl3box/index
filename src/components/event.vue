@@ -13,7 +13,7 @@
 
 <script>
 import { buildTarget, resolveImagePath } from "@jx3box/jx3box-common/js/utils";
-import { getNews } from "../service/index";
+import { getNews } from "@/service/index";
 export default {
     name: "event",
     props: [],
@@ -23,16 +23,19 @@ export default {
         };
     },
     computed: {
-        player_status : function (){
-            return this.$store.state.config.index_live_status || this.$store.state.config.index_video_status
+        player_status: function() {
+            return (
+                this.$store.state.config.index_live_status ||
+                this.$store.state.config.index_video_status
+            );
         },
-        event_status : function (){
-            return ~~this.$store.state.config.event_status
-        }
+        event_status: function() {
+            return ~~this.$store.state.config.event_status;
+        },
     },
     methods: {},
     beforeCreate: function() {
-        getNews("event",10).then((data) => {
+        getNews("event", 10).then((data) => {
             data.forEach((item) => {
                 item.img = resolveImagePath(item.img);
             });

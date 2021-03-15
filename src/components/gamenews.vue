@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { getGameNews } from "../service/spider";
+import { getGameNews } from "@/service/spider";
 export default {
     name: "gamenews",
     props: [],

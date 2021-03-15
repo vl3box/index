@@ -3,7 +3,13 @@
         <div class="m-servers-header m-sideblock-header">
             <i class="el-icon-s-platform"></i
             ><a class="u-title" href="/app/servers" target="_blank">开服状态</a>
-            <a href="/app/servers" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
+            <a
+                href="/app/servers"
+                class="u-more"
+                title="查看更多"
+                target="_blank"
+                ><i class="el-icon-more"></i
+            ></a>
         </div>
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">
@@ -29,7 +35,7 @@
 </template>
 
 <script>
-import { getServers } from "../service/spider";
+import { getServers } from "@/service/spider";
 export default {
     name: "servers",
     props: [],

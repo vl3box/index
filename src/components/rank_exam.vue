@@ -3,7 +3,9 @@
         <div class="m-sideblock-header">
             <i class="el-icon-s-data"></i>
             <a class="u-title" href="/exam" target="_blank">题库试卷热榜</a>
-            <a href="/exam/" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
+            <a href="/exam/" class="u-more" title="查看更多" target="_blank"
+                ><i class="el-icon-more"></i
+            ></a>
         </div>
         <ul class="u-list">
             <li v-for="(item, i) in data" :key="i">
@@ -13,7 +15,7 @@
                     }}</span>
                     <span class="u-name">{{ item.title }}</span>
                     <span class="u-per">
-                        <em class="u-count">+ {{ views[i] }}</em>
+                        <em class="u-count">+ {{ item.views }}</em>
                     </span>
                 </a>
             </li>
@@ -22,8 +24,8 @@
 </template>
 
 <script>
-import { getExamRank,getPaperList } from "@/service/exam";
-import highlight from '@/utils/highlight'
+import { getRank,getPapers } from "@/service/rank";
+import highlight from "@/utils/highlight";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "examrank",
@@ -31,6 +33,7 @@ export default {
     data: function() {
         return {
             data: [],
+            ids : [],
             views : []
         };
     },
@@ -40,28 +43,26 @@ export default {
     },
     filters: {
         postLink: function(pid) {
-            return getLink('paper',pid)
+            return getLink("paper", pid);
         },
     },
     created: function() {
-        getExamRank().then((res) => {
-            let result = res.data;
-            let list = [];
-            result.forEach((item) => {
-                if (item.name.startsWith("paper")) {
-                    let id = item.name.split("-").pop();
-                    if(!isNaN(id) && item.status == 1) list.push(id);
-                    this.views.push(item.value["7days"]);
-                }
+        getRank("paper").then(([ids,views]) => {
+            this.ids = ids
+            this.views = views
+            getPapers(ids).then((res) => {
+                let list = res.data.data || []
+                let data = []
+                list.forEach((item,i) => {
+                    if (item) {
+                        item.views = views[i]
+                        data.push(item)
+                    }
+                });
+                this.data = data;
             });
-            return list.join(",")
-        }).then((list) => {
-            getPaperList(list).then((res) => {
-                this.data = res.data.data;
-            });
-        })
+        });
     },
     components: {},
 };
 </script>
-
