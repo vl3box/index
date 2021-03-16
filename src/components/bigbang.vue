@@ -41,20 +41,22 @@ export default {
         },
     },
     methods: {},
-    beforeCreate: function() {
+    created: function() {
         getNews("slider", 10).then((data) => {
             data.forEach((item) => {
                 item.img = resolveImagePath(item.img);
             });
             this.data = data;
-        });
+        }).then(() => {
+            $("#m-home-slider").slick({
+                infinite: true,
+                autoplay: true,
+                dots: true,
+            });
+        })
     },
-    mounted: function() {
-        $("#m-home-slider").slick({
-            infinite: true,
-            autoplay: true,
-            dots: true,
-        });
+    updated: function() {
+        
     },
     components: {},
 };

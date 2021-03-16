@@ -14,11 +14,6 @@ const $server = $https("server", {
     interceptor: "next",
     mute: true,
 });
-const $_server = $_https("server", {
-    proxy: true,
-    interceptor: "next",
-    mute: true,
-});
 const $next = $https("next", {
     proxy: true,
     interceptor: "next",
@@ -28,4 +23,4 @@ const $spider = $https("spider", {
     proxy: false,
     mute: true,
 });
-export { $helper, $server, $next, axios, $spider, $_server, $old_server };
+export { $helper, $server, $next, axios, $spider, $old_server,$_https };

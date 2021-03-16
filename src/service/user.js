@@ -1,9 +1,15 @@
-import { $_server, $server } from "./axios";
+import { $_server, $server, $_https } from "./axios";
 
 function getProfile() {
-    return $_server.get("/user/me").then((res) => {
-        return res.data.data;
-    });
+    return $_https("server", {
+        proxy: false,
+        interceptor: "next",
+        mute: true,
+    })
+        .get("/user/me")
+        .then((res) => {
+            return res.data.data;
+        });
 }
 
 function getMeta(key) {
@@ -15,7 +21,11 @@ function getMeta(key) {
 }
 
 function setMeta(key, val) {
-    return $_server.post("/user/meta", {
+    return $_https("server", {
+        proxy: false,
+        interceptor: "next",
+        mute: true,
+    }).post("/user/meta", {
         key: key,
         value: val,
     });
