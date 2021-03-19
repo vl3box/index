@@ -50,7 +50,7 @@ export default {
         getRank("paper").then(([ids,views]) => {
             this.ids = ids
             this.views = views
-            getPapers(ids).then((res) => {
+            getPapers(ids.join(',')).then((res) => {
                 let list = res.data.data || []
                 let data = []
                 list.forEach((item,i) => {

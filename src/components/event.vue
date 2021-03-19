@@ -1,13 +1,16 @@
 <template>
     <div class="m-event" id="m-event" v-if="event_status">
-        <a
-            v-for="(item, i) in data"
-            :key="i"
-            :href="item.link"
-            rel="noopener noreferrer"
-            target="_blank"
-            ><img :src="item.img"
-        /></a>
+        <el-row :gutter="20">
+            <el-col :span="4" v-for="(item, i) in data" :key="i"
+                ><div>
+                    <a
+                        :href="item.link"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        ><img :src="item.img"
+                    /></a></div
+            ></el-col>
+        </el-row>
     </div>
 </template>
 
@@ -39,16 +42,16 @@ export default {
             data.forEach((item) => {
                 item.img = resolveImagePath(item.img);
             });
-            this.data = data;
+            this.data = data && data.slice(0,6);
         });
     },
-    updated: function() {
-        $("#m-event").slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 5,
-        });
-    },
+    // updated: function() {
+    //     $("#m-event").slick({
+    //         infinite: true,
+    //         slidesToShow: 6,
+    //         slidesToScroll: 5,
+    //     });
+    // },
     components: {},
 };
 </script>

@@ -31,7 +31,7 @@
                     <wikirank />
                     <collectionrank />
                     <examrank />
-                    <namespacerank />
+                    <!-- <namespacerank /> -->
                     <contact />
                 </div>
 
@@ -96,8 +96,8 @@ export default {
         jx3datrank,
         wikirank,
         collectionrank,
-        namespacerank,
         examrank,
+        // namespacerank,
 
         newpost,
         team,

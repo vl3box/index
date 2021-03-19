@@ -9,10 +9,28 @@
         .y;
     }
 }
+@media screen and (max-width:@phone){
+    .m-guide{
+        .none;
+    }
+}
 
 .m-guide-content{
     .el-col,.el-row{
         .h(100%);
+    }
+}
+@media screen and (max-width:@phone){
+    .m-guide-content{
+        .el-col{
+            .w(100%);
+        }
+        .u-guide-block .u-list{
+            .none;
+        }
+        .u-guide-block .u-title{
+            border-top:none;
+        }
     }
 }
 

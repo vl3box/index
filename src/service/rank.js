@@ -1,7 +1,6 @@
 import { $helper, $next } from "./axios";
 import { getStatRank } from "@jx3box/jx3box-common/js/stat.js";
 
-// TODO:需要改30天排序，等后端修复
 function getRank(type,days='30days') {
     return getStatRank(type, "views",10,'7days').then((res) => {
         let result = res.data || [];

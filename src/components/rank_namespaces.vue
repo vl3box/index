@@ -51,7 +51,7 @@ export default {
         getRank("namespace").then(([ids,views]) => {
             this.ids = ids
             this.views = views
-            getNamespaces({ ids: ids, limit: ids.length }).then((res) => {
+            ids && ids.length && getNamespaces({ ids: ids, limit: ids.length }).then((res) => {
                 let list = res.data.data.data || []
                 let data = []
                 list.forEach((item,i) => {
