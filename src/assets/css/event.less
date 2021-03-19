@@ -1,14 +1,13 @@
-.m-event{
+.m-event {
     .mt(20px);
     .mb(20px);
     // box-shadow:0 0 3px rgba(0,0,0,.2);
     // background: #fff;
     // padding: 10px 0  0 15px;
     // border: 1px solid #e1e4e8;
-    .r(4px);
     white-space: nowrap;
     overflow: hidden;
-    a{
+    a {
         .db;
         .pr;
         // .h(100%);
@@ -16,33 +15,40 @@
         // .w(200px);
         // .dbi;.y(top);
         // .mr(20px);
-
-        filter: saturate(100%) brightness(100%);
-        &:hover{
-            img{
-                filter: saturate(105%) brightness(102%);
-            }
-        }
     }
-    img{
+    img {
         // .h(160px);
         // 默认1100*160
-        .db;.auto(x);
+        .r(4px);
+        .db;
+        .auto(x);
         .size(100%);
-        // transition:0.2s ease-in-out;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -o-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+        filter: saturate(100%) brightness(100%);
+        transition:0.2s ease-in-out;
+    }
+    a &:hover {
+        img {
+            filter: saturate(105%) brightness(105%);
+        }
     }
 }
-@media screen and (max-width:@phone){
-    .m-event{
-        .slick-prev:before, .slick-next:before{
-            font-size:20px;
+@media screen and (max-width: @phone) {
+    .m-event {
+        .slick-prev:before,
+        .slick-next:before {
+            font-size: 20px;
             .size(20px);
         }
-        .slick-next{
-            right:0;
+        .slick-next {
+            right: 0;
         }
-        .slick-prev{
-            left:0;
+        .slick-prev {
+            left: 0;
         }
     }
 }

@@ -33,6 +33,7 @@ export default {
             );
         },
         event_status: function() {
+            // return true
             return ~~this.$store.state.config.event_status;
         },
     },
