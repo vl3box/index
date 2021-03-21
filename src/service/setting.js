@@ -1,21 +1,21 @@
-import { $server, $next, $helper } from "./axios";
+import { $server, $helper } from "./axios";
 
 function getConfig() {
     return $server.get("/index/config");
 }
 
 function getMenuGroup(name) {
-    return $helper.get(`/api/menu_group/${name}`, {});
+    return $helper({mute:true}).get(`/api/menu_group/${name}`, {});
 }
 
 function getMenuGroups(params) {
-    return $helper.get(`/api/menu_groups`, {
+    return $helper({mute:true}).get(`/api/menu_groups`, {
         params: params,
     });
 }
 
 function getWikiPnt(type) {
-    return $helper.get("api/wiki/post/total", {
+    return $helper({mute:true}).get("api/wiki/post/total", {
         params: {
             checked: "pending",
             type: type,

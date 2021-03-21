@@ -1,4 +1,4 @@
-import { $server, $next, $old_server } from "./axios";
+import { $server,$old_server,$team } from "./axios";
 
 function getNews(type, limit = 5) {
     return $server
@@ -23,7 +23,7 @@ function getPosts() {
 }
 
 function getTeams(params) {
-    return $next.get("/team/public", {
+    return $team().get("/api/team/public", {
         params: params,
     });
 }

@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@antv/g2plot": "^1.1.7",
-    "@jx3box/jx3box-common": "^6.1.9",
-    "@jx3box/jx3box-common-ui": "^4.1.8",
-    "@jx3box/jx3box-data": "^0.6.8",
+    "@jx3box/jx3box-common": "^6.2.5",
+    "@jx3box/jx3box-common-ui": "^4.2.3",
+    "@jx3box/jx3box-data": "^0.7.2",
     "axios": "^0.19.2",
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",

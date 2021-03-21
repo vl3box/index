@@ -156,11 +156,11 @@ export default {
         this.server = this.default_server;
         this.initDate();
         this.loadDaily();
-        this.loadMeirentu();
+        // this.loadMeirentu();
     },
     watch: {
-        server: function() {
-            this.loadMeirentu();
+        server: function(val) {
+            val && this.loadMeirentu();
         },
     },
 };
