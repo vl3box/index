@@ -103,7 +103,6 @@
                         <template v-if="menu_groups['guide-bps-weapon']">
                             <h5 class="u-title">
                                 {{ menu_groups["guide-bps-weapon"].label }}
-                                <img src="../assets/img/new2.gif" />
                             </h5>
                             <div class="u-list">
                                 <a
@@ -121,6 +120,24 @@
                 </el-col>
                 <el-col :span="8">
                     <div class="u-guide-block u-guide-other">
+                        <!-- 成就 -->
+                        <template v-if="menu_groups['awesome-achievements']">
+                            <h5 class="u-title">
+                                {{ menu_groups["awesome-achievements"].label }}
+                                <img src="../assets/img/new2.gif" />
+                            </h5>
+                            <div class="u-list">
+                                <a
+                                    v-for="(menu, key) in menu_groups[
+                                        'awesome-achievements'
+                                    ].menus"
+                                    :key="key"
+                                    :href="menu.link"
+                                    target="_blank"
+                                    v-html="menu.label"
+                                ></a>
+                            </div>
+                        </template>
                         <!-- 通用 -->
                         <template v-if="menu_groups['guide-other']">
                             <h5 class="u-title">
@@ -167,6 +184,7 @@ export default {
                 "guide-bps-kungfu",
                 "guide-bps-weapon",
                 "guide-other",
+                "awesome-achievements"
             ],
         }).then((res) => {
             let data = res.data;

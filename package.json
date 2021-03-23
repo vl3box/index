@@ -13,7 +13,7 @@
     "@antv/g2plot": "^1.1.7",
     "@jx3box/jx3box-common": "^6.2.5",
     "@jx3box/jx3box-common-ui": "^4.2.5",
-    "@jx3box/jx3box-data": "^0.7.2",
+    "@jx3box/jx3box-data": "^0.7.4",
     "axios": "^0.19.2",
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",
