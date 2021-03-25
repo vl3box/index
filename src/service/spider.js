@@ -1,7 +1,7 @@
-import { $spider, $next } from "./axios";
+import { $spider, $next,$team } from "./axios";
 
 function getDaily(date) {
-    return $next({mute:true}).get("/xoyo/daily/task", {
+    return $team({mute:true}).get("/xoyo/daily/task", {
         params: {
             date: date, //int,时间戳，单位秒
         },
