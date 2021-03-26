@@ -15,6 +15,7 @@
 
                 <div class="m-left">
                     <daily />
+                    <jx3code />
                     <gamenews />
                     <servers />
                     <price />
@@ -51,6 +52,7 @@ import contact from "@/components/contact.vue";
 import activity from "@/components/activity.vue";
 
 import daily from "@/components/daily.vue";
+import jx3code from "@/components/jx3code.vue";
 import gamenews from "@/components/gamenews.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
@@ -87,6 +89,7 @@ export default {
         contact,
 
         daily,
+        jx3code,
         gamenews,
         servers,
         price,
