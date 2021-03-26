@@ -4,7 +4,7 @@
         <div class="m-main">
             <div class="m-primary">
                 <live />
-                <bigbang />
+                <slider />
                 <event />
                 <box />
                 <guide />
@@ -45,7 +45,7 @@
 <script>
 import box from "@/components/box.vue";
 import notice from "@/components/notice.vue";
-import bigbang from "@/components/bigbang.vue";
+import slider from "@/components/slider.vue";
 import event from "@/components/event.vue";
 import live from "@/components/live.vue";
 import contact from "@/components/contact.vue";
@@ -83,7 +83,7 @@ export default {
     components: {
         box,
         notice,
-        bigbang,
+        slider,
         event,
         live,
         contact,
