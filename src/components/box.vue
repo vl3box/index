@@ -122,6 +122,8 @@
 
 <script>
 import _ from "lodash";
+
+// BOX设置
 import origin from "@jx3box/jx3box-data/data/box/box.json";
 const KEY = "boxmatrix";
 const default_data = [];
@@ -133,6 +135,7 @@ let default_order = [];
 _.each(default_data, (item) => {
     default_order.push(item.uuid);
 });
+
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import draggable from "vuedraggable";

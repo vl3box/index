@@ -4,7 +4,7 @@
             <i class="el-icon-s-opportunity"></i
             ><span class="u-title">站内动态</span>
             <span class="u-more u-admin">
-                <template v-if="isSuper">
+                <template v-if="isAdmin">
                     <a href="/admin" target="_blank" rel="noopener noreferrer"
                         >海报管理</a
                     >
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { getNews } from "@/service/index";
+import { getNews } from "@/service/cms";
 import { simpledate } from "../utils/simpledate";
 import User from "@jx3box/jx3box-common/js/user";
 export default {
@@ -47,7 +47,7 @@ export default {
     data: function() {
         return {
             data: [],
-            isSuper: false,
+            isAdmin: User.isAdmin(),
         };
     },
     computed: {},
@@ -57,13 +57,10 @@ export default {
             return simpledate(val);
         },
     },
-    beforeCreate: function() {
-        getNews("news", 5).then((data) => {
-            this.data = data;
-        });
-    },
     created: function() {
-        this.isSuper = !!(User.getInfo().group > 60);
+        getNews("news", 5).then((res) => {
+            this.data = res.data.data;
+        });
     },
     components: {},
 };

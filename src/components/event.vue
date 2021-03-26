@@ -16,7 +16,7 @@
 
 <script>
 import { buildTarget, resolveImagePath } from "@jx3box/jx3box-common/js/utils";
-import { getNews } from "@/service/index";
+import { getSliders } from "@/service/cms";
 export default {
     name: "event",
     props: [],
@@ -33,17 +33,17 @@ export default {
             );
         },
         event_status: function() {
-            // return true
             return ~~this.$store.state.config.event_status;
         },
     },
     methods: {},
     beforeCreate: function() {
-        getNews("event", 10).then((data) => {
+        getSliders("event", 10).then((res) => {
+            let data = res.data.data;
             data.forEach((item) => {
                 item.img = resolveImagePath(item.img);
             });
-            this.data = data && data.slice(0,6);
+            this.data = data.slice(0, 6);
         });
     },
     // updated: function() {

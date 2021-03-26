@@ -7,13 +7,13 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "inspect": "vue inspect > output.js",
-    "update": "npm install @jx3box/jx3box-common-ui@latest @jx3box/jx3box-common@latest @jx3box/jx3box-data@latest"
+    "update": "npm install --registry https://registry.npmjs.org @jx3box/jx3box-common-ui@latest @jx3box/jx3box-common@latest @jx3box/jx3box-data@latest"
   },
   "dependencies": {
     "@antv/g2plot": "^1.1.7",
-    "@jx3box/jx3box-common": "^6.2.8",
-    "@jx3box/jx3box-common-ui": "^4.2.9",
-    "@jx3box/jx3box-data": "^0.7.6",
+    "@jx3box/jx3box-common": "^6.3.0",
+    "@jx3box/jx3box-common-ui": "^4.3.0",
+    "@jx3box/jx3box-data": "^0.7.7",
     "axios": "^0.19.2",
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",
