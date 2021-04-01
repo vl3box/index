@@ -5,27 +5,17 @@ function getConfig() {
 }
 
 function getMenuGroup(name) {
-    return $helper({mute:true}).get(`/api/menu_group/${name}`, {});
+    return $helper({ mute: true }).get(`/api/menu_group/${name}`, {});
 }
 
 function getMenuGroups(params) {
-    return $helper({mute:true}).get(`/api/menu_groups`, {
+    return $helper({ mute: true }).get(`/api/menu_groups`, {
         params: params,
     });
 }
 
-function getWikiPnt(type) {
-    return $helper({mute:true}).get("api/wiki/post/total", {
-        params: {
-            checked: "pending",
-            type: type,
-        },
-    });
+function getHelperPnt() {
+    return $helper({ mute: true }).get("/api/post/pending_total");
 }
 
-export {
-    getConfig,
-    getMenuGroup,
-    getMenuGroups,
-    getWikiPnt,
-};
+export { getConfig, getMenuGroup, getMenuGroups, getHelperPnt };

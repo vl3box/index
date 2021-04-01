@@ -40,20 +40,9 @@
                             :src="item.img | getBoxIcon"
                             :class="{ hidden: !canSee(item.uuid) }"
                         />
-                        <img
-                            class="u-pic-hover"
-                            svg-inline
-                            :src="item.hover | getBoxIcon"
-                        />
-                        <span class="u-txt">
-                            {{ showAbbr ? item.abbr : item.name }}
-                        </span>
-                        <i
-                            v-if="item.hasMark"
-                            class="u-mark"
-                            :class="item.markcls"
-                            >{{ item.mark }}</i
-                        >
+                        <img class="u-pic-hover" svg-inline :src="item.hover | getBoxIcon" />
+                        <span class="u-txt">{{ showAbbr ? item.abbr : item.name }}</span>
+                        <i v-if="item.hasMark" class="u-mark" :class="item.markcls">{{ item.mark }}</i>
                         <span class="u-control">
                             <i
                                 class="u-break el-icon-scissors"
@@ -87,8 +76,7 @@
                 icon="el-icon-refresh-left"
                 v-if="defined"
                 @click="reset"
-                >恢复默认</el-button
-            >
+            >恢复默认</el-button>
             <el-button
                 plain
                 class="u-reset"
@@ -96,8 +84,7 @@
                 icon="el-icon-download"
                 @click="downBoxSetting"
                 v-if="isLogin"
-                >重新同步</el-button
-            >
+            >重新同步</el-button>
             <el-button
                 plain
                 class="u-custom"
@@ -105,8 +92,7 @@
                 icon="el-icon-setting"
                 @click="active"
                 v-if="!!options.disabled"
-                >自定义</el-button
-            >
+            >自定义</el-button>
             <el-button
                 plain
                 class="u-custom"
@@ -114,8 +100,7 @@
                 icon="el-icon-check"
                 @click="save"
                 v-if="!options.disabled"
-                >保存</el-button
-            >
+            >保存</el-button>
         </div>
     </div>
 </template>
@@ -142,12 +127,12 @@ import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 
 import { getMeta, setMeta } from "@/service/user.js";
-import { getWikiPnt } from "@/service/setting.js";
+import { getHelperPnt } from "@/service/setting.js";
 
 export default {
     name: "box",
     props: [],
-    data: function() {
+    data: function () {
         return {
             origin: origin,
             data: default_data,
@@ -170,26 +155,26 @@ export default {
         };
     },
     computed: {
-        target: function() {
+        target: function () {
             return buildTarget();
         },
-        custom: function() {
+        custom: function () {
             return {
                 order: this.order,
                 hide: this.hide,
                 lf: this.lf,
             };
         },
-        setting: function() {
+        setting: function () {
             return JSON.stringify(this.custom);
         },
     },
     methods: {
-        initData: function() {
+        initData: function () {
             // 不管登录与否，默认都优先从本地获取配置
             this.getBoxSetting();
         },
-        getBoxSetting: function() {
+        getBoxSetting: function () {
             let val = localStorage.getItem(KEY);
             if (val) {
                 try {
@@ -200,7 +185,7 @@ export default {
                 }
             }
         },
-        downBoxSetting: function() {
+        downBoxSetting: function () {
             // 手动从服务器读取
             getMeta(KEY).then((res) => {
                 let val = res.data.data.value;
@@ -227,7 +212,7 @@ export default {
                 }
             });
         },
-        buildData: function(data) {
+        buildData: function (data) {
             if (data["order"] && data["order"]["length"]) {
                 this.defined = true;
 
@@ -257,10 +242,10 @@ export default {
                 this.defined = true;
             }
         },
-        active: function() {
+        active: function () {
             this.options.disabled = false;
         },
-        update: function(val) {
+        update: function (val) {
             let order = [];
             this.data.forEach((item, i) => {
                 order.push(item.uuid);
@@ -268,7 +253,7 @@ export default {
             this.order = order;
             this.defined = true;
         },
-        save: function() {
+        save: function () {
             this.options.disabled = true;
             if (this.defined) {
                 // 本地
@@ -279,7 +264,7 @@ export default {
                 }
             }
         },
-        reset: function() {
+        reset: function () {
             this.$alert("确定重置为默认排序吗？", "消息", {
                 confirmButtonText: "确定",
                 callback: (action) => {
@@ -309,22 +294,22 @@ export default {
                 },
             });
         },
-        canSee: function(uuid) {
+        canSee: function (uuid) {
             return !this.hide.includes(uuid);
         },
-        hideIt: function(uuid) {
+        hideIt: function (uuid) {
             this.hide.push(uuid);
             this.defined = true;
         },
-        showIt: function(uuid) {
+        showIt: function (uuid) {
             let i = this.hide.indexOf(uuid);
             this.hide.splice(i, 1);
             this.defined = true;
         },
-        isLF: function(uuid) {
+        isLF: function (uuid) {
             return this.lf.includes(uuid);
         },
-        cut: function(uuid) {
+        cut: function (uuid) {
             if (this.isLF(uuid)) {
                 let i = this.lf.indexOf(uuid);
                 this.lf.splice(i, 1);
@@ -333,31 +318,32 @@ export default {
             }
             this.defined = true;
         },
-        getPop: function() {
-            getWikiPnt("knowledge").then((res) => {
-                this.pop.knowledge = !!res.data.data.total;
-            });
-            getWikiPnt("achievement").then((res) => {
-                this.pop.cj = !!res.data.data.total;
-            });
-            getWikiPnt("item").then((res) => {
-                this.pop.item = !!res.data.data.total;
-            });
+        getPop: function () {
+            getHelperPnt().then((res) => {
+                let data = res.data.data
+                let team_count = 0
+                for(let key in data){
+                    if(key == 'achievement'){
+                        this.pop.cj += ~~data[key]
+                    }else if(key == 'team_events_record' || key == 'team_race'){
+                        this.pop.team = ~~this.pop.team + ~~data[key]
+                    }else if(key == 'team_verify_log'){
+                        this.pop.rank = ~~data[key]
+                    }else if(this.pop[key]){
+                        this.pop[key] = ~~data[key]
+                    }
+                }
+            })
         },
     },
     watch: {
-        // order: {
-        //     deep: true,
-        //     handler: function(val) {
-        //     },
-        // },
     },
-    mounted: function() {
+    mounted: function () {
         this.initData();
         if (this.isAdmin) this.getPop();
     },
     filters: {
-        getBoxIcon: function(val) {
+        getBoxIcon: function (val) {
             return __imgPath + "image" + val;
         },
     },
