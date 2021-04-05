@@ -3,9 +3,9 @@ const CLIENT = "std";
 
 function getPosts(type) {
     let params = {
-        client: CLIENT,
+        // client: CLIENT,
     };
-    if (type) {
+    if (!!type) {
         params.type = type;
     }
     return $cms({mute:true}).get("/api/cms/posts/latest", {

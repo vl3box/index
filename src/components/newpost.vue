@@ -1,63 +1,55 @@
 <template>
     <div class="m-newpost m-sideblock">
         <div class="m-newpost-header m-sideblock-header">
-            <i class="el-icon-s-management"></i>
-            <span class="u-title">最新作品</span>
-            <span class="u-links">
-                <a
-                    :href="'/' + item.slug"
-                    target="_blank"
+            <el-tabs v-model="type" type="card">
+                <el-tab-pane name="all">
+                    <span slot="label">
+                        <i class="el-icon-s-management"></i>最新作品
+                    </span>
+                </el-tab-pane>
+                <el-tab-pane
+                    :label="item.label"
+                    :name="item.slug"
                     v-for="(item, i) in links"
                     :key="i"
-                    >{{ item.label }}</a
-                >
-            </span>
-            <a
-                href="https://www.jx3box.com/dashboard/publish/#/"
-                class="u-more"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><i class="el-icon-edit"></i> 发布作品</a
-            >
+                ></el-tab-pane>
+            </el-tabs>
         </div>
-        <div class="m-newpost-content">
+        <div class="m-newpost-content" v-loading="loading">
             <a
                 class="u-post"
                 v-for="(item, i) in data"
                 :key="i"
-                :href="postLink(item.post.post_type, item.post.ID)"
+                :href="postLink(item.post_type, item.ID)"
                 :target="target"
             >
                 <img
                     class="u-avatar"
-                    :src="item.author.avatar | showAvatar"
-                    :alt="item.author.name"
+                    :src="item.author_info.user_avatar | showAvatar"
+                    :alt="item.author_info.display_name"
                 />
                 <div class="u-info">
                     <i class="el-icon-collection-tag"></i>
                     <span
                         class="u-type"
-                        :href="'/' + item.post.post_type"
+                        :href="'/' + item.post_type"
                         target="_blank"
-                        >{{ item.post.post_type | formatTypeName }}</span
-                    >
+                    >{{ item.post_type | formatTypeName }}</span>
                     ／
                     <span
                         class="u-author"
-                        :href="authorLink(item.author.uid)"
+                        :href="authorLink(item.post_author)"
                         target="_blank"
-                    >
-                        {{ item.author.name }}
+                    >{{ item.author_info.display_name }}</span>
+                    <span class="u-date">
+                        <i class="el-icon-refresh"></i>
+                        {{ item.post_modified | dateFormat }}
                     </span>
-                    <span class="u-date"
-                        ><i class="el-icon-refresh"></i>
-                        {{ item.post.post_modified | dateFormat }}</span
-                    >
                 </div>
                 <span class="u-title">
                     <i class="el-icon-reading"></i>
-                    {{ item.post.post_title || "无标题" }}</span
-                >
+                    {{ item.post_title || "无标题" }}
+                </span>
             </a>
         </div>
     </div>
@@ -70,19 +62,23 @@ import {
     buildTarget,
     authorLink,
     showAvatar,
-    getThumbnail
+    getThumbnail,
 } from "@jx3box/jx3box-common/js/utils";
-import { __postType,default_avatar } from "@jx3box/jx3box-common/data/jx3box.json";
+import {
+    __postType,
+    default_avatar,
+} from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "../utils/moment";
 export default {
     name: "newpost",
     props: [],
-    data: function() {
+    data: function () {
         return {
             data: [],
             postLink,
             target: buildTarget(),
             authorLink,
+            type: "all",
             links: [
                 {
                     label: "宏库",
@@ -101,34 +97,6 @@ export default {
                     slug: "bps",
                 },
                 {
-                    label: "成就",
-                    slug: "cj",
-                },
-                {
-                    label: "物品",
-                    slug: "item",
-                },
-                // {
-                //     label: "任务",
-                //     slug: "quest",
-                // },
-                {
-                    label: "百科",
-                    slug: "knowledge",
-                },
-                // {
-                //     label: "家园",
-                //     slug: "house",
-                // },
-                // {
-                //     label: "捏脸",
-                //     slug: "share",
-                // },
-                // {
-                //     label : '表情',
-                //     slug : 'emotion'
-                // },
-                {
                     label: "工具",
                     slug: "tool",
                 },
@@ -137,26 +105,40 @@ export default {
                     slug: "bbs",
                 },
             ],
+            loading : false
         };
     },
     computed: {},
-    methods: {},
+    methods: {
+        loadData: function () {
+            let type = this.type == 'all' ? '' : this.type
+            this.loading = true
+            getPosts(type).then((res) => {
+                this.data = res.data.data.list;
+            }).finally(() => {
+                this.loading = false
+            })
+        },
+    },
     filters: {
-        formatTypeName: function(type) {
+        formatTypeName: function (type) {
             return __postType[type];
         },
-        dateFormat: function(val) {
+        dateFormat: function (val) {
             return showRecently(val);
         },
-        showAvatar : function (val){
-            let avatar = val || default_avatar
-            return getThumbnail(avatar,24,true)
-        }
+        showAvatar: function (val) {
+            let avatar = val || default_avatar;
+            return getThumbnail(avatar, 24, true);
+        },
     },
-    mounted: function() {
-        getPosts().then((res) => {
-            this.data = res.data.data.list;
-        });
+    watch: {
+        type: function () {
+            this.loadData();
+        },
+    },
+    mounted: function () {
+        this.loadData()
     },
     components: {},
 };

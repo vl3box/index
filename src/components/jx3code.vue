@@ -1,21 +1,21 @@
 <template>
-    <div class="m-jx3code m-sideblock" v-if="code">
+    <div class="m-jx3code m-sideblock" v-if="data && data.length">
         <div class="m-sideblock-header">
             <i class="el-icon-s-ticket"></i
             ><span class="u-title">今日福利</span>
         </div>
         <div class="m-jx3code-content">
-            <div class="u-codebox">
+            <div class="u-codebox" v-for="(item,i) in data" :key="i">
                 <div
                     class="u-code"
-                    v-clipboard:copy="code"
+                    v-clipboard:copy="item.title"
                     v-clipboard:success="onCopy"
                     v-clipboard:error="onError"
-                    :style="{color:color}"
+                    :style="{color:item.color || '#f98003'}"
                 >
-                    {{ code }}
+                    {{ item.title }}
                 </div>
-                <div class="u-desc">{{ desc }}</div>
+                <div class="u-desc">{{ item.desc }}</div>
             </div>
         </div>
     </div>
@@ -27,9 +27,18 @@ export default {
     props: [],
     data: function() {
         return {
-            code: "",
-            desc: "",
-            color:'#f98003',
+            data : [
+                // {
+                //     title: "123",
+                //     desc: "123",
+                //     color : '#f98003',
+                // },
+                // {
+                //     title: "123",
+                //     desc: "123",
+                //     color : '#f98003',
+                // }
+            ],
         };
     },
     computed: {},
@@ -50,10 +59,7 @@ export default {
     },
     created: function() {
         getCode().then((res) => {
-            let data = res.data.data && res.data.data[0];
-            this.code = data.title;
-            this.desc = data.desc;
-            this.color = data.color || '#f98003';
+            this.data = res.data.data;
         });
     },
     components: {},
