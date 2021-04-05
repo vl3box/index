@@ -1,19 +1,15 @@
-import { $_server, $server, $_https } from "./axios";
+import { $cms } from "@jx3box/jx3box-common/js/https";
 
 function getProfile() {
-    return $_https("server", {
-        proxy: false,
-        interceptor: "next",
-        mute: true,
-    })
-        .get("/user/me")
+    return $cms({ mute: true })
+        .get("/api/cms/user/my/profile")
         .then((res) => {
             return res.data.data;
         });
 }
 
 function getMeta(key) {
-    return $server.get("/user/meta", {
+    return $cms({ mute: true }).get("/api/cms/user/my/meta", {
         params: {
             key: key,
         },
@@ -21,14 +17,15 @@ function getMeta(key) {
 }
 
 function setMeta(key, val) {
-    return $_https("server", {
-        proxy: false,
-        interceptor: "next",
-        mute: true,
-    }).post("/user/meta", {
-        key: key,
-        value: val,
-    });
+    return $cms({ mute: true }).post(
+        "/api/cms/user/my/meta",
+        { val: val },
+        {
+            params: {
+                key: key,
+            },
+        }
+    );
 }
 
 export { getProfile, getMeta, setMeta };

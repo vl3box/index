@@ -49,25 +49,25 @@ module.exports = {
                 }
             },
             "/api/team": {
-                "target": process.env["DEV_SERVER"] == "true" ? "http://localhost:51818" : "https://team.api.jx3box.com",
+                "target": "https://team.api.jx3box.com",
                 "onProxyReq": function (request) {
                     request.setHeader("origin", "");
                 }
             },
             "/xoyo/daily":{
-                "target": process.env["DEV_SERVER"] == "true" ? "http://localhost:51818" : "https://team.api.jx3box.com",
+                "target": "https://team.api.jx3box.com",
                 "onProxyReq": function (request) {
                     request.setHeader("origin", "");
                 }
+            },
+            "/api/cms": {
+                "target": process.env["DEV_SERVER"] == "true" ? "http://localhost:5120" : "https://cms.jx3box.com",
             },
             "/api": {
-                "target": process.env["DEV_SERVER"] == "true" ? "http://localhost:51818" : "https://next.jx3box.com",
+                "target": "https://next.jx3box.com",
                 "onProxyReq": function (request) {
                     request.setHeader("origin", "");
                 }
-            },
-            "/user": {
-                "target": "https://server.jx3box.com",
             },
         },
         disableHostCheck: true

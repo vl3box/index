@@ -1,4 +1,4 @@
-import { $helper, $next } from "./axios";
+import { $next, $helper } from "@jx3box/jx3box-common/js/https";
 import { getStatRank } from "@jx3box/jx3box-common/js/stat.js";
 
 function getRank(type, days = "30days") {
@@ -19,30 +19,30 @@ function getRank(type, days = "30days") {
 }
 
 function getAchievements(params) {
-    return $helper({mute:true}).get("/api/achievements", {
+    return $helper({ mute: true }).get("/api/achievements", {
         params: params,
     });
 }
 
 function getCollections(params) {
-    return $helper({mute:true}).get(`/api/post/collections`, {
+    return $helper({ mute: true }).get(`/api/post/collections`, {
         params: params,
     });
 }
 function getNamespaces(params) {
-    return $helper({mute:true}).get(`/api/namespaces`, {
+    return $helper({ mute: true }).get(`/api/namespaces`, {
         params: params,
     });
 }
 
 function getKnowledges(params) {
-    return $helper({mute:true}).get(`/api/knowledges`, {
+    return $helper({ mute: true }).get(`/api/knowledges`, {
         params: params,
     });
 }
 
 function getPapers(list) {
-    return $next({mute:true}).get("/api/question/user-exam-paper", {
+    return $next({ mute: true }).get("/api/question/user-exam-paper", {
         params: {
             list: list,
         },
@@ -50,7 +50,7 @@ function getPapers(list) {
 }
 
 function getJx3datRank(limit = 10) {
-    return $next({mute:true}).get("/api/plugins/jx3dat/rank", {
+    return $next({ mute: true }).get("/api/plugins/jx3dat/rank", {
         params: {
             pageSize: limit,
         },
@@ -58,7 +58,7 @@ function getJx3datRank(limit = 10) {
 }
 
 function getMacroRank(limit = 10) {
-    return $next({mute:true}).get("/api/macro/overview", {
+    return $next({ mute: true }).get("/api/macro/overview", {
         params: {
             size: limit,
             // _no_cache:1,

@@ -1,7 +1,10 @@
-import { $spider, $next,$team } from "./axios";
+import { $team } from "@jx3box/jx3box-common/js/https";
+import axios from "axios";
+import { __spider } from "@jx3box/jx3box-common/data/jx3box.json";
+const $spider = axios.create({ baseURL: __spider });
 
 function getDaily(date) {
-    return $team({mute:true}).get("/xoyo/daily/task", {
+    return $team({ mute: true }).get("/xoyo/daily/task", {
         params: {
             date: date, //int,时间戳，单位秒
         },

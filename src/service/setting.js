@@ -1,7 +1,7 @@
-import { $server, $helper } from "./axios";
+import { $cms, $helper } from "@jx3box/jx3box-common/js/https";
 
 function getConfig() {
-    return $server.get("/index/config");
+    return $cms({ mute: true }).get("/api/cms/config");
 }
 
 function getMenuGroup(name) {

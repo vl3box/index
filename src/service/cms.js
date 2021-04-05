@@ -2,7 +2,7 @@ import { $cms } from "@jx3box/jx3box-common/js/https";
 const CLIENT = 'std'
 
 function getCode() {
-    return $cms().get(`/api/cms/news`, {
+    return $cms({mute:true}).get(`/api/cms/news`, {
         params: {
             client: CLIENT,
             type: "code",
@@ -20,7 +20,7 @@ function getNews(type,limit) {
     if (limit) {
         _params.limit = limit;
     }
-    return $cms().get(`/api/cms/news`, {
+    return $cms({mute:true}).get(`/api/cms/news`, {
         params: _params,
     });
 }
@@ -34,7 +34,7 @@ function getSliders(type, limit) {
     if (limit) {
         _params.limit = limit;
     }
-    return $cms().get(`/api/cms/news`, {
+    return $cms({mute:true}).get(`/api/cms/news`, {
         params: _params,
     });
 }
