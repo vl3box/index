@@ -23,11 +23,12 @@
                 :href="postLink(item.post_type, item.ID)"
                 :target="target"
             >
-                <img
+                <el-image
                     class="u-avatar"
                     :src="item.author_info.user_avatar | showAvatar"
+                    fit="cover"
                     :alt="item.author_info.display_name"
-                />
+                ></el-image>
                 <div class="u-info">
                     <i class="el-icon-collection-tag"></i>
                     <span
