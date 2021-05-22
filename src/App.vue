@@ -7,8 +7,9 @@
                 <slider />
                 <event />
                 <box />
+                <joke />
                 <guide />
-                <!-- TODO:表情+骚话 -->
+                <!-- TODO:表情 -->
                 <newpost />
                 <!-- TODO:剑三直播 -->
                 <team />
@@ -68,6 +69,7 @@ import namespacerank from "@/components/rank_namespaces.vue";
 import newpost from "@/components/newpost.vue";
 import team from "@/components/team.vue";
 import guide from "@/components/guide.vue";
+import joke from "@/components/joke.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
@@ -105,6 +107,7 @@ export default {
         newpost,
         team,
         guide,
+        joke,
     },
     created: function() {
         if (User.isLogin()) {

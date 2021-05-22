@@ -1,7 +1,7 @@
 <template>
     <div class="m-guide m-sideblock">
         <div class="m-guide-header m-sideblock-header">
-            <i class="el-icon-guide"></i>
+            <i class="el-icon-discover"></i>
             <span class="u-title">游戏指南</span>
             <a
                 href="/bps"
