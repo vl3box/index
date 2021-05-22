@@ -20,7 +20,7 @@
                 class="u-post"
                 v-for="(item, i) in data"
                 :key="i"
-                :href="postLink(item.post_type, item.ID)"
+                :href="getLink(item.post_type,item.ID)"
                 :target="target"
             >
                 <el-image
@@ -33,7 +33,6 @@
                     <i class="el-icon-collection-tag"></i>
                     <span
                         class="u-type"
-                        :href="'/' + item.post_type"
                         target="_blank"
                     >{{ item.post_type | formatTypeName }}</span>
                     ／
@@ -59,11 +58,11 @@
 <script>
 import { getPosts } from "@/service/index";
 import {
-    postLink,
     buildTarget,
     authorLink,
     showAvatar,
     getThumbnail,
+    getLink
 } from "@jx3box/jx3box-common/js/utils";
 import {
     __postType,
@@ -76,9 +75,7 @@ export default {
     data: function () {
         return {
             data: [],
-            postLink,
             target: buildTarget(),
-            authorLink,
             type: "all",
             links: [
                 {
@@ -120,6 +117,8 @@ export default {
                 this.loading = false
             })
         },
+        getLink,
+        authorLink,
     },
     filters: {
         formatTypeName: function (type) {
