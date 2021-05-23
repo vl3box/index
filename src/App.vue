@@ -7,7 +7,7 @@
                 <slider />
                 <event />
                 <box />
-                <joke />
+                <!-- <joke /> -->
                 <guide />
                 <!-- TODO:表情 -->
                 <newpost />
@@ -107,7 +107,7 @@ export default {
         newpost,
         team,
         guide,
-        joke,
+        // joke,
     },
     created: function() {
         if (User.isLogin()) {
