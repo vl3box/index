@@ -4,7 +4,7 @@
             <i class="el-icon-s-opportunity"></i
             ><span class="u-title">站内动态</span>
             <span class="u-more u-admin">
-                <template v-if="isAdmin">
+                <template v-if="isEditor">
                     <a href="/admin" target="_blank" rel="noopener noreferrer"
                         >海报管理</a
                     >
@@ -47,7 +47,7 @@ export default {
     data: function() {
         return {
             data: [],
-            isAdmin: User.isAdmin(),
+            isEditor: User.isEditor(),
         };
     },
     computed: {},

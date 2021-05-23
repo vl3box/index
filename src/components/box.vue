@@ -63,7 +63,7 @@
                                 @click.prevent="showIt(item.uuid)"
                             ></i>
                         </span>
-                        <i class="u-pop" v-if="isAdmin && pop[item.uuid]"></i>
+                        <i class="u-pop" v-if="isEditor && pop[item.uuid]"></i>
                     </a>
                 </el-tooltip>
             </li>
@@ -146,7 +146,7 @@ export default {
             showAbbr: window.innerWidth < 370,
             isLogin: User.isLogin(),
             defined: false,
-            isAdmin: User.isAdmin(),
+            isEditor: User.isEditor(),
             pop: {
                 cj: false,
                 knowledge: false,
@@ -340,7 +340,7 @@ export default {
     },
     mounted: function () {
         this.initData();
-        if (this.isAdmin) this.getPop();
+        if (this.isEditor) this.getPop();
     },
     filters: {
         getBoxIcon: function (val) {
