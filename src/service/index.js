@@ -1,4 +1,4 @@
-import { $cms, $team } from "@jx3box/jx3box-common/js/https";
+import { $cms, $team, $next } from "@jx3box/jx3box-common/js/https";
 const CLIENT = "std";
 
 function getPosts(type) {
@@ -8,15 +8,19 @@ function getPosts(type) {
     if (!!type) {
         params.type = type;
     }
-    return $cms({mute:true}).get("/api/cms/posts/latest", {
+    return $cms({ mute: true }).get("/api/cms/posts/latest", {
         params: params,
     });
 }
 
 function getTeams(params) {
-    return $team({mute:true}).get("/api/team/public", {
+    return $team({ mute: true }).get("/api/team/public", {
         params: params,
     });
 }
 
-export { getPosts, getTeams };
+function getJokes() {
+    return $next({ mute: true }).get(`/api/joke/recommended`);
+}
+
+export { getPosts, getTeams, getJokes };
