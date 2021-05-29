@@ -6,7 +6,7 @@
         <div class="u-content">
             <el-carousel height="20px" direction="vertical" :autoplay="true">
                 <el-carousel-item v-for="(item,i) in data" :key="i">
-                    <a class="u-item" :href="getLink(item.id)" target="_blank">
+                    <a class="u-item" href="/bbs/#/joke" target="_blank">
                         <span class="u-joke" v-html="item.html"></span>
                         <span class="u-author">@{{item.author}}</span>
                     </a>
