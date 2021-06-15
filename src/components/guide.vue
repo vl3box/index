@@ -156,7 +156,7 @@ export default {
     },
     mounted() {
         getMenuGroups({
-            names: ["guide-bps-kungfu", "guide-bps-weapon", "guide-other"],
+            names: ["guide-bps-kungfu", "guide-bps-weapon"],
         }).then((res) => {
             let data = res.data;
             if (data.code === 200) {
