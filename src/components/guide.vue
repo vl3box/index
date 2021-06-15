@@ -55,9 +55,12 @@
                 </template>
             </div>
             <div class="u-guide-block u-guide-rank">
-                <h5
-                    class="u-title u-border-top-none"
-                    >门派天梯</h5>
+                <h5 class="u-title u-border-top-none">
+                    <a href="/bps/#/ladder" target="_blank">
+                        <i class="el-icon-s-data"></i>
+                        门派天梯
+                    </a>
+                </h5>
                 <ul>
                     <li v-for="(item, i) in rank" :key="i">
                         <!-- <el-tooltip
@@ -82,14 +85,14 @@
                                     >&lt;{{item.label}}&gt;</span>
                                 </span>
                             </div>
-                        </el-tooltip> -->
+                        </el-tooltip>-->
                         <div
                             class="u-item"
                             :style="{
                             width: getRate(item.dps),
                             backgroundColor: xfcolor(item.xf),
                         }"
-                        v-if="!~~item.icon"
+                            v-if="!~~item.icon"
                         >
                             <img :src="item.xf | xfNameIcon" class="u-pic" />
                             <span class="u-text">
@@ -97,7 +100,7 @@
                                 <!-- <span
                                     class="u-desc"
                                     v-if="item.xf"
-                                >&lt;{{item.label}}&gt;</span> -->
+                                >&lt;{{item.label}}&gt;</span>-->
                             </span>
                             <b class="u-dps">{{item.dps}}</b>
                         </div>
