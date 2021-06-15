@@ -89,15 +89,17 @@
                             width: getRate(item.dps),
                             backgroundColor: xfcolor(item.xf),
                         }"
+                        v-if="!~~item.icon"
                         >
                             <img :src="item.xf | xfNameIcon" class="u-pic" />
                             <span class="u-text">
                                 {{ item.xf }}
-                                <span
+                                <!-- <span
                                     class="u-desc"
                                     v-if="item.xf"
-                                >&lt;{{item.label}}&gt;</span>
+                                >&lt;{{item.label}}&gt;</span> -->
                             </span>
+                            <b class="u-dps">{{item.dps}}</b>
                         </div>
                     </li>
                 </ul>
