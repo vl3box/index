@@ -20,6 +20,7 @@
                     'u-lf': isLF(item.uuid),
                     hidden: !canSee(item.uuid),
                 }"
+                v-show="item.status"
             >
                 <el-tooltip
                     class="item"
