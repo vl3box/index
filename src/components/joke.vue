@@ -13,6 +13,7 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
+        <a class="u-publish" target="_blank" href="/publish/#/joke"><i class="el-icon-s-promotion"></i> 说骚话</a>
     </div>
 </template>
 
