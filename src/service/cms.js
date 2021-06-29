@@ -39,4 +39,11 @@ function getSliders(type, limit) {
     });
 }
 
-export { getCode, getNews, getSliders };
+
+function getPosts(params) {
+    return $cms().get("/api/cms/posts", {
+        params: params,
+    });
+}
+
+export { getCode, getNews, getSliders,getPosts };

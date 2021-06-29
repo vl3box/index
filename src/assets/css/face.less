@@ -1,0 +1,52 @@
+.m-face {
+    .mt(20px);
+    background-color: #fff;
+    border: 1px solid @border-hr;
+
+    .i-icon-new {
+        .h(12px);
+        .ml(4px);
+        .y;
+    }
+
+    .el-icon-guide {
+        .fz(16px);
+    }
+}
+
+.m-face-list {
+    list-style: none;
+    padding: 10px 0 0 10px;
+    margin: 0;
+    .clearfix;
+
+    .u-pic {
+        .size(120px);
+        .db;
+        // .r(100%);
+        border: 4px solid @bg-gray;
+        transition: all 0.2s ease-in-out;
+        // background-color:@bg-black;
+        background-color: #e6f0fb;
+        &:hover {
+            // box-shadow: 0 0 8px rgba(0,0,0,.2);
+            filter: saturate(120%) brightness(110%);
+            transform: scale(1.1);
+            border-color: transparent;
+        }
+    }
+    .u-img {
+        border: 1px dashed #e6f0fb;
+        .db;
+        &:hover {
+            border-color: transparent;
+        }
+    }
+    .u-item {
+        .fl;
+        .mr(15px);
+        .mb(15px);
+        .db;
+        .pr;
+    }
+}
