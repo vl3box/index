@@ -28,6 +28,7 @@ import {
     getLink,
 } from "@jx3box/jx3box-common/js/utils";
 import { getPosts } from "@/service/cms.js";
+import {__imgPath} from '@jx3box/jx3box-common/data/jx3box.json'
 export default {
     name: "face",
     props: [],
@@ -42,6 +43,24 @@ export default {
         target: function () {
             return buildTarget();
         },
+        per : function (){
+            let w = window.innerWidth
+            let space = w
+            let count = 10
+            if(w<1280){
+                space = w - 30*2
+            }else if(w<=1680){
+                space = w - 30*2 - 350
+            }else{
+                space = w - 30*2 - 350 - 320
+            }
+            count = Math.floor(space / 150) * 2
+
+            if(w<768){
+                count = 9
+            }
+            return count
+        }
     },
     methods: {
         showThumb: function (item) {
@@ -49,7 +68,7 @@ export default {
             if (url) {
                 return showBanner(url, "face");
             } else {
-                return __imgPath + "image/face/null.png";
+                return __imgPath + "image/face/null2.png";
             }
         },
     },
@@ -63,7 +82,7 @@ export default {
         this.loading = true;
         getPosts({
             type : 'share',
-            per: 16,
+            per: this.per,
         })
             .then((res) => {
                 this.data = res.data.data.list || [];

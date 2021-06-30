@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </el-col>
-                <el-col :span="8">
+                <el-col :span="8" style="border-right:none">
                     <div class="u-guide-block u-guide-other">
                         <!-- 成就 -->
                         <template v-if="menu_groups['awesome-achievements']">

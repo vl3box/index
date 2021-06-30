@@ -16,9 +16,13 @@
 
 .m-face-list {
     list-style: none;
-    padding: 10px 0 0 10px;
+    padding: 0;
     margin: 0;
-    .clearfix;
+    // .clearfix;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
 
     .u-pic {
         .size(120px);
@@ -43,10 +47,23 @@
         }
     }
     .u-item {
-        .fl;
-        .mr(15px);
-        .mb(15px);
+        // .fl;
+        // margin:10px;
         .db;
         .pr;
+        padding:10px;
+        box-sizing: border-box;
+        // flex-shrink:0;
+    }
+}
+
+@media screen and (max-width:@phone){
+    .m-face-list {
+        .u-item{
+            .w(33%);
+            .u-pic{
+                .h(auto);
+            }
+        }
     }
 }
