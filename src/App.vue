@@ -130,6 +130,10 @@ export default {
             }
             this.$store.state.config = _data;
         });
+
+        if (location.hostname != 'localhost' && location.hostname != "www.jx3box.com") {
+            location.href = "https://www.jx3box.com/index";
+        }
     },
 };
 </script>
