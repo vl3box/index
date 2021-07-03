@@ -8,7 +8,7 @@
                 <el-carousel-item v-for="(item,i) in data" :key="i">
                     <a class="u-item" href="/bbs/#/joke" target="_blank">
                         <span class="u-joke" v-html="item.html"></span>
-                        <span class="u-author">@{{item.author}}</span>
+                        <span class="u-author">@{{item.author || '匿名'}}</span>
                     </a>
                 </el-carousel-item>
             </el-carousel>
