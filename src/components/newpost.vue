@@ -105,9 +105,9 @@
                             >
                                 <el-image
                                     class="u-avatar"
-                                    :src="item.author_info.user_avatar | showAvatar"
+                                    :src="(item.author_info && item.author_info.user_avatar) | showAvatar"
                                     fit="cover"
-                                    :alt="item.author_info.display_name"
+                                    :alt="item.author_info && item.author_info.display_name"
                                 ></el-image>
                                 <div class="u-info">
                                     <i class="el-icon-collection-tag"></i>
@@ -120,7 +120,7 @@
                                         class="u-author"
                                         :href="authorLink(item.post_author)"
                                         target="_blank"
-                                    >{{ item.author_info.display_name }}</span>
+                                    >{{ item.author_info && item.author_info.display_name }}</span>
                                     <span class="u-date">
                                         <i class="el-icon-refresh"></i>
                                         {{ item.post_modified | dateFormat }}
