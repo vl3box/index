@@ -120,7 +120,7 @@
                                         class="u-author"
                                         :href="authorLink(item.post_author)"
                                         target="_blank"
-                                    >{{ item.author_info && item.author_info.display_name }}</span>
+                                    >{{ item.author_info && item.author_info.display_name || '匿名'}}</span>
                                     <span class="u-date">
                                         <i class="el-icon-refresh"></i>
                                         {{ item.post_modified | dateFormat }}
