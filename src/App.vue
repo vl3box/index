@@ -7,14 +7,19 @@
                 <slider />
                 <event />
                 <box />
+
                 <joke />
-                <guide />
+                <transaction />
+
                 <!-- TODO:表情 -->
-                <newpost />
-                <!-- TODO:剑三直播 -->
-                <face />
                 <team />
 
+                <!-- TODO:剑三直播 -->
+                <guide />
+                
+                <face />
+                <newpost />
+                
                 <div class="m-left">
                     <daily />
                     <jx3code />
@@ -71,6 +76,7 @@ import team from "@/components/team.vue";
 import guide from "@/components/guide.vue";
 import joke from "@/components/joke.vue";
 import face from "@/components/face.vue";
+import transaction from "@/components/transaction.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
@@ -109,7 +115,8 @@ export default {
         team,
         guide,
         joke,
-        face
+        face,
+        transaction,
     },
     created: function() {
         if (User.isLogin()) {
