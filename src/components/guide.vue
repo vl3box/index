@@ -138,7 +138,7 @@ export default {
     data: function () {
         return {
             menu_groups: {},
-            rank: [],
+            data: [],
             v: "baidifengyun", //白帝风云
         };
     },
@@ -150,6 +150,13 @@ export default {
             });
             return ~~Math.max(...arr);
         },
+        rank : function (){
+            let data = this.data
+            data.sort((a,b) => {
+                return ~~(b.dps) - ~~(a.dps)
+            })
+            return data
+        }
     },
     methods: {
         xfcolor: function (val) {
@@ -175,7 +182,7 @@ export default {
         });
 
         getSchoolRank(this.v).then((res) => {
-            this.rank = res.data.data.group.items || [];
+            this.data = res.data.data.group.items || [];
         });
     },
     filters: {

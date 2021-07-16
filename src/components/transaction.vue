@@ -1,6 +1,6 @@
 <template>
     <div class="m-index-transaction">
-        交易行数据
+        <!-- 交易行数据 -->
     </div>
 </template>
 
