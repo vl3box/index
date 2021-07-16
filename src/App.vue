@@ -11,14 +11,14 @@
                 <joke />
                 <transaction />
 
-                <!-- TODO:表情 -->
-                <team />
-
                 <!-- TODO:剑三直播 -->
                 <guide />
                 
                 <face />
                 <newpost />
+
+                <!-- TODO:表情 -->
+                <team />
                 
                 <div class="m-left">
                     <daily />
