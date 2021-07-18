@@ -6,7 +6,7 @@
             <div class="u-list">
                 <span class="u-weibo u-item">
                     <img svg-inline src="../assets/img/weibo.svg" />
-                    <em>官博：</em>
+                    <em>官方微博：</em>
                     <a href="https://weibo.com/jx3box" target="_blank"
                         ><b>JX3BOX魔盒</b></a
                     >
