@@ -8,18 +8,20 @@
                 <event />
                 <box />
 
-                <joke />
-                <transaction />
+                <div class="m-center">
+                    <joke />
+                    <transaction />
 
-                <!-- TODO:剑三直播 -->
-                <guide />
-                
-                <face />
-                <newpost />
+                    <guide />
+                    <!-- TODO:剑三直播 -->
 
-                <!-- TODO:表情 -->
-                <team />
-                
+                    <face />
+                    <newpost />
+
+                    <!-- TODO:表情 -->
+                    <team />
+                </div>
+
                 <div class="m-left">
                     <daily />
                     <jx3code />
@@ -38,7 +40,6 @@
                     <wikirank />
                     <collectionrank />
                     <examrank />
-                    <!-- <namespacerank /> -->
                     <contact />
                 </div>
 
@@ -84,7 +85,7 @@ import { getConfig } from "@/service/setting.js";
 export default {
     name: "App",
     props: [],
-    data: function() {
+    data: function () {
         return {};
     },
     computed: {},
@@ -118,7 +119,7 @@ export default {
         face,
         transaction,
     },
-    created: function() {
+    created: function () {
         if (User.isLogin()) {
             getProfile().then((data) => {
                 if (data) {
@@ -138,7 +139,10 @@ export default {
             this.$store.state.config = _data;
         });
 
-        if (location.hostname != 'localhost' && location.hostname != "www.jx3box.com") {
+        if (
+            location.hostname != "localhost" &&
+            location.hostname != "www.jx3box.com"
+        ) {
             location.href = "https://www.jx3box.com/index";
         }
     },

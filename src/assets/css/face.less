@@ -20,9 +20,9 @@
     margin: 0;
     // .clearfix;
     display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
     .u-pic {
         .size(120px);
@@ -51,18 +51,20 @@
         // margin:10px;
         .db;
         .pr;
-        padding:10px;
+        padding: 10px;
         box-sizing: border-box;
         // flex-shrink:0;
     }
 }
 
-@media screen and (max-width:@phone){
+@media screen and (max-width: @phone) {
     .m-face-list {
-        .u-item{
+        .u-item {
             .w(33%);
-            .u-pic{
+            .u-pic {
                 .h(auto);
+                width: auto;
+                box-sizing: border-box;
             }
         }
     }
