@@ -20,6 +20,7 @@
                             class="u-item"
                             :class="`u-item-${key}`"
                             :href="item.item_id | showItemLink"
+                            target="_blank"
                         >
                             <div class="u-icon">
                                 <img :src="item.icon | iconLink" />
