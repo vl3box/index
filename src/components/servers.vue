@@ -53,11 +53,12 @@ export default {
                 return "";
             }
         },
+    },
+    methods: {
         isOriginServer : function (item){
             return servers.includes(item.serverName)
         }
     },
-    methods: {},
     mounted: function() {
         getServers().then((data) => {
             data.forEach((item) => {
