@@ -13,7 +13,7 @@
         </div>
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">
-                <div class="u-item" v-for="(item, i) in data" :key="i">
+                <div class="u-item" v-for="(item, i) in data" :key="i" v-show="!isOriginServer(item)">
                     <el-tooltip
                         class="item"
                         effect="dark"
@@ -36,6 +36,7 @@
 
 <script>
 import { getServers } from "@/service/spider";
+import servers from '@jx3box/jx3box-data/data/server/server_origin.json'
 export default {
     name: "servers",
     props: [],
@@ -52,6 +53,9 @@ export default {
                 return "";
             }
         },
+        isOriginServer : function (item){
+            return servers.includes(item.serverName)
+        }
     },
     methods: {},
     mounted: function() {
