@@ -1,0 +1,40 @@
+.m-gossip {
+  .mt(20px);
+  @imgWidth: 92px;
+
+  .u-list {
+    padding: 0;
+    li {
+      padding: 6px;
+      &:hover {
+        background: @bg-gray;
+      }
+    }
+  }
+  .u-list-item {
+    &:hover {
+      text-decoration: none;
+      box-shadow: none;
+    }
+  }
+
+  .m-gossip-title {
+    display: block;
+    .nobreak;
+    line-height: 32px;
+  }
+  .m-gossip-desc {
+    display: block;
+    color: #999;
+    .nobreak;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .m-gossip-img {
+    width: @imgWidth;
+    height: 48px;
+    float: left;
+    .mr(8px)
+  }
+}
