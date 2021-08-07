@@ -34,6 +34,7 @@
 
                 <div class="m-right">
                     <notice />
+                    <gossip />
                     <cjrank />
                     <macrorank />
                     <jx3datrank />
@@ -52,6 +53,7 @@
 <script>
 import box from "@/components/box.vue";
 import notice from "@/components/notice.vue";
+import gossip from "@/components/gossip.vue";
 import slider from "@/components/slider.vue";
 import event from "@/components/event.vue";
 import live from "@/components/live.vue";
@@ -93,6 +95,7 @@ export default {
     components: {
         box,
         notice,
+        gossip,
         slider,
         event,
         live,

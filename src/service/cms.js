@@ -25,6 +25,20 @@ function getNews(type,limit) {
     });
 }
 
+function getGossip(limit) {
+    let _params = {
+        client: 'std',
+        type: 'gossip',
+        status : 1
+    };
+    if (limit) {
+        _params.limit = limit;
+    }
+    return $cms({mute:true}).get(`/api/cms/news`, {
+        params: _params,
+    });
+}
+
 function getSliders(type, limit) {
     let _params = {
         client: CLIENT,
@@ -46,4 +60,4 @@ function getPosts(params) {
     });
 }
 
-export { getCode, getNews, getSliders,getPosts };
+export { getCode, getNews, getSliders, getPosts, getGossip };
