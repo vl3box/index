@@ -1,8 +1,8 @@
 <template>
     <div class="m-sideblock m-gossip">
         <div class="m-sideblock-header">
-            <i class="el-icon-watermelon"></i
-            ><span class="u-title">近日吃瓜</span>
+            <i class="el-icon-watermelon"></i>
+            <span class="u-title">近日吃瓜</span>
             <a
                 href="/knowledge/#/type/gossip"
                 class="u-more"
@@ -23,7 +23,8 @@
                     :style="{ color: item.color }"
                     :class="{ isHighlight: !!item.color }"
                 >
-                    <img class="m-gossip-img" :src="item.img" alt="">
+                    <el-image :src="item.img" class="m-gossip-img">
+                    </el-image>
                     <div>
                         <span class="m-gossip-title">{{ item.title }}</span>
                         <span class="m-gossip-desc">{{ item.desc }}</span>
@@ -31,15 +32,7 @@
                 </a>
             </li>
         </ul>
-        <el-alert
-            v-else
-            title="近日无瓜"
-            type="info"
-            center
-            show-icon
-            :closable="false"
-        >
-        </el-alert>
+        <el-alert v-else title="近日无瓜" type="info" center show-icon :closable="false"></el-alert>
     </div>
 </template>
 
@@ -48,14 +41,14 @@ import { getGossip } from "@/service/cms";
 export default {
     name: "gossip",
     props: [],
-    data: function() {
+    data: function () {
         return {
-            data: []
+            data: [],
         };
     },
     computed: {},
     methods: {},
-    created: function() {
+    created: function () {
         getGossip(8).then((res) => {
             this.data = res.data.data;
         });
