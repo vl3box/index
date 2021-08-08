@@ -12,10 +12,10 @@
         </div>
         <div class="m-transaction-box">
             <div class="m-price-list" v-if="groups && groups.length">
-                <el-carousel indicator-position="none">
+                <el-carousel indicator-position="none" :autoplay="true" :interval="3000" height="200px" direction="vertical">
                     <el-carousel-item  v-for="(group, key) in groups" :key="key">
                         <el-row :gutter="20">
-                            <div class="u-group-title" v-text="group.label"></div>
+                            <!-- <div class="u-group-title" v-text="group.label"></div> -->
                             <el-col :span="6" v-for="(item, k) in group.items" :key="k">
                                 <a
                                     v-if="item"
@@ -86,13 +86,9 @@ export default {
             getItemPrice({
                 server: this.server,
                 keys: [
-                    "wuxingshi",
-                    "baoxiang",
-                    "teshucailiao",
-                    "caijincailiao",
-                    "paodingcailiao",
-                    "shennongcailiao",
-                    "anqi",
+                    "index1",
+                    "index2",
+                    "teshucailiao"
                 ],
             }).then((data) => {
                 data = data.data;
