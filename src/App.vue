@@ -28,6 +28,7 @@
                     <gamenews />
                     <servers />
                     <price />
+                    <feedback />
                     <!-- TODO:账号同步工具 -->
                     <!-- TODO:APP下载 -->
                 </div>
@@ -65,6 +66,7 @@ import jx3code from "@/components/jx3code.vue";
 import gamenews from "@/components/gamenews.vue";
 import servers from "@/components/servers.vue";
 import price from "@/components/price.vue";
+import feedback from "@/components/feedback.vue";
 
 import macrorank from "@/components/rank_macro.vue";
 import jx3datrank from "@/components/rank_jx3dat.vue";
@@ -106,6 +108,7 @@ export default {
         gamenews,
         servers,
         price,
+        feedback,
 
         cjrank,
         macrorank,
