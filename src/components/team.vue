@@ -129,7 +129,7 @@
                         </el-input>
                         <a
                             class="u-more el-button el-button--primary is-plain el-button--mini"
-                            href="/team/raid/list">查看更多&raquo;
+                            href="/team/raid/list" target="_blank">查看更多&raquo;
                         </a>
                     </div>
                     <div v-loading="raidLoading">
