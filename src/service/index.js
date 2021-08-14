@@ -23,4 +23,10 @@ function getJokes() {
     return $next({ mute: true }).get(`/api/joke/recommended`);
 }
 
-export { getPosts, getTeams, getJokes };
+function searchRaids(params) {
+    return $cms().get(`/api/cms/team/raids`, {
+        params: params,
+    });
+}
+
+export { getPosts, getTeams, getJokes, searchRaids };

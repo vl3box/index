@@ -1,7 +1,7 @@
 .m-index-recruit-header {
     border-bottom: 1px solid @border-hr;
     .clearfix;
-    padding-bottom: 10px;
+    padding-left: 0;
     .u-title {
         .fz(14px);
         .dbi;.y;
@@ -21,6 +21,10 @@
     .u-isVerified,.u-type{
         .y(-2px);
         .ml(10px);
+        
+        .el-checkbox__label {
+            .fz(12px);
+        }
     }
     .u-name{
         .w(auto);
@@ -34,25 +38,6 @@
     }
     .el-input-group__append{
         padding:0 10px;
-    }
-
-    .u-misc{
-        .fr;
-
-        .u-more{
-            color:@color-link;
-            .lh(28px);
-            .ml(20px);
-            i{
-                .mr(2px);
-            }
-            .el-icon-map-location{
-                .mr(5px);
-            }
-        }
-        a:hover{
-            color:@pink;
-        }
     }
 }
 @media screen and (max-width:@ipad-y){
@@ -77,13 +62,39 @@
     background-color:#fff;
     border: 1px solid #e1e4e8;
     .mt(20px);
+    .pr;
+
+    .u-recruit-tab {
+        padding: 8px 10px;
+    }
+    .u-misc{
+        .pa;
+        top: 10px;
+        right: 16px;
+        .fz(12px);
+
+        .u-more{
+            color:@color-link;
+            .lh(28px);
+            .ml(20px);
+            i{
+                .mr(2px);
+            }
+            .el-icon-map-location{
+                .mr(5px);
+            }
+        }
+        a:hover{
+            color:@pink;
+        }
+    }
 
     .u-list {
         padding: 10px;
         margin: 0;
         list-style: none;
     }
-    .u-item {
+    .u-recruit-item {
         @s:42px;
         .db;
         .pr;
@@ -188,10 +199,24 @@
             color:@pink;
         }
     }
+
+    .m-index-board{
+        .mt(8px);
+    
+        .m-raid-table.isIndex{
+            .mt(10px);
+        }
+
+        .u-displayname {
+            display: inline-block;
+            width: 100px;
+            .nobreak;
+        }
+    }
 }
 @media screen and (max-width: @phone) {
     .m-index-recruit {
-        .u-item {
+        .u-recruit-item {
             .u-meta {
                 span {
                     .db;

@@ -1,126 +1,162 @@
 <template>
     <div class="m-index-recruit m-sideblock">
-        <div class="m-index-recruit-header m-sideblock-header">
-            <a class="u-title" href="/team" target="_blank">
-                <i class="el-icon-data-analysis"></i> 团队招募
-            </a>
-            <div class="u-condition">
-                <el-select
-                    class="u-server u-select"
-                    v-model="server"
-                    placeholder="选择服务器"
-                    size="mini"
-                    filterable
-                >
-                    <el-option key="all" label="全部" value=""> </el-option>
-                    <el-option
-                        v-for="item in servers"
-                        :key="item"
-                        :label="item"
-                        :value="item"
-                    >
-                    </el-option>
-                </el-select>
-                <el-input
-                    class="u-name"
-                    v-model="name"
-                    placeholder="查找团队"
-                    size="mini"
-                    ><i
-                        class="el-icon-search"
-                        slot="append"
-                        @click="loadData"
-                    ></i
-                ></el-input>
-                <el-select
-                    class="u-type"
-                    v-model="tag"
-                    multiple
-                    placeholder="过滤类型"
-                    size="mini"
-                >
-                    <el-option label="全部类型" value=""></el-option>
-                    <el-option
-                        v-for="item in tags"
-                        :key="item"
-                        :label="item"
-                        :value="item"
-                    >
-                    </el-option>
-                </el-select>
-                <el-checkbox class="u-isVerified" v-model="isVerified"
-                    >已认证</el-checkbox
-                >
-            </div>
-            <div class="u-misc">
-                <a
-                    href="/team/org/add"
-                    class="u-more"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="el-icon-microphone"></i>发布招募</a
-                >
-                <a
-                    href="/team"
-                    class="u-more"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="el-icon-map-location"></i>团队广场</a
-                >
-            </div>
-        </div>
-        <div class="u-list" v-if="data && data.length">
-            <el-row :gutter="20">
-                <el-col :span="12" v-for="(item, i) in data" :key="i"
-                    ><div>
-                        <a
-                            class="u-item"
-                            :href="item.ID | teamLink"
-                            target="_blank"
+        <el-tabs v-model="tab" class="u-recruit-tab">
+            <el-tab-pane name="recruit">
+                <div slot="label">
+                    <i class="el-icon-data-analysis"></i> 团队招募
+                </div>
+                <div class="m-index-recruit-header m-sideblock-header">
+                    <div class="u-condition">
+                        <el-select
+                            class="u-server u-select"
+                            v-model="server"
+                            placeholder="选择服务器"
+                            size="mini"
+                            filterable
                         >
-                            <span class="u-pic">
-                                <img
-                                    :src="item.logo | showLogo"
-                                    v-if="item.logo"
-                                />
-                                <img
-                                    src="../assets/img/center/null.png"
-                                    v-else
-                                />
-                            </span>
-                            <span class="u-name">
-                                {{ item.name }}
-                                <i
-                                    class="u-status"
-                                    v-if="item.status"
-                                    title="已认证"
-                                    ><img
-                                        svg-inline
-                                        src="../assets/img/center/verify.svg"
-                                /></i>
-                                <span class="u-meta u-server">
-                                    <em>{{ item.server }}</em>
-                                </span>
-                                <span
-                                    class="u-tag"
-                                    v-if="isGoodTeam(item.tags)"
-                                ></span>
-                            </span>
-                            <!-- <span class="u-time">
-                                <i class="el-icon-refresh"></i>
-                                {{ item.updated_at | showTime }}
-                            </span> -->
-                            <span class="u-recruit">{{
-                                item.recruit || item.desc
-                            }}</span>
-                        </a>
-                    </div></el-col
+                            <el-option key="all" label="全部" value=""> </el-option>
+                            <el-option
+                                v-for="item in servers"
+                                :key="item"
+                                :label="item"
+                                :value="item"
+                            >
+                            </el-option>
+                        </el-select>
+                        <el-input
+                            class="u-name"
+                            v-model="name"
+                            placeholder="查找团队"
+                            size="mini"
+                            ><i
+                                class="el-icon-search"
+                                slot="append"
+                                @click="loadData"
+                            ></i
+                        ></el-input>
+                        <el-select
+                            class="u-type"
+                            v-model="tag"
+                            multiple
+                            placeholder="过滤类型"
+                            size="mini"
+                        >
+                            <el-option label="全部类型" value=""></el-option>
+                            <el-option
+                                v-for="item in tags"
+                                :key="item"
+                                :label="item"
+                                :value="item"
+                            >
+                            </el-option>
+                        </el-select>
+                        <el-checkbox class="u-isVerified" v-model="isVerified"
+                            >已认证</el-checkbox
+                        >
+                    </div>
+                </div>
+                <div class="u-list" v-if="data && data.length">
+                    <el-row :gutter="20">
+                        <el-col :span="12" v-for="(item, i) in data" :key="i"
+                            ><div>
+                                <a
+                                    class="u-recruit-item"
+                                    :href="item.ID | teamLink"
+                                    target="_blank"
+                                >
+                                    <span class="u-pic">
+                                        <img
+                                            :src="item.logo | showLogo"
+                                            v-if="item.logo"
+                                        />
+                                        <img
+                                            src="../assets/img/center/null.png"
+                                            v-else
+                                        />
+                                    </span>
+                                    <span class="u-name">
+                                        {{ item.name }}
+                                        <i
+                                            class="u-status"
+                                            v-if="item.status"
+                                            title="已认证"
+                                            ><img
+                                                svg-inline
+                                                src="../assets/img/center/verify.svg"
+                                        /></i>
+                                        <span class="u-meta u-server">
+                                            <em>{{ item.server }}</em>
+                                        </span>
+                                        <span
+                                            class="u-tag"
+                                            v-if="isGoodTeam(item.tags)"
+                                        ></span>
+                                    </span>
+                                    <!-- <span class="u-time">
+                                        <i class="el-icon-refresh"></i>
+                                        {{ item.updated_at | showTime }}
+                                    </span> -->
+                                    <span class="u-recruit">{{
+                                        item.recruit || item.desc
+                                    }}</span>
+                                </a>
+                            </div></el-col
+                        >
+                    </el-row>
+                </div>
+                <a class="u-all" href="/team" target="_blank"
+                    ><i class="el-icon-d-arrow-right"></i> 查看更多</a
                 >
-            </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="活动大厅" name="hall">
+                <div slot="label">
+                    <i class="el-icon-date"></i> 活动大厅
+                </div>
+                <div class="m-index-board" v-if="tab === 'hall'">
+                    <div class="m-team-list-header">
+                        <el-select
+                            class="u-server u-select u-filter"
+                            v-model="server"
+                            placeholder="选择服务器"
+                            size="mini"
+                            filterable
+                        >
+                            <el-option key="all" label="全部服务器" value></el-option>
+                            <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
+                        </el-select>
+                        <el-input class="u-name u-filter" v-model="raidName" placeholder="查找活动" size="mini">
+                            <i class="el-icon-search" slot="append" @click="loadRaids"></i>
+                        </el-input>
+                        <a
+                            class="u-more el-button el-button--primary is-plain el-button--mini"
+                            href="/team/raid/list">查看更多&raquo;
+                        </a>
+                    </div>
+                    <div v-loading="raidLoading">
+                        <template v-if="raidData && raidData.length">
+                            <raid-list :data="raidData" time="全部" :isIndex="true" />
+                        </template>
+                        <el-alert v-else title="没有找到符合条件的记录" type="info" show-icon></el-alert>
+                    </div>
+                </div>
+            </el-tab-pane>
+        </el-tabs>
+        <div class="u-misc">
+            <a
+                href="/team"
+                class="u-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="el-icon-map-location"></i>创建团队</a
+            >
+            <a
+                href="/team/org/add"
+                class="u-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="el-icon-microphone"></i>发布招募</a
+            >
         </div>
-        <a class="u-all" href="/team" target="_blank"
-            ><i class="el-icon-d-arrow-right"></i> 查看更多</a
-        >
     </div>
 </template>
 
@@ -136,9 +172,10 @@ import {
 import { __ossMirror } from "@jx3box/jx3box-common/data/jx3box.json";
 import lodash from "lodash";
 import { showTime, showRecently } from "@/utils/moment.js";
-import { getTeams } from "@/service/index.js";
+import { getTeams, searchRaids } from "@/service/index.js";
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
 import tags from "@/assets/data/team_tags.json";
+import RaidList from './raid_list.vue'
 export default {
     name: "Team",
     props: [],
@@ -175,6 +212,11 @@ export default {
             tags,
             tag: "",
             isVerified: false,
+            tab: 'recruit', // 招募
+
+            raidName: "白帝",
+            raidData: [],
+            raidLoading: false
         };
     },
     computed: {
@@ -192,6 +234,16 @@ export default {
             }
             return params;
         },
+        raidParams: function() {
+            let params = {
+                server: this.server,
+                name: this.raidName,
+                time: -1,
+                per: 20,
+                is_public: 1
+            };
+            return params;
+        }
     },
     methods: {
         loadData: function() {
@@ -204,6 +256,16 @@ export default {
                 })
                 .finally(() => {
                     this.loading = false;
+                });
+        },
+        loadRaids: function () {
+            this.raidLoading = true;
+            searchRaids(this.raidParams)
+                .then((res) => {
+                    this.raidData = res.data.data.list || [];
+                })
+                .finally(() => {
+                    this.raidLoading = false;
                 });
         },
         isGoodTeam: function(val) {
@@ -223,13 +285,25 @@ export default {
         params: function(newparams) {
             this.loadData();
         },
+        raidParams: {
+            deep: true,
+            handler() {
+                this.loadRaids()
+            }
+        },
+        tab: function(val) {
+            if (val === 'hall') this.loadRaids()
+        }
     },
     mounted: function() {
     },
-    components: {},
+    components: {
+        RaidList
+    },
 };
 </script>
 
 <style lang="less">
 @import "../assets/css/team.less";
+@import '../assets/css/raid_list.less';
 </style>
