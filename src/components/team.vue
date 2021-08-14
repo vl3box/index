@@ -143,18 +143,18 @@
         </el-tabs>
         <div class="u-misc">
             <a
-                href="/team"
-                class="u-more"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><i class="el-icon-map-location"></i>创建团队</a
-            >
-            <a
                 href="/team/org/add"
                 class="u-more"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><i class="el-icon-microphone"></i>发布招募</a
+                ><i class="el-icon-office-building"></i>创建团队</a
+            >
+            <a
+                href="/team/raid/add"
+                class="u-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="el-icon-microphone"></i>发布活动</a
             >
         </div>
     </div>

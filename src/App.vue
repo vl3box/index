@@ -11,9 +11,6 @@
                 <div class="m-center">
                     <joke />
                     <transaction />
-
-                    <team />
-
                     <guide />
                     <!-- TODO:剑三直播 -->
 
@@ -21,6 +18,8 @@
                     <newpost />
 
                     <!-- TODO:表情 -->
+                    <team />
+
                 </div>
 
                 <div class="m-left">
