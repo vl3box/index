@@ -4,6 +4,7 @@
             <thead>
                 <th width="150px">活动</th>
                 <th width="160px">团队</th>
+                <th width="80px">服务器</th>
                 <th :width="time == '全部' ? '200px' : '60px'">时间</th>
                 <th width="300px">活动</th>
                 <!-- <th width="160px">队长</th> -->
@@ -23,6 +24,10 @@
                             <i class="el-icon-link"></i>
                             {{item.team_name}}
                         </a>
+                    </td>
+                    <td class="u-server">
+                        <em class="u-placeholder">服务器</em>
+                        <span>{{item.server}}</span>
                     </td>
                     <td class="u-t">
                         <em class="u-placeholder">时间</em>
