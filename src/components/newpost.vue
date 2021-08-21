@@ -101,7 +101,7 @@
                                     class="u-post"
                                     v-for="(item, i) in data"
                                     :key="i"
-                                    :href="getLink(item.type,item.id)"
+                                    :href="getLink(item.type,item.source_id)"
                                     :target="target"
                                 >
                                     <el-image
