@@ -10,4 +10,10 @@ function getItemPrice(params) {
     });
 }
 
-export { getSchoolRank, getItemPrice };
+function getWikiPosts(params) {
+    return $helper().get(`/api/wiki/posts/newest`, {
+        params: params,
+    });
+}
+
+export { getSchoolRank, getItemPrice, getWikiPosts };

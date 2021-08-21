@@ -16,7 +16,7 @@
                         >后台管理</a
                     >
                 </template>
-                <a v-else href="/bbs/?subtype=5#/" class="u-help"
+                <a v-else href="/bbs/#/notice" class="u-help"
                     ><img svg-inline src="../assets/img/right/feedback.svg"
                 /></a>
             </span>

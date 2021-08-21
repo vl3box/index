@@ -95,52 +95,90 @@
                                 ></el-tab-pane>
                             </el-tabs>
                         </div>
-                        <div class="m-newpost-content" v-loading="loading">
-                            <a
-                                class="u-post"
-                                v-for="(item, i) in data"
-                                :key="i"
-                                :href="getLink(item.post_type,item.ID)"
-                                :target="target"
-                            >
-                                <el-image
-                                    class="u-avatar"
-                                    :src="(item.author_info && item.author_info.user_avatar) | showAvatar"
-                                    fit="cover"
-                                    :alt="item.author_info && item.author_info.display_name"
-                                ></el-image>
-                                <div class="u-info">
-                                    <i class="el-icon-collection-tag"></i>
-                                    <span
-                                        class="u-type"
-                                        target="_blank"
-                                    >{{ item.post_type | formatTypeName }}</span>
-                                    ／
-                                    <span
-                                        class="u-author"
-                                        :href="authorLink(item.post_author)"
-                                        target="_blank"
-                                    >{{ item.author_info && item.author_info.display_name || '匿名'}}</span>
-                                    <span class="u-date">
-                                        <i class="el-icon-refresh"></i>
-                                        {{ item.post_modified | dateFormat }}
+                        <template v-if="isWikiType">
+                            <div class="m-newpost-content" v-loading="loading">
+                                <a
+                                    class="u-post"
+                                    v-for="(item, i) in data"
+                                    :key="i"
+                                    :href="getLink(item.type,item.id)"
+                                    :target="target"
+                                >
+                                    <el-image
+                                        class="u-avatar"
+                                        :src="(item.user_avatar) | showAvatar"
+                                        fit="cover"
+                                    ></el-image>
+                                    <div class="u-info">
+                                        <i class="el-icon-collection-tag"></i>
+                                        <span
+                                            class="u-type"
+                                            target="_blank"
+                                        >{{ item.type | formatTypeName }}</span>
+                                        ／
+                                        <span
+                                            class="u-author"
+                                            :href="authorLink(item.user_id)"
+                                            target="_blank"
+                                        >{{ item.user_nickname || '匿名'}}</span>
+                                        <span class="u-date">
+                                            <i class="el-icon-refresh"></i>
+                                            {{ item.updated | wikiDate }}
+                                        </span>
+                                    </div>
+                                    <span class="u-title">
+                                        <i class="el-icon-reading"></i>
+                                        {{ item.title || "无标题" }}
                                     </span>
-                                </div>
-                                <span class="u-title">
-                                    <i class="el-icon-reading"></i>
-                                    {{ item.post_title || "无标题" }}
-                                </span>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        </template>
+                        <template v-else>
+                            <div class="m-newpost-content" v-loading="loading">
+                                <a
+                                    class="u-post"
+                                    v-for="(item, i) in data"
+                                    :key="i"
+                                    :href="getLink(item.post_type,item.ID)"
+                                    :target="target"
+                                >
+                                    <el-image
+                                        class="u-avatar"
+                                        :src="(item.author_info && item.author_info.user_avatar) | showAvatar"
+                                        fit="cover"
+                                        :alt="item.author_info && item.author_info.display_name"
+                                    ></el-image>
+                                    <div class="u-info">
+                                        <i class="el-icon-collection-tag"></i>
+                                        <span
+                                            class="u-type"
+                                            target="_blank"
+                                        >{{ item.post_type | formatTypeName }}</span>
+                                        ／
+                                        <span
+                                            class="u-author"
+                                            :href="authorLink(item.post_author)"
+                                            target="_blank"
+                                        >{{ item.author_info && item.author_info.display_name || '匿名'}}</span>
+                                        <span class="u-date">
+                                            <i class="el-icon-refresh"></i>
+                                            {{ item.post_modified | dateFormat }}
+                                        </span>
+                                    </div>
+                                    <span class="u-title">
+                                        <i class="el-icon-reading"></i>
+                                        {{ item.post_title || "无标题" }}
+                                    </span>
+                                </a>
+                            </div>
+                        </template>
                     </div>
                 </el-col>
                 <el-col :span="8" style="border-right:none">
                     <div class="u-guide-block u-guide-other">
                         <!-- 成就 -->
                         <template v-if="menu_groups['awesome-achievements']">
-                            <h5 class="u-title">
-                                {{ menu_groups["awesome-achievements"].label }}
-                            </h5>
+                            <h5 class="u-title">{{ menu_groups["awesome-achievements"].label }}</h5>
                             <div class="u-list">
                                 <a
                                     v-for="(menu, key) in menu_groups[
@@ -149,8 +187,11 @@
                                     :key="key"
                                     :href="menu.link"
                                     target="_blank"
-                                    :style={color:menu.color}
-                                ><img :src="menu.icon | iconLink"><span v-html="menu.label"></span></a>
+                                    :style="{color:menu.color}"
+                                >
+                                    <img :src="menu.icon | iconLink" />
+                                    <span v-html="menu.label"></span>
+                                </a>
                             </div>
                         </template>
                     </div>
@@ -163,16 +204,18 @@
 <script>
 import { getMenuGroups } from "@/service/setting";
 import { getPosts } from "@/service/index";
+import { getWikiPosts } from "@/service/helper";
 import {
     buildTarget,
     authorLink,
     showAvatar,
     getThumbnail,
     getLink,
-    iconLink
+    iconLink,
 } from "@jx3box/jx3box-common/js/utils";
 import {
     __postType,
+    __otherType,
     default_avatar,
 } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "../utils/moment";
@@ -209,24 +252,56 @@ export default {
                     label: "茶馆",
                     slug: "bbs",
                 },
+                {
+                    label: "成就",
+                    slug: "achievement",
+                },
+                {
+                    label: "物品",
+                    slug: "item",
+                },
+                {
+                    label: "通识",
+                    slug: "knowledge",
+                },
+                {
+                    label: "任务",
+                    slug: "quest",
+                },
             ],
             loading: false,
 
             menu_groups: {},
+            wiki_types: ["achievement", "item", "knowledge", "quest"],
         };
     },
-    computed: {},
+    computed: {
+        isWikiType: function () {
+            return this.wiki_types.includes(this.type);
+        },
+    },
     methods: {
         loadData: function () {
             let type = this.type == "all" ? "" : this.type;
             this.loading = true;
-            getPosts(type)
-                .then((res) => {
-                    this.data = res.data.data.list.slice(0,6) || [];
-                })
-                .finally(() => {
-                    this.loading = false;
-                });
+            if (this.isWikiType) {
+                getWikiPosts({
+                    type,
+                    limit : 6
+                }).then((res) => {
+                    this.data = res.data.data.newest.slice(0, 6) || []
+                }).finally(() => {
+                        this.loading = false;
+                    });
+            } else {
+                getPosts(type)
+                    .then((res) => {
+                        this.data = res.data.data.list.slice(0, 6) || [];
+                    })
+                    .finally(() => {
+                        this.loading = false;
+                    });
+            }
         },
         loadGuide: function () {
             getMenuGroups({
@@ -253,16 +328,18 @@ export default {
     },
     filters: {
         formatTypeName: function (type) {
-            return __postType[type];
+            return __postType[type] || __otherType[type];
         },
         dateFormat: function (val) {
             return showRecently(val);
         },
         showAvatar: function (val) {
-            let avatar = val || default_avatar;
-            return getThumbnail(avatar, 24, true);
+            return showAvatar(val, 24);
         },
-        iconLink
+        iconLink,
+        wikiDate : function (val){
+            return showRecently(new Date(val*1000))
+        }
     },
     watch: {
         type: function () {
