@@ -40,9 +40,9 @@
                     <cjrank />
                     <macrorank />
                     <jx3datrank />
-                    <wikirank />
                     <collectionrank />
                     <examrank />
+                    <wikirank />
                     <contact />
                 </div>
 
