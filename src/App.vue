@@ -28,8 +28,7 @@
                     <gamenews />
                     <servers />
                     <price />
-                    <!-- TODO: 快速反馈先不上 -->
-                    <!-- <feedback /> -->
+                    <feedback />
                     <!-- TODO:账号同步工具 -->
                     <!-- TODO:APP下载 -->
                 </div>
@@ -109,7 +108,7 @@ export default {
         gamenews,
         servers,
         price,
-        // feedback,
+        feedback,
 
         cjrank,
         macrorank,
