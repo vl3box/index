@@ -40,7 +40,7 @@
                         :loading="processing"
                         @click="publish"
                         icon="el-icon-s-promotion"
-                        type="primary"
+                        plain
                         size="small"
                     >提交</el-button>
                 </div>
