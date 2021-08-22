@@ -3,7 +3,7 @@
     <div class="m-feedback m-sideblock">
         <div class="m-feedback-header m-sideblock-header">
             <i class="el-icon-s-opportunity">
-            </i><a class="u-title">反馈交流</a>
+            </i><a class="u-title">反馈建议</a>
             <a href="/bbs/#/feedback" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
