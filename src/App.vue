@@ -28,7 +28,7 @@
                     <gamenews />
                     <servers />
                     <price />
-                    <feedback />
+                    <feedback v-if="!isMobile"/>
                     <!-- TODO:账号同步工具 -->
                     <!-- TODO:APP下载 -->
                 </div>
@@ -43,6 +43,7 @@
                     <examrank />
                     <wikirank />
                     <contact />
+                    <feedback v-if="isMobile"/>
                 </div>
 
                 <Footer></Footer>
@@ -90,7 +91,9 @@ export default {
     name: "App",
     props: [],
     data: function () {
-        return {};
+        return {
+            isMobile : window.innerWidth < 768
+        };
     },
     computed: {},
     methods: {},

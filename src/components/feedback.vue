@@ -2,9 +2,9 @@
 <template>
     <div class="m-feedback m-sideblock">
         <div class="m-feedback-header m-sideblock-header">
-            <i class="el-icon-chat-dot-square">
+            <i class="el-icon-s-opportunity">
             </i><a class="u-title">反馈交流</a>
-            <a href="/bbs/#/forum/5" class="u-more" title="查看更多" target="_blank"
+            <a href="/bbs/#/feedback" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
         </div>
