@@ -55,6 +55,7 @@ const API_Root = process.env.NODE_ENV === "production" ? __cms : "/";
 const API = API_Root + "api/cms/upload";
 import User from "@jx3box/jx3box-common/js/user";
 import { push } from "@/service/cms.js";
+import { fn } from 'moment';
 export default {
     name: 'feedback',
     data() {
@@ -144,6 +145,9 @@ export default {
         // 提交反馈
         publish: function () {
             if (!this.isLogin) {
+                if (this.post.post_content) {
+                    localStorage.setItem('feedback', this.post.post_content);
+                }
                 User.toLogin();
                 return
             }
@@ -180,6 +184,14 @@ export default {
                     this.processing = false;
                 });
         },
+        loadCache: function (){
+            const content = localStorage.getItem('feedback') || '';
+            this.post.post_content = content;
+            localStorage.removeItem('feedback');
+        }
+    },
+    mounted: function (){
+        this.loadCache()
     }
 }
 </script>
