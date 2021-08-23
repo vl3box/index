@@ -55,7 +55,6 @@ const API_Root = process.env.NODE_ENV === "production" ? __cms : "/";
 const API = API_Root + "api/cms/upload";
 import User from "@jx3box/jx3box-common/js/user";
 import { push } from "@/service/cms.js";
-import { fn } from 'moment';
 export default {
     name: 'feedback',
     data() {
@@ -87,7 +86,7 @@ export default {
                 // 是否原创
                 original: 1,
                 // 客户端：std正式服、origin怀旧服
-                client: "all",
+                client: "std",
                 // 语言：cn简体、tr繁体
                 lang: "cn",
                 // 资料片
@@ -111,11 +110,6 @@ export default {
             processing: false,
             user: User.getInfo(),
             isLogin: User.isLogin()
-        }
-    },
-    computed: {
-        client: function (){
-            return this.$store.state.client || 'all'
         }
     },
     methods: {
@@ -200,11 +194,6 @@ export default {
     mounted: function (){
         this.loadCache()
     },
-    watch : {
-        client : function (val){
-            this.post.client = val
-        }
-    }
 }
 </script>
 
