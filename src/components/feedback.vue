@@ -144,6 +144,13 @@ export default {
         },
         // 提交反馈
         publish: function () {
+            if (!this.post.post_content) {
+                this.$notify.warning({
+                    title: '提醒',
+                    message: '反馈内容不能为空'
+                })
+                return
+            }
             if (!this.isLogin) {
                 if (this.post.post_content) {
                     localStorage.setItem('feedback', this.post.post_content);
