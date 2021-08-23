@@ -87,7 +87,7 @@ export default {
                 // 是否原创
                 original: 1,
                 // 客户端：std正式服、origin怀旧服
-                client: this.client || "all",
+                client: "all",
                 // 语言：cn简体、tr繁体
                 lang: "cn",
                 // 资料片
@@ -115,7 +115,7 @@ export default {
     },
     computed: {
         client: function (){
-            return this.$store.state.client
+            return this.$store.state.client || 'all'
         }
     },
     methods: {
@@ -192,6 +192,11 @@ export default {
     },
     mounted: function (){
         this.loadCache()
+    },
+    watch : {
+        client : function (val){
+            this.post.client = val
+        }
     }
 }
 </script>
