@@ -62,14 +62,11 @@
                         </span>
                     </td>
                     <td class="u-op">
-                        <span>
-                            <el-button
-                                type="primary"
-                                @click="subscribe(item.id)"
-                                size="mini"
-                                icon="el-icon-s-flag"
-                            >预约</el-button>
-                        </span>
+                        <a
+                            class="el-button el-button--primary el-button--mini"
+                            :href="'/team/raid/' + item.id"
+                            target="_blank"
+                        ><i class="el-icon-s-flag"></i> 预约</a>
                     </td>
                 </tr>
             </tbody>
