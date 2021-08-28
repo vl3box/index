@@ -9,6 +9,7 @@
             ></a>
         </div>
         <div class="m-feedback-publish">
+            <div class="u-qq"><i class="el-icon-phone-outline"></i> 综合反馈交流Q群：<a href="https://jq.qq.com/?_wv=1027&k=XkO6DVvm" target="_blank"><b>2471800</b></a></div>
             <!-- <el-alert class="u-msg" title="如涉及账号等私人信息请发送电子邮件至admin@jx3box.com" type="warning" show-icon></el-alert> -->
             <el-input
                 v-model="post.post_content"
