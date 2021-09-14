@@ -5,7 +5,7 @@
             <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
             </el-select>
-            <el-input class="u-search" placeholder="请输入内容" v-model="search" size="mini" @keyup.enter.native="goItemPage">
+            <el-input class="u-search" placeholder="搜索" v-model="search" size="mini" @keyup.enter.native="goItemPage">
                 <el-button slot="append" icon="el-icon-search" @click="goItemPage"></el-button>
             </el-input>
             <a href="/item" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
