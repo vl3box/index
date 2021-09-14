@@ -47,7 +47,7 @@
 import servers from "@jx3box/jx3box-data/data/server/server_list.json";
 import { getPrice } from "@/service/spider";
 import _ from "lodash";
-import { Line } from "@antv/g2plot";
+// import { Line } from "@antv/g2plot";
 import User from "@jx3box/jx3box-common/js/user";
 import moment from "moment";
 export default {

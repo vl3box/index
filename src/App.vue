@@ -28,7 +28,7 @@
                     <gamenews />
                     <servers />
                     <price />
-                    <feedback v-if="!isMobile"/>
+                    <!-- <feedback v-if="!isMobile"/> -->
                     <!-- TODO:账号同步工具 -->
                     <!-- TODO:APP下载 -->
                 </div>
@@ -111,7 +111,7 @@ export default {
         gamenews,
         servers,
         price,
-        feedback,
+        // feedback,
 
         cjrank,
         macrorank,
