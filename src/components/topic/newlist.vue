@@ -10,9 +10,9 @@
       >
     </div>
     <div class="u-list">
-      <cellbox class="u-item" v-for="(item, i) in changeList" :key="i"
-        ><span>{{ item.title }}</span
-        ><span>{{ item.time }}</span></cellbox
+      <cellbox class="u-item" v-for="(item, i) in changeList" :key="i">
+        <a :href="item.link" target="_blank">{{ item.title }}</a>
+        <span>{{ item.time }}</span></cellbox
       >
     </div>
   </div>

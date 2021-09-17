@@ -11,6 +11,14 @@
     </div>
     <div class="u-info">
       <span class="u-arr" :class="arrClass"></span>
+      <div class="u-text">
+        <span
+          >{{ textInfo.title }}<b>“{{ textInfo.info }}”</b></span
+        >
+        <p>
+          {{ textInfo.desc }}
+        </p>
+      </div>
     </div>
     <div class="u-btn">
       <a :href="item.link" target="_blank" v-for="(item, i) in btn" :key="i">{{
@@ -34,6 +42,29 @@ export default {
         { name: "《输出精品》", link: "" },
         { name: "《治疗精品》", link: "" },
       ],
+      text: [
+        {
+          title: "刀系套路",
+          info: "行宜制方",
+          desc: "使用内力催动药草，巧妙利用药性搭配，远程治疗友方目标，是主要的治疗套路。",
+        },
+        {
+          title: "草系套路",
+          info: "行宜制方",
+          desc: "使用内力催动药草，巧妙利用药性搭配，远程治疗友方目标，是主要的治疗套路。",
+        },
+        {
+          title: "药系套路",
+          info: "行宜列药",
+          desc: "使用内力催动药草，巧妙利用药性搭配，远程治疗友方目标，是主要的治疗套路。",
+        },
+        {
+          title: "毒系套路",
+          info: "行宜制方",
+          desc: "使用内力催动药草，巧妙利用药性搭配，远程治疗友方目标，是主要的治疗套路。",
+        },
+      ],
+      textInfo: {},
     };
   },
   computed: {},
@@ -47,6 +78,7 @@ export default {
     index: {
       handler(val) {
         this.arrClass = "u-arr" + (val + 1);
+        this.textInfo = this.text[val];
       },
       immediate: true,
       deep: true,

@@ -40,13 +40,24 @@
             .lh(43px);
             .fz(16px);
 
-            span {
+            span,
+            a {
                 .db;
+                color: #24292E;
+            }
+
+            a {
                 max-width: 370px;
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+
+                &:hover {
+                    color: #287267;
+                }
             }
+
+
 
             span:last-child {
                 color: rgba(0, 0, 0, 0.5);
@@ -71,44 +82,46 @@
         justify-content: flex-end;
         padding-bottom: 24px;
 
-        span {
-            .db;
-            .size(80px);
-            cursor: pointer;
-        }
+ 
 
         .u-icon1 {
-            background: url(../../img/topic/icon1.png) no-repeat center;
+            background-image: url(../../img/topic/icon1.png) ;
 
             &.active {
-                background: url(../../img/topic/icon5.png) no-repeat center;
+                background-image: url(../../img/topic/icon5.png) ;
             }
         }
 
         .u-icon2 {
-            background: url(../../img/topic/icon2.png) no-repeat center;
+            background-image: url(../../img/topic/icon2.png);
 
             &.active {
-                background: url(../../img/topic/icon6.png) no-repeat center;
+                background-image: url(../../img/topic/icon6.png);
             }
         }
 
         .u-icon3 {
-            background: url(../../img/topic/icon3.png) no-repeat center;
+            background-image: url(../../img/topic/icon3.png);
 
             &.active {
-                background: url(../../img/topic/icon7.png) no-repeat center;
+                background-image: url(../../img/topic/icon7.png);
             }
         }
 
         .u-icon4 {
-            background: url(../../img/topic/icon4.png) no-repeat center;
+            background-image: url(../../img/topic/icon4.png);
 
             &.active {
-                background: url(../../img/topic/icon8.png) no-repeat center;
+                background-image: url(../../img/topic/icon8.png);
             }
         }
 
+        span {
+            .db;
+            .size(80px);
+            cursor: pointer;
+            background-size:80px 80px;
+        }
         .u-yaozong {
             .size(157px, 27px);
             .pa;
@@ -158,6 +171,31 @@
             background: linear-gradient(315deg, #287267 0%, #143934 100%);
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.16);
             border-radius: 8px;
+        }
+    }
+
+    .u-text {
+        padding: 20px 80px;
+
+
+        span {
+            .db;
+            .fz(28px);
+            line-height: (40px);
+            color: #595959;
+
+            b {
+                color: #287267
+            }
+        }
+
+        p {
+            color: #24292E;
+            .bold;
+            .fz(20px);
+            line-height: 26px;
+            padding: 0;
+            margin: 0;
         }
     }
 
