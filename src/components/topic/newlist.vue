@@ -1,15 +1,16 @@
 <template>
-  <div class="m-topic-newlist">
+  <div class="m-topic-list">
     <div class="u-title">
       <span
-        v-for="(item, i) in list"
+        v-for="(item, i) in tabs"
         :key="i"
-        :class="index == i ? 'active' : ''"
+        :class="[index == i ? 'active' : '',line?'u-line':'']"
+        :style="{ width: width / tabs.length + 'px' }"
         @click="changeTab(i)"
         >{{ item }}</span
       >
     </div>
-    <div class="u-list">
+    <div class="u-list" :style="{ width: width + 'px', height: height + 'px' }">
       <cellbox class="u-item" v-for="(item, i) in changeList" :key="i">
         <a :href="item.link" target="_blank">{{ item.title }}</a>
         <span>{{ item.time }}</span></cellbox
@@ -24,85 +25,27 @@
 import cellbox from "./cellbox.vue";
 export default {
   name: "newlist",
-  props: [],
+  props: ["tabs", "list", "width",'height','line'],
   data: function () {
     return {
       index: 0,
-      list: ["药宗新闻", "药宗技改", "药宗故事"],
-      allList: {
-        news: [
-          {
-            link: "",
-            title:
-              "【工具】第一个新闻新闻新闻新新闻新闻新新闻新闻新新闻新闻新闻新闻新",
-            time: "2020-20-20",
-          },
-          {
-            link: "",
-            title: "【工具】第一个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-          {
-            link: "",
-            title: "【工具】第一个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-          {
-            link: "",
-            title: "【工具】第一个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-          {
-            link: "",
-            title: "【工具】第一个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-          {
-            link: "",
-            title: "【工具】第一个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-        ],
-        jigai: [
-          {
-            link: "",
-            title: "【工具】第二个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-        ],
-        gushi: [
-          {
-            link: "",
-            title: "【工具】第三个新闻新闻新闻新闻新闻新……",
-            time: "2020-20-20",
-          },
-        ],
-      },
       changeList: [],
     };
   },
   watch: {
     index: {
       handler(val) {
-        if (val == 0) {
-          this.changeList = this.allList.news;
-        } else if (val == 1) {
-          this.changeList = this.allList.jigai;
-        } else {
-          this.changeList = this.allList.gushi;
-        }
+        this.changeList = this.list[val];
       },
       immediate: true,
       deep: true,
     },
   },
-
   methods: {
     changeTab: function (i) {
       this.index = i;
     },
   },
-  mounted: function () {},
   components: { cellbox },
 };
 </script>

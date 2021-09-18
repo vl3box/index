@@ -1,16 +1,16 @@
 /**新闻**/
 .m-topic-newlist {
     .size(520px, 335px);
+}
 
+.m-topic-list {
     .u-title {
         display: flex;
-        justify-content: space-between;
         .x;
         .bold;
 
         span {
-            .size(174px, 46px);
-            line-height: 46px;
+            .lh(46px);
             background-color: rgba(40, 114, 103, 0.38);
             color: #287267;
             user-select: none;
@@ -22,12 +22,17 @@
                 color: #fff;
             }
 
+            &.u-line {
+                border-right: 2px solid #fff;
+                &:last-child{
+                    border-right: 0;
+                }
+            }
         }
     }
 
     .u-list {
         background-color: rgba(255, 255, 255, 0.62);
-        .size(520px, 279px);
         color: #24292E;
         padding-top: 10px;
         .clip;
@@ -82,13 +87,13 @@
         justify-content: flex-end;
         padding-bottom: 24px;
 
- 
+
 
         .u-icon1 {
-            background-image: url(../../img/topic/icon1.png) ;
+            background-image: url(../../img/topic/icon1.png);
 
             &.active {
-                background-image: url(../../img/topic/icon5.png) ;
+                background-image: url(../../img/topic/icon5.png);
             }
         }
 
@@ -120,8 +125,9 @@
             .db;
             .size(80px);
             cursor: pointer;
-            background-size:80px 80px;
+            background-size: 80px 80px;
         }
+
         .u-yaozong {
             .size(157px, 27px);
             .pa;
