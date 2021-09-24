@@ -1,12 +1,7 @@
 <template>
-    <div class="u-notice-list">
-        <topic />
+    <div class="p-notice-list" :class="theme">
         <div class="m-archive m-notice" v-loading="loading">
-            <el-input
-                placeholder="请输入搜索内容"
-                v-model="search"
-                class="input-with-select"
-            >
+            <el-input placeholder="请输入搜索内容" v-model="search" class="input-with-select">
                 <span slot="prepend">关键词</span>
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>
@@ -14,11 +9,7 @@
                 <ul class="u-list">
                     <li class="u-item" v-for="(item, i) in data" :key="i">
                         <!-- Banner -->
-                        <a
-                            class="u-banner"
-                            :href="'/notice/' + item.ID"
-                            :target="target"
-                        >
+                        <a class="u-banner" :href="'/notice/' + item.ID" :target="target">
                             <img
                                 :src="
                                     showBanner(
@@ -29,38 +20,28 @@
                             />
                         </a>
 
-                        <h3
-                            class="u-notice-title"
-                            :class="{ isSticky: item.sticky }"
-                        >
+                        <h3 class="u-notice-title" :class="{ isSticky: item.sticky }">
                             <!-- 标题文字 -->
                             <a
                                 class="u-title"
                                 :style="item.color | isHighlight"
                                 :href="'/notice/' + item.ID"
                                 :target="target"
-                                >{{ item.post_title || "无标题" }}</a
-                            >
+                            >{{ item.post_title || "无标题" }}</a>
 
                             <!-- 角标 -->
-                            <span
-                                class="u-marks"
-                                v-if="item.mark && item.mark.length"
-                            >
+                            <span class="u-marks" v-if="item.mark && item.mark.length">
                                 <i
                                     v-for="mark in item.mark"
                                     class="u-mark"
                                     :class="mark | markcls"
                                     :key="mark"
-                                    >{{ mark | showMark }}</i
-                                >
+                                >{{ mark | showMark }}</i>
                             </span>
                         </h3>
 
                         <!-- 字段 -->
-                        <div class="u-content u-desc">
-                            {{ item.post_excerpt || item.post_title }}
-                        </div>
+                        <div class="u-content u-desc">{{ item.post_excerpt || item.post_title }}</div>
 
                         <!-- 作者 -->
                         <div class="u-notice-misc">
@@ -73,15 +54,18 @@
                                 class="u-author-name"
                                 :href="item.post_author | authorLink"
                                 target="_blank"
-                                >{{ item.author_info.display_name }}</a
-                            >
+                            >{{ item.author_info.display_name }}</a>
                             <span class="u-notice-date">
-                                <time v-if="order == 'update'">{{
+                                <time v-if="order == 'update'">
+                                    {{
                                     item.post_modified | dateFormat
-                                }}</time>
-                                <time v-else>{{
+                                    }}
+                                </time>
+                                <time v-else>
+                                    {{
                                     item.post_date | dateFormat
-                                }}</time>
+                                    }}
+                                </time>
                             </span>
                         </div>
                     </li>
@@ -93,11 +77,11 @@
                 :current-page.sync="page"
                 :page-size="per"
                 :total="1000"
-            >
-            </el-pagination>
+            ></el-pagination>
         </div>
     </div>
 </template>
+
 
 <script>
 import { cms as mark_map } from "@jx3box/jx3box-common/data/mark.json";
@@ -118,11 +102,14 @@ import {
     buildTarget,
     getAppType,
 } from "@jx3box/jx3box-common/js/utils";
-import topic from "@/components/topic/topic.vue";
+import { theme } from "../../setting.json";
 export default {
     name: "list",
     data: function () {
         return {
+            // 风格
+            theme: "theme_" + theme,
+
             loading: false, //加载状态
 
             data: [], //数据列表
@@ -251,11 +238,10 @@ export default {
         this.page = ~~this.$route.query.page || 1;
     },
     components: {
-        topic,
     },
 };
 </script>
 
 <style lang="less">
-@import "../assets/css/list.less";
+@import "../assets/css/notice/list.less";
 </style>
