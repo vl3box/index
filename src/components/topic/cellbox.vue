@@ -1,37 +1,37 @@
 <template>
-  <div :class="isDir ? 'row' : 'column'">
-    <slot />
-  </div>
+    <div class="cell" :class="isDir ? 'row' : 'column'">
+        <slot />
+    </div>
 </template>
 
 <script>
 export default {
-  name: "cellbox",
-  props: {
-    dir: {
-      type: String,
-      default: "row",
+    name: "cellbox",
+    props: {
+        dir: {
+            type: String,
+            default: "row",
+        },
     },
-  },
-  computed: {
-    isDir: function () {
-      if (this.dir == "row") return true;
-      return false;
+    computed: {
+        isDir: function () {
+            return this.dir == "row";
+        },
     },
-  },
 };
 </script>
 
 
 <style lang="less" scoped>
+.cell {
+    .pr;
+    display: flex;
+    justify-content: space-between;
+}
 .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    flex-direction: row;
 }
 .column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    flex-direction: column;
 }
 </style> 

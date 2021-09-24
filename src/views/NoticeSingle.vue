@@ -27,4 +27,4 @@ export default {
 
 <style lang="less">
 @import "../assets/css/notice/single.less";
-</style>
+</style
