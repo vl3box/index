@@ -2,139 +2,104 @@
     <div class="u-notice-list">
         <topic />
         <div class="m-archive m-notice" v-loading="loading">
-            <listbox
-                :data="data"
-                :total="total"
-                :pages="pages"
-                :per="per"
-                :page="page"
-                @appendPage="appendPage"
-                @changePage="changePage"
+            <el-input
+                placeholder="请输入搜索内容"
+                v-model="search"
+                class="input-with-select"
             >
-                <!-- <h2 class="u-notice-header">公告资讯</h2> -->
-                <!-- 搜索 -->
-                <div
-                    class="m-archive-search m-notice-search"
-                    slot="search-before"
-                    key="notice-search"
-                >
-                    <!-- <a
-                    :href="publish_link"
-                    class="u-publish el-button el-button--primary"
-                >
-                    + 发布作品
-                </a>-->
-                    <el-input
-                        placeholder="请输入搜索内容"
-                        v-model="search"
-                        class="input-with-select"
-                    >
-                        <span slot="prepend">关键词</span>
-                        <el-button
-                            slot="append"
-                            icon="el-icon-search"
-                        ></el-button>
-                    </el-input>
-                </div>
+                <span slot="prepend">关键词</span>
+                <el-button slot="append" icon="el-icon-search"></el-button>
+            </el-input>
+            <div class="m-archive-list" v-if="data.length">
+                <ul class="u-list">
+                    <li class="u-item" v-for="(item, i) in data" :key="i">
+                        <!-- Banner -->
+                        <a
+                            class="u-banner"
+                            :href="'/notice/' + item.ID"
+                            :target="target"
+                        >
+                            <img
+                                :src="
+                                    showBanner(
+                                        item.post_banner,
+                                        item.post_subtype
+                                    )
+                                "
+                            />
+                        </a>
 
-                <!-- 过滤 -->
-                <template slot="filter">
-                    <!-- 版本过滤 -->
-                    <clientBy @filter="filter" :type="client"></clientBy>
-                    <!-- 角标过滤 -->
-                    <!-- <markBy @filter="filter"></markBy> -->
-                    <!-- 排序过滤 -->
-                    <orderBy @filter="filter"></orderBy>
-                </template>
-
-                <!-- 列表 -->
-                <div class="m-archive-list" v-if="data.length">
-                    <ul class="u-list">
-                        <li class="u-item" v-for="(item, i) in data" :key="i">
-                            <!-- Banner -->
+                        <h3
+                            class="u-notice-title"
+                            :class="{ isSticky: item.sticky }"
+                        >
+                            <!-- 标题文字 -->
                             <a
-                                class="u-banner"
+                                class="u-title"
+                                :style="item.color | isHighlight"
                                 :href="'/notice/' + item.ID"
                                 :target="target"
+                                >{{ item.post_title || "无标题" }}</a
                             >
-                                <img
-                                    :src="
-                                        showBanner(
-                                            item.post_banner,
-                                            item.post_subtype
-                                        )
-                                    "
-                                />
-                            </a>
 
-                            <h3
-                                class="u-notice-title"
-                                :class="{ isSticky: item.sticky }"
+                            <!-- 角标 -->
+                            <span
+                                class="u-marks"
+                                v-if="item.mark && item.mark.length"
                             >
-                                <!-- 标题文字 -->
-                                <a
-                                    class="u-title"
-                                    :style="item.color | isHighlight"
-                                    :href="'/notice/' + item.ID"
-                                    :target="target"
-                                    >{{ item.post_title || "无标题" }}</a
+                                <i
+                                    v-for="mark in item.mark"
+                                    class="u-mark"
+                                    :class="mark | markcls"
+                                    :key="mark"
+                                    >{{ mark | showMark }}</i
                                 >
+                            </span>
+                        </h3>
 
-                                <!-- 角标 -->
-                                <span
-                                    class="u-marks"
-                                    v-if="item.mark && item.mark.length"
-                                >
-                                    <i
-                                        v-for="mark in item.mark"
-                                        class="u-mark"
-                                        :class="mark | markcls"
-                                        :key="mark"
-                                        >{{ mark | showMark }}</i
-                                    >
-                                </span>
-                            </h3>
+                        <!-- 字段 -->
+                        <div class="u-content u-desc">
+                            {{ item.post_excerpt || item.post_title }}
+                        </div>
 
-                            <!-- 字段 -->
-                            <div class="u-content u-desc">
-                                {{ item.post_excerpt || item.post_title }}
-                            </div>
-
-                            <!-- 作者 -->
-                            <div class="u-notice-misc">
-                                <img
-                                    class="u-author-avatar"
-                                    :src="
-                                        item.author_info.user_avatar
-                                            | showAvatar
-                                    "
-                                    :alt="item.author_info.display_name"
-                                />
-                                <a
-                                    class="u-author-name"
-                                    :href="item.post_author | authorLink"
-                                    target="_blank"
-                                    >{{ item.author_info.display_name }}</a
-                                >
-                                <span class="u-notice-date">
-                                    <time v-if="order == 'update'">{{
-                                        item.post_modified | dateFormat
-                                    }}</time>
-                                    <time v-else>{{
-                                        item.post_date | dateFormat
-                                    }}</time>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </listbox>
+                        <!-- 作者 -->
+                        <div class="u-notice-misc">
+                            <img
+                                class="u-author-avatar"
+                                :src="item.author_info.user_avatar | showAvatar"
+                                :alt="item.author_info.display_name"
+                            />
+                            <a
+                                class="u-author-name"
+                                :href="item.post_author | authorLink"
+                                target="_blank"
+                                >{{ item.author_info.display_name }}</a
+                            >
+                            <span class="u-notice-date">
+                                <time v-if="order == 'update'">{{
+                                    item.post_modified | dateFormat
+                                }}</time>
+                                <time v-else>{{
+                                    item.post_date | dateFormat
+                                }}</time>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <el-pagination
+                background
+                layout="prev, pager, next"
+                :current-page.sync="page"
+                :page-size="per"
+                :total="1000"
+            >
+            </el-pagination>
         </div>
     </div>
 </template>
 
 <script>
-import listbox from "@jx3box/jx3box-page/src/cms-list.vue";
 import { cms as mark_map } from "@jx3box/jx3box-common/data/mark.json";
 import _ from "lodash";
 import { getPosts } from "../service/cms";
@@ -286,7 +251,6 @@ export default {
         this.page = ~~this.$route.query.page || 1;
     },
     components: {
-        listbox,
         topic,
     },
 };
