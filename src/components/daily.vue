@@ -128,7 +128,7 @@ export default {
 
             getDaily(q).then((res) => {
                 let list = res.data.data;
-                list.forEach((item) => {
+                list?.forEach((item) => {
                     if (item.taskType == "大战") {
                         this.daily.push({
                             type: "大战",

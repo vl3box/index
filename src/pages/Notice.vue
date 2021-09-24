@@ -1,5 +1,5 @@
 <template>
-    <div class="m-notice">
+    <div class="c-notice">
         <NoticeSingle v-if="id"></NoticeSingle>
         <NoticeList v-else></NoticeList>
     </div>

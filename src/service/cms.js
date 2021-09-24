@@ -60,9 +60,13 @@ function getPosts(params) {
     });
 }
 
+function getPost(id){
+    return $cms().get(`/api/cms/post/${id}`);
+}
+
 // 发布
 function push(data) {
     return $cms().post(`/api/cms/post`, data);
 }
 
-export { getCode, getNews, getSliders, getPosts, getGossip, push };
+export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost };

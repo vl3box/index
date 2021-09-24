@@ -1,3 +1,4 @@
+import moment from 'moment'
 /**
  * 简单的日期格式化
  *
@@ -16,6 +17,10 @@ function dateFormat(dt,separator='-',polished=true){
 
 function polish(val){
     return val<10 ? ('0' + val) : val
+}
+
+export const getRelativeTime = (val) => {
+    return moment(val).startOf('day').fromNow()
 }
 
 export default dateFormat

@@ -1,6 +1,8 @@
 <template>
     <div class="u-topic-root">
-        <swiperbox class="u-swiperbox" />
+        <slot>
+            <swiperbox class="u-swiperbox" />
+        </slot>
     </div>
 </template>
 
