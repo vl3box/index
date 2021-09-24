@@ -1,13 +1,16 @@
 <template>
-  <div class="m-topic-common">
-    <div class="m-topic-main">
-      <swiperbox class="u-swiperbox" />
-      <cellbox dir="column" class="m-topic-sect">
-        <cellbox class="u-tabbox"><infotab /> <newlist /></cellbox>
-        <sectmap />
-      </cellbox>
+    <div class="m-topic-common">
+        <div class="m-topic-main">
+            <swiperbox class="u-swiperbox" />
+            <cellbox dir="column" class="m-topic-sect">
+                <cellbox class="u-tabbox">
+                    <infotab />
+                    <newlist />
+                </cellbox>
+                <sectmap />
+            </cellbox>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -18,25 +21,25 @@ import Newlist from "@/components/topic/newlist.vue";
 import cellbox from "@/components/topic/cellbox.vue";
 import sectmap from "@/components/topic/sectmap.vue";
 export default {
-  name: "TopicCommon",
-  props: [],
-  components: {},
-  data: function () {
-    return {};
-  },
-  computed: {},
-  watch: {},
-  methods: {},
-  filters: {},
-  created: function () {},
-  mounted: function () {},
-  components: {
-    swiperbox,
-    newlist,
-    infotab,
-    cellbox,
-    sectmap,
-  },
+    name: "TopicCommon",
+    props: [],
+    components: {},
+    data: function () {
+        return {};
+    },
+    computed: {},
+    watch: {},
+    methods: {},
+    filters: {},
+    created: function () {},
+    mounted: function () {},
+    components: {
+        swiperbox,
+        newlist,
+        infotab,
+        cellbox,
+        sectmap,
+    },
 };
 Newlist;
 </script>
