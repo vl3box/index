@@ -1,11 +1,16 @@
 <template>
-    <div class="c-notice">
-        <NoticeSingle v-if="id"></NoticeSingle>
-        <NoticeList v-else></NoticeList>
+    <div class="p-notice" :class="theme_cls">
+        <Header :overlayEnable="true"></Header>
+        <div class="p-notice-container">
+            <NoticeSingle v-if="id"></NoticeSingle>
+            <NoticeList v-else></NoticeList>
+            <Footer></Footer>
+        </div>
     </div>
 </template>
 
 <script>
+import { theme } from "../../setting.json";
 import NoticeList from "@/views/NoticeList.vue";
 import NoticeSingle from "@/views/NoticeSingle.vue";
 export default {
@@ -13,7 +18,7 @@ export default {
     props: [],
     components: {
         NoticeList,
-        NoticeSingle
+        NoticeSingle,
     },
     data: function () {
         return {};
@@ -26,6 +31,9 @@ export default {
             }
             return false;
         },
+        theme_cls : function (){
+           return 'theme-' + theme
+       }
     },
     watch: {},
     methods: {},
@@ -36,5 +44,6 @@ export default {
 </script>
 
 <style lang="less">
+@import "../assets/css/kv/common.less";
 @import "../assets/css/notice/common.less";
 </style>
