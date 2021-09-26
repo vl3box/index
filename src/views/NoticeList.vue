@@ -1,6 +1,12 @@
 <template>
     <div class="m-notice-box">
         <div class="m-notice-list" v-loading="loading">
+            <div class="m-notice-types">
+                <el-radio-group v-model="subtype">
+                    <el-radio label="">全部</el-radio>
+                    <el-radio v-for="(label,key) in notice_types" :key="key" :label="key">{{label}}</el-radio>
+                </el-radio-group>
+            </div>
             <div class="m-notice-filter">
                 <el-input placeholder="请输入搜索内容" v-model="search" class="m-notice-search">
                     <span slot="prepend">关键词</span>
@@ -83,6 +89,7 @@ import {
     buildTarget,
     getAppType,
 } from "@jx3box/jx3box-common/js/utils";
+import notice_types from "@/assets/data/notice.json";
 export default {
     name: "TopicList",
     props: [],
@@ -100,6 +107,8 @@ export default {
             search: "",
             client: this.$store.state.client, //版本选择
             isAdmin: false,
+            notice_types,
+            subtype : ''
         };
     },
     computed: {
@@ -110,7 +119,7 @@ export default {
                 sticky: 1,
                 type: "notice",
             };
-            let optionalParams = ["search", "client"];
+            let optionalParams = ["search", "client","subtype"];
             optionalParams.forEach((item) => {
                 if (this[item]) {
                     params[item] = this[item];
@@ -146,7 +155,7 @@ export default {
             if (val) {
                 return showBanner(val);
             } else {
-                return __imgPath + "image/banner/bbs" + subtype + ".png?v=1";
+                return __imgPath + "image/banner/notice" + subtype + ".png?v=1";
             }
         },
     },
@@ -181,7 +190,7 @@ export default {
     },
     created: function () {
         let params = new URLSearchParams(location.search);
-        this.page = params.get('page') || 1
+        this.page = params.get("page") || 1;
     },
     mounted: function () {
         this.isAdmin = User.isAdmin();

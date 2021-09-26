@@ -4,8 +4,13 @@
     min-height: 800px;
     margin-top:@header-height;
     overflow: hidden;
-    max-width: @notice_container_width;
+    max-width: 1520px;
     .auto(x);
+}
+@media screen and (max-width:1920px){
+    .p-notice-container{
+        max-width: 1280px;
+    }
 }
 .m-notice-box{
     border:3px solid #496973;
