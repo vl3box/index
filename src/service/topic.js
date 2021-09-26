@@ -1,15 +1,25 @@
 import { $cms } from "@jx3box/jx3box-common/js/https";
 const CLIENT = "std";
 
-function getTopic(type, limit) {
+/**
+ * 获取专题
+ * @param {*} type beitianyaozong
+ * @param {*} { subtype: 指定模块标识符, per: 每页数量, page: 请求页码 }
+ * @returns 
+ */
+function getTopic(type, { subtype, per, page }) {
     let _params = {
+        type,
         client: CLIENT,
-        type: type,
+        subtype,
         status : 1
     };
 
-    if (limit) {
-        _params.limit = limit;
+    if (per) {
+        _params.per = per;
+    }
+    if (page) {
+        _params.page = page
     }
 
     return $cms({ mute: true }).get("/api/cms/topic", {

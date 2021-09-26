@@ -1,7 +1,7 @@
 <template>
     <div class="m-topic-slider">
         <el-carousel
-            height="336px"
+            height="480px"
             indicator-position="none"
             @change="changeImg"
             ref="elcarousel"
@@ -18,7 +18,6 @@
                 v-for="(item, i) in list"
                 :key="i"
                 :class="i == index ? 'active' : ''"
-                :style="'width:' + titleW + '%'"
                 @click="checkImg(i)"
             >
                 {{ item.title }}
@@ -28,18 +27,15 @@
 </template>
 
 <script>
+import { getTopic } from '@/service/topic'
 export default {
     name: "TopicSlider",
-    props: {
-        list: {
-            type: Array,
-            default: () => []
-        }
-    },
+    props: ['subtype', 'type'],
     components: {},
     data: function () {
         return {
-            index: 0,
+            list: [],
+            index: 0
         };
     },
     computed: {
@@ -55,10 +51,19 @@ export default {
         checkImg: function (index) {
             this.$refs.elcarousel.setActiveItem(index);
         },
+        loadTopic: function() {
+            getTopic(this.type, { subtype: this.subtype })
+            .then(res => {
+                this.list = res.data.data.list
+            })
+        }
     },
+    mounted() {
+        this.loadTopic()
+    }
 };
 </script>
 
 <style lang="less">
-@import "../../assets/css/topic/swiperbox.less";
+@import "../../assets/css/topic/top_slider.less";
 </style>

@@ -23,7 +23,7 @@
 
 
 <script>
-import slider from "./slider.vue";
+import slider from "./top_slider.vue";
 import cellbox from "./cellbox.vue";
 export default {
     name: "Swiperbox",

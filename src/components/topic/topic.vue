@@ -19,7 +19,7 @@ export default {
 <style lang="less" scoped>
 .u-topic-root {
     .pr;
-    background: url('../../assets/img/topic/bg.png') no-repeat center top #DBECE7;
+    // background: url('../../assets/img/topic/bg.png') no-repeat center top #DBECE7;
     height: 100vh;
     width: 100%;
 
