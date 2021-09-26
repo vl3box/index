@@ -1,5 +1,11 @@
 <template>
-    <div></div>
+    <div class="m-topic-box">
+
+        <!-- 首屏 -->
+        
+
+
+    </div>
 </template>
 <script>
 export default {
