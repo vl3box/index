@@ -14,14 +14,14 @@ module.exports = {
             chunks: ["index", "manifest", "vendors", "common","element","jx3box"],
         },
         topic: {
-            title: "剑网3攻略 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
+            title: "专题导航 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
             entry: "src/pages/topic.js",
             template: "public/index.html",
             filename: "topic/index.html",
             chunks: ["topic", "manifest", "vendors", "common","element","jx3box"],
         },
         notice: {
-            title: "剑网3公告 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
+            title: "公告资讯 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
             entry: "src/pages/notice.js",
             template: "public/index.html",
             filename: "notice/index.html",

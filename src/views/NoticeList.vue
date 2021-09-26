@@ -36,7 +36,7 @@
 
                         <!-- 作者 -->
                         <div class="u-other">
-                            <template v-if="isAdmin">
+                            <span class="u-author" v-if="isAdmin">
                                 <img
                                     class="u-author-avatar"
                                     :src="item.author_info.user_avatar | showAvatar"
@@ -47,7 +47,7 @@
                                     :href="item.post_author | authorLink"
                                     target="_blank"
                                 >{{ item.author_info.display_name }}</a>
-                            </template>
+                            </span>
                             <time class="u-time">{{item.post_modified | dateFormat}}</time>
                         </div>
                     </li>
@@ -66,6 +66,7 @@
 </template>
 <script>
 import _ from "lodash";
+import User from "@jx3box/jx3box-common/js/user";
 import { getPosts } from "../service/cms";
 import { getRelativeTime } from "../utils/dateFormat";
 import {
@@ -98,7 +99,7 @@ export default {
 
             search: "",
             client: this.$store.state.client, //版本选择
-            isAdmin : false
+            isAdmin: false,
         };
     },
     computed: {
@@ -182,7 +183,9 @@ export default {
         let params = new URLSearchParams(location.search);
         this.page = params.get('page') || 1
     },
-    mounted: function () {},
+    mounted: function () {
+        this.isAdmin = User.isAdmin();
+    },
 };
 </script>
 
