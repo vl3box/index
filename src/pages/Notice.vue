@@ -31,9 +31,9 @@ export default {
             }
             return false;
         },
-        theme_cls : function (){
-           return 'theme-' + theme
-       }
+        theme_cls: function () {
+            return "theme-" + theme;
+        },
     },
     watch: {},
     methods: {},

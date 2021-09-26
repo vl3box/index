@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="m-topic-box">
+        <!-- 首屏 -->
         <slider type="beitianyaozong" subtype="top_slider"></slider>
         <tools></tools>
         <top-event></top-event>

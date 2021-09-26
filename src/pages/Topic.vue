@@ -1,22 +1,31 @@
 <template>
     <!-- 专题页 -->
-    <div class="m-topic">
-        <TopicCommon />
+    <div class="p-topic" :class="theme_cls">
+        <Header :overlayEnable="true"></Header>
+        <div class="p-topic-container">
+            <TopicCommon />
+            <Footer></Footer>
+        </div>
     </div>
 </template>
 
 <script>
-import TopicCommon from '@/views/TopicCommon.vue'
+import { theme } from "../../setting.json";
+import TopicCommon from "@/views/TopicCommon.vue";
 export default {
     name: "Topic",
     props: [],
     components: {
-        TopicCommon
+        TopicCommon,
     },
     data: function () {
         return {};
     },
-    computed: {},
+    computed: {
+        theme_cls: function () {
+            return "theme-" + theme;
+        },
+    },
     watch: {},
     methods: {},
     filters: {},
@@ -24,3 +33,8 @@ export default {
     mounted: function () {},
 };
 </script>
+
+<style lang="less">
+@import "../assets/css/kv/common.less";
+@import "../assets/css/topic/common.less";
+</style>
