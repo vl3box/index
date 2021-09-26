@@ -66,6 +66,7 @@
                 :current-page.sync="page"
                 :page-size="per"
                 :total="total"
+                :hide-on-single-page="true"
             ></el-pagination>
         </div>
     </div>
