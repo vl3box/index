@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         loadTopic: function() {
-            getTopic(this.type, { subtype: this.subtype })
+            getTopic({ type: this.type, subtype: this.subtype })
             .then(res => {
                 this.list = res.data.data.list
             })

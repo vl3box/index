@@ -1,9 +1,13 @@
 <template>
     <div class="m-topic-box">
         <!-- 首屏 -->
-        <slider type="beitianyaozong" subtype="top_slider"></slider>
-        <tools></tools>
-        <top-event></top-event>
+        <div>
+            <slider type="beitianyaozong" subtype="top_slider"></slider>
+        </div>
+        <div class="m-topic">
+            <tools></tools>
+            <top-event></top-event>
+        </div>
     </div>
 </template>
 <script>
