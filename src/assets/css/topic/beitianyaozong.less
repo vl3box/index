@@ -1,6 +1,7 @@
 // 主题
 // =========================
 @theme-color: #496973;
+@theme-bg : #eaf4f5;
 
 // 包裹层
 // =========================
@@ -77,21 +78,75 @@
     .is-active {
         // color: #ddd2be;
         color: #dec9a2;
-        .bold;
+        // .bold;
     }
     .m-topic-text-list {
         background: url("@{kv_beitianyaozong}skill_posts_bg.png") #fff no-repeat 130% -40px;
         background-size: 80% auto;
     }
 }
-.m-yaozong-buttons{
+.m-yaozong-buttons {
     .mt(20px);
     transition: 0.2s ease-in-out;
-    a:hover{
+    a:hover {
         filter: brightness(110%);
     }
 }
-.m-yaozong-tabs{
+.m-yaozong-tabs {
     .h(278px);
     background-color: #fff;
+}
+.m-topic-banner-left {
+    .pa;
+    .lt(-320px, 0);
+}
+
+.m-yaozong-more{
+    background-color:#2f536f;
+    color:#fff;
+    .mt(20px);
+    .h(58px);
+    .db;
+    .fz(15px,58px);
+    .x;
+}
+
+.m-yaozong-scenery{
+    // background-color:@theme-color;
+    padding:5px 10px;
+    .w(40%);
+    color:#fff;
+    background-image: linear-gradient(to right, @theme-color , @theme-bg);
+}
+
+.m-yaozong-pics{
+    .u-img{
+        flex:none;
+        .size(305px,160px) !important;
+        transition: 0.2s ease-in-out;
+        &:hover{
+            // filter: brightness(110%);
+            transform: scale(1.2);
+            box-shadow: 0 0 5px rgba(0,0,0,.5);
+        }
+    }
+}
+
+// 副本
+// ============================
+.m-topic-fb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.m-fb-slider {
+    .w(840px);
+
+    .u-titles {
+        transform: skew(-30deg);
+    }
+}
+
+.m-fb-rank-container {
+    .w(440px);
 }

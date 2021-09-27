@@ -1,4 +1,4 @@
-import { $cms } from "@jx3box/jx3box-common/js/https";
+import { $cms, $team } from "@jx3box/jx3box-common/js/https";
 
 function getTopic(topic) {
     return $cms({ mute: true }).get("/api/cms/topic", {
@@ -10,4 +10,8 @@ function getTopic(topic) {
     });
 }
 
-export { getTopic };
+function getFbRank(id, server = '') {
+    return $team({ mute: true }).get(`/api/team/race/achieve/${id}/top100?server=${server}&event_id=1`)
+}
+
+export { getTopic, getFbRank };
