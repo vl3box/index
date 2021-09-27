@@ -44,6 +44,6 @@ export default {
 </script>
 
 <style lang="less">
-@import "../assets/css/kv/common.less";
+@import "../assets/css/theme/kv.less";
 @import "../assets/css/notice/common.less";
 </style>

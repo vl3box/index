@@ -185,16 +185,6 @@ module.exports = {
         "/",
 
     chainWebpack: (config) => {
-        //💘 html-webpack-plugin ~
-        // Multiple pages disable the block below
-        // config.plugin("html").tap(args => {
-        //     args[0].meta = {                            //------设置SEO信息
-        //         Keywords: Setting.keys,
-        //         Description: Setting.desc
-        //     };
-        //     args[0].title = Setting.title + SEO.title;  //------自动添加标题后缀
-        //     return args;
-        // });
 
         //💝 in-line small imgs ~
         config.module
@@ -217,6 +207,7 @@ module.exports = {
             path.resolve(__dirname, "./node_modules/@jx3box/jx3box-common/css/var.less"),
             path.resolve(__dirname, "./src/assets/css/var.less")
         );
+
         function addStyleResource(rule) {
             rule.use("style-resource")
                 .loader("style-resources-loader")
