@@ -1,35 +1,97 @@
-.m-topic-box{
+// 主题
+// =========================
+@theme-color: #496973;
+
+// 包裹层
+// =========================
+.m-topic-box {
     .mt(440px);
 }
-.m-topic-top{
+
+// 首屏
+// ==========================
+.m-topic-top {
     display: flex;
     overflow: hidden;
 }
-.m-top-slider{
+.m-top-slider {
     .w(840px);
     .mr(20px);
-    flex:none;
+    flex: none;
 }
 
-.m-topic-tools{
-    .u-img{
-        .size(90px,240px);
+.m-topic-tools {
+    .u-img {
+        .size(90px, 240px);
     }
-    a:hover{
+    a:hover {
         filter: brightness(110%);
     }
 }
-
-.m-topic-event{
+.m-topic-event {
     .mt(20px);
     .h(160px);
     .w(100%);
 }
 
-.m-topic-hot{
-    .mt(80px);
+// 药宗
+// ============================
+.m-topic-hot {
+    .mt(100px);
     .pr;
 }
-.m-topic-banner-left{
-    .pa;.lt(-320px,0);
+.m-topic-banner-left {
+    .pa;
+    .lt(-320px, 0);
+}
+
+.m-yaozong-top {
+    display: flex;
+}
+.m-yaozong-top-left {
+    .w(840px);
+    .mr(20px);
+    flex: none;
+}
+.m-yaozong-top-right {
+    flex: 1;
+    .el-tabs__header {
+        background-color: @theme-color;
+        .mb(10px);
+    }
+    .el-tabs__nav {
+        display: flex;
+        float: none;
+        .w(100%);
+    }
+    .el-tabs__item {
+        color: #fff;
+        padding: 0 20px !important;
+        .fz(15px);
+        flex-grow: 1;
+        text-align: center;
+    }
+    .el-tabs__active-bar {
+        .none;
+    }
+    .is-active {
+        // color: #ddd2be;
+        color: #dec9a2;
+        .bold;
+    }
+    .m-topic-text-list {
+        background: url("@{kv_beitianyaozong}skill_posts_bg.png") #fff no-repeat 130% -40px;
+        background-size: 80% auto;
+    }
+}
+.m-yaozong-buttons{
+    .mt(20px);
+    transition: 0.2s ease-in-out;
+    a:hover{
+        filter: brightness(110%);
+    }
+}
+.m-yaozong-tabs{
+    .h(278px);
+    background-color: #fff;
 }

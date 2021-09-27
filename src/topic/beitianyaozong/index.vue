@@ -15,14 +15,25 @@
 
                 <!-- 药宗 -->
                 <div class="m-topic-hot">
-                    <img-single-simple class="m-topic-banner-left" :data="data.yaozong_banner"></img-single-simple>
-                    <yaozong-skill class="m-topic-yaozong-skill" :data="data.yaozong_banner"></yaozong-skill>
+                    <!-- <img-single-simple class="m-topic-banner-left" :data="data.yaozong_banner"></img-single-simple> -->
+                    <div class="m-yaozong-top">
+                        <div class="m-yaozong-top-left">
+                            <yaozong-skill :data="data.yaozong_skills"></yaozong-skill>
+                            <img-list-x class="m-yaozong-buttons" :data="data.yaozong_buttons" gap="20"></img-list-x>
+                        </div>
+                        <div class="m-yaozong-top-right">
+                            <el-tabs class="m-yaozong-tabs" v-model="yaozong_tab">
+                                <el-tab-pane label="药宗动态" name="concat"><text-list-y :data="yaozong_concat" :length="6"></text-list-y></el-tab-pane>
+                                <el-tab-pane label="药宗新闻" name="news"><text-list-y :data="data.yaozong_news" :length="6"></text-list-y></el-tab-pane>
+                                <el-tab-pane label="药宗攻略" name="posts"><text-list-y :data="data.yaozong_posts" :length="6"></text-list-y></el-tab-pane>
+                            </el-tabs>
+                            <a class="m-yaozong-more" href="/notice" target="_blank">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="m-yaozong-bottom"></div>
                 </div>
-
-
-
-
-
             </div>
             <Footer></Footer>
         </div>
@@ -35,50 +46,62 @@ import { getTopic } from "@/service/topic";
 import slider_a from "@/components/topic/slider_a.vue";
 import img_list_x from "@/components/topic/img_list_x.vue";
 import img_single_link from "@/components/topic/img_single_link.vue";
-import img_single_simple from "@/components/topic/img_single_simple.vue";
-import yaozong_skill from './yaozong_skill.vue';
+// import img_single_simple from "@/components/topic/img_single_simple.vue";
+import yaozong_skill from "./yaozong_skill.vue";
+import text_list_y from "@/components/topic/text_list_y.vue";
 export default {
     name: "Topic",
     props: [],
     components: {
-        'top-slider': slider_a,
-        'img-list-x':img_list_x,
-        'img-single-link':img_single_link,
-        'img-single-simple':img_single_simple,
-        'yaozong-skill' : yaozong_skill,
+        "top-slider": slider_a,
+        "img-list-x": img_list_x,
+        "img-single-link": img_single_link,
+        // "img-single-simple": img_single_simple,
+        "yaozong-skill": yaozong_skill,
+        "text-list-y": text_list_y,
     },
     data: function () {
         return {
-            raw : []
+            raw: [],
+            yaozong_tab : 'concat',
         };
     },
     computed: {
         theme_cls: function () {
             return "theme-" + theme;
         },
-        data : function (){
-            let _data = {}
+        data: function () {
+            let _data = {};
             this.raw.forEach((item) => {
-                if(!_data[item.subtype]){
-                    _data[item.subtype] = []
+                if (!_data[item.subtype]) {
+                    _data[item.subtype] = [];
                 }
-                _data[item.subtype].push(item)
+                _data[item.subtype].push(item);
+            });
+            return _data;
+        },
+        yaozong_concat: function () {
+            let news = this.data?.yaozong_news || []
+            let posts = this.data?.yaozong_posts || []
+            let arr = news.concat(posts)
+            arr.sort((a,b) => {
+                return a.updated_at - b.updated_at
             })
-            return _data
-        }
+            return arr
+        },
     },
     watch: {},
     methods: {
-        init : function (){
+        init: function () {
             getTopic(theme).then((res) => {
-                this.raw = res.data.data
-            })
-        }
+                this.raw = res.data.data;
+            });
+        },
     },
     filters: {},
     created: function () {},
     mounted: function () {
-        this.init()
+        this.init();
     },
 };
 </script>
