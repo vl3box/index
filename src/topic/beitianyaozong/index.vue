@@ -16,6 +16,7 @@
                 <!-- 药宗 -->
                 <div class="m-topic-hot">
                     <img-single-simple class="m-topic-banner-left" :data="data.yaozong_banner"></img-single-simple>
+                    <yaozong-skill class="m-topic-yaozong-skill" :data="data.yaozong_banner"></yaozong-skill>
                 </div>
 
 
@@ -35,6 +36,7 @@ import slider_a from "@/components/topic/slider_a.vue";
 import img_list_x from "@/components/topic/img_list_x.vue";
 import img_single_link from "@/components/topic/img_single_link.vue";
 import img_single_simple from "@/components/topic/img_single_simple.vue";
+import yaozong_skill from './yaozong_skill.vue';
 export default {
     name: "Topic",
     props: [],
@@ -43,6 +45,7 @@ export default {
         'img-list-x':img_list_x,
         'img-single-link':img_single_link,
         'img-single-simple':img_single_simple,
+        'yaozong-skill' : yaozong_skill,
     },
     data: function () {
         return {
