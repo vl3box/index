@@ -1,11 +1,13 @@
 <template>
-    <div class="m-topic-slider m-topic-slider-a" :style="{height:height}">
+    <div class="m-topic-slider m-topic-slider-a" :style="{ height: height }">
         <!-- 带文本切换slider -->
         <el-carousel
             :height="height"
             indicator-position="none"
             @change="changeImg"
             ref="elcarousel"
+            :autoplay="!type"
+            :loop="!type"
         >
             <el-carousel-item v-for="(item, i) in list" :key="i">
                 <a class="u-img" :href="item.link" target="_blank">
@@ -20,15 +22,18 @@
                 :key="i"
                 :class="i == index ? 'active' : ''"
                 @click="checkImg(i)"
-            >{{ item.title }}</div>
+            >
+                {{ item.title }}
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Bus from "@/store/bus.js";
 export default {
     name: "TopicSliderA",
-    props: ["data", "height"],
+    props: ["data", "height", "type", "current"],
     components: {},
     data: function () {
         return {
@@ -46,6 +51,21 @@ export default {
         },
         checkImg: function (index) {
             this.$refs.elcarousel.setActiveItem(index);
+        },
+    },
+    watch: {
+        index: function () {
+            if (this.type && this.type === "fb") {
+                Bus.$emit("updateBossId", this.data[this.index]["desc"]);
+            }
+        },
+        current: {
+            immediate: true,
+            handler: function (val) {
+                if (val) {
+                    this.index = val;
+                }
+            },
         },
     },
 };

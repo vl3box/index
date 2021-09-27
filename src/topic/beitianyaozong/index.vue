@@ -19,6 +19,12 @@
                     <yaozong-skill class="m-topic-yaozong-skill" :data="data.yaozong_banner"></yaozong-skill>
                 </div>
 
+                <!-- 副本 -->
+                <div class="m-topic-fb">
+                    <top-slider class="m-fb-slider" :data="data.fb_slider" type="fb" height="420px"></top-slider>
+                    <fb-rank class="m-fb-rank-container"></fb-rank>
+                </div>
+
 
 
 
@@ -37,6 +43,7 @@ import img_list_x from "@/components/topic/img_list_x.vue";
 import img_single_link from "@/components/topic/img_single_link.vue";
 import img_single_simple from "@/components/topic/img_single_simple.vue";
 import yaozong_skill from './yaozong_skill.vue';
+import fb_rank from './fb_rank.vue'
 export default {
     name: "Topic",
     props: [],
@@ -46,6 +53,7 @@ export default {
         'img-single-link':img_single_link,
         'img-single-simple':img_single_simple,
         'yaozong-skill' : yaozong_skill,
+        'fb-rank': fb_rank
     },
     data: function () {
         return {
