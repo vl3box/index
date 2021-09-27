@@ -1,12 +1,10 @@
 <template>
-    <div class="p-topic">
-        <!-- 专题导航页 -->
-    </div>
+    <div></div>
 </template>
 
 <script>
 export default {
-   name : 'Topic',
+   name : 'Index',
    props:[],
    components : {},
    data : function(){

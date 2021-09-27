@@ -2,32 +2,46 @@ const path = require("path");
 const pkg = require("./package.json");
 const { JX3BOX, SEO } = require("@jx3box/jx3box-common");
 const Setting = require("./setting.json");
+let topics = Setting.topics;
+let topicPages = {};
+topics.forEach((topic) => {
+    topicPages[topic.key] = {
+        title: topic.title + Setting.suffix,
+        entry: `src/topic/${topic.key}/index.js`,
+        template: "public/index.html",
+        filename: `topic/${topic.key}/index.html`,
+        chunks: [topic.key, "manifest", "vendors", "common", "element", "jx3box"],
+    };
+});
+let mainPages = {
+    index: {
+        title: "剑网3" + Setting.suffix,
+        entry: "src/main.js",
+        template: "public/index.html",
+        filename: "index.html",
+        chunks: ["index", "manifest", "vendors", "common", "element", "jx3box"],
+    },
+    topic: {
+        title: "专题导航" + Setting.suffix,
+        entry: "src/pages/topic.js",
+        template: "public/index.html",
+        filename: "topic/index.html",
+        chunks: ["topic", "manifest", "vendors", "common", "element", "jx3box"],
+    },
+    notice: {
+        title: "公告资讯" + Setting.suffix,
+        entry: "src/pages/notice.js",
+        template: "public/index.html",
+        filename: "notice/index.html",
+        chunks: ["notice", "manifest", "vendors", "common", "element", "jx3box"],
+    },
+};
+
+let pages = Object.assign(mainPages, topicPages);
 
 module.exports = {
     //❤️ Multiple pages ~
-    pages: {
-        index: {
-            title: "剑网3 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
-            entry: "src/main.js",
-            template: "public/index.html",
-            filename: "index.html",
-            chunks: ["index", "manifest", "vendors", "common","element","jx3box"],
-        },
-        topic: {
-            title: "专题导航 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
-            entry: "src/pages/topic.js",
-            template: "public/index.html",
-            filename: "topic/index.html",
-            chunks: ["topic", "manifest", "vendors", "common","element","jx3box"],
-        },
-        notice: {
-            title: "公告资讯 » 魔盒（JX3BOX） - 一站式剑网3资源工具站",
-            entry: "src/pages/notice.js",
-            template: "public/index.html",
-            filename: "notice/index.html",
-            chunks: ["notice", "manifest", "vendors", "common","element","jx3box"],
-        },
-    },
+    pages: pages,
 
     //❤️ Porxy ~
     devServer: {
