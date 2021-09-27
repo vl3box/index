@@ -5,6 +5,7 @@
                 <a class="u-link" :href="item.link" target="_blank">
                     <span class="u-title" :style="{color:item.color}">{{item.title}}</span>
                     <!-- <span class="u-date">{{item.created_at}}</span> -->
+                    <span class="u-author" v-if="withAuthor">{{item.author}}</span>
                 </a>
             </li>
         </ul>
@@ -14,7 +15,7 @@
 <script>
 export default {
    name : 'TopicTextListY',
-   props:['data','withData','length'],
+   props:['data','withData','length','withAuthor'],
    components : {},
    data : function(){
        return {
@@ -48,14 +49,23 @@ export default {
             }
         }
         .u-link{
-            .db;
-            .nobreak;
-            .fz(15px,2.1);
             color:@color;
             padding:2px 0;
-            &:hover{
+            display: flex;
+            justify-content: space-between;
+            &:hover .u-title{
                 color:#c00;
             }
+        }
+        .u-title{
+            .db;
+            .nobreak;
+            .fz(15px,34px);
+            
+        }
+        .u-author{
+            .fz(13px,34px);
+            color:#999;
         }
     }
 </style>

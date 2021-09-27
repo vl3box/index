@@ -31,22 +31,22 @@
                                     <span slot="label">
                                         <i class="el-icon-collection-tag"></i> 药宗动态
                                     </span>
-                                    <text-list-y :data="yaozong_concat" :length="6"></text-list-y>
+                                    <text-list-y :data="yaozong_concat" :length="7"></text-list-y>
                                 </el-tab-pane>
                                 <el-tab-pane label="药宗新闻" name="news">
                                     <span slot="label">
                                         <i class="el-icon-collection-tag"></i> 药宗新闻
                                     </span>
-                                    <text-list-y :data="data.yaozong_news" :length="6"></text-list-y>
+                                    <text-list-y :data="data.yaozong_news" :length="7"></text-list-y>
                                 </el-tab-pane>
                                 <el-tab-pane label="药宗攻略" name="posts">
                                     <span slot="label">
                                         <i class="el-icon-collection-tag"></i> 药宗攻略
                                     </span>
-                                    <text-list-y :data="data.yaozong_posts" :length="6"></text-list-y>
+                                    <text-list-y :data="data.yaozong_posts" :length="7"></text-list-y>
                                 </el-tab-pane>
+                                <a class="m-yaozong-more" href="/notice" target="_blank"><i class="el-icon-arrow-right"></i>阅读更多资讯</a>
                             </el-tabs>
-                            <a class="m-yaozong-more" href="/notice" target="_blank">阅读更多资讯</a>
                         </div>
                     </div>
                     <div class="m-yaozong-bottom">
@@ -58,10 +58,19 @@
                 </div>
 
                 <!-- 副本 -->
-                <!-- <div class="m-topic-fb">
-                    <top-slider class="m-fb-slider" :data="data.fb_slider" type="fb" height="420px"></top-slider>
-                    <fb-rank class="m-fb-rank-container"></fb-rank>
-                </div>-->
+                <div class="m-topic-fb">
+                    <div class="m-fb-left">
+                        <header class="u-header">
+                            <div class="u-title">雷域大泽</div>
+                            <a href="/fb" class="u-more" target="_blank">更多攻略 <i class="el-icon-arrow-right"></i></a>
+                        </header>
+                        <text-list-y class="u-list" :data="data.fb_posts" :length="6" :withAuthor="true"></text-list-y>
+                        <img-list-x class="m-fb-tools" :data="data.fb_tools" gap="15"></img-list-x>
+                    </div>
+                    <div class="m-fb-right">
+                        <div class="m-fb-pic">副本场景+BOSS立绘</div>
+                    </div>
+                </div>
             </div>
             <Footer></Footer>
         </div>
@@ -77,7 +86,6 @@ import img_single_link from "@/components/topic/img_single_link.vue";
 // import img_single_simple from "@/components/topic/img_single_simple.vue";
 import yaozong_skill from "./yaozong_skill.vue";
 import text_list_y from "@/components/topic/text_list_y.vue";
-// import fb_rank from './fb_rank.vue'
 export default {
     name: "Topic",
     props: [],
@@ -88,7 +96,6 @@ export default {
         // "img-single-simple": img_single_simple,
         "yaozong-skill": yaozong_skill,
         "text-list-y": text_list_y,
-        // 'fb-rank': fb_rank,
     },
     data: function () {
         return {

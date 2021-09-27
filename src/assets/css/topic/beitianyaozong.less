@@ -1,7 +1,8 @@
 // 主题
 // =========================
 @theme-color: #496973;
-@theme-bg : #eaf4f5;
+@theme-bg: #eaf4f5;
+@content-width: 840px;
 
 // 包裹层
 // =========================
@@ -16,7 +17,7 @@
     overflow: hidden;
 }
 .m-top-slider {
-    .w(840px);
+    .w(@content-width);
     .mr(20px);
     flex: none;
 }
@@ -33,6 +34,9 @@
     .mt(20px);
     .h(160px);
     .w(100%);
+    &:hover {
+        filter: brightness(110%);
+    }
 }
 
 // 药宗
@@ -50,7 +54,7 @@
     display: flex;
 }
 .m-yaozong-top-left {
-    .w(840px);
+    .w(@content-width);
     .mr(20px);
     flex: none;
 }
@@ -58,7 +62,7 @@
     flex: 1;
     .el-tabs__header {
         background-color: @theme-color;
-        .mb(10px);
+        .mb(5px);
     }
     .el-tabs__nav {
         display: flex;
@@ -93,7 +97,6 @@
     }
 }
 .m-yaozong-tabs {
-    .h(278px);
     background-color: #fff;
 }
 .m-topic-banner-left {
@@ -101,52 +104,113 @@
     .lt(-320px, 0);
 }
 
-.m-yaozong-more{
-    background-color:#2f536f;
-    color:#fff;
-    .mt(20px);
-    .h(58px);
+.m-yaozong-more {
+    background-color: #c0c4cc;
+    &:hover {
+        background-color: darken(#c0c4cc, 5%);
+    }
+    color: #fff;
+    .mt(5px);
+    .fz(15px, 26px);
+    .lh(36px);
     .db;
-    .fz(15px,58px);
     .x;
 }
 
-.m-yaozong-scenery{
+.m-yaozong-scenery {
     // background-color:@theme-color;
-    padding:5px 10px;
+    padding: 5px 10px;
     .w(40%);
-    color:#fff;
-    background-image: linear-gradient(to right, @theme-color , @theme-bg);
+    color: #fff;
+    background-image: linear-gradient(to right, @theme-color, @theme-bg);
 }
 
-.m-yaozong-pics{
-    .u-img{
-        flex:none;
-        .size(305px,160px) !important;
+.m-yaozong-pics {
+    .u-img {
+        flex: none;
+        .size(305px, 160px) !important;
         transition: 0.2s ease-in-out;
-        &:hover{
+        &:hover {
             // filter: brightness(110%);
             transform: scale(1.2);
-            box-shadow: 0 0 5px rgba(0,0,0,.5);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
     }
 }
 
 // 副本
 // ============================
+// .m-topic-fb {
+//     background-color:#fff;
+//     .mt(40px);
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+// }
+// .m-fb-slider {
+//     .w(@content-width);
+
+//     .u-titles {
+//         transform: skew(-30deg);
+//     }
+// }
+// .m-fb-rank-container {
+//     .w(440px);
+// }
 .m-topic-fb {
+    .mt(40px);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
-.m-fb-slider {
-    .w(840px);
+.m-fb-left {
+    .w(@content-width);
+    .mr(20px);
+    .u-header {
+        .h(70px);
+        background-color: @theme-color;
+        .pr;
+        padding-left: 120px;
+        padding-right: 10px;
 
-    .u-titles {
-        transform: skew(-30deg);
+        .u-title {
+            .fz(32px, 70px);
+            color: #fff;
+        }
+        .u-more {
+            .fz(14px, 70px);
+            .pa;
+            .rt(10px, 0);
+            color: #eee;
+            &:hover{
+                color:#fff;
+            }
+        }
+    }
+    .u-list{
+        padding:10px;
+        background-color:#fff;
     }
 }
 
-.m-fb-rank-container {
-    .w(440px);
+.m-fb-right{
+    background-color:@bg-gray;
+    flex-grow: 1;
+    display: flex;
+    .flex(o);
+}
+
+.m-fb-bottom{
+    .db;
+    .mt(20px);
+    .w(100%);
+}
+.m-fb-tools{
+    .mt(20px);
+    .u-img{
+        flex-grow: 1;
+
+        // TEST
+        background-color:#088d99;
+        color:#fff;
+    }
 }

@@ -3,7 +3,7 @@
         <header class="u-header">
             <div class="u-title">
                 {{current_title}}
-                <i class="el-icon-arrow-right"></i>
+                <!-- <i class="el-icon-arrow-right"></i> -->
             </div>
             <ul class="u-tabs">
                 <li v-for="(item,i) in tabs" :key="item">
