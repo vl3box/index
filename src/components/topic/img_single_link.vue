@@ -1,12 +1,13 @@
 <template>
     <a class="m-topic-img-single-link" :style="styles" :href="link">
+        <!-- 带链接版单图片 -->
         <img :src="url | resolveImagePath" :alt="alt" />
     </a>
 </template>
 
 <script>
 export default {
-    name: "ImgSingleSimple",
+    name: "ImgSingleLink",
     props: ["data", "width", "height", "alt", "href", "src"],
     components: {},
     data: function () {
