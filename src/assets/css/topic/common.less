@@ -1,28 +1,18 @@
 .p-topic-container{
-    min-height: 800px;
-    margin-top:@header-height;
-    max-width: 1360px;
+    margin-top: @header-height;
+    overflow: hidden;
+}
+.wp{
     .auto(x);
-    padding:20px 40px;
-    box-sizing: border-box;
 }
 
-// .m-topic-common {
-//     .m-topic-sect {
-//         padding-top: 48px;
-
-//         .u-tabbox {
-//             padding-bottom: 85px;
-//         }
-//     }
-
-//     .m-topic-pve { 
-//         background-color: rgba(255, 255, 255, 0.62);
-//         padding: 43px 0;
-//     }
-// }
-
-// .m-topic-main {
-//     width: 1362px;
-//     margin: 0 auto;
-// }
+.p-topic-footer{
+    background-color:@bg-black;
+    .c-footer{
+        margin:0 auto;
+        a:hover{
+            .color(#0cf);
+            box-shadow: none;
+        }
+    }
+}

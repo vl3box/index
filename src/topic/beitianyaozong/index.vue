@@ -5,7 +5,7 @@
         <div class="p-topic-container">
             <div class="m-topic-box">
                 <!-- 首屏 -->
-                <div class="m-topic-top">
+                <div class="m-topic-top wp">
                     <slider-a class="m-top-slider" :data="data.top_slider" height="420px"></slider-a>
                     <div class="m-topic-nav">
                         <img-list-x class="m-topic-tools" :data="data.top_tools" gap="20"></img-list-x>
@@ -14,7 +14,7 @@
                 </div>
 
                 <!-- 药宗 -->
-                <div class="m-topic-hot">
+                <div class="m-topic-hot wp">
                     <!-- <img-single-simple class="m-topic-banner-left" :data="data.yaozong_banner"></img-single-simple> -->
                     <div class="m-yaozong-top">
                         <div class="m-yaozong-top-left">
@@ -61,29 +61,32 @@
 
                 <!-- 副本 -->
                 <div class="m-topic-fb">
-                    <div class="m-fb-left">
-                        <header class="u-header">
-                            <div class="u-title">雷域大泽</div>
-                            <a href="/fb" class="u-more" target="_blank">
-                                更多攻略
-                                <i class="el-icon-arrow-right"></i>
-                            </a>
-                        </header>
-                        <text-list-y
-                            class="u-list"
-                            :data="data.fb_posts"
-                            :length="6"
-                            :withAuthor="true"
-                        ></text-list-y>
-                        <img-list-x class="m-fb-tools" :data="data.fb_tools" :gap="15"></img-list-x>
-                    </div>
-                    <div class="m-fb-right">
-                        <div class="m-fb-pic">副本场景+BOSS立绘</div>
+                    <div class="wp">
+                        <div class="m-fb-left">
+                            <header class="u-header">
+                                <div class="u-title">雷域大泽</div>
+                                <a href="/fb" class="u-more" target="_blank">
+                                    更多攻略
+                                    <i class="el-icon-arrow-right"></i>
+                                </a>
+                            </header>
+                            <text-list-y
+                                class="u-list"
+                                :data="data.fb_posts"
+                                :length="6"
+                                :withAuthor="true"
+                            ></text-list-y>
+                            <img-list-x class="m-fb-tools" :data="data.fb_tools" :gap="15"></img-list-x>
+                        </div>
+                        <div class="m-fb-right">
+                            <div class="m-fb-pic">副本场景+BOSS立绘</div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- PVP -->
                 <div class="m-topic-pvp">
+                    <div class="wp">
                     <div class="m-pvp-header">PVP</div>
                     <slider-b class="m-pvp-slider" :data="data.pvp_slider" height="300px"></slider-b>
                     <div class="m-pvp-box">
@@ -97,10 +100,11 @@
                             <img-matrix :data="data.pvp_pics" :length="6" :gap="20" :span="8"></img-matrix>
                         </div>
                     </div>
+                    </div>
                 </div>
 
                 <!-- PVX -->
-                <div class="m-topic-pvx">
+                <div class="m-topic-pvx wp">
                     <div class="m-pvx-header">PVX</div>
                     <slider-b class="m-pvx-slider" :data="data.pvx_slider" height="300px"></slider-b>
                     <div class="m-pvx-box">
@@ -112,17 +116,31 @@
                                 <div class="u-title">PVX革新</div>
                             </header>
                             <text-list-y class="u-list" :data="data.pvx_posts" :length="5"></text-list-y>
-                            <img-matrix class="u-pics" :data="data.pvx_buttons" :length="2" :gap="20" :span="12"></img-matrix>
+                            <img-matrix
+                                class="u-pics"
+                                :data="data.pvx_buttons"
+                                :length="2"
+                                :gap="20"
+                                :span="12"
+                            ></img-matrix>
                         </div>
                     </div>
                 </div>
 
                 <!-- misc -->
                 <div class="m-topic-qrcode">
-                    <img src="https://jx3.xoyo.com/assets/2018/11/26/assets/images/qrcode/qrcode_index.png" alt="">
+                    <div class="wp">
+                        <img
+                        src="https://jx3.xoyo.com/assets/2018/11/26/assets/images/qrcode/qrcode_index.png"
+                        alt
+                    />
+                    </div>
+                    
                 </div>
             </div>
-            <Footer></Footer>
+        </div>
+        <div class="p-topic-footer">
+            <Footer class="wp"></Footer>
         </div>
     </div>
 </template>
