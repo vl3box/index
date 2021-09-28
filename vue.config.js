@@ -8,7 +8,7 @@ topics.forEach((topic) => {
     topicPages[topic.key] = {
         title: topic.title + Setting.suffix,
         entry: `src/topic/${topic.key}/index.js`,
-        template: "public/index.html",
+        template: "public/pc.html",
         filename: `topic/${topic.key}/index.html`,
         chunks: [topic.key, "manifest", "vendors", "common", "element", "jx3box"],
     };
