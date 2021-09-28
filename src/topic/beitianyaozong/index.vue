@@ -6,7 +6,7 @@
             <div class="m-topic-box">
                 <!-- 首屏 -->
                 <div class="m-topic-top">
-                    <top-slider class="m-top-slider" :data="data.top_slider" height="420px"></top-slider>
+                    <slider-a class="m-top-slider" :data="data.top_slider" height="420px"></slider-a>
                     <div class="m-topic-nav">
                         <img-list-x class="m-topic-tools" :data="data.top_tools" gap="20"></img-list-x>
                         <img-single-link class="m-topic-event" :data="data.top_event"></img-single-link>
@@ -27,25 +27,27 @@
                         </div>
                         <div class="m-yaozong-top-right">
                             <el-tabs class="m-yaozong-tabs" v-model="yaozong_tab">
-                                <el-tab-pane label="药宗动态" name="concat">
+                                <el-tab-pane label="最新热点" name="concat">
                                     <span slot="label">
-                                        <i class="el-icon-collection-tag"></i> 药宗动态
+                                        <i class="el-icon-collection-tag"></i> 最新热点
                                     </span>
-                                    <text-list-y :data="yaozong_concat" :length="7"></text-list-y>
+                                    <text-list-y :data="data.news_1" :length="7"></text-list-y>
                                 </el-tab-pane>
-                                <el-tab-pane label="药宗新闻" name="news">
+                                <el-tab-pane label="门派改动" name="news">
                                     <span slot="label">
-                                        <i class="el-icon-collection-tag"></i> 药宗新闻
+                                        <i class="el-icon-collection-tag"></i> 门派改动
                                     </span>
-                                    <text-list-y :data="data.yaozong_news" :length="7"></text-list-y>
+                                    <text-list-y :data="data.news_2" :length="7"></text-list-y>
                                 </el-tab-pane>
-                                <el-tab-pane label="药宗攻略" name="posts">
+                                <el-tab-pane label="新增玩法" name="posts">
                                     <span slot="label">
-                                        <i class="el-icon-collection-tag"></i> 药宗攻略
+                                        <i class="el-icon-collection-tag"></i> 新增玩法
                                     </span>
-                                    <text-list-y :data="data.yaozong_posts" :length="7"></text-list-y>
+                                    <text-list-y :data="data.news_3" :length="7"></text-list-y>
                                 </el-tab-pane>
-                                <a class="m-yaozong-more" href="/notice" target="_blank"><i class="el-icon-arrow-right"></i>阅读更多资讯</a>
+                                <a class="m-yaozong-more" href="/notice" target="_blank">
+                                    <i class="el-icon-arrow-right"></i>阅读更多资讯
+                                </a>
                             </el-tabs>
                         </div>
                     </div>
@@ -62,14 +64,62 @@
                     <div class="m-fb-left">
                         <header class="u-header">
                             <div class="u-title">雷域大泽</div>
-                            <a href="/fb" class="u-more" target="_blank">更多攻略 <i class="el-icon-arrow-right"></i></a>
+                            <a href="/fb" class="u-more" target="_blank">
+                                更多攻略
+                                <i class="el-icon-arrow-right"></i>
+                            </a>
                         </header>
-                        <text-list-y class="u-list" :data="data.fb_posts" :length="6" :withAuthor="true"></text-list-y>
-                        <img-list-x class="m-fb-tools" :data="data.fb_tools" gap="15"></img-list-x>
+                        <text-list-y
+                            class="u-list"
+                            :data="data.fb_posts"
+                            :length="6"
+                            :withAuthor="true"
+                        ></text-list-y>
+                        <img-list-x class="m-fb-tools" :data="data.fb_tools" :gap="15"></img-list-x>
                     </div>
                     <div class="m-fb-right">
                         <div class="m-fb-pic">副本场景+BOSS立绘</div>
                     </div>
+                </div>
+
+                <!-- PVP -->
+                <div class="m-topic-pvp">
+                    <div class="m-pvp-header">PVP</div>
+                    <slider-b class="m-pvp-slider" :data="data.pvp_slider" height="300px"></slider-b>
+                    <div class="m-pvp-box">
+                        <div class="m-pvp-left">
+                            <header class="u-header">
+                                <div class="u-title">PVP革新</div>
+                            </header>
+                            <text-list-y class="u-list" :data="data.pvp_posts" :length="5"></text-list-y>
+                        </div>
+                        <div class="m-pvp-right">
+                            <img-matrix :data="data.pvp_pics" :length="6" :gap="20" :span="8"></img-matrix>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PVX -->
+                <div class="m-topic-pvx">
+                    <div class="m-pvx-header">PVX</div>
+                    <slider-b class="m-pvx-slider" :data="data.pvx_slider" height="300px"></slider-b>
+                    <div class="m-pvx-box">
+                        <div class="m-pvx-left">
+                            <img-matrix :data="data.pvx_pics" :length="4" :gap="20" :span="12"></img-matrix>
+                        </div>
+                        <div class="m-pvx-right">
+                            <header class="u-header">
+                                <div class="u-title">PVX革新</div>
+                            </header>
+                            <text-list-y class="u-list" :data="data.pvx_posts" :length="5"></text-list-y>
+                            <img-matrix class="u-pics" :data="data.pvx_buttons" :length="2" :gap="20" :span="12"></img-matrix>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- misc -->
+                <div class="m-topic-qrcode">
+                    <img src="https://jx3.xoyo.com/assets/2018/11/26/assets/images/qrcode/qrcode_index.png" alt="">
                 </div>
             </div>
             <Footer></Footer>
@@ -81,6 +131,8 @@
 import { theme } from "../../../setting.json";
 import { getTopic } from "@/service/topic";
 import slider_a from "@/components/topic/slider_a.vue";
+import slider_b from "@/components/topic/slider_b.vue";
+import img_matrix from "@/components/topic/img_matrix.vue";
 import img_list_x from "@/components/topic/img_list_x.vue";
 import img_single_link from "@/components/topic/img_single_link.vue";
 // import img_single_simple from "@/components/topic/img_single_simple.vue";
@@ -90,7 +142,9 @@ export default {
     name: "Topic",
     props: [],
     components: {
-        "top-slider": slider_a,
+        "slider-a": slider_a,
+        "slider-b": slider_b,
+        "img-matrix": img_matrix,
         "img-list-x": img_list_x,
         "img-single-link": img_single_link,
         // "img-single-simple": img_single_simple,

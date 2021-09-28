@@ -24,7 +24,11 @@ export default {
    },
    computed:{
        list : function (){
-           return this.data?.slice(0,this.length) || []
+           let data = this.data || []
+           if(this.length){
+               data = data.slice(0,this.length)
+           }
+           return data
        }
    },
    watch:{},
