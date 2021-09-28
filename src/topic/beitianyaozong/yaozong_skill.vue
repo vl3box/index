@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+.m-yaozong-skill{
+    .pr;
+}
 @h:70px;
 .u-header {
     .h(@h);

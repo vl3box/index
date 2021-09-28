@@ -56,7 +56,7 @@ export default {
         .u-list{
             list-style: none;
             margin:0;
-            padding:0 20px;
+            padding:0;
         }
         .u-item{
             border-bottom:1px solid #eee;
@@ -84,12 +84,8 @@ export default {
         .u-author,.u-date{
             .pa;.rt(0);
         }
-        .u-author{
+        .u-author,.u-date{
             .fz(13px,@h);
-            color:#999;
-        }
-        .u-date{
-            .fz(12px,@h);
             color:#888;
         }
     }
