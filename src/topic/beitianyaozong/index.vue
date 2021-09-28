@@ -31,7 +31,7 @@
                                     <span slot="label">
                                         <i class="el-icon-collection-tag"></i> 最新热点
                                     </span>
-                                    <text-list-y :data="data.news_1" :length="7"></text-list-y>
+                                    <text-list-y :data="data.news_1" :length="7" :withDate="true"></text-list-y>
                                 </el-tab-pane>
                                 <el-tab-pane label="门派改动" name="news">
                                     <span slot="label">

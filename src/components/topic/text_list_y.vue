@@ -2,9 +2,9 @@
     <div class="m-topic-text-list m-topic-text-list-y">
         <ul class="u-list" v-if="list && list.length">
             <li class="u-item" v-for="(item,i) in list" :key="i">
-                <a class="u-link" :href="item.link" target="_blank">
+                <a class="u-link" :href="item.link" target="_blank" :style="linkstyle">
                     <span class="u-title" :style="{color:item.color}">{{item.title}}</span>
-                    <!-- <span class="u-date">{{item.created_at}}</span> -->
+                    <span class="u-date" v-if="withDate">{{item.updated_at | formatDate}}</span>
                     <span class="u-author" v-if="withAuthor">{{item.author}}</span>
                 </a>
             </li>
@@ -13,9 +13,10 @@
 </template>
 
 <script>
+import {simpledate} from '@/utils/simpledate.js'
 export default {
    name : 'TopicTextListY',
-   props:['data','withData','length','withAuthor'],
+   props:['data','withDate','length','withAuthor'],
    components : {},
    data : function(){
        return {
@@ -29,11 +30,22 @@ export default {
                data = data.slice(0,this.length)
            }
            return data
+       },
+       linkstyle : function (){
+           if(this.withDate || this.withAuthor){
+               return 'padding-right:80px;'
+           }else{
+               return ''
+           }
        }
    },
    watch:{},
    methods:{},
-   filters:{},
+   filters:{
+       formatDate : function (val){
+           return simpledate(val)
+       }
+   },
    created:function(){},
    mounted:function(){},
 }
@@ -55,21 +67,30 @@ export default {
         .u-link{
             color:@color;
             padding:2px 0;
-            display: flex;
-            justify-content: space-between;
+            // display: flex;
+            // justify-content: space-between;
             &:hover .u-title{
                 color:#c00;
             }
+            .pr;
+            .db;
         }
+        @h:34px;
         .u-title{
             .db;
             .nobreak;
-            .fz(15px,34px);
-            
+            .fz(14px,@h);
+        }
+        .u-author,.u-date{
+            .pa;.rt(0);
         }
         .u-author{
-            .fz(13px,34px);
+            .fz(13px,@h);
             color:#999;
+        }
+        .u-date{
+            .fz(12px,@h);
+            color:#888;
         }
     }
 </style>

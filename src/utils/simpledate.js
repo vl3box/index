@@ -1,8 +1,8 @@
-function simpledate(str){
+function simpledate(str,separator = '-'){
     let dt = new Date(str)
     let month = dt.getMonth() + 1
     let date = dt.getDate()
-    return polish(month) + '-' + polish(date)
+    return polish(month) + separator + polish(date)
 }
 
 function polish(val){
