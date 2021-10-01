@@ -37,18 +37,18 @@
                                             :withDate="true"
                                         ></text-list-y>
                                     </el-tab-pane>
-                                    <el-tab-pane label="门派改动" name="news">
+                                    <el-tab-pane label="药宗资讯" name="news">
                                         <span slot="label">
-                                            <i class="el-icon-collection-tag"></i> 门派改动
+                                            <i class="el-icon-collection-tag"></i> 药宗资讯
                                         </span>
                                         <text-list-y :data="data.news_2" :length="7"></text-list-y>
                                     </el-tab-pane>
-                                    <el-tab-pane label="新增玩法" name="posts">
+                                    <!-- <el-tab-pane label="新增玩法" name="posts">
                                         <span slot="label">
                                             <i class="el-icon-collection-tag"></i> 新增玩法
                                         </span>
                                         <text-list-y :data="data.news_3" :length="7"></text-list-y>
-                                    </el-tab-pane>
+                                    </el-tab-pane> -->
                                     <a class="m-yaozong-more" href="/notice" target="_blank">
                                         <i class="el-icon-arrow-right"></i>阅读更多资讯
                                     </a>
@@ -153,7 +153,7 @@
                 <!-- other -->
                 <div class="m-topic-misc">
                     <div class="wp">
-                        <img-matrix :data="data.pvp_pics" :length="4" :gap="20" :span="6"></img-matrix>
+                        <img-matrix :data="data.misc_pics" :length="4" :gap="20" :span="6"></img-matrix>
                     </div>
                 </div>
 
