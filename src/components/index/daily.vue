@@ -2,36 +2,23 @@
     <div class="m-daily m-sideblock">
         <div class="m-daily-header m-sideblock-header">
             <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
-            <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt="" />
+            <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt />
             <div class="u-list">
                 <span class="u-weibo u-item">
                     <img svg-inline src="../../assets/img/weibo.svg" />
                     <em>官方微博：</em>
-                    <a href="https://weibo.com/jx3box" target="_blank"
-                        ><b>JX3BOX魔盒</b></a
-                    >
+                    <a href="https://weibo.com/jx3box" target="_blank">
+                        <b>JX3BOX魔盒</b>
+                    </a>
                 </span>
                 <span class="u-weixin u-item">
                     <img svg-inline src="../../assets/img/wechat.svg" />
                     <em>微信公众号：</em>
                     <b>JX3BOX</b>
                 </span>
-                <!-- <span class="u-item" v-if="data && data.length">
-                    <em>今日头条：</em>
-                    <span v-for="(item, i) in data" :key="i">
-                        <a
-                            :href="item.link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            :style="{ color: item.color }"
-                            :class="{ isHighlight: !!item.color }"
-                            >{{ item.title }}
-                        </a>
-                    </span>
-                </span> -->
             </div>
         </div>
-        <div class="m-daily-content">
+        <div class="m-daily-content" v-if="client == 'std'">
             <table>
                 <thead>
                     <tr>
@@ -60,8 +47,7 @@
                                     :key="item"
                                     :label="item"
                                     :value="item"
-                                >
-                                </el-option>
+                                ></el-option>
                             </el-select>
                         </td>
                         <td>
@@ -71,9 +57,11 @@
                                 :content="meirentu && meirentu.desc || '无'"
                                 placement="bottom"
                             >
-                                <div>{{
+                                <div>
+                                    {{
                                     meirentu && meirentu.name || "今日暂无画像"
-                                }}</div>
+                                    }}
+                                </div>
                             </el-tooltip>
                         </td>
                     </tr>
@@ -91,7 +79,7 @@ import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "daily",
     props: [],
-    data: function() {
+    data: function () {
         return {
             year: "",
             month: "",
@@ -105,18 +93,21 @@ export default {
         };
     },
     computed: {
-        default_server: function() {
+        default_server: function () {
             return this.$store.state.server;
+        },
+        client: function () {
+            return this.$store.state.client;
         },
     },
     methods: {
-        initDate: function() {
+        initDate: function () {
             let dt = new Date();
             this.year = dt.getFullYear();
             this.month = dt.getMonth() + 1;
             this.date = dt.getDate();
         },
-        loadDaily: function() {
+        loadDaily: function () {
             let dt = new Date();
             let hour = dt.getHours();
             let q;
@@ -129,38 +120,34 @@ export default {
             getDaily(q).then((res) => {
                 let list = res.data.data;
                 list?.forEach((item) => {
-                    if (item.taskType == "大战") {
-                        this.daily.push({
-                            type: "大战",
-                            zone: "全服",
-                            name: item.activityName.slice(3, -1),
-                        });
-                    } else {
-                        this.daily.push({
-                            type: "战场",
-                            zone: "全服",
-                            name: item.activityName.slice(3),
-                        });
-                    }
+                    this.daily.push({
+                        type: item.taskType,
+                        zone: "全服",
+                        name: item.activityName,
+                    });
                 });
             });
         },
-        loadMeirentu: function() {
+        loadMeirentu: function () {
             getMeirentu(this.server).then((res) => {
                 this.meirentu = res.data.data;
             });
         },
     },
-    mounted: function() {
+    watch: {
+        server: function (val) {
+            if (this.client == "std") {
+                val && this.loadMeirentu();
+            }
+        },
+    },
+    mounted: function () {
         this.server = this.default_server;
         this.initDate();
-        this.loadDaily();
-        // this.loadMeirentu();
-    },
-    watch: {
-        server: function(val) {
-            val && this.loadMeirentu();
-        },
+
+        if (this.client == "std") {
+            this.loadDaily();
+        }
     },
 };
 </script>

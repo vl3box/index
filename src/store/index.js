@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 let store = {
     state: {
+        client : location.href.includes('origin') ? 'origin' : 'std',
         profile: {
             server: "蝶恋花",
         },
