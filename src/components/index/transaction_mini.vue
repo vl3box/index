@@ -2,7 +2,7 @@
     <div class="m-index-transaction m-sideblock">
         <div class="m-sideblock-header">
             <span class="u-title">
-                <i class="el-icon-s-goods"></i>全服价格
+                <i class="el-icon-s-shop"></i>全服价格
             </span>
             <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
@@ -104,14 +104,16 @@ export default {
             return this.$store.state.server;
         },
         groups: function () {
-            const len = 4;
+            const len = 5;
+            let arr = []
             let count = Math.ceil(this.data.length / len);
-            let arr = new Array(count);
-            arr = arr.fill([]);
-            this.data.forEach((item, i) => {
+            for(let i=0;i<count;i++){
+                arr.push([])
+            }
+            for(let [i,item] of this.data.entries()){
                 let group = Math.floor(i / len);
                 arr[group].push(item);
-            });
+            }
             return arr;
         },
     },
