@@ -13,7 +13,7 @@
         </div>
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">
-                <div class="u-item" v-for="(item, i) in data" :key="i" v-show="!isOriginServer(item)">
+                <div class="u-item" v-for="(item, i) in data" :key="i" v-show="cansee(item)">
                     <el-tooltip
                         class="item"
                         effect="dark"
@@ -27,7 +27,6 @@
                     </el-tooltip>
 
                     <span class="u-name">{{ item.serverName }}</span>
-                    <!-- <span class="u-myserver" v-if="server == item.serverName"><i class="el-icon-star-on"></i></span> -->
                 </div>
             </div>
         </div>
@@ -36,7 +35,8 @@
 
 <script>
 import { getServers } from "@/service/spider";
-import servers from '@jx3box/jx3box-data/data/server/server_origin.json'
+import servers_std from '@jx3box/jx3box-data/data/server/server_std.json'
+import servers_origin from '@jx3box/jx3box-data/data/server/server_origin.json'
 export default {
     name: "servers",
     props: [],
@@ -46,21 +46,25 @@ export default {
         };
     },
     computed: {
-        server: function() {
-            if (this.$store.state.isLogin) {
-                return this.$store.state.profile.server;
-            } else {
-                return "";
-            }
+        client : function (){
+            return this.$store.state.client
         },
+        servers : function (){
+            if(this.client == 'origin'){
+                return servers_origin
+            }else{
+                return servers_std
+            }
+        }
     },
     methods: {
-        isOriginServer : function (item){
-            return servers.includes(item.serverName)
+        cansee : function (item){
+            return this.servers.includes(item.serverName)
         }
     },
     mounted: function() {
-        getServers().then((data) => {
+        getServers().then((res) => {
+            let data = res.data.data
             data.forEach((item) => {
                 if (item.serverName == item.mainServer) {
                     this.data.push(item);
@@ -68,7 +72,6 @@ export default {
             });
         });
     },
-    components: {},
 };
 </script>
 

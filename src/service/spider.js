@@ -30,10 +30,9 @@ function getGameNews(client) {
     });
 }
 
+// 开服监控
 function getServers() {
-    return $spider.get("/jx3servers").then((res) => {
-        return res.data.data;
-    });
+    return $spider.get("/jx3servers");
 }
 
 function getPrice() {
