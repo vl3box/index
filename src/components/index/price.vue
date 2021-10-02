@@ -1,59 +1,45 @@
 <template>
-    <div class="m-price m-sideblock">
+    <div class="m-price m-sideblock" v-if="client == 'std'">
         <div class="m-price-header m-sideblock-header">
-            <i class="el-icon-s-marketing"></i
-            ><a class="u-title" href="/app/price" target="_blank">金价走势</a>
-            <el-select
-                class="u-select"
-                v-model="server"
-                filterable
-                placeholder="选择服务器"
-                size="mini"
-            >
-                <el-option
-                    v-for="item in servers"
-                    :key="item"
-                    :label="item"
-                    :value="item"
-                >
-                </el-option>
+            <i class="el-icon-s-marketing"></i>
+            <a class="u-title" href="/app/price" target="_blank">金价走势</a>
+            <el-select class="u-select" v-model="server" filterable placeholder="选择服务器" size="mini">
+                <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
             </el-select>
-            <a href="/app/price" class="u-more" title="查看更多" target="_blank"
-                ><i class="el-icon-more"></i
-            ></a>
+            <a href="/app/price" class="u-more" title="查看更多" target="_blank">
+                <i class="el-icon-more"></i>
+            </a>
         </div>
         <div class="m-price-content" v-if="data">
             <el-row :gutter="10">
-                <el-col :span="8" v-for="(item, i) in data" :key="i"
-                    ><div class="u-item">
-                        <span class="u-item-platform">{{
+                <el-col :span="8" v-for="(item, i) in data" :key="i">
+                    <div class="u-item">
+                        <span class="u-item-platform">
+                            {{
                             platforms[item.platform]
-                        }}</span>
-                        <span class="u-item-value"
-                            ><b>{{ item.price ? item.price : "未知" }}</b
-                            >金/￥</span
-                        >
-                    </div></el-col
-                >
+                            }}
+                        </span>
+                        <span class="u-item-value">
+                            <b>{{ item.price ? item.price : "未知" }}</b>金/￥
+                        </span>
+                    </div>
+                </el-col>
             </el-row>
         </div>
-        <div class="m-price-null" v-else>
-            暂无数据
-        </div>
+        <div class="m-price-null" v-else>暂无数据</div>
     </div>
 </template>
 
 <script>
-import servers from "@jx3box/jx3box-data/data/server/server_list.json";
+import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import { getPrice } from "@/service/spider";
-import _ from "lodash";
+// import _ from "lodash";
 // import { Line } from "@antv/g2plot";
 import User from "@jx3box/jx3box-common/js/user";
-import moment from "moment";
 export default {
     name: "price",
     props: [],
-    data: function() {
+    data: function () {
         return {
             origin: "",
             servers,
@@ -66,7 +52,10 @@ export default {
         };
     },
     computed: {
-        data: function() {
+        client : function (){
+            return this.$store.state.client  
+        },
+        data: function () {
             if (this.origin && this.origin[this.server]) {
                 let data = this.origin[this.server]["today"];
                 let output = [];
@@ -89,12 +78,12 @@ export default {
                 return "";
             }
         },
-        my_server: function() {
+        my_server: function () {
             return this.$store.state.server;
         },
     },
     watch: {
-        my_server: function(val) {
+        my_server: function (val) {
             if (val) this.server = val;
         },
     },
@@ -110,8 +99,8 @@ export default {
             this.getData();
         },
     },
-    mounted: function() {},
-    created: function() {
+    mounted: function () {},
+    created: function () {
         this.install();
     },
     components: {},

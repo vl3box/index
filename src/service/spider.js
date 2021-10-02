@@ -35,6 +35,7 @@ function getServers() {
     return $spider.get("/jx3servers");
 }
 
+// 金价走势
 function getPrice() {
     return $spider.get("/jx3price");
 }
