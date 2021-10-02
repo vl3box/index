@@ -3,6 +3,7 @@ import axios from "axios";
 import { __spider } from "@jx3box/jx3box-common/data/jx3box.json";
 const $spider = axios.create({ baseURL: __spider });
 
+// 日常
 function getDaily(date) {
     return $team({ mute: true }).get("/xoyo/daily/task", {
         params: {
@@ -11,9 +12,21 @@ function getDaily(date) {
     });
 }
 
-function getGameNews() {
-    return $spider.get("/jx3news").then((res) => {
-        return res.data;
+// 美人图
+function getMeirentu(server = "蝶恋花") {
+    return $spider.get("/meirentu", {
+        params: {
+            server: server,
+        },
+    });
+}
+
+// 游戏公告
+function getGameNews(client) {
+    return $spider.get("/jx3news", {
+        params: {
+            client: client,
+        },
     });
 }
 
@@ -42,14 +55,5 @@ function getPrice() {
 //             console.log(err);
 //         });
 // }
-
-// 美人图
-function getMeirentu(server = "蝶恋花") {
-    return $spider.get("/meirentu", {
-        params: {
-            server: server,
-        },
-    });
-}
 
 export { getGameNews, getServers, getPrice, getMeirentu, getDaily };
