@@ -3,7 +3,6 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-primary">
-
                 <div class="m-left">
                     <daily />
                     <jx3code />
@@ -13,18 +12,18 @@
                     <transaction />
                 </div>
 
-                <!-- <live />
-                <slider />
-                <event />
-                <box /> -->
-
                 <div class="m-center">
+                    <live />
+                    <slider />
                     <!-- <joke />
                     <guide />
                     <face />
                     <newpost />
-                    <team /> -->
+                    <team />-->
                 </div>
+
+                <!-- <event /> -->
+                <!-- <box /> -->
 
                 <div class="m-right">
                     <!-- <notice />
@@ -36,7 +35,7 @@
                     <examrank />
                     <wikirank />
                     <contact />
-                    <feedback v-if="isMobile"/> -->
+                    <feedback v-if="isMobile"/>-->
                 </div>
 
                 <Footer></Footer>
@@ -54,15 +53,17 @@ import servers from "@/components/index/servers.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
 
+// 首屏
+import live from "@/components/index/live.vue";
+import slider from "@/components/index/slider.vue";
 // import box from "@/components/index/box.vue";
 // import notice from "@/components/index/notice.vue";
 // import gossip from "@/components/index/gossip.vue";
-// import slider from "@/components/index/slider.vue";
+
 // import event from "@/components/index/event.vue";
-// import live from "@/components/index/live.vue";
+
 // import contact from "@/components/index/contact.vue";
 // import activity from "@/components/index/activity.vue";
-
 
 // import macrorank from "@/components/index/rank_macro.vue";
 // import jx3datrank from "@/components/index/rank_jx3dat.vue";
@@ -87,13 +88,12 @@ export default {
     props: [],
     data: function () {
         return {
-            isMobile : window.innerWidth < 768
+            isMobile: window.innerWidth < 768,
         };
     },
     computed: {},
     methods: {},
     components: {
-
         // 左侧
         daily,
         jx3code,
@@ -101,17 +101,18 @@ export default {
         servers,
         price,
         transaction,
-        
+
+
+        // 首屏
+        live,
+        slider,
 
         // box,
         // notice,
         // gossip,
-        // slider,
         // event,
-        // live,
         // contact,
         // feedback,
-        
 
         // cjrank,
         // macrorank,
@@ -126,7 +127,6 @@ export default {
         // guide,
         // joke,
         // face,
-        
     },
     created: function () {
         if (User.isLogin()) {

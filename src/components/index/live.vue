@@ -17,25 +17,25 @@
 export default {
     name: "",
     props: [],
-    data: function() {
+    data: function () {
         return {};
     },
     computed: {
-        live_url: function() {
+        live_url: function () {
             return this.$store.state.config.index_live_url;
         },
-        live_status: function() {
+        live_status: function () {
             return ~~this.$store.state.config.index_live_status;
         },
-        video_url: function() {
+        video_url: function () {
             return this.$store.state.config.index_video_url;
         },
-        video_status: function() {
+        video_status: function () {
             return ~~this.$store.state.config.index_video_status;
         },
     },
     methods: {},
-    mounted: function() {},
+    mounted: function () {},
     components: {},
 };
 </script>
