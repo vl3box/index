@@ -89,15 +89,15 @@ export default {
 
             meirentu: "",
             servers,
-            server: "",
+            server: "蝶恋花",
         };
     },
     computed: {
-        my_server: function () {
-            return this.$store.state.server;
-        },
         client: function () {
             return this.$store.state.client;
+        },
+        my_server: function () {
+            return this.$store.state.server;
         },
     },
     watch: {
@@ -148,9 +148,7 @@ export default {
         },
     },
     mounted: function () {
-        this.server = this.default_server;
         this.initDate();
-
         if (this.client == "std") {
             this.loadDaily();
         }

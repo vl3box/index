@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="m-transaction-box">
-            <div class="m-price-list" v-if="groups && groups.length">
+            <div class="m-price-list" v-if="data && data.length">
                 <el-carousel
                     indicator-position="none"
                     :autoplay="true"
@@ -20,51 +20,48 @@
                     height="200px"
                     direction="vertical"
                 >
-                    <el-carousel-item v-for="(group, key) in groups" :key="key">
-                        <el-row :gutter="20">
-                            <!-- <div class="u-group-title" v-text="group.label"></div> -->
-                            <el-col :span="6" v-for="(item, k) in group.items" :key="k">
-                                <a
-                                    v-if="item"
-                                    class="u-item"
-                                    :class="`u-item-${key}`"
-                                    :href="item.item_id | showItemLink"
-                                    target="_blank"
-                                >
-                                    <div class="u-icon">
-                                        <img :src="item.icon | iconLink" />
-                                    </div>
-                                    <div class="u-content">
-                                        <span class="u-name">
-                                            <span v-text="item.label"></span>
-                                        </span>
-                                        <span class="u-price">
-                                            <span
-                                                class="u-trending"
-                                                :class="item | showItemTrendingClass"
-                                            >{{item | showItemTrending}}</span>
-                                            <template v-if="item.sub_days_0_price">
-                                                <!-- <span>今日：</span> -->
-                                                <GamePrice :price="item.sub_days_0_price" />
-                                            </template>
-                                            <template
-                                                v-else-if="!item.sub_days_0_price && item.sub_days_1_price"
-                                            >
-                                                <!-- <span>昨日：</span> -->
-                                                <GamePrice :price="item.sub_days_1_price" />
-                                            </template>
-                                            <template
-                                                v-else-if="!item.sub_days_0_price && !item.sub_days_1_price && item.sub_days_2_price"
-                                            >
-                                                <!-- <span>前日：</span> -->
-                                                <GamePrice :price="item.sub_days_2_price" />
-                                            </template>
-                                            <span v-else>暂无价目</span>
-                                        </span>
-                                    </div>
-                                </a>
-                            </el-col>
-                        </el-row>
+                    <el-carousel-item v-for="(group, i) in groups" :key="i">
+                        <div class="u-group" v-for="item in group" :key="item.item_id">
+                            <a
+                                v-if="item"
+                                class="u-item"
+                                :class="`u-item-${item.item_id}`"
+                                :href="item.item_id | showItemLink"
+                                target="_blank"
+                            >
+                                <div class="u-icon">
+                                    <img :src="item.icon | iconLink" />
+                                </div>
+                                <div class="u-content">
+                                    <span class="u-name">
+                                        <span v-text="item.label"></span>
+                                    </span>
+                                    <span class="u-price">
+                                        <span
+                                            class="u-trending"
+                                            :class="item | showItemTrendingClass"
+                                        >{{item | showItemTrending}}</span>
+                                        <template v-if="item.sub_days_0_price">
+                                            <!-- <span>今日：</span> -->
+                                            <GamePrice :price="item.sub_days_0_price" />
+                                        </template>
+                                        <template
+                                            v-else-if="!item.sub_days_0_price && item.sub_days_1_price"
+                                        >
+                                            <!-- <span>昨日：</span> -->
+                                            <GamePrice :price="item.sub_days_1_price" />
+                                        </template>
+                                        <template
+                                            v-else-if="!item.sub_days_0_price && !item.sub_days_1_price && item.sub_days_2_price"
+                                        >
+                                            <!-- <span>前日：</span> -->
+                                            <GamePrice :price="item.sub_days_2_price" />
+                                        </template>
+                                        <span v-else>暂无价目</span>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
                     </el-carousel-item>
                 </el-carousel>
             </div>
@@ -87,8 +84,8 @@ export default {
     },
     data: function () {
         return {
-            groups: [],
-            server: "蝶恋花",
+            data: [],
+            server: "",
             search: "",
         };
     },
@@ -106,16 +103,26 @@ export default {
         my_server: function () {
             return this.$store.state.server;
         },
+        groups: function () {
+            const len = 4;
+            let count = Math.ceil(this.data.length / len);
+            let arr = new Array(count);
+            arr = arr.fill([]);
+            this.data.forEach((item, i) => {
+                let group = Math.floor(i / len);
+                arr[group].push(item);
+            });
+            return arr;
+        },
     },
     methods: {
         loadData: function () {
             getItemPrice({
                 server: this.server,
-                keys: ["index1", "index2", "teshucailiao"],
-            }).then((data) => {
-                data = data.data;
-                if (data.code === 200)
-                    this.groups = Object.values(data.data.data) || [];
+                keys: [this.client],
+            },this.client).then((res) => {
+                let data = res.data?.data?.data?.[this.client]?.items;
+                this.data = data || [];
             });
         },
     },
@@ -125,12 +132,11 @@ export default {
         },
         server: {
             immediate: true,
-            handler() {
-                this.loadData();
+            handler(val) {
+                val && this.loadData();
             },
         },
     },
-    mounted: function () {},
     filters: {
         iconLink,
         showItemLink: function (val) {
@@ -158,6 +164,9 @@ export default {
                 }
             }
         },
+    },
+    mounted: function () {
+        this.server = this.client == "origin" ? "缘起稻香" : "蝶恋花";
     },
 };
 </script>
