@@ -93,11 +93,24 @@ export default {
         };
     },
     computed: {
-        default_server: function () {
+        my_server: function () {
             return this.$store.state.server;
         },
         client: function () {
             return this.$store.state.client;
+        },
+    },
+    watch: {
+        my_server: function (val) {
+            if (val) this.server = val;
+        },
+        server: {
+            immediate: true,
+            handler: function (val) {
+                if (this.client == "std") {
+                    val && this.loadMeirentu();
+                }
+            },
         },
     },
     methods: {
@@ -132,13 +145,6 @@ export default {
             getMeirentu(this.server).then((res) => {
                 this.meirentu = res.data.data;
             });
-        },
-    },
-    watch: {
-        server: function (val) {
-            if (this.client == "std") {
-                val && this.loadMeirentu();
-            }
         },
     },
     mounted: function () {

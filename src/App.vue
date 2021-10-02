@@ -10,6 +10,7 @@
                     <gamenews />
                     <servers />
                     <price />
+                    <transaction />
                 </div>
 
                 <!-- <live />
@@ -19,7 +20,6 @@
 
                 <div class="m-center">
                     <!-- <joke />
-                    <transaction />
                     <guide />
                     <face />
                     <newpost />
@@ -46,12 +46,13 @@
 </template>
 
 <script>
+// 左侧
 import daily from "@/components/index/daily.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import price from "@/components/index/price.vue";
-import feedback from "@/components/index/feedback.vue";
+import transaction from "@/components/index/transaction_mini.vue";
 
 // import box from "@/components/index/box.vue";
 // import notice from "@/components/index/notice.vue";
@@ -76,7 +77,7 @@ import feedback from "@/components/index/feedback.vue";
 // import guide from "@/components/index/guide.vue";
 // import joke from "@/components/index/joke.vue";
 // import face from "@/components/index/face.vue";
-// import transaction from "@/components/index/transaction.vue";
+// import feedback from "@/components/index/feedback.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
@@ -92,12 +93,15 @@ export default {
     computed: {},
     methods: {},
     components: {
+
+        // 左侧
         daily,
         jx3code,
         gamenews,
         servers,
         price,
-        // feedback,
+        transaction,
+        
 
         // box,
         // notice,
@@ -106,7 +110,7 @@ export default {
         // event,
         // live,
         // contact,
-
+        // feedback,
         
 
         // cjrank,
@@ -122,7 +126,7 @@ export default {
         // guide,
         // joke,
         // face,
-        // transaction,
+        
     },
     created: function () {
         if (User.isLogin()) {
