@@ -27,21 +27,14 @@ export default {
     props: [],
     data: function() {
         return {
-            data : [
-                // {
-                //     title: "123",
-                //     desc: "123",
-                //     color : '#f98003',
-                // },
-                // {
-                //     title: "123",
-                //     desc: "123",
-                //     color : '#f98003',
-                // }
-            ],
+            data : [],
         };
     },
-    computed: {},
+    computed: {
+        client : function (){
+            return this.$store.state.client
+        }
+    },
     methods: {
         onCopy: function(val) {
             this.$notify({
@@ -58,7 +51,7 @@ export default {
         },
     },
     created: function() {
-        getCode().then((res) => {
+        getCode(this.client).then((res) => {
             this.data = res.data.data;
         });
     },

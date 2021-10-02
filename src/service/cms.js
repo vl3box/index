@@ -1,10 +1,10 @@
 import { $cms } from "@jx3box/jx3box-common/js/https";
-const CLIENT = 'std'
 
-function getCode() {
+// 今日财富
+function getCode(client) {
     return $cms({mute:true}).get(`/api/cms/news`, {
         params: {
-            client: CLIENT,
+            client: client,
             type: "code",
             status : 1
         },
@@ -13,7 +13,7 @@ function getCode() {
 
 function getNews(type,limit) {
     let _params = {
-        client: CLIENT,
+        client: client,
         type: type,
         status : 1
     };
