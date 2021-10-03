@@ -12,9 +12,10 @@
                     <transaction />
                 </div>
 
+                <live />
+                <slider />
+
                 <div class="m-center">
-                    <live />
-                    <slider />
                     <!-- <joke />
                     <guide />
                     <face />

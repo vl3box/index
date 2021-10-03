@@ -1,9 +1,5 @@
 <template>
-    <div
-        class="m-slider"
-        v-if="data && data.length && !player_status"
-        id="m-home-slider"
-    >
+    <div class="m-slider" v-if="data && data.length && !player_status" id="m-home-slider">
         <div
             class="u-slider"
             v-for="(item, i) in data"
@@ -23,41 +19,44 @@ import { getSliders } from "@/service/cms";
 export default {
     name: "slider",
     props: [],
-    data: function() {
+    data: function () {
         return {
             data: [],
         };
     },
     computed: {
-        target: function() {
+        target: function () {
             return buildTarget();
         },
-        player_status: function() {
+        player_status: function () {
             return (
                 ~~this.$store.state.config.index_live_status ||
                 ~~this.$store.state.config.index_video_status
             );
         },
+        client : function (){
+            return this.$store.state.client
+        }
     },
     methods: {},
-    mounted: function() {
-        getSliders("slider", 10).then((res) => {
-            let data = res.data.data
-            data.forEach((item) => {
-                item.img = resolveImagePath(item.img);
+    mounted: function () {
+        getSliders("slider",this.client, 10)
+            .then((res) => {
+                let data = res.data.data;
+                data.forEach((item) => {
+                    item.img = resolveImagePath(item.img);
+                });
+                this.data = data;
+            })
+            .then(() => {
+                $("#m-home-slider").slick({
+                    infinite: true,
+                    autoplay: true,
+                    dots: true,
+                });
             });
-            this.data = data;
-        }).then(() => {
-            $("#m-home-slider").slick({
-                infinite: true,
-                autoplay: true,
-                dots: true,
-            });
-        })
     },
-    updated: function() {
-        
-    },
+    updated: function () {},
     components: {},
 };
 </script>
