@@ -3,7 +3,7 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-primary">
-                <div class="m-left">
+                <div class="m-left m-sidebar">
                     <daily />
                     <jx3code />
                     <gamenews />
@@ -12,31 +12,21 @@
                     <transaction />
                 </div>
 
-                <live />
-                <slider />
+                <div class="m-content">
+                    <div class="m-content-top">
+                        <live />
+                        <slider />
+                        <box />
+                        <event />
+                    </div>
 
-                <div class="m-center">
-                    <!-- <joke />
-                    <guide />
-                    <face />
-                    <newpost />
-                    <team />-->
-                </div>
+                    <div class="m-content-bottom">
+                        <div class="m-center"></div>
 
-                <!-- <event /> -->
-                <!-- <box /> -->
-
-                <div class="m-right">
-                    <!-- <notice />
-                    <gossip />
-                    <cjrank />
-                    <macrorank />
-                    <jx3datrank />
-                    <collectionrank />
-                    <examrank />
-                    <wikirank />
-                    <contact />
-                    <feedback v-if="isMobile"/>-->
+                        <div class="m-right">
+                            <!-- <notice /> -->
+                        </div>
+                    </div>
                 </div>
 
                 <Footer></Footer>
@@ -57,29 +47,11 @@ import transaction from "@/components/index/transaction_mini.vue";
 // 首屏
 import live from "@/components/index/live.vue";
 import slider from "@/components/index/slider.vue";
-// import box from "@/components/index/box.vue";
-// import notice from "@/components/index/notice.vue";
-// import gossip from "@/components/index/gossip.vue";
+import box from "@/components/index/box.vue";
 
-// import event from "@/components/index/event.vue";
-
-// import contact from "@/components/index/contact.vue";
-// import activity from "@/components/index/activity.vue";
-
-// import macrorank from "@/components/index/rank_macro.vue";
-// import jx3datrank from "@/components/index/rank_jx3dat.vue";
-// import examrank from "@/components/index/rank_exam.vue";
-// import wikirank from "@/components/index/rank_knowledges.vue";
-// import cjrank from "@/components/index/rank_achievements.vue";
-// import collectionrank from "@/components/index/rank_collections.vue";
-// import namespacerank from "@/components/index/rank_namespaces.vue";
-
-// import newpost from "@/components/index/newpost.vue";
-// import team from "@/components/index/team.vue";
-// import guide from "@/components/index/guide.vue";
-// import joke from "@/components/index/joke.vue";
-// import face from "@/components/index/face.vue";
-// import feedback from "@/components/index/feedback.vue";
+// 右侧
+import notice from "@/components/index/notice.vue";
+import event from "@/components/index/event.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
@@ -103,31 +75,14 @@ export default {
         price,
         transaction,
 
-
         // 首屏
         live,
         slider,
+        box,
 
-        // box,
+        // 右侧
         // notice,
-        // gossip,
-        // event,
-        // contact,
-        // feedback,
-
-        // cjrank,
-        // macrorank,
-        // jx3datrank,
-        // wikirank,
-        // collectionrank,
-        // examrank,
-        // namespacerank,
-
-        // newpost,
-        // team,
-        // guide,
-        // joke,
-        // face,
+        event,
     },
     created: function () {
         if (User.isLogin()) {

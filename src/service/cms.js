@@ -11,6 +11,7 @@ function getCode(client) {
     });
 }
 
+// 海报
 function getSliders(type, client, limit) {
     let _params = {
         client: client,
@@ -25,7 +26,8 @@ function getSliders(type, client, limit) {
     });
 }
 
-function getNews(type, limit) {
+// 通知
+function getNews(type, client = "std", limit) {
     let _params = {
         client: client,
         type: type,

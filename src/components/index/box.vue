@@ -2,7 +2,7 @@
     <div class="m-box">
         <div class="m-sideblock-header">
             <i class="el-icon-box"></i>
-            <span class="u-title">魔盒矩阵</span>
+            <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
         </div>
         <draggable
             class="u-list"
@@ -17,7 +17,7 @@
                 :key="key"
                 class="u-item-wrapper"
                 :class="{
-                    'u-lf': item.lf,
+                    'u-lf': isLF(item.uuid),
                     hidden: !canSee(item.uuid),
                 }"
                 v-show="item.status"
@@ -48,7 +48,7 @@
                             <i
                                 class="u-break el-icon-scissors"
                                 title="换行"
-                                :class="{ on: isLF(item.uuid) }"
+                                :class="{ on: isLF(item) }"
                                 @click.prevent="cut(item.uuid)"
                             ></i>
                             <i
@@ -110,13 +110,24 @@
 import _ from "lodash";
 
 // BOX设置
-import origin from "@jx3box/jx3box-data/data/box/box.json";
+import box_std from "@jx3box/jx3box-data/data/box/box.json";
+import box_origin from "@jx3box/jx3box-data/data/box/box_origin.json";
+const raw = location.href.includes("origin") ? box_origin : box_std;
 const KEY = "boxmatrix";
+
+// 默认数据
 const default_data = [];
-_.each(origin, (val, uuid) => {
-    default_data.push(origin[uuid]);
+_.each(raw, (val, uuid) => {
+    default_data.push(raw[uuid]);
 });
-const default_lf = ["database", "team", "j3pz"];
+
+// 默认换行
+const default_lf = [];
+_.each(raw, (val, uuid) => {
+    if(val.lf) default_lf.push(uuid);
+});
+
+// 默认排序
 let default_order = [];
 _.each(default_data, (item) => {
     default_order.push(item.uuid);
@@ -135,18 +146,27 @@ export default {
     props: [],
     data: function () {
         return {
-            origin: origin,
+            // 数据
+            raw: default_data,
             data: default_data,
+
+            // 自定义
             order: [],
-            lf: default_lf,
             hide: [],
+            lf: default_lf,
+
+            // UI
             options: {
                 disabled: true,
                 animation: 150,
             },
             showAbbr: window.innerWidth < 370,
+
+            // 云端
             isLogin: User.isLogin(),
             defined: false,
+
+            // 仅管理可见
             isEditor: User.isEditor(),
             pop: {
                 cj: false,
@@ -226,10 +246,10 @@ export default {
                 }
 
                 let custom_data = [];
-                data["order"].forEach((uuid, i) => {
+               this.order.forEach((uuid, i) => {
                     // 自动移除已经删除的项
-                    if (this.origin[uuid]) {
-                        custom_data.push(this.origin[uuid]);
+                    if (this.raw[uuid]) {
+                        custom_data.push(this.raw[uuid]);
                     }
                 });
                 this.data = custom_data;
@@ -321,24 +341,26 @@ export default {
         },
         getPop: function () {
             getHelperPnt().then((res) => {
-                let data = res.data.data
-                let team_count = 0
-                for(let key in data){
-                    if(key == 'achievement'){
-                        this.pop.cj += ~~data[key]
-                    }else if(key == 'team_events_record' || key == 'team_race'){
-                        this.pop.team = ~~this.pop.team + ~~data[key]
-                    }else if(key == 'team_verify_log'){
-                        this.pop.rank = ~~data[key]
-                    }else if(this.pop[key]){
-                        this.pop[key] = ~~data[key]
+                let data = res.data.data;
+                let team_count = 0;
+                for (let key in data) {
+                    if (key == "achievement") {
+                        this.pop.cj += ~~data[key];
+                    } else if (
+                        key == "team_events_record" ||
+                        key == "team_race"
+                    ) {
+                        this.pop.team = ~~this.pop.team + ~~data[key];
+                    } else if (key == "team_verify_log") {
+                        this.pop.rank = ~~data[key];
+                    } else if (this.pop[key]) {
+                        this.pop[key] = ~~data[key];
                     }
                 }
-            })
+            });
         },
     },
-    watch: {
-    },
+    watch: {},
     mounted: function () {
         this.initData();
         if (this.isEditor) this.getPop();
