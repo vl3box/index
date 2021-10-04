@@ -13,20 +13,11 @@
                 </div>
 
                 <div class="m-content">
-                    <div class="m-content-top">
-                        <live />
-                        <slider />
-                        <box />
-                        <event />
-                    </div>
-
-                    <div class="m-content-bottom">
-                        <div class="m-center"></div>
-
-                        <div class="m-right">
-                            <!-- <notice /> -->
-                        </div>
-                    </div>
+                    <live />
+                    <slider />
+                    <box />
+                    <event />
+                    <posts />
                 </div>
 
                 <Footer></Footer>
@@ -48,10 +39,9 @@ import transaction from "@/components/index/transaction_mini.vue";
 import live from "@/components/index/live.vue";
 import slider from "@/components/index/slider.vue";
 import box from "@/components/index/box.vue";
-
-// 右侧
-import notice from "@/components/index/notice.vue";
 import event from "@/components/index/event.vue";
+import posts from "@/components/index/posts.vue";
+// import notice from "@/components/index/notice.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
@@ -79,10 +69,12 @@ export default {
         live,
         slider,
         box,
+        event,
 
         // 右侧
         // notice,
-        event,
+        posts,
+        
     },
     created: function () {
         if (User.isLogin()) {
