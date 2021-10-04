@@ -1,15 +1,13 @@
 <template>
     <div class="m-event" id="m-event" v-if="event_status">
         <el-row :gutter="20">
-            <el-col :span="4" v-for="(item, i) in data" :key="i"
-                ><div>
-                    <a
-                        :href="item.link"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        ><img :src="item.img"
-                    /></a></div
-            ></el-col>
+            <el-col :span="4" v-for="(item, i) in data" :key="i">
+                <div>
+                    <a :href="item.link" rel="noopener noreferrer" target="_blank">
+                        <img :src="item.img" />
+                    </a>
+                </div>
+            </el-col>
         </el-row>
     </div>
 </template>
@@ -20,25 +18,28 @@ import { getSliders } from "@/service/cms";
 export default {
     name: "event",
     props: [],
-    data: function() {
+    data: function () {
         return {
             data: [],
         };
     },
     computed: {
-        player_status: function() {
+        player_status: function () {
             return (
                 this.$store.state.config.index_live_status ||
                 this.$store.state.config.index_video_status
             );
         },
-        event_status: function() {
-            return ~~this.$store.state.config.event_status;
+        client: function () {
+            return this.$store.state.client;
+        },
+        event_status: function () {
+            return this.client == 'origin' ? ~~this.$store.state.config.origin_event_status : ~~this.$store.state.config.event_status
         },
     },
     methods: {},
-    beforeCreate: function() {
-        getSliders("event", 10).then((res) => {
+    mounted: function () {
+        getSliders("event", this.client, 10).then((res) => {
             let data = res.data.data;
             data.forEach((item) => {
                 item.img = resolveImagePath(item.img);
