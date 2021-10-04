@@ -3,15 +3,6 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-primary">
-                <div class="m-left m-sidebar">
-                    <daily />
-                    <jx3code />
-                    <gamenews />
-                    <servers />
-                    <price />
-                    <transaction />
-                </div>
-
                 <div class="m-content">
                     <live />
                     <slider />
@@ -20,6 +11,14 @@
                     <posts />
                 </div>
 
+                <div class="m-left m-sidebar">
+                    <daily />
+                    <jx3code />
+                    <gamenews />
+                    <servers />
+                    <price />
+                    <transaction />
+                </div>
                 <Footer></Footer>
             </div>
         </div>
