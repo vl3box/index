@@ -363,7 +363,7 @@ export default {
     watch: {},
     mounted: function () {
         this.initData();
-        if (this.isEditor) this.getPop();
+        // if (this.isEditor) this.getPop();
     },
     filters: {
         getBoxIcon: function (val) {
