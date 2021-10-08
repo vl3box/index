@@ -1,14 +1,12 @@
 <template>
     <div class="m-event" id="m-event" v-if="event_status">
-        <el-row :gutter="20">
-            <el-col :span="4" v-for="(item, i) in data" :key="i">
-                <div>
-                    <a :href="item.link" rel="noopener noreferrer" target="_blank">
-                        <img :src="item.img" />
-                    </a>
-                </div>
-            </el-col>
-        </el-row>
+        <div class="u-event" v-for="(item, i) in data" :key="i">
+            <a :href="item.link" rel="noopener noreferrer" target="_blank">
+                <i :style="{ backgroundColor: item.bgcolor }">
+                    <img :src="item.img | resolveImagePath" />
+                </i>
+            </a>
+        </div>
     </div>
 </template>
 
@@ -24,37 +22,40 @@ export default {
         };
     },
     computed: {
-        player_status: function () {
-            return (
-                this.$store.state.config.index_live_status ||
-                this.$store.state.config.index_video_status
-            );
-        },
         client: function () {
             return this.$store.state.client;
         },
         event_status: function () {
-            return this.client == 'origin' ? ~~this.$store.state.config.origin_event_status : ~~this.$store.state.config.event_status
+            return this.client == "origin"
+                ? ~~this.$store.state.config.origin_event_status
+                : ~~this.$store.state.config.event_status;
         },
+        boxWidth : function (){
+            if(window.innerWidth > 1280){
+                return window.innerWidth - 370
+            }else{
+                return window.innerWidth - 40
+            }
+        },
+        countPerView : function (){
+            return Math.floor(this.boxWidth / (240 + 20))
+        }
     },
     methods: {},
     mounted: function () {
-        getSliders("event", this.client, 10).then((res) => {
-            let data = res.data.data;
-            data.forEach((item) => {
-                item.img = resolveImagePath(item.img);
+        getSliders("event", this.client, 10)
+            .then((res) => {
+                this.data = res.data.data;
+            })
+            .then(() => {
+                $("#m-event").slick({
+                    infinite: true,
+                    slidesToShow: this.countPerView,
+                    slidesToScroll: this.countPerView - 1,
+                });
             });
-            this.data = data.slice(0, 6);
-        });
     },
-    // updated: function() {
-    //     $("#m-event").slick({
-    //         infinite: true,
-    //         slidesToShow: 6,
-    //         slidesToScroll: 5,
-    //     });
-    // },
-    components: {},
+    filters: { resolveImagePath },
 };
 </script>
 

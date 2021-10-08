@@ -7,7 +7,7 @@
             :style="{ backgroundColor: item.bgcolor }"
         >
             <a class="u-pic" :href="item.link" :target="target">
-                <img :src="item.img" />
+                <img :src="item.img | resolveImagePath" />
             </a>
         </div>
     </div>
@@ -34,19 +34,15 @@ export default {
                 ~~this.$store.state.config.index_video_status
             );
         },
-        client : function (){
-            return this.$store.state.client
-        }
+        client: function () {
+            return this.$store.state.client;
+        },
     },
     methods: {},
     mounted: function () {
-        getSliders("slider",this.client, 10)
+        getSliders("slider", this.client, 10)
             .then((res) => {
-                let data = res.data.data;
-                data.forEach((item) => {
-                    item.img = resolveImagePath(item.img);
-                });
-                this.data = data;
+                this.data = res.data.data;
             })
             .then(() => {
                 $("#m-home-slider").slick({
@@ -56,8 +52,7 @@ export default {
                 });
             });
     },
-    updated: function () {},
-    components: {},
+    filters: { resolveImagePath },
 };
 </script>
 
