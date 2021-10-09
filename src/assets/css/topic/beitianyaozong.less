@@ -127,11 +127,14 @@
 }
 
 .m-yaozong-more {
-    background-color: #c0c4cc;
-    &:hover {
-        background-color: darken(#c0c4cc, 5%);
-    }
+    background:url('@{kv_beitianyaozong}more.png') no-repeat center center;
+    background-size:contain;
+    // background-color: #c0c4cc;
+    // &:hover {
+    //     background-color: darken(#c0c4cc, 5%);
+    // }
     color: #fff;
+    .size(100%,44px);
     .mt(5px);
     .fz(15px, 26px);
     .lh(36px);
@@ -178,6 +181,16 @@
 }
 .m-pv-header {
     .x;
+    background:url('@{kv_beitianyaozong}div.png') no-repeat center top;
+    .h(57px);
+    .lh(57px);
+    .mb(40px);
+
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #277b6d;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .m-pv-slider {

@@ -48,11 +48,11 @@
                                             <i class="el-icon-collection-tag"></i> 新增玩法
                                         </span>
                                         <text-list-y :data="data.news_3" :length="7"></text-list-y>
-                                    </el-tab-pane> -->
-                                    <a class="m-yaozong-more" href="/notice" target="_blank">
-                                        <i class="el-icon-arrow-right"></i>阅读更多资讯
-                                    </a>
+                                    </el-tab-pane>-->
                                 </el-tabs>
+                                <a class="m-yaozong-more" href="/notice" target="_blank">
+                                    <!-- <i class="el-icon-arrow-right"></i>阅读更多资讯 -->
+                                </a>
                             </div>
                         </div>
                         <div class="m-yaozong-bottom">
@@ -67,7 +67,7 @@
                 <!-- 副本 -->
                 <div class="m-pv-block m-topic-fb">
                     <div class="wp">
-                        <div class="m-pv-header m-pve-header">PVE分割线</div>
+                        <div class="m-pv-header m-pve-header">PvE</div>
                         <slider-b
                             class="m-pv-slider m-pve-slider"
                             :data="data.pve_slider"
@@ -100,7 +100,7 @@
                 <!-- PVP -->
                 <div class="m-pv-block m-topic-pvp">
                     <div class="wp">
-                        <div class="m-pv-header m-pvp-header">PVP分割线</div>
+                        <div class="m-pv-header m-pvp-header">PvP</div>
                         <slider-b
                             class="m-pv-slider m-pvp-slider"
                             :data="data.pvp_slider"
@@ -123,7 +123,7 @@
                 <!-- PVX -->
                 <div class="m-pv-block m-topic-pvx">
                     <div class="wp">
-                        <div class="m-pv-header m-pvx-header">PVX分割线</div>
+                        <div class="m-pv-header m-pvx-header">PvX</div>
                         <slider-b
                             class="m-pv-slider m-pvx-slider"
                             :data="data.pvx_slider"
