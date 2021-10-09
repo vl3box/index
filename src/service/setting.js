@@ -18,4 +18,8 @@ function getHelperPnt() {
     return $helper({ mute: true }).get("/api/post/pending_total");
 }
 
-export { getConfig, getMenuGroup, getMenuGroups, getHelperPnt };
+function getMenu(key){
+    return $cms().get(`/api/cms/config/menu/${key}`)
+}
+
+export { getConfig, getMenuGroup, getMenuGroups, getHelperPnt,getMenu };

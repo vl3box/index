@@ -71,4 +71,5 @@ function push(data) {
     return $cms().post(`/api/cms/post`, data);
 }
 
+
 export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost };

@@ -32,7 +32,7 @@
                 >
                     <a
                         :href="!options.disabled ? '' : item.href"
-                        :target="item.skip ? '_blank' : target"
+                        :target="item.href.startsWith('/') ? target : '_blank'"
                         class="u-item"
                         :class="{ 'u-doing': !item.status }"
                     >
@@ -110,50 +110,41 @@
 import _ from "lodash";
 
 // BOX设置
-import box_std from "@jx3box/jx3box-data/data/box/box.json";
-import box_origin from "@jx3box/jx3box-data/data/box/box_origin.json";
-const raw = location.href.includes("origin") ? box_origin : box_std;
-const KEY = "boxmatrix";
-
-// 默认数据
-const default_data = [];
-_.each(raw, (val, uuid) => {
-    default_data.push(raw[uuid]);
-});
-
-// 默认换行
-const default_lf = [];
-_.each(raw, (val, uuid) => {
-    if(val.lf) default_lf.push(uuid);
-});
-
-// 默认排序
-let default_order = [];
-_.each(default_data, (item) => {
-    default_order.push(item.uuid);
-});
-
+import box from "@/assets/data/box.json";
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 
 import { getMeta, setMeta } from "@/service/user.js";
-import { getHelperPnt } from "@/service/setting.js";
+import { getHelperPnt, getMenu } from "@/service/setting.js";
+// ==============================
+
+const KEY = "boxmatrix";
+
+// ==============================
 
 export default {
     name: "box",
     props: [],
+    components: {
+        draggable,
+    },
     data: function () {
         return {
             // 数据
-            raw: default_data,
-            data: default_data,
+            data: [],
+
+            // 默认
+            default_map: {},
+            default_data: [],
+            default_lf: [],
+            default_order: [],
 
             // 自定义
             order: [],
             hide: [],
-            lf: default_lf,
+            lf: [],
 
             // UI
             options: {
@@ -189,11 +180,44 @@ export default {
         setting: function () {
             return JSON.stringify(this.custom);
         },
+        client: function () {
+            return this.$store.state.client;
+        },
     },
     methods: {
-        initData: function () {
-            // 不管登录与否，默认都优先从本地获取配置
-            this.getBoxSetting();
+        buildRawData(raw) {
+            // 默认数据
+            const client = location.href.includes("origin") ? "origin" : "std";
+            const default_data = raw.filter((item) => {
+                return item.client == "all" ? true : item.client == client;
+            });
+            this.data = this.default_data = default_data;
+
+            // 默认排序与折行
+            const default_map = {};
+            const default_lf = [];
+            const default_order = [];
+
+            _.each(default_data, (item) => {
+                default_map[item.uuid] = item;
+                if (item.lf) default_lf.push(item.uuid);
+                default_order.push(item.uuid);
+            });
+
+            this.default_map = default_map;
+            this.lf = this.default_lf = default_lf;
+            this.order = this.default_order = default_order;
+        },
+        init: function () {
+            getMenu("box")
+                .then((res) => {
+                    let _raw = res.data?.data?.val;
+                    this.buildRawData(_raw)
+                })
+                .finally(() => {
+                    // 不管登录与否，默认都优先从本地获取配置
+                    this.getBoxSetting();
+                });
         },
         getBoxSetting: function () {
             let val = localStorage.getItem(KEY);
@@ -238,18 +262,18 @@ export default {
                 this.defined = true;
 
                 // 对比新旧的长度,补充新加项目
-                if (data["order"]["length"] != default_order.length) {
-                    let diff = _.difference(default_order, data["order"]);
+                if (data["order"]["length"] != this.default_order.length) {
+                    let diff = _.difference(this.default_order, data["order"]);
                     this.order = data["order"].concat(diff);
                 } else {
                     this.order = data["order"];
                 }
 
                 let custom_data = [];
-               this.order.forEach((uuid, i) => {
+                this.order.forEach((uuid, i) => {
                     // 自动移除已经删除的项
-                    if (this.raw[uuid]) {
-                        custom_data.push(this.raw[uuid]);
+                    if (this.default_map[uuid]) {
+                        custom_data.push(this.default_map[uuid]);
                     }
                 });
                 this.data = custom_data;
@@ -291,9 +315,9 @@ export default {
                 callback: (action) => {
                     if (action == "confirm") {
                         // 当前
-                        this.data = default_data;
+                        this.data = this.default_data;
                         this.order = [];
-                        this.lf = default_lf;
+                        this.lf = this.default_lf;
                         this.hide = [];
                         this.defined = false;
 
@@ -360,18 +384,18 @@ export default {
             });
         },
     },
-    watch: {},
-    mounted: function () {
-        this.initData();
-        // if (this.isEditor) this.getPop();
-    },
     filters: {
         getBoxIcon: function (val) {
-            return __imgPath + "image" + val;
+            return "/box/" + val;
+            // return __imgPath + "image" + val;    //TODO:
         },
     },
-    components: {
-        draggable,
+    created: function () {
+        this.buildRawData(box);
+    },
+    mounted: function () {
+        this.init();
+        // if (this.isEditor) this.getPop();
     },
 };
 </script>
