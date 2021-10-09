@@ -1,6 +1,6 @@
 <template>
     <div class="m-daily m-sideblock">
-        <div class="m-daily-header m-sideblock-header">
+        <div class="m-daily-header m-sideblock-header" :class="'daily-' + theme">
             <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
             <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt />
             <div class="u-list">
@@ -76,6 +76,7 @@ import { getDaily } from "@/service/spider";
 import { getMeirentu } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import User from "@jx3box/jx3box-common/js/user";
+import {theme} from '../../../setting.json'
 export default {
     name: "daily",
     props: [],
@@ -90,6 +91,8 @@ export default {
             meirentu: "",
             servers,
             server: "蝶恋花",
+
+            theme,
         };
     },
     computed: {

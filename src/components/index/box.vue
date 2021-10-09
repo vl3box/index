@@ -386,8 +386,8 @@ export default {
     },
     filters: {
         getBoxIcon: function (val) {
-            return "/box/" + val;
-            // return __imgPath + "image" + val;    //TODO:
+            // return "/box/" + val;
+            return __imgPath + "image/box/" + val;
         },
     },
     created: function () {
