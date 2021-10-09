@@ -13,12 +13,14 @@
 <script>
 import { buildTarget, resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 import { getSliders } from "@/service/cms";
+import lodash from "lodash";
 export default {
     name: "event",
     props: [],
     data: function () {
         return {
             data: [],
+            count: 5,
         };
     },
     computed: {
@@ -30,30 +32,85 @@ export default {
                 ? ~~this.$store.state.config.origin_event_status
                 : ~~this.$store.state.config.event_status;
         },
-        boxWidth : function (){
-            if(window.innerWidth > 1280){
-                return window.innerWidth - 370
-            }else{
-                return window.innerWidth - 40
-            }
-        },
-        countPerView : function (){
-            return Math.floor(this.boxWidth / (240 + 20))
-        }
     },
-    methods: {},
-    mounted: function () {
-        getSliders("event", this.client, 10)
-            .then((res) => {
+    methods: {
+        loadData: function () {
+            return getSliders("event", this.client, 10).then((res) => {
                 this.data = res.data.data;
-            })
-            .then(() => {
-                $("#m-event").slick({
-                    infinite: true,
-                    slidesToShow: this.countPerView,
-                    slidesToScroll: this.countPerView - 1,
-                });
             });
+        },
+        calcCount: function () {
+            let containerWith =
+                window.innerWidth > 1280
+                    ? window.innerWidth - 370
+                    : window.innerWidth - 40;
+            return Math.floor(containerWith / (240 + 20));
+        },
+        renderSlider: function () {
+            let count = this.calcCount() || this.count;
+            console.log(count);
+            $("#m-event").slick({
+                infinite: true,
+                slidesToShow: count,
+                slidesToScroll: count - 1,
+                responsive: [
+                    {
+                        breakpoint: 2560,
+                        settings: {
+                            slidesToShow: 8,
+                            slidesToScroll: 8,
+                        },
+                    },
+                    {
+                        breakpoint: 1920,
+                        settings: {
+                            slidesToShow: 6,
+                            slidesToScroll: 6,
+                        },
+                    },
+                    {
+                        breakpoint: 1680,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 5,
+                        },
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                        },
+                    },
+                    {
+                        breakpoint: 420,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        },
+                    },
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ],
+            });
+        },
+        bindResizeEvent: function () {
+            const vm = this;
+            window.onresize = function () {
+                lodash.debounce(vm.renderSlider, 500)();
+            };
+        },
+        init: function () {
+            this.calcCount();
+            this.loadData().then(() => {
+                this.renderSlider();
+                // this.bindResizeEvent()
+            });
+        },
+    },
+    mounted: function () {
+        this.init();
     },
     filters: { resolveImagePath },
 };
