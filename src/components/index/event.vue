@@ -1,7 +1,7 @@
 <template>
-    <div class="m-event" id="m-event" v-if="event_status">
+    <div class="m-event" v-if="ready" id="m-event">
         <div class="u-event" v-for="(item, i) in data" :key="i">
-            <a :href="item.link" rel="noopener noreferrer" target="_blank">
+            <a :href="item.link" rel="noopener noreferrer" :target="target">
                 <i :style="{ backgroundColor: item.bgcolor }">
                     <img :src="item.img | resolveImagePath" />
                 </i>
@@ -24,6 +24,9 @@ export default {
         };
     },
     computed: {
+        ready : function (){
+            return  this.data && this.data.length && this.event_status
+        },
         client: function () {
             return this.$store.state.client;
         },
@@ -31,6 +34,9 @@ export default {
             return this.client == "origin"
                 ? ~~this.$store.state.config.origin_event_status
                 : ~~this.$store.state.config.event_status;
+        },
+        target: function () {
+            return buildTarget();
         },
     },
     methods: {
@@ -102,7 +108,6 @@ export default {
             };
         },
         init: function () {
-            this.calcCount();
             this.loadData().then(() => {
                 this.renderSlider();
                 // this.bindResizeEvent()

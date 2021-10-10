@@ -1,5 +1,5 @@
 <template>
-    <div class="m-slider" v-if="data && data.length && !player_status" id="m-home-slider">
+    <div class="m-slider" v-if="ready" id="m-home-slider">
         <div
             class="u-slider"
             v-for="(item, i) in data"
@@ -25,8 +25,8 @@ export default {
         };
     },
     computed: {
-        target: function () {
-            return buildTarget();
+        ready: function () {
+            return this.data && this.data.length && !this.player_status;
         },
         player_status: function () {
             return (
@@ -37,20 +37,31 @@ export default {
         client: function () {
             return this.$store.state.client;
         },
+        target: function () {
+            return buildTarget();
+        },
     },
-    methods: {},
-    mounted: function () {
-        getSliders("slider", this.client, 10)
-            .then((res) => {
-                this.data = res.data.data;
-            })
-            .then(() => {
-                $("#m-home-slider").slick({
-                    infinite: true,
-                    autoplay: true,
-                    dots: true,
-                });
+    methods: {
+        renderSlider: function () {
+            $("#m-home-slider").slick({
+                infinite: true,
+                autoplay: true,
+                dots: true,
             });
+        },
+        loadData: function () {
+            return getSliders("slider", this.client, 10).then((res) => {
+                this.data = res.data.data;
+            });
+        },
+        init : function (){
+            this.loadData().then(()=>{
+                this.renderSlider();
+            })
+        }
+    },
+    mounted: function () {
+        this.init()
     },
     filters: { resolveImagePath },
 };
