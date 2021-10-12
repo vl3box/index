@@ -10,7 +10,9 @@
         </div>
         <div class="m-topic-box">
           <div class="m-topic-video">
-            <!-- <video :src="video"></video> -->
+            <div class="u-box">
+              <video :src="video"></video>
+            </div>
           </div>
           <div class="m-topic-info">
             <div class="u-txt"></div>
@@ -25,7 +27,7 @@
               ></a>
             </div>
           </div>
-          <div class="m-topic-box m-topic-one">
+          <div class="m-box m-topic-pve">
             <div class="u-title"></div>
             <div class="u-cont">
               <div class="u-tab">
@@ -41,14 +43,14 @@
                 </div>
                 <div class="u-news">
                   <a
-                    href
+                    :href="item.link"
                     target="_blank"
                     class="u-line"
-                    v-for="item in 9"
+                    v-for="item in pve"
                     :key="item"
                   >
-                    <span>是攻略我是攻略是攻略我是攻略{{ item }}</span>
-                    <span>yunmoer</span>
+                    <span>{{ item.title }}</span>
+                    <span>{{ item.author }}</span>
                   </a>
                 </div>
                 <div class="u-btnbox">
@@ -65,7 +67,7 @@
             </div>
             <a class="u-sword" href="http://" target="_blank"></a>
           </div>
-          <div class="m-topic-box m-topic-two">
+          <div class="m-box m-topic-pvp">
             <div class="u-title"></div>
             <div class="u-cont">
               <a
@@ -83,7 +85,7 @@
               </a>
             </div>
           </div>
-          <div class="m-topic-box m-topic-three">
+          <div class="m-box m-topic-pvx">
             <div class="u-title"></div>
             <div class="u-cont">
               <img
@@ -170,6 +172,8 @@ export default {
       getTopic(KEY).then((res) => {
         this.raw = res.data.data;
         this.video = this.data.new_video[0]["link"];
+        this.pve = this.data.new_pve;
+        this.pvebanner = this.data.new_pve_banner;
       });
     },
   },
