@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-const Index = () => import("../topic/beitianyaozong/Index.vue");
+const Index = () => import("../topic/beitianyaozong/index.vue");
 const Yaozong = () => import("../topic/beitianyaozong/Yaozong.vue");
 const Fb = () => import("../topic/beitianyaozong/Fb.vue");
 
