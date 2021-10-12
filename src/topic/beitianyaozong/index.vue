@@ -93,6 +93,12 @@
                             />
                         </div>
                     </div>
+                    <div class="m-topic-qrcode">
+                        <img
+                            src="https://jx3.xoyo.com/assets/2018/11/26/assets/images/qrcode/qrcode_index.png"
+                            alt
+                        />
+                    </div>
                 </div>
             </div>
         </div>
