@@ -14,7 +14,7 @@
                 <el-carousel
                     indicator-position="none"
                     :autoplay="true"
-                    :interval="3000"
+                    :interval="4000"
                     height="200px"
                     direction="vertical"
                 >

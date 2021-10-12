@@ -76,7 +76,7 @@ import { getDaily } from "@/service/spider";
 import { getMeirentu } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import User from "@jx3box/jx3box-common/js/user";
-import {theme} from '../../../setting.json'
+import {theme,origin_theme} from '../../../setting.json'
 export default {
     name: "daily",
     props: [],
@@ -91,8 +91,6 @@ export default {
             meirentu: "",
             servers,
             server: "蝶恋花",
-
-            theme,
         };
     },
     computed: {
@@ -102,6 +100,9 @@ export default {
         my_server: function () {
             return this.$store.state.server;
         },
+        theme : function (){
+            return this.client == 'origin' ? origin_theme : theme
+        }
     },
     watch: {
         my_server: function (val) {
