@@ -11,7 +11,6 @@
         <div class="m-topic-box">
           <div class="m-topic-video">
             <!-- <video :src="video"></video> -->
-            
           </div>
           <div class="m-topic-info">
             <div class="u-txt"></div>
@@ -150,8 +149,7 @@ export default {
           link: "",
         },
       ],
-      video:
-        "https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/video_bg-f3a1c29a.jpg.webp",
+      video: "",
     };
   },
   computed: {
@@ -186,6 +184,6 @@ export default {
 <style lang="less">
 @import "../../assets/css/theme/kv.less";
 @import "../../assets/css/topic/common.less";
-@import "../../assets/css/theme/beitianyaozong.less";
+// @import "../../assets/css/theme/beitianyaozong.less";
 @import "../../assets/css/topic/beitianyaozongNew.less";
 </style>
