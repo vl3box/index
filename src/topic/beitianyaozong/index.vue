@@ -135,34 +135,7 @@ export default {
                 { name: "战斗分析", link: "/battle" },
                 { name: "团队工具", link: "/team" },
             ],
-            pvp: [
-                {
-                    title: "第二届名剑杯比赛",
-                    img:
-                        "https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/boxImg1-e4a10e1d.jpg.webp",
-                    link: "",
-                    desc:
-                        "剑三一般指剑侠情缘网络版叁。《剑侠情缘网络版叁》（简称《剑网3》）是由是由金山软件公司西山居工作室开发的一款3D武侠",
-                },
-                {
-                    title: "第五届名剑杯比赛",
-                    img:
-                        "https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/boxImg2-661b2ecc.jpg.webp",
-                    link: "",
-                },
-                {
-                    title: "第四届名剑杯比赛",
-                    img:
-                        "https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/boxImg3-5a18a2f1.jpg.webp",
-                    link: "",
-                },
-                {
-                    title: "第三届名剑杯比赛",
-                    img:
-                        "https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/boxImg4-b688ebda.jpg.webp",
-                    link: "",
-                },
-            ],
+            pvp: [],
             pve: [],
             video: "",
         };
@@ -187,6 +160,7 @@ export default {
                 this.video = this.data.new_video[0]["link"];
                 this.pve = this.data.new_pve;
                 this.pvebanner = this.data.new_pve_banner;
+                this.pvp = this.data.new_pvp;
             });
         },
     },
