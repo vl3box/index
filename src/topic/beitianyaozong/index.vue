@@ -2,15 +2,16 @@
   <!-- 专题页 -->
   <div class="p-topic">
     <Header :overlayEnable="true"></Header>
+    
     <div class="p-topic-container">
-      <div class="m-leaf"></div>
-      <div class="m-header"><div class="u-txt"></div></div>
-      <div class="m-video">
+      <div class="m-topic-leaf"></div>
+      <div class="m-topic-header"><div class="u-txt"></div></div>
+      <div class="m-topic-video">
         <a class="u-box">
           <img :src="video" alt="" />
         </a>
       </div>
-      <div class="m-info">
+      <div class="m-topic-info">
         <div class="u-txt"></div>
         <div class="u-box">
           <a
@@ -23,7 +24,7 @@
           ></a>
         </div>
       </div>
-      <div class="m-box m-one">
+      <div class="m-topic-box m-topic-one">
         <div class="u-title"></div>
         <div class="u-cont">
           <div class="u-tab">
@@ -62,7 +63,7 @@
         </div>
         <a class="u-sword" href="http://" target="_blank"></a>
       </div>
-      <div class="m-box m-two">
+      <div class="m-topic-box m-topic-two">
         <div class="u-title"></div>
         <div class="u-cont">
           <a
@@ -79,7 +80,7 @@
           </a>
         </div>
       </div>
-      <div class="m-box m-three">
+      <div class="m-topic-box m-topic-three">
         <div class="u-title"></div>
         <div class="u-cont">
           <img
