@@ -186,7 +186,7 @@ export default {
             if (this.isWikiType) {
                 getWikiPosts({
                     type,
-                    limit: window.innerHeight > 1440 ? 10 : 6,
+                    limit: 10,
                 })
                     .then((res) => {
                         this.data = res.data.data.newest || [];
