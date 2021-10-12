@@ -54,7 +54,6 @@ export default {
         },
         renderSlider: function () {
             let count = this.calcCount() || this.count;
-            console.log(count);
             $("#m-event").slick({
                 infinite: true,
                 slidesToShow: count,
