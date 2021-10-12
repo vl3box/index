@@ -4,16 +4,14 @@
         <Header :overlayEnable="true"></Header>
         <div class="p-topic-container">
             <div class="wp">
-                <div class="m-leaf"></div>
+                <!-- <div class="m-leaf"></div>
                 <div class="m-header">
                     <div class="u-txt"></div>
-                </div>
+                </div> -->
                 <div class="m-video">
-                    <a class="u-box">
-                        <img :src="video" alt />
-                    </a>
+                    <video :src="video"></video>
                 </div>
-                <div class="m-info">
+                <!-- <div class="m-info">
                     <div class="u-txt"></div>
                     <div class="u-box">
                         <a
@@ -91,7 +89,7 @@
                             src="https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/img-d4a75dab.png.webp"
                         />
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="p-topic-footer">
@@ -103,12 +101,15 @@
 </template>
 
 <script>
+const KEY = 'beitianyaozong'
+import { getTopic } from "@/service/topic";
 export default {
     name: "Topic",
     props: [],
     components: {},
     data: function () {
         return {
+            raw : [],
             yaozong: [
                 { name: "药宗武学", link: "" },
                 { name: "药宗宏库", link: "" },
@@ -151,16 +152,35 @@ export default {
                     link: "",
                 },
             ],
-            video:
-                "https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/video_bg-f3a1c29a.jpg.webp",
+            video:"https://jx3.xoyo.com/zt/2021/04/15/ziliaopian/assets/img/video_bg-f3a1c29a.jpg.webp",
         };
     },
-    computed: {},
+    computed: {
+        data: function () {
+            let _data = {};
+            this.raw.forEach((item) => {
+                if (!_data[item.subtype]) {
+                    _data[item.subtype] = [];
+                }
+                _data[item.subtype].push(item);
+            });
+            return _data;
+        },
+    },
     watch: {},
-    methods: {},
+    methods: {
+        init: function () {
+            getTopic(KEY).then((res) => {
+                this.raw = res.data.data;
+                this.video = this.data.new_video[0]['link']
+            });
+        },
+    },
     filters: {},
     created: function () {},
-    mounted: function () {},
+    mounted: function () {
+        this.init()
+    },
 };
 </script>
 
@@ -168,6 +188,5 @@ export default {
 @import "../../assets/css/theme/kv.less";
 @import "../../assets/css/topic/common.less";
 @import "../../assets/css/theme/beitianyaozong.less";
-@import "../../assets/css/topic/beitianyaozong.less";
 @import "../../assets/css/topic/beitianyaozongNew.less";
 </style>
