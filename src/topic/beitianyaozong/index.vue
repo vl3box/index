@@ -47,7 +47,7 @@
                                         target="_blank"
                                         class="u-line"
                                         v-for="item in pve"
-                                        :key="item"
+                                        :key="item.id"
                                     >
                                         <span class="u-name">{{ item.title }}</span>
                                         <span class="u-author">{{ item.author }}</span>
@@ -163,6 +163,7 @@ export default {
                     link: "",
                 },
             ],
+            pve: [],
             video: "",
         };
     },
