@@ -1,7 +1,6 @@
 <template>
     <!-- 专题页 -->
     <div class="p-topic">
-        <Header :overlayEnable="true"></Header>
         <div class="p-topic-container">
             <div class="wp shadow">
                 <div class="m-topic-leaf"></div>
