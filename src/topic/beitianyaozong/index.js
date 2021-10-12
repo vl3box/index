@@ -23,12 +23,12 @@ Object.keys(filters).forEach(key => {
 });
 
 // 数据与路由
-// import router from "./router";
+import router from "../../router/beitianyaozong.js";
 import store from "../../store";
 
-import App from "./index.vue";
+import App from "./App.vue";
 new Vue({
-    // router,
+    router,
     store,
     render: h => h(App),
 }).$mount("#app");

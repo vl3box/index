@@ -96,9 +96,6 @@
                 </div>
             </div>
         </div>
-        <div class="p-topic-footer">
-            <div class="wp"><Footer></Footer></div>
-        </div>
     </div>
 </template>
 
@@ -193,10 +190,3 @@ export default {
     },
 };
 </script>
-
-<style lang="less">
-@import "../../assets/css/theme/kv.less";
-@import "../../assets/css/topic/common.less";
-// @import "../../assets/css/theme/beitianyaozong.less";
-@import "../../assets/css/topic/beitianyaozongNew.less";
-</style>
