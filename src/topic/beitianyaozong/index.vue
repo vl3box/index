@@ -26,7 +26,7 @@
                             ></a>
                         </div>
                     </div>
-                    <div class="m-box m-topic-pve">
+                    <div class="m-topic-block m-topic-pve">
                         <div class="u-title"></div>
                         <div class="u-cont">
                             <div class="u-tab">
@@ -66,7 +66,7 @@
                         </div>
                         <a class="u-sword" href="http://" target="_blank"></a>
                     </div>
-                    <div class="m-box m-topic-pvp">
+                    <div class="m-topic-block m-topic-pvp">
                         <div class="u-title"></div>
                         <div class="u-cont">
                             <a
@@ -84,7 +84,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="m-box m-topic-pvx">
+                    <div class="m-topic-block m-topic-pvx">
                         <div class="u-title"></div>
                         <div class="u-cont">
                             <img
