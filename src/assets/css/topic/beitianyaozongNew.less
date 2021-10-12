@@ -1,10 +1,14 @@
+@bgcolor:rgb(32, 39, 53);
 .p-topic-container {
     .pr;
-    background-color: rgb(32, 39, 53);
+    background-color:@bgcolor ;
 }
 
 .wp {
     .w(1920px);
+    
+}
+.shadow{
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
@@ -113,7 +117,6 @@
         }
     }
 }
-
 .m-box {
     padding-bottom: 660px;
 
@@ -127,8 +130,6 @@
         background-image: url('@{kv_beitianyaozong}new/bgScroll.png');
         .auto(x);
     }
-
- 
 }
 .m-topic-pve {
     .w(1294px);
@@ -203,7 +204,6 @@
 
                 .u-line {
                     .db;
-                    .color(#000);
                     .fz(14px);
                     .flex;
                     .lh(34px);
@@ -213,10 +213,23 @@
                     span {
                         .db;
                         .nobreak;
-                        max-width: 150px;
 
-                        &:last-child {
-                            max-width: 80px;
+                        &.u-name{
+                            max-width: 200px;
+                            color:@color;
+                            i{
+                                font-style: normal;
+                                color:rgb(73,105,115);
+                            }
+                            &:hover{
+                                color:#4a8699;
+                            }
+                        }
+                        &.u-author{
+                            max-width: 60px;
+                            color:#999;
+                            .fz(12px);
+                            padding-right:5px;
                         }
                     }
 
@@ -326,4 +339,9 @@
             .lt(48px, 50px);
         }
     }
+}
+
+.p-topic-footer{
+    background-color:@bgcolor;
+    padding:40px 0;
 }
