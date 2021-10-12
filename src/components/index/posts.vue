@@ -186,10 +186,10 @@ export default {
             if (this.isWikiType) {
                 getWikiPosts({
                     type,
-                    limit: 6,
+                    limit: window.innerHeight > 1440 ? 10 : 6,
                 })
                     .then((res) => {
-                        this.data = res.data.data.newest.slice(0, 6) || [];
+                        this.data = res.data.data.newest || [];
                     })
                     .finally(() => {
                         this.loading = false;
@@ -197,7 +197,7 @@ export default {
             } else {
                 getPosts(this.client, type)
                     .then((res) => {
-                        this.data = res.data.data.list.slice(0, 6) || [];
+                        this.data = res.data.data.list || [];
                     })
                     .finally(() => {
                         this.loading = false;
