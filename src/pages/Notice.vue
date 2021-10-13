@@ -1,10 +1,14 @@
 <template>
     <div class="p-notice" :class="theme_cls">
         <Header :overlayEnable="true"></Header>
-        <div class="p-notice-container">
+        <div class="p-notice-container wp">
             <NoticeSingle v-if="id"></NoticeSingle>
             <NoticeList v-else></NoticeList>
-            <Footer></Footer>
+        </div>
+        <div class="p-notice-footer">
+            <div class="wp">
+                <Footer></Footer>
+            </div>
         </div>
     </div>
 </template>

@@ -59,6 +59,9 @@
                     </li>
                 </ul>
             </div>
+            <div class="m-archive-null" v-else>
+                <i class="el-icon-warning-outline"></i> 暂时还没有相关内容
+            </div>
             <el-pagination
                 class="m-archive-pages"
                 background
