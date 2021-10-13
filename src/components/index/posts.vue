@@ -3,7 +3,7 @@
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-collection"></i>
             <span class="u-title">最新作品</span>
-            <a href="/bbs" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+            <a href="/notice" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>
         </div>
