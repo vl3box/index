@@ -75,7 +75,7 @@
                   ></a>
                 </div>
               </div>
-              <a class="u-sword" href="#/yaozong" target="_blank"></a>
+              <a class="u-sword" href="" target="_blank"></a>
             </div>
           </div>
           <!-- pvp -->
