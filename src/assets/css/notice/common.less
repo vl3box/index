@@ -1,7 +1,8 @@
-.p-notice-container{
-    min-height: 800px;
-    margin-top:@header-height;
-    overflow: hidden;
+.p-notice{
+    background-color:@bg-black;
+    min-height: calc(100vh - @header-height);
+}
+.wp{
     max-width: 1520px;
     .auto(x);
 }
@@ -10,6 +11,19 @@
         max-width: 1280px;
     }
 }
+
+.p-notice-container{
+    min-height: 800px;
+    margin-top:@header-height;
+    overflow: hidden;
+}
+.p-notice-footer{
+    .mt(40px);
+    padding:10px 0;
+    background-color:@bg-black;
+}
+
+
 .m-notice-box{
     .mt(520px);
     border:3px solid #496973;
@@ -17,3 +31,4 @@
     .r(4px);
     padding:30px 20px;
 }
+
