@@ -1,13 +1,13 @@
-@import './var.less';
-.p-topic-yaozong-wrapper{
-    height:calc(100vh - 78px - @header-height);
+@import "./var.less";
+.p-topic-yaozong-wrapper {
+    height: calc(100vh - 78px - @header-height);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: @header-height;
 
     overflow: hidden;
-    background-color:#000;
+    background-color: #000;
 }
 
 .wp {
@@ -15,54 +15,88 @@
     min-width: 1280px;
 }
 
-.p-yaozong{
+.p-yaozong {
     .h(1080px);
     .w(100%);
     .pr;
 
     background-position: top center;
-    background-size: cover;
+    // background-size: cover;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
     transition: 0.3s ease-in-out;
 }
 
-.p-yaozong-container{
-    .pr;.z(100);
+.p-yaozong-container {
+    .pr;
+    .z(100);
     .h(100%);
+    overflow: hidden;
 }
 
-@keyframes showBg{
-    from{.tm(0);}
-    to{.tm(1);}
-}
-.m-yaozong-bg{
-    .pa;.lt(50%,0);
-    transform: translate(-50%,0);
-    img{
-        .none;
-        // .tm(0);
+@keyframes showBg {
+    from {
+        .tm(0);
     }
+    to {
+        .tm(1);
+    }
+}
+.m-yaozong-bg {
+    .pa;
+    .lt(50%, 0);
+    transform: translate(-50%, 0);
+    .none;
+    // img {
+    // .tm(0);
+    // }
     // .active{
     //     .db;
     //     animation: showBg 0.3s ease-in-out forwards;
     // }
 }
 
-.m-yaozong-landscape{
-    .pa;.lb(50%, 0);
-    .z(100);
-    transform: translate(-50%,0);
-    .size(1838px, 1042px);
-    background-image: url('@{kv_beitianyaozong}sect/landscape.png');
+.m-yaozong-landscape {
+    .pa;
+    .lt(0);
+    .size(100%);
+    // .lb(50%, 0);
+    // .z(100);
+    // transform: translate(-50%,0);
+    // .size(1838px, 1042px);
+    // background-image: url('@{kv_beitianyaozong}sect/landscape.png');
+    // pointer-events: none;
+
+    * {
+        .pa;
+        .z(100);
+        pointer-events: none;
+    }
+
     pointer-events: none;
+    .lb {
+        .lb(0);
+    }
+    .rt {
+        .rt(0);
+    }
+    .rb {
+        .rb(0);
+    }
+}
+
+.m-yaozong-box {
+    display: flex;
 }
 
 .m-yaozong-menu {
-    .pa;.lt(50px,0);
+    // .pa;
+    // .lt(50px, 0);
     .size(164px, 100%);
     .pt(80px);
-    margin-left:225px;
+    margin-left: 225px;
     box-sizing: border-box;
-    background: url('@{kv_beitianyaozong}sect/menu.png') no-repeat center;
+    background: url("@{kv_beitianyaozong}sect/menu.png") no-repeat top left;
 
     span {
         .pointer;
@@ -72,7 +106,7 @@
     }
 
     .active {
-        background-image: url('@{kv_beitianyaozong}sect/menuhover.png');
+        background-image: url("@{kv_beitianyaozong}sect/menuhover.png");
     }
 
     .u-menu1 {
@@ -101,54 +135,11 @@
 }
 
 .m-yaozong-content {
-
     .pr;
-    background-image: url('@{kv_beitianyaozong}sect/cloud.png');
-    background-position: right 30px;
-    background-repeat: no-repeat;
-
-    & > div {
-        .none;
-    }
-
-    .u-arr {
-        .pa;
-        .full;
-        .lt(0, 0);
-        .z(1);
-
-        span {
-            .db;
-            .pa;
-            .size(47px, 100px);
-            .mt(-50px);
-            .pointer;
-        }
-
-        .right {
-            .rt(0, 50%);
-            background-image: url('@{kv_beitianyaozong}sect/right.png');
-        }
-
-        .left {
-            .lt(0, 50%);
-            background-image: url('@{kv_beitianyaozong}sect/left.png');
-
-        }
-    }
-
-    .u-story {
-        .x;
-
-        .u-item {
-            padding: 80px 0;
-
-            img:first-child {
-                .ml(15px);
-
-            }
-        }
-    }
+    flex-grow: 1;
+    // background-image: url("@{kv_beitianyaozong}sect/cloud.png");
+    // background-position: right 30px;
+    // background-repeat: no-repeat;
 
     .u-logo {
         .pa;
@@ -174,7 +165,7 @@
                 .pointer;
                 .size(116px, 27px);
                 margin: 0 17px;
-                background-image: url('@{kv_beitianyaozong}sect/zhaoshitext.png');
+                background-image: url("@{kv_beitianyaozong}sect/zhaoshitext.png");
             }
 
             .zhaoshi1.active {
@@ -196,7 +187,6 @@
                     background-position: 0 -135px;
                 }
             }
-
         }
 
         .u-cont {
@@ -208,7 +198,6 @@
             img {
                 .size(753px, 422px);
             }
-
         }
     }
 
@@ -220,8 +209,6 @@
             .x;
             .auto(x);
 
-
-
             .u-btn {
                 .pa;
                 .pointer;
@@ -229,21 +216,20 @@
                 .lt(50%, 500px);
                 .ml(-58px);
                 .z(2);
-                background-image: url('@{kv_beitianyaozong}sect/btn3.png');
+                background-image: url("@{kv_beitianyaozong}sect/btn3.png");
             }
 
             .u-wufang {
                 .lt(340px, 160px);
                 .ml(0);
-                background-image: url('@{kv_beitianyaozong}sect/btn1.png');
+                background-image: url("@{kv_beitianyaozong}sect/btn1.png");
             }
 
             .u-lingsu {
                 .lt(510px, 160px);
                 .ml(0);
-                background-image: url('@{kv_beitianyaozong}sect/btn2.png');
+                background-image: url("@{kv_beitianyaozong}sect/btn2.png");
             }
-
 
             .u-icon {
                 .pa;
@@ -276,14 +262,14 @@
             .size(213px, 42px);
             .lt(354px, 690px);
             .z(2);
-            background-image: url('@{kv_beitianyaozong}sect/open.png');
+            background-image: url("@{kv_beitianyaozong}sect/open.png");
         }
 
         .u-close {
             .pa;
             .pointer;
             .size(227px, 56px);
-            background-image: url('@{kv_beitianyaozong}sect/close.png');
+            background-image: url("@{kv_beitianyaozong}sect/close.png");
         }
     }
 
@@ -316,6 +302,41 @@
 
         .u-close {
             .lt(555px, 687px);
+        }
+    }
+}
+
+.m-yaozong-story {
+    .pr;
+    .x;
+
+    padding: 0 50px;
+
+    .u-prev,
+    .u-next {
+        .pa;
+        .db;
+        .size(47px, 100px);
+        .pointer;
+    }
+    .u-next {
+        .rt(0, 480px);
+        .mr(50px);
+        background-image: url("@{kv_beitianyaozong}sect/right.png");
+    }
+
+    .u-prev {
+        .lt(0, 480px);
+        .ml(50px);
+        background-image: url("@{kv_beitianyaozong}sect/left.png");
+    }
+
+    .u-item {
+        padding: 80px 0;
+
+        img {
+            .db;
+            .auto(x);
         }
     }
 }

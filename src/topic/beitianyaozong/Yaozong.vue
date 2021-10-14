@@ -5,21 +5,27 @@
                 <img :src="img_root + 'bg' + i + '.jpg'" v-for="(item,i) in 6" :key="i" />
             </div>
             <div class="wp p-yaozong-container">
-                <!-- 右侧内容 -->
-                <div class="m-yaozong-content">
-                    <component :is="focus" />
-                </div>
-                <!-- 左侧菜单 -->
-                <div class="m-yaozong-menu">
-                    <span
-                        v-for="(item, i) in menu"
-                        :key="item"
-                        :class="[`u-menu` + (i + 1), i == index ? 'active' : '']"
-                        @click="changeMenu(i)"
-                    ></span>
+                <div class="m-yaozong-box">
+                    <!-- 左侧菜单 -->
+                    <div class="m-yaozong-menu">
+                        <span
+                            v-for="(item, i) in menu"
+                            :key="item"
+                            :class="[`u-menu` + (i + 1), i == index ? 'active' : '']"
+                            @click="changeMenu(i)"
+                        ></span>
+                    </div>
+                    <!-- 右侧内容 -->
+                    <div class="m-yaozong-content">
+                        <component :is="focus" :img_root="img_root" :index="index" />
+                    </div>
                 </div>
                 <!-- 山水云 -->
-                <div class="m-yaozong-landscape"></div>
+                <div class="m-yaozong-landscape">
+                    <img class="lb" :src="img_root + 'land-lb.png' " />
+                    <img class="rt" :src="img_root + 'land-rt.png' " />
+                    <img class="rb" :src="img_root + 'land-rb.png' " />
+                </div>
             </div>
         </div>
     </div>
@@ -27,12 +33,12 @@
 
 <script>
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import mount from './mount.vue'
-import scenery from './scenery.vue'
-import skill from './skill.vue'
-import weapon from './weapon.vue'
-import equip from './equip.vue'
-import story from './story.vue'
+import mount from "./mount.vue";
+import scenery from "./scenery.vue";
+import skill from "./skill.vue";
+import weapon from "./weapon.vue";
+import equip from "./equip.vue";
+import story from "./story.vue";
 
 export default {
     name: "Yaozong",
@@ -52,31 +58,26 @@ export default {
             // zhaoshiImg:
             //     "https://oss.jx3box.com/upload/post/2021/10/13/7_6853650.png",
             // showWuqi: false,
-            // infinite: true,
         };
     },
     computed: {
-        focus : function (){
-            return this.menu[this.index]
-        }
+        focus: function () {
+            return this.menu[this.index];
+        },
         // xflogo() {
         //     return this.btyz + `xinfa.png`;
         // },
         // zslogo() {
         //     return this.btyz + `zhaoshi.png`;
         // },
-        // story() {
-        //     return this.btyz + `story` + this.arrNum + `.png?`;
-        // },
+
         // icon() {
         //     return this.btyz + `icon` + (this.arrNum - 1) + `.png`;
         // },
         // xinfa() {
         //     return this.btyz + `xinfa` + this.arrNum + `.png`;
         // },
-        // storyText() {
-        //     return this.btyz + `story0` + this.arrNum + `.png`;
-        // },
+
         // wuqi() {
         //     return this.btyz + `wuqi` + this.arrNum + `.png`;
         // },
@@ -133,14 +134,14 @@ export default {
     filters: {},
     created: function () {},
     mounted: function () {},
-    components : {
+    components: {
         mount,
         scenery,
         skill,
         weapon,
         equip,
         story,
-    }
+    },
 };
 </script>
  
