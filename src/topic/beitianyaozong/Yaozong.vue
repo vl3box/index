@@ -23,9 +23,9 @@
             ></span>
             <span class="right" v-if="arrNum < 5" @click="changeArr(5)"></span>
           </div>
-          <div class="u-item">
-            <img :src="story" />
-            <img :src="storyText" />
+          <div class="u-item" v-if="infinite">
+            <img :src="story" class="p-animation fadeInDown" />
+            <img :src="storyText" class="p-animation fadeInRight" />
           </div>
         </div>
         <!-- 心法 -->
@@ -33,26 +33,30 @@
           <div class="u-arr">
             <span class="right" @click="changeArr(5)"></span>
           </div>
-          <div class="u-item">
-            <img :src="logo" class="u-logo" />
-            <img :src="icon" v-if="arrNum > 1" class="u-icon" />
-            <img :src="xinfa" class="u-text" />
+          <div class="u-item" v-if="infinite">
+            <img :src="xflogo" class="u-logo" />
+            <img
+              :src="icon"
+              v-if="arrNum > 1"
+              class="u-icon p-animation fadeIn"
+            />
+            <img :src="xinfa" class="u-text p-animation fadeInDown" />
             <a
               href="/bps/#/?subtype=无方"
               target="_blank"
-              class="u-btn u-wufang"
+              class="u-btn u-wufang p-animation fadeInLeft"
               v-if="arrNum == 1"
             ></a>
             <a
               href="/bps/#/?subtype=灵素"
               target="_blank"
-              class="u-btn u-lingsu"
+              class="u-btn u-lingsu p-animation fadeInRight"
               v-if="arrNum == 1"
             ></a>
             <a
               href="/macro/#/?subtype=无方"
               target="_blank"
-              class="u-btn u-yaozong"
+              class="u-btn u-yaozong p-animation fadeInUp"
               v-else
             ></a>
           </div>
@@ -60,6 +64,7 @@
         <!-- 招式 -->
         <div class="u-zhaoshi" v-if="menuNum == 2">
           <div class="u-tab">
+            <img :src="zslogo" class="u-logo" />
             <span
               v-for="item in 3"
               :key="item"
@@ -99,7 +104,7 @@
           <div class="u-arr">
             <span class="right" @click="changeArr(4)"></span>
           </div>
-          <img :src="yuanhua" />
+          <img v-if="infinite" :src="yuanhua" class="p-animation pulse" />
         </div>
         <!-- 风景 -->
         <div class="u-bgpic" v-if="menuNum == 5">
@@ -127,11 +132,15 @@ export default {
       menuNum: 0,
       zhaoshiImg: "https://oss.jx3box.com/upload/post/2021/10/13/7_6853650.png",
       showWuqi: false,
+      infinite: true,
     };
   },
   computed: {
-    logo() {
-      return this.btyz + `xinfabg.png`;
+    xflogo() {
+      return this.btyz + `xinfa.png`;
+    },
+    zslogo() {
+      return this.btyz + `zhaoshi.png`;
     },
     story() {
       return this.btyz + `story` + this.arrNum + `.png?`;
@@ -173,11 +182,14 @@ export default {
       this.arrNum = 1;
     },
     openWuqi() {
-      console.log(this.arrNum);
       this.showWuqi = !this.showWuqi;
     },
 
     changeArr(num, arr) {
+      this.infinite = false;
+      setTimeout(() => {
+        this.infinite = true;
+      }, 50);
       if (arr == "left") {
         this.arrNum -= 1;
         if (this.arrNum < 1) {

@@ -7,34 +7,52 @@
         <div class="m-topic-leaf"></div>
         <!-- 第一屏 -->
         <div class="m-topic-header">
-          <img class="u-textImg" :src="btyz + `yaozong.png`" />
+          <img
+            class="u-textImg p-animation fadeInRight"
+            :src="btyz + `yaozong.png`"
+          />
         </div>
         <!-- 专题内容 -->
-        <div class="m-topic-content">
+        <div class="m-topic-content" ref="scrollShow">
           <!-- 视频 -->
-          <div class="m-topic-video">
-            <img class="u-textImg" :src="btyz + `txtr.png`" />
+          <div
+            class="m-topic-video p-animation fadeInDown"
+            :class="infinite ? 'infinite' : ''"
+          >
+            <img
+              class="u-textImg p-animation fadeInRight"
+              :src="btyz + `txtr.png`"
+            />
             <div class="u-sleeve"></div>
             <video :src="video"></video>
           </div>
           <!-- 药宗介绍和链接 -->
-          <div class="m-topic-info">
-            <img class="u-textImg" :src="btyz + `txt.png`" />
+          <div class="m-topic-info" :class="infinite ? 'infinite' : ''">
+            <img
+              class="u-textImg p-animation fadeInDown"
+              :src="btyz + `txt.png`"
+            />
             <div class="u-btnbox">
               <a
                 v-for="(item, i) in yaozong"
                 :href="item.link"
                 :key="i"
-                class="u-btn"
+                class="u-btn p-animations fadeInUp"
                 :class="`u-btn` + i"
                 target="_blank"
               ></a>
             </div>
           </div>
           <!-- pve -->
-          <div class="m-topic-block m-topic-pve">
-            <img class="u-title" :src="btyz + `one.png`" />
-            <div class="u-cont">
+          <div
+            class="m-topic-block m-topic-pve"
+            :class="infinite ? 'infinite' : ''"
+          >
+            <img
+              class="u-title p-animation fadeInDown"
+              :src="btyz + `one.png`"
+            />
+            <div class="u-cont p-animation fadeInDown">
               <!-- 切换tab -->
               <div class="u-tab">
                 <span
@@ -56,7 +74,7 @@
                     :href="item.link"
                     target="_blank"
                     class="u-line"
-                    v-for="(item,i) in pve"
+                    v-for="(item, i) in pve"
                     :key="i"
                   >
                     <span class="u-name">{{ item.title }}</span>
@@ -75,15 +93,22 @@
                   ></a>
                 </div>
               </div>
-              <a class="u-sword" href="" target="_blank"></a>
+              <a
+                class="u-sword p-animations fadeInRightBig"
+                href=""
+                target="_blank"
+              ></a>
             </div>
           </div>
           <!-- pvp -->
           <div class="m-topic-block m-topic-pvp">
-            <img class="u-title" :src="btyz + `two.png`" />
+            <img
+              class="u-title p-animation fadeInDown"
+              :src="btyz + `two.png`"
+            />
             <div class="u-cont">
               <a
-                class="u-img"
+                class="u-img p-animations bounceIn"
                 :href="item.link"
                 target="_blank"
                 v-for="(item, i) in pvp"
@@ -95,11 +120,14 @@
           </div>
           <!-- pvx -->
           <div class="m-topic-block m-topic-pvx">
-            <img class="u-title" :src="btyz + `three.png`" />
-            <div class="u-cont">
+            <img
+              class="u-title p-animation fadeInDown"
+              :src="btyz + `three.png`"
+            />
+            <div class="u-cont p-animation fadeInDown">
               <div class="u-swiper">
                 <el-carousel height="480px">
-                  <el-carousel-item v-for="item in pvx" :key="item">
+                  <el-carousel-item v-for="(item, i) in pvx" :key="i">
                     <a :href="item.link" target="_blank">
                       <img :src="item.img" alt="" />
                     </a>
@@ -109,7 +137,7 @@
             </div>
           </div>
           <!-- 二维码 -->
-          <div class="m-topic-qrcode">
+          <div class="m-topic-qrcode" ref="footer">
             <img
               src="https://jx3.xoyo.com/assets/2018/11/26/assets/images/qrcode/qrcode_index.png"
               alt
@@ -130,12 +158,13 @@ export default {
   components: {},
   data: function () {
     return {
+      infinite: false,
       btyz: "https://img.jx3box.com/topic/beitianyaozong/new/",
       tab: ["leiyu", "wushi"],
       tabIndex: 0,
       raw: [],
-      tabImg:'',
-      tabImgLink:'',
+      tabImg: "",
+      tabImgLink: "",
       yaozong: [
         {
           name: "药宗武学",
@@ -160,6 +189,7 @@ export default {
       pve: [],
       pvx: [],
       video: "",
+      offAnimation: false,
     };
   },
   computed: {
@@ -194,11 +224,34 @@ export default {
       this.tabImg = this.pvebanner[i].img;
       this.tabImgLink = this.pvebanner[i].link;
     },
+    handleMouse(e) {
+      let direction = e.deltaY > 0 ? "down" : "up";
+      if (direction == "down") this.showAnimation();
+    },
+    showAnimation() {
+      let documentClientHeight =
+        document.documentElement.clientHeight || window.innerHeight;
+      let dom = this.$refs.scrollShow;
+
+      for (let i = 0; i < dom.children.length; i++) {
+        if (
+          dom.children[i].getBoundingClientRect().top - documentClientHeight >
+          -100
+        ) {
+          dom.children[i].style.display = "none";
+          setTimeout(() => {
+            dom.children[i].style.display = "block";
+          }, 10);
+        }
+      }
+    },
   },
   filters: {},
   created: function () {},
   mounted: function () {
     this.init();
+    window.addEventListener("mousewheel", this.handleMouse) ||
+      window.addEventListener("DOMMouseScroll", this.handleMouse);
   },
 };
 </script>
