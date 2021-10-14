@@ -50,7 +50,7 @@
                             <div class="u-tab-block">
                                 <!-- BOSS图片 -->
                                 <div class="u-img">
-                                    <img :src="tabImg" />
+                                    <img :src="tabImg | resolveImagePath" />
                                     <a :href="tabImgLink" class="u-more"></a>
                                 </div>
                                 <!-- 新闻 -->
@@ -78,7 +78,11 @@
                                     ></a>
                                 </div>
                             </div>
-                            <a class="u-sword p-animations fadeInRightBig" href="/fb" target="_blank"></a>
+                            <a
+                                class="u-sword p-animations fadeInRightBig"
+                                href="/fb"
+                                target="_blank"
+                            ></a>
                         </div>
                     </div>
                     <!-- pvp -->
@@ -92,7 +96,7 @@
                                 v-for="(item, i) in pvp"
                                 :key="i"
                             >
-                                <img :src="item.img" />
+                                <img :src="item.img | resolveImagePath" />
                             </a>
                         </div>
                     </div>
@@ -104,7 +108,7 @@
                                 <el-carousel height="480px">
                                     <el-carousel-item v-for="(item, i) in pvx" :key="i">
                                         <a :href="item.link" target="_blank">
-                                            <img :src="item.img" alt />
+                                            <img :src="item.img | resolveImagePath" alt />
                                         </a>
                                     </el-carousel-item>
                                 </el-carousel>
@@ -113,10 +117,7 @@
                     </div>
                     <!-- 二维码 -->
                     <div class="m-topic-qrcode" ref="footer">
-                        <img
-                            :src="btyz + 'qrcode_index_box.png'"
-                            alt
-                        />
+                        <img :src="btyz + 'qrcode_index_box.png'" alt />
                     </div>
                 </div>
             </div>
@@ -127,6 +128,7 @@
 <script>
 const KEY = "beitianyaozong";
 import { getTopic } from "@/service/topic";
+import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "Topic",
     props: [],

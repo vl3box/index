@@ -6,10 +6,8 @@
     justify-content: center;
     margin-top: @header-height;
 
-    background-color: @bgcolor ;
-    background-position: top center;
-    background-size: cover;
     overflow: hidden;
+    background-color:#000;
 }
 
 .wp {
@@ -18,34 +16,62 @@
 }
 
 .p-yaozong{
-    .pr;
     .h(1080px);
+    .w(100%);
+    .pr;
+
+    background-position: top center;
+    background-size: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.p-yaozong-container{
+    .pr;.z(100);
+    .h(100%);
+}
+
+@keyframes showBg{
+    from{.tm(0);}
+    to{.tm(1);}
+}
+.m-yaozong-bg{
+    .pa;.lt(50%,0);
+    transform: translate(-50%,0);
+    img{
+        .none;
+        // .tm(0);
+    }
+    // .active{
+    //     .db;
+    //     animation: showBg 0.3s ease-in-out forwards;
+    // }
 }
 
 .m-yaozong-landscape{
-    .pa;.z(100);
-    .lb(50%, 0);
-    .size(1838px, 1042px);
+    .pa;.lb(50%, 0);
+    .z(100);
     transform: translate(-50%,0);
+    .size(1838px, 1042px);
     background-image: url('@{kv_beitianyaozong}sect/landscape.png');
-    pointer-events: none
+    pointer-events: none;
 }
 
 .m-yaozong-menu {
-    .pa;.lt(0);
-    .z(9);
-    .size(164px, 1080px);
+    .pa;.lt(50px,0);
+    .size(164px, 100%);
     .pt(80px);
+    margin-left:225px;
     box-sizing: border-box;
-    background-image: url('@{kv_beitianyaozong}sect/menu.png');
+    background: url('@{kv_beitianyaozong}sect/menu.png') no-repeat center;
 
     span {
         .pointer;
         .db;
-        .size(150px, 129px);
+        .size(152px, 129px);
+        transition: 0.3 ease-in-out;
     }
 
-    .acetive {
+    .active {
         background-image: url('@{kv_beitianyaozong}sect/menuhover.png');
     }
 
@@ -74,12 +100,16 @@
     }
 }
 
-.p-yaozong-tabcont {
+.m-yaozong-content {
+
     .pr;
-    .size(1100px, 1080px);
     background-image: url('@{kv_beitianyaozong}sect/cloud.png');
     background-position: right 30px;
     background-repeat: no-repeat;
+
+    & > div {
+        .none;
+    }
 
     .u-arr {
         .pa;

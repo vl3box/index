@@ -1,0 +1,24 @@
+<template>
+    <div class="u-scenery">
+        <!-- <div class="u-arr">
+            <span class="right" @click="changeArr(2, 'bg')"></span>
+        </div>-->
+    </div>
+</template>
+
+<script>
+export default {
+    name: "",
+    props: [],
+    components: {},
+    data: function () {
+        return {};
+    },
+    computed: {},
+    watch: {},
+    methods: {},
+    filters: {},
+    created: function () {},
+    mounted: function () {},
+};
+</script>
