@@ -5,12 +5,18 @@
                 <h1 class="m-single-title">{{ post.post_title }}</h1>
 
                 <div class="m-single-info">
+
                     <span class="u-modate u-sub-block" title="发布时间">
-                        <i class="u-icon-modate el-icon-date"></i>
+                        <i class="el-icon-collection-tag"></i>
+                        <a href="/notice" target="_blank">{{ post.post_subtype | showType }}</a>
+                    </span>
+
+                    <span class="u-modate u-sub-block" title="发布时间">
+                        <i class="el-icon-date"></i>
                         <time>发布时间：{{ post.post_date | showDate }}</time>
                     </span>
 
-                    <span class="u-views u-sub-block">
+                    <span class="u-views u-sub-block" v-if="isAdmin">
                         <i class="el-icon-view"></i>
                         {{ stat.views || "-" }}
                     </span>
@@ -52,6 +58,7 @@
 </template>
 
 <script>
+import types from '@/assets/data/notice_types.json'
 import { getPost } from "@/service/cms.js";
 import { getStat, postStat } from "@jx3box/jx3box-common/js/stat.js";
 import { showDate } from "@jx3box/jx3box-common/js/moment";
@@ -61,6 +68,7 @@ import { __visibleMap } from "@jx3box/jx3box-common/data/jx3box.json";
 // components
 import Article from "@jx3box/jx3box-editor/src/Article.vue";
 import Comment from "@jx3box/jx3box-comment-ui/src/Comment.vue";
+
 export default {
     name: "NoticeSingle",
     props: [],
@@ -104,6 +112,9 @@ export default {
     methods: {},
     filters: {
         showDate,
+        showType : function (val){
+            return types[val]
+        }
     },
     created: function () {
         if (this.id) {

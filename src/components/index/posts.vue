@@ -165,6 +165,10 @@ export default {
                     label: "任务",
                     slug: "quest",
                 },
+                {
+                    label: "公告",
+                    slug: "notice",
+                },
             ],
             loading: false,
 
