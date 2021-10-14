@@ -9,6 +9,7 @@
           :class="[`u-menu` + (i + 1), i == menuNum ? 'acetive' : '']"
           @click="changeMenu(i)"
         ></span>
+        <div class="u-landscape"></div>
       </div>
       <!-- 右侧内容 -->
       <div class="p-yaozong-tabcont">
@@ -133,7 +134,7 @@ export default {
       return this.btyz + `xinfabg.png`;
     },
     story() {
-      return this.btyz + `story` + this.arrNum + `.png`;
+      return this.btyz + `story` + this.arrNum + `.png?`;
     },
     icon() {
       return this.btyz + `icon` + (this.arrNum - 1) + `.png`;

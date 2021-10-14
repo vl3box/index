@@ -5,6 +5,7 @@
     background-position: top center;
     background-size: cover;
     margin-top: 46px;
+    overflow: hidden;
 }
 
 .wp {
@@ -18,7 +19,7 @@
 }
 
 .p-yaozong-menu {
-    .pr;
+    .pr; 
     .z(9);
     .size(164px, 1080px);
     .pt(80px);
@@ -58,9 +59,17 @@
     .u-menu6 {
         background-position: 0 -725px;
     }
+
+    .u-landscape {
+        .pa; 
+        .lb(-234px, 0);
+        .size(1838px, 1042px);
+        background-image: url('@{kv_beitianyaozong}sect/landscape.png');
+        pointer-events: none
+    }
 }
 
-.p-yaozong-tabcont {
+.p-yaozong-tabcont { 
     .pr;
     .size(1100px, 1080px);
     background-image: url('@{kv_beitianyaozong}sect/cloud.png');
@@ -72,7 +81,7 @@
         .full;
         .pointer;
         .lt(0, 0);
-        .z(2);
+        .z(1);
 
         span {
             .db;
@@ -98,6 +107,11 @@
 
         .u-item {
             padding: 80px 0;
+
+            img:first-child {
+                .ml(15px);
+
+            }
         }
     }
 
@@ -106,7 +120,7 @@
 
         .u-tab {
             .pr;
-            .z(1);
+            .z(2);
             .flex;
             .h(27px);
             justify-content: center;
@@ -155,7 +169,7 @@
     }
 
     .u-xinfa {
-        padding: 406px 0 0 140px;
+        padding: 406px 0 0 100px;
 
         .u-item {
             .pr;
@@ -192,7 +206,7 @@
 
             .u-icon {
                 .pa;
-                .lt(380px, -164px);
+                .lt(400px, -164px);
             }
 
             .u-text {
@@ -220,7 +234,7 @@
             .pointer;
             .size(213px, 42px);
             .lt(354px, 690px);
-            .z(3);
+            .z(2);
             background-image: url('@{kv_beitianyaozong}sect/open.png');
         }
 
