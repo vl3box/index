@@ -8,7 +8,7 @@
 
                     <span class="u-modate u-sub-block" title="发布时间">
                         <i class="el-icon-collection-tag"></i>
-                        <a href="/notice" target="_blank">{{ post.post_subtype | showType }}</a>
+                        <a :href="'/notice?subtype=' + post.post_subtype" target="_blank">{{ post.post_subtype | showType }}</a>
                     </span>
 
                     <span class="u-modate u-sub-block" title="发布时间">
