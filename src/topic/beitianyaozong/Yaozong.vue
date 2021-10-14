@@ -33,6 +33,7 @@
             <span class="right" @click="changeArr(5)"></span>
           </div>
           <div class="u-item">
+            <img :src="logo" class="u-logo" />
             <img :src="icon" v-if="arrNum > 1" class="u-icon" />
             <img :src="xinfa" class="u-text" />
             <a
@@ -86,10 +87,10 @@
           <div class="u-arr">
             <span class="right" @click="changeArr(4, 'wuqi')"></span>
           </div>
-          <div class="u-open" @click="showWuqi = true"></div>
+          <div class="u-open" @click="openWuqi"></div>
           <div class="u-showImg" :class="`wuqi` + arrNum" v-if="showWuqi">
             <img :src="wuqi" />
-            <div class="u-close" @click="showWuqi = false"></div>
+            <div class="u-close" @click="openWuqi"></div>
           </div>
         </div>
         <!-- 校服 -->
@@ -128,6 +129,9 @@ export default {
     };
   },
   computed: {
+    logo() {
+      return this.btyz + `xinfabg.png`;
+    },
     story() {
       return this.btyz + `story` + this.arrNum + `.png`;
     },
@@ -166,6 +170,10 @@ export default {
     },
     arrRest() {
       this.arrNum = 1;
+    },
+    openWuqi() {
+      console.log(this.arrNum);
+      this.showWuqi = !this.showWuqi;
     },
 
     changeArr(num, arr) {

@@ -56,8 +56,8 @@
                     :href="item.link"
                     target="_blank"
                     class="u-line"
-                    v-for="item in pve"
-                    :key="item.id"
+                    v-for="(item,i) in pve"
+                    :key="i"
                   >
                     <span class="u-name">{{ item.title }}</span>
                     <span class="u-author">{{ item.author }}</span>
@@ -134,6 +134,8 @@ export default {
       tab: ["leiyu", "wushi"],
       tabIndex: 0,
       raw: [],
+      tabImg:'',
+      tabImgLink:'',
       yaozong: [
         {
           name: "药宗武学",
@@ -156,6 +158,7 @@ export default {
       ],
       pvp: [],
       pve: [],
+      pvx: [],
       video: "",
     };
   },
