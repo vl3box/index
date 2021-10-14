@@ -1,25 +1,38 @@
-@bgcolor: rgb(32, 39, 53);
+@import './var.less';
+.p-topic-yaozong-wrapper{
+    height:calc(100vh - 78px - @header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: @header-height;
 
-.p-yaozong {
     background-color: @bgcolor ;
     background-position: top center;
     background-size: cover;
-    margin-top: 46px;
     overflow: hidden;
 }
 
 .wp {
-    width: 1280px;
+    max-width: 1920px;
+    min-width: 1280px;
 }
 
-.p-yaozong-container {
-    .auto(x);
-    .flex;
-    justify-content: space-between;
-}
-
-.p-yaozong-menu {
+.p-yaozong{
     .pr;
+    .h(1080px);
+}
+
+.m-yaozong-landscape{
+    .pa;.z(100);
+    .lb(50%, 0);
+    .size(1838px, 1042px);
+    transform: translate(-50%,0);
+    background-image: url('@{kv_beitianyaozong}sect/landscape.png');
+    pointer-events: none
+}
+
+.m-yaozong-menu {
+    .pa;.lt(0);
     .z(9);
     .size(164px, 1080px);
     .pt(80px);
@@ -58,14 +71,6 @@
 
     .u-menu6 {
         background-position: 0 -725px;
-    }
-
-    .u-landscape {
-        .pa;
-        .lb(-234px, 0);
-        .size(1838px, 1042px);
-        background-image: url('@{kv_beitianyaozong}sect/landscape.png');
-        pointer-events: none
     }
 }
 

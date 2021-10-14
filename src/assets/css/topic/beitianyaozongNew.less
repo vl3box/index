@@ -1,5 +1,4 @@
-@bgcolor: rgb(32, 39, 53);
-
+@import './var.less';
 .p-topic-container {
     .pr;
     background-color: @bgcolor ;
@@ -203,11 +202,15 @@
             }
 
             .u-news {
-                .size(295px, 358px);
-                .mr(5px);
+                background: #fff;
+                width: 280px;
+                height: 340px;
+                margin: 0 10px;
+                box-shadow: 0 0 3px rgb(0 0 0 / 30%);
+
                 padding: 10px 14px;
                 box-sizing: border-box;
-                background-image: url('@{kv_beitianyaozong}new/bgNews.png');
+                // background-image: url('@{kv_beitianyaozong}new/bgNews.png');
 
                 .u-line {
                     .db;
@@ -329,11 +332,6 @@
         }
     }
 
-}
-
-.p-topic-footer {
-    background-color: @bgcolor;
-    padding: 40px 0;
 }
 
 .m-topic-qrcode {

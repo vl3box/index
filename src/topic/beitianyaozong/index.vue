@@ -114,7 +114,7 @@
                     <!-- 二维码 -->
                     <div class="m-topic-qrcode" ref="footer">
                         <img
-                            src="https://jx3.xoyo.com/assets/2018/11/26/assets/images/qrcode/qrcode_index.png"
+                            :src="btyz + 'qrcode_index_box.png'"
                             alt
                         />
                     </div>
