@@ -1,34 +1,50 @@
 <template>
-    <div class="p-topic-yaozong-wrapper">
-        <div class="p-yaozong" :style="{'backgroundImage':getBgUrl(index)}">
-            <div class="m-yaozong-bg">
-                <img :src="img_root + 'bg' + i + '.jpg'" v-for="(item,i) in 6" :key="i" />
+  <div class="p-topic-yaozong-wrapper">
+    <div
+      class="p-yaozong"
+      :style="{ backgroundImage: changebg ? otherImg : getBgUrl(index) }"
+    >
+      <div class="m-yaozong-bg">
+        <img
+          :src="img_root + 'bg' + i + '.jpg'"
+          v-for="(item, i) in 6"
+          :key="i"
+        />
+      </div>
+      <div class="wp p-yaozong-container">
+        <div class="m-yaozong-box">
+          <!-- 左侧菜单 -->
+          <div class="m-yaozong-menu">
+            <div class="u-menubg"></div>
+            <div
+              v-for="(item, i) in menu"
+              :key="item"
+              :class="i == index ? 'active' : ''"
+              @click="changeMenu(i)"
+              class="u-menubox"
+            >
+              <span :class="`u-menu` + (i + 1)"></span>
             </div>
-            <div class="wp p-yaozong-container">
-                <div class="m-yaozong-box">
-                    <!-- 左侧菜单 -->
-                    <div class="m-yaozong-menu">
-                        <span
-                            v-for="(item, i) in menu"
-                            :key="item"
-                            :class="[`u-menu` + (i + 1), i == index ? 'active' : '']"
-                            @click="changeMenu(i)"
-                        ></span>
-                    </div>
-                    <!-- 右侧内容 -->
-                    <div class="m-yaozong-content">
-                        <component :is="focus" :img_root="img_root" :index="index" />
-                    </div>
-                </div>
-                <!-- 山水云 -->
-                <div class="m-yaozong-landscape">
-                    <img class="lb" :src="img_root + 'land-lb.png' " />
-                    <img class="rt" :src="img_root + 'land-rt.png' " />
-                    <img class="rb" :src="img_root + 'land-rb.png' " />
-                </div>
-            </div>
+          </div>
+          <!-- 右侧内容 -->
+          <div class="m-yaozong-content">
+            <component
+              :is="focus"
+              :img_root="img_root"
+              :index="index"
+              @changeBg="changeBg"
+            />
+          </div>
         </div>
+        <!-- 山水云 -->
+        <div class="m-yaozong-landscape">
+          <img class="lb" :src="img_root + 'land-lb.png'" />
+          <img class="rt" :src="img_root + 'land-rt.png'" />
+          <img class="rb" :src="img_root + 'land-rb.png'" />
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -41,107 +57,66 @@ import equip from "./equip.vue";
 import story from "./story.vue";
 
 export default {
-    name: "Yaozong",
-    props: [],
-    components: {},
-    data: function () {
-        return {
-            // 背景ROOT
-            img_root: __imgPath + "topic/beitianyaozong/sect/",
-            // 当前索引
-            index: 0,
-            menu: ["story", "mount", "skill", "weapon", "equip", "scenery"],
-
-            // arrNum: 1,
-            // contNum: 1,
-            // menuNum: 0,
-            // zhaoshiImg:
-            //     "https://oss.jx3box.com/upload/post/2021/10/13/7_6853650.png",
-            // showWuqi: false,
-        };
+  name: "Yaozong",
+  props: [],
+  components: {},
+  data: function () {
+    return {
+      // 背景ROOT
+      img_root: __imgPath + "topic/beitianyaozong/sect/",
+      // 当前索引
+      index: 0,
+      menu: ["story", "mount", "skill", "weapon", "equip", "scenery"],
+      changebg: false,
+      otherImg: "",
+    };
+  },
+  computed: {
+    focus: function () {
+      return this.menu[this.index];
     },
-    computed: {
-        focus: function () {
-            return this.menu[this.index];
-        },
-        // xflogo() {
-        //     return this.btyz + `xinfa.png`;
-        // },
-        // zslogo() {
-        //     return this.btyz + `zhaoshi.png`;
-        // },
-
-        // icon() {
-        //     return this.btyz + `icon` + (this.arrNum - 1) + `.png`;
-        // },
-        // xinfa() {
-        //     return this.btyz + `xinfa` + this.arrNum + `.png`;
-        // },
-
-        // wuqi() {
-        //     return this.btyz + `wuqi` + this.arrNum + `.png`;
-        // },
-        // yuanhua() {
-        //     return this.btyz + `yh` + this.arrNum + `.png`;
-        // },
+  },
+  watch: {},
+  methods: {
+    changeMenu(i) {
+      this.index = i;
+      this.changebg = false;
     },
-    watch: {
-        // menuNum: {
-        //     immediate: true,
-        //     handler: function (val) {
-        //         this.bgImg = this.btyz + this.menu[val] + `.jpg`;
-        //     },
-        // },
+    getBgUrl: function (i) {
+      return `url('${this.img_root}bg${i}.jpg')`;
     },
-    methods: {
-        changeMenu(i) {
-            this.index = i;
-        },
-        getBgUrl: function (i) {
-            return `url('${this.img_root}bg${i}.jpg')`;
-        },
-        // arrRest() {
-        //     this.arrNum = 1;
-        // },
-        // openWuqi() {
-        //     this.showWuqi = !this.showWuqi;
-        // },
-
-        // changeArr(num, arr) {
-        //     this.infinite = false;
-        //     setTimeout(() => {
-        //         this.infinite = true;
-        //     }, 50);
-        //     if (arr == "left") {
-        //         this.arrNum -= 1;
-        //         if (this.arrNum < 1) {
-        //             this.arrNum = num;
-        //         }
-        //     } else {
-        //         this.arrNum += 1;
-        //         if (this.arrNum > num) {
-        //             this.arrNum = 1;
-        //         }
-        //         if (arr == "bg") {
-        //             this.bgImg = this.btyz + `bg` + this.arrNum + `.jpg`;
-        //         }
-        //         if (arr == "wuqi") {
-        //             this.bgImg = this.btyz + `wuqi` + this.arrNum + `.jpg`;
-        //         }
-        //     }
-        // },
+    getWeaponUrl: function (i) {
+      if (i == 3) {
+        return `url('${this.img_root}bg${i}.jpg')`;
+      }
+      return `url('${this.img_root}wuqi${i}.jpg')`;
     },
-    filters: {},
-    created: function () {},
-    mounted: function () {},
-    components: {
-        mount,
-        scenery,
-        skill,
-        weapon,
-        equip,
-        story,
+    getEquipUrl: function (i) {
+      if (i == 5) {
+        return `url('${this.img_root}bg${i}.jpg')`;
+      }
+      return `url('${this.img_root}scenery${i}.jpg')`;
     },
+    changeBg(i, name) {
+      this.changebg = true;
+      if (name == "weapon") {
+        this.otherImg = this.getWeaponUrl(i);
+      } else {
+        this.otherImg = this.getEquipUrl(i);
+      }
+    },
+  },
+  filters: {},
+  created: function () {},
+  mounted: function () {},
+  components: {
+    mount,
+    scenery,
+    skill,
+    weapon,
+    equip,
+    story,
+  },
 };
 </script>
  

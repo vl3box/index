@@ -1,24 +1,33 @@
 <template>
-    <div class="u-scenery">
-        <!-- <div class="u-arr">
-            <span class="right" @click="changeArr(2, 'bg')"></span>
-        </div>-->
-    </div>
+  <div class="m-yaozong-scenery">
+    <span class="u-next" @click="turn"></span>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "",
-    props: [],
-    components: {},
-    data: function () {
-        return {};
+  name: "scenery",
+  props: ["img_root", "index"],
+  components: {},
+  data: function () {
+    return {
+      bgIndex: this.index,
+      len: 5,
+    };
+  },
+  computed: {},
+  watch: {},
+  methods: {
+    turn: function () {
+      this.bgIndex++;
+      if (this.bgIndex > this.len) {
+        this.bgIndex = 1;
+      }
+      this.$emit("changeBg", this.bgIndex, "scenery");
     },
-    computed: {},
-    watch: {},
-    methods: {},
-    filters: {},
-    created: function () {},
-    mounted: function () {},
+  },
+  filters: {},
+  created: function () {},
+  mounted: function () {},
 };
 </script>
