@@ -1,6 +1,6 @@
 <template>
     <!-- 专题页 -->
-    <div class="p-topic">
+    <div class="p-topic" :class="'v-' + page_name">
         <Header :overlayEnable="true"></Header>
         <router-view></router-view>
         <div class="p-topic-footer">
@@ -19,7 +19,11 @@ export default {
     data: function () {
         return {};
     },
-    computed: {},
+    computed: {
+        page_name : function (){
+            return this.$route.name
+        }
+    },
     watch: {},
     methods: {},
     filters: {},
@@ -31,7 +35,7 @@ export default {
 
 <style lang="less">
 @import "../../assets/css/theme/kv.less";
-@import "../../assets/css/topic/common.less";
-@import "../../assets/css/topic/beitianyaozongNew.less";
-@import "../../assets/css/topic/animation.less";
+@import "../../assets/css/topic/beitianyaozong/common.less";
+@import "../../assets/css/topic/beitianyaozong/beitianyaozongNew.less";
+@import "../../assets/css/topic/beitianyaozong/animation.less";
 </style>
