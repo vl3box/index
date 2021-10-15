@@ -14,15 +14,18 @@
         :class="animation ? 'p-animation fadeInDown' : ''"
       />
     </div>
-    <div class="u-showImg" :class="`wuqi` + weaponIndex" v-if="show">
+    <div class="u-showImg" :class="`wuqi` + weaponIndex" v-show="show">
       <img
+        ref="weaponImg"
         :src="weaponImg"
-        :class="animation ? 'p-animation fadeInLeftBig' : ''"
+        :class="
+          animation ? 'p-animation fadeInLeftBig' : 'p-animation bounceOutLeft'
+        "
       />
       <div
         class="u-close"
-        :class="animation ? 'p-animation flipInX' : ''"
-        @click="show = !show"
+        :class="animation ? 'p-animation fadeIn' : ''"
+        @click="isClose"
       ></div>
     </div>
   </div>
@@ -37,6 +40,7 @@ export default {
     return {
       animation: true,
       show: false,
+      close: false,
       weaponIndex: this.index,
       len: 4,
     };
@@ -61,6 +65,16 @@ export default {
         this.weaponIndex = 1;
       }
       this.$emit("changeBg", this.weaponIndex, "weapon");
+    },
+    isClose() {
+      this.animation = true;
+      setTimeout(() => {
+        this.animation = false;
+      }, 10);
+      setTimeout(() => {
+        this.show = false;
+        this.$refs.weaponImg.className = "p-animation fadeInLeftBig";
+      }, 500);
     },
   },
   filters: {},

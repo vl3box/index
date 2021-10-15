@@ -1,6 +1,6 @@
 @import "./var.less";
 
-.p-topic.v-yaozong{
+.p-topic.v-yaozong {
     background-color: @bgcolor ;
     min-width: 1280px;
     overflow-x: auto;
@@ -22,7 +22,7 @@
 }
 
 .p-yaozong {
-    flex:1;
+    flex: 1;
     .h(1080px);
     .w(100%);
     .pr;
@@ -40,7 +40,7 @@
     .h(100%);
 }
 
-.m-yaozong-box{
+.m-yaozong-box {
     overflow: hidden;
 }
 
@@ -301,12 +301,21 @@
 
         img {
             .size(753px, 422px);
+            user-select: none;
         }
 
         .u-prev,
         .u-next {
             top: 50%;
-            margin: 0;
+            margin-top: -70px;
+        }
+
+        .u-prev {
+            left: -30px;
+        }
+
+        .u-next {
+            right: -30px;
         }
     }
 }
@@ -358,7 +367,7 @@
         .pointer;
         .size(227px, 56px);
         background-image: url("@{kv_beitianyaozong}sect/close.png");
-        
+
     }
 
     .wuqi1 {
@@ -446,7 +455,32 @@
             margin-left: 0 !important;
         }
     }
+
+    .m-yaozong-skill {
+
+        .u-prev,
+        .u-next {
+            .r(3px);
+            margin: 0;
+            background-color: rgba(32, 39, 53, .6);
+            background-position: 20px 20px;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+
+        .u-prev {
+            left: 110px !important;
+
+        }
+
+        .u-next {
+            right: 110px !important;
+
+        }
+    }
 }
+
+
 
 @media screen and(min-width:1280px) and (max-width:1400px) {
     .m-yaozong-weapon {
@@ -455,6 +489,16 @@
         .u-cont {
             .pt(308px);
             .pl(140px);
+        }
+    }
+
+    .m-yaozong-skill {
+        .u-prev {
+            left: 80px;
+        }
+
+        .u-next {
+            right: 80px;
         }
     }
 

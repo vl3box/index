@@ -3,7 +3,7 @@
     <span class="u-next" @click="turn"></span>
     <img
       :src="img"
-      :class="[`img` + index, show ? 'p-animation rotateInDownLeft' : '']"
+      :class="[`img` + index, show ? 'p-animations bounceIn' : '']"
     />
   </div>
 </template>

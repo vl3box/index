@@ -12,7 +12,7 @@
     <div class="u-cont">
       <span class="u-prev" @click="turn()" v-show="contIndex > 1"></span>
       <span class="u-next" @click="turn(true)" v-show="contIndex < len"></span>
-      <img :src="contImg" />
+      <img :src="contImg" :class="animation ? 'p-animation bounceIn' : ''" />
     </div>
   </div>
 </template>
@@ -24,25 +24,40 @@ export default {
   components: {},
   data: function () {
     return {
+      animation: true,
       index: 0,
-      contIndex: 0,
-      len: 3,
+      contIndex: 1,
       tab: ["lingsu", "tongyong", "wufang"],
     };
   },
   computed: {
     contImg() {
-      //   return this.img_root + '.png'
-      return "https://oss.jx3box.com/upload/post/2021/10/13/7_6853650.png";
+      return (
+        this.img_root +
+        "/" +
+        this.tab[this.index] +
+        "/" +
+        this.contIndex +
+        ".png"
+      );
+    },
+    len() {
+      if (this.index == 1) return 5;
+      if (this.index == 2) return 8;
+      return 7;
     },
   },
   watch: {},
   methods: {
     changeTab(i) {
       this.index = i;
-      this.contIndex = 0;
+      this.contIndex = 1;
     },
     turn: function (direction) {
+      this.animation = false;
+      setTimeout(() => {
+        this.animation = true;
+      }, 10);
       if (direction) {
         this.contIndex++;
       } else {
