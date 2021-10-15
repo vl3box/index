@@ -40,6 +40,7 @@ export default {
   methods: {
     changeTab(i) {
       this.index = i;
+      this.contIndex = 0;
     },
     turn: function (direction) {
       if (direction) {

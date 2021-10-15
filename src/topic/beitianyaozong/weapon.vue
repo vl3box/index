@@ -19,7 +19,11 @@
         :src="weaponImg"
         :class="animation ? 'p-animation fadeInLeftBig' : ''"
       />
-      <div class="u-close" @click="show = !show"></div>
+      <div
+        class="u-close"
+        :class="animation ? 'p-animation flipInX' : ''"
+        @click="show = !show"
+      ></div>
     </div>
   </div>
 </template>
