@@ -1,6 +1,6 @@
 import { $cms, $team, $next } from "@jx3box/jx3box-common/js/https";
 
-function getPosts(client='std',type) {
+function getPosts(client='std',type,per = 10) {
     let params = {
         client: client,
     };

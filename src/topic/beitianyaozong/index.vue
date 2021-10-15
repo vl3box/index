@@ -9,28 +9,28 @@
         <div class="m-topic-header">
           <div class="u-sleeve"></div>
           <img
-            class="u-textImg p-animation fadeInRight"
+            v-animate="'p-animation fadeInRight'"
+            class="u-textImg"
             :src="btyz + `yaozong.png`"
           />
         </div>
         <!-- 专题内容 -->
         <div class="m-topic-content" ref="scrollShow">
           <!-- 视频 -->
-          <div
-            class="m-topic-video p-animation fadeInDown"
-            :class="infinite ? 'infinite' : ''"
-          >
+          <div class="m-topic-video" v-animate="'p-animation fadeInDown'">
             <img
-              class="u-textImg p-animation fadeInRight"
+              v-animate="'p-animation fadeInRight'"
+              class="u-textImg"
               :src="btyz + `txtr.png`"
             />
 
             <div class="u-video" v-html="video"></div>
           </div>
           <!-- 药宗介绍和链接 -->
-          <div class="m-topic-info" :class="infinite ? 'infinite' : ''">
+          <div class="m-topic-info">
             <img
-              class="u-textImg p-animation fadeInDown"
+              v-animate="'p-animation fadeInDown'"
+              class="u-textImg"
               :src="btyz + `txt.png`"
             />
             <div class="u-btnbox">
@@ -38,22 +38,21 @@
                 v-for="(item, i) in yaozong"
                 :href="item.link"
                 :key="i"
-                class="u-btn p-animations fadeInUp"
+                v-animate="'p-animations fadeInUp'"
+                class="u-btn"
                 :class="`u-btn` + i"
                 target="_blank"
               ></a>
             </div>
           </div>
           <!-- pve -->
-          <div
-            class="m-topic-block m-topic-pve"
-            :class="infinite ? 'infinite' : ''"
-          >
+          <div class="m-topic-block m-topic-pve">
             <img
-              class="u-title p-animation fadeInDown"
+              v-animate="'p-animation fadeInDown'"
+              class="u-title"
               :src="btyz + `one.png`"
             />
-            <div class="u-cont p-animation fadeInDown">
+            <div class="u-cont" v-animate="'p-animation fadeInLeft'">
               <!-- 切换tab -->
               <div class="u-tab">
                 <span
@@ -95,7 +94,8 @@
                 </div>
               </div>
               <a
-                class="u-sword p-animations fadeInRightBig"
+                class="u-sword"
+                v-animate="'p-animation fadeInRightBig'"
                 href="/fb"
                 target="_blank"
               ></a>
@@ -104,12 +104,14 @@
           <!-- pvp -->
           <div class="m-topic-block m-topic-pvp">
             <img
-              class="u-title p-animation fadeInDown"
+              class="u-title"
+              v-animate="'p-animation fadeInDown'"
               :src="btyz + `two.png`"
             />
             <div class="u-cont">
               <a
-                class="u-img p-animations bounceIn"
+                class="u-img"
+                v-animate="'p-animation bounceIn'"
                 :href="item.link"
                 target="_blank"
                 v-for="(item, i) in pvp"
@@ -122,10 +124,11 @@
           <!-- pvx -->
           <div class="m-topic-block m-topic-pvx">
             <img
-              class="u-title p-animation fadeInDown"
+              class="u-title"
+              v-animate="'p-animation fadeInDown'"
               :src="btyz + `three.png`"
             />
-            <div class="u-cont p-animation fadeInDown">
+            <div class="u-cont" v-animate="'p-animation fadeInDown'">
               <div class="u-swiper">
                 <el-carousel height="480px">
                   <el-carousel-item v-for="(item, i) in pvx" :key="i">
@@ -156,7 +159,6 @@ export default {
   components: {},
   data: function () {
     return {
-      infinite: false,
       btyz: "https://img.jx3box.com/topic/beitianyaozong/new/",
       tab: ["leiyu", "wushi"],
       tabIndex: 0,
@@ -189,6 +191,33 @@ export default {
       video: "",
       offAnimation: false,
     };
+  },
+  directives: {
+    animate: {
+      inserted: function (el, binding) {
+        binding.addClass = () => {
+          const { top } = el.getBoundingClientRect();
+          const h =
+            document.documentElement.clientHeight || document.body.clientHeight;
+          if (top < h) {
+            if (el.className.indexOf(binding.value) == -1) {
+              // 初次还未绑定过，则新增类名(注意：下面单引号中间是一个空格！！！)
+              el.className = binding.value + " " + el.className;
+            }
+            if (binding.addClass) {
+              window.removeEventListener("scroll", binding.addClass);
+            }
+          }
+        };
+        window.addEventListener("scroll", binding.addClass, true);
+        binding.addClass();
+      },
+      unbind: function (el, binding) {
+        if (binding.addClass) {
+          window.removeEventListener("scroll", binding.addClass);
+        }
+      },
+    },
   },
   computed: {
     data: function () {
@@ -225,42 +254,23 @@ export default {
 
     changeMask(event) {
       // transform: translate3d(-9.48px, 0px, 0px);
-    
 
       let x = event.offsetX;
       let y = event.offsetY;
       if (x < window.innerWidth / 2) {
-        console.log(x, y, window.innerWidth);
+        // console.log(x, y, window.innerWidth);
+      } else {
       }
     },
     handleMouse(e) {
       let direction = e.deltaY > 0 ? "down" : "up";
       if (direction == "down") this.showAnimation();
     },
-    showAnimation() {
-      let documentClientHeight =
-        document.documentElement.clientHeight || window.innerHeight;
-      let dom = this.$refs.scrollShow;
-
-      for (let i = 0; i < dom.children.length; i++) {
-        if (
-          dom.children[i].getBoundingClientRect().top - documentClientHeight >
-          -100
-        ) {
-          dom.children[i].style.display = "none";
-          setTimeout(() => {
-            dom.children[i].style.display = "block";
-          }, 10);
-        }
-      }
-    },
   },
   filters: {},
   created: function () {},
   mounted: function () {
     this.init();
-    window.addEventListener("mousewheel", this.handleMouse) ||
-      window.addEventListener("DOMMouseScroll", this.handleMouse);
   },
 };
 </script>

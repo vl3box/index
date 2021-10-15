@@ -195,6 +195,7 @@ export default {
     created: function () {
         let params = new URLSearchParams(location.search);
         this.page = params.get("page") || 1;
+        this.subtype = params.get('subtype') || ''
     },
     mounted: function () {
         this.isAdmin = User.isAdmin();

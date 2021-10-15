@@ -3,9 +3,12 @@
 .p-topic-container {
     .pr;
     background-color: @bgcolor ;
+    max-width: 1920px;
+    min-width: 1280px;
 }
 
 .wp {
+    .pr;
     max-width: 1920px;
     min-width: 1280px;
 }
@@ -32,6 +35,7 @@
     .h(1162px);
     background-image: url('@{kv_beitianyaozong}new/top.jpg');
     background-repeat: no-repeat;
+    background-position: top center;
 
     .u-textImg {
         .pa;
@@ -39,6 +43,7 @@
         .lt(50%, 172px);
         .ml(-430px);
     }
+
     .u-sleeve {
         .pa;
         .size(557px, 944px);
@@ -55,6 +60,7 @@
     .pt(69px);
     background-image: url('@{kv_beitianyaozong}new/bg.jpg');
     background-repeat: no-repeat;
+    background-position: top center;
 }
 
 .m-topic-video {
@@ -348,4 +354,28 @@
     background-image: url('@{kv_beitianyaozong}new/codebg.jpg');
     padding: 200px 0;
     background-color: rgba(255, 255, 255, 1);
+}
+
+
+@media screen and (max-width:1680px) {
+    .m-topic-header {
+
+        .u-textImg {
+            .pa;
+            .size(334px, 553px);
+            .lt(50%, 172px);
+            .ml(-430px);
+        }
+
+        .u-sleeve {
+            .pa;
+            .size(557px, 944px);
+            .lt(50%, 655px);
+            .ml(93px);
+            .z(9);
+            background-image: url('@{kv_beitianyaozong}new/sleeve.png');
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+    }
 }

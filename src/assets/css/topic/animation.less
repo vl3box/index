@@ -13,7 +13,6 @@
 }
 
 .p-animation.infinite {
-    .none;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
 }
@@ -66,10 +65,12 @@
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
 }
+
 .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
-  }
+}
+
 @keyframes fadeInRightBig {
     0% {
         opacity: 0;
@@ -88,12 +89,13 @@
 
 @keyframes fadeIn {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 @keyframes fadeInRight {
     0% {
@@ -192,9 +194,9 @@
     }
 
     90% {
-        -webkit-transform: scale(0.98);
-        -ms-transform: scale(0.98);
-        transform: scale(0.98);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
     }
 
     100% {
