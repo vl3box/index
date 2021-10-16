@@ -109,6 +109,7 @@ export default {
         init: function () {
             this.loadData().then(() => {
                 this.renderSlider();
+
                 // this.bindResizeEvent()
             });
         },

@@ -5,10 +5,12 @@
                 <h1 class="m-single-title">{{ post.post_title }}</h1>
 
                 <div class="m-single-info">
-
                     <span class="u-modate u-sub-block" title="发布时间">
                         <i class="el-icon-collection-tag"></i>
-                        <a :href="'/notice?subtype=' + post.post_subtype" target="_blank">{{ post.post_subtype | showType }}</a>
+                        <a
+                            :href="'/notice?subtype=' + post.post_subtype"
+                            target="_blank"
+                        >{{ post.post_subtype | showType }}</a>
                     </span>
 
                     <span class="u-modate u-sub-block" title="发布时间">
@@ -25,6 +27,7 @@
                         <i class="u-icon-edit el-icon-edit-outline"></i>
                         <span>编辑</span>
                     </a>
+                    <Adminbutton />
                 </div>
             </header>
 
@@ -54,11 +57,12 @@
                 <el-alert title="作者没有开启评论功能" type="warning" show-icon v-else></el-alert>
             </div>
         </div>
+        <Admin class="p-notice-admin"/>
     </div>
 </template>
 
 <script>
-import types from '@/assets/data/notice_types.json'
+import types from "@/assets/data/notice_types.json";
 import { getPost } from "@/service/cms.js";
 import { getStat, postStat } from "@jx3box/jx3box-common/js/stat.js";
 import { showDate } from "@jx3box/jx3box-common/js/moment";
@@ -68,6 +72,8 @@ import { __visibleMap } from "@jx3box/jx3box-common/data/jx3box.json";
 // components
 import Article from "@jx3box/jx3box-editor/src/Article.vue";
 import Comment from "@jx3box/jx3box-comment-ui/src/Comment.vue";
+import Adminbutton from "@jx3box/jx3box-common-ui/src/bread/Adminbutton.vue";
+import Admin from "@jx3box/jx3box-common-ui/src/bread/Admin.vue";
 
 export default {
     name: "NoticeSingle",
@@ -75,6 +81,8 @@ export default {
     components: {
         Article,
         Comment,
+        Adminbutton,
+        Admin,
     },
     data: function () {
         return {
@@ -112,9 +120,9 @@ export default {
     methods: {},
     filters: {
         showDate,
-        showType : function (val){
-            return types[val]
-        }
+        showType: function (val) {
+            return types[val];
+        },
     },
     created: function () {
         if (this.id) {
