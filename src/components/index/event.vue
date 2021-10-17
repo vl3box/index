@@ -1,4 +1,6 @@
 <template>
+<div class="m-event-wrapper">
+
     <div class="m-event" v-if="ready" id="m-event">
         <div class="u-event" v-for="(item, i) in data" :key="i">
             <a :href="item.link" rel="noopener noreferrer" :target="target">
@@ -8,6 +10,7 @@
             </a>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -99,6 +102,12 @@ export default {
                     // instead of a settings object
                 ],
             });
+            // $('.slick-active').last().css('margin-right', '0')
+
+            // $('#m-event').on('afterChange', function(event, slick, direction){
+            //     $('.slick-active').last().css('margin-right', '0')
+            //     console.log(11)
+            // });
         },
         bindResizeEvent: function () {
             const vm = this;
