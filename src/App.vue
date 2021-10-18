@@ -7,7 +7,6 @@
                     <live />
                     <slider />
                     <box />
-                    <event />
                     <posts />
                 </div>
 
@@ -38,7 +37,7 @@ import transaction from "@/components/index/transaction_mini.vue";
 import live from "@/components/index/live.vue";
 import slider from "@/components/index/slider.vue";
 import box from "@/components/index/box.vue";
-import event from "@/components/index/event.vue";
+// import event from "@/components/index/event.vue";
 import posts from "@/components/index/posts.vue";
 // import notice from "@/components/index/notice.vue";
 
@@ -68,7 +67,7 @@ export default {
         live,
         slider,
         box,
-        event,
+        // event,
 
         // 右侧
         // notice,
