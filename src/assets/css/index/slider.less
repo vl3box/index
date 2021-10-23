@@ -33,6 +33,24 @@
         .r(4px);
     }
 }
+.u-thumbnail-box {
+    display: flex;
+    .mb(10px);
+    .u-thumbnail-img {
+        flex-grow: 1;
+        cursor: pointer;
+
+        &:not(:last-of-type) {
+            .mr(4px);
+        }
+
+        &.active {
+            outline: 2px solid @blue;
+            transition: outline linear .01s;
+        }
+    }
+
+}
 @media screen and (max-width: @phone) {
     .m-slider {
         // .none;

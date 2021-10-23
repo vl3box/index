@@ -1,14 +1,30 @@
 <template>
-    <div class="m-slider" v-if="ready" id="m-home-slider">
-        <div
-            class="u-slider"
-            v-for="(item, i) in data"
-            :key="i"
-            :style="{ backgroundColor: item.bgcolor }"
-        >
-            <a class="u-pic" :href="item.link" :target="target">
-                <img :src="item.img | resolveImagePath" />
-            </a>
+    <div>
+        <div class="m-slider" v-if="ready" id="m-home-slider">
+            <div
+                class="u-slider"
+                v-for="(item, i) in data"
+                :key="i"
+                :style="{ backgroundColor: item.bgcolor }"
+            >
+                <a class="u-pic" :href="item.link" :target="target">
+                    <img :src="item.img | resolveImagePath" />
+                </a>
+            </div>
+        </div>
+        <div class="u-thumbnail-box">
+            <div
+                class="u-thumbnail-img"
+                :class="{active: active === i}"
+                v-for="(item, i) in data"
+                :key="i"
+                :style="{ backgroundColor: item.bgcolor }"
+                @click="setActive(i)"
+            >
+                <a class="u-pic">
+                    <img :src="item.img | resolveImagePath" />
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -22,6 +38,7 @@ export default {
     data: function () {
         return {
             data: [],
+            active: 0
         };
     },
     computed: {
@@ -46,19 +63,24 @@ export default {
             $("#m-home-slider").slick({
                 infinite: true,
                 autoplay: true,
-                dots: true,
+                dots: false,
+            }).on('afterChange', () => {
+                this.active = $("#m-home-slider").slick('slickCurrentSlide')
             });
+        },
+        setActive: function (index){
+            $("#m-home-slider").slick('slickGoTo', index)
         },
         loadData: function () {
             return getSliders("slider", this.client, 10).then((res) => {
                 this.data = res.data.data;
             });
         },
-        init : function (){
-            this.loadData().then(()=>{
+        init: function () {
+            this.loadData().then(() => {
                 this.renderSlider();
-            })
-        }
+            });
+        },
     },
     mounted: function () {
         this.init()
