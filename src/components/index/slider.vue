@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="m-slider-box">
         <div class="m-slider" v-if="ready" id="m-home-slider">
             <div
                 class="u-slider"
@@ -12,9 +12,9 @@
                 </a>
             </div>
         </div>
-        <div class="u-thumbnail-box">
+        <div class="m-slider-thumbnail">
             <div
-                class="u-thumbnail-img"
+                class="u-thumbnail"
                 :class="{active: active === i}"
                 v-for="(item, i) in data"
                 :key="i"
@@ -38,7 +38,7 @@ export default {
     data: function () {
         return {
             data: [],
-            active: 0
+            active: 0,
         };
     },
     computed: {
@@ -60,20 +60,25 @@ export default {
     },
     methods: {
         renderSlider: function () {
-            $("#m-home-slider").slick({
-                infinite: true,
-                autoplay: true,
-                dots: false,
-            }).on('afterChange', () => {
-                this.active = $("#m-home-slider").slick('slickCurrentSlide')
-            });
+            $("#m-home-slider")
+                .slick({
+                    infinite: true,
+                    autoplay: true,
+                    dots: false,
+                })
+                .on("afterChange", () => {
+                    this.active = $("#m-home-slider").slick(
+                        "slickCurrentSlide"
+                    );
+                });
         },
-        setActive: function (index){
-            $("#m-home-slider").slick('slickGoTo', index)
+        setActive: function (index) {
+            this.active = index;
+            $("#m-home-slider").slick("slickGoTo", index);
         },
         loadData: function () {
             return getSliders("slider", this.client, 10).then((res) => {
-                this.data = res.data.data;
+                this.data = res.data.data.list;
             });
         },
         init: function () {
@@ -83,7 +88,7 @@ export default {
         },
     },
     mounted: function () {
-        this.init()
+        this.init();
     },
     filters: { resolveImagePath },
 };

@@ -12,16 +12,16 @@ function getCode(client) {
 }
 
 // 海报
-function getSliders(type, client, limit) {
+function getSliders(type, client, per = 10) {
     let _params = {
         client: client,
         type: type,
         status: 1,
     };
-    if (limit) {
-        _params.limit = limit;
+    if (per) {
+        _params.per = per;
     }
-    return $cms({ mute: true }).get(`/api/cms/news`, {
+    return $cms({ mute: true }).get(`/api/cms/news/v2`, {
         params: _params,
     });
 }
@@ -34,9 +34,9 @@ function getNews(type, client = "std", limit) {
         status: 1,
     };
     if (limit) {
-        _params.limit = limit;
+        _params.per = limit;
     }
-    return $cms({ mute: true }).get(`/api/cms/news`, {
+    return $cms({ mute: true }).get(`/api/cms/news/v2`, {
         params: _params,
     });
 }
