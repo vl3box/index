@@ -62,6 +62,9 @@
     .u-content {
         .fz(12px, 32px);
         .bold;
+        display: flex;
+        justify-content: space-between;
+        .nobreak;
     }
 
     .u-name{
@@ -69,11 +72,14 @@
         max-width: 100px;
         overflow: hidden;
         .nobreak;
+        .mr(20px);
+        flex-shrink: 0;
     }
 
     .u-price {
         .fr;
         color: @color;
+        flex-shrink: 1;
     }
 
     .u-trending{
