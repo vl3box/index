@@ -45,7 +45,7 @@
             <Thx
                 class="m-thx"
                 :postId="id"
-                postType="bbs"
+                postType="notice"
                 :userId="user_id"
                 :adminBoxcoinEnable="false"
                 :userBoxcoinEnable="false"
