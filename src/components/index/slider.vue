@@ -22,7 +22,7 @@
                 @click="setActive(i)"
             >
                 <a class="u-pic">
-                    <img :src="item.img | resolveImagePath" />
+                    <img :src="item.img | getThumbnail" />
                 </a>
             </div>
         </div>
@@ -30,7 +30,11 @@
 </template>
 
 <script>
-import { buildTarget, resolveImagePath } from "@jx3box/jx3box-common/js/utils";
+import {
+    buildTarget,
+    resolveImagePath,
+    getThumbnail,
+} from "@jx3box/jx3box-common/js/utils";
 import { getSliders } from "@/service/cms";
 export default {
     name: "slider",
@@ -90,7 +94,12 @@ export default {
     mounted: function () {
         this.init();
     },
-    filters: { resolveImagePath },
+    filters: {
+        resolveImagePath,
+        getThumbnail: function (val) {
+            return getThumbnail(val, [366, 100]);
+        },
+    },
 };
 </script>
 
