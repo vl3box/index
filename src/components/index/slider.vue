@@ -97,7 +97,7 @@ export default {
     filters: {
         resolveImagePath,
         getThumbnail: function (val) {
-            return getThumbnail(val, [366, 100]);
+            return getThumbnail(val, "index_banner"); //[220, 60]
         },
     },
 };
