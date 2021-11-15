@@ -35,8 +35,11 @@ export default {
             }
             return false;
         },
+        client : function (){
+            return this.$store.state.client  
+        },
         theme_cls: function () {
-            return "theme-" + theme;
+            return "theme-" + theme[this.client];
         },
     },
     watch: {},
