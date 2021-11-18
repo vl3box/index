@@ -71,5 +71,12 @@ function push(data) {
     return $cms().post(`/api/cms/post`, data);
 }
 
+// 配装
+function getPz(params) {
+    return $cms().get(`/api/cms/app/pz`, {
+        params
+    })
+}
 
-export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost };
+
+export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz };

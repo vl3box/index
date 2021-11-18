@@ -18,4 +18,10 @@ function getWikiPosts(params) {
     });
 }
 
-export { getSchoolRank, getItemPrice, getWikiPosts };
+function getCollections(params) {
+    return $helper().get(`/api/post/collections`, {
+        params: params,
+    });
+}
+
+export { getSchoolRank, getItemPrice, getWikiPosts, getCollections };

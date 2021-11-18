@@ -56,6 +56,76 @@
                     </a>
                 </div>
             </template>
+            <template v-else-if="type === 'pz'">
+                <div class="m-newpost-content" v-loading="loading">
+                    <a
+                        class="u-post"
+                        v-for="(item, i) in data"
+                        :key="i"
+                        :href="getLink(type,item.id)"
+                        :target="target"
+                    >
+                        <el-image
+                            class="u-avatar"
+                            :src="(item.pz_author_info && item.pz_author_info.user_avatar) | showAvatar"
+                            fit="cover"
+                        ></el-image>
+                        <div class="u-info">
+                            <i class="el-icon-collection-tag"></i>
+                            <span class="u-type" target="_blank">{{ type | formatTypeName }}</span>
+                            ／
+                            <span
+                                class="u-author"
+                                :href="authorLink(item.user_id)"
+                                target="_blank"
+                            >{{ item.pz_author_info && item.pz_author_info.display_name || '匿名'}}</span>
+                            <span class="u-date">
+                                <i class="el-icon-refresh"></i>
+                                {{ item.updated_at | dateFormat }}
+                            </span>
+                        </div>
+                        <span class="u-title">
+                            <i class="el-icon-reading"></i>
+                            {{ item.title || "无标题" }}
+                        </span>
+                    </a>
+                </div>
+            </template>
+            <template v-else-if="type === 'collection'">
+                <div class="m-newpost-content" v-loading="loading">
+                    <a
+                        class="u-post"
+                        v-for="(item, i) in data"
+                        :key="i"
+                        :href="getLink(type,item.id)"
+                        :target="target"
+                    >
+                        <el-image
+                            class="u-avatar"
+                            :src="(item.user_avatar) | showAvatar"
+                            fit="cover"
+                        ></el-image>
+                        <div class="u-info">
+                            <i class="el-icon-collection-tag"></i>
+                            <span class="u-type" target="_blank">{{ type | formatTypeName }}</span>
+                            ／
+                            <span
+                                class="u-author"
+                                :href="authorLink(item.user_id)"
+                                target="_blank"
+                            >{{ item.user_nickname || '匿名'}}</span>
+                            <span class="u-date">
+                                <i class="el-icon-refresh"></i>
+                                {{ item.updated | wikiDate }}
+                            </span>
+                        </div>
+                        <span class="u-title">
+                            <i class="el-icon-reading"></i>
+                            {{ item.title || "无标题" }}
+                        </span>
+                    </a>
+                </div>
+            </template>
             <template v-else>
                 <div class="m-newpost-content" v-loading="loading">
                     <a
@@ -101,7 +171,8 @@
 
 <script>
 import { getPosts } from "@/service/index";
-import { getWikiPosts } from "@/service/helper";
+import { getWikiPosts, getCollections } from "@/service/helper";
+import { getPz } from "@/service/cms";
 import {
     buildTarget,
     authorLink,
@@ -144,6 +215,14 @@ export default {
                 {
                     label: "工具",
                     slug: "tool",
+                },
+                {
+                    label: "小册",
+                    slug: "collection",
+                },
+                {
+                    label: "配装",
+                    slug: "pz",
                 },
                 {
                     label: "茶馆",
@@ -199,13 +278,38 @@ export default {
                         this.loading = false;
                     });
             } else {
-                getPosts(this.client, type)
-                    .then((res) => {
+                if (this.type === 'pz') {
+                    const params = {
+                        per: 10,
+                        page: 1,
+                        client: this.client,
+                        valid: 1
+                    }
+                    getPz(params).then(res => {
                         this.data = res.data.data.list || [];
                     })
                     .finally(() => {
                         this.loading = false;
                     });
+                } else if (this.type === 'collection') {
+                    getCollections({
+                        limit: 10,
+                        page: 1
+                    }).then(res => {
+                        this.data = res.data.data.data || [];
+                    })
+                    .finally(() => {
+                        this.loading = false;
+                    });
+                } else {
+                    getPosts(this.client, type)
+                        .then((res) => {
+                            this.data = res.data.data.list || [];
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                        });
+                }
             }
         },
         getLink,
@@ -225,6 +329,7 @@ export default {
         wikiDate: function (val) {
             return showRecently(new Date(val * 1000));
         },
+
     },
     watch: {
         type: function () {
