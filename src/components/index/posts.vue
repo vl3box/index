@@ -3,7 +3,24 @@
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-collection"></i>
             <span class="u-title">最新作品</span>
-            <a href="/notice" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+            <span class="m-newpost-topics">
+                <a
+                    :href="item.link"
+                    class="u-link"
+                    v-for="item in topics"
+                    :key="item.label"
+                    target="_blank"
+                    :style="{color:item.meta_1,fontWeight:item.meta_2}"
+                    v-show="item.status && item.meta_4 == client"
+                >{{item.label}}</a>
+            </span>
+            <a
+                :href="more_link"
+                class="u-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="查看全部"
+            >
                 <i class="el-icon-more"></i>
             </a>
         </div>
@@ -165,6 +182,9 @@
                     </a>
                 </div>
             </template>
+            <div class="m-newpost-more">
+                <a :href="more_link" class="u-more">查看更多&raquo;</a>
+            </div>
         </div>
     </div>
 </template>
@@ -172,7 +192,7 @@
 <script>
 import { getPosts } from "@/service/index";
 import { getWikiPosts, getCollections } from "@/service/helper";
-import { getPz } from "@/service/cms";
+import { getPz, getMenus } from "@/service/cms";
 import {
     buildTarget,
     authorLink,
@@ -252,6 +272,8 @@ export default {
             loading: false,
 
             wiki_types: ["achievement", "item", "knowledge", "quest"],
+
+            topics: [],
         };
     },
     computed: {
@@ -260,6 +282,9 @@ export default {
         },
         client: function () {
             return this.$store.state.client;
+        },
+        more_link: function () {
+            return this.type == "all" ? "/bbs" : "/" + this.type;
         },
     },
     methods: {
@@ -278,29 +303,31 @@ export default {
                         this.loading = false;
                     });
             } else {
-                if (this.type === 'pz') {
+                if (this.type === "pz") {
                     const params = {
                         per: 10,
                         page: 1,
                         client: this.client,
-                        valid: 1
-                    }
-                    getPz(params).then(res => {
-                        this.data = res.data.data.list || [];
-                    })
-                    .finally(() => {
-                        this.loading = false;
-                    });
-                } else if (this.type === 'collection') {
+                        valid: 1,
+                    };
+                    getPz(params)
+                        .then((res) => {
+                            this.data = res.data.data.list || [];
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                        });
+                } else if (this.type === "collection") {
                     getCollections({
                         limit: 10,
-                        page: 1
-                    }).then(res => {
-                        this.data = res.data.data.data || [];
+                        page: 1,
                     })
-                    .finally(() => {
-                        this.loading = false;
-                    });
+                        .then((res) => {
+                            this.data = res.data.data.data || [];
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                        });
                 } else {
                     getPosts(this.client, type)
                         .then((res) => {
@@ -314,6 +341,11 @@ export default {
         },
         getLink,
         authorLink,
+        loadTopics: function () {
+            getMenus("index_topics").then((res) => {
+                this.topics = res?.data?.data?.val || [];
+            });
+        },
     },
     filters: {
         formatTypeName: function (type) {
@@ -329,7 +361,6 @@ export default {
         wikiDate: function (val) {
             return showRecently(new Date(val * 1000));
         },
-
     },
     watch: {
         type: function () {
@@ -338,6 +369,7 @@ export default {
     },
     mounted: function () {
         this.loadData();
+        this.loadTopics();
     },
     components: {},
 };

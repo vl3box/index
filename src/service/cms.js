@@ -78,5 +78,10 @@ function getPz(params) {
     })
 }
 
+// 菜单
+function getMenus(key){
+    return $cms().get(`/api/cms/config/menu/${key}`)
+}
 
-export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz };
+
+export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz,getMenus };

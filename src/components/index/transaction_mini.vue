@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-transaction m-sideblock">
+    <div class="m-index-transaction m-sideblock" v-if="isReady">
         <div class="m-sideblock-header">
             <a class="u-title" href="/item" target="_blank"><i class="el-icon-s-shop"></i>交易价格</a>
             <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
@@ -114,6 +114,9 @@ export default {
             }
             return arr;
         },
+        isRead : function (){
+            return this.client == 'std' //怀旧服暂不支持
+        }
     },
     methods: {
         loadData: function () {
