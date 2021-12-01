@@ -114,7 +114,7 @@ export default {
             }
             return arr;
         },
-        isRead : function (){
+        isReady : function (){
             return this.client == 'std' //怀旧服暂不支持
         }
     },
