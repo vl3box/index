@@ -93,7 +93,7 @@ import {
     buildTarget,
     getAppType,
 } from "@jx3box/jx3box-common/js/utils";
-import notice_types from "@/assets/data/notice.json";
+import notice_types from "@/assets/data/notice_types.json";
 export default {
     name: "TopicList",
     props: [],
