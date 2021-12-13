@@ -73,7 +73,7 @@
                     </a>
                 </div>
             </template>
-            <template v-else-if="type === 'pz'">
+            <!-- <template v-else-if="type === 'pz'">
                 <div class="m-newpost-content" v-loading="loading">
                     <a
                         class="u-post"
@@ -142,7 +142,7 @@
                         </span>
                     </a>
                 </div>
-            </template>
+            </template> -->
             <template v-else>
                 <div class="m-newpost-content" v-loading="loading">
                     <a
@@ -236,14 +236,14 @@ export default {
                     label: "工具",
                     slug: "tool",
                 },
-                {
-                    label: "小册",
-                    slug: "collection",
-                },
-                {
-                    label: "配装",
-                    slug: "pz",
-                },
+                // {
+                //     label: "小册",
+                //     slug: "collection",
+                // },
+                // {
+                //     label: "配装",
+                //     slug: "pz",
+                // },
                 {
                     label: "茶馆",
                     slug: "bbs",
@@ -257,12 +257,12 @@ export default {
                     slug: "item",
                 },
                 {
-                    label: "通识",
-                    slug: "knowledge",
-                },
-                {
                     label: "任务",
                     slug: "quest",
+                },
+                {
+                    label: "通识",
+                    slug: "knowledge",
                 },
                 {
                     label: "公告",
