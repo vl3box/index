@@ -303,32 +303,32 @@ export default {
                         this.loading = false;
                     });
             } else {
-                if (this.type === "pz") {
-                    const params = {
-                        per: 10,
-                        page: 1,
-                        client: this.client,
-                        valid: 1,
-                    };
-                    getPz(params)
-                        .then((res) => {
-                            this.data = res.data.data.list || [];
-                        })
-                        .finally(() => {
-                            this.loading = false;
-                        });
-                } else if (this.type === "collection") {
-                    getCollections({
-                        limit: 10,
-                        page: 1,
-                    })
-                        .then((res) => {
-                            this.data = res.data.data.data || [];
-                        })
-                        .finally(() => {
-                            this.loading = false;
-                        });
-                } else {
+                // if (this.type === "pz") {
+                //     const params = {
+                //         per: 10,
+                //         page: 1,
+                //         client: this.client,
+                //         valid: 1,
+                //     };
+                //     getPz(params)
+                //         .then((res) => {
+                //             this.data = res.data.data.list || [];
+                //         })
+                //         .finally(() => {
+                //             this.loading = false;
+                //         });
+                // } else if (this.type === "collection") {
+                //     getCollections({
+                //         limit: 10,
+                //         page: 1,
+                //     })
+                //         .then((res) => {
+                //             this.data = res.data.data.data || [];
+                //         })
+                //         .finally(() => {
+                //             this.loading = false;
+                //         });
+                // } else {
                     getPosts(this.client, type)
                         .then((res) => {
                             this.data = res.data.data.list || [];
@@ -336,7 +336,7 @@ export default {
                         .finally(() => {
                             this.loading = false;
                         });
-                }
+                // }
             }
         },
         getLink,
@@ -349,6 +349,7 @@ export default {
     },
     filters: {
         formatTypeName: function (type) {
+            if(type == 'achievement') return '成就百科'
             return __postType[type] || __otherType[type];
         },
         dateFormat: function (val) {
