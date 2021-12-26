@@ -151,7 +151,7 @@ export default {
                 disabled: true,
                 animation: 150,
             },
-            showAbbr: window.innerWidth < 370,
+            showAbbr: true,//window.innerWidth < 370,
 
             // 云端
             isLogin: User.isLogin(),
