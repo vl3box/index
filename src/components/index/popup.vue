@@ -1,7 +1,7 @@
 <template>
     <div class="m-index-popup" v-if="show">
         <div class="m-content animation a-zoomInDown">
-            <span class="u-close" v-if="countdown">{{ times }}秒后自动关闭</span>
+            <span class="u-close" v-if="countdown">{{ countdown }}秒后自动关闭</span>
             <img :src="imgLink" :alt="imgTxt" />
         </div>
         <div class="u-mark"></div>
@@ -15,9 +15,8 @@ export default {
     props: [],
     data: function() {
         return {
-            times: 3,
             show: true,
-            countdown: false,
+            countdown: 0,
         };
     },
     computed: {
@@ -31,10 +30,9 @@ export default {
     methods: {
         closePop() {
             this.timer = setInterval(() => {
-                this.times--;
-                if (this.times === 0) {
+                this.countdown--;
+                if (this.countdown === 0) {
                     this.show = false;
-                    this.countdown = false;
                     clearInterval(this.timer);
                 }
             }, 1000);
@@ -42,7 +40,7 @@ export default {
     },
     created() {
         setTimeout(() => {
-            this.countdown = true;
+            this.countdown = 3;
             this.closePop();
         }, 2000);
     },
