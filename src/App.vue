@@ -8,6 +8,7 @@
                     <slider />
                     <box />
                     <posts />
+                    <popup />
                 </div>
 
                 <div class="m-left m-sidebar">
@@ -32,6 +33,7 @@ import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
+import popup from "@/components/index/popup.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
@@ -72,6 +74,7 @@ export default {
         // 右侧
         // notice,
         posts,
+        popup,
         
     },
     created: function () {
