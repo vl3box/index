@@ -54,7 +54,7 @@ export default {
     data: function() {
         return {
             isMobile: window.innerWidth < 768,
-            boxcoin: true,
+            boxcoin: false,
         };
     },
     computed: {},
