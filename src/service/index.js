@@ -1,6 +1,6 @@
-import { $cms, $team, $next } from "@jx3box/jx3box-common/js/https";
+import { $cms, $team, $next, $pay } from "@jx3box/jx3box-common/js/https";
 
-function getPosts(client='std',type,per = 10) {
+function getPosts(client = "std", type, per = 10) {
     let params = {
         client: client,
     };
@@ -28,4 +28,8 @@ function searchRaids(params) {
     });
 }
 
-export { getPosts, getTeams, getJokes, searchRaids };
+function getBoxCoin(id) {
+    return $pay().get(`api/event/${id}/boxcoin/trigger`)
+}
+
+export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin };

@@ -2,7 +2,7 @@
     <div class="m-index-popup" v-if="show">
         <div class="m-content animation a-zoomInDown">
             <span class="u-close" v-if="countdown">{{ countdown }}秒后自动关闭</span>
-            <img :src="imgLink" :alt="imgTxt" />
+            <img :src="imgLink" :alt="imgTxt" ref="img" :style="imgStyle" />
         </div>
         <div class="u-mark"></div>
     </div>
@@ -10,21 +10,30 @@
 
 <script>
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+
 export default {
     name: "popup",
     props: [],
     data: function() {
         return {
-            show: true,
+            show: false,
             countdown: 0,
         };
     },
     computed: {
         imgLink: function() {
-            return __imgPath + "image/event/new2022.png";
+            return __imgPath + "image/event/2022new.png";
         },
         imgTxt: function() {
             return "祝侠士2022新春快乐！";
+        },
+        imgStyle: function() {
+            let style = {};
+            let clientHeight = `${document.documentElement.clientHeight}`;
+            if (clientHeight >= 1080) clientHeight = 1080;
+            style.height = clientHeight - 64 + "px";
+            style.marginTop = 64 + "px";
+            return style;
         },
     },
     methods: {
@@ -37,10 +46,12 @@ export default {
                 }
             }, 1000);
         },
+
     },
     created() {
         setTimeout(() => {
             this.countdown = 3;
+            this.show = true;
             this.closePop();
         }, 2000);
     },
