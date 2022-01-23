@@ -2,7 +2,7 @@
     <div class="m-index-popup" v-if="show">
         <div class="m-content animation a-zoomInDown">
             <span class="u-close" v-if="countdown">{{ countdown }}秒后自动关闭</span>
-            <img :src="imgLink" :alt="imgTxt" ref="img" :style="imgStyle" />
+            <img :src="imgLink" :alt="imgTxt" :style="imgStyle" />
         </div>
         <div class="u-mark"></div>
     </div>
@@ -16,25 +16,25 @@ export default {
     props: [],
     data: function() {
         return {
-            show: false,
+            show: true,
             countdown: 0,
         };
     },
     computed: {
         imgLink: function() {
-            return __imgPath + "image/event/2022new.png";
+            return __imgPath + "image/event/new2022.png";
         },
         imgTxt: function() {
             return "祝侠士2022新春快乐！";
         },
-        imgStyle: function() {
-            let style = {};
-            let clientHeight = `${document.documentElement.clientHeight}`;
-            if (clientHeight >= 1080) clientHeight = 1080;
-            style.height = clientHeight - 64 + "px";
-            style.marginTop = 64 + "px";
-            return style;
-        },
+        // imgStyle: function() {
+        //     let style = {};
+        //     let clientHeight = `${document.documentElement.clientHeight}`;
+        //     if (clientHeight >= 1080) clientHeight = 1080;
+        //     style.height = clientHeight - 64 + "px";
+        //     style.marginTop = 64 + "px";
+        //     return style;
+        // },
     },
     methods: {
         closePop() {
@@ -51,7 +51,6 @@ export default {
     created() {
         setTimeout(() => {
             this.countdown = 3;
-            this.show = true;
             this.closePop();
         }, 2000);
     },
