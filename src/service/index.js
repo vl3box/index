@@ -29,7 +29,7 @@ function searchRaids(params) {
 }
 
 function getBoxCoin(id) {
-    return $pay().get(`api/event/${id}/boxcoin/trigger`)
+    return $pay({mute:true}).get(`api/event/${id}/boxcoin/trigger`)
 }
 
 export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin };

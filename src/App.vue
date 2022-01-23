@@ -99,14 +99,14 @@ export default {
             this.$store.state.config = _data;
         });
 
-        // let id = 1;
-        // getBoxCoin(id)
-        //     .then(res => {
-        //         this.boxcoin = true;
-        //     })
-        //     .catch(err => {
-        //         console.log("getBoxCoin_ERROR:", err);
-        //     });
+        let id = 1;
+        getBoxCoin(id)
+            .then(res => {
+                if (res.data.boxcoin > 0) this.boxcoin = true;
+            })
+            .catch(err => {
+                console.log("getBoxCoin_ERROR:", err);
+            });
     },
 };
 </script>
