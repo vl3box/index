@@ -4,28 +4,39 @@
     .lt(0, 0);
     .z(9);
     background-color: rgba(36, 41, 46, 0.8);
-    .m-content {
+    .m-card {
+        .size(400px, 600px);
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
         .pa;
-        .full;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        .lt(50%, 50%);
+        transform: translate(-50%, -50%);
     }
     .u-close {
         .pa;
-        .lt(0, 64px);
+        .rt(0, -30px);
         .db;
         .x;
         .fz(12px, 1.8em);
-        .w(100%);
         text-align: right;
         color: #3d454d;
         text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+        .pointer;
     }
     img {
-        .size(400px,600px);
         user-select: none;
         box-shadow: 0px 0px 20px #000;
+    }
+
+    .u-count {
+        position: absolute;
+        right: 208px;
+        bottom: 32px;
+        font-size: 48px;
+        color: #ffc04a;
+        text-shadow: 2px 2px 0 #fff;
+        font-family: 'comic sans ms';
     }
 }
 
