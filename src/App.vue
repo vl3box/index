@@ -8,7 +8,7 @@
                     <slider />
                     <box />
                     <posts />
-                    <popup v-if="boxcoin" />
+                    <festival/>
                 </div>
 
                 <div class="m-left m-sidebar">
@@ -33,7 +33,7 @@ import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
-import popup from "@/components/index/popup.vue";
+import festival from "@/components/index/festival.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
@@ -44,7 +44,6 @@ import posts from "@/components/index/posts.vue";
 // import notice from "@/components/index/notice.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
-import { getBoxCoin } from "@/service/index";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
 
@@ -54,7 +53,6 @@ export default {
     data: function() {
         return {
             isMobile: window.innerWidth < 768,
-            boxcoin: false,
         };
     },
     computed: {},
@@ -77,36 +75,27 @@ export default {
         // 右侧
         // notice,
         posts,
-        popup,
+        festival,
     },
     created: function() {
         if (User.isLogin()) {
-            getProfile().then(data => {
+            getProfile().then((data) => {
                 if (data) {
                     this.$store.state.server = data.jx3_server;
                 }
             });
         }
 
-        getConfig().then(res => {
+        getConfig().then((res) => {
             let data = res.data.data;
             let _data = {};
             if (data) {
-                data.forEach(item => {
+                data.forEach((item) => {
                     _data[item.key] = item.val;
                 });
             }
             this.$store.state.config = _data;
         });
-
-        let id = 1;
-        getBoxCoin(id)
-            .then(res => {
-                if (res.data.boxcoin > 0) this.boxcoin = true;
-            })
-            .catch(err => {
-                console.log("getBoxCoin_ERROR:", err);
-            });
     },
 };
 </script>
