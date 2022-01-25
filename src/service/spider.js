@@ -1,24 +1,16 @@
-import {
-    $team
-} from "@jx3box/jx3box-common/js/https";
+import { $team } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
-import {
-    __spider
-} from "@jx3box/jx3box-common/data/jx3box.json";
-import {
-    __iconPath
-} from "@jx3box/jx3box-common/data/jx3box.json";
-import {
-    $node
-} from "@jx3box/jx3box-common/js/https";
+import { __spider } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __iconPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { $node } from "@jx3box/jx3box-common/js/https";
 const $spider = axios.create({
-    baseURL: __spider
+    baseURL: __spider,
 });
 
 // 日常
 function getDaily(date) {
     return $team({
-        mute: true
+        mute: true,
     }).get("/xoyo/daily/task", {
         params: {
             date: date, //int,时间戳，单位秒
@@ -56,41 +48,16 @@ function getPrice() {
 
 // 宠物福缘
 function getPetLucky() {
-    return axios.get(__iconPath + "pvx/pet/output/pet_lucky.json")
+    return axios.get(__iconPath + "pvx/pet/output/pet_lucky.json");
 }
 
-function getPets(petids, client = 'std') {
+function getPets(petids, client = "std") {
     return $node().get(`/pets`, {
         params: {
-            ids : petids.join(','),
-            client
-        }
+            ids: petids.join(","),
+            client,
+        },
     });
 }
 
-
-// const md5 = require("js-md5");
-// function getPrice() {
-//     let time = ~~(Date.now() / 1000);
-//     let token = md5(time + "secret");
-//     return axios
-//         .get("https://box.arkwish.com/api/gold", {
-//             params: {
-//                 access_token: token,
-//                 ts: time,
-//             },
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// }
-
-export {
-    getGameNews,
-    getServers,
-    getPrice,
-    getMeirentu,
-    getDaily,
-    getPetLucky,
-    getPets
-};
+export { getGameNews, getServers, getPrice, getMeirentu, getDaily, getPetLucky, getPets };
