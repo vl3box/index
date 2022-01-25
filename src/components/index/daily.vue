@@ -1,9 +1,6 @@
 <template>
     <div class="m-daily m-sideblock">
-        <div
-            class="m-daily-header m-sideblock-header"
-            :class="'daily-' + theme"
-        >
+        <div class="m-daily-header m-sideblock-header" :class="'daily-' + theme">
             <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
             <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt />
             <div class="u-list">
@@ -39,32 +36,14 @@
                     <tr>
                         <td>美人图</td>
                         <td>
-                            <el-select
-                                v-model="server"
-                                placeholder="区服"
-                                size="mini"
-                                class="u-select-meirentu"
-                            >
-                                <el-option
-                                    v-for="item in servers"
-                                    :key="item"
-                                    :label="item"
-                                    :value="item"
-                                ></el-option>
+                            <el-select v-model="server" placeholder="区服" size="mini" class="u-select-meirentu">
+                                <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
                             </el-select>
                         </td>
                         <td>
-                            <el-tooltip
-                                class="item"
-                                effect="dark"
-                                :content="(meirentu && meirentu.desc) || '无'"
-                                placement="bottom"
-                            >
+                            <el-tooltip class="item" effect="dark" :content="(meirentu && meirentu.desc) || '无'" placement="bottom">
                                 <div>
-                                    {{
-                                        (meirentu && meirentu.name) ||
-                                        "今日暂无画像"
-                                    }}
+                                    {{ (meirentu && meirentu.name) || "今日暂无画像" }}
                                 </div>
                             </el-tooltip>
                         </td>
@@ -73,13 +52,7 @@
                         <td>福缘宠物</td>
                         <td>全服</td>
                         <td>
-                            <a
-                                v-for="item in luckyList"
-                                :key="item.Index"
-                                class="u-pet"
-                                :href="getPetLink(item.Index)"
-                                >{{ item.Name }}</a
-                            >
+                            <a v-for="item in luckyList" :key="item.Index" class="u-pet" :href="getPetLink(item.Index)" target="_blank">{{ item.Name }}</a>
                         </td>
                     </tr>
                 </tbody>
@@ -98,7 +71,7 @@ import { theme } from "../../../setting.json";
 export default {
     name: "daily",
     props: [],
-    data: function () {
+    data: function() {
         return {
             year: "",
             month: "",
@@ -114,23 +87,23 @@ export default {
         };
     },
     computed: {
-        client: function () {
+        client: function() {
             return this.$store.state.client;
         },
-        my_server: function () {
+        my_server: function() {
             return this.$store.state.server;
         },
-        theme: function () {
+        theme: function() {
             return theme[this.client];
         },
     },
     watch: {
-        my_server: function (val) {
+        my_server: function(val) {
             if (val) this.server = val;
         },
         server: {
             immediate: true,
-            handler: function (val) {
+            handler: function(val) {
                 if (this.client == "std") {
                     val && this.loadMeirentu();
                 }
@@ -138,13 +111,13 @@ export default {
         },
     },
     methods: {
-        initDate: function () {
+        initDate: function() {
             let dt = new Date();
             this.year = dt.getFullYear();
             this.month = dt.getMonth() + 1;
             this.date = dt.getDate();
         },
-        loadDaily: function () {
+        loadDaily: function() {
             let dt = new Date();
             let hour = dt.getHours();
             let q;
@@ -164,31 +137,29 @@ export default {
                     });
                 });
             });
-
-            
         },
-        loadPetLucky:function(){
+        loadPetLucky: function() {
             getPetLucky().then((res) => {
                 let data = res.data.std;
                 let rawDate = new Date();
                 let dateIndex = rawDate.getMonth() + 1 + "" + rawDate.getDate();
-                let ids = data[dateIndex]
+                let ids = data[dateIndex];
                 getPets(ids).then((res) => {
-                    this.luckyList = res.data.list
-                })
+                    this.luckyList = res.data.list;
+                });
             });
         },
-        loadMeirentu: function () {
+        loadMeirentu: function() {
             getMeirentu(this.server).then((res) => {
                 this.meirentu = res.data.data;
             });
         },
         //前往宠物单页
         getPetLink: function(petIndex) {
-            return `/pvx/pet/${petIndex}`
+            return `/pvx/pet/${petIndex}`;
         },
     },
-    mounted: function () {
+    mounted: function() {
         this.initDate();
         if (this.client == "std") {
             this.loadDaily();
