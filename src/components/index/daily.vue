@@ -1,6 +1,9 @@
 <template>
     <div class="m-daily m-sideblock">
-        <div class="m-daily-header m-sideblock-header" :class="'daily-' + theme">
+        <div
+            class="m-daily-header m-sideblock-header"
+            :class="'daily-' + theme"
+        >
             <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
             <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt />
             <div class="u-list">
@@ -54,15 +57,29 @@
                             <el-tooltip
                                 class="item"
                                 effect="dark"
-                                :content="meirentu && meirentu.desc || '无'"
+                                :content="(meirentu && meirentu.desc) || '无'"
                                 placement="bottom"
                             >
                                 <div>
                                     {{
-                                    meirentu && meirentu.name || "今日暂无画像"
+                                        (meirentu && meirentu.name) ||
+                                        "今日暂无画像"
                                     }}
                                 </div>
                             </el-tooltip>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>福缘宠物</td>
+                        <td>全服</td>
+                        <td>
+                            <span
+                                v-for="item in luckyList"
+                                :key="item.Index"
+                                class="u-pet"
+                                @click="goSingle(item.Index)"
+                                >{{ item.Name }}</span
+                            >
                         </td>
                     </tr>
                 </tbody>
@@ -74,9 +91,10 @@
 <script>
 import { getDaily } from "@/service/spider";
 import { getMeirentu } from "@/service/spider";
+import { getPet, getPetLucky } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import User from "@jx3box/jx3box-common/js/user";
-import {theme} from '../../../setting.json'
+import { theme } from "../../../setting.json";
 export default {
     name: "daily",
     props: [],
@@ -91,6 +109,8 @@ export default {
             meirentu: "",
             servers,
             server: "蝶恋花",
+
+            luckyList: [],
         };
     },
     computed: {
@@ -100,9 +120,9 @@ export default {
         my_server: function () {
             return this.$store.state.server;
         },
-        theme : function (){
-            return theme[this.client]
-        }
+        theme: function () {
+            return theme[this.client];
+        },
     },
     watch: {
         my_server: function (val) {
@@ -144,11 +164,26 @@ export default {
                     });
                 });
             });
+
+            getPetLucky().then((res) => {
+                let data = res.data.std;
+                let rawDate = new Date();
+                let dateIndex = rawDate.getMonth() + 1 + "" + rawDate.getDate();
+                for (let i = 0; i < 3; i++) {
+                    getPet(data[dateIndex][i]).then((res) => {
+                        this.luckyList.push(res.data);
+                    });
+                }
+            });
         },
         loadMeirentu: function () {
             getMeirentu(this.server).then((res) => {
                 this.meirentu = res.data.data;
             });
+        },
+        //前往宠物单页
+        goSingle(petIdnex) {
+            console.log(petIdnex)
         },
     },
     mounted: function () {
