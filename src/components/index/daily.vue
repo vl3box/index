@@ -73,12 +73,12 @@
                         <td>福缘宠物</td>
                         <td>全服</td>
                         <td>
-                            <span
+                            <a
                                 v-for="item in luckyList"
                                 :key="item.Index"
                                 class="u-pet"
-                                @click="goSingle(item.Index)"
-                                >{{ item.Name }}</span
+                                :href="getPetLink(item.Index)"
+                                >{{ item.Name }}</a
                             >
                         </td>
                     </tr>
@@ -91,7 +91,7 @@
 <script>
 import { getDaily } from "@/service/spider";
 import { getMeirentu } from "@/service/spider";
-import { getPet, getPetLucky } from "@/service/spider";
+import { getPets, getPetLucky } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import User from "@jx3box/jx3box-common/js/user";
 import { theme } from "../../../setting.json";
@@ -165,15 +165,17 @@ export default {
                 });
             });
 
+            
+        },
+        loadPetLucky:function(){
             getPetLucky().then((res) => {
                 let data = res.data.std;
                 let rawDate = new Date();
                 let dateIndex = rawDate.getMonth() + 1 + "" + rawDate.getDate();
-                for (let i = 0; i < 3; i++) {
-                    getPet(data[dateIndex][i]).then((res) => {
-                        this.luckyList.push(res.data);
-                    });
-                }
+                let ids = data[dateIndex]
+                getPets(ids).then((res) => {
+                    this.luckyList = res.data.list
+                })
             });
         },
         loadMeirentu: function () {
@@ -182,14 +184,15 @@ export default {
             });
         },
         //前往宠物单页
-        goSingle(petIdnex) {
-            console.log(petIdnex)
+        getPetLink: function(petIndex) {
+            return `/pvx/pet/${petIndex}`
         },
     },
     mounted: function () {
         this.initDate();
         if (this.client == "std") {
             this.loadDaily();
+            this.loadPetLucky();
         }
     },
 };

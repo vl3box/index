@@ -59,8 +59,13 @@ function getPetLucky() {
     return axios.get(__iconPath + "pvx/pet/output/pet_lucky.json")
 }
 
-function getPet(petid, client = 'std') {
-    return $node().get(`/pet/${petid}?client=${client}`);
+function getPets(petids, client = 'std') {
+    return $node().get(`/pets`, {
+        params: {
+            ids : petids.join(','),
+            client
+        }
+    });
 }
 
 
@@ -87,5 +92,5 @@ export {
     getMeirentu,
     getDaily,
     getPetLucky,
-    getPet
+    getPets
 };
