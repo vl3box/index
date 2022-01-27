@@ -156,7 +156,7 @@ export default {
         },
         //前往宠物单页
         getPetLink: function(petIndex) {
-            return `/pvx/pet/${petIndex}`;
+            return `/pet/${petIndex}`;
         },
     },
     mounted: function() {
