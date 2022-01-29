@@ -39,7 +39,7 @@ export default {
     mounted() {
         getBoxCoin(this.event_id)
             .then((res) => {
-                let boxcoin = res.data?.boxcoin
+                let boxcoin = res.data?.data?.boxcoin
                 if (boxcoin > 0){
                     this.boxcoin = boxcoin;
                     this.success = true
