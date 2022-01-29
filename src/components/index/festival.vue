@@ -41,7 +41,7 @@ export default {
             .then((res) => {
                 let boxcoin = res.data?.data?.boxcoin
                 if (boxcoin > 0){
-                    this.boxcoin = boxcoin;
+                    this.count = boxcoin;
                     this.success = true
                 }
             })
