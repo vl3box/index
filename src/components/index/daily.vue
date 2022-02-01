@@ -66,8 +66,9 @@ import { getDaily } from "@/service/spider";
 import { getMeirentu } from "@/service/spider";
 import { getPets, getPetLucky } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
-import User from "@jx3box/jx3box-common/js/user";
+// import User from "@jx3box/jx3box-common/js/user";
 import { theme } from "../../../setting.json";
+import dayjs from 'dayjs'
 export default {
     name: "daily",
     props: [],
@@ -141,8 +142,7 @@ export default {
         loadPetLucky: function() {
             getPetLucky().then((res) => {
                 let data = res.data.std;
-                let rawDate = new Date();
-                let dateIndex = rawDate.getMonth() + 1 + "" + rawDate.getDate();
+                let dateIndex = dayjs(new Date()).format('MDD')
                 let ids = data[dateIndex];
                 getPets(ids).then((res) => {
                     this.luckyList = res.data.list;
