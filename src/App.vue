@@ -8,7 +8,7 @@
                     <slider />
                     <box />
                     <posts />
-                    <festival/>
+                    <!-- <festival/> -->
                 </div>
 
                 <div class="m-left m-sidebar">
@@ -33,7 +33,7 @@ import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
-import festival from "@/components/index/festival.vue";
+// import festival from "@/components/index/festival.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
@@ -75,7 +75,7 @@ export default {
         // 右侧
         // notice,
         posts,
-        festival,
+        // festival,
     },
     created: function() {
         if (User.isLogin()) {
