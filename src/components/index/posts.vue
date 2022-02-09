@@ -10,9 +10,8 @@
                     v-for="item in topics"
                     :key="item.label"
                     target="_blank"
-                    :style="{color:item.meta_1,fontWeight:item.meta_2}"
                     v-show="item.status && item.meta_4 == client"
-                >{{item.label}}</a>
+                >{{item.meta_3}} <span :style="{color:item.meta_1,fontWeight:item.meta_2}">{{item.label}}</span></a>
             </span>
             <a
                 :href="more_link"
