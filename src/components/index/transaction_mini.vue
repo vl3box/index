@@ -70,8 +70,7 @@
 <script>
 import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
 import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
-import GamePrice from "./GamePrice.vue";
-import User from "@jx3box/jx3box-common/js/user";
+import GamePrice from "@jx3box/jx3box-common-ui/src/wiki/GamePrice.vue";
 import { getItemPrice } from "@/service/helper.js";
 import { iconLink } from "@jx3box/jx3box-common/js/utils";
 export default {
