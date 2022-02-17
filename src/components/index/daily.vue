@@ -14,7 +14,7 @@
                 <span class="u-weixin u-item">
                     <img svg-inline src="../../assets/img/wechat.svg" />
                     <em>微信公众号：</em>
-                    <b>JX3BOX</b>
+                    <b>剑三魔盒</b>
                 </span>
             </div>
         </div>

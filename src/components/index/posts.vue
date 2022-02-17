@@ -294,6 +294,7 @@ export default {
                 getWikiPosts({
                     type,
                     limit: 10,
+                    client : this.client
                 })
                     .then((res) => {
                         this.data = res.data.data.newest || [];

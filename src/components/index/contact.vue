@@ -14,7 +14,7 @@
                     ></span
                 >
                 <span class="u-weixin u-item"
-                    ><em>微信公众号：</em><b>JX3BOX</b></span
+                    ><em>微信公众号：</em><b>剑三魔盒</b></span
                 >
             </div>
         </div>
