@@ -80,11 +80,11 @@ function getPz(params) {
 
 // 日历
 function getCalendar(params){ {
-    return $cms().get(`/api/cms/calendar/latest`, {
+    return $cms().get(`/api/cms/calendar/list`, {
         params
     })
 }
-    
+
 }
 
 // 菜单

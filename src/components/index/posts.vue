@@ -290,22 +290,22 @@ export default {
                     label: "物品",
                     slug: "item",
                 },
-                {
-                    label: "任务",
-                    slug: "quest",
-                },
+                // {
+                //     label: "任务",
+                //     slug: "quest",
+                // },
                 {
                     label: "通识",
                     slug: "knowledge",
                 },
+                // {
+                //     label: "日历",
+                //     slug: "calendar"
+                // },
                 {
                     label: "公告",
                     slug: "notice",
                 },
-                {
-                    label: "日历",
-                    slug: "calendar"
-                }
             ],
             loading: false,
 
