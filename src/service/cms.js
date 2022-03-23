@@ -41,6 +41,7 @@ function getNews(type, client = "std", limit) {
     });
 }
 
+// 骚话
 function getGossip(limit) {
     let _params = {
         client: "std",
@@ -62,20 +63,21 @@ function getPosts(params) {
     });
 }
 
+// 新闻单页
 function getPost(id) {
     return $cms().get(`/api/cms/post/${id}`);
 }
 
-// 发布
-function push(data) {
-    return $cms().post(`/api/cms/post`, data);
-}
+// 管理
+// function push(data) {
+//     return $cms().post(`/api/cms/post`, data);
+// }
 
 // 配装
 function getPz(params) {
     return $cms().get(`/api/cms/app/pz`, {
-        params
-    })
+        params,
+    });
 }
 
 // 日历
