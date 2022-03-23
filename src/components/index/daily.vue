@@ -18,6 +18,11 @@
                 </span>
             </div>
         </div>
+
+        <div>
+            <calendar></calendar>
+        </div>
+
         <div class="m-daily-content" v-if="client == 'std'">
             <table>
                 <thead>
@@ -68,9 +73,14 @@ import { getPets, getPetLucky } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 // import User from "@jx3box/jx3box-common/js/user";
 import { theme } from "../../../setting.json";
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
+
+import calendar from "@/components/index/calendar.vue";
 export default {
     name: "daily",
+    components: {
+        calendar
+    },
     props: [],
     data: function() {
         return {

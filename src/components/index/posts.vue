@@ -226,7 +226,7 @@
 <script>
 import { getPosts } from "@/service/index";
 import { getWikiPosts, getCollections } from "@/service/helper";
-import { getPz, getMenus, getCalendar } from "@/service/cms";
+import { getPz, getMenus, getRecentCalendar } from "@/service/cms";
 import {
     buildTarget,
     authorLink,
@@ -298,10 +298,10 @@ export default {
                     label: "通识",
                     slug: "knowledge",
                 },
-                // {
-                //     label: "日历",
-                //     slug: "calendar"
-                // },
+                {
+                    label: "日历",
+                    slug: "calendar"
+                },
                 {
                     label: "公告",
                     slug: "notice",
@@ -369,7 +369,7 @@ export default {
                 //         });
                 // } else {
                     if (this.type === 'calendar') {
-                        getCalendar({
+                        getRecentCalendar({
                             user_info: 1
                         }).then((res) => {
                             this.data = res.data.data.list || []

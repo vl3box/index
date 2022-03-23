@@ -79,18 +79,50 @@ function getPz(params) {
 }
 
 // 日历
-function getCalendar(params){ {
+function getRecentCalendar(params) {
     return $cms().get(`/api/cms/calendar/list`, {
         params
     })
 }
 
+function genUrl(params) {
+    const { year, month, date } = params;
+
+    let url = "";
+
+    year && (url += `/${year}`);
+    month && (url += `/${month}`);
+    date && (url += `/${date}`);
+
+    return url;
+}
+
+function getCalendar(params, client = "std") {
+    let url = genUrl(params);
+
+    return $cms().get("/api/cms/calendar/archive" + url, {
+        params: {
+            client
+        }
+    });
+}
+
+function getCalendarSlogans(params){
+    let url = genUrl(params);
+    return $cms().get(`/api/cms/calendar/slogan${url}`);
+}
+
+function getHistory(params, query) {
+    let url = genUrl(params);
+    return $cms().get(`/api/cms/calendar/history${url}`, {
+        params: query,
+    });
 }
 
 // 菜单
-function getMenus(key){
+function getMenus(key) {
     return $cms().get(`/api/cms/config/menu/${key}`)
 }
 
 
-export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz,getMenus, getCalendar };
+export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz, getMenus, getRecentCalendar, getCalendar, getCalendarSlogans, getHistory };
