@@ -78,10 +78,19 @@ function getPz(params) {
     })
 }
 
+// 日历
+function getCalendar(params){ {
+    return $cms().get(`/api/cms/calendar/latest`, {
+        params
+    })
+}
+    
+}
+
 // 菜单
 function getMenus(key){
     return $cms().get(`/api/cms/config/menu/${key}`)
 }
 
 
-export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz,getMenus };
+export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz,getMenus, getCalendar };

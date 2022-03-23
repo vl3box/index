@@ -72,6 +72,41 @@
                     </a>
                 </div>
             </template>
+            <template v-else-if="type === 'calendar'">
+                <div class="m-newpost-content" v-loading="loading">
+                    <a
+                        class="u-post"
+                        v-for="(item, i) in data"
+                        :key="i"
+                        :href="getLink(type, item.id)"
+                        :target="target"
+                    >
+                        <el-image
+                            class="u-avatar"
+                            :src="(item.user_info && item.user_info.user_avatar) | showAvatar"
+                            fit="cover"
+                        ></el-image>
+                        <div class="u-info">
+                            <i class="el-icon-collection-tag"></i>
+                            <span class="u-type" target="_blank">{{ type | formatTypeName }}</span>
+                            ／
+                            <span
+                                class="u-author"
+                                :href="authorLink(item.user_id)"
+                                target="_blank"
+                            >{{ item.user_info && item.user_info.display_name || '匿名'}}</span>
+                            <span class="u-date">
+                                <i class="el-icon-refresh"></i>
+                                {{ item.updated_at | wikiDate }}
+                            </span>
+                        </div>
+                        <span class="u-title">
+                            <i class="el-icon-reading"></i>
+                            {{ item.desc || "无标题" }}
+                        </span>
+                    </a>
+                </div>
+            </template>
             <!-- <template v-else-if="type === 'pz'">
                 <div class="m-newpost-content" v-loading="loading">
                     <a
@@ -191,7 +226,7 @@
 <script>
 import { getPosts } from "@/service/index";
 import { getWikiPosts, getCollections } from "@/service/helper";
-import { getPz, getMenus } from "@/service/cms";
+import { getPz, getMenus, getCalendar } from "@/service/cms";
 import {
     buildTarget,
     authorLink,
@@ -267,6 +302,10 @@ export default {
                     label: "公告",
                     slug: "notice",
                 },
+                {
+                    label: "日历",
+                    slug: "calendar"
+                }
             ],
             loading: false,
 
@@ -329,13 +368,23 @@ export default {
                 //             this.loading = false;
                 //         });
                 // } else {
-                    getPosts(this.client, type)
-                        .then((res) => {
-                            this.data = res.data.data.list || [];
+                    if (this.type === 'calendar') {
+                        getCalendar({
+                            user_info: 1
+                        }).then((res) => {
+                            this.data = res.data.data.list || []
+                        }).finally(() => {
+                            this.loading = false
                         })
-                        .finally(() => {
-                            this.loading = false;
-                        });
+                    } else {
+                        getPosts(this.client, type)
+                            .then((res) => {
+                                this.data = res.data.data.list || [];
+                            })
+                            .finally(() => {
+                                this.loading = false;
+                            });
+                    }
                 // }
             }
         },
