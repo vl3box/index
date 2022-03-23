@@ -218,7 +218,7 @@ import {
     __otherType,
     default_avatar,
 } from "@jx3box/jx3box-common/data/jx3box.json";
-import { showRecently } from "@/utils/moment";
+import { showRecently } from "@jx3box/jx3box-common/js/moment";
 export default {
     name: "newpost",
     props: [],

@@ -3,16 +3,7 @@
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-collection"></i>
             <span class="u-title">最新作品</span>
-            <span class="m-newpost-topics">
-                <a
-                    :href="item.link"
-                    class="u-link"
-                    v-for="item in topics"
-                    :key="item.label"
-                    target="_blank"
-                    v-show="item.status && item.meta_4 == client"
-                >{{item.meta_3}} <span :style="{color:item.meta_1,fontWeight:item.meta_2}">{{item.label}}</span></a>
-            </span>
+            <mini-bread class="u-bread" name="index_topics"/>
             <a
                 :href="more_link"
                 class="u-more"
@@ -226,7 +217,7 @@
 <script>
 import { getPosts } from "@/service/index";
 import { getWikiPosts, getCollections } from "@/service/helper";
-import { getPz, getMenus, getCalendar } from "@/service/cms";
+import { getPz, getCalendar } from "@/service/cms";
 import {
     buildTarget,
     authorLink,
@@ -241,6 +232,7 @@ import {
     default_avatar,
 } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "@/utils/moment";
+import Mini_bread from '../content/mini_bread.vue';
 export default {
     name: "newpost",
     props: [],
@@ -310,8 +302,6 @@ export default {
             loading: false,
 
             wiki_types: ["achievement", "item", "knowledge", "quest"],
-
-            topics: [],
         };
     },
     computed: {
@@ -390,11 +380,6 @@ export default {
         },
         getLink,
         authorLink,
-        loadTopics: function () {
-            getMenus("index_topics").then((res) => {
-                this.topics = res?.data?.data?.val || [];
-            });
-        },
     },
     filters: {
         formatTypeName: function (type) {
@@ -419,9 +404,10 @@ export default {
     },
     mounted: function () {
         this.loadData();
-        this.loadTopics();
     },
-    components: {},
+    components: {
+        'mini-bread':Mini_bread
+    },
 };
 </script>
 

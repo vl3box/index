@@ -3,6 +3,7 @@
         <div class="m-sideblock-header">
             <i class="el-icon-box"></i>
             <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
+            <mini-bread class="u-bread" name="index_notification"/>
         </div>
         <draggable
             class="u-list"
@@ -118,6 +119,7 @@ import User from "@jx3box/jx3box-common/js/user";
 
 import { getMeta, setMeta } from "@/service/user.js";
 import { getHelperPnt, getMenu } from "@/service/setting.js";
+import Mini_bread from '../content/mini_bread.vue';
 // ==============================
 
 const KEY = "boxmatrix";
@@ -129,6 +131,7 @@ export default {
     props: [],
     components: {
         draggable,
+        'mini-bread':Mini_bread
     },
     data: function () {
         return {
