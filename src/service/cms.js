@@ -127,4 +127,4 @@ function getMenus(key) {
 }
 
 
-export { getCode, getNews, getSliders, getPosts, getGossip, push, getPost, getPz, getMenus, getRecentCalendar, getCalendar, getCalendarSlogans, getHistory };
+export { getCode, getNews, getSliders, getPosts, getGossip, getPost, getPz, getMenus, getRecentCalendar, getCalendar, getCalendarSlogans, getHistory };
