@@ -19,9 +19,9 @@
             </div>
         </div>
 
-        <div>
+        <!-- <div>
             <calendar></calendar>
-        </div>
+        </div> -->
 
         <div class="m-daily-content" v-if="client == 'std'">
             <table>
@@ -60,6 +60,13 @@
                             <a v-for="item in luckyList" :key="item.Index" class="u-pet" :href="getPetLink(item.Index)" target="_blank">{{ item.Name }}</a>
                         </td>
                     </tr>
+                    <tr v-if="furnitureDesc || furnitureClassify">
+                        <td>园宅会赛</td>
+                        <td>{{ furnitureDesc.text }}</td>
+                        <td class="u-furniture">
+                            <a class="u-pet" href="/furniture?match=1" target="_blank">{{ furnitureClassify.text }}</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -67,11 +74,8 @@
 </template>
 
 <script>
-import { getDaily } from "@/service/spider";
-import { getMeirentu } from "@/service/spider";
-import { getPets, getPetLucky } from "@/service/spider";
+import { getDaily, getMeirentu, getPets, getPetLucky, getFurniture } from "@/service/spider";
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
-// import User from "@jx3box/jx3box-common/js/user";
 import { theme } from "../../../setting.json";
 import dayjs from 'dayjs';
 
@@ -79,7 +83,7 @@ import calendar from "@/components/index/calendar.vue";
 export default {
     name: "daily",
     components: {
-        calendar
+        // calendar
     },
     props: [],
     data: function() {
@@ -95,6 +99,7 @@ export default {
             server: "蝶恋花",
 
             luckyList: [],
+            furniture: [],
         };
     },
     computed: {
@@ -107,6 +112,14 @@ export default {
         theme: function() {
             return theme[this.client];
         },
+        // 园宅会赛显示text
+        furnitureClassify: function (){
+            return this.furniture?.find(item => item.name === 'Text_Classify')
+        },
+        // 园宅会赛类型
+        furnitureDesc: function (){
+            return this.furniture?.find(item => item.name === 'Text_Des')
+        }
     },
     watch: {
         my_server: function(val) {
@@ -164,6 +177,37 @@ export default {
                 this.meirentu = res.data.data;
             });
         },
+        // 园宅会赛
+        loadFurniture: function (){
+            const params = {
+                type: 'homeland',
+                subtype: 'furniture',
+                client_language: 'zhcn_hd',
+                region: '电信五区',
+                server: '梦江南'
+            }
+            getFurniture(params).then(res => {
+                let data = [];
+                const now = dayjs().hour();
+
+                // 大于7取today，否则取yestoday
+                if (now < 7) {
+                    data = res?.data?.data?.yestoday || []
+                } else {
+                    data = (res?.data?.data?.today?.length && res?.data?.data?.today) || res?.data?.data?.yestoday || [];
+                }
+
+                try {
+                    data.forEach(item => {
+                        let content = (item.content && JSON.parse(item.content)) || '';
+
+                        content && this.furniture.push(content)
+                    })
+                } catch(e) {
+                    this.furniture = []
+                }
+            })
+        },
         //前往宠物单页
         getPetLink: function(petIndex) {
             return `/pet/${petIndex}`;
@@ -174,6 +218,7 @@ export default {
         if (this.client == "std") {
             this.loadDaily();
             this.loadPetLucky();
+            this.loadFurniture()
         }
     },
 };

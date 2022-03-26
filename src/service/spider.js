@@ -60,4 +60,11 @@ function getPets(petids, client = "std") {
     });
 }
 
-export { getGameNews, getServers, getPrice, getMeirentu, getDaily, getPetLucky, getPets };
+// 园宅会赛
+function getFurniture(params){
+    return $team().get(`/api/team/share-ui/get/today`, {
+        params
+    })
+}
+
+export { getGameNews, getServers, getPrice, getMeirentu, getDaily, getPetLucky, getPets, getFurniture };
