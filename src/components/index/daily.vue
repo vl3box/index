@@ -20,7 +20,7 @@
         </div>
 
         <div>
-            <calendar></calendar>
+            <!-- <calendar></calendar> -->
         </div>
 
         <div class="m-daily-content" v-if="client == 'std'">
@@ -79,11 +79,11 @@ import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import { theme } from "../../../setting.json";
 import dayjs from 'dayjs';
 
-import calendar from "@/components/index/calendar.vue";
+// import calendar from "@/components/index/calendar.vue";
 export default {
     name: "daily",
     components: {
-        calendar
+        // calendar
     },
     props: [],
     data: function() {

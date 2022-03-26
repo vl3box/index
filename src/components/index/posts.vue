@@ -290,10 +290,10 @@ export default {
                     label: "通识",
                     slug: "knowledge",
                 },
-                {
-                    label: "日历",
-                    slug: "calendar"
-                },
+                // {
+                //     label: "日历",
+                //     slug: "calendar"
+                // },
                 {
                     label: "公告",
                     slug: "notice",
