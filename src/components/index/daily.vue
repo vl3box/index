@@ -19,9 +19,9 @@
             </div>
         </div>
 
-        <!-- <div>
+        <div>
             <calendar></calendar>
-        </div> -->
+        </div>
 
         <div class="m-daily-content" v-if="client == 'std'">
             <table>
@@ -83,7 +83,7 @@ import calendar from "@/components/index/calendar.vue";
 export default {
     name: "daily",
     components: {
-        // calendar
+        calendar
     },
     props: [],
     data: function() {

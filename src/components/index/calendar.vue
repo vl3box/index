@@ -27,12 +27,20 @@
         </section>
         <section class="m-calendar-history" v-if="history && history.length">
             <span>那年今日</span>
-            <div class="m-history-item" v-for="item in history" :key="item.id">
-                <template v-if="item.link && item.link.length">
-                    <a class="u-link" v-for="linkItem in item.link" :key="linkItem.desc" :href="linkItem.link">{{ linkItem.desc }}</a>
-                </template>
-                <a class="u-link" :href="item.link_temp" target="_blank">{{ item.title || item.desc }}</a>
-            </div>
+            <el-carousel
+                indicator-position="none"
+                :autoplay="true"
+                :interval="4000"
+                height="60px"
+                direction="vertical"
+            >
+                <el-carousel-item class="m-history-item" v-for="item in history" :key="item.id">
+                    <template v-if="item.link && item.link.length">
+                        <a class="u-link" v-for="linkItem in item.link" :key="linkItem.desc" :href="linkItem.link">{{ linkItem.desc }}</a>
+                    </template>
+                    <a class="u-link" :href="item.link_temp" target="_blank">{{ item.title || item.desc }}</a>
+                </el-carousel-item>
+            </el-carousel>
         </section>
     </section>
 </template>

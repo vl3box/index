@@ -20,6 +20,7 @@
             >
                 {{ item.title || item.desc }}
             </div> -->
+            {{ slogan && slogan.title }}
         </div>
     </div>
 </template>
@@ -59,7 +60,7 @@ export default {
         sloganStyle() {
             return {
                 backgroundColor: this.slogan?.bgcolor,
-                backgroundImage: `url(${resolveImagePath(this.slogan?.img)})`,
+                backgroundImage: `url(${resolveImagePath(this.slogan?.banner)})`,
             };
         },
         themeColor() {
