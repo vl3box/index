@@ -178,35 +178,53 @@ export default {
             });
         },
         // 园宅会赛
-        loadFurniture: function (){
-            const params = {
-                type: 'homeland',
-                subtype: 'furniture',
-                client_language: 'zhcn_hd',
-                region: '电信五区',
-                server: '梦江南'
-            }
-            getFurniture(params).then(res => {
-                let data = [];
+        setFurniture(res) {
+            let data = [];
                 const now = dayjs().hour();
-
                 // 大于7取today，否则取yestoday
                 if (now < 7) {
-                    data = res?.data?.data?.yestoday || []
+                    data = res?.data?.data?.yestoday || [];
                 } else {
-                    data = (res?.data?.data?.today?.length && res?.data?.data?.today) || res?.data?.data?.yestoday || [];
+                    data =
+                        (res?.data?.data?.today?.length && res?.data?.data?.today) || res?.data?.data?.yestoday || [];
                 }
 
                 try {
-                    data.forEach(item => {
-                        let content = (item.content && JSON.parse(item.content)) || '';
+                    data.forEach((item) => {
+                        let content = (item.content && JSON.parse(item.content)) || "";
 
-                        content && this.furniture.push(content)
-                    })
-                } catch(e) {
-                    this.furniture = []
+                        content && this.furniture.push(content);
+                    });
+                } catch (e) {
+                    this.furniture = [];
                 }
-            })
+        },
+        loadFurniture: function (){
+            try {
+                let furniture = sessionStorage.getItem('furniture')
+
+                furniture = furniture && JSON.parse(furniture);
+
+                if (furniture) {
+                    this.setFurniture(furniture)
+                } else {
+                    const params = {
+                        type: "homeland",
+                        subtype: "furniture",
+                        client_language: "zhcn_hd",
+                        region: "电信五区",
+                        server: "梦江南",
+                    };
+                    getFurniture(params).then((res) => {
+                        this.setFurniture(res)
+
+                        sessionStorage.setItem('furniture', JSON.stringify(res))
+                    });
+                }
+            } catch(e) {
+                console.error(e);
+                this.furniture = []
+            }
         },
         //前往宠物单页
         getPetLink: function(petIndex) {
