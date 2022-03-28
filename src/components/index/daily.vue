@@ -78,7 +78,8 @@ import { getDaily, getMeirentu, getPets, getPetLucky, getFurniture } from "@/ser
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import { theme } from "../../../setting.json";
 import dayjs from 'dayjs';
-
+import isoWeek from 'dayjs/plugin/isoWeek';
+dayjs.extend(isoWeek);
 // import calendar from "@/components/index/calendar.vue";
 export default {
     name: "daily",
@@ -142,24 +143,15 @@ export default {
             this.date = dt.getDate();
         },
         loadDaily: function() {
-            let dt = new Date();
-            let hour = dt.getHours();
-            let q;
-            if (hour > 0 && hour < 9) {
-                q = ~~((Date.now() - 86400000) / 1000);
-            } else {
-                q = ~~(Date.now() / 1000);
-            }
-
-            getDaily(q).then((res) => {
-                let list = res.data.data;
-                list?.forEach((item) => {
-                    this.daily.push({
-                        type: item.taskType,
+            getDaily('today').then((res) => {
+                let list = res.data.data || [];
+                this.daily = list?.map(item => {
+                    return {
+                        type: item.task_type,
                         zone: "全服",
-                        name: item.activityName,
-                    });
-                });
+                        name: item.activity_name
+                    }
+                })
             });
         },
         loadPetLucky: function() {
@@ -179,25 +171,17 @@ export default {
         },
         // 园宅会赛
         setFurniture(res) {
-            let data = [];
-                const now = dayjs().hour();
-                // 大于7取today，否则取yestoday
-                if (now < 7) {
-                    data = res?.data?.data?.yestoday || [];
-                } else {
-                    data =
-                        (res?.data?.data?.today?.length && res?.data?.data?.today) || res?.data?.data?.yestoday || [];
-                }
+            let data = res.data.data;
 
-                try {
-                    data.forEach((item) => {
-                        let content = (item.content && JSON.parse(item.content)) || "";
+            try {
+                data.forEach((item) => {
+                    let content = (item.content && JSON.parse(item.content)) || "";
 
-                        content && this.furniture.push(content);
-                    });
-                } catch (e) {
-                    this.furniture = [];
-                }
+                    content && this.furniture.push(content);
+                });
+            } catch (e) {
+                this.furniture = [];
+            }
         },
         loadFurniture: function (){
             try {
@@ -211,9 +195,8 @@ export default {
                     const params = {
                         type: "homeland",
                         subtype: "furniture",
-                        client_language: "zhcn_hd",
-                        region: "电信五区",
-                        server: "梦江南",
+                        start: dayjs().startOf('isoWeek').format('YYYY-MM-DD'),
+                        end: dayjs().endOf('isoWeek').format('YYYY-MM-DD')
                     };
                     getFurniture(params).then((res) => {
                         this.setFurniture(res)

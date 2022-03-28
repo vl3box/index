@@ -1,4 +1,4 @@
-import { $team } from "@jx3box/jx3box-common/js/https";
+import { $team, $cms } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
 import { __spider } from "@jx3box/jx3box-common/data/jx3box.json";
 import { __dataPath } from "@jx3box/jx3box-common/data/jx3box.json";
@@ -9,13 +9,11 @@ const $spider = axios.create({
 
 // 日常
 function getDaily(date) {
-    return $team({
-        mute: true,
-    }).get("/xoyo/daily/task", {
+    return $cms({mute: true}).get(`/api/cms/game/daily`, {
         params: {
-            date: date, //int,时间戳，单位秒
-        },
-    });
+            custom: date
+        }
+    })
 }
 
 // 美人图
@@ -62,7 +60,12 @@ function getPets(petids, client = "std") {
 
 // 园宅会赛
 function getFurniture(params){
-    return $team({mute:true}).get(`/api/team/share-ui/get/today`, {
+    // return $team({mute:true}).get(`/api/team/share-ui/get/today`, {
+    //     params
+    // })
+    // debugger
+
+    return $cms({mute: true}).get(`/api/cms/game/furniture/match`, {
         params
     })
 }
