@@ -191,9 +191,9 @@ export default {
         buildRawData(raw) {
             // 默认数据
             const client = location.href.includes("origin") ? "origin" : "std";
-            const default_data = raw.filter((item) => {
+            const default_data = raw?.filter((item) => {
                 return item.client == "all" ? true : item.client == client;
-            });
+            }) || [];
             this.data = this.default_data = default_data;
 
             // 默认排序与折行

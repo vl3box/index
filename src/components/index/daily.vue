@@ -60,13 +60,16 @@
                             <a v-for="item in luckyList" :key="item.Index" class="u-pet" :href="getPetLink(item.Index)" target="_blank">{{ item.Name }}</a>
                         </td>
                     </tr>
-                    <tr v-if="furnitureDesc || furnitureClassify">
-                        <td>园宅会赛</td>
-                        <td>{{ furnitureDesc.text }}</td>
-                        <td class="u-furniture">
-                            <a class="u-pet" href="/furniture?match=1" target="_blank">{{ furnitureClassify.text }}</a>
-                        </td>
-                    </tr>
+                    <el-tooltip popper-class="m-next-match" v-if="furnitureCategory || furnitureProperty">
+                        <div :class="{'u-next-match': furnitureNextMatch}" slot="content" v-html="nl2br(furnitureNextMatch && furnitureNextMatch.content) || '无'"></div>
+                        <tr>
+                            <td>园宅会赛</td>
+                            <td>{{ furnitureProperty && furnitureProperty.content }}</td>
+                            <td class="u-furniture">
+                                <a class="u-pet" href="/furniture?match=1" target="_blank">{{ furnitureCategory && furnitureCategory.content }}</a>
+                            </td>
+                        </tr>
+                    </el-tooltip>
                 </tbody>
             </table>
         </div>
@@ -80,7 +83,8 @@ import { theme } from "../../../setting.json";
 import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 dayjs.extend(isoWeek);
-// import calendar from "@/components/index/calendar.vue";
+import {nl2br} from '@/utils/filters'
+
 export default {
     name: "daily",
     components: {
@@ -114,12 +118,16 @@ export default {
             return theme[this.client];
         },
         // 园宅会赛显示text
-        furnitureClassify: function (){
-            return this.furniture?.find(item => item.name === 'Text_Classify')
+        furnitureCategory: function (){
+            return this.furniture?.find(item => item.subtype === 'category')
         },
         // 园宅会赛类型
-        furnitureDesc: function (){
-            return this.furniture?.find(item => item.name === 'Text_Des')
+        furnitureProperty: function (){
+            return this.furniture?.find(item => item.subtype === 'property')
+        },
+        furnitureNextMatch: function (){
+            // return this.furniture?.find(item => item.subtype === 'next_match')
+            return ''
         }
     },
     watch: {
@@ -174,11 +182,7 @@ export default {
             let data = res.data.data;
 
             try {
-                data.forEach((item) => {
-                    let content = (item.content && JSON.parse(item.content)) || "";
-
-                    content && this.furniture.push(content);
-                });
+                this.furniture = data
             } catch (e) {
                 this.furniture = [];
             }
@@ -193,15 +197,16 @@ export default {
                     this.setFurniture(furniture)
                 } else {
                     const params = {
-                        type: "homeland",
-                        subtype: "furniture",
+                        subtypes: "category,property,next_match",
                         start: dayjs().startOf('isoWeek').format('YYYY-MM-DD'),
                         end: dayjs().endOf('isoWeek').format('YYYY-MM-DD')
                     };
                     getFurniture(params).then((res) => {
                         this.setFurniture(res)
 
-                        sessionStorage.setItem('furniture', JSON.stringify(res))
+                        if (res.data?.data?.length) {
+                            sessionStorage.setItem('furniture', JSON.stringify(res))
+                        }
                     });
                 }
             } catch(e) {
@@ -213,6 +218,7 @@ export default {
         getPetLink: function(petIndex) {
             return `/pet/${petIndex}`;
         },
+        nl2br,
     },
     mounted: function() {
         this.initDate();
