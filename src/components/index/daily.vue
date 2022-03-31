@@ -20,7 +20,7 @@
         </div>
 
         <div>
-            <!-- <calendar></calendar> -->
+            <calendar></calendar>
         </div>
 
         <div class="m-daily-content" v-if="client == 'std'">
@@ -84,11 +84,12 @@ import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 dayjs.extend(isoWeek);
 import {nl2br} from '@/utils/filters'
+import calendar from './calendar.vue'
 
 export default {
     name: "daily",
     components: {
-        // calendar
+        calendar
     },
     props: [],
     data: function() {

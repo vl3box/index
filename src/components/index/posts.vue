@@ -3,14 +3,8 @@
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-collection"></i>
             <span class="u-title">最新作品</span>
-            <mini-bread class="u-bread" name="index_topics"/>
-            <a
-                :href="more_link"
-                class="u-more"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="查看全部"
-            >
+            <mini-bread class="u-bread" name="index_topics" />
+            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>
         </div>
@@ -34,23 +28,17 @@
                         class="u-post"
                         v-for="(item, i) in data"
                         :key="i"
-                        :href="getLink(item.type,item.source_id)"
+                        :href="getLink(item.type, item.source_id)"
                         :target="target"
                     >
-                        <el-image
-                            class="u-avatar"
-                            :src="(item.user_avatar) | showAvatar"
-                            fit="cover"
-                        ></el-image>
+                        <el-image class="u-avatar" :src="item.user_avatar | showAvatar" fit="cover"></el-image>
                         <div class="u-info">
                             <i class="el-icon-collection-tag"></i>
                             <span class="u-type" target="_blank">{{ item.type | formatTypeName }}</span>
                             ／
-                            <span
-                                class="u-author"
-                                :href="authorLink(item.user_id)"
-                                target="_blank"
-                            >{{ item.user_nickname || '匿名'}}</span>
+                            <span class="u-author" :href="authorLink(item.user_id)" target="_blank">{{
+                                item.user_nickname || "匿名"
+                            }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>
                                 {{ item.updated | wikiDate }}
@@ -81,11 +69,9 @@
                             <i class="el-icon-collection-tag"></i>
                             <span class="u-type" target="_blank">{{ type | formatTypeName }}</span>
                             ／
-                            <span
-                                class="u-author"
-                                :href="authorLink(item.user_id)"
-                                target="_blank"
-                            >{{ item.user_info && item.user_info.display_name || '匿名'}}</span>
+                            <span class="u-author" :href="authorLink(item.user_id)" target="_blank">{{
+                                (item.user_info && item.user_info.display_name) || "匿名"
+                            }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>
                                 {{ item.updated_at | wikiDate }}
@@ -174,7 +160,7 @@
                         class="u-post"
                         v-for="(item, i) in data"
                         :key="i"
-                        :href="getLink(item.post_type,item.ID)"
+                        :href="getLink(item.post_type, item.ID)"
                         :target="target"
                     >
                         <el-image
@@ -185,16 +171,11 @@
                         ></el-image>
                         <div class="u-info">
                             <i class="el-icon-collection-tag"></i>
-                            <span
-                                class="u-type"
-                                target="_blank"
-                            >{{ item.post_type | formatTypeName }}</span>
+                            <span class="u-type" target="_blank">{{ item.post_type | formatTypeName }}</span>
                             ／
-                            <span
-                                class="u-author"
-                                :href="authorLink(item.post_author)"
-                                target="_blank"
-                            >{{ item.author_info && item.author_info.display_name || '匿名'}}</span>
+                            <span class="u-author" :href="authorLink(item.post_author)" target="_blank">{{
+                                (item.author_info && item.author_info.display_name) || "匿名"
+                            }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>
                                 {{ item.post_modified | dateFormat }}
@@ -218,25 +199,14 @@
 import { getPosts } from "@/service/index";
 import { getWikiPosts, getCollections } from "@/service/helper";
 import { getPz, getMenus, getRecentCalendar } from "@/service/cms";
-import {
-    buildTarget,
-    authorLink,
-    showAvatar,
-    getThumbnail,
-    getLink,
-    iconLink,
-} from "@jx3box/jx3box-common/js/utils";
-import {
-    __postType,
-    __otherType,
-    default_avatar,
-} from "@jx3box/jx3box-common/data/jx3box.json";
+import { buildTarget, authorLink, showAvatar, getLink, iconLink,getTypeLabel } from "@jx3box/jx3box-common/js/utils";
+import { __postType } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "@/utils/moment";
-import Mini_bread from '../content/mini_bread.vue';
+import Mini_bread from "../content/mini_bread.vue";
 export default {
     name: "newpost",
     props: [],
-    data: function () {
+    data: function() {
         return {
             data: [],
             target: buildTarget(),
@@ -305,25 +275,25 @@ export default {
         };
     },
     computed: {
-        isWikiType: function () {
+        isWikiType: function() {
             return this.wiki_types.includes(this.type);
         },
-        client: function () {
+        client: function() {
             return this.$store.state.client;
         },
-        more_link: function () {
+        more_link: function() {
             return this.type == "all" ? "/bbs" : "/" + this.type;
         },
     },
     methods: {
-        loadData: function () {
+        loadData: function() {
             let type = this.type == "all" ? "" : this.type;
             this.loading = true;
             if (this.isWikiType) {
                 getWikiPosts({
                     type,
                     limit: 10,
-                    client : this.client
+                    client: this.client,
                 })
                     .then((res) => {
                         this.data = res.data.data.newest || [];
@@ -358,23 +328,25 @@ export default {
                 //             this.loading = false;
                 //         });
                 // } else {
-                    if (this.type === 'calendar') {
-                        getRecentCalendar({
-                            user_info: 1
-                        }).then((res) => {
-                            this.data = res.data.data.list || []
-                        }).finally(() => {
-                            this.loading = false
+                if (this.type === "calendar") {
+                    getRecentCalendar({
+                        user_info: 1,
+                    })
+                        .then((res) => {
+                            this.data = res.data.data.list || [];
                         })
-                    } else {
-                        getPosts(this.client, type)
-                            .then((res) => {
-                                this.data = res.data.data.list || [];
-                            })
-                            .finally(() => {
-                                this.loading = false;
-                            });
-                    }
+                        .finally(() => {
+                            this.loading = false;
+                        });
+                } else {
+                    getPosts(this.client, type)
+                        .then((res) => {
+                            this.data = res.data.data.list || [];
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                        });
+                }
                 // }
             }
         },
@@ -382,31 +354,30 @@ export default {
         authorLink,
     },
     filters: {
-        formatTypeName: function (type) {
-            if(type == 'achievement') return '成就百科'
-            return __postType[type] || __otherType[type];
+        formatTypeName: function(type) {
+            return getTypeLabel(type)
         },
-        dateFormat: function (val) {
+        dateFormat: function(val) {
             return showRecently(val);
         },
-        showAvatar: function (val) {
+        showAvatar: function(val) {
             return showAvatar(val, 24);
         },
         iconLink,
-        wikiDate: function (val) {
+        wikiDate: function(val) {
             return showRecently(new Date(val * 1000));
         },
     },
     watch: {
-        type: function () {
+        type: function() {
             this.loadData();
         },
     },
-    mounted: function () {
+    mounted: function() {
         this.loadData();
     },
     components: {
-        'mini-bread':Mini_bread
+        "mini-bread": Mini_bread,
     },
 };
 </script>

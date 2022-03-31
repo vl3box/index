@@ -26,12 +26,12 @@
             </div>
         </section>
         <section class="m-calendar-history" v-if="history && history.length">
-            <span>那年今日</span>
+            <span class="u-title">✨ 那年今日</span>
             <el-carousel
                 indicator-position="none"
                 :autoplay="true"
                 :interval="4000"
-                height="60px"
+                height="24px"
                 direction="vertical"
             >
                 <el-carousel-item class="m-history-item" v-for="item in history" :key="item.id">

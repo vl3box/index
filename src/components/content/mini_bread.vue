@@ -46,6 +46,7 @@ export default {
     .fz(12px);
     .ml(15px);
     .u-link {
+        .mr(10px);
         span {
             .bold;
         }
