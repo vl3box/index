@@ -1,11 +1,11 @@
 <template>
-    <div class="m-calendar-item" :class="slogan ? slogan.style : ''" :style="sloganStyle">
+    <div class="m-calendar-item" :class="slogan.style" :style="sloganStyle">
         <span
             class="u-date-text"
             :style="{ backgroundColor: isToday && themeColor, color: isToday && themeColor && '#fff' }"
             >{{ data.date }}</span
         >
-        <div v-if="data.type === 'normal'" class="u-links">
+        <div v-if="data.type === 'normal'" class="u-links" :style="{color:slogan.color}">
             <!-- <div
                 class="u-link"
                 :class="linkClassName(item)"
@@ -55,7 +55,7 @@ export default {
         },
         slogan() {
             const { data } = this;
-            return this.slogans.find((d) => d.year == data.year && d.month == data.month && d.date == data.date);
+            return this.slogans.find((d) => d.year == data.year && d.month == data.month && d.date == data.date) || {};
         },
         sloganStyle() {
             return {
