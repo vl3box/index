@@ -15,7 +15,7 @@
 
                     <span class="u-modate u-sub-block" title="发布时间">
                         <i class="el-icon-date"></i>
-                        <time>发布时间：{{ post.post_date | showDate }}</time>
+                        <time>最后更新 : {{ post.post_modified | showDate }}</time>
                     </span>
 
                     <span class="u-views u-sub-block" v-if="isAdmin">
