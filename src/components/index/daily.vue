@@ -23,7 +23,8 @@
             <calendar></calendar>
         </div>
 
-        <div class="m-daily-content" v-if="client == 'std'">
+        <!-- 隐藏的内容 -->
+        <!-- <div class="m-daily-content" v-if="client == 'std'">
             <table>
                 <thead>
                     <tr>
@@ -72,7 +73,7 @@
                     </el-tooltip>
                 </tbody>
             </table>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -223,11 +224,11 @@ export default {
     },
     mounted: function() {
         this.initDate();
-        if (this.client == "std") {
-            this.loadDaily();
-            this.loadPetLucky();
-            this.loadFurniture()
-        }
+        // if (this.client == "std") {
+        //     this.loadDaily();
+        //     this.loadPetLucky();
+        //     this.loadFurniture()
+        // }
     },
 };
 </script>

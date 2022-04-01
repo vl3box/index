@@ -9,7 +9,7 @@ const $spider = axios.create({
 
 // 日常
 function getDaily(date) {
-    return $cms({mute: true}).get(`/api/cms/game/daily`, {
+    return $cms({ mute: true }).get(`/api/cms/game/daily`, {
         params: {
             custom: date
         }
@@ -59,13 +59,8 @@ function getPets(petids, client = "std") {
 }
 
 // 园宅会赛
-function getFurniture(params){
-    // return $team({mute:true}).get(`/api/team/share-ui/get/today`, {
-    //     params
-    // })
-    // debugger
-
-    return $cms({mute: true}).get(`/api/cms/game/furniture/match`, {
+function getFurniture(params) {
+    return $cms({ mute: true }).get(`/api/cms/game/furniture/match`, {
         params
     })
 }

@@ -38,7 +38,7 @@
                     <template v-if="item.link && item.link.length">
                         <a class="u-link" v-for="linkItem in item.link" :key="linkItem.desc" :href="linkItem.link">{{ linkItem.desc }}</a>
                     </template>
-                    <a class="u-link" :href="item.link_temp" target="_blank">{{ item.title || item.desc }}</a>
+                    <a class="u-link" :href="`/calendar/view/${item.id}`" target="_blank">{{ item.title || item.desc }}</a>
                 </el-carousel-item>
             </el-carousel>
         </section>
@@ -183,7 +183,7 @@ export default {
         },
         dateClick(item) {
             if (item.type === 'normal') {
-                location.href = `/calendar/archive/${item.year}/${item.month}/${item.date}`
+                window.open(`${location.origin}/calendar/archive/${item.year}/${item.month}/${item.date}`);
             }
         },
 
