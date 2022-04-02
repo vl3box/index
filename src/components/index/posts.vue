@@ -57,7 +57,7 @@
                         class="u-post"
                         v-for="(item, i) in data"
                         :key="i"
-                        :href="getLink(type, item.id)"
+                        :href="getLink('calendar', item.id)"
                         :target="target"
                     >
                         <el-image
@@ -74,7 +74,7 @@
                             }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>
-                                {{ item.updated_at | wikiDate }}
+                                {{ item.created_at | dateFormat}}
                             </span>
                         </div>
                         <span class="u-title">
