@@ -66,8 +66,25 @@
 }
 
 .m-history {
+    border:none;
     .el-collapse-item__header {
         height: 24px;
+        border: none;
+    }
+    .el-collapse-item__header{
+        .x(right);
+    }
+    .el-collapse-item__arrow{
+        .fz(12px);
+        &:after{
+            content :"那年今日";
+        }
+
+        &.is-active{
+            &:after{
+                .none;
+            }
+        }
     }
 }
 

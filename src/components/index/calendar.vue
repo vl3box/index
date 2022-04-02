@@ -27,8 +27,8 @@
                 ></calendar-item>
             </a>
         </section>
-        <el-collapse class="m-history" v-if="history && history.length" title="展开那年今日">
-            <el-collapse-item>
+        <el-collapse class="m-history" v-if="history && history.length" v-model="collapse">
+            <el-collapse-item name="history">
                 <section class="m-calendar-history">
                     <span class="u-title">✨ 那年今日</span>
                     <el-carousel
@@ -72,6 +72,8 @@ export default {
             monthStartWeekday: 0,
             history: [],
             counts: [],
+
+            collapse : []
         };
     },
     computed: {
