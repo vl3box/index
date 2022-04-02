@@ -6,7 +6,7 @@
             </div>
         </section>
         <section class="m-calendar-date">
-            <div
+            <a
                 v-for="(item, index) in dataArr"
                 class="u-date"
                 :class="[
@@ -14,39 +14,45 @@
                     { 'u-today': isToday(item) },
                     { 'u-current': isCurrent(item) }
                 ]"
-                @click.prevent="dateClick(item)"
                 :key="index"
+                :href="`/calendar/archive/${item.year}/${item.month}/${item.date}`"
+                target="_blank"
             >
                 <calendar-item
                     :data="item"
+                    :counts="counts"
                     :slogans="slogans"
                     :pageSlogan="pageSlogan"
                     :isToday="isToday(item)"
                 ></calendar-item>
-            </div>
+            </a>
         </section>
-        <section class="m-calendar-history" v-if="history && history.length">
-            <span class="u-title">✨ 那年今日</span>
-            <el-carousel
-                indicator-position="none"
-                :autoplay="true"
-                :interval="4000"
-                height="24px"
-                direction="vertical"
-            >
-                <el-carousel-item class="m-history-item" v-for="item in history" :key="item.id">
-                    <template v-if="item.link && item.link.length">
-                        <a class="u-link" v-for="linkItem in item.link" :key="linkItem.desc" :href="linkItem.link">{{ linkItem.desc }}</a>
-                    </template>
-                    <a class="u-link" :href="`/calendar/view/${item.id}`" target="_blank">{{ item.title || item.desc }}</a>
-                </el-carousel-item>
-            </el-carousel>
-        </section>
+        <el-collapse class="m-history" v-if="history && history.length" title="展开那年今日">
+            <el-collapse-item>
+                <section class="m-calendar-history">
+                    <span class="u-title">✨ 那年今日</span>
+                    <el-carousel
+                        indicator-position="none"
+                        :autoplay="true"
+                        :interval="4000"
+                        height="24px"
+                        direction="vertical"
+                    >
+                        <el-carousel-item class="m-history-item" v-for="item in history" :key="item.id">
+                            <template v-if="item.link && item.link.length">
+                                <a class="u-link" v-for="linkItem in item.link" :key="linkItem.desc" :href="linkItem.link">{{ linkItem.desc }}</a>
+                            </template>
+                            <a class="u-link" :href="`/calendar/view/${item.id}`" target="_blank">{{ item.title || item.desc }}</a>
+                        </el-carousel-item>
+                    </el-carousel>
+                </section>
+            </el-collapse-item>
+        </el-collapse>
     </section>
 </template>
 
 <script>
-import { getCalendar, getCalendarSlogans, getHistory } from "@/service/cms.js";
+import { getCalendar, getCalendarSlogans, getHistory, getCalendarCount } from "@/service/cms.js";
 import calendar_item from "./calendar_item.vue";
 export default {
     name: "calendar",
@@ -64,7 +70,8 @@ export default {
             weeks: ["一", "二", "三", "四", "五", "六", "日"],
             slogans: [],
             monthStartWeekday: 0,
-            history: []
+            history: [],
+            counts: [],
         };
     },
     computed: {
@@ -90,7 +97,8 @@ export default {
 
         this.loadCalendar();
         this.loadCalendarSlogans();
-        this.loadHistory()
+        this.loadCalendarCount();
+        this.loadHistory();
     },
     methods: {
         // 判断是否为今日
@@ -181,12 +189,11 @@ export default {
 
             return { year, month, date: defaultDate };
         },
-        dateClick(item) {
+        getCalendarLink(item) {
             if (item.type === 'normal') {
                 window.open(`${location.origin}/calendar/archive/${item.year}/${item.month}/${item.date}`);
             }
         },
-
         // 数据加载
         loadCalendar() {
             const { year, month } = this.current;
@@ -199,6 +206,19 @@ export default {
                     if (index) {
                         this.dataArr[index].children.push(item);
                     }
+                });
+            });
+        },
+        // 获取当前年月的统计数据
+        loadCalendarCount() {
+            const { year, month } = this.current;
+            getCalendarCount({ year, month }).then((res) => {
+                this.counts = res.data.map((item) => {
+                    return {
+                        ...item,
+                        month,
+                        year,
+                    };
                 });
             });
         },

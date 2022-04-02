@@ -109,7 +109,13 @@ function getCalendar(params, client = "std") {
     });
 }
 
-function getCalendarSlogans(params){
+// 获取日历计数
+function getCalendarCount(params) {
+    let url = genUrl(params);
+    return $cms().get(`/api/cms/calendar/count${url}`);
+}
+
+function getCalendarSlogans(params) {
     let url = genUrl(params);
     return $cms().get(`/api/cms/calendar/slogan${url}`);
 }
@@ -127,4 +133,4 @@ function getMenus(key) {
 }
 
 
-export { getCode, getNews, getSliders, getPosts, getGossip, getPost, getPz, getMenus, getRecentCalendar, getCalendar, getCalendarSlogans, getHistory };
+export { getCode, getNews, getSliders, getPosts, getGossip, getPost, getPz, getMenus, getRecentCalendar, getCalendar, getCalendarSlogans, getHistory, getCalendarCount };
