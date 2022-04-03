@@ -389,8 +389,9 @@ export default {
     },
     filters: {
         getBoxIcon: function (val) {
-            // return "/box/" + val;
-            return __imgPath + "image/box/" + val;
+            let web_url = __imgPath + "image/box/" + val
+            let local_url = "/box/" + val;
+            return process.env.NODE_ENV === "production" ? web_url : local_url
         },
     },
     created: function () {
