@@ -137,7 +137,7 @@ export default {
             if (val) this.server = val;
         },
         server: {
-            immediate: true,
+            // immediate: true,
             handler: function(val) {
                 if (this.client == "std") {
                     val && this.loadMeirentu();
