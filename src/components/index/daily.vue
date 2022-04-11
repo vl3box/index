@@ -1,6 +1,6 @@
 <template>
     <div class="m-daily m-sideblock">
-        <div class="m-daily-header m-sideblock-header" :class="'daily-' + theme">
+        <div class="m-daily-header m-sideblock-header" :style="{backgroundImage:bg}">
             <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
             <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt />
             <div class="u-list">
@@ -86,7 +86,7 @@ import isoWeek from 'dayjs/plugin/isoWeek';
 dayjs.extend(isoWeek);
 import {nl2br} from '@/utils/filters'
 import calendar from './calendar.vue'
-
+import {__imgPath} from '@jx3box/jx3box-common/data/jx3box.json'
 export default {
     name: "daily",
     components: {
@@ -118,6 +118,9 @@ export default {
         },
         theme: function() {
             return theme[this.client];
+        },
+        bg : function (){
+            return `url(${__imgPath}topic/${this.theme}/daily.png)`
         },
         // 园宅会赛显示text
         furnitureCategory: function (){

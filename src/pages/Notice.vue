@@ -1,5 +1,5 @@
 <template>
-    <div class="p-notice" :class="theme_cls">
+    <div class="p-notice" :class="theme_cls" :style="{backgroundImage:bg}">
         <Header :overlayEnable="true"></Header>
         <div class="p-notice-container wp">
             <NoticeSingle v-if="id"></NoticeSingle>
@@ -17,6 +17,7 @@
 import { theme } from "../../setting.json";
 import NoticeList from "@/views/NoticeList.vue";
 import NoticeSingle from "@/views/NoticeSingle.vue";
+import {__imgPath} from '@jx3box/jx3box-common/data/jx3box.json'
 export default {
     name: "Notice",
     props: [],
@@ -36,11 +37,14 @@ export default {
             return false;
         },
         client : function (){
-            return this.$store.state.client  
+            return this.$store.state.client
         },
         theme_cls: function () {
             return "theme-" + theme[this.client];
         },
+        bg : function (){
+            return `url(${__imgPath}topic/${theme[this.client]}/kv.jpg)`
+        }
     },
     watch: {},
     methods: {},
