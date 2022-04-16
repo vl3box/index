@@ -94,7 +94,7 @@ export default {
             };
         },
         themeColor() {
-            return this.pageSlogan?.color;
+            return '#24292e'//this.pageSlogan?.color;
         },
     },
     methods: {
