@@ -361,7 +361,7 @@ export default {
             return showRecently(val);
         },
         showAvatar: function(val) {
-            return showAvatar(val, 24);
+            return showAvatar(val);
         },
         iconLink,
         wikiDate: function(val) {
