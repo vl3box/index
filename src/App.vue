@@ -28,9 +28,11 @@
 </template>
 
 <script>
-// v2
+// v2 左侧
 import assistant from "@/components/v2/assistant.vue";
+// v2 内容
 import event from "@/components/v2/event.vue";
+import posts from "@/components/v2/posts.vue";
 
 // 左侧
 import jx3code from "@/components/index/jx3code.vue";
@@ -44,7 +46,7 @@ import transaction from "@/components/index/transaction_mini.vue";
 import live from "@/components/index/live.vue";
 import slider from "@/components/index/slider.vue";
 import box from "@/components/index/box.vue";
-import posts from "@/components/index/posts.vue";
+
 // import notice from "@/components/index/notice.vue";
 
 import User from "@jx3box/jx3box-common/js/user";
