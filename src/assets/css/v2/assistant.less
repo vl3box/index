@@ -1,0 +1,84 @@
+.m-assistant-header {
+    //#1d3740
+    background-image: url("../../img/right/dailybg.png");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-color: @bg-black;
+    background-size: cover;
+
+    .r(6px);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    color: #fff;
+
+    .h(100px);
+    box-sizing: border-box;
+    padding: 10px !important;
+
+    .u-time {
+        .fz(13px);
+    }
+
+    .pr;
+
+    .u-list {
+        .mt(10px);
+    }
+
+    .u-item {
+        .fz(12px, 2);
+        .db;
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            color: @blue;
+        }
+
+        em {
+            font-style: normal;
+            color: #ccc;
+        }
+        svg,
+        img {
+            .size(16px);
+            .y(-3px);
+            .mr(5px);
+        }
+        a:hover {
+            color: rgb(132, 230, 255);
+        }
+    }
+    .u-assistant {
+        .pa;
+        .rt(10px,30px);
+        .w(100px);
+        .flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+        .u-btn {
+            .pointer;
+            .fz(14px,1.78);
+            .r(5px);
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.58);
+            box-shadow: 2px 0px 5px #ccc;
+            &:hover {
+                filter: brightness(110%);
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+        }
+        .u-desc {
+            cursor: default;
+            .fz(12px,2);
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #eee;
+        }
+    }
+    .isHighlight {
+        .bold;
+    }
+}

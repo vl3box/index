@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="m-left m-sidebar">
-                    <daily />
+                    <assistant />
 
                     <jx3code />
                     <gamenews />
@@ -28,7 +28,7 @@
 
 <script>
 // 左侧
-import daily from "@/components/index/daily.vue";
+import assistant from "@/components/v2/assistant.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
@@ -60,7 +60,7 @@ export default {
     methods: {},
     components: {
         // 左侧
-        daily,
+        assistant,
         jx3code,
         gamenews,
         servers,
