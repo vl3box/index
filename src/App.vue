@@ -9,8 +9,12 @@
                     <box />
                     <event />
                     <posts />
+                    <wiki />
                     <!-- <festival/> -->
                 </div>
+                <!-- <div class="m-right">
+                    <banner />
+                </div> -->
 
                 <div class="m-left m-sidebar">
                     <assistant />
@@ -30,9 +34,12 @@
 <script>
 // v2 左侧
 import assistant from "@/components/v2/assistant.vue";
-// v2 内容
+// v2 中间内容
 import event from "@/components/v2/event.vue";
 import posts from "@/components/v2/posts.vue";
+import wiki from "@/components/v2/wiki.vue";
+// v2 右侧
+import banner from "@/components/v2/banner.vue";
 
 // 左侧
 import jx3code from "@/components/index/jx3code.vue";
@@ -80,7 +87,9 @@ export default {
 
         // 右侧
         // notice,
+        wiki,
         posts,
+        // banner,
         // festival,
     },
     created: function () {

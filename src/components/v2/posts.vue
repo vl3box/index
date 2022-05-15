@@ -1,5 +1,5 @@
 <template>
-    <div class="m-newpost m-sideblock">
+    <div class="m-v2-post m-sideblock">
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-collection"></i>
             <span class="u-title">最新作品</span>
@@ -8,8 +8,8 @@
                 <i class="el-icon-more"></i>
             </a>
         </div>
-        <div class="m-newpost-box">
-            <div class="m-newpost-header m-sideblock-header">
+        <div class="m-v2-post-box">
+            <div class="m-v2-post-header m-sideblock-header">
                 <el-tabs v-model="type">
                     <el-tab-pane name="all">
                         <span slot="label">全部</span>
@@ -18,7 +18,7 @@
                 </el-tabs>
             </div>
             <template>
-                <div class="m-newpost-content" v-loading="loading">
+                <div class="m-v2-post-content" v-loading="loading">
                     <a class="u-post" v-for="(item, i) in data" :key="i" :href="getLink(item.post_type, item.ID)" :target="target">
                         <el-image class="u-avatar" :src="showAvatar(item)" fit="cover" :alt="item.author_info && item.author_info.display_name"></el-image>
                         <div class="u-info">
@@ -40,7 +40,7 @@
                     </a>
                 </div>
             </template>
-            <div class="m-newpost-more">
+            <div class="m-v2-post-more">
                 <a :href="more_link" class="u-more">查看更多&raquo;</a>
             </div>
         </div>
@@ -54,7 +54,7 @@ import { __postType } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "@/utils/moment";
 import Mini_bread from "../content/mini_bread.vue";
 export default {
-    name: "newpost",
+    name: "v2-post",
     props: [],
     data: function () {
         return {
@@ -139,5 +139,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../../assets/css/index/newpost.less";
+    @import "../../assets/css/v2/posts.less";
 </style>

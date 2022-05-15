@@ -38,7 +38,6 @@ export default {
             };
             return getEventV2(params).then((res) => {
                 this.data = res.data.data.list;
-                console.log(this.data);
             });
         },
     },

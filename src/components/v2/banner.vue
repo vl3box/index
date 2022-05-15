@@ -1,16 +1,18 @@
 <template>
-    <div v-loading='loading'>
-    
+    <div class="m-v2-banner">
+        <el-carousel trigger="click" height="150px">
+            <el-carousel-item v-for="item in 4" :key="item">
+                <h3 class="small">{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel>
     </div>
 </template>
 <script>
-//import { demo } from '@/utils/common.js';
-//import xSearch from '@/components/search.vue';
 export default {
-    name: 'demo',
+    name: "demo",
     props: [],
     components: {
-       //demo
+        //demo
     },
     data: function () {
         return {
@@ -25,5 +27,5 @@ export default {
 };
 </script>
 <style lang='less'>
-    //@import '@/assets/css/demo.less';
+    @import "../../assets/css/v2/banner.less";
 </style>
