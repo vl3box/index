@@ -7,6 +7,7 @@
                     <live />
                     <slider />
                     <box />
+                    <event />
                     <posts />
                     <!-- <festival/> -->
                 </div>
@@ -27,8 +28,11 @@
 </template>
 
 <script>
-// 左侧
+// v2
 import assistant from "@/components/v2/assistant.vue";
+import event from "@/components/v2/event.vue";
+
+// 左侧
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
@@ -40,7 +44,6 @@ import transaction from "@/components/index/transaction_mini.vue";
 import live from "@/components/index/live.vue";
 import slider from "@/components/index/slider.vue";
 import box from "@/components/index/box.vue";
-// import event from "@/components/index/event.vue";
 import posts from "@/components/index/posts.vue";
 // import notice from "@/components/index/notice.vue";
 
@@ -51,7 +54,7 @@ import { getConfig } from "@/service/setting.js";
 export default {
     name: "App",
     props: [],
-    data: function() {
+    data: function () {
         return {
             isMobile: window.innerWidth < 768,
         };
@@ -71,14 +74,14 @@ export default {
         live,
         slider,
         box,
-        // event,
+        event,
 
         // 右侧
         // notice,
         posts,
         // festival,
     },
-    created: function() {
+    created: function () {
         if (User.isLogin()) {
             getProfile().then((data) => {
                 if (data) {
@@ -102,5 +105,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "./assets/css/index/app.less";
+    @import "./assets/css/index/app.less";
 </style>

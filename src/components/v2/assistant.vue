@@ -3,7 +3,7 @@
         <div class="m-assistant-header m-sideblock-header" :style="{backgroundImage:bg}">
             <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
             <div class="u-assistant">
-                <span class="u-btn"><i class="el-icon-download"></i>魔盒助手</span>
+                <a href="" target="_blank" class="u-btn"><i class="el-icon-download"></i>魔盒助手</a>
                 <span class="u-desc">魔盒助手v.1.2323</span>
             </div>
             <div class="u-list">

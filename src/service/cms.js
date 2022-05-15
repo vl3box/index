@@ -83,8 +83,8 @@ function getPz(params) {
 // 日历
 function getRecentCalendar(params) {
     return $cms().get(`/api/cms/calendar/list`, {
-        params
-    })
+        params,
+    });
 }
 
 function genUrl(params) {
@@ -104,8 +104,8 @@ function getCalendar(params, client = "std") {
 
     return $cms().get("/api/cms/calendar/archive" + url, {
         params: {
-            client
-        }
+            client,
+        },
     });
 }
 
@@ -129,8 +129,29 @@ function getHistory(params, query) {
 
 // 菜单
 function getMenus(key) {
-    return $cms().get(`/api/cms/config/menu/${key}`)
+    return $cms().get(`/api/cms/config/menu/${key}`);
 }
 
+// 近期活动v2
+function getEventV2(params) {
+    return $cms().get(`api/cms/news/v2`, {
+        params,
+    });
+}
 
-export { getCode, getNews, getSliders, getPosts, getGossip, getPost, getPz, getMenus, getRecentCalendar, getCalendar, getCalendarSlogans, getHistory, getCalendarCount };
+export {
+    getCode,
+    getNews,
+    getSliders,
+    getPosts,
+    getGossip,
+    getPost,
+    getPz,
+    getMenus,
+    getRecentCalendar,
+    getCalendar,
+    getCalendarSlogans,
+    getHistory,
+    getCalendarCount,
+    getEventV2,
+};

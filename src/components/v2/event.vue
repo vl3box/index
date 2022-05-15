@@ -1,29 +1,53 @@
 <template>
-    <div v-loading='loading'>
-    
+    <div class="m-event-wrapper" v-if="ready">
+        <div class="m-event" id="m-event">
+            <a v-for="(item,index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
+                <img :src="item.img" :alt="item.title">
+            </a>
+        </div>
+        <a class="u-more" href="/notice?subtype=2" target="_blank"><span>往期活动</span></a>
     </div>
 </template>
+
 <script>
-//import { demo } from '@/utils/common.js';
-//import xSearch from '@/components/search.vue';
+import { getEventV2 } from "@/service/cms";
 export default {
-    name: 'demo',
+    name: "event",
     props: [],
-    components: {
-       //demo
-    },
     data: function () {
         return {
-            loading: false,
+            data: [],
+            count: 5,
         };
     },
-    computed: {},
-    watch: {},
-    methods: {},
-    created: function () {},
-    mounted: function () {},
+    computed: {
+        ready: function () {
+            return this.data && this.data.length;
+        },
+        client: function () {
+            return this.$store.state.client;
+        },
+    },
+    methods: {
+        loadData: function () {
+            let params = {
+                client: this.client,
+                type: "event",
+                per: 4,
+                status: 1,
+            };
+            return getEventV2(params).then((res) => {
+                this.data = res.data.data.list;
+                console.log(this.data);
+            });
+        },
+    },
+    mounted: function () {
+        this.loadData();
+    },
 };
 </script>
-<style lang='less'>
-    //@import '@/assets/css/demo.less';
+
+<style lang="less">
+    @import "../../assets/css/v2/event.less";
 </style>
