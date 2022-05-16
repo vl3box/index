@@ -3,31 +3,30 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-primary">
+                <live />
+                <slider />
+                <box />
                 <div class="m-content">
-                    <live />
-                    <slider />
-                    <box />
-                    <event />
-                    <posts />
-                    <wiki />
-                    <!-- <festival/> -->
+                    <div class="m-center">
+                        <event />
+                        <posts />
+                        <wiki />
+                    </div>
+                    <div class="m-right">
+                        <banner />
+                    </div>
                 </div>
-                <!-- <div class="m-right">
-                    <banner />
-                </div> -->
-
-                <div class="m-left m-sidebar">
-                    <assistant />
-
-                    <jx3code />
-                    <gamenews />
-                    <servers />
-                    <price />
-                    <transaction />
-                </div>
-                <Footer></Footer>
+            </div>
+            <div class="m-left m-sidebar">
+                <assistant />
+                <jx3code />
+                <gamenews />
+                <servers />
+                <price />
+                <transaction />
             </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -68,7 +67,11 @@ export default {
             isMobile: window.innerWidth < 768,
         };
     },
-    computed: {},
+    computed: {
+        versions() {
+            return "v2";
+        },
+    },
     methods: {},
     components: {
         // 左侧
@@ -89,7 +92,7 @@ export default {
         // notice,
         wiki,
         posts,
-        // banner,
+        banner,
         // festival,
     },
     created: function () {
@@ -116,5 +119,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "./assets/css/index/app.less";
+    @import "./assets/css/v2/app.less";
 </style>

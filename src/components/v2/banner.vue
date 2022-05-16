@@ -1,29 +1,43 @@
 <template>
     <div class="m-v2-banner">
-        <el-carousel trigger="click" height="150px">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <h3 class="small">{{ item }}</h3>
+        <span class="u-title">交易数据</span>
+        <el-carousel trigger="click" height="196px">
+            <el-carousel-item v-for="(item,index) in list" :key="index">
+                <img :src="item.img" />
             </el-carousel-item>
         </el-carousel>
     </div>
 </template>
 <script>
+import { getEventV2 } from "@/service/cms";
 export default {
-    name: "demo",
-    props: [],
-    components: {
-        //demo
-    },
+    name: "banner",
+
     data: function () {
         return {
             loading: false,
+            list: [],
         };
     },
     computed: {},
     watch: {},
-    methods: {},
+    methods: {
+        loadData: function () {
+            let params = {
+                client: this.client,
+                type: "event",
+                per: 4,
+                status: 1,
+            };
+            return getEventV2(params).then((res) => {
+                this.list = res.data.data.list;
+            });
+        },
+    },
     created: function () {},
-    mounted: function () {},
+    mounted: function () {
+        this.loadData();
+    },
 };
 </script>
 <style lang='less'>
