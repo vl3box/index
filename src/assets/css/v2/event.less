@@ -1,11 +1,8 @@
 .m-event-wrapper {
     .flex;
     .r(4px);
-    .mt(20px);
     align-items: center;
-    padding: 10px 15px;
-    background-color: #fff;
-    border: 1px solid #e1e4e8;
+    // border: 1px solid #e1e4e8;
     .m-event {
         .flex;
         a {
@@ -14,7 +11,12 @@
             .r(5px);
             .mr(20px);
             border: 1px solid rgba(63, 68, 72, 0.2);
+            box-sizing: border-box;
             overflow: hidden;
+            transition: 0.2s ease;
+            &:hover {
+                transform: scale(1.03);
+            }
             img {
                 .full;
             }
