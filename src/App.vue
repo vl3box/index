@@ -16,6 +16,7 @@
                         <banner />
                     </div>
                 </div>
+                <Footer></Footer>
             </div>
             <div class="m-left m-sidebar">
                 <assistant />
@@ -26,7 +27,7 @@
                 <transaction />
             </div>
         </div>
-        <Footer></Footer>
+
     </div>
 </template>
 

@@ -1,12 +1,11 @@
 @import "../kv.less";
-@import "./sideblock.less";
 
 @left: 320px;
 @right: 380px;
 .m-main {
     .mt(@header-height);
     .pr;
-    background-color: @bg-gray;
+    background-color: #f6f8fa;
     width: 1440px;
 }
 
@@ -15,23 +14,22 @@
     .z(9);
     .pf;
     .lt(0, @header-height);
-    border-right: 1px solid @border-hr;
-    background-color: #fff;
-    padding: 20px 15px;
+    .pb(20px);
+    .pl(10px);
     box-sizing: border-box;
     height: calc(100vh - @header-height);
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 4px;
+        width: 2px;
     }
     &::-webkit-scrollbar-track,
     &::-webkit-scrollbar-track-piece {
-        background-color: #fafafa;
+        background-color: #fff;
         border-radius: 6px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #eee;
+        background-color: #fff;
         border-radius: 6px;
     }
     &::-webkit-scrollbar-button,
@@ -42,7 +40,7 @@
 }
 
 .m-primary {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     margin-left: @left;
     .m-content {
         .flex;
@@ -75,4 +73,8 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+}
+
+body {
+    background-color: #f6f8fa;
 }
