@@ -17,7 +17,6 @@
 
 <script>
 import { __imgPath, feedback } from "@jx3box/jx3box-common/data/jx3box.json";
-
 export default {
     name: "feedback",
     data() {
