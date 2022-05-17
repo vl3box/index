@@ -10,7 +10,7 @@
                     <a href="https://os.jx3box.com/admin/admin/login" target="_blank" rel="noopener noreferrer">后台管理</a>
                 </template>
                 <a v-else href="/bbs/#/notice" class="u-help">
-                    <img svg-inline src="../../assets/img/right/feedback.svg" />
+                    <i class="el-icon-more"></i>
                 </a>
             </span>
         </div>
@@ -47,7 +47,7 @@ export default {
         },
     },
     created: function () {
-        getPosts(this.client, "notice", 5,3).then((res) => {
+        getPosts(this.client, "notice", 5, 3).then((res) => {
             console.log(this.data);
             this.data = res.data.data.list;
         });

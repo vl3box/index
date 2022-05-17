@@ -27,6 +27,7 @@
                 <gamenews />
                 <servers />
                 <notice />
+                <feedback />
             </div>
         </div>
 
@@ -41,6 +42,7 @@ import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import notice from "@/components/index/notice.vue";
+import feedback from "@/components/v2/feedback.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
@@ -55,7 +57,6 @@ import banner from "@/components/v2/banner.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
 // import festival from "@/components/index/festival.vue";
-
 
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
@@ -74,7 +75,6 @@ export default {
             return "v2";
         },
     },
-    methods: {},
     components: {
         // 左侧
         assistant,
@@ -82,20 +82,21 @@ export default {
         jx3code,
         gamenews,
         servers,
-        price,
-        transaction,
+        notice,
+        feedback,
 
         // 首屏
         live,
         slider,
         box,
         event,
+        posts,
+        wiki,
 
         // 右侧
-        notice,
-        wiki,
-        posts,
         banner,
+        price,
+        transaction,
         // festival,
     },
     created: function () {

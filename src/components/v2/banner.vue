@@ -1,7 +1,6 @@
 <template>
     <div class="m-v2-banner">
-        <span class="u-title">交易数据</span>
-        <el-carousel trigger="click" height="196px">
+        <el-carousel trigger="click">
             <el-carousel-item v-for="(item,index) in list" :key="index">
                 <img :src="item.img" />
             </el-carousel-item>
