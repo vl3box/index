@@ -1,7 +1,7 @@
 @import "./slick.less";
 .m-slider {
     .mb(20px) !important;
-    .h(280px);
+    .h(300px);
     background-color: @bg-black;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     .el-carousel__container {
@@ -65,26 +65,30 @@
 }
 @media screen and (max-width: @phone) {
     .m-slider {
+        // .none;
+
         .h(150px);
+        .el-carousel__container {
+            // .h(auto);
+        }
+
         .el-carousel__indicators {
             .none;
         }
+        .u-pic {
+        }
     }
 }
-@h: 45px;
+
 .m-slider-thumbnail {
-    .none;
-    .pa;
-    .lt(0,220px);
-    .size(100%,@h);
-    .animation;
-    .bounceIn;
-    box-sizing: border-box;
-    padding: 0 20px;
+    display: flex;
+    .mt(-10px);
+    .mb(20px);
     .u-thumbnail {
         flex-grow: 1;
         flex-shrink: 1;
         overflow: hidden;
+
         cursor: pointer;
         background-color: @bg-black;
 
@@ -93,15 +97,15 @@
         }
 
         .u-pic {
-            .db;
+            display: block;
             .x;
             .pr;
-            .h(@h);
+            .h(60px);
 
             img {
-                .db;
+                display: block;
                 .auto(x);
-                .h(@h);
+                .h(60px);
                 max-width: none;
                 .pa;
                 .lt(50%,0);
@@ -124,51 +128,5 @@
 @media screen and (max-width: @phone) {
     .m-slider-thumbnail {
         .none;
-    }
-}
-.m-slider-box {
-    .pr;
-    &:hover .m-slider-thumbnail {
-        .flex;
-    }
-}
-
-.animation {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-.bounceIn {
-    -webkit-animation-name: bounceIn;
-    animation-name: bounceIn;
-}
-
-@keyframes bounceIn {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(0.5);
-        -ms-transform: scale(0.5);
-        transform: scale(0.5);
-    }
-
-    70% {
-        opacity: 1;
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
-
-    90% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
     }
 }

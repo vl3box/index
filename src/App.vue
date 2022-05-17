@@ -46,7 +46,7 @@ import feedback from "@/components/v2/feedback.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
-import slider from "@/components/index/slider.vue";
+import slider from "@/components/v2/slider.vue";
 import box from "@/components/index/box.vue";
 import event from "@/components/v2/event.vue";
 import posts from "@/components/v2/posts.vue";
