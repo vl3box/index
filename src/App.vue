@@ -22,11 +22,11 @@
             </div>
             <div class="m-left m-sidebar">
                 <assistant />
+                <calendar />
                 <jx3code />
                 <gamenews />
                 <servers />
                 <notice />
-
             </div>
         </div>
 
@@ -36,6 +36,7 @@
 <script>
 // 左侧
 import assistant from "@/components/v2/assistant.vue";
+import calendar from "@/components/v2/calendar.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
@@ -77,6 +78,7 @@ export default {
     components: {
         // 左侧
         assistant,
+        calendar,
         jx3code,
         gamenews,
         servers,
