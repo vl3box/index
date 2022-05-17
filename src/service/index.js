@@ -1,12 +1,14 @@
 import { $cms, $team, $next, $pay } from "@jx3box/jx3box-common/js/https";
 
-function getPosts(client = "std", type, per = 10) {
+function getPosts(client = "std", type, per = 5, subtype) {
     let params = {
         client: client,
+        per,
     };
     if (!!type) {
         params.type = type;
     }
+    if (subtype) params.subtype = subtype;
     return $cms({ mute: true }).get("/api/cms/posts/latest", {
         params: params,
     });
@@ -29,7 +31,7 @@ function searchRaids(params) {
 }
 
 function getBoxCoin(id) {
-    return $pay({mute:true}).get(`api/event/${id}/boxcoin/trigger`)
+    return $pay({ mute: true }).get(`api/event/${id}/boxcoin/trigger`);
 }
 
 export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin };

@@ -103,7 +103,7 @@ export default {
         loadData: function () {
             let type = this.type == "all" ? "" : this.type;
             this.loading = true;
-            getPosts(this.client, type)
+            getPosts(this.client, type, 5)
                 .then((res) => {
                     this.data = res.data.data.list || [];
                 })

@@ -1,51 +1,21 @@
 @import "./sideblock.less";
 
 .m-assistant-header {
-    background-image: url("../../img/right/dailybg.png");
-    background-position: right top;
-    background-repeat: no-repeat;
-    background-color: @bg-black;
-    background-size: cover;
-    .r(6px);
-    .h(100px);
+    .r(5px);
+    .h(116px);
     .pr;
+    background: url("../../img/right/dailybg.png") right top @bg-black no-repeat;
+    background-size: cover;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     color: #fff;
     box-sizing: border-box;
     padding: 10px !important;
 
-    .u-time {
-        .fz(13px);
-    }
-    .u-list {
-        .mt(10px);
-    }
-    .u-item {
-        .fz(12px, 2);
-        .db;
-        a {
-            .color(#fff,@blue);
-        }
-        em {
-            font-style: normal;
-            color: #ccc;
-        }
-        svg,
-        img {
-            .size(16px);
-            .y(-3px);
-            .mr(5px);
-        }
-        a:hover {
-            color: rgb(132, 230, 255);
-        }
-    }
     .u-assistant {
         .pa;
-        .rt(10px,30px);
-        .w(100px);
         .flex;
+        .rt(15px,42px);
         flex-direction: column;
         align-items: center;
         color: #fff;
@@ -55,12 +25,14 @@
             .fz(14px,1.78);
             .r(5px);
             .color(#fff);
-            padding: 5px 10px;
-            background-color: rgba(0, 0, 0, 0.58);
-            box-shadow: 2px 0px 5px #ccc;
+            padding: 5px 20px;
+            text-shadow: 0 1px 0 #484f58;
+            border: 1px solid #202124;
+            background: -webkit-linear-gradient(top, #343434, #2f363d);
+            box-shadow: 0 2px 2px #565656 inset, 0 2px 5px #232323;
             &:hover {
                 filter: brightness(110%);
-                background-color: rgba(0, 0, 0, 0.7);
+                background-color: rgba(0, 0, 0, 0.5);
             }
         }
         .u-desc {
@@ -69,8 +41,5 @@
             background-color: rgba(0, 0, 0, 0.2);
             color: #eee;
         }
-    }
-    .isHighlight {
-        .bold;
     }
 }

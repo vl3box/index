@@ -1,24 +1,9 @@
 <template>
     <div class="m-assistant m-sideblock">
         <div class="m-assistant-header m-sideblock-header" :style="{backgroundImage:bg}">
-            <div class="u-time">{{ year }}年{{ month }}月{{ date }}日</div>
             <div class="u-assistant">
                 <a href="" target="_blank" class="u-btn"><i class="el-icon-download"></i>魔盒助手</a>
                 <span class="u-desc">魔盒助手v.1.2323</span>
-            </div>
-            <div class="u-list">
-                <span class="u-weibo u-item">
-                    <img svg-inline src="../../assets/img/weibo.svg" />
-                    <em>官方微博：</em>
-                    <a href="https://weibo.com/jx3box" target="_blank">
-                        <b>JX3BOX魔盒</b>
-                    </a>
-                </span>
-                <span class="u-weixin u-item">
-                    <img svg-inline src="../../assets/img/wechat.svg" />
-                    <em>微信公众号：</em>
-                    <b>剑三魔盒</b>
-                </span>
             </div>
         </div>
         <div>

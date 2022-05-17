@@ -110,6 +110,7 @@ export default {
             if (this.type === "calendar") {
                 getRecentCalendar({
                     user_info: 1,
+                    limit: 5,
                 })
                     .then((res) => {
                         this.data = res.data.data.list || [];
@@ -120,7 +121,7 @@ export default {
             } else {
                 getWikiPosts({
                     type,
-                    limit: 10,
+                    limit: 5,
                     client: this.client,
                 })
                     .then((res) => {

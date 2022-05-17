@@ -7,11 +7,7 @@
                 <template v-if="isAdmin">
                     <a href="/admin" target="_blank" rel="noopener noreferrer">海报管理</a>
                     <span>|</span>
-                    <a
-                        href="https://os.jx3box.com/admin/admin/login"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >后台管理</a>
+                    <a href="https://os.jx3box.com/admin/admin/login" target="_blank" rel="noopener noreferrer">后台管理</a>
                 </template>
                 <a v-else href="/bbs/#/notice" class="u-help">
                     <img svg-inline src="../../assets/img/right/feedback.svg" />
@@ -20,21 +16,15 @@
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">
             <li v-for="(item, i) in data" :key="i">
-                <em>{{ item.updated_at | simpledate }}</em>
-                <a
-                    :href="item.link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    :style="{ color: item.color }"
-                    :class="{ isHighlight: !!item.color }"
-                >{{ item.title }}</a>
+                <em>{{ simpledate(item.post_modified) }}</em>
+                <a :href="item.link" target="_blank" rel="noopener noreferrer" :style="{ color: item.color }" :class="{ isHighlight: !!item.color }">{{ item.post_title }}</a>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import { getNews } from "@/service/cms";
+import { getPosts } from "@/service/index";
 import { simpledate } from "@/utils/simpledate";
 import User from "@jx3box/jx3box-common/js/user";
 export default {
@@ -51,15 +41,15 @@ export default {
             return this.$store.state.client;
         },
     },
-    methods: {},
-    filters: {
+    methods: {
         simpledate: function (val) {
             return simpledate(val);
         },
     },
     created: function () {
-        getNews("news", this.client, 5).then((res) => {
-            this.data = res.data.data;
+        getPosts(this.client, "notice", 5).then((res) => {
+            console.log(this.data);
+            this.data = res.data.data.list;
         });
     },
     components: {},
@@ -67,5 +57,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/css/index/notice.less";
+    @import "../../assets/css/index/notice.less";
 </style>
