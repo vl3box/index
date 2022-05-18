@@ -1,8 +1,8 @@
 <template>
-    <div class="m-event-wrapper" v-if="ready">
+    <div class="m-event-wrapper" v-loading="loading">
         <div class="m-event" id="m-event">
-            <a v-for="(item,index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
-                <img :src="item.img" :alt="item.title">
+            <a v-for="(item, index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
+                <img :src="item.img" :alt="item.title" />
             </a>
         </div>
         <a class="u-more" href="/notice?subtype=2" target="_blank"><span>往期活动</span></a>
@@ -17,28 +17,33 @@ export default {
     data: function () {
         return {
             data: [],
-            count: 5,
+            loading: false,
         };
     },
     computed: {
-        ready: function () {
-            return this.data && this.data.length;
-        },
         client: function () {
             return this.$store.state.client;
+        },
+        params: function () {
+            return {
+                client: this.client,
+                type:"common",
+                subtype: "event",
+                per: 4,
+                status: 1,
+            };
         },
     },
     methods: {
         loadData: function () {
-            let params = {
-                client: this.client,
-                type: "event",
-                per: 4,
-                status: 1,
-            };
-            return getEventV2(params).then((res) => {
-                this.data = res.data.data.list;
-            });
+            this.loading = true;
+            return getEventV2(this.params)
+                .then((res) => {
+                    this.data = res.data.data.list || [];
+                })
+                .finally(() => {
+                    this.loading = false;
+                });
         },
     },
     mounted: function () {
@@ -48,5 +53,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../../assets/css/v2/event.less";
+@import "../../assets/css/v2/event.less";
 </style>
