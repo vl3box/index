@@ -2,13 +2,14 @@
 <template>
     <div class="m-feedback m-sideblock">
         <div class="m-feedback-header m-sideblock-header">
-            <i class="el-icon-info"> </i><a class="u-title">反馈建议</a>
+            <i class="el-icon-info"> </i><a class="u-title">反馈中心</a>
         </div>
         <a class="m-feedback-content" :href="feedback" target="_blank">
             <img class="u-avatar" :src="img" alt="盒子娘" />
             <span class="u-info">
-                <div>有什么想对盒子娘说的吗？</div>
-                <span><i class="el-icon-message"></i> admin@jx3box.com</span>
+                <div>Bug反馈、建议意见、投诉举报</div>
+                <span>→ 使劲戳盒子娘</span>
+                <!-- <span><i class="el-icon-message"></i> admin@jx3box.com</span> -->
             </span>
         </a>
     </div>

@@ -21,12 +21,12 @@ export default {
         return {
             codes: [
                 {
-                    name: "魔盒微博",
+                    name: "JX3BOX魔盒",
                     svg: `${__imgPath}image/connect/weibo.svg`,
                     src: `${__imgPath}image/other/weibo.jpg`,
                 },
                 {
-                    name: "魔盒公众号",
+                    name: "剑三魔盒",
                     svg: `${__imgPath}image/connect/wechat.svg`,
                     src: `${__imgPath}image/other/gzh.jpg`,
                 },
@@ -43,17 +43,18 @@ export default {
     .m-qrcode-content {
         .flex;
         flex-wrap: wrap;
+        padding:10px;
         .u-code {
             .flex;
             .size(50%);
-            padding: 10px 20px 20px 20px;
+            padding: 10px;
             flex-direction: column;
             align-items: center;
             box-sizing: border-box;
             .u-title {
                 .flex;
                 align-items: center;
-                .fz(14px,2.5);
+                .fz(12px,2.5);
                 img {
                     .size(14px);
                     .mr(5px);

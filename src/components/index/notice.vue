@@ -16,7 +16,7 @@
         <ul class="m-sideblock-list u-list" v-if="data.length">
             <li v-for="(item, i) in data" :key="i">
                 <em>{{ simpledate(item.post_modified) }}</em>
-                <a :href="item.link" target="_blank" rel="noopener noreferrer" :style="{ color: item.color }" :class="{ isHighlight: !!item.color }">{{ item.post_title }}</a>
+                <a :href="getLink(item)" target="_blank" rel="noopener noreferrer" :style="{ color: item.color }" :class="{ isHighlight: !!item.color }">{{ item.post_title }}</a>
             </li>
         </ul>
     </div>
@@ -26,6 +26,7 @@
 import { getPosts } from "@/service/index";
 import { simpledate } from "@/utils/simpledate";
 import User from "@jx3box/jx3box-common/js/user";
+import {getLink} from '@jx3box/jx3box-common/js/utils'
 export default {
     name: "notice",
     props: [],
@@ -44,6 +45,9 @@ export default {
         simpledate: function (val) {
             return simpledate(val);
         },
+        getLink : function (item){
+            return getLink('notice',item.ID)
+        }
     },
     created: function () {
         getPosts(this.client, "notice", 5, 3).then((res) => {
