@@ -26,8 +26,10 @@
                 <gamenews />
                 <servers />
                 <notice />
-                <feedback />
-                <qrcode />
+                <div :class="isFixed?'m-fixed':''" :style="`top:${top}px`" ref="fixed">
+                    <feedback />
+                    <qrcode />
+                </div>
             </div>
         </div>
         <Footer></Footer>
@@ -69,6 +71,8 @@ export default {
     data: function () {
         return {
             isMobile: window.innerWidth < 768,
+            isFixed: false,
+            top: 0,
         };
     },
     computed: {
@@ -101,6 +105,16 @@ export default {
         transaction,
         // festival,
     },
+    methods: {
+        handleScroll() {
+            if (this.$refs.fixed.getBoundingClientRect().top < 80) {
+                this.isFixed = true;
+                this.top = window.pageYOffset;
+            } else {
+                this.isFixed = false;
+            }
+        },
+    },
     created: function () {
         if (User.isLogin()) {
             getProfile().then((data) => {
@@ -120,6 +134,9 @@ export default {
             }
             this.$store.state.config = _data;
         });
+    },
+    mounted() {
+        window.addEventListener("scroll", this.handleScroll, true);
     },
 };
 </script>

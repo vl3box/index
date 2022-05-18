@@ -78,10 +78,11 @@
     .lt(0,220px);
     .size(100%,@h);
     .animation;
-    .bounceIn;
+    .fadeInUp;
     box-sizing: border-box;
     padding: 0 20px;
     .u-thumbnail {
+        .r(3px);
         flex-grow: 1;
         flex-shrink: 1;
         overflow: hidden;
@@ -139,36 +140,23 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-.bounceIn {
-    -webkit-animation-name: bounceIn;
-    animation-name: bounceIn;
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
 }
 
-@keyframes bounceIn {
+@keyframes fadeInUp {
     0% {
         opacity: 0;
-        -webkit-transform: scale(0.5);
-        -ms-transform: scale(0.5);
-        transform: scale(0.5);
-    }
-
-    70% {
-        opacity: 1;
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
-
-    90% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
     }
 
     100% {
         opacity: 1;
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
     }
 }

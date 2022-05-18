@@ -33,27 +33,28 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.m-feedback-content {
-    .flex;
-    // justify-content: center;
-    align-items: center;
-    padding: 10px 10px 0 10px;
-
-    .u-avatar {
-        .size(80px);
-    }
-
-    .u-info {
-        .x;
+    .m-feedback-content {
         .flex;
-        flex-direction: column;
-        padding: 0 10px;
-        .fz(13px,2);
-        color: @color;
-        span {
-            .fz(12px);
-            color: #999;
+        // justify-content: center;
+        align-items: center;
+        padding: 10px 10px 0 10px;
+
+        .u-avatar {
+            .size(80px);
+        }
+
+        .u-info {
+            .x;
+            .flex;
+            .fz(13px,2);
+            flex-direction: column;
+            padding: 0 10px;
+            align-items: flex-start;
+            color: @color;
+            span {
+                .fz(12px);
+                color: #999;
+            }
         }
     }
-}
 </style>

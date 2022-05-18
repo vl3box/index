@@ -2,7 +2,7 @@
     <div class="m-v2-post m-sideblock">
         <div class="m-guide-header m-sideblock-header">
             <i class="el-icon-notebook-2"></i>
-            <span class="u-title">最新百科</span> 
+            <span class="u-title">最新百科</span>
             <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>
@@ -10,6 +10,9 @@
         <div class="m-v2-post-box" v-loading="loading">
             <div class="m-v2-post-header m-sideblock-header">
                 <el-tabs v-model="type">
+                    <el-tab-pane name="all">
+                        <span slot="label">全部</span>
+                    </el-tab-pane>
                     <el-tab-pane :label="item.label" :name="item.slug" v-for="(item, i) in links" :key="i"></el-tab-pane>
                 </el-tabs>
             </div>
@@ -79,7 +82,7 @@ export default {
         return {
             data: [],
             target: buildTarget(),
-            type: "achievement",
+            type: "all",
             links: [
                 {
                     label: "成就",
@@ -107,7 +110,7 @@ export default {
             return this.$store.state.client;
         },
         more_link: function () {
-            return this.type == "all" ? "/bbs" : "/" + this.type;
+            return this.type == "all" ? "/cj" : "/" + this.type;
         },
     },
     methods: {

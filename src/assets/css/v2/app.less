@@ -15,7 +15,7 @@
     .z(9);
     .pa;
     .lt(0, 0);
-    padding:20px 0;
+    padding: 20px 0;
     box-sizing: border-box;
 }
 
@@ -48,15 +48,20 @@
     }
 }
 .c-footer {
-    background-color:@bg-black;
+    background-color: @bg-black;
     .clear;
-    margin:40px 0 0 0;
+    margin: 40px 0 0 0;
     border-radius: 0;
-    padding:20px;
+    padding: 20px;
 }
 
 body {
     background-color: #f6f8fa;
 }
-
+.m-fixed {
+    .pa;
+    .lt(0,0);
+    .w(@left);
+    background-color: #f6f8fa;
+}
 @import "./sideblock.less";
