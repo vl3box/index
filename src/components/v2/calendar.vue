@@ -11,6 +11,7 @@
             >
                 <div class="u-week">{{ item.week }}</div>
                 <div class="u-date">{{ item.date }}</div>
+                <div class="u-links" :style="{color: item.slogan.color}">{{ item.slogan.title }}</div>
             </a>
         </div>
         <div class="m-calendar-event">
@@ -23,7 +24,7 @@
 
 <script>
 import calendar_item from "./calendar_item.vue";
-import { getRangeCalendar } from "@/service/cms.js";
+import { getRangeCalendar, getCalendarSlogans } from "@/service/cms.js";
 import dayjs from "dayjs";
 export default {
     name: "calendar",
@@ -34,6 +35,7 @@ export default {
         return {
             data: [],
             list: [],
+            slogans: [],
             weeks: ["日", "一", "二", "三", "四", "五", "六"],
             current: {
                 year: "",
@@ -69,16 +71,14 @@ export default {
             },
         },
     },
-    mounted() {
-        const today = new Date();
-        this.current = {
-            year: today.getFullYear(),
-            month: today.getMonth() + 1,
-            date: today.getDate(),
-        };
-    },
     methods: {
         initCalendar() {
+            const today = new Date();
+            this.current = {
+                year: today.getFullYear(),
+                month: today.getMonth() + 1,
+                date: today.getDate(),
+            };
             this.dateRange.forEach((date) => {
                 const year = ~~date.split("-")[0];
                 const month = ~~date.split("-")[1];
@@ -90,10 +90,12 @@ export default {
                     isToday: this.isToday({ year, month, date: day }),
                     week: "周" + this.weeks[new Date(year, month - 1, day).getDay()],
                     children: [],
+                    slogan: "",
                 });
             });
 
             this.loadRangeCalendar();
+            this.loadCalendarSlogans();
         },
         loadRangeCalendar() {
             getRangeCalendar(this.params).then((res) => {
@@ -105,9 +107,23 @@ export default {
                             (v) => v.year === item.year && v.month === item.month && v.date === item.date
                         );
 
-                        index && this.data[index].children.push(item);
+                        index > -1 && this.data[index].children.push(item);
                     });
                 }
+            });
+        },
+         // 获取当前年月的海报信息
+        loadCalendarSlogans() {
+            const { year, month } = this.current;
+            getCalendarSlogans({ year, month }).then((res) => {
+                this.slogans = res.data;
+                this.slogans.forEach(item => {
+                    const index = this.data.findIndex(
+                        (v) => v.year === item.year && v.month === item.month && v.date === item.date
+                    );
+
+                    index > -1 && (this.data[index].slogan = item);
+                });
             });
         },
         // 判断是否为今日
