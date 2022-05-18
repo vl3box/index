@@ -21,14 +21,14 @@ export default {
         return {
             codes: [
                 {
-                    name: "JX3BOX魔盒",
-                    svg: `${__imgPath}image/connect/weibo.svg`,
-                    src: `${__imgPath}image/other/weibo.jpg`,
-                },
-                {
                     name: "剑三魔盒",
                     svg: `${__imgPath}image/connect/wechat.svg`,
                     src: `${__imgPath}image/other/gzh.jpg`,
+                },
+                {
+                    name: "JX3BOX魔盒",
+                    svg: `${__imgPath}image/connect/weibo.svg`,
+                    src: `${__imgPath}image/other/weibo.jpg`,
                 },
             ],
         };
