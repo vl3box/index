@@ -107,12 +107,8 @@ export default {
     },
     methods: {
         handleScroll() {
-            if (this.$refs.fixed.getBoundingClientRect().top < 80) {
-                this.isFixed = true;
-                this.top = window.pageYOffset;
-            } else {
-                this.isFixed = false;
-            }
+            this.isFixed = window.pageYOffset >= this.$refs.fixed.offsetHeight ? true : false;
+            this.top = window.pageYOffset;
         },
     },
     created: function () {

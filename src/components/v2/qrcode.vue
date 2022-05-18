@@ -6,7 +6,7 @@
         </div>
         <div class="m-qrcode-content">
             <div class="u-code" v-for="(item,index) in codes" :key="index">
-                <span>{{item.name}}</span>
+                <span class="u-title"><img :src="item.svg" />{{item.name}}</span>
                 <img :src="item.src" :alt="item.name">
             </div>
         </div>
@@ -22,10 +22,12 @@ export default {
             codes: [
                 {
                     name: "魔盒微博",
+                    svg: `${__imgPath}image/connect/weibo.svg`,
                     src: `${__imgPath}image/other/weibo.jpg`,
                 },
                 {
                     name: "魔盒公众号",
+                    svg: `${__imgPath}image/connect/wechat.svg`,
                     src: `${__imgPath}image/other/gzh.jpg`,
                 },
             ],
@@ -48,8 +50,14 @@ export default {
             flex-direction: column;
             align-items: center;
             box-sizing: border-box;
-            span {
+            .u-title {
+                .flex;
+                align-items: center;
                 .fz(14px,2.5);
+                img {
+                    .size(14px);
+                    .mr(5px);
+                }
             }
         }
     }
