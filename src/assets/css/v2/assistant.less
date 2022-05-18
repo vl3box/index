@@ -1,6 +1,5 @@
-@import "./sideblock.less";
-
-.m-assistant-header {
+@import '../includes/button.css';
+.m-assistant {
     .r(5px);
     .h(116px);
     .pr;
@@ -11,35 +10,24 @@
     color: #fff;
     box-sizing: border-box;
     padding: 10px !important;
+    box-shadow:2px 2px 3px rgba(0, 0, 0, 0.2) inset;
+    display: flex;
+    flex-direction: row-reverse;
 
-    .u-assistant {
-        .pa;
-        .flex;
-        .rt(15px,42px);
-        flex-direction: column;
-        align-items: center;
-        color: #fff;
-        .u-btn {
-            .db;
-            .pointer;
-            .fz(14px,1.78);
-            .r(5px);
-            .color(#fff);
-            padding: 5px 20px;
-            text-shadow: 0 1px 0 #484f58;
-            border: 1px solid #202124;
-            background: -webkit-linear-gradient(top, #343434, #2f363d);
-            box-shadow: 0 2px 2px #565656 inset, 0 2px 5px #232323;
-            &:hover {
-                filter: brightness(110%);
-                background-color: rgba(0, 0, 0, 0.5);
-            }
-        }
-        .u-desc {
-            cursor: default;
-            .fz(12px,2);
-            background-color: rgba(0, 0, 0, 0.2);
-            color: #eee;
-        }
+    .u-assistant{
+        .w(180px);
+        .x;
+        .mt(15px);
+    }
+
+    .u-btn{
+    }
+
+    .u-label{
+        .db;
+        .fz(12px,2);
+        color:#eee;
+        .mt(10px);
+        .x;
     }
 }

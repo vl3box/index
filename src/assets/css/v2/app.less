@@ -15,14 +15,13 @@
     .z(9);
     .pa;
     .lt(0, 0);
-    .pb(20px);
-    .pl(10px);
-    box-sizing: border-box; 
+    padding:20px 0;
+    box-sizing: border-box;
 }
 
 .m-primary {
-    padding: 20px 20px 0 20px;
-    margin-left: @left;
+    padding: 20px 0 0 0;
+    margin-left: @left + 20px;
     .m-content {
         .flex;
         .pt(20px);
@@ -59,3 +58,5 @@
 body {
     background-color: #f6f8fa;
 }
+
+@import "./sideblock.less";

@@ -47,7 +47,6 @@ export default {
     },
     created: function () {
         getPosts(this.client, "notice", 5, 3).then((res) => {
-            console.log(this.data);
             this.data = res.data.data.list;
         });
     },

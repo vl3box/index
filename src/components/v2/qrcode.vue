@@ -11,7 +11,9 @@
 <script>
 export default {
     name: "qrcode",
-    data() {},
+    data() {
+        return {}
+    },
     computed: {},
     methods: {},
     mounted: function () {},

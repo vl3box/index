@@ -1,10 +1,8 @@
 <template>
-    <div class="m-assistant m-sideblock">
-        <div class="m-assistant-header m-sideblock-header" :style="{ backgroundImage: bg }">
-            <div class="u-assistant">
-                <a href="" target="_blank" class="u-btn"><i class="el-icon-download"></i>魔盒助手</a>
-                <span class="u-desc">魔盒助手v.1.2323</span>
-            </div>
+    <div class="m-assistant" :style="{ backgroundImage: bg }">
+        <div class="u-assistant">
+            <a :href="link" target="_blank" class="u-btn button button-3d button-primary button-rounded"><i class="el-icon-download"></i>魔盒助手</a>
+            <span class="u-label">{{ label }}</span>
         </div>
     </div>
 </template>
@@ -12,13 +10,13 @@
 <script>
 import { theme } from "../../../setting.json";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { getMenus } from "@/service/cms.js";
 export default {
     name: "assistant",
     data: function () {
         return {
-            year: "",
-            month: "",
-            date: "",
+            label: "",
+            link: "",
         };
     },
     computed: {
@@ -34,15 +32,16 @@ export default {
     },
 
     methods: {
-        initDate: function () {
-            let dt = new Date();
-            this.year = dt.getFullYear();
-            this.month = dt.getMonth() + 1;
-            this.date = dt.getDate();
+        loadData: function () {
+            return getMenus("assistant").then((res) => {
+                let data = res.data.data.val?.[0];
+                this.label = data.label;
+                this.link = data.link;
+            });
         },
     },
     mounted: function () {
-        this.initDate();
+        this.loadData();
     },
 };
 </script>
