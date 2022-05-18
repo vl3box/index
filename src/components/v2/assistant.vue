@@ -1,5 +1,6 @@
 <template>
-    <div class="m-assistant" :style="{ backgroundImage: bg }">
+    <div class="m-assistant">
+        <!-- :style="{ backgroundImage: bg }" -->
         <div class="u-assistant">
             <a :href="link" target="_blank" class="u-btn button button-3d button-primary button-rounded"><i class="el-icon-download"></i>魔盒助手</a>
             <span class="u-label">{{ label }}</span>

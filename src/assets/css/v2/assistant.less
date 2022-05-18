@@ -3,7 +3,7 @@
     .r(5px);
     .h(116px);
     .pr;
-    background: url("../../img/right/dailybg.png") right top @bg-black no-repeat;
+    // background: url("../../img/right/dailybg.png") right top @bg-black no-repeat;
     background-size: cover;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -14,20 +14,24 @@
     display: flex;
     flex-direction: row-reverse;
 
+    background-image: url("../../img/assistant/v0.webp");
+
     .u-assistant{
-        .w(180px);
+        .w(160px);
         .x;
         .mt(15px);
+        display: flex;
+        flex-direction: column;
     }
 
-    .u-btn{
-    }
 
     .u-label{
         .db;
-        .fz(12px,2);
-        color:#eee;
-        .mt(10px);
+        .fz(12px,1.8);
+        color:@color;
+        // background-color:rgba(255,255,255,0.5);
+        background:linear-gradient(to right,transparent,#fff,transparent);
+        .mt(12px);
         .x;
     }
 }
