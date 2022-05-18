@@ -3,16 +3,15 @@
         <div class="m-sideblock-header">
             <i class="el-icon-s-opportunity"></i>
             <span class="u-title">站内动态</span>
-            <span class="u-more u-admin">
-                <template v-if="isAdmin">
-                    <a href="/admin" target="_blank" rel="noopener noreferrer">海报管理</a>
-                    <span>|</span>
-                    <a href="https://os.jx3box.com/admin/admin/login" target="_blank" rel="noopener noreferrer">后台管理</a>
-                </template>
-                <a v-else href="/bbs/#/notice" class="u-help">
-                    <i class="el-icon-more"></i>
-                </a>
-            </span>
+            <a
+                href="/notice"
+                class="u-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="查看全部"
+            >
+                <i class="el-icon-more"></i>
+            </a>
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">
             <li v-for="(item, i) in data" :key="i">

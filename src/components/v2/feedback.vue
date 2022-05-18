@@ -2,14 +2,13 @@
 <template>
     <div class="m-feedback m-sideblock">
         <div class="m-feedback-header m-sideblock-header">
-            <i class="el-icon-info">
-            </i><a class="u-title">反馈建议</a>
+            <i class="el-icon-info"> </i><a class="u-title">反馈建议</a>
         </div>
-        <a class="m-nav-feedback" :href="feedback" target="_blank">
-            <img :src="img" alt="盒子娘" />
+        <a class="m-feedback-content" :href="feedback" target="_blank">
+            <img class="u-avatar" :src="img" alt="盒子娘" />
             <span class="u-info">
-                <b><i class="el-icon-message"></i> 反馈建议</b>
-                <span>admin@jx3box.com</span>
+                <div>有什么想对盒子娘说的吗？</div>
+                <span><i class="el-icon-message"></i> admin@jx3box.com</span>
             </span>
         </a>
     </div>
@@ -17,6 +16,7 @@
 
 <script>
 import { __imgPath, feedback } from "@jx3box/jx3box-common/data/jx3box.json";
+import { showAvatar } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "feedback",
     data() {
@@ -24,7 +24,7 @@ export default {
     },
     computed: {
         img() {
-            return __imgPath + "image/other/hzn.png";
+            return showAvatar("https://oss.jx3box.com/upload/post/2022/5/18/8_2301067.png", 300);
         },
     },
     methods: {},
@@ -33,24 +33,27 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .m-nav-feedback {
-        .flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 0;
+.m-feedback-content {
+    .flex;
+    // justify-content: center;
+    align-items: center;
+    padding: 10px 10px 0 10px;
 
-        img {
-            fill: #3d454d;
-        }
-        .u-info {
-            .flex;
-            flex-direction: column;
-            padding: 0 30px;
-            .fz(14px,2);
+    .u-avatar {
+        .size(80px);
+    }
+
+    .u-info {
+        .x;
+        .flex;
+        flex-direction: column;
+        padding: 0 10px;
+        .fz(13px,2);
+        color: @color;
+        span {
+            .fz(12px);
             color: #999;
-            span {
-                .fz(12px);
-            }
         }
     }
+}
 </style>

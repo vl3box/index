@@ -28,6 +28,7 @@
                 <servers />
                 <notice />
                 <feedback />
+                <qrcode />
             </div>
         </div>
 
@@ -43,6 +44,7 @@ import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import notice from "@/components/index/notice.vue";
 import feedback from "@/components/v2/feedback.vue";
+import qrcode from "@/components/v2/qrcode.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
@@ -84,6 +86,7 @@ export default {
         servers,
         notice,
         feedback,
+        qrcode,
 
         // 首屏
         live,
