@@ -109,6 +109,13 @@ function getCalendar(params, client = "std") {
     });
 }
 
+// 获取指定日期范围的日历
+function getRangeCalendar(params){
+    return $cms().get(`/api/cms/calendar/archive/range`, {
+        params
+    })
+}
+
 // 获取日历计数
 function getCalendarCount(params) {
     let url = genUrl(params);
