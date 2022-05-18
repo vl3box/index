@@ -49,7 +49,7 @@ export default {
             .db;
             cursor: pointer;
             border-radius: 3px;
-            padding: 0 3px;
+            padding: 2px 3px;
             margin-bottom: 4px;
         }
 

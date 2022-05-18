@@ -120,37 +120,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-.m-calendar {
-    .mt(10px);
-    &-content {
-        display: flex;
-
-        .m-calendar-item {
-            flex: auto;
-            text-align: center;
-            font-size: 14px;
-            color: #ccc;
-
-            &.current {
-                color: #3d454d;
-
-                .u-date {
-                    margin: 0 auto;
-                    color: #fff;
-                    background: #3d454d;
-                    border-radius: 50%;
-                    .size(20px);
-                }
-            }
-
-            .u-week {
-                .mb(5px);
-            }
-        }
-    }
-    &-event {
-        .mt(10px);
-    }
-}
+<style lang="less">
+@import "../../assets/css/v2/calendar.less";
 </style>
