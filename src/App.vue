@@ -18,7 +18,6 @@
                         <transaction />
                     </div>
                 </div>
-                <Footer></Footer>
             </div>
             <div class="m-left m-sidebar">
                 <assistant />
@@ -31,7 +30,7 @@
                 <qrcode />
             </div>
         </div>
-
+        <Footer></Footer>
     </div>
 </template>
 
