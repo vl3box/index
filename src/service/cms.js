@@ -161,4 +161,5 @@ export {
     getHistory,
     getCalendarCount,
     getEventV2,
+    getRangeCalendar
 };
