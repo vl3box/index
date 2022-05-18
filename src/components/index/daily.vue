@@ -85,7 +85,7 @@ import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 dayjs.extend(isoWeek);
 import {nl2br} from '@/utils/filters'
-import calendar from './calendar.vue'
+import calendar from '../v2/calendar.vue';
 import {__imgPath} from '@jx3box/jx3box-common/data/jx3box.json'
 export default {
     name: "daily",
