@@ -20,13 +20,15 @@
                 </div>
             </div>
             <div class="m-left m-sidebar">
-                <assistant />
-                <calendar />
-                <jx3code />
-                <gamenews />
-                <servers />
-                <notice />
-                <div :class="isFixed?'m-fixed':''" :style="`top:${top}px`" ref="fixed">
+                <div class="m-left-box">
+                    <assistant />
+                    <calendar />
+                    <jx3code />
+                    <gamenews />
+                    <servers />
+                    <notice />
+                </div>
+                <div class="m-fixed-box">
                     <feedback />
                     <qrcode />
                 </div>
@@ -64,6 +66,7 @@ import transaction from "@/components/index/transaction_mini.vue";
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
+import _ from "lodash";
 
 export default {
     name: "App",
@@ -71,8 +74,6 @@ export default {
     data: function () {
         return {
             isMobile: window.innerWidth < 768,
-            isFixed: false,
-            top: 0,
         };
     },
     computed: {
@@ -107,8 +108,18 @@ export default {
     },
     methods: {
         handleScroll() {
-            this.isFixed = window.pageYOffset >= this.$refs.fixed.offsetHeight ? true : false;
-            this.top = window.pageYOffset;
+            $(document).scroll(function () {
+                let scrollTop = $(document).scrollTop();
+                let height = $(".m-left-box").outerHeight();
+                let _W = ($(document).width() - $(".m-main").width()) / 2;
+                if (scrollTop >= height) {
+                    $(".m-fixed-box")
+                        .addClass("m-fixed")
+                        .css({ left: `${_W}px` });
+                } else {
+                    $(".m-fixed-box").removeClass("m-fixed");
+                }
+            });
         },
     },
     created: function () {
@@ -132,7 +143,7 @@ export default {
         });
     },
     mounted() {
-        window.addEventListener("scroll", this.handleScroll, true);
+        window.addEventListener("scroll", this.handleScroll);
     },
 };
 </script>
