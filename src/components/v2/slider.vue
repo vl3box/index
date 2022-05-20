@@ -61,8 +61,8 @@ export default {
             $("#m-home-slider").slick("slickGoTo", index);
         },
         loadData: function () {
-            return getSliders("slider", this.client, 10).then((res) => {
-                this.data = res.data.data.list;
+            return getSliders("slider", this.client, 8).then((res) => {
+                this.data = res.data.data.list
             });
         },
         init: function () {

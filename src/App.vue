@@ -7,15 +7,19 @@
                 <slider />
                 <box />
                 <div class="m-content">
-                    <div class="m-center">
+                    <div class="m-show">
                         <event />
-                        <posts />
-                        <wiki />
-                    </div>
-                    <div class="m-right">
                         <banner />
-                        <price />
-                        <transaction />
+                    </div>
+                    <div class="m-section">
+                        <div class="m-center">
+                            <posts />
+                            <wiki />
+                        </div>
+                        <div class="m-right">
+                            <price />
+                            <transaction />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,7 +77,7 @@ export default {
     props: [],
     data: function () {
         return {
-            isMobile: window.innerWidth < 768,
+            isMobile: window.innerWidth < 1280,
         };
     },
     computed: {
@@ -146,5 +150,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "./assets/css/v2/app.less";
+@import "./assets/css/v2/app.less";
 </style>

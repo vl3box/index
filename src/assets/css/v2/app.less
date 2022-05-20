@@ -8,12 +8,17 @@
     .mt(@header-height);
     .pr;
     background-color: #f6f8fa;
-    max-width: 1440px;
+    width: 1440px;
     .auto(x);
+    // display: flex;
+    // flex-direction: row-reverse;
+    // gap:20px;
 }
 
 .m-left {
     .w(@left);
+    // flex-basis: @left;
+    // flex-shrink: 0;
     .z(9);
     .pa;
     .lt(0, 0);
@@ -22,11 +27,38 @@
 }
 
 .m-primary {
-    padding: 20px 0 0 0;
+    padding:20px 0;
+    // flex-basis: 1100px;
+    // flex-shrink: 1;
     margin-left: @left + 20px;
-    .m-content {
-        .flex;
-        .pt(20px);
+    .m-show{
+        display: flex;
+        margin-top:20px;
+        justify-content: space-between;
+        // min-width: 1100px;
+        overflow-x: auto;
+        gap:20px;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+        &::-webkit-scrollbar-track,
+        &::-webkit-scrollbar-track-piece {
+            background-color: #fafafa;
+            border-radius: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            border-radius: 6px;
+        }
+        &::-webkit-scrollbar-button,
+        &::-webkit-scrollbar-corner,
+        &::-webkit-resizer {
+            display: none;
+        }
+    }
+    .m-section{
+        display: flex;
     }
     .m-right {
         .w(@right);
@@ -79,4 +111,4 @@ body {
     border-bottom:1px dashed #eee;
 }
 
-@import "./app_media.less";
+@import "./responsive.less";

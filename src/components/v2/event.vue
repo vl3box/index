@@ -1,7 +1,7 @@
 <template>
     <div class="m-event-wrapper" v-loading="loading">
         <div class="m-event" id="m-event">
-            <a v-for="(item, index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
+            <a class="u-event" v-for="(item, index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
                 <img :src="item.img" :alt="item.title" />
             </a>
         </div>

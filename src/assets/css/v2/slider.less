@@ -1,12 +1,8 @@
 @import "../index/slick.less";
 .m-slider {
-    .mb(20px) !important;
     .h(280px);
     background-color: @bg-black;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    .el-carousel__container {
-        .h(100%);
-    }
     // border:1px solid @border-hr;
     .r(4px);
     overflow: hidden;
@@ -62,34 +58,32 @@
     .slick-next:before {
         .fz(40px);
     }
-}
-@media screen and (max-width: @phone) {
-    .m-slider {
-        .h(150px);
-        .el-carousel__indicators {
-            .none;
-        }
-    }
+
 }
 @h: 45px;
 .m-slider-thumbnail {
-    .none;
+    // .none;
+    display: flex;
     .pa;
-    .lt(0,220px);
-    .size(100%,@h);
-
+    .lb(0,0);
+    .size(100%,@h + 20px);
+    transform: translateY(150%);
+    transition: all 0.15s ease-in-out;
+    // background:linear-gradient(to top,#fff,#ffffff22);
+    background-color:rgba(0,0,0,.5);
+    padding:10px;
     box-sizing: border-box;
-    padding: 0 20px;
+
     .u-thumbnail {
         .r(3px);
         flex-grow: 1;
         flex-shrink: 1;
         overflow: hidden;
         cursor: pointer;
-        background-color: @bg-black;
+        // background-color: @bg-black;
 
         &:not(:last-of-type) {
-            .mr(4px);
+            .mr(8px);
         }
 
         .u-pic {
@@ -109,15 +103,18 @@
             }
         }
 
+
         // .tm(0.8);
         // filter: saturate(80%) blur(0.1px);
         &.active {
-            .tm(1);
             filter: saturate(120%);
-            transform: scale(1.1);
-            outline: 2px solid rgb(249, 128, 3);
+            transform: scale(1.2);
+            // outline: 2px solid rgb(249, 128, 3);
             transition: all 0.2s ease-in-out;
             z-index: 5;
+            .tm(1);
+            border:1px dashed #fff;
+            box-sizing: border-box;
         }
     }
 }
@@ -127,9 +124,14 @@
     }
 }
 .m-slider-box {
+    .w(100%);
     .pr;
-    &:hover .m-slider-thumbnail {
-        .flex;
+    overflow: hidden;
+    .mb(20px);
+
+    &:hover{
+        .m-slider-thumbnail{
+            transform: translateY(0);
+        }
     }
 }
-
