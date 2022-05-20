@@ -3,14 +3,14 @@
         <div class="m-slider" v-if="ready" id="m-home-slider">
             <div class="u-slider" v-for="(item, i) in data" :key="i" :style="{ backgroundColor: item.bgcolor }">
                 <a class="u-pic" :href="item.link" :target="target">
-                    <img :src="item.img | resolveImagePath" />
+                    <img :src="showSlider(item.img)" />
                 </a>
             </div>
         </div>
         <div class="m-slider-thumbnail">
             <div class="u-thumbnail" :class="{active: active === i}" v-for="(item, i) in data" :key="i" :style="{ backgroundColor: item.bgcolor }" @click="setActive(i)">
                 <a class="u-pic">
-                    <img :src="item.img | getThumbnail" />
+                    <img :src="showThumbnail(item.img)" />
                 </a>
             </div>
         </div>
@@ -27,6 +27,7 @@ export default {
         return {
             data: [],
             active: 0,
+            ratio : window.devicePixelRatio || 1,
         };
     },
     computed: {
@@ -69,15 +70,20 @@ export default {
                 this.renderSlider();
             });
         },
+        showSlider(val){
+            if(this.ratio == 1){
+                return getThumbnail(val, [1100,280]);
+            }else{
+                // return getThumbnail(val, [1100,280]);
+                return resolveImagePath(val)
+            }
+        },
+        showThumbnail(val){
+            return getThumbnail(val, "index_banner"); //[220, 60]
+        }
     },
     mounted: function () {
         this.init();
-    },
-    filters: {
-        resolveImagePath,
-        getThumbnail: function (val) {
-            return getThumbnail(val, "index_banner"); //[220, 60]
-        },
     },
 };
 </script>

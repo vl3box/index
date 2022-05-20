@@ -85,20 +85,6 @@
     },
     {
         "lf": false,
-        "img": "quest.svg",
-        "abbr": "任务",
-        "href": "/quest",
-        "mark": "HOT",
-        "name": "任务百科",
-        "uuid": "quest",
-        "hover": "quest.svg",
-        "client": "all",
-        "status": true,
-        "hasMark": false,
-        "markcls": "ishot"
-    },
-    {
-        "lf": false,
         "img": "knowledge.svg",
         "abbr": "通识",
         "href": "/knowledge",
@@ -155,20 +141,6 @@
     },
     {
         "lf": false,
-        "img": "house.svg",
-        "abbr": "蓝图",
-        "href": "https://jx3.xoyo.com/zt/2020/09/24/blueprint/#/",
-        "mark": "HOT",
-        "name": "家园蓝图",
-        "uuid": "house",
-        "hover": "house.svg",
-        "client": "std",
-        "status": true,
-        "hasMark": false,
-        "markcls": "ishot"
-    },
-    {
-        "lf": false,
         "img": "bbs.svg",
         "abbr": "茶馆",
         "href": "/bbs",
@@ -181,6 +153,7 @@
         "hasMark": false,
         "markcls": "ishot"
     },
+
     {
         "lf": true,
         "img": "database.svg",
@@ -309,20 +282,6 @@
     },
     {
         "lf": false,
-        "img": "qiyu.svg",
-        "abbr": "奇遇",
-        "href": "https://j3cx.com/serendipity",
-        "mark": "HOT",
-        "name": "奇遇查询",
-        "uuid": "qiyu",
-        "hover": "qiyu.svg",
-        "client": "std",
-        "status": true,
-        "hasMark": false,
-        "markcls": "ishot"
-    },
-    {
-        "lf": false,
         "img": "keju.svg",
         "abbr": "科举",
         "href": "https://j3cx.com/exam/",
@@ -330,20 +289,6 @@
         "name": "科举题库",
         "uuid": "keju",
         "hover": "keju.svg",
-        "client": "all",
-        "status": true,
-        "hasMark": false,
-        "markcls": "ishot"
-    },
-    {
-        "lf": false,
-        "img": "facedata.svg",
-        "abbr": "妆容",
-        "href": "/app/facedata",
-        "mark": "HOT",
-        "name": "妆容解析",
-        "uuid": "facedata",
-        "hover": "facedata.svg",
         "client": "all",
         "status": true,
         "hasMark": false,
@@ -372,20 +317,6 @@
         "name": "金价走势",
         "uuid": "price",
         "hover": "price.svg",
-        "client": "std",
-        "status": true,
-        "hasMark": false,
-        "markcls": "ishot"
-    },
-    {
-        "lf": false,
-        "img": "sandbox.svg",
-        "abbr": "沙盘",
-        "href": "/app/sandbox",
-        "mark": "HOT",
-        "name": "阵营沙盘",
-        "uuid": "sandbox",
-        "hover": "sandbox.svg",
         "client": "std",
         "status": true,
         "hasMark": false,
