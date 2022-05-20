@@ -11,7 +11,7 @@
         .fl;
     }
 
-    .u-label{
+    .u-label {
         .none;
     }
     .u-filter {
@@ -60,35 +60,35 @@
 }
 @media screen and (max-width: @ipad) {
     .m-archive-order {
-
         .u-publish {
             .mr(10px);
         }
-        .u-filter{
+        .u-filter {
             .w(110px);
         }
-        .u-modes{
+        .u-modes {
             .w(140px);
         }
-        .u-filter,.u-modes {
+        .u-filter,
+        .u-modes {
             .pr;
             background-color: @bg-light;
             border: 1px solid #ddd;
             .r(4px);
             user-select: none;
-            padding:6px 0;
+            padding: 6px 0;
 
-            &.on{
-                .u-options{
+            &.on {
+                .u-options {
                     .db;
                 }
 
-                border-bottom-left-radius:0;
-                border-bottom-right-radius:0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
         }
-        .u-label{
-            padding:0 10px;
+        .u-label {
+            padding: 0 10px;
             .pointer;
             .db;
         }
@@ -97,7 +97,7 @@
             .lt(-1px,29px);
             padding: 5px 0;
             .w(100%);
-            background-color:#fff;
+            background-color: #fff;
             border: 1px solid #ddd;
             .z(2);
             .u-mode {
@@ -110,27 +110,28 @@
         }
     }
 }
-@media screen and (max-width:@phone){
+@media screen and (max-width: @phone) {
     .m-archive-order {
         .none;
-        .u-publish {.none;}
-    }
-}
-
-// 列表搜索
-.m-archive-search{
-    .mb(10px);
-    .el-select .el-input {
-        width: 80px;
-    }
-    .u-switch{
-        .el-switch__label{
-            .bold;
-            color:#666;
+        .u-publish {
+            .none;
         }
     }
 }
 
+// 列表搜索
+.m-archive-search {
+    .mb(10px);
+    .el-select .el-input {
+        width: 80px;
+    }
+    .u-switch {
+        .el-switch__label {
+            .bold;
+            color: #666;
+        }
+    }
+}
 
 // 列表
 .m-archive-list {
@@ -192,13 +193,13 @@
                 content: "🎯";
                 .mr(5px);
             }
-            .u-title:hover{
+            .u-title:hover {
                 box-shadow: 0 1px 0 #f00;
             }
         }
         .u-title {
             // color:@darkblue;
-            font-weight:400;
+            font-weight: 400;
             &:hover {
                 box-shadow: 0 1px 0 @primary;
             }
@@ -310,7 +311,7 @@
         color: #777;
     }
 
-    .u-author{
+    .u-author {
         // .pa;.rt(0);
         .mr(10px);
     }
@@ -325,9 +326,9 @@
     .u-author-name {
         .fz(12px,24px);
         // .fl;
-        color:#666;
+        color: #666;
         &:hover {
-            color:@pink;
+            color: @pink;
         }
     }
     .u-date {
@@ -335,9 +336,9 @@
         .mt(3px);
         .clear;
     }
-    .u-time{
+    .u-time {
         .fz(12px);
-        color:#888;
+        color: #888;
     }
 
     .u-down {
@@ -410,33 +411,39 @@
     .x;
 }
 
-.m-notice-types{
+.m-notice-types {
     .mb(10px);
     overflow-x: auto;
-    .el-radio-group{
+    .el-radio-group {
         display: flex;
     }
-    .el-radio__input{
+    .el-radio__input {
         .none;
     }
-    .el-radio__label{
-        padding:0;
+    .el-radio__label {
+        padding: 0;
     }
-    .el-radio{
-        margin:0 20px 10px 0 ;
-        background-color:#f1f8ff;
-        padding:8px 15px;
-        color:@color-link;
-        &.is-checked .el-radio__label{
-            color:@color-link;
-            .bold;
+    .el-radio {
+        margin: 0 20px 10px 0;
+        background-color: @bg-light;
+        padding: 8px 15px;
+        font-weight: normal;
+        .r(2px);
+
+        // color:@color-link;
+        &.is-checked {
+            .el-radio__label {
+                color: @color-link;
+                .bold;
+            }
+
+            background-color: #f1f8ff;
         }
     }
-
 }
 
 // 空
-.m-archive-null{
+.m-archive-null {
     .x;
-    padding:80px 0;
+    padding: 80px 0;
 }

@@ -1,5 +1,6 @@
 <template>
-    <div class="p-notice" :class="theme_cls" :style="{backgroundImage:bg}">
+    <div class="p-notice" :class="theme_cls">
+        <!--  :style="{backgroundImage:bg}" -->
         <Header :overlayEnable="true"></Header>
         <div class="p-notice-container wp">
             <div class="m-left m-sidebar">
