@@ -111,11 +111,8 @@ export default {
             $(document).scroll(function () {
                 let scrollTop = $(document).scrollTop();
                 let height = $(".m-left-box").outerHeight();
-                let _W = ($(document).width() - $(".m-main").width()) / 2;
                 if (scrollTop >= height) {
-                    $(".m-fixed-box")
-                        .addClass("m-fixed")
-                        .css({ left: `${_W}px` });
+                    $(".m-fixed-box").addClass("m-fixed");
                 } else {
                     $(".m-fixed-box").removeClass("m-fixed");
                 }
