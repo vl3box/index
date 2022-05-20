@@ -119,8 +119,7 @@ export default {
             this.loading = true;
             if (this.type === "calendar") {
                 getRecentCalendar({
-                    user_info: 1,
-                    limit: 5,
+                    per: 5,
                 })
                     .then((res) => {
                         this.data = res.data.data.list || [];
@@ -167,9 +166,6 @@ export default {
     mounted: function () {
         this.loadData();
     },
-    // components: {
-    //     "mini-bread": Mini_bread,
-    // },
 };
 </script>
 
