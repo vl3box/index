@@ -43,7 +43,7 @@ export default {
     .m-qrcode-content {
         .flex;
         flex-wrap: wrap;
-        padding:10px;
+        padding:10px 20px;
         .u-code {
             .flex;
             .size(50%);
@@ -61,7 +61,7 @@ export default {
                 }
             }
             .u-img{
-                .w(50%);
+                .w(80%);
             }
         }
     }

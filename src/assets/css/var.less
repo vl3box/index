@@ -9,3 +9,20 @@
 @kv_jianghuwuxian : 'https://img.jx3box.com/topic/jianghuwuxian/';
 
 
+.arrow(t,@width,@color,@x:50%){
+    &:before{
+        bottom: 100%;
+        left: @x;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-style: solid;
+        border-color: transparent;
+        border-bottom-color:@color;
+        border-width: unit(@width,px);
+        @margin:-@width;
+        margin-left: unit(@margin,px);
+    }
+}

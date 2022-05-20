@@ -50,7 +50,7 @@ export default {
         }
     },
     created: function () {
-        getPosts(this.client, "notice", 5, 3).then((res) => {
+        getPosts(this.client, "notice", 5).then((res) => {
             this.data = res.data.data.list;
         });
     },

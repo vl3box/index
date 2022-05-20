@@ -11,7 +11,7 @@
             >
                 <div class="u-week">{{ item.week }}</div>
                 <div class="u-date">{{ item.date }}</div>
-                <div class="u-links" :style="{color: item.slogan.color}">{{ item.slogan.title }}</div>
+                <div class="u-link" :style="{color: item.slogan.color}" v-if="item.slogan.title">{{ item.slogan.title }}</div>
             </a>
         </div>
         <div class="m-calendar-event">
