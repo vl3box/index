@@ -127,6 +127,12 @@ function getCalendarSlogans(params) {
     return $cms().get(`/api/cms/calendar/slogan${url}`);
 }
 
+function getCalendarSlogansExact(params){
+    return $cms().get(`/api/cms/calendar/slogan/exact`, {
+        params
+    })
+}
+
 function getHistory(params, query) {
     let url = genUrl(params);
     return $cms().get(`/api/cms/calendar/history${url}`, {
@@ -158,6 +164,7 @@ export {
     getRecentCalendar,
     getCalendar,
     getCalendarSlogans,
+    getCalendarSlogansExact,
     getHistory,
     getCalendarCount,
     getEventV2,

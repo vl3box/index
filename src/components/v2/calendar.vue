@@ -24,7 +24,7 @@
 
 <script>
 import calendar_item from "./calendar_item.vue";
-import { getRangeCalendar, getCalendarSlogans } from "@/service/cms.js";
+import { getRangeCalendar, getCalendarSlogansExact } from "@/service/cms.js";
 import dayjs from "dayjs";
 export default {
     name: "calendar",
@@ -115,8 +115,7 @@ export default {
         },
          // 获取当前年月的海报信息
         loadCalendarSlogans() {
-            const { year, month } = this.current;
-            getCalendarSlogans({ year, month }).then((res) => {
+            getCalendarSlogansExact(this.params).then((res) => {
                 this.slogans = res.data;
                 this.slogans.forEach(item => {
                     const index = this.data.findIndex(
