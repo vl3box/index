@@ -47,9 +47,10 @@ export default {
     computed: {
         dateRange() {
             let dataRange = [];
+            const prevDate = dayjs().subtract(3, 'day')
 
             for (let i = 0; i < 7; i++) {
-                const date = dayjs().add(i, "day").format("YYYY-MM-DD");
+                const date = prevDate.add(i, "day").format("YYYY-MM-DD");
                 dataRange.push(date);
             }
 
