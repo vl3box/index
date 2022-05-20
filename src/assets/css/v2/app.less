@@ -1,15 +1,13 @@
 @import "../kv.less";
 @import "./sideblock.less";
 
-
-
 @left: 320px;
 @right: 380px;
 .m-main {
     .mt(@header-height);
     .pr;
     background-color: #f6f8fa;
-    width: @w;
+    max-width: @w;
     .auto(x);
     // display: flex;
     // flex-direction: row-reverse;
@@ -28,13 +26,13 @@
 }
 
 .m-primary {
-    padding:20px 0;
+    padding: 20px 0;
     // flex-basis: 1100px;
     // flex-shrink: 1;
     margin-left: @left + 20px;
-    .m-show{
+    .m-show {
         display: flex;
-        margin-top:20px;
+        margin-top: 20px;
         justify-content: space-between;
         // min-width: 1100px;
         gap:20px;
@@ -57,7 +55,7 @@
             display: none;
         }
     }
-    .m-section{
+    .m-section {
         display: flex;
     }
     .m-right {
@@ -67,8 +65,8 @@
         // background-color: #fff;
         // border: 1px solid rgba(63, 68, 72, 0.2);
     }
-    .m-center{
-        flex:1;
+    .m-center {
+        flex: 1;
     }
 }
 
@@ -103,12 +101,6 @@ body {
     background-color: #f6f8fa;
 }
 
-.m-sideblock{
-    box-shadow: 0 0 2px rgba(0,0,0,.08);
-    border:none;//2px solid rgba(0,0,0,0.01);
-}
-.m-sideblock-header{
-    border-bottom:1px dashed #eee;
-}
+
 
 @import "./responsive.less";
