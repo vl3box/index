@@ -1,4 +1,6 @@
 @import "../kv.less";
+@import "./sideblock.less";
+
 
 @left: 320px;
 @right: 380px;
@@ -6,7 +8,7 @@
     .mt(@header-height);
     .pr;
     background-color: #f6f8fa;
-    width: 1440px;
+    max-width: 1440px;
     .auto(x);
 }
 
@@ -65,4 +67,5 @@ body {
     margin: 0;
     background-color: #f6f8fa;
 }
-@import "./sideblock.less";
+
+@import "./app_media.less";

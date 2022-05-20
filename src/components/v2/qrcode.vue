@@ -7,7 +7,7 @@
         <div class="m-qrcode-content">
             <div class="u-code" v-for="(item,index) in codes" :key="index">
                 <span class="u-title"><img :src="item.svg" />{{item.name}}</span>
-                <img :src="item.src" :alt="item.name">
+                <img class="u-img" :src="item.src" :alt="item.name">
             </div>
         </div>
     </div>
@@ -59,6 +59,9 @@ export default {
                     .size(14px);
                     .mr(5px);
                 }
+            }
+            .u-img{
+                .w(50%);
             }
         }
     }
