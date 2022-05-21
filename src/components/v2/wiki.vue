@@ -1,7 +1,7 @@
 <template>
     <div class="m-v2-post m-sideblock">
         <div class="m-guide-header m-sideblock-header">
-            <i class="el-icon-notebook-2"></i>
+            <i class="el-icon-s-management"></i>
             <span class="u-title">最新百科</span>
             <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>

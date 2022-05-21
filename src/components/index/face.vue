@@ -1,7 +1,7 @@
 <template>
     <div class="m-face m-sideblock">
         <div class="m-face-header m-sideblock-header">
-            <i class="el-icon-s-shop"></i>
+            <i class="el-icon-camera-solid"></i>
             <a class="u-title" href="/share" target="_blank">最新捏脸</a>
             <a href="/share" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
@@ -82,7 +82,7 @@ export default {
         this.loading = true;
         getPosts({
             type : 'share',
-            per: this.per,
+            per: 9,
         })
             .then((res) => {
                 this.data = res.data.data.list || [];

@@ -8,8 +8,8 @@
                     <assistant />
                     <calendar />
                     <jx3code />
-                    <gamenews />
                     <servers />
+                    <gamenews />
                     <notice />
                 </div>
                 <div class="m-fixed-box">

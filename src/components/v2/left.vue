@@ -4,8 +4,8 @@
             <assistant />
             <calendar />
             <jx3code />
-            <gamenews />
             <servers />
+            <gamenews />
             <notice />
         </div>
         <div class="m-fixed-box">
@@ -36,7 +36,7 @@ export default {
         qrcode,
     },
 };
-</script> 
+</script>
 <style lang="less">
     @import "~@/assets/css/v2/sideblock.less";
 </style>

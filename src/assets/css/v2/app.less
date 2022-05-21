@@ -1,13 +1,13 @@
 @import "../kv.less";
 @import "./sideblock.less";
 
-@left: 320px;
+@left: 360px;
 @right: 380px;
 .m-main {
     .mt(@header-height);
     .pr;
     background-color: #f6f8fa;
-    max-width: @w;
+    // max-width: @w;
     .auto(x);
     // display: flex;
     // flex-direction: row-reverse;
@@ -21,15 +21,15 @@
     .z(9);
     .pa;
     .lt(0, 0);
-    padding: 20px 0;
+    padding: 20px;
     box-sizing: border-box;
 }
 
 .m-primary {
-    padding: 20px 0;
+    padding: 20px 20px 20px 0;
     // flex-basis: 1100px;
     // flex-shrink: 1;
-    margin-left: @left + 20px;
+    margin-left: @left;
     .m-show {
         display: flex;
         margin-top: 20px;
@@ -95,7 +95,7 @@ body {
 }
 .m-fixed {
     .pf;
-    .w(@left);
+    .w(@left - 40px);
     top: @header-height;
     margin: 0;
     background-color: #f6f8fa;

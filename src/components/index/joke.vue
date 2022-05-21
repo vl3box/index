@@ -7,13 +7,13 @@
             <el-carousel height="20px" direction="vertical" :autoplay="true">
                 <el-carousel-item v-for="(item,i) in data" :key="i">
                     <a class="u-item" href="/bbs/#/joke" target="_blank">
+                        <span class="u-author">{{item.author || '匿名'}}：</span>
                         <span class="u-joke" v-html="item.html"></span>
-                        <span class="u-author">@{{item.author || '匿名'}}</span>
                     </a>
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <a class="u-publish" target="_blank" href="/publish/#/joke"><i class="el-icon-s-promotion"></i> 说骚话</a>
+        <a class="u-publish" target="_blank" href="/publish/#/joke"><i class="el-icon-s-promotion"></i>JUST SAO!</a>
     </div>
 </template>
 

@@ -14,11 +14,13 @@
                     <div class="m-section">
                         <div class="m-center">
                             <posts />
+                            <joke />
                             <wiki />
                         </div>
                         <div class="m-right">
                             <price />
                             <transaction />
+                            <face />
                         </div>
                     </div>
                 </div>
@@ -28,8 +30,8 @@
                     <assistant />
                     <calendar />
                     <jx3code />
-                    <gamenews />
                     <servers />
+                    <gamenews />
                     <notice />
                 </div>
                 <div class="m-fixed-box">
@@ -60,13 +62,16 @@ import box from "@/components/index/box.vue";
 import event from "@/components/v2/event.vue";
 import posts from "@/components/v2/posts.vue";
 import wiki from "@/components/v2/wiki.vue";
+import joke from '@/components/index/joke.vue'
+import face from '@/components/index/face.vue'
 
 // v2 右侧
 import banner from "@/components/v2/banner.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
-// import festival from "@/components/index/festival.vue";
 
+// 系统
+// import festival from "@/components/index/festival.vue";
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
@@ -103,11 +108,13 @@ export default {
         event,
         posts,
         wiki,
+        face,
 
         // 右侧
         banner,
         price,
         transaction,
+        joke,
         // festival,
     },
     methods: {
