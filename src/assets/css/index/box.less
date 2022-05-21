@@ -26,8 +26,9 @@
 
     }
     .u-item {
-        .db;
+        .db;.auto(x);
         .size(74px);
+        flex-basis: 74px;
         box-sizing: border-box;
         .x;
         padding: 8px;
@@ -149,18 +150,16 @@
         box-shadow: none;
         .u-list{
             padding:0;
+            display: flex;
+            flex-wrap: wrap;
+
+            li{
+                flex-grow: 1;
+                padding:5px;
+            }
         }
         .u-txt{
             .lh(32px);
-        }
-    }
-}
-@media screen and (max-width:375px){
-    .m-box{
-        .u-list{
-            li{
-                padding:5px;
-            }
         }
     }
 }
