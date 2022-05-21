@@ -105,5 +105,6 @@ export default {
 <style lang="less">
     @import "../assets/css/kv.less";
     @import "../assets/css/v2/sideblock.less";
+    @import "../assets/css/v2/responsive.less";
     @import "../assets/css/notice/common.less";
 </style>
