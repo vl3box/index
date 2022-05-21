@@ -1,6 +1,5 @@
 <template>
 <div class="m-event-wrapper">
-
     <div class="m-event" v-if="ready" id="m-event">
         <div class="u-event" v-for="(item, i) in data" :key="i">
             <a :href="item.link" rel="noopener noreferrer" :target="target">

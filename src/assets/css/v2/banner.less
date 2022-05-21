@@ -1,10 +1,18 @@
 .m-banner {
     box-shadow: 0 0 2px rgba(0,0,0,.08);
     .r(5px);
-    .size(380px,200px);
+    .w(100%);
+    // .size(380px,200px);
     .clip;
     a,img{
         .db;
         .size(100%);
+        // .w(100%);
+    }
+}
+
+@media screen and (max-width:@mininote){
+    .m-banner{
+        .none;
     }
 }

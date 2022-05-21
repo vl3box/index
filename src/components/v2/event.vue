@@ -5,7 +5,7 @@
                 <img :src="item.img" :alt="item.title" />
             </a>
         </div>
-        <a class="u-more" href="/notice?subtype=2" target="_blank"><span>往期活动</span></a>
+        <!-- <a class="u-more" href="/notice?subtype=2" target="_blank"><span>往期活动</span></a> -->
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
                 client: this.client,
                 type:"common",
                 subtype: "event",
-                per: 4,
+                per: 6,
                 status: 1,
             };
         },

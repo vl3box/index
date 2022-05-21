@@ -6,7 +6,9 @@
         .flex;
         a {
             .db;
-            .size(150px,200px);
+            // .size(150px,200px);
+            flex-basis: 150px;
+            flex-grow: 1;
             .r(5px);
             .mr(20px);
             // border: 1px solid rgba(63, 68, 72, 0.2);
@@ -20,6 +22,9 @@
                 .full;
             }
             box-shadow: 0 0 2px rgba(0,0,0,.15);
+            &:last-child{
+                .mr(0);
+            }
         }
     }
     .u-more {
@@ -43,3 +48,14 @@
 }
 
 
+@media screen and (max-width:@phone){
+    .m-event-wrapper {
+        overflow-x: auto;
+    }
+    .m-event{
+
+        a{
+            flex-shrink: 0;
+        }
+    }
+}

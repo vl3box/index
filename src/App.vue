@@ -7,17 +7,17 @@
                 <slider />
                 <box />
                 <div class="m-content">
-                    <div class="m-show">
-                        <event />
-                        <banner />
-                    </div>
+                    <!-- <div class="m-show">
+                    </div> -->
                     <div class="m-section">
                         <div class="m-center">
+                            <event />
                             <posts />
                             <joke />
                             <wiki />
                         </div>
                         <div class="m-right">
+                            <banner />
                             <price />
                             <transaction />
                             <face />
