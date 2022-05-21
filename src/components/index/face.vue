@@ -44,6 +44,7 @@ export default {
             return buildTarget();
         },
         per : function (){
+            return 9
             let w = window.innerWidth
             let space = w
             let count = 10
@@ -82,7 +83,7 @@ export default {
         this.loading = true;
         getPosts({
             type : 'share',
-            per: 9,
+            per: this.per,
         })
             .then((res) => {
                 this.data = res.data.data.list || [];

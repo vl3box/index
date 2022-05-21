@@ -16,7 +16,7 @@
 
 .m-face-list {
     list-style: none;
-    padding: 10px 0;
+    padding: 10px;
     margin: 0;
     // .clearfix;
     display: flex;
@@ -25,13 +25,14 @@
     flex-wrap: wrap;
 
     .u-pic {
-        .size(86px);
+        .w(100%);
         .db;
         // .r(100%);
         border: 4px solid @bg-gray;
         transition: all 0.2s ease-in-out;
         // background-color:@bg-black;
         background-color: #e6f0fb;
+        box-sizing: border-box;
         &:hover {
             // box-shadow: 0 0 8px rgba(0,0,0,.2);
             filter: saturate(120%) brightness(110%);
@@ -47,6 +48,7 @@
         }
     }
     .u-item {
+        .w(33.33%);
         // .fl;
         // margin:10px;
         .db;
