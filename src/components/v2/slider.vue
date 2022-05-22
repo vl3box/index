@@ -72,9 +72,8 @@ export default {
         },
         showSlider(val){
             if(this.ratio == 1){
-                return getThumbnail(val, [1100,280]);
+                return getThumbnail(val, 'index_slider');
             }else{
-                // return getThumbnail(val, [1100,280]);
                 return resolveImagePath(val)
             }
         },
