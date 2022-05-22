@@ -148,13 +148,20 @@
         background:none;
         border:none;
         box-shadow: none;
+
         .u-list{
             padding:0;
-            display: flex;
-            flex-wrap: wrap;
+            // display: inline-flex;
+            // flex-wrap: wrap;
+            // justify-content: flex-start;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-content:space-between;
+            .w(100%);
+            // grid-template-columns: repeat(auto-fill, 74px);
 
             li{
-                flex-grow: 1;
+                // flex-grow: 1;
                 padding:5px;
             }
         }
@@ -241,4 +248,10 @@
     .el-message-box{
         max-width:100%;
     }
+}
+
+.m-box-content{
+    display: flex;
+    justify-content: center;
+
 }

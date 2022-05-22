@@ -3,90 +3,78 @@
         <div class="m-sideblock-header">
             <i class="el-icon-box"></i>
             <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
-            <mini-bread class="u-bread" name="index_notification"/>
+            <mini-bread class="u-bread" name="index_notification" />
         </div>
-        <draggable
-            class="u-list"
-            :class="{ isEditMode: !options.disabled }"
-            element="ul"
-            v-model="data"
-            @change="update"
-            :options="options"
-        >
-            <li
-                v-for="(item, key) in data"
-                :key="key"
-                class="u-item-wrapper"
-                :class="{
-                    'u-lf': isLF(item.uuid),
-                    hidden: !canSee(item.uuid),
-                }"
-                v-show="item.status"
+        <!-- <div class="m-box-content"> -->
+            <draggable
+                class="u-list"
+                :class="{ isEditMode: !options.disabled }"
+                element="ul"
+                v-model="data"
+                @change="update"
+                :options="options"
             >
-                <el-tooltip
-                    class="item"
-                    effect="dark"
-                    :content="item.name"
-                    :disabled="options.disabled"
-                    placement="top"
-                    :open-delay="50"
+                <li
+                    v-for="(item, key) in data"
+                    :key="key"
+                    class="u-item-wrapper"
+                    :class="{
+                        'u-lf': isLF(item.uuid),
+                        hidden: !canSee(item.uuid),
+                    }"
+                    v-show="item.status"
                 >
-                    <a
-                        :href="!options.disabled ? '' : item.href"
-                        :target="item.href.startsWith('/') ? target : '_blank'"
-                        class="u-item"
-                        :class="{ 'u-doing': !item.status }"
+                    <el-tooltip
+                        class="item"
+                        effect="dark"
+                        :content="item.name"
+                        :disabled="options.disabled"
+                        placement="top"
+                        :open-delay="50"
                     >
-                        <img
-                            class="u-pic"
-                            :src="item.img | getBoxIcon"
-                            :class="{ hidden: !canSee(item.uuid) }"
-                        />
-                        <img class="u-pic-hover" svg-inline :src="item.hover | getBoxIcon" />
-                        <span class="u-txt">{{ showAbbr ? item.abbr : item.name }}</span>
-                        <i v-if="item.hasMark" class="u-mark" :class="item.markcls">{{ item.mark }}</i>
-                        <span class="u-control">
-                            <i
-                                class="u-break el-icon-scissors"
-                                title="换行"
-                                :class="{ on: isLF(item) }"
-                                @click.prevent="cut(item.uuid)"
-                            ></i>
-                            <i
-                                class="u-hide el-icon-delete"
-                                title="隐藏"
-                                v-if="canSee(item.uuid)"
-                                @click.prevent="hideIt(item.uuid)"
-                            ></i>
-                            <i
-                                class="u-show el-icon-view"
-                                title="显示"
-                                v-if="!canSee(item.uuid)"
-                                @click.prevent="showIt(item.uuid)"
-                            ></i>
-                        </span>
-                        <i class="u-pop" v-if="isEditor && pop[item.uuid]"></i>
-                    </a>
-                </el-tooltip>
-            </li>
-        </draggable>
+                        <a
+                            :href="!options.disabled ? '' : item.href"
+                            :target="item.href.startsWith('/') ? target : '_blank'"
+                            class="u-item"
+                            :class="{ 'u-doing': !item.status }"
+                        >
+                            <img class="u-pic" :src="item.img | getBoxIcon" :class="{ hidden: !canSee(item.uuid) }" />
+                            <img class="u-pic-hover" svg-inline :src="item.hover | getBoxIcon" />
+                            <span class="u-txt">{{ showAbbr ? item.abbr : item.name }}</span>
+                            <i v-if="item.hasMark" class="u-mark" :class="item.markcls">{{ item.mark }}</i>
+                            <span class="u-control">
+                                <i
+                                    class="u-break el-icon-scissors"
+                                    title="换行"
+                                    :class="{ on: isLF(item) }"
+                                    @click.prevent="cut(item.uuid)"
+                                ></i>
+                                <i
+                                    class="u-hide el-icon-delete"
+                                    title="隐藏"
+                                    v-if="canSee(item.uuid)"
+                                    @click.prevent="hideIt(item.uuid)"
+                                ></i>
+                                <i
+                                    class="u-show el-icon-view"
+                                    title="显示"
+                                    v-if="!canSee(item.uuid)"
+                                    @click.prevent="showIt(item.uuid)"
+                                ></i>
+                            </span>
+                            <i class="u-pop" v-if="isEditor && pop[item.uuid]"></i>
+                        </a>
+                    </el-tooltip>
+                </li>
+            </draggable>
+        <!-- </div> -->
         <div class="m-box-op">
-            <el-button
-                plain
-                class="u-reset"
-                size="mini"
-                icon="el-icon-refresh-left"
-                v-if="defined"
-                @click="reset"
-            >恢复默认</el-button>
-            <el-button
-                plain
-                class="u-reset"
-                size="mini"
-                icon="el-icon-download"
-                @click="downBoxSetting"
-                v-if="isLogin"
-            >重新同步</el-button>
+            <el-button plain class="u-reset" size="mini" icon="el-icon-refresh-left" v-if="defined" @click="reset"
+                >恢复默认</el-button
+            >
+            <el-button plain class="u-reset" size="mini" icon="el-icon-download" @click="downBoxSetting" v-if="isLogin"
+                >重新同步</el-button
+            >
             <el-button
                 plain
                 class="u-custom"
@@ -94,15 +82,11 @@
                 icon="el-icon-setting"
                 @click="active"
                 v-if="!!options.disabled"
-            >自定义</el-button>
-            <el-button
-                plain
-                class="u-custom"
-                size="mini"
-                icon="el-icon-check"
-                @click="save"
-                v-if="!options.disabled"
-            >保存</el-button>
+                >自定义</el-button
+            >
+            <el-button plain class="u-custom" size="mini" icon="el-icon-check" @click="save" v-if="!options.disabled"
+                >保存</el-button
+            >
         </div>
     </div>
 </template>
@@ -119,7 +103,7 @@ import User from "@jx3box/jx3box-common/js/user";
 
 import { getMeta, setMeta } from "@/service/user.js";
 import { getHelperPnt, getMenu } from "@/service/setting.js";
-import Mini_bread from '../content/mini_bread.vue';
+import Mini_bread from "../content/mini_bread.vue";
 // ==============================
 
 const KEY = "boxmatrix";
@@ -131,7 +115,7 @@ export default {
     props: [],
     components: {
         draggable,
-        'mini-bread':Mini_bread
+        "mini-bread": Mini_bread,
     },
     data: function () {
         return {
@@ -154,7 +138,7 @@ export default {
                 disabled: true,
                 animation: 150,
             },
-            showAbbr: true,//window.innerWidth < 370,
+            showAbbr: true, //window.innerWidth < 370,
 
             // 云端
             isLogin: User.isLogin(),
@@ -191,9 +175,10 @@ export default {
         buildRawData(raw) {
             // 默认数据
             const client = location.href.includes("origin") ? "origin" : "std";
-            const default_data = raw?.filter((item) => {
-                return item.client == "all" ? true : item.client == client;
-            }) || [];
+            const default_data =
+                raw?.filter((item) => {
+                    return item.client == "all" ? true : item.client == client;
+                }) || [];
             this.data = this.default_data = default_data;
 
             // 默认排序与折行
@@ -215,7 +200,7 @@ export default {
             getMenu("box")
                 .then((res) => {
                     let _raw = res.data?.data?.val;
-                    this.buildRawData(_raw)
+                    this.buildRawData(_raw);
                 })
                 .finally(() => {
                     // 不管登录与否，默认都优先从本地获取配置
@@ -373,10 +358,7 @@ export default {
                 for (let key in data) {
                     if (key == "achievement") {
                         this.pop.cj += ~~data[key];
-                    } else if (
-                        key == "team_events_record" ||
-                        key == "team_race"
-                    ) {
+                    } else if (key == "team_events_record" || key == "team_race") {
                         this.pop.team = ~~this.pop.team + ~~data[key];
                     } else if (key == "team_verify_log") {
                         this.pop.rank = ~~data[key];
@@ -389,9 +371,9 @@ export default {
     },
     filters: {
         getBoxIcon: function (val) {
-            let web_url = __imgPath + "image/box/" + val
+            let web_url = __imgPath + "image/box/" + val;
             let local_url = "/box/" + val;
-            return process.env.NODE_ENV === "production" ? web_url : local_url
+            return process.env.NODE_ENV === "production" ? web_url : local_url;
         },
     },
     created: function () {
