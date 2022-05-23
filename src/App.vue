@@ -24,6 +24,7 @@
                         </div>
                     </div>
                 </div>
+                <festival />
             </div>
             <div class="m-left m-sidebar">
                 <div class="m-left-box">
@@ -62,8 +63,8 @@ import box from "@/components/index/box.vue";
 import event from "@/components/v2/event.vue";
 import posts from "@/components/v2/posts.vue";
 import wiki from "@/components/v2/wiki.vue";
-import joke from '@/components/index/joke.vue'
-import face from '@/components/index/face.vue'
+import joke from "@/components/index/joke.vue";
+import face from "@/components/index/face.vue";
 
 // v2 右侧
 import banner from "@/components/v2/banner.vue";
@@ -71,7 +72,7 @@ import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
 
 // 系统
-// import festival from "@/components/index/festival.vue";
+import festival from "@/components/index/festival.vue";
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
@@ -115,7 +116,7 @@ export default {
         price,
         transaction,
         joke,
-        // festival,
+        festival,
     },
     methods: {
         handleScroll() {
@@ -157,5 +158,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "./assets/css/v2/app.less";
+    @import "./assets/css/v2/app.less";
 </style>
