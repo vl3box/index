@@ -24,7 +24,6 @@
                         </div>
                     </div>
                 </div>
-                <festival />
             </div>
             <div class="m-left m-sidebar">
                 <div class="m-left-box">
@@ -41,6 +40,7 @@
                 </div>
             </div>
         </div>
+        <festival />
         <Footer></Footer>
     </div>
 </template>
