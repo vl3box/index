@@ -12,8 +12,8 @@
                     <div class="m-section">
                         <div class="m-center">
                             <event />
-                            <posts />
                             <joke />
+                            <posts />
                             <wiki />
                         </div>
                         <div class="m-right">
