@@ -1,23 +1,14 @@
 <template>
     <div class="m-calendar">
         <div class="m-calendar-content">
-            <a
-                class="m-calendar-item"
-                :class="{ current: isToday(item) }"
-                v-for="(item, index) in data"
-                :key="index"
-                :href="`/calendar/archive/${item.year}/${item.month}/${item.date}`"
-                target="_blank"
-            >
+            <a class="m-calendar-item" :class="{ current: isToday(item) }" v-for="(item, index) in data" :key="index" :href="`/calendar/archive/${item.year}/${item.month}/${item.date}`" target="_blank">
                 <div class="u-week">{{ item.week }}</div>
                 <div class="u-date">{{ item.date }}</div>
                 <div class="u-link" :style="{color: item.slogan.color}" v-if="item.slogan.title">{{ item.slogan.title }}</div>
             </a>
         </div>
         <div class="m-calendar-event">
-            <template v-for="(item, index) in list">
-                <calendar-item :key="index" :data="item"></calendar-item>
-            </template>
+            <calendar-item v-for="(item, index) in list" :key="index" :data="item"></calendar-item>
         </div>
     </div>
 </template>
@@ -47,7 +38,7 @@ export default {
     computed: {
         dateRange() {
             let dataRange = [];
-            const prevDate = dayjs().subtract(3, 'day')
+            const prevDate = dayjs().subtract(3, "day");
 
             for (let i = 0; i < 7; i++) {
                 const date = prevDate.add(i, "day").format("YYYY-MM-DD");
@@ -113,11 +104,11 @@ export default {
                 }
             });
         },
-         // 获取当前年月的海报信息
+        // 获取当前年月的海报信息
         loadCalendarSlogans() {
             getCalendarSlogansExact(this.params).then((res) => {
                 this.slogans = res.data;
-                this.slogans.forEach(item => {
+                this.slogans.forEach((item) => {
                     const index = this.data.findIndex(
                         (v) => v.year === item.year && v.month === item.month && v.date === item.date
                     );
@@ -137,5 +128,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/css/v2/calendar.less";
+    @import "../../assets/css/v2/calendar.less";
 </style>

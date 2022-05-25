@@ -8,11 +8,9 @@ const $spider = axios.create({
 });
 
 // 日常
-function getDaily(date) {
-    return $cms({ mute: true }).get(`/api/cms/game/daily`, {
-        params: {
-            custom: date
-        }
+function getDaily(params) {
+    return $cms({mute: true}).get(`/api/cms/game/daily`, {
+        params
     })
 }
 
@@ -61,8 +59,8 @@ function getPets(petids, client = "std") {
 // 园宅会赛
 function getFurniture(params) {
     return $cms({ mute: true }).get(`/api/cms/game/furniture/match`, {
-        params
-    })
+        params,
+    });
 }
 
 export { getGameNews, getServers, getPrice, getMeirentu, getDaily, getPetLucky, getPets, getFurniture };

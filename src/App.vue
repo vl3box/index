@@ -18,6 +18,7 @@
                         </div>
                         <div class="m-right">
                             <banner />
+                            <activity />
                             <price />
                             <transaction />
                             <face />
@@ -68,6 +69,7 @@ import face from "@/components/index/face.vue";
 
 // v2 右侧
 import banner from "@/components/v2/banner.vue";
+import activity from "@/components/v2/activity.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
 
@@ -113,6 +115,7 @@ export default {
 
         // 右侧
         banner,
+        activity,
         price,
         transaction,
         joke,
