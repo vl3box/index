@@ -1,8 +1,13 @@
 <template>
-    <div class="m-daily-activity  m-sideblock" v-if="client == 'std'">
+    <div class="m-daily-activity m-sideblock" v-if="client == 'std'">
         <div class="m-guide-header m-sideblock-header">
-            <i class="el-icon-date"></i>
-            <span class="u-title">日常</span>
+            <a class="u-title" href="/calendar" target="_blank"><i class="el-icon-s-order"></i> 日常活动</a>
+            <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
+                <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
+            </el-select>
+            <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                <i class="el-icon-more"></i>
+            </a>
         </div>
         <div class="m-daily-content">
             <table>
@@ -28,6 +33,8 @@
     </div>
 </template>
 <script>
+import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
+import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 import { getDaily } from "@/service/spider";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
@@ -50,6 +57,16 @@ export default {
         };
     },
     computed: {
+        servers: function () {
+            if (this.client == "std") {
+                return servers_std;
+            } else {
+                return servers_origin;
+            }
+        },
+        my_server: function () {
+            return this.$store.state.server;
+        },
         date() {
             return dayjs(new Date()).format("YYYY-MM-DD");
         },
@@ -76,11 +93,16 @@ export default {
             });
         },
     },
+    watch: {
+        my_server: function (val) {
+            if (val) this.server = val;
+        },
+    },
     mounted: function () {
         this.loadDaily();
     },
 };
 </script>
-<style lang='less'>
-    @import "~@/assets/css/v2/daily.less";
+<style lang="less">
+@import "~@/assets/css/v2/daily.less";
 </style>
