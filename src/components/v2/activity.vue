@@ -67,7 +67,9 @@ export default {
         },
 
         date() {
-            return dayjs(new Date()).format("YYYY-MM-DD");
+            // 当7点以前，请求前面一天的日常 当7~24点，请求当天的日常
+            const hour = dayjs().get('hours')
+            return 0 <= hour < 7 ? dayjs().subtract(1, 'days').format("YYYY-MM-DD") : dayjs().format("YYYY-MM-DD");
         },
         client() {
             return this.$store.state.client;
