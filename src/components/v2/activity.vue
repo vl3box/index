@@ -1,8 +1,8 @@
 <template>
     <div class="m-daily-activity m-sideblock" v-if="client == 'std'">
-        <div class="m-guide-header m-sideblock-header">
-            <a class="u-title" href="/calendar" target="_blank"><i class="el-icon-s-order"></i> 日常活动</a>
-            <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
+        <div class="m-sideblock-header">
+            <a class="u-title" href="/calendar" target="_blank"> <i class="el-icon-s-order"></i> 日常活动</a>
+            <el-select class="u-select" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
             </el-select>
             <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
@@ -24,7 +24,7 @@
                         <td>{{ item.zone }}</td>
                         <td>{{ item.name }}</td>
                     </tr>
-                    <meirentu></meirentu>
+                    <meirentu :server="server"></meirentu>
                     <lucky-pet :date="date" :client="client"></lucky-pet>
                     <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
                 </tbody>
@@ -54,6 +54,7 @@ export default {
     data: function () {
         return {
             daily: [],
+            server: "蝶恋花",
         };
     },
     computed: {
@@ -64,9 +65,7 @@ export default {
                 return servers_origin;
             }
         },
-        my_server: function () {
-            return this.$store.state.server;
-        },
+
         date() {
             return dayjs(new Date()).format("YYYY-MM-DD");
         },
@@ -93,16 +92,12 @@ export default {
             });
         },
     },
-    watch: {
-        my_server: function (val) {
-            if (val) this.server = val;
-        },
-    },
+    watch: {},
     mounted: function () {
         this.loadDaily();
     },
 };
 </script>
 <style lang="less">
-@import "~@/assets/css/v2/daily.less";
+    @import "~@/assets/css/v2/daily.less";
 </style>
