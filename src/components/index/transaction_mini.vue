@@ -88,7 +88,7 @@ export default {
     },
     computed: {
         client: function () {
-            return this.$store.state.client;
+            return this.$store.state.client || 'std';
         },
         servers: function () {
             if (this.client == "std") {
