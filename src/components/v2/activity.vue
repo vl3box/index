@@ -79,6 +79,9 @@ export default {
             let currentWeek = dayjs().isoWeek();
             return week === currentWeek;
         },
+        myServer() {
+            return this.$store.state.server;
+        },
     },
     methods: {
         loadDaily() {
@@ -94,7 +97,11 @@ export default {
             });
         },
     },
-    watch: {},
+    watch: {
+        myServer(val) {
+            if (val) this.server = val
+        }
+    },
     mounted: function () {
         this.loadDaily();
     },

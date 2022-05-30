@@ -33,9 +33,6 @@
 <script>
 import servers from "@jx3box/jx3box-data/data/server/server_cn.json";
 import { getPrice } from "@/service/spider";
-// import _ from "lodash";
-// import { Line } from "@antv/g2plot";
-import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "price",
     props: [],
@@ -53,7 +50,7 @@ export default {
     },
     computed: {
         client : function (){
-            return this.$store.state.client  
+            return this.$store.state.client
         },
         data: function () {
             if (this.origin && this.origin[this.server]) {
