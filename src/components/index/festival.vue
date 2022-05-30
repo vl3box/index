@@ -24,11 +24,11 @@ export default {
             count: 28,
 
             font,
-            data:{}
+            data: {},
         };
     },
     computed: {
-        imgLink: function ({event_id}) {
+        imgLink: function ({ event_id }) {
             return __imgPath + `topic/festival/${event_id}.png`;
         },
         fontCount() {
@@ -41,35 +41,43 @@ export default {
         username() {
             return User.getInfo().name;
         },
-        key({event_slug}) {
-            return `m-` + (event_slug || 'duanwu')
+        key({ event_slug }) {
+            return `m-` + (event_slug || "duanwu");
         },
-        event_id(){
-            return this.$store.state.config.festival || 2
+        event_id() {
+            return ~~this.$store.state.config.festival_id;
+        },
+        event_status(){
+            return !!~~this.$store.state.config.festival_enable
+        },
+        event_test(){
+            return !!~~this.$store.state.config.festival_test
         }
     },
     methods: {
         closePop() {
             this.visible = false;
         },
-        init(){
-            getBoxCoin(this.event_id)
-                .then((res) => {
-                    this.data = res.data?.data
-                    let boxcoin = res.data?.data?.boxcoin;
-                    if (boxcoin > 0) {
-                        this.count = boxcoin;
-                        this.success = true;
-                    }
-                })
-                .catch((err) => {
-                    console.log("getBoxCoin_ERROR:", err);
-                });
-        }
+        init() {
+            if ((this.event_status && this.event_id) || (this.event_test && User.isSuperAdmin())) {
+                getBoxCoin(this.event_id)
+                    .then((res) => {
+                        this.data = res.data?.data;
+                        let boxcoin = res.data?.data?.boxcoin;
+                        if (boxcoin > 0) {
+                            this.count = boxcoin;
+                            this.success = true;
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("getBoxCoin_ERROR:", err);
+                    });
+            }
+        },
     },
     mounted() {
-        if (User.isLogin()){
-            this.init()
+        if (User.isLogin()) {
+            this.init();
         }
     },
 };
