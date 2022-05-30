@@ -25,6 +25,8 @@ export default {
 
             font,
             data: {},
+
+            done : sessionStorage.getItem('festival_id'),
         };
     },
     computed: {
@@ -52,7 +54,7 @@ export default {
         },
         event_test(){
             return !!~~this.$store.state.config.festival_test
-        }
+        },
     },
     methods: {
         closePop() {
@@ -60,20 +62,32 @@ export default {
         },
         init() {
             if ((this.event_status && this.event_id) || (this.event_test && User.isSuperAdmin())) {
-                getBoxCoin(this.event_id)
+                if(!this.done){
+                    getBoxCoin(this.event_id)
                     .then((res) => {
+                        console.log('成功触发贺卡事件')
                         this.data = res.data?.data;
                         let boxcoin = res.data?.data?.boxcoin;
                         if (boxcoin > 0) {
                             this.count = boxcoin;
                             this.success = true;
                         }
+                        sessionStorage.setItem('festival_id', this.event_id);
                     })
                     .catch((err) => {
-                        console.log("getBoxCoin_ERROR:", err);
+                        console.log("贺卡触发失败", err);
                     });
+                }
             }
         },
+    },
+    watch : {
+        '$store.state.config':{
+            handler(val, oldVal){
+                this.init();
+            },
+            deep: true
+        }
     },
     mounted() {
         if (User.isLogin()) {
