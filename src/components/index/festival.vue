@@ -21,7 +21,7 @@ export default {
         return {
             success: false,
             visible: true,
-            count: 28,
+            count: 0,
 
             font,
             data: {},
@@ -68,10 +68,8 @@ export default {
                         console.log('成功触发贺卡事件')
                         this.data = res.data?.data;
                         let boxcoin = res.data?.data?.boxcoin;
-                        if (boxcoin > 0) {
-                            this.count = boxcoin;
-                            this.success = true;
-                        }
+                        this.count = boxcoin;
+                        this.success = true;
                         sessionStorage.setItem('festival_id', this.event_id);
                     })
                     .catch((err) => {
