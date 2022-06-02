@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-popup" v-show="visible" v-if="!success && event_id" @click="closePop">
+    <div class="m-index-popup" v-show="visible" v-if="success && event_id" @click="closePop">
         <div class="m-card animation a-zoomInDown" :class="key" @click.stop>
             <img :src="imgLink" />
             <span class="u-count">{{ fontCount }}</span>
