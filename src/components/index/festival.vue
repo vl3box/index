@@ -31,6 +31,7 @@ export default {
             return __imgPath + `topic/festival/${event_id}.png`;
         },
         fontCount() {
+            if (this.count == 0) return "零";
             return this.toChineseBig(this.count);
         },
         username() {
