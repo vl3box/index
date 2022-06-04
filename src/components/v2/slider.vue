@@ -28,6 +28,7 @@ export default {
             data: [],
             active: 0,
             ratio : window.devicePixelRatio || 1,
+            w : window.innerWidth
         };
     },
     computed: {
@@ -71,10 +72,10 @@ export default {
             });
         },
         showSlider(val){
-            if(this.ratio == 1){
-                return getThumbnail(val, 'index_slider');
-            }else{
+            if(this.ratio > 1 && this.w >= 1920){
                 return resolveImagePath(val)
+            }else{
+                return getThumbnail(val, 'index_slider');
             }
         },
         showThumbnail(val){
