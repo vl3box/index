@@ -2,13 +2,14 @@
     <div class="m-banner-wrapper m-v2-banner" v-loading="loading">
         <el-carousel class="m-banner" trigger="click" height="200px">
             <el-carousel-item v-for="(item, index) in data" :key="index">
-                <a :href="item.link" target="_blank"><img :src="item.img" /></a>
+                <a :href="item.link" target="_blank"><img :src="resolveImagePath(item.img)" /></a>
             </el-carousel-item>
         </el-carousel>
     </div>
 </template>
 <script>
 import { getEventV2 } from "@/service/cms";
+import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "banner",
 
@@ -44,6 +45,7 @@ export default {
                     this.loading = false;
                 });
         },
+        resolveImagePath,
     },
     mounted: function () {
         this.loadData();
