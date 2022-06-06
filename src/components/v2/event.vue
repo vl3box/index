@@ -2,7 +2,7 @@
     <div class="m-event-wrapper" v-loading="loading">
         <div class="m-event" id="m-event">
             <a class="u-event" v-for="(item, index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
-                <img :src="item.img" :alt="item.title" />
+                <img :src="resolveImagePath(item.img)" :alt="item.title" />
             </a>
         </div>
         <!-- <a class="u-more" href="/notice?subtype=2" target="_blank"><span>往期活动</span></a> -->
@@ -11,6 +11,7 @@
 
 <script>
 import { getEventV2 } from "@/service/cms";
+import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "event",
     props: [],
@@ -45,6 +46,7 @@ export default {
                     this.loading = false;
                 });
         },
+        resolveImagePath,
     },
     mounted: function () {
         this.loadData();
