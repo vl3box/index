@@ -1,6 +1,12 @@
+<!--
+ * @Author: iRuxu
+ * @Date: 2022-05-20 17:38:03
+ * @LastEditTime: 2022-06-22 23:48:47
+ * @Description:
+-->
 <template>
-    <div class="m-event-wrapper" v-loading="loading">
-        <div class="m-event" id="m-event">
+    <div class="m-event-wrapper" v-if="data && data.length">
+        <div class="m-event" id="m-event" v-loading="loading">
             <a class="u-event" v-for="(item, index) in data" :key="index" :href="item.link" target="_blank" rel="noopener noreferrer">
                 <img :src="resolveImagePath(item.img)" :alt="item.title" />
             </a>
