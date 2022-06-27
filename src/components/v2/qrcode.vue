@@ -1,3 +1,9 @@
+<!--
+ * @Author: iRuxu
+ * @Date: 2022-05-20 17:38:03
+ * @LastEditTime: 2022-06-28 03:32:09
+ * @Description:
+-->
 <!-- 反馈 -->
 <template>
     <div class="m-qrcode m-sideblock">
@@ -29,6 +35,11 @@ export default {
                     name: "JX3BOX魔盒",
                     svg: `${__imgPath}image/connect/weibo.svg`,
                     src: `${__imgPath}image/other/weibo.jpg`,
+                },
+                {
+                    name: "魔盒团队管理",
+                    svg: require(`../../assets/img/left/wxapp.png`),
+                    src: `${__imgPath}image/common/miniprogram_team.png`,
                 },
             ],
         };
