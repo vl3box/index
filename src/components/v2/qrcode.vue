@@ -1,7 +1,7 @@
 <!--
  * @Author: iRuxu
  * @Date: 2022-05-20 17:38:03
- * @LastEditTime: 2022-06-28 03:32:09
+ * @LastEditTime: 2022-06-28 03:43:20
  * @Description:
 -->
 <!-- 反馈 -->
@@ -73,6 +73,12 @@ export default {
             }
             .u-img{
                 .w(80%);
+            }
+        }
+        .u-code:first-child,.u-code:nth-child(2){
+            .u-img{
+                padding:5px;
+                box-sizing: border-box;
             }
         }
     }
