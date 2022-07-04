@@ -1,3 +1,9 @@
+<!--
+ * @Author: iRuxu
+ * @Date: 2022-05-20 17:38:03
+ * @LastEditTime: 2022-07-04 23:10:13
+ * @Description:
+-->
 <!-- 反馈 -->
 <template>
     <div class="m-feedback m-sideblock">
@@ -21,7 +27,7 @@ import { showAvatar } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "feedback",
     data() {
-        return { feedback };
+        return { feedback : '/feedback' };
     },
     computed: {
         img() {
