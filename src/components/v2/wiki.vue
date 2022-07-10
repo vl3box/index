@@ -98,6 +98,10 @@ export default {
                     slug: "knowledge",
                 },
                 {
+                    label: "任务",
+                    slug: "quest",
+                },
+                {
                     label: "日历",
                     slug: "calendar",
                 },
