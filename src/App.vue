@@ -5,12 +5,12 @@
             <div class="m-primary">
                 <live />
                 <slider />
-                <box />
                 <div class="m-content">
                     <!-- <div class="m-show">
                     </div> -->
                     <div class="m-section">
                         <div class="m-center">
+                            <box style="margin-bottom: 20px" />
                             <event />
                             <joke />
                             <posts />
