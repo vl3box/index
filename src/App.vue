@@ -17,7 +17,9 @@
                             <wiki />
                         </div>
                         <div class="m-right">
-                            <banner />
+                            <assistant />
+                            <calendar />
+                            <servers />
                             <activity />
                             <price />
                             <transaction />
@@ -28,10 +30,8 @@
             </div>
             <div class="m-left m-sidebar">
                 <div class="m-left-box">
-                    <assistant />
-                    <calendar />
+                    <banner />
                     <jx3code />
-                    <servers />
                     <gamenews />
                     <notice />
                 </div>
@@ -161,5 +161,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "./assets/css/v2/app.less";
+@import "./assets/css/v2/app.less";
 </style>
