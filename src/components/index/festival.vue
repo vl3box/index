@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-popup" v-show="visible">
+    <div class="m-index-popup" v-if="success && event_id" v-show="visible"> 
         <div class="m-card" @click.stop>
             <!-- 第一屏 -->
             <div class="m-first" v-show="!show" @click="showSecond">
