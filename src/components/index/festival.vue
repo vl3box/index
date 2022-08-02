@@ -1,6 +1,5 @@
 <template>
-    <div class="m-index-popup" v-show="visible"> 
-    <!--  v-if="success && event_id" -->
+    <div class="m-index-popup" v-if="success && event_id" v-show="visible">
         <div class="m-card" @click.stop>
             <!-- 第一屏 -->
             <div class="m-first" v-show="!show" @click="showSecond">
@@ -9,7 +8,11 @@
                     :class="change ? 'fadeOut' : 'fadeIn'"
                     :src="`${imgLink}seven/petal.png`"
                 />
-                <img class="u-look animations fadeInOut" :class="change ? 'none' : ''" :src="`${imgLink}seven/look.png`" />
+                <img
+                    class="u-look animations fadeInOut"
+                    :class="change ? 'none' : ''"
+                    :src="`${imgLink}seven/look.png`"
+                />
             </div>
             <!-- 第二屏 -->
             <div class="m-second" v-show="show">
@@ -51,7 +54,7 @@ export default {
         imgLink: function ({ event_id }) {
             return __imgPath + `topic/festival/`;
         },
-        fontCount() { 
+        fontCount() {
             if (this.count == 0) return "零";
             return this.toChineseBig(this.count);
         },
