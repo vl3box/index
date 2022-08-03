@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-popup" v-if="success && event_id" v-show="visible">
+    <div class="m-index-popup" v-if="success" v-show="visible">
         <div class="m-card" @click.stop>
             <!-- 第一屏 -->
             <div class="m-first" v-show="!show" @click="showSecond">
@@ -125,13 +125,6 @@ export default {
             return result
                 .join("")
                 .replace(/(零[仟佰拾]){1,3}/g, "零")
-                .replace(/零{2,}/g, "零")
-                .replace(/零([万亿])/g, "$1")
-                .replace(/亿万/g, "亿")
-                .replace(/零*@/g, "");
-            return result
-                .join("")
-                .replace(/(零[千百十]){1,3}/g, "零")
                 .replace(/零{2,}/g, "零")
                 .replace(/零([万亿])/g, "$1")
                 .replace(/亿万/g, "亿")
