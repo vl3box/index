@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-popup" v-if="!success" v-show="visible">
+    <div class="m-index-popup" v-if="success" v-show="visible">
         <!-- 2屏贺卡 -->
         <flipScreen :username="username" :fontCount="fontCount" @close="closePop" />
     </div>
