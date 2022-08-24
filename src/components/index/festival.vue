@@ -1,11 +1,7 @@
 <template>
-    <div class="m-index-popup" v-show="visible" v-if="success && event_id" @click="closePop">
-        <div class="m-card animation a-zoomInDown" :class="key" @click.stop>
-            <img :src="imgLink" />
-            <span class="u-count">{{ fontCount }}</span>
-            <span class="u-user">{{ username }}</span>
-            <span class="u-close" @click="closePop"><i class="el-icon-close"></i> <span>关闭</span></span>
-        </div>
+    <div class="m-index-popup" v-if="success" v-show="visible">
+        <!-- 2屏贺卡 -->
+        <flipScreen :username="username" :fontCount="fontCount" @close="closePop" />
     </div>
 </template>
 
@@ -13,9 +9,10 @@
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getBoxCoin } from "@/service/index";
 import User from "@jx3box/jx3box-common/js/user";
+import doubleScreen from "@/components/festival/doubleScreen.vue";
+import flipScreen from "@/components/festival/flipScreen.vue";
 export default {
     name: "Festival",
-    props: [],
     data: function () {
         return {
             success: false,
@@ -26,19 +23,17 @@ export default {
             done: sessionStorage.getItem("festival_id"),
         };
     },
+    components: { flipScreen },
     computed: {
         imgLink: function ({ event_id }) {
-            return __imgPath + `topic/festival/${event_id}.png`;
+            return __imgPath + `topic/festival/`;
         },
         fontCount() {
-            if (this.count == 0) return "零";
+            if (this.count == 0) return "贰零伍";
             return this.toChineseBig(this.count);
         },
         username() {
-            return User.getInfo().name;
-        },
-        key({ event_slug }) {
-            return `m-` + (event_slug || "duanwu");
+            return User.getInfo().name || "匿名";
         },
         event_id() {
             return ~~this.$store.state.config.festival_id;
@@ -102,13 +97,6 @@ export default {
                 .replace(/零([万亿])/g, "$1")
                 .replace(/亿万/g, "亿")
                 .replace(/零*@/g, "");
-            return result
-                .join("")
-                .replace(/(零[千百十]){1,3}/g, "零")
-                .replace(/零{2,}/g, "零")
-                .replace(/零([万亿])/g, "$1")
-                .replace(/亿万/g, "亿")
-                .replace(/零*@/g, "");
         },
         numToChinese(n) {
             let chineseBigNum = "零壹贰叁肆伍陆柒捌玖";
@@ -124,6 +112,7 @@ export default {
             deep: true,
         },
     },
+
     mounted() {
         if (User.isLogin()) {
             this.init();

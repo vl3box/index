@@ -1,6 +1,12 @@
+<!--
+ * @Author: iRuxu
+ * @Date: 2022-05-20 17:38:03
+ * @LastEditTime: 2022-07-17 21:08:47
+ * @Description:
+-->
 <template>
     <div class="m-banner-wrapper m-v2-banner" v-loading="loading">
-        <el-carousel class="m-banner" trigger="click" height="200px">
+        <el-carousel class="m-banner" trigger="click" height="180px">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank"><img :src="resolveImagePath(item.img)" /></a>
             </el-carousel-item>

@@ -24,7 +24,7 @@
                         <td>{{ item.zone }}</td>
                         <td>{{ item.name }}</td>
                     </tr>
-                    <meirentu :server="server"></meirentu>
+                    <!-- <meirentu :server="server"></meirentu> -->
                     <lucky-pet :date="date" :client="client"></lucky-pet>
                     <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
                 </tbody>

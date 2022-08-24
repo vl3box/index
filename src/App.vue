@@ -5,12 +5,10 @@
             <div class="m-primary">
                 <live />
                 <slider />
-                <box />
                 <div class="m-content">
-                    <!-- <div class="m-show">
-                    </div> -->
                     <div class="m-section">
                         <div class="m-center">
+                            <box style="margin-bottom: 20px" />
                             <event />
                             <joke />
                             <posts />
@@ -18,6 +16,7 @@
                         </div>
                         <div class="m-right">
                             <banner />
+                            <servers />
                             <activity />
                             <price />
                             <transaction />
@@ -31,7 +30,6 @@
                     <assistant />
                     <calendar />
                     <jx3code />
-                    <servers />
                     <gamenews />
                     <notice />
                 </div>
@@ -161,5 +159,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "./assets/css/v2/app.less";
+@import "./assets/css/v2/app.less";
 </style>

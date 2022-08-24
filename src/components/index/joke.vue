@@ -1,3 +1,9 @@
+<!--
+ * @Author: iRuxu
+ * @Date: 2022-05-05 22:05:46
+ * @LastEditTime: 2022-07-23 22:22:29
+ * @Description:
+-->
 <template>
     <div class="m-joke">
         <h3 class="u-label">
@@ -6,7 +12,7 @@
         <div class="u-content">
             <el-carousel height="20px" direction="vertical" :autoplay="true">
                 <el-carousel-item v-for="(item,i) in data" :key="i">
-                    <a class="u-item" href="/bbs/#/joke" target="_blank">
+                    <a class="u-item" :href="getLink(item.id)" target="_blank">
                         <span class="u-author">{{item.author || '匿名'}}：</span>
                         <span class="u-joke" v-html="item.html"></span>
                     </a>
@@ -18,7 +24,6 @@
 </template>
 
 <script>
-import lodash from 'lodash';
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
 import { getJokes } from "@/service/index";
@@ -36,7 +41,9 @@ export default {
     },
     computed: {},
     methods: {
-        getLink,
+        getLink : function (id){
+            return getLink('joke',id)
+        },
         init: function () {
             getJokes().then((res) => {
                 this.data = res.data.data.list;
