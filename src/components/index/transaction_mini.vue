@@ -16,29 +16,26 @@
                     <el-carousel-item v-for="(group, i) in groups" :key="i">
                         <div class="u-group" v-for="item in group" :key="item.item_id">
                             <a v-if="item" class="u-item" :class="`u-item-${item.item_id}`"
-                                :href="item.item_id | showItemLink" target="_blank">
+                                :href="showItemLink(item.item_id)" target="_blank">
                                 <div class="u-icon">
-                                    <img :src="item.icon | iconLink" />
+                                    <img :src="iconLink(item.icon)" />
                                 </div>
                                 <div class="u-content">
                                     <span class="u-name">
                                         <span v-text="item.label"></span>
                                     </span>
                                     <span class="u-price">
-                                        <span class="u-trending" :class="item | showItemTrendingClass">{{ item |
-                                                showItemTrending
+                                        <span class="u-trending" :class="showItemTrendingClass(item)">{{
+                                                showItemTrending(item)
                                         }}</span>
                                         <template v-if="item.sub_days_0_price">
-                                            <!-- <span>今日：</span> -->
                                             <GamePrice :price="item.sub_days_0_price" />
                                         </template>
                                         <template v-else-if="!item.sub_days_0_price && item.sub_days_1_price">
-                                            <!-- <span>昨日：</span> -->
                                             <GamePrice :price="item.sub_days_1_price" />
                                         </template>
                                         <template
                                             v-else-if="!item.sub_days_0_price && !item.sub_days_1_price && item.sub_days_2_price">
-                                            <!-- <span>前日：</span> -->
                                             <GamePrice :price="item.sub_days_2_price" />
                                         </template>
                                         <span v-else>暂无价目</span>
@@ -102,7 +99,6 @@ export default {
         isReady: function () {
             return this.client == 'std' //怀旧服暂不支持
         },
-
     },
     methods: {
         loadData: function () {
@@ -112,21 +108,9 @@ export default {
             }).then((res) => {
                 let data = res.data?.data?.teshucailiao?.items.slice(0, 15);
                 this.data = data || []
+                console.log(this.data)
             });
         },
-    },
-    watch: {
-        my_server: function (val) {
-            if (val) this.server = val;
-        },
-        server: {
-            immediate: true,
-            handler (val) {
-                val && this.loadData();
-            },
-        },
-    },
-    filters: {
         iconLink,
         showItemLink: function (val) {
             return `/item/#/view/${val}`;
@@ -154,12 +138,22 @@ export default {
             }
         },
     },
+    watch: {
+        my_server: function (val) {
+            if (val) this.server = val;
+        },
+        server: {
+            immediate: true,
+            handler (val) {
+                val && this.loadData();
+            },
+        },
+    },
     mounted: function () {
         this.server = this.client == "origin" ? "缘起稻香" : "蝶恋花";
     },
 };
 </script>
-
 <style lang="less">
 @import "../../assets/css/index/transaction_mini.less";
 </style>
