@@ -11,22 +11,12 @@
         </div>
         <div class="m-transaction-box">
             <div class="m-price-list" v-if="data && data.length">
-                <el-carousel
-                    indicator-position="none"
-                    :autoplay="true"
-                    :interval="4000"
-                    height="200px"
-                    direction="vertical"
-                >
+                <el-carousel indicator-position="none" :autoplay="true" :interval="4000" height="200px"
+                    direction="vertical">
                     <el-carousel-item v-for="(group, i) in groups" :key="i">
                         <div class="u-group" v-for="item in group" :key="item.item_id">
-                            <a
-                                v-if="item"
-                                class="u-item"
-                                :class="`u-item-${item.item_id}`"
-                                :href="item.item_id | showItemLink"
-                                target="_blank"
-                            >
+                            <a v-if="item" class="u-item" :class="`u-item-${item.item_id}`"
+                                :href="item.item_id | showItemLink" target="_blank">
                                 <div class="u-icon">
                                     <img :src="item.icon | iconLink" />
                                 </div>
@@ -35,23 +25,19 @@
                                         <span v-text="item.label"></span>
                                     </span>
                                     <span class="u-price">
-                                        <span
-                                            class="u-trending"
-                                            :class="item | showItemTrendingClass"
-                                        >{{item | showItemTrending}}</span>
+                                        <span class="u-trending" :class="item | showItemTrendingClass">{{ item |
+                                                showItemTrending
+                                        }}</span>
                                         <template v-if="item.sub_days_0_price">
                                             <!-- <span>今日：</span> -->
                                             <GamePrice :price="item.sub_days_0_price" />
                                         </template>
-                                        <template
-                                            v-else-if="!item.sub_days_0_price && item.sub_days_1_price"
-                                        >
+                                        <template v-else-if="!item.sub_days_0_price && item.sub_days_1_price">
                                             <!-- <span>昨日：</span> -->
                                             <GamePrice :price="item.sub_days_1_price" />
                                         </template>
                                         <template
-                                            v-else-if="!item.sub_days_0_price && !item.sub_days_1_price && item.sub_days_2_price"
-                                        >
+                                            v-else-if="!item.sub_days_0_price && !item.sub_days_1_price && item.sub_days_2_price">
                                             <!-- <span>前日：</span> -->
                                             <GamePrice :price="item.sub_days_2_price" />
                                         </template>
@@ -104,27 +90,28 @@ export default {
             const len = 5;
             let arr = []
             let count = Math.ceil(this.data.length / len);
-            for(let i=0;i<count;i++){
+            for (let i = 0; i < count; i++) {
                 arr.push([])
             }
-            for(let [i,item] of this.data.entries()){
+            for (let [i, item] of this.data.entries()) {
                 let group = Math.floor(i / len);
                 arr[group].push(item);
             }
             return arr;
         },
-        isReady : function (){
+        isReady: function () {
             return this.client == 'std' //怀旧服暂不支持
-        }
+        },
+
     },
     methods: {
         loadData: function () {
             getItemPrice({
                 server: this.server,
-                keys: [this.client],
-            },this.client).then((res) => {
-                let data = res.data?.data?.data?.[this.client]?.items;
-                this.data = data || [];
+                keys: 'teshucailiao',
+            }).then((res) => {
+                let data = res.data?.data?.teshucailiao?.items.slice(0, 15);
+                this.data = data || []
             });
         },
     },
@@ -134,7 +121,7 @@ export default {
         },
         server: {
             immediate: true,
-            handler(val) {
+            handler (val) {
                 val && this.loadData();
             },
         },
