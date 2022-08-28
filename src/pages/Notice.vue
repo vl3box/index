@@ -8,7 +8,7 @@
                     <assistant />
                     <calendar />
                     <jx3code />
-                    <servers />
+                    <!-- <servers /> -->
                     <gamenews />
                     <notice />
                 </div>
@@ -37,7 +37,7 @@ import assistant from "@/components/v2/assistant.vue";
 import calendar from "@/components/v2/calendar.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
-import servers from "@/components/index/servers.vue";
+// import servers from "@/components/index/servers.vue";
 import notice from "@/components/index/notice.vue";
 import feedback from "@/components/v2/feedback.vue";
 import qrcode from "@/components/v2/qrcode.vue";
@@ -53,7 +53,7 @@ export default {
         calendar,
         jx3code,
         gamenews,
-        servers,
+        // servers,
         notice,
         feedback,
         qrcode,

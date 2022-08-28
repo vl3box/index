@@ -6,8 +6,6 @@
                 <live />
                 <slider />
                 <div class="m-content">
-                    <!-- <div class="m-show">
-                    </div> -->
                     <div class="m-section">
                         <div class="m-center">
                             <box style="margin-bottom: 20px" />
@@ -17,8 +15,7 @@
                             <wiki />
                         </div>
                         <div class="m-right">
-                            <assistant />
-                            <calendar />
+                            <banner />
                             <servers />
                             <activity />
                             <price />
@@ -30,7 +27,8 @@
             </div>
             <div class="m-left m-sidebar">
                 <div class="m-left-box">
-                    <banner />
+                    <assistant />
+                    <calendar />
                     <jx3code />
                     <gamenews />
                     <notice />

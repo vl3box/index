@@ -57,7 +57,7 @@
 import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
 import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 import GamePrice from "@jx3box/jx3box-common-ui/src/wiki/GamePrice.vue";
-import { getItemPrice } from "@/service/helper.js";
+import { getItemPrice } from "@/service/index.js";
 import { iconLink } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "transaction",

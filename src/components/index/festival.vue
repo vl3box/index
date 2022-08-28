@@ -1,32 +1,7 @@
 <template>
     <div class="m-index-popup" v-if="success" v-show="visible">
-        <div class="m-card" @click.stop>
-            <!-- 第一屏 -->
-            <div class="m-first" v-show="!show" @click="showSecond">
-                <img
-                    class="u-petal animation"
-                    :class="change ? 'fadeOut' : 'fadeIn'"
-                    :src="`${imgLink}seven/petal.png`"
-                />
-                <img
-                    class="u-look animations fadeInOut"
-                    :class="change ? 'none' : ''"
-                    :src="`${imgLink}seven/look.png`"
-                />
-            </div>
-            <!-- 第二屏 -->
-            <div class="m-second" v-show="show">
-                <img class="u-left animation fadeInLeft" :src="`${imgLink}seven/left.png`" />
-                <img class="u-right animation fadeInRight" :src="`${imgLink}seven/right.png`" />
-                <img class="u-good animation fadeInDown" :src="`${imgLink}seven/v${good}.png`" />
-                <img class="u-txt animation fadeInUp" :src="`${imgLink}seven/${num}.png`" />
-                <div class="u-boxcion animation fadeInDown">
-                    <span class="u-cion">{{ fontCount }}</span>
-                    <img class="u-img" :src="`${imgLink}seven/boxcion.png`" />
-                </div>
-                <img class="u-close animation fadeInUp" :src="`${imgLink}seven/close.png`" @click="closePop" />
-            </div>
-        </div>
+        <!-- 2屏贺卡 -->
+        <flipScreen :username="username" :fontCount="fontCount" @close="closePop" />
     </div>
 </template>
 
@@ -34,14 +9,12 @@
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getBoxCoin } from "@/service/index";
 import User from "@jx3box/jx3box-common/js/user";
+import doubleScreen from "@/components/festival/doubleScreen.vue";
+import flipScreen from "@/components/festival/flipScreen.vue";
 export default {
     name: "Festival",
-    props: [],
     data: function () {
         return {
-            show: false,
-            change: false,
-
             success: false,
             visible: true,
             count: 0,
@@ -50,16 +23,17 @@ export default {
             done: sessionStorage.getItem("festival_id"),
         };
     },
+    components: { flipScreen },
     computed: {
         imgLink: function ({ event_id }) {
             return __imgPath + `topic/festival/`;
         },
         fontCount() {
-            if (this.count == 0) return "零";
+            if (this.count == 0) return "贰零伍";
             return this.toChineseBig(this.count);
         },
         username() {
-            return User.getInfo().name;
+            return User.getInfo().name || "匿名";
         },
         event_id() {
             return ~~this.$store.state.config.festival_id;
@@ -69,12 +43,6 @@ export default {
         },
         event_test() {
             return !!~~this.$store.state.config.festival_test;
-        },
-        good() {
-            return this.count || 2;
-        },
-        num() {
-            return Math.ceil(Math.random() * 5);
         },
     },
     methods: {
@@ -135,12 +103,6 @@ export default {
             // var chineseBigNum = "零一二三四五六七八九";
             return chineseBigNum[n];
         },
-        showSecond() {
-            this.change = true;
-            setTimeout(() => {
-                this.show = true;
-            }, 1000);
-        },
     },
     watch: {
         "$store.state.config": {
@@ -150,6 +112,7 @@ export default {
             deep: true,
         },
     },
+
     mounted() {
         if (User.isLogin()) {
             this.init();
