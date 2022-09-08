@@ -35,22 +35,23 @@
                                         <span v-text="item.label"></span>
                                     </span>
                                     <span class="u-price">
-                                        <span
-                                            class="u-trending"
-                                            :class="item | showItemTrendingClass"
-                                        >{{item | showItemTrending}}</span>
+                                        <span class="u-trending" :class="item | showItemTrendingClass">{{
+                                            item | showItemTrending
+                                        }}</span>
                                         <template v-if="item.sub_days_0_price">
                                             <!-- <span>今日：</span> -->
                                             <GamePrice :price="item.sub_days_0_price" />
                                         </template>
-                                        <template
-                                            v-else-if="!item.sub_days_0_price && item.sub_days_1_price"
-                                        >
+                                        <template v-else-if="!item.sub_days_0_price && item.sub_days_1_price">
                                             <!-- <span>昨日：</span> -->
                                             <GamePrice :price="item.sub_days_1_price" />
                                         </template>
                                         <template
-                                            v-else-if="!item.sub_days_0_price && !item.sub_days_1_price && item.sub_days_2_price"
+                                            v-else-if="
+                                                !item.sub_days_0_price &&
+                                                !item.sub_days_1_price &&
+                                                item.sub_days_2_price
+                                            "
                                         >
                                             <!-- <span>前日：</span> -->
                                             <GamePrice :price="item.sub_days_2_price" />
@@ -88,7 +89,7 @@ export default {
     },
     computed: {
         client: function () {
-            return this.$store.state.client || 'std';
+            return this.$store.state.client || "std";
         },
         servers: function () {
             if (this.client == "std") {
@@ -102,28 +103,38 @@ export default {
         },
         groups: function () {
             const len = 5;
-            let arr = []
+            let arr = [];
             let count = Math.ceil(this.data.length / len);
-            for(let i=0;i<count;i++){
-                arr.push([])
+            for (let i = 0; i < count; i++) {
+                arr.push([]);
             }
-            for(let [i,item] of this.data.entries()){
+            for (let [i, item] of this.data.entries()) {
                 let group = Math.floor(i / len);
                 arr[group].push(item);
             }
             return arr;
         },
-        isReady : function (){
-            return this.client == 'std' //怀旧服暂不支持
-        }
+        isReady: function () {
+            return this.client == "std"; //怀旧服暂不支持
+        },
     },
     methods: {
         loadData: function () {
-            getItemPrice({
-                server: this.server,
-                keys: [this.client],
-            },this.client).then((res) => {
-                let data = res.data?.data?.data?.[this.client]?.items;
+            getItemPrice(
+                {
+                    server: this.server,
+                    keys: "baoxiang,wucaishi,mozhutu,chengjiushipin,chengjiushipin2",
+                },
+                this.client
+            ).then((res) => {
+                const { baoxiang, wucaishi, mozhutu, chengjiushipin, chengjiushipin2 } = res.data.data;
+                let data = [
+                    ...baoxiang.items,
+                    ...wucaishi.items,
+                    ...mozhutu.items,
+                    ...chengjiushipin.items,
+                    ...chengjiushipin2.items,
+                ];
                 this.data = data || [];
             });
         },
