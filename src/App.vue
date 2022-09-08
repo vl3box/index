@@ -16,6 +16,7 @@
                         </div>
                         <div class="m-right">
                             <banner />
+                            <database />
                             <servers />
                             <activity />
                             <price />
@@ -70,6 +71,7 @@ import banner from "@/components/v2/banner.vue";
 import activity from "@/components/v2/activity.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
+import database from "@/components/index/database.vue";
 
 // 系统
 import festival from "@/components/index/festival.vue";
@@ -114,6 +116,7 @@ export default {
         // 右侧
         banner,
         activity,
+        database,
         price,
         transaction,
         joke,
