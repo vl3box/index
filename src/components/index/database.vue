@@ -28,8 +28,9 @@
 
 <script>
 import { getDatabaseStat } from "@/service/node";
+import { showRecently, showDate } from "@/utils/moment";
 import { cloneDeep, uniq } from "lodash";
-import moment from "moment";
+import { moment } from "@jx3box/jx3box-common/js/moment";
 export default {
     name: "database",
     data: function () {
@@ -48,23 +49,19 @@ export default {
     },
     methods: {
         showDisplayTime: function (type) {
-            let time = this.version
+            const recentlyTime = this.version
                 .filter((item) => item.type == type)
-                .sort((a, b) => b.time.getTime() > a.time.getTime())[0].time;
-            let display = moment(time).format("YYYY-MM-DD");
-            return display;
+                .sort((a, b) => moment(a.time).isBefore(moment(b.time)))[0];
+            return showDate(recentlyTime)
         },
         showFromNowTime: function (time) {
-            return moment(time).fromNow();
+            return showRecently(time)
         },
     },
     mounted() {
         getDatabaseStat({ client: this.client }).then((res) => {
             let data = res.data;
-            this.version = cloneDeep(data.version).map((item) => {
-                item.time = new Date(item.time); //moment(item.time).format("YYYY-MM-DD");
-                return item;
-            }).sort((a, b) => a.label.length - b.label.length);
+            this.version = cloneDeep(data.version).sort((a, b) => a.label.length - b.label.length);
             delete data.version;
             this.$set(this, "count", data);
         });
