@@ -29,7 +29,7 @@
 <script>
 import { getDatabaseStat } from "@/service/node";
 import { cloneDeep, uniq } from "lodash";
-import moment from "moment";
+import { moment } from "@jx3box/jx3box-common/js/moment";
 export default {
     name: "database",
     data: function () {
