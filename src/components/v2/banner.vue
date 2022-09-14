@@ -5,7 +5,7 @@
  * @Description:
 -->
 <template>
-    <div class="m-banner-wrapper m-v2-banner" v-loading="loading">
+    <div class="m-banner-wrapper m-v2-banner" v-loading="loading" v-if="data && data.length">
         <el-carousel class="m-banner" trigger="click" height="180px">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank"><img :src="resolveImagePath(item.img)" /></a>
