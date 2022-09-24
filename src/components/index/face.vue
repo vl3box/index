@@ -2,8 +2,8 @@
     <div class="m-face m-sideblock">
         <div class="m-face-header m-sideblock-header">
             <i class="el-icon-camera-solid"></i>
-            <a class="u-title" href="/share" target="_blank">最新捏脸</a>
-            <a href="/share" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+            <a class="u-title" href="/face" target="_blank">最新捏脸</a>
+            <a href="/face" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>
         </div>
