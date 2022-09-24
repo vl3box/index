@@ -41,4 +41,10 @@ function getBoxCoin(id) {
     return $pay({ mute: true }).get(`api/event/${id}/boxcoin/trigger`);
 }
 
-export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin,getItemPrice };
+function getFaceList(params){
+    return $next().get(`/api/face`, {
+        params: params,
+    })
+}
+
+export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin, getItemPrice, getFaceList };
