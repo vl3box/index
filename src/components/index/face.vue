@@ -61,7 +61,10 @@ export default {
                 count = 9
             }
             return count
-        }
+        },
+        client: function () {
+            return this.$store.state.client;
+        },
     },
     methods: {
         showThumb: function (item) {
@@ -82,7 +85,8 @@ export default {
         this.loading = true;
         getFaceList({
             pageSize: this.per,
-            filter_empty_images: true
+            filter_empty_images: true,
+            client: this.client,
         })
             .then((res) => {
                 this.data = res.data.data.list || [];
