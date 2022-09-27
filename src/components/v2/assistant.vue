@@ -1,6 +1,5 @@
 <template>
-    <div class="m-assistant">
-        <!-- :style="{ backgroundImage: bg }" -->
+    <div class="m-assistant" :style="{ backgroundImage: bg }">
         <div class="u-assistant">
             <a :href="link" target="_blank" class="u-btn button button-3d button-primary button-rounded"><i class="el-icon-download"></i>魔盒助手</a>
             <span class="u-label">{{ label }}</span>
@@ -11,13 +10,14 @@
 <script>
 import { theme } from "../../../setting.json";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { getMenus } from "@/service/cms.js";
+import { getMenus, getEventV2 } from "@/service/cms.js";
 export default {
     name: "assistant",
     data: function () {
         return {
             label: "",
             link: "",
+            bg: ''
         };
     },
     computed: {
@@ -26,10 +26,7 @@ export default {
         },
         theme: function () {
             return theme[this.client];
-        },
-        bg: function () {
-            return `url(${__imgPath}topic/${this.theme}/daily.png)`;
-        },
+        }
     },
 
     methods: {
@@ -40,9 +37,21 @@ export default {
                 this.link = data.link;
             });
         },
+        loadBackGround: function () {
+            getEventV2({
+                type: 'common',
+                subtype: 'jba',
+                status: 1,
+                client: this.client
+            }).then((res) => {
+                const url = res.data.data.list[0]?.img
+                if (url) this.bg = `url(${url})`
+            });
+        },
     },
     mounted: function () {
         this.loadData();
+        this.loadBackGround();
     },
 };
 </script>
