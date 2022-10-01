@@ -11,7 +11,7 @@
                 <el-tooltip placement="top" v-for="_type in all_types" :key="_type" :enterable="true">
                     <div slot="content" class="m-database-content__popover">
                         <p v-for="data in version.filter((v) => v.type == _type)" :key="data.name">
-                            <span class="u-detail-label">{{ data.label }}</span>&nbsp;&nbsp;
+                            <span class="u-detail-label">{{ data.label }}</span>
                             <span class="u-detail-time">更新于{{ showFromNowTime(data.time) }}</span>
                             <br />
                         </p>
@@ -52,10 +52,10 @@ export default {
             const recentlyTime = this.version
                 .filter((item) => item.type == type)
                 .sort((a, b) => moment(a.time).isBefore(moment(b.time)))[0];
-            return showDate(recentlyTime)
+            return showDate(recentlyTime.time);
         },
         showFromNowTime: function (time) {
-            return showRecently(time)
+            return showRecently(time);
         },
     },
     mounted() {
