@@ -11,6 +11,7 @@
 import { theme } from "../../../setting.json";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getMenus, getEventV2 } from "@/service/cms.js";
+import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "assistant",
     data: function () {
@@ -44,7 +45,7 @@ export default {
                 status: 1,
                 client: this.client
             }).then((res) => {
-                const url = res.data.data.list[0]?.img
+                const url = resolveImagePath(res.data.data.list[0]?.img)
                 if (url) this.bg = `url(${url})`
             });
         },
