@@ -1,5 +1,15 @@
 import { $helper, $next } from "@jx3box/jx3box-common/js/https";
 
+// 今日财富
+function getCode(client) {
+    return $helper().get(`api/config_banner/code`, {
+        params: {
+            client: client,
+            status: 1,
+        },
+    });
+}
+
 // 物品价格
 function getItemPrice(params) {
     return $next().get(`api/item-groups/with-prices`, {
@@ -23,4 +33,4 @@ function getCollections(params) {
     });
 }
 
-export { getSchoolRank, getItemPrice, getWikiPosts, getCollections };
+export { getSchoolRank, getItemPrice, getWikiPosts, getCollections, getCode };
