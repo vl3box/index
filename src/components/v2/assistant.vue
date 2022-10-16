@@ -4,7 +4,7 @@
             <a href="/tool/39410" target="_blank" class="u-btn button button-3d button-primary button-rounded"
                 ><i class="el-icon-download"></i>魔盒助手</a
             >
-            <span class="u-label" v-html="data"></span>
+            <span class="u-label">{{label}}</span>
         </div>
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
     methods: {
         loadData: function () {
             return getBreadcrumb("index_jba").then((data) => {
-                this.data = data;
+                this.label = data;
             });
         },
         loadBackGround: function () {
