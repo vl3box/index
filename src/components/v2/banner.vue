@@ -5,8 +5,8 @@
  * @Description:
 -->
 <template>
-    <div class="m-banner-wrapper m-v2-banner" v-loading="loading" v-if="data && data.length">
-        <el-carousel class="m-banner" trigger="click" height="180px">
+    <div class="m-banner-wrapper m-v2-banner" v-if="data && data.length">
+        <el-carousel class="m-banner" trigger="click" height="180px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank"><img :src="resolveImagePath(item.img)" /></a>
             </el-carousel-item>
@@ -16,6 +16,7 @@
 <script>
 import { getEventV2 } from "@/service/cms";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
+import { recordBannerClick } from "@/service/setting";
 export default {
     name: "banner",
 
@@ -32,7 +33,7 @@ export default {
         params: function () {
             return {
                 client: this.client,
-                type:"common",
+                type: "common",
                 subtype: "banner",
                 per: 5,
                 status: 1,
@@ -52,6 +53,17 @@ export default {
                 });
         },
         resolveImagePath,
+        handleClick() {
+            recordBannerClick({
+                a: 1, //  广告id
+                t: "jd", //  广告类型
+                p: "index_banner", //  广告在页面的区域位置，如 banner, slider 之类的。
+                x: 0, //用户点击的屏幕的x坐标
+                y: 0, // 用户点击的屏幕的y坐标
+                r: `${window.screen.width}*${window.screen.height}`, // 用户屏幕的分辨率
+                d: "pc",
+            });
+        },
     },
     mounted: function () {
         this.loadData();

@@ -1,4 +1,4 @@
-import { $cms, $helper } from "@jx3box/jx3box-common/js/https";
+import { $cms, $helper, $next } from "@jx3box/jx3box-common/js/https";
 
 function getConfig() {
     return $cms({ mute: true }).get("/api/cms/config");
@@ -18,8 +18,14 @@ function getHelperPnt() {
     return $helper({ mute: true }).get("/api/post/pending_total");
 }
 
-function getMenu(key){
-    return $cms().get(`/api/cms/config/menu/${key}`)
+function getMenu(key) {
+    return $cms().get(`/api/cms/config/menu/${key}`);
 }
 
-export { getConfig, getMenuGroup, getMenuGroups, getHelperPnt,getMenu };
+function recordBannerClick(params) {
+    return $next().get(`/api/ggao`,{
+        params: params,
+    });
+}
+
+export { getConfig, getMenuGroup, getMenuGroups, getHelperPnt, getMenu, recordBannerClick };
