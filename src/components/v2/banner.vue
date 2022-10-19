@@ -8,7 +8,9 @@
     <div class="m-banner-wrapper m-v2-banner" v-if="data && data.length">
         <el-carousel class="m-banner" trigger="click" height="180px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
-                <a :href="item.link" target="_blank"><img :src="resolveImagePath(item.img)" /></a>
+                <a :href="item.link" target="_blank" @click="handleClick(item, $event)"
+                    ><img :src="resolveImagePath(item.img)"
+                /></a>
             </el-carousel-item>
         </el-carousel>
     </div>
@@ -53,13 +55,13 @@ export default {
                 });
         },
         resolveImagePath,
-        handleClick() {
+        handleClick(item, e) {
             recordBannerClick({
-                a: 1, //  广告id
+                a: item.ID, //  广告id
                 t: "jd", //  广告类型
                 p: "index_banner", //  广告在页面的区域位置，如 banner, slider 之类的。
-                x: 0, //用户点击的屏幕的x坐标
-                y: 0, // 用户点击的屏幕的y坐标
+                x: e.clientX, //用户点击的屏幕的x坐标
+                y: e.clientY, // 用户点击的屏幕的y坐标
                 r: `${window.screen.width}*${window.screen.height}`, // 用户屏幕的分辨率
                 d: "pc",
             });
