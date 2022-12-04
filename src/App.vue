@@ -17,7 +17,8 @@
                         <div class="m-right">
                             <banner />
                             <database />
-                            <servers />
+                            <!-- <servers /> -->
+                            <servers2 />
                             <activity />
                             <price />
                             <transaction />
@@ -51,7 +52,8 @@ import assistant from "@/components/v2/assistant.vue";
 import calendar from "@/components/v2/calendar.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
-import servers from "@/components/index/servers.vue";
+// import servers from "@/components/index/servers.vue";
+import servers2 from "@/components/index/servers2.vue";
 import notice from "@/components/index/notice.vue";
 import feedback from "@/components/v2/feedback.vue";
 import qrcode from "@/components/v2/qrcode.vue";
@@ -99,7 +101,8 @@ export default {
         calendar,
         jx3code,
         gamenews,
-        servers,
+        // servers,
+        servers2,
         notice,
         feedback,
         qrcode,
