@@ -20,6 +20,7 @@
                             <!-- <servers /> -->
                             <servers2 />
                             <activity />
+                            <celebrity />
                             <price />
                             <transaction />
                             <face />
@@ -71,6 +72,7 @@ import face from "@/components/index/face.vue";
 // v2 右侧
 import banner from "@/components/v2/banner.vue";
 import activity from "@/components/v2/activity.vue";
+import celebrity from "@/components/v2/celebrity.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
 import database from "@/components/index/database.vue";
@@ -119,6 +121,7 @@ export default {
         // 右侧
         banner,
         activity,
+        celebrity,
         database,
         price,
         transaction,
