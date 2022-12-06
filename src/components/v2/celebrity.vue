@@ -7,7 +7,7 @@
       <span class="u-title"> <i class="el-icon-s-help"></i> 名望·楚天社
       </span>
       <div class="desc">
-        <el-tooltip
+        <!-- <el-tooltip
           placement="top"
           popper-class="celebrity-notice-tooltip"
         >
@@ -21,12 +21,12 @@
                   v-if="index"
                   class="el-icon-right"
                 ></i>{{item.stage}}({{item.site}})</span></div>
-          </div>
-          <span class="map">{{currentMap.map}}({{currentMap.tasks}})</span>
-        </el-tooltip>
+          </div> -->
+        <span class="map">{{currentMap.map}}({{currentMap.tasks}})</span>
+        <!-- </el-tooltip> -->
         <i class="el-icon-right"></i>
 
-        <el-tooltip
+        <!-- <el-tooltip
           placement="top"
           popper-class="celebrity-notice-tooltip"
         >
@@ -40,11 +40,11 @@
                   v-if="index"
                   class="el-icon-right"
                 ></i>{{item.stage}}({{item.site}})</span></div>
-          </div>
-          <span>{{nextMap.map}}({{nextMap.tasks}})</span>
-        </el-tooltip>
+          </div> -->
+        <span>{{nextMap.map}}({{nextMap.tasks}})</span>
+        <!-- </el-tooltip> -->
 
-        <el-tooltip
+        <!-- <el-tooltip
           placement="top"
           popper-class="celebrity-notice-tooltip"
         >
@@ -54,7 +54,7 @@
             <div>注意事项：{{globalInfo.attention}}</div>
           </div>
           <i class="el-icon-info"></i>
-        </el-tooltip>
+        </el-tooltip> -->
       </div>
     </div>
     <div class="m-celebrity-content">
@@ -69,22 +69,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pre-item">
+          <!-- <tr class="pre-item">
             <td></td>
             <td>{{ list[0].timeFormat }}</td>
             <td>{{ list[0].map }}</td>
-            <td><span>{{ list[0].site }}<img :src="require(`@/assets/img/icon/minimap_${list[0].icon || 6}.png`)" /></span></td>
-            <td>{{ list[0].stage }}</td>
-          </tr>
+            <td>{{ list[0].site }}</td>
+            <td><span><img :src="require(`@/assets/img/icon/minimap_${list[0].icon || 6}.png`)" />{{ list[0].stage }}</span></td>
+          </tr> -->
           <el-tooltip
             placement="top"
             popper-class="celebrity-notice-tooltip"
           >
             <div slot="content">
-              <div>任务描述：{{list[1].desc}}</div>
-              <div>结算条件：{{list[1].condition}}</div>
+              <div>{{list[1].desc}}</div>
+              <!-- <div>结算条件：{{list[1].condition}}</div>
               <div v-if="list[1].tip">友情提示：{{list[1].tip}}</div>
-              <div>数值奖励：名望({{list[1].rewards[0]}}),楚天四合令({{list[1].rewards[1]}}),侠行点({{list[1].rewards[2]}})。</div>
+              <div>数值奖励：名望({{list[1].rewards[0]}}),楚天四合令({{list[1].rewards[1]}}),侠行点({{list[1].rewards[2]}})。</div> -->
             </div>
             <tr class="current-item">
               <td>
@@ -92,8 +92,8 @@
               </td>
               <td>{{ list[1].timeFormat }}</td>
               <td>{{ list[1].map }}</td>
-              <td><span>{{ list[1].site }}<img :src="require(`@/assets/img/icon/minimap_${list[1].icon || 6}.png`)" /></span></td>
-              <td>{{ list[1].stage }}</td>
+              <td>{{ list[1].site }}</td>
+              <td><span><img :src="require(`@/assets/img/icon/minimap_${list[1].icon || 6}.png`)" />{{ list[1].stage }}</span></td>
             </tr>
           </el-tooltip>
           <el-tooltip
@@ -101,17 +101,17 @@
             popper-class="celebrity-notice-tooltip"
           >
             <div slot="content">
-              <div>任务描述：{{list[2].desc}}</div>
-              <div>结算条件：{{list[2].condition}}</div>
+              <div>{{list[2].desc}}</div>
+              <!-- <div>结算条件：{{list[2].condition}}</div>
               <div v-if="list[2].tip">友情提示：{{list[2].tip}}</div>
-              <div>数值奖励：名望({{list[2].rewards[0]}}),楚天四合令({{list[2].rewards[1]}}),侠行点({{list[2].rewards[2]}})。</div>
+              <div>数值奖励：名望({{list[2].rewards[0]}}),楚天四合令({{list[2].rewards[1]}}),侠行点({{list[2].rewards[2]}})。</div> -->
             </div>
             <tr>
               <td></td>
               <td>{{ list[2].timeFormat }}</td>
               <td>{{ list[2].map }}</td>
-              <td><span>{{ list[2].site }}<img :src="require(`@/assets/img/icon/minimap_${list[2].icon || 6}.png`)" /></span></td>
-              <td>{{ list[2].stage }}</td>
+              <td>{{ list[2].site }}</td>
+              <td><span><img :src="require(`@/assets/img/icon/minimap_${list[2].icon || 6}.png`)" />{{ list[2].stage }}</span></td>
             </tr>
           </el-tooltip>
           <!-- <tr
