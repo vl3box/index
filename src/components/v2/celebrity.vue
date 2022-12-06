@@ -86,7 +86,7 @@
 </template>
 <script>
 import celebrityData from "@/assets/data/celebrity.json";
-// const currentTime = new Date("2022-12-06 12:02")
+// const currentTime = new Date("2022-12-07 00:01")
 export default {
   name: "celebrity",
   components: {
@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     toFormatTime (h, m) {
-      const hF = h < 10 ? '0' + h : h
+      const hF = h < 0 ? '23' : h < 10 ? '0' + h : h > 23 ? '00' : h
       const hM = m < 10 ? '0' + m : m
       return hF + ':' + hM
     },
