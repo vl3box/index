@@ -6,15 +6,51 @@
     <div class="m-sideblock-header celebrity-header">
       <span class="u-title"> <i class="el-icon-s-help"></i> 名望·楚天社
       </span>
-      <div class="desc">当前地图：<span class="map">{{currentMap.map}}({{currentMap.tasks}}个任务)</span>
+      <div class="desc">
         <el-tooltip
           placement="top"
           popper-class="celebrity-notice-tooltip"
         >
           <div slot="content">
-            <div>所有奖励：名望({{globalInfo.rewards[0]}}),楚天四合令({{globalInfo.rewards[1]}}),侠行点({{globalInfo.rewards[2]}})</div>
-            <div>{{ currentMap.map }}奖励：名望({{currentMap.totalRewards[0]}}),楚天四合令({{currentMap.totalRewards[1]}}),侠行点({{currentMap.totalRewards[2]}})</div>
-            <div>日常建议：{{globalInfo.method}}</div>
+            <div>{{currentMap.map}}奖励：名望({{currentMap.totalRewards[0]}}),楚天四合令({{currentMap.totalRewards[1]}}),侠行点({{currentMap.totalRewards[2]}})。</div>
+            <div>任务数量：{{currentMap.tasks}}个。</div>
+            <div>任务流程：<span
+                v-for="(item, index) in currentMap.stages"
+                :key="index"
+              ><i
+                  v-if="index"
+                  class="el-icon-right"
+                ></i>{{item.stage}}({{item.site}})</span></div>
+          </div>
+          <span class="map">{{currentMap.map}}({{currentMap.tasks}})</span>
+        </el-tooltip>
+        <i class="el-icon-right"></i>
+
+        <el-tooltip
+          placement="top"
+          popper-class="celebrity-notice-tooltip"
+        >
+          <div slot="content">
+            <div>{{nextMap.map}}奖励：名望({{nextMap.totalRewards[0]}}),楚天四合令({{nextMap.totalRewards[1]}}),侠行点({{nextMap.totalRewards[2]}})。</div>
+            <div>任务数量：{{nextMap.tasks}}个。</div>
+            <div>任务流程：<span
+                v-for="(item, index) in nextMap.stages"
+                :key="index"
+              ><i
+                  v-if="index"
+                  class="el-icon-right"
+                ></i>{{item.stage}}({{item.site}})</span></div>
+          </div>
+          <span>{{nextMap.map}}({{nextMap.tasks}})</span>
+        </el-tooltip>
+
+        <el-tooltip
+          placement="top"
+          popper-class="celebrity-notice-tooltip"
+        >
+          <div slot="content">
+            <div>奖励(4图)：名望({{globalInfo.rewards[0]}}),楚天四合令({{globalInfo.rewards[1]}}),侠行点({{globalInfo.rewards[2]}})。</div>
+            <div></div>
             <div>注意事项：{{globalInfo.attention}}</div>
           </div>
           <i class="el-icon-info"></i>
@@ -26,7 +62,7 @@
         <thead>
           <tr>
             <th></th>
-            <th>时间点</th>
+            <th>时间</th>
             <th>地图</th>
             <th>地点</th>
             <th>阶段</th>
@@ -37,14 +73,18 @@
             <td></td>
             <td>{{ list[0].timeFormat }}</td>
             <td>{{ list[0].map }}</td>
-            <td>{{ list[0].site }}</td>
+            <td><span>{{ list[0].site }}<img :src="require(`@/assets/img/icon/minimap_${list[0].icon || 6}.png`)" /></span></td>
             <td>{{ list[0].stage }}</td>
           </tr>
-          <el-tooltip placement="top">
+          <el-tooltip
+            placement="top"
+            popper-class="celebrity-notice-tooltip"
+          >
             <div slot="content">
-              <div>数值奖励：名望({{list[1].rewards[0]}}),楚天四合令({{list[1].rewards[1]}}),侠行点({{list[1].rewards[2]}})</div>
+              <div>任务描述：{{list[1].desc}}</div>
               <div>结算条件：{{list[1].condition}}</div>
-              <div v-if="list[1].attention">注意事项：{{list[1].attention}}</div>
+              <div v-if="list[1].tip">友情提示：{{list[1].tip}}</div>
+              <div>数值奖励：名望({{list[1].rewards[0]}}),楚天四合令({{list[1].rewards[1]}}),侠行点({{list[1].rewards[2]}})。</div>
             </div>
             <tr class="current-item">
               <td>
@@ -52,17 +92,28 @@
               </td>
               <td>{{ list[1].timeFormat }}</td>
               <td>{{ list[1].map }}</td>
-              <td>{{ list[1].site }}</td>
+              <td><span>{{ list[1].site }}<img :src="require(`@/assets/img/icon/minimap_${list[1].icon || 6}.png`)" /></span></td>
               <td>{{ list[1].stage }}</td>
             </tr>
           </el-tooltip>
-          <tr>
-            <td></td>
-            <td>{{ list[2].timeFormat }}</td>
-            <td>{{ list[2].map }}</td>
-            <td>{{ list[2].site }}</td>
-            <td>{{ list[2].stage }}</td>
-          </tr>
+          <el-tooltip
+            placement="bottom"
+            popper-class="celebrity-notice-tooltip"
+          >
+            <div slot="content">
+              <div>任务描述：{{list[2].desc}}</div>
+              <div>结算条件：{{list[2].condition}}</div>
+              <div v-if="list[2].tip">友情提示：{{list[2].tip}}</div>
+              <div>数值奖励：名望({{list[2].rewards[0]}}),楚天四合令({{list[2].rewards[1]}}),侠行点({{list[2].rewards[2]}})。</div>
+            </div>
+            <tr>
+              <td></td>
+              <td>{{ list[2].timeFormat }}</td>
+              <td>{{ list[2].map }}</td>
+              <td><span>{{ list[2].site }}<img :src="require(`@/assets/img/icon/minimap_${list[2].icon || 6}.png`)" /></span></td>
+              <td>{{ list[2].stage }}</td>
+            </tr>
+          </el-tooltip>
           <!-- <tr
             v-for="(item, i) in list"
             :key="i"
@@ -95,6 +146,7 @@ export default {
     return {
       globalInfo: celebrityData.global,
       currentMap: {},
+      nextMap: {},
       list: [],
       currentDate: {
         h: new Date().getHours(),
@@ -120,6 +172,7 @@ export default {
       const preKey = 'c' + (preDate.getHours() % 2 === 0 ? '0' : '1') + (preDate.getMinutes() < 30 ? '0' : '1')
       const nextKey = 'c' + (nextDate.getHours() % 2 === 0 ? '0' : '1') + (nextDate.getMinutes() < 30 ? '0' : '1')
       this.currentMap = celebrityData[key]
+      this.nextMap = celebrityData[nextKey]
       let currentIndex = 0
       const stages = this.currentMap.stages
       const stageLen = stages.length
