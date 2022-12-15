@@ -37,9 +37,14 @@ export default {
                     src: `${__imgPath}image/other/weibo.jpg`,
                 },
                 {
-                    name: "魔盒团队管理",
+                    name: "剑三魔盒",
                     svg: require(`../../assets/img/left/wxapp.png`),
-                    src: `${__imgPath}image/common/miniprogram_team.png`,
+                    src: `${__imgPath}image/qrcode/mp_default.png`,
+                },
+                {
+                    name: "魔盒团队平台",
+                    svg: require(`../../assets/img/left/wxapp.png`),
+                    src: `${__imgPath}image/qrcode/mp_team.png`,
                 },
             ],
         };
