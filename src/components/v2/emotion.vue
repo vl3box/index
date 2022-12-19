@@ -7,9 +7,9 @@
                 <i class="el-icon-more"></i>
             </a>
         </div>
-        <div class="emotion-item" v-if="emotionsData">
-            <img class="emotion-item__img" :src="emotionsData.url" alt="">
-        </div>
+        <a class="emotion-link" :href="`${more_link}/${emotionsData.ID}`" v-if="emotionsData">
+            <img class="emotion-link__img" :src="emotionsData.url" alt="" />
+        </a>
         <div class="emotion-more">
             <a :href="more_link" class="u-more">查看更多&raquo;</a>
         </div>
