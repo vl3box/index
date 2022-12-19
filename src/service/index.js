@@ -24,9 +24,9 @@ function getJokes() {
     return $next({ mute: true }).get(`/api/joke/recommended`);
 }
 
-function getItemPrice(params,client) {
+function getItemPrice(params, client) {
     let client_id = client == 'origin' ? 2 : 1
-    return $next({client_id}).get("/api/item-groups/with-prices", {
+    return $next({ client_id }).get("/api/item-groups/with-prices", {
         params: params,
     });
 }
@@ -41,10 +41,15 @@ function getBoxCoin(id) {
     return $pay({ mute: true }).get(`api/event/${id}/boxcoin/trigger`);
 }
 
-function getFaceList(params){
+function getFaceList(params) {
     return $next().get(`/api/face`, {
         params: params,
     })
 }
+function getEmotions(params) {
+    return $next().get(`/api/emotions/recommended`, {
+        params: params,
+    })
+}
 
-export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin, getItemPrice, getFaceList };
+export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin, getItemPrice, getFaceList, getEmotions };
