@@ -12,7 +12,7 @@
                             <event />
                             <joke />
                             <posts />
-                            <emotion />
+                            <!-- <emotion /> -->
                             <wiki />
                         </div>
                         <div class="m-right">
@@ -66,7 +66,7 @@ import slider from "@/components/v2/slider.vue";
 import box from "@/components/index/box.vue";
 import event from "@/components/v2/event.vue";
 import posts from "@/components/v2/posts.vue";
-import emotion from "@/components/v2/emotion.vue";
+// import emotion from "@/components/v2/emotion.vue";
 import wiki from "@/components/v2/wiki.vue";
 import joke from "@/components/index/joke.vue";
 import face from "@/components/index/face.vue";
@@ -117,7 +117,7 @@ export default {
         box,
         event,
         posts,
-        emotion,
+        // emotion,
         wiki,
         face,
 

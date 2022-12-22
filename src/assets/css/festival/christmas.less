@@ -1,0 +1,38 @@
+.christmas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .pr;
+    .w(800px);
+    margin: 120px auto 0;
+    .pointer;
+
+    .christmas-card__open {
+        .pa;
+        .w(40%);
+        .size(500px, 80px);
+        bottom: 80px;
+        background-image: url("@{img}festival/christmas/button.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: twinkle 2s ease-out 0s infinite;
+        transform: scale(0.5);
+    }
+
+    .christmas-card__content {
+        background-color: #153b3c;
+    }
+}
+
+@media screen and (max-width: @phone) {
+    .christmas {
+        .w(90%);
+        padding: 0;
+
+        .christmas-card__open {
+            bottom: 10px;
+            transform: scale(0.3);
+        }
+    }
+}
