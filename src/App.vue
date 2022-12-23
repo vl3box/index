@@ -16,8 +16,8 @@
                             <wiki />
                         </div>
                         <div class="m-right">
-                            <banner />
                             <database />
+                            <banner />
                             <!-- <servers /> -->
                             <servers2 />
                             <activity />
