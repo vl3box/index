@@ -80,7 +80,7 @@ import transaction from "@/components/index/transaction_mini.vue";
 import database from "@/components/index/database.vue";
 
 // 系统
-import festival from "@/components/index/festival.vue";
+import festival from "@/components/festival/index.vue";
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";

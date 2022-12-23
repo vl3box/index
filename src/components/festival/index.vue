@@ -53,6 +53,7 @@ export default {
         },
         init() {
             if ((this.event_status && this.event_id) || (this.event_test && User.isSuperAdmin())) {
+                console.log('尝试触发贺卡事件')
                 if (!this.done) {
                     getBoxCoin(this.event_id)
                         .then((res) => {
