@@ -18,7 +18,7 @@ export default {
     name: "Festival",
     data: function () {
         return {
-            success: false,
+            success: true,
             visible: true,
             count: 0,
             data: {},
