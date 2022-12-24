@@ -1,46 +1,35 @@
 <template>
-    <div class="emotion m-sideblock">
-        <div class="emotion-header m-sideblock-header">
-            <i class="el-icon-sugar"></i>
-            <span class="u-title">推荐趣图</span>
-            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
-                <i class="el-icon-more"></i>
+    <div class="m-emotion m-sideblock">
+        <div class="m-emotion-title">✿今日趣图</div>
+        <div class="m-emotion-list">
+            <a v-for="(item, index) in list" :key="index" class="u-item" :href="`/emotion/${item.ID}`" target="_blank">
+                <img class="u-img" :src="item.url" :alt="item.name" />
             </a>
         </div>
-        <div class="emotion-list">
-            <a v-for="(item, index) in emotionsArr" :key="index" class="emotion-list__link"
-                :href="`${more_link}/${item.ID}`">
-                <img class="emotion-list__img" :src="item.url" alt="" />
-            </a>
-        </div>
-        <div class="emotion-more">
-            <a :href="more_link" class="u-more">查看更多&raquo;</a>
-        </div>
+        <a class="m-emotion-more" href="/emotion"><i class="el-icon-s-promotion"></i>发张骚图</a>
     </div>
 </template>
 
 <script>
 import { getEmotions } from "@/service/index";
 export default {
-    name: 'emotion',
+    name: "emotion",
     data() {
         return {
-            more_link: '/emotion',
-            emotionsArr: []
-        }
+            list: [],
+        };
     },
     methods: {
-        add_list() {
-            getEmotions().then(res => {
-                // .filter((item, index) => index < 7)
-                this.emotionsArr = res.data.data
-            })
-        }
+        loadData() {
+            getEmotions().then((res) => {
+                this.list = res?.data?.data || [];
+            });
+        },
     },
     mounted() {
-        this.add_list()
-    }
-}
+        this.loadData();
+    },
+};
 </script>
 
 <style lang="less">
