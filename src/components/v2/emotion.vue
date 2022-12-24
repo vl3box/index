@@ -7,8 +7,11 @@
                 <i class="el-icon-more"></i>
             </a>
         </div>
-        <div class="emotion-item" v-if="emotionsData">
-            <img class="emotion-item__img" :src="emotionsData.url" alt="">
+        <div class="emotion-list">
+            <a v-for="(item, index) in emotionsArr" :key="index" class="emotion-list__link"
+                :href="`${more_link}/${item.ID}`">
+                <img class="emotion-list__img" :src="item.url" alt="" />
+            </a>
         </div>
         <div class="emotion-more">
             <a :href="more_link" class="u-more">查看更多&raquo;</a>
@@ -23,13 +26,14 @@ export default {
     data() {
         return {
             more_link: '/emotion',
-            emotionsData: null
+            emotionsArr: []
         }
     },
     methods: {
         add_list() {
             getEmotions().then(res => {
-                this.emotionsData = res.data.data
+                // .filter((item, index) => index < 7)
+                this.emotionsArr = res.data.data
             })
         }
     },

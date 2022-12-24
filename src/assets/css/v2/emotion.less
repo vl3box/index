@@ -50,21 +50,41 @@
     }
 }
 
-.emotion-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    margin: 10px auto;
-    background-color: #f6f8fa;
-    padding: 10px;
-    border-radius: 3px;
+.emotion-list {
+    .emotion-list__link {
+        background-color: #f6f8fa;
+        transition: all 0.1s ease-in-out;
 
-    .emotion-item__img {
-        width: 50%;
-        height: 50%;
+        &:hover {
+            background-color: #e6f0fb;
+        }
     }
 }
+
+
+@media screen and (min-width: @phone) {
+    .emotion-list {
+        margin: 20px 10px;
+        display: flex;
+
+        .emotion-list__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            margin: 10px;
+            padding: 15px;
+           
+
+            .emotion-list__img {
+                width: 100%;
+                min-width: 120px;
+            }
+        }
+    }
+}
+
+
 
 @media screen and (max-width: @ipad) {
     .emotion-header {
@@ -72,9 +92,30 @@
             .none;
         }
     }
+
 }
 
-@media screen and (max-width: @phone) {}
+@media screen and (max-width: @phone) {
+    .emotion-list {
+        display: block;
+        box-sizing: border-box;
+        text-align: center;
+        columns: 150px;
+        column-gap: 15px;
+
+        .emotion-list__link {
+            display: block;
+            break-inside: avoid;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            .emotion-list__img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
 
 .emotion-more {
     .u-more {
