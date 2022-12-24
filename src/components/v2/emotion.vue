@@ -32,6 +32,7 @@ export default {
     methods: {
         add_list() {
             getEmotions().then(res => {
+                // .filter((item, index) => index < 7)
                 this.emotionsArr = res.data.data
             })
         }
