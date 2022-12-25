@@ -6,7 +6,7 @@
             <div class="m-left m-sidebar">
                 <div class="m-left-box">
                     <assistant />
-                    <calendar />
+                    <!-- <calendar /> -->
                     <jx3code />
                     <!-- <servers /> -->
                     <gamenews />
@@ -50,7 +50,7 @@ export default {
         NoticeSingle,
         // 左侧
         assistant,
-        calendar,
+        // calendar,
         jx3code,
         gamenews,
         // servers,
