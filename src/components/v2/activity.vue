@@ -2,9 +2,9 @@
     <div class="m-daily-activity m-sideblock" v-if="client == 'std'">
         <div class="m-sideblock-header">
             <a class="u-title" href="/calendar" target="_blank"> <i class="el-icon-s-order"></i> 日常活动</a>
-            <el-select class="u-select" v-model="server" placeholder="请选择服务器" size="mini">
+            <!-- <el-select class="u-select" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
-            </el-select>
+            </el-select> -->
             <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>
