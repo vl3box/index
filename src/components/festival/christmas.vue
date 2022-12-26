@@ -6,7 +6,6 @@
             <img v-if="show" @click.stop="close" class="animation christmas-card__content christmas-card__img"
                 :class="show? 'flipInY' : ''" :src="`${imgLink}/christmas/${fontCount || 0}.png`" alt="圣诞节快乐">
         </div>
-
     </div>
 </template>
 <script>
@@ -26,7 +25,6 @@ export default {
     },
     methods: {
         change() {
-            console.log(this.fontCount);
             this.show = true;
         },
         close() {
