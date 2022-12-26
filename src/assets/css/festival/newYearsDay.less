@@ -47,12 +47,15 @@
     }
 
     .newYearsDay-card__off {
+        .newYearsDay-card__close,.newYearsDay-card__content {
+            z-index: -1;
+        }
+
         .newYearsDay-card__content {
             .pa;
             .lt(50%, 50%);
             transform: translate(-50%, -50%);
             opacity: 0;
-            z-index: -1;
         }
     }
 
