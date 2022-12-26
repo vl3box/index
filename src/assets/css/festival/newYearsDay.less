@@ -12,6 +12,13 @@
         .newYearsDay-card__img {
             .size(auto, 70vh) !important;
             transition: all 1s;
+            box-sizing: 10px 10px 10px #eee;
+        }
+
+        .newYearsDay-card__fontCount,
+        .newYearsDay-card__close {
+            opacity: 0;
+            transition: all 2s;
         }
 
         .newYearsDay-card__fontCount {
@@ -20,8 +27,6 @@
             transform: translate(-45%, -5%);
             font-size: 23px;
             color: #cea062;
-            transition: all 1.2s;
-            opacity: 0;
         }
 
         .newYearsDay-card__click {
@@ -38,21 +43,18 @@
             .lt(88%, 95%);
             .w(45%) !important;
             transform: translate(-90%, -90%);
-            transition: all 0.5s;
         }
-
     }
 
     .newYearsDay-card__off {
+        .newYearsDay-card__close,.newYearsDay-card__content {
+            z-index: -1;
+        }
+
         .newYearsDay-card__content {
             .pa;
             .lt(50%, 50%);
             transform: translate(-50%, -50%);
-            opacity: 0;
-            z-index: -1;
-        }
-
-        .newYearsDay-card__close {
             opacity: 0;
         }
     }
@@ -73,12 +75,14 @@
             transform: translate(-20%, 0%);
             z-index: -1;
         }
+
         .newYearsDay-card__close,
         .newYearsDay-card__fontCount {
             opacity: 1;
         }
     }
 }
+
 @media screen and (max-width: @phone) {
     .newYearsDay-card__fontCount {
         font-size: 18px !important;
