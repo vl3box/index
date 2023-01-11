@@ -2,8 +2,7 @@
     <div class="m-index-popup" v-if="success" v-show="visible">
         <!-- 2屏贺卡 -->
         <!-- <flipScreen :username="username" :fontCount="fontCount" @close="closePop" fontCount/> -->
-        <!-- <christmas :fontCount="count" @close="closePop" /> -->
-        <newYearsDay :fontCount="fontCount" @close="closePop" />
+        <springFestival :fontCount="count" @close="closePop" />
     </div>
 </template>
 
@@ -11,22 +10,19 @@
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getBoxCoin } from "@/service/index";
 import User from "@jx3box/jx3box-common/js/user";
-import doubleScreen from "@/components/festival/doubleScreen.vue";
-// import flipScreen from "@/components/festival/flipScreen.vue";
-import newYearsDay from "@/components/festival/newYearsDay.vue";
-// import christmas from "@/components/festival/christmas.vue";
+import springFestival from "@/components/festival/springFestival.vue";
 export default {
     name: "Festival",
     data: function () {
         return {
-            success: false,
+            success: true,
             visible: true,
-            count: 60,
+            count: 66,
             data: {},
             done: sessionStorage.getItem("festival_id"),
         };
     },
-    components: { newYearsDay },
+    components: { springFestival },
     computed: {
         imgLink: function ({ event_id }) {
             return __imgPath + `topic/festival/`;
@@ -54,7 +50,7 @@ export default {
         },
         init() {
             if ((this.event_status && this.event_id) || (this.event_test && User.isSuperAdmin())) {
-                console.log('尝试触发贺卡事件')
+                console.log("尝试触发贺卡事件");
                 if (!this.done) {
                     getBoxCoin(this.event_id)
                         .then((res) => {
