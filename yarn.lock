@@ -1227,10 +1227,10 @@
     "vue" "^2.6.11"
     "vuex" "^3.6.2"
 
-"@jx3box/jx3box-common-ui@^6.5.1":
-  "integrity" "sha512-XfQnMum46vkEEj0yMAx1tH87yrLbex3Fqex7CNUmnyMsINwDWQEIAZF423KbqkMIBZkNZO7qLQ/g3Q6cP+HQmw=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.5.1.tgz"
-  "version" "6.5.1"
+"@jx3box/jx3box-common-ui@^6.5.6":
+  "integrity" "sha512-BNA3SZ99ZMmv5CpOdbt84+vrOgHFTIsT6npTWn6CrDAPrr55TW7FuEjKykdS/QRWyz9tH9t7Un7kjpZy+8f9Dw=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.5.6.tgz"
+  "version" "6.5.6"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.7.1"
     "@jx3box/jx3box-common" "^7.4.8"
@@ -1317,19 +1317,15 @@
     "fs" "0.0.1-security"
     "path" "^0.12.7"
 
-"@jx3box/jx3box-data@^2.0.0":
-  "integrity" "sha512-opFkv/SnX7f0pCWEZlLLuuEAByaV+Nmy97F+oIXRx2UsCYqoo13P8Zg17WTP2pCFLcoG790GRSIs+xZvc7TRUw=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-2.0.0.tgz"
-  "version" "2.0.0"
-  dependencies:
-    "csv-parse" "^5.3.0"
-    "fs" "0.0.1-security"
-    "path" "^0.12.7"
+"@jx3box/jx3box-data@^3.0.2":
+  "integrity" "sha512-v14uXijrAhQz70TuboMxiGWXdzPHV0zOOAETieAtkW++6QojlomfXOr8qmh+UgZMehfMIcttSf+8M/oWx+J8NQ=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.0.2.tgz"
+  "version" "3.0.2"
 
-"@jx3box/jx3box-editor@^1.5.5", "@jx3box/jx3box-editor@^1.5.6":
-  "integrity" "sha512-ni4Tt4vd1fnrMQcAmdx/73UzhnqPV/6Q5ztp3lVHpE92dlU9oioOA/PHSZ/OW6KmGxVbwpmRZynnAz/YvRfe8w=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-1.5.6.tgz"
-  "version" "1.5.6"
+"@jx3box/jx3box-editor@^1.5.5", "@jx3box/jx3box-editor@^1.6.0":
+  "integrity" "sha512-MS5llAm2O0N1PMfA1RqOkG8UUfDkx5RJRnf6goe5b2IOQ3CzZamcF/PFjQZ0dJ77AxraLutls8LacqvOALmFmg=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-1.6.0.tgz"
+  "version" "1.6.0"
   dependencies:
     "@jx3box/jx3box-common" "^7.4.2"
     "@jx3box/jx3box-data" "^1.11.1"
