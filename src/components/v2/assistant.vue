@@ -16,7 +16,7 @@
 import calendar from "@/components/v2/calendar.vue";
 import { theme } from "../../../setting.json";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { getEventV2 } from "@/service/cms.js";
+import { getEventV2,getDecoration} from "@/service/cms.js";
 import { getBreadcrumb } from "@jx3box/jx3box-common/js/api_misc";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 export default {
@@ -54,9 +54,57 @@ export default {
                 client: this.client,
             }).then((res) => {
                 const url = resolveImagePath(res.data.data.list[0]?.img);
-                if (url) this.bg = `url(${url})`;
+                if (url){
+                    this.bg = `url(${url})`;
+                }else{
+                    this.getDecoration()
+                }
             });
         },
+        showDecoration:function(val,type){
+            return __imgPath + `decoration/images/${val}/${type}.png`;
+        },
+        setDefaultCalendar(){
+            this.bg=`url(https://img.jx3box.com/decoration/images/0_TESTSAMPLE/calendar.png)`
+        },
+        getDecoration(){
+            let decoration_calendar=sessionStorage.getItem('decoration_calendar')
+            if(decoration_calendar == 'no'){
+                this.setDefaultCalendar()
+                return;
+            }
+            //已有缓存，读取解析
+            if(decoration_calendar){
+                this.setDecoration(JSON.parse(decoration_calendar))
+                return;
+            }
+            getDecoration({using:1}).then(data=>{
+                let res=data.data.data
+                if(res.length==0){
+                //空 则为无主题，不再加载接口，界面设No
+                    sessionStorage.setItem('decoration_calendar','no')
+                    //设置默认背景图
+                    this.setDefaultCalendar()
+                    return;
+                }
+                let decoration=res.filter(val => {
+                    // return val.type === 'calender'
+                    return val.type === 'calendar'
+                })
+                if(decoration.length>0){
+                    sessionStorage.setItem('decoration_calendar',JSON.stringify(decoration[0]))
+                    this.setDecoration(decoration[0])
+                }else{
+                    //空 则为无主题，不再加载接口，界面设No
+                    sessionStorage.setItem('decoration_calendar','no')
+                    //设置默认背景图
+                    this.setDefaultCalendar()
+                }
+            })
+            },
+            setDecoration(decoration_calendar){
+                this.bg = `url(${this.showDecoration(decoration_calendar.val,'calendar')})`;
+            }
     },
     mounted: function () {
         this.loadData();

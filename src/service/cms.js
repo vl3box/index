@@ -151,7 +151,12 @@ function getEventV2(params) {
         params,
     });
 }
-
+ //获取装扮
+function getDecoration(params) {
+    return $cms().get(`/api/cms/user/decoration`,{
+        params
+    });
+}
 export {
     getCode,
     getNews,
@@ -168,5 +173,6 @@ export {
     getHistory,
     getCalendarCount,
     getEventV2,
-    getRangeCalendar
+    getRangeCalendar,
+    getDecoration
 };
