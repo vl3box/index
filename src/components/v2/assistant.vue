@@ -19,6 +19,7 @@ import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getEventV2,getDecoration} from "@/service/cms.js";
 import { getBreadcrumb } from "@jx3box/jx3box-common/js/api_misc";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
+import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "assistant",
     components: {
@@ -57,7 +58,11 @@ export default {
                 if (url){
                     this.bg = `url(${url})`;
                 }else{
-                    this.getDecoration()
+                    if(User.isLogin()){
+                        this.getDecoration()
+                    }else{
+                        this.setDefaultCalendar()
+                    }
                 }
             });
         },
