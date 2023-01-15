@@ -8,4 +8,12 @@ function getDatabaseStat({ client = 'std' } = {}) {
     });
 }
 
-export { getDatabaseStat };
+function getCelebrities({ client = 'std' } = {}) {
+  return $node().get(`/celebrities`, {
+      params: {
+          client
+      }
+  });
+}
+
+export { getDatabaseStat, getCelebrities };
