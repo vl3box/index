@@ -3,7 +3,7 @@
         <div class="m-emotion-title">✿今日趣图</div>
         <div class="m-emotion-list">
             <a v-for="(item, index) in list" :key="index" class="u-item" :href="`/emotion/${item.ID}`" target="_blank">
-                <img class="u-img" :src="item.url" :alt="item.name" />
+                <img class="u-img" :src="showEmotion(item.url)" :alt="item.name" />
             </a>
         </div>
         <a class="m-emotion-more" href="/emotion"><i class="el-icon-s-promotion"></i>发张骚图</a>
@@ -12,6 +12,7 @@
 
 <script>
 import { getEmotions } from "@/service/index";
+import { getThumbnail } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "emotion",
     data() {
@@ -25,6 +26,9 @@ export default {
                 this.list = res?.data?.data || [];
             });
         },
+        showEmotion(url){
+            return getThumbnail(url)
+        }
     },
     mounted() {
         this.loadData();
