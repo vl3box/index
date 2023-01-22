@@ -66,7 +66,7 @@ export default {
         showThumb: function (item) {
             let url = item.images[0];
             if (url) {
-                return getThumbnail(url);
+                return getThumbnail(url,200);
             } else {
                 return __imgPath + "image/face/null2.png";
             }
