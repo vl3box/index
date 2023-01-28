@@ -2,7 +2,7 @@ import { $cms } from "@jx3box/jx3box-common/js/https";
 
 // 今日财富
 function getCode(client) {
-    return $cms({ mute: true }).get(`/api/cms/news`, {
+    return $cms({ mute: true }).get(`/api/cms/news/v2`, {
         params: {
             client: client,
             type: "code",

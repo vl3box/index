@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { getCode } from "@/service/helper";
+import { getCode } from "@/service/cms";
 export default {
     props: [],
     data: function() {
@@ -52,7 +52,7 @@ export default {
     },
     created: function() {
         getCode(this.client).then((res) => {
-            this.data = res.data.data;
+            this.data = res.data.data.list || [];
         });
     },
     components: {},
