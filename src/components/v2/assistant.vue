@@ -83,7 +83,7 @@ export default {
                 this.setDecoration(JSON.parse(decoration_calendar))
                 return;
             }
-            getDecoration({using:1}).then(data=>{
+            getDecoration({using:1,type:'calendar'}).then(data=>{
                 let res=data.data.data
                 if(res.length==0){
                 //空 则为无主题，不再加载接口，界面设No
@@ -92,19 +92,8 @@ export default {
                     this.setDefaultCalendar()
                     return;
                 }
-                let decoration=res.filter(val => {
-                    // return val.type === 'calender'
-                    return val.type === 'calendar'
-                })
-                if(decoration.length>0){
-                    sessionStorage.setItem('decoration_calendar',JSON.stringify(decoration[0]))
-                    this.setDecoration(decoration[0])
-                }else{
-                    //空 则为无主题，不再加载接口，界面设No
-                    sessionStorage.setItem('decoration_calendar','no')
-                    //设置默认背景图
-                    this.setDefaultCalendar()
-                }
+                sessionStorage.setItem('decoration_calendar',JSON.stringify(res[0]))
+                this.setDecoration(res[0])
             })
             },
             setDecoration(decoration_calendar){
