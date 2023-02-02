@@ -2,7 +2,7 @@
     <div class="m-emotion m-sideblock">
         <div class="m-emotion-title">✿今日趣图</div>
         <div class="m-emotion-list">
-            <a v-for="(item, index) in list" :key="index" class="u-item" :href="`/emotion/${item.ID}`" target="_blank">
+            <a v-for="(item, index) in list" :key="index" class="u-item" :href="`/emotion/${item.id}`" target="_blank">
                 <img class="u-img" :src="showEmotion(item.url)" :alt="item.name" />
             </a>
         </div>
