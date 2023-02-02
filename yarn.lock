@@ -1227,13 +1227,15 @@
     "vue" "^2.6.11"
     "vuex" "^3.6.2"
 
-"@jx3box/jx3box-common-ui@^6.7.6":
-  "integrity" "sha512-/xowm7bBOL3DGovf5sXEq9pF4SN+YYr7l0mwpMH/mzzMEERuVQoobfuFaKCl7RDz9sTat4l+bzMAGkFWvEt/1g=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.7.6.tgz"
-  "version" "6.7.6"
+"@jx3box/jx3box-common-ui@^6.7.8":
+  "integrity" "sha512-TuL3WLG/myGUWcIFJDueD7YJdB4hVOcuLwKkUkHR+t0crrb4HjyEY8wPRSSNTHCowJ4p37yD+0mSJ2p9LvmtDA=="
+  "resolved" "https://registry.npmmirror.com/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.7.8.tgz"
+  "version" "6.7.8"
   dependencies:
+    "@jx3box/jx3box-comment-ui" "^1.7.8"
     "@jx3box/jx3box-common" "^7.6.2"
     "@jx3box/jx3box-data" "^3.0.3"
+    "@jx3box/jx3box-editor" "^1.6.9"
     "axios" "^0.26.1"
     "dayjs" "^1.11.0"
     "element-ui" "^2.13.2"
@@ -1276,10 +1278,10 @@
     "moment" "^2.29.1"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.6.2":
-  "integrity" "sha512-HPT6BH0yJ4QKVdBkEwjkx268RMPaxMV8HJz19jevvRDr+WdAzjIO8jSv/G14wQn8AJYqYM3kNX1Dcp/j+nfOOQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.6.2.tgz"
-  "version" "7.6.2"
+"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.6.2", "@jx3box/jx3box-common@^7.6.3":
+  "integrity" "sha512-fbP4AJ0oaZiv27v+IGYy9luWAcdKEpU0WVY5OmBUpDEQv16rW30PuTJlfLVSgNn+cYgAm/KhzeCY/naVLgOGzg=="
+  "resolved" "https://registry.npmmirror.com/@jx3box/jx3box-common/-/jx3box-common-7.6.3.tgz"
+  "version" "7.6.3"
   dependencies:
     "axios" "^0.20.0"
     "cheerio" "1.0.0-rc.10"
@@ -1306,10 +1308,10 @@
     "fs" "0.0.1-security"
     "path" "^0.12.7"
 
-"@jx3box/jx3box-data@^3.0.3":
-  "integrity" "sha512-LsLwo0OsUxAWcb3+VdpCaCLP8HfLmBWEIolXFe13OOIq2dXYDlNuF6U1EWQZtzVk+1BplDJCWf+5qclPCdFyGA=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.0.3.tgz"
-  "version" "3.0.3"
+"@jx3box/jx3box-data@^3.0.3", "@jx3box/jx3box-data@^3.0.4":
+  "integrity" "sha512-2bk0i7tHXqL1Ahsq5v/oCUpCy/GH6rvU9OAynT5urTzdddnvl3CGcdk06X/52YIgsnYFNH/o/Ylg+BRmf9eCmQ=="
+  "resolved" "https://registry.npmmirror.com/@jx3box/jx3box-data/-/jx3box-data-3.0.4.tgz"
+  "version" "3.0.4"
 
 "@jx3box/jx3box-editor@^1.6.9":
   "integrity" "sha512-8VRwfBqDY0tCOs4QYaohDgYBOlerlcEFWOSTKOFJzn5YBMlmLYg8+n6+jyqWI3wLZxHFga/iXzlDacA5Iyp0ag=="
@@ -2099,6 +2101,11 @@
   "integrity" "sha512-0FcBfdcmaumGPQ0qPn7Q5qTgz/ooXgIyp1rf8ik5bGX8mpE2YHjC0P/eyQvxu1GURYQgq9ozf2mteQ5ZD9YiyQ=="
   "resolved" "https://registry.npmmirror.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   "version" "1.0.2"
+
+"animate.css@^4.1.1":
+  "integrity" "sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ=="
+  "resolved" "https://registry.npmmirror.com/animate.css/-/animate.css-4.1.1.tgz"
+  "version" "4.1.1"
 
 "ansi-colors@^3.0.0":
   "integrity" "sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA=="

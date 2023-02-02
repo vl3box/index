@@ -33,19 +33,3 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
-    .m-mini-bread {
-        .fz(12px);
-        .ml(15px);
-        .u-link {
-            .mr(10px);
-            span {
-                .bold;
-            }
-            &:hover span {
-                color: #93f !important;
-            }
-        }
-        .mr(10px);
-    }
-</style>

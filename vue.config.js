@@ -18,6 +18,12 @@ module.exports = {
             template: "public/index.html",
             filename: "notice/index.html",
         },
+        slider: {
+            title: "魔盒电视台" + Setting.suffix,
+            entry: "src/pages/tv.js",
+            template: "public/index.html",
+            filename: "tv/index.html",
+        },
     },
 
     //❤️ Porxy ~

@@ -83,6 +83,7 @@ import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
 import _ from "lodash";
+import 'animate.css';
 
 export default {
     name: "App",

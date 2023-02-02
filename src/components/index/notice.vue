@@ -2,7 +2,7 @@
     <div class="m-sideblock m-notice">
         <div class="m-sideblock-header">
             <i class="el-icon-s-opportunity"></i>
-            <span class="u-title">站内动态</span>
+            <span class="u-title">魔盒更新</span>
             <a
                 href="/notice"
                 class="u-more"
