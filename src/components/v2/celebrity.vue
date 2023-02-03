@@ -3,9 +3,12 @@
         <div class="m-sideblock-header celebrity-header">
             <span class="u-title"> <i class="el-icon-s-help"></i> 名望·楚天社 </span>
             <div class="desc">
-                <span class="map">{{ currentMap.map }}({{ currentMap.tasks }})</span>
-                <i class="el-icon-right"></i>
-                <span>{{ nextMap.map }}({{ nextMap.tasks }})</span>
+                <span class="map"
+                    >{{ currentMap.map }}
+                    <!--({{ currentMap.tasks }})-->
+                </span>
+                <span class="arrow">»</span>
+                <span class="next-map">{{ nextMap.map }}{{ nextMap.stages ? "(" + nextMap.stages[0].site + ")" : "" }}</span>
             </div>
         </div>
         <div class="m-celebrity-content">
@@ -115,10 +118,10 @@ export default {
             this.loading = true;
             return getCelebrities()
                 .then((res) => {
-                    const arr = res.data.map(item => {
-                      item.time = Number(item.time);
-                      item.icon = Number(item.icon);
-                      return item;
+                    const arr = res.data.map((item) => {
+                        item.time = Number(item.time);
+                        item.icon = Number(item.icon);
+                        return item;
                     });
                     const obj = {};
                     arr.forEach((item) => {
@@ -137,7 +140,8 @@ export default {
                 .finally(() => {
                     this.getList(this.currentDate);
                     this.loading = false;
-                }).catch(() => {
+                })
+                .catch(() => {
                     this.loading = false;
                 });
         },
