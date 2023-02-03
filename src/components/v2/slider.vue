@@ -1,6 +1,6 @@
 <template>
     <div class="m-slider-box">
-        <div class="m-first">
+        <div class="m-tv-station">
             <div class="m-tv">
                 <div class="m-tv-left">
                     <a

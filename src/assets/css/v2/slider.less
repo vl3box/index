@@ -3,9 +3,14 @@
     .r(5px);
     overflow: hidden;
 }
-.m-first {
+.m-tv-station {
     background-color: @bg-black;
     padding: 0 10px;
+}
+@media screen and (max-width:@phone){
+    .m-tv-station{
+        padding-bottom:10px;
+    }
 }
 .m-slider {
     .h(280px);
@@ -260,12 +265,18 @@
     .u-tv-notice {
         .fz(12px);
         .ml(10px);
+        .nobreak;
         a {
             color: #aaa;
             &:hover {
                 color: @red;
             }
         }
+    }
+}
+@media screen and (max-width:@phone){
+    .m-tv-left .u-tv-notice{
+        max-width: 160px;
     }
 }
 
