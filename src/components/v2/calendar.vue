@@ -91,10 +91,9 @@ export default {
             deep: true,
             immediate: true,
             handler(val) {
-                console.log(val);
                 if (val != null) {
-                    this.$set(this.themeStyle, "backgroundColor", val.buttoncolor);
-                    this.$set(this.themeStyle, "textColor", val.buttontextcolor);
+                    if (val.buttoncolor) this.$set(this.themeStyle, "backgroundColor", val.buttoncolor);
+                    if (val.buttontextcolor) this.$set(this.themeStyle, "textColor", val.buttontextcolor);
                 }
             },
         },

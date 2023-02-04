@@ -120,16 +120,16 @@ export default {
         setDecoration(decoration_calendar) {
             let preset = this.decorationJson[decoration_calendar.val];
             this.$set(this, "preset", preset);
-            this.btnStyle.assistant = {
-                color: preset.buttontextcolor,
-                "background-color": preset.buttoncolor,
-                "border-color": preset.buttoncolor,
-            };
-            this.btnStyle.assistantText = {
-                color: preset.buttontextcolor,
-                "background-color": preset.buttoncolor,
-                "border-color": preset.buttoncolor,
-            };
+            if (preset.buttoncolor) {
+                this.$set(this.btnStyle.assistant, "background-color", preset.buttoncolor);
+                this.$set(this.btnStyle.assistant, "border-color", preset.buttoncolor);
+                this.$set(this.btnStyle.assistantText, "background-color", preset.buttoncolor);
+                this.$set(this.btnStyle.assistantText, "border-color", preset.buttoncolor);
+            }
+            if (preset.buttontextcolor) {
+                this.$set(this.btnStyle.assistant, "color", preset.buttontextcolor);
+                this.$set(this.btnStyle.assistantText, "color", preset.buttontextcolor);
+            }
             this.bg = `url(${this.showDecoration(decoration_calendar.val, "calendar")})`;
         },
     },
