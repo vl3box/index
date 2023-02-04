@@ -2,10 +2,14 @@
     <div class="m-welcome" :style="{ backgroundImage: bg }">
         <div class="m-assistant">
             <div class="u-assistant">
-                <a href="/tool/39410" target="_blank" class="u-btn button button-3d button-primary button-rounded"
+                <a
+                    href="/tool/39410"
+                    target="_blank"
+                    class="u-btn button button-primary button-rounded"
+                    :style="btnStyle.assistant"
                     ><i class="el-icon-download"></i>魔盒助手</a
                 >
-                <span class="u-label">{{ label }}</span>
+                <span class="u-label" :style="btnStyle.assistantText"> {{ label }}</span>
             </div>
         </div>
         <calendar></calendar>
@@ -16,7 +20,7 @@
 import calendar from "@/components/v2/calendar.vue";
 import { theme } from "../../../setting.json";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { getEventV2,getDecoration} from "@/service/cms.js";
+import { getEventV2, getDecoration, getDecorationJson } from "@/service/cms.js";
 import { getBreadcrumb } from "@jx3box/jx3box-common/js/api_misc";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 import User from "@jx3box/jx3box-common/js/user";
@@ -30,6 +34,11 @@ export default {
             label: "",
             link: "",
             bg: "",
+            decorationJson: {},
+            btnStyle: {
+                assistant: {},
+                assistantText: {},
+            },
         };
     },
     computed: {
@@ -55,50 +64,75 @@ export default {
                 client: this.client,
             }).then((res) => {
                 const url = resolveImagePath(res.data.data.list[0]?.img);
-                if (url){
+                if (url) {
                     this.bg = `url(${url})`;
-                }else{
-                    if(User.isLogin()){
-                        this.getDecoration()
-                    }else{
-                        this.setDefaultCalendar()
+                } else {
+                    if (User.isLogin()) {
+                        this.getDecoration();
+                    } else {
+                        this.setDefaultCalendar();
                     }
                 }
             });
         },
-        showDecoration:function(val,type){
+        showDecoration: function (val, type) {
             return __imgPath + `decoration/images/${val}/${type}.png`;
         },
-        setDefaultCalendar(){
-            this.bg=`url(https://img.jx3box.com/decoration/images/0_TESTSAMPLE/calendar.png)`
+        setDefaultCalendar() {
+            this.bg = `url(https://img.jx3box.com/decoration/images/0_TESTSAMPLE/calendar.png)`;
         },
-        getDecoration(){
-            let decoration_calendar=sessionStorage.getItem('decoration_calendar')
-            if(decoration_calendar == 'no'){
-                this.setDefaultCalendar()
+        getDecorationJson() {
+            let decorationJson = sessionStorage.getItem("decoration_json");
+            if (decorationJson) {
+                this.decorationJson = JSON.parse(decorationJson);
+                return;
+            }
+            getDecorationJson().then((data) => {
+                sessionStorage.setItem("decoration_json", JSON.stringify(data.data));
+                this.decorationJson = data.data;
+            });
+        },
+        getDecoration() {
+            let decoration_calendar = sessionStorage.getItem("decoration_calendar");
+            if (decoration_calendar == "no") {
+                this.setDefaultCalendar();
                 return;
             }
             //已有缓存，读取解析
-            if(decoration_calendar){
-                this.setDecoration(JSON.parse(decoration_calendar))
+            if (decoration_calendar) {
+                this.setDecoration(JSON.parse(decoration_calendar));
                 return;
             }
-            getDecoration({using:1,type:'calendar'}).then(data=>{
-                let res=data.data.data
-                if(res.length==0){
-                //空 则为无主题，不再加载接口，界面设No
-                    sessionStorage.setItem('decoration_calendar','no')
+            getDecoration({ using: 1, type: "calendar" }).then((data) => {
+                let res = data.data.data;
+                if (res.length == 0) {
+                    //空 则为无主题，不再加载接口，界面设No
+                    sessionStorage.setItem("decoration_calendar", "no");
                     //设置默认背景图
-                    this.setDefaultCalendar()
+                    this.setDefaultCalendar();
                     return;
                 }
-                sessionStorage.setItem('decoration_calendar',JSON.stringify(res[0]))
-                this.setDecoration(res[0])
-            })
-            },
-            setDecoration(decoration_calendar){
-                this.bg = `url(${this.showDecoration(decoration_calendar.val,'calendar')})`;
-            }
+                sessionStorage.setItem("decoration_calendar", JSON.stringify(res[0]));
+                this.setDecoration(res[0]);
+            });
+        },
+        setDecoration(decoration_calendar) {
+            let preset = this.decorationJson[decoration_calendar.val];
+            this.btnStyle.assistant = {
+                color: preset.buttontextcolor,
+                "background-color": preset.buttoncolor,
+                "border-color": preset.buttoncolor,
+            };
+            this.btnStyle.assistantText = {
+                color: preset.buttontextcolor,
+                "background-color": preset.buttoncolor,
+                "border-color": preset.buttoncolor,
+            };
+            this.bg = `url(${this.showDecoration(decoration_calendar.val, "calendar")})`;
+        },
+    },
+    created() {
+        this.getDecorationJson();
     },
     mounted: function () {
         this.loadData();

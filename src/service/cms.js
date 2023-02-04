@@ -1,5 +1,6 @@
 import { $cms } from "@jx3box/jx3box-common/js/https";
-
+import axios from "axios";
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 // 今日财富
 function getCode(client) {
     return $cms({ mute: true }).get(`/api/cms/news/v2`, {
@@ -110,10 +111,10 @@ function getCalendar(params, client = "std") {
 }
 
 // 获取指定日期范围的日历
-function getRangeCalendar(params){
+function getRangeCalendar(params) {
     return $cms().get(`/api/cms/calendar/archive/range`, {
-        params
-    })
+        params,
+    });
 }
 
 // 获取日历计数
@@ -127,10 +128,10 @@ function getCalendarSlogans(params) {
     return $cms().get(`/api/cms/calendar/slogan${url}`);
 }
 
-function getCalendarSlogansExact(params){
+function getCalendarSlogansExact(params) {
     return $cms().get(`/api/cms/calendar/slogan/exact`, {
-        params
-    })
+        params,
+    });
 }
 
 function getHistory(params, query) {
@@ -151,11 +152,15 @@ function getEventV2(params) {
         params,
     });
 }
- //获取装扮
+//获取装扮
 function getDecoration(params) {
-    return $cms().get(`/api/cms/user/decoration`,{
-        params
+    return $cms().get(`/api/cms/user/decoration`, {
+        params,
     });
+}
+function getDecorationJson() {
+    let url = __imgPath + "decoration/index.json";
+    return axios.get(url);
 }
 export {
     getCode,
@@ -174,5 +179,6 @@ export {
     getCalendarCount,
     getEventV2,
     getRangeCalendar,
-    getDecoration
+    getDecoration,
+    getDecorationJson,
 };
