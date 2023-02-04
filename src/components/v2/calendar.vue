@@ -1,10 +1,28 @@
 <template>
     <div class="m-calendar">
         <div class="m-calendar-content">
-            <a class="m-calendar-item" :class="{ current: isToday(item) }" v-for="(item, index) in data" :key="index" :href="`/calendar/archive/${item.year}/${item.month}/${item.date}`" target="_blank">
+            <a
+                class="m-calendar-item"
+                :class="{ current: isToday(item) }"
+                v-for="(item, index) in data"
+                :key="index"
+                :href="`/calendar/archive/${item.year}/${item.month}/${item.date}`"
+                target="_blank"
+            >
                 <div class="u-week">{{ item.week }}</div>
-                <div class="u-date">{{ item.date }}</div>
-                <div class="u-link" :style="{color: item.slogan.color}" v-if="item.slogan.title">{{ item.slogan.title }}</div>
+                <div class="u-date" :style="{ backgroundColor: isToday(item) ? themeStyle.backgroundColor : '' }">
+                    {{ item.date }}
+                </div>
+                <div
+                    class="u-link"
+                    :style="{
+                        color: item.slogan.color || themeStyle.textColor,
+                        backgroundColor: themeStyle.backgroundColor,
+                    }"
+                    v-if="item.slogan.title"
+                >
+                    {{ item.slogan.title }}
+                </div>
             </a>
         </div>
         <div class="m-calendar-event">
@@ -19,6 +37,12 @@ import { getRangeCalendar, getCalendarSlogansExact } from "@/service/cms.js";
 import dayjs from "dayjs";
 export default {
     name: "calendar",
+    props: {
+        theme: {
+            type: Object,
+            default: null,
+        },
+    },
     components: {
         "calendar-item": calendar_item,
     },
@@ -33,6 +57,7 @@ export default {
                 month: "",
                 date: "",
             },
+            themeStyle: {},
         };
     },
     computed: {
@@ -60,6 +85,17 @@ export default {
             immediate: true,
             handler(val) {
                 this.initCalendar();
+            },
+        },
+        theme: {
+            deep: true,
+            immediate: true,
+            handler(val) {
+                console.log(val);
+                if (val != null) {
+                    this.$set(this.themeStyle, "backgroundColor", val.buttoncolor);
+                    this.$set(this.themeStyle, "textColor", val.buttontextcolor);
+                }
             },
         },
     },
@@ -128,5 +164,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../../assets/css/v2/calendar.less";
+@import "../../assets/css/v2/calendar.less";
 </style>

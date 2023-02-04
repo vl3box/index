@@ -12,7 +12,7 @@
                 <span class="u-label" :style="btnStyle.assistantText"> {{ label }}</span>
             </div>
         </div>
-        <calendar></calendar>
+        <calendar :theme="preset"></calendar>
     </div>
 </template>
 
@@ -35,6 +35,7 @@ export default {
             link: "",
             bg: "",
             decorationJson: {},
+            preset: null,
             btnStyle: {
                 assistant: {},
                 assistantText: {},
@@ -118,6 +119,7 @@ export default {
         },
         setDecoration(decoration_calendar) {
             let preset = this.decorationJson[decoration_calendar.val];
+            this.$set(this, "preset", preset);
             this.btnStyle.assistant = {
                 color: preset.buttontextcolor,
                 "background-color": preset.buttoncolor,
