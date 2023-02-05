@@ -18,6 +18,7 @@
                     :style="{
                         color: item.slogan.color || themeStyle.textColor,
                         backgroundColor: themeStyle.backgroundColor,
+                        '--beforeColor': beforeColor,
                     }"
                     v-if="item.slogan.title"
                 >
@@ -58,6 +59,7 @@ export default {
                 date: "",
             },
             themeStyle: {},
+            beforeColor: "#f6f8fa",
         };
     },
     computed: {
@@ -92,7 +94,10 @@ export default {
             immediate: true,
             handler(val) {
                 if (val != null) {
-                    if (val.buttoncolor) this.$set(this.themeStyle, "backgroundColor", val.buttoncolor);
+                    if (val.buttoncolor) {
+                        this.$set(this.themeStyle, "backgroundColor", val.buttoncolor);
+                        this.$set(this, "beforeColor", val.buttoncolor);
+                    }
                     if (val.buttontextcolor) this.$set(this.themeStyle, "textColor", val.buttontextcolor);
                 }
             },
@@ -164,4 +169,7 @@ export default {
 
 <style lang="less">
 @import "../../assets/css/v2/calendar.less";
+.m-calendar-item .u-link:before {
+    border-bottom-color: var(--beforeColor);
+}
 </style>
