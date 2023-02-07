@@ -281,13 +281,21 @@
 
 .m-tv-right {
     .flex;
-    img,
-    svg {
-        fill: #fff;
-        .mr(3px);
-        .size(14px);
+
+    .u-tv-link {
+        img,
+        svg {
+            fill: #fff;
+            .mr(3px);
+            .size(14px);
+        }
+        line-height: 18px;
+        transition:0.15s ease-in-out;
+        opacity: 0.6;
+        &:hover {
+            opacity: 1;
+        }
     }
-    line-height: 18px;
 
     .u-tv-bilibili {
         @bili: #e35f82;

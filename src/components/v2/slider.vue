@@ -15,7 +15,7 @@
                 </div>
                 <div class="m-tv-right">
                     <a
-                        class="u-tv-weibo"
+                        class="u-tv-weibo u-tv-link"
                         href="https://weibo.com/jx3box"
                         target="_blank"
                         @mouseenter="addAni('weibo', 'animate__rubberBand')"
@@ -24,7 +24,7 @@
                         <img svg-inline src="@/assets/img/tv/weibo.svg" :class="ani.weibo" />JX3BOX魔盒
                     </a>
                     <a
-                        class="u-tv-bilibili"
+                        class="u-tv-bilibili u-tv-link"
                         href="https://space.bilibili.com/2066064028"
                         target="_blank"
                         @mouseenter="addAni('bilibili', 'animate__swing')"
