@@ -1,6 +1,15 @@
 <template>
     <span class="m-mini-bread">
-        <a :href="item.link" class="u-link" v-for="(item,key) in data" :key="key" target="_blank" v-show="item.status && item.meta_4 == client">{{ item.meta_3 }} <span :style="{ color: item.meta_1 }">{{ item.label }}</span></a>
+        <a
+            :href="item.link"
+            class="u-link"
+            v-for="(item, key) in data"
+            :key="key"
+            target="_blank"
+            v-show="item.status && item.meta_4 == client"
+            :style="{ color: item.meta_1 }"
+            >{{ item.meta_3 }}{{ item.label }}</a
+        >
     </span>
 </template>
 
@@ -32,4 +41,3 @@ export default {
     },
 };
 </script>
-

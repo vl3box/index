@@ -15,13 +15,23 @@
                 </div>
                 <div class="m-tv-right">
                     <a
-                        class="u-tv-bilibili"
+                        class="u-tv-weibo"
+                        href="https://weibo.com/jx3box"
                         target="_blank"
+                        @mouseenter="addAni('weibo', 'animate__rubberBand')"
+                        @mouseleave="resetAni('weibo')"
+                    >
+                        <img svg-inline src="@/assets/img/tv/weibo.svg" :class="ani.weibo" />JX3BOX魔盒
+                    </a>
+                    <a
+                        class="u-tv-bilibili"
                         href="https://space.bilibili.com/2066064028"
+                        target="_blank"
                         @mouseenter="addAni('bilibili', 'animate__swing')"
                         @mouseleave="resetAni('bilibili')"
-                        ><img svg-inline src="@/assets/img/tv/bilibili.svg" :class="ani.bilibili" />魔盒tivi</a
                     >
+                        <img svg-inline src="@/assets/img/tv/bilibili.svg" :class="ani.bilibili" />魔盒tivi
+                    </a>
                 </div>
             </div>
             <div class="m-slider" v-if="ready" id="m-home-slider">
@@ -66,8 +76,9 @@ export default {
             w: window.innerWidth,
 
             ani: {
-                bilibili: "",
                 tv: "",
+                bilibili: "",
+                weibo: "",
             },
         };
     },

@@ -7,9 +7,9 @@
     background-color: @bg-black;
     padding: 0 10px;
 }
-@media screen and (max-width:@phone){
-    .m-tv-station{
-        padding-bottom:10px;
+@media screen and (max-width: @phone) {
+    .m-tv-station {
+        padding-bottom: 10px;
     }
 }
 .m-slider {
@@ -129,7 +129,6 @@
             }
         }
 
-
         .pr;
         &:before {
             content: "";
@@ -227,6 +226,7 @@
     .flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 .box() {
@@ -241,6 +241,7 @@
 .m-tv-left {
     .flex;
     align-items: center;
+    overflow: hidden;
 
     .u-tv-rec {
         .h(24px);
@@ -253,6 +254,7 @@
         border: 1px solid @red;
         line-height: 20px;
         .box();
+        flex-shrink: 0;
 
         i {
             .db;
@@ -265,8 +267,10 @@
     .u-tv-notice {
         .fz(12px);
         .ml(10px);
+        overflow: hidden;
         .nobreak;
         a {
+            .nobreak;
             color: #aaa;
             &:hover {
                 color: @red;
@@ -274,33 +278,44 @@
         }
     }
 }
-@media screen and (max-width:@phone){
-    .m-tv-left .u-tv-notice{
-        max-width: 160px;
-    }
-}
 
 .m-tv-right {
+    .flex;
+    img,
+    svg {
+        fill: #fff;
+        .mr(3px);
+        .size(14px);
+    }
+    line-height: 18px;
+
     .u-tv-bilibili {
         @bili: #e35f82;
-        img,
-        svg {
-            fill: #fff;
-            .mr(3px);
-            .size(14px);
-        }
         overflow: hidden;
 
         color: #fff;
         background-color: @bili;
         border: 1px solid #fff;
-        line-height: 18px;
 
         .box();
 
         transition: 0.2 ease-in-out;
-        &:hover{
-            background-color:lighten(@bili, 5%);
+        &:hover {
+            background-color: lighten(@bili, 5%);
         }
+    }
+    .u-tv-weibo {
+        .box();
+        .mr(10px);
+        overflow: hidden;
+
+        color: #fff;
+        background-color: #e59501;
+        border: 1px solid #fff;
+    }
+}
+@media screen and (max-width: @phone) {
+    .m-tv-right {
+        .none;
     }
 }
