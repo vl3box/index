@@ -162,6 +162,13 @@ function getDecorationJson() {
     let url = __imgPath + "decoration/index.json";
     return axios.get(url);
 }
+
+// 历史头条
+function getHistoryHeadlines(params){
+    return $cms().get(`/api/cms/news/v2`, {
+        params,
+    });
+}
 export {
     getCode,
     getNews,
@@ -181,4 +188,5 @@ export {
     getRangeCalendar,
     getDecoration,
     getDecorationJson,
+    getHistoryHeadlines
 };

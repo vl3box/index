@@ -2,23 +2,116 @@
     .pt(64px);
 }
 .m-tv-content {
+    padding: 30px 0;
     position: relative;
     height: calc(100vh - 128px);
-    background: url(../../img/tv/bg.png) top right no-repeat;
+    background: url(../../img/tv/bg.png) top left no-repeat;
     background-size: cover;
+    box-sizing: border-box;
+    .wp {
+        .flex;
+        .size(100%,100%);
+        .auto(x);
+        max-width: 1200px;
+        overflow: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .m-box {
+        .size(100%,320px);
+        .pr(50px);
+        box-sizing: border-box;
+        flex-shrink: 0;
+        position: relative;
+        .u-img {
+            .pa;
+            .lt(50%,0);
+            .z(3);
+            .r(18px);
+            width: calc(100% - 54px);
+            height: calc(100% - 50px);
+            border: 2px solid #24292e;
+            margin-left: -600px;
+            max-width: auto;
+        }
+        &::after {
+            content: "";
+            .pa;
+            .z(2);
+            .lt(50px);
+            .r(18px);
+            width: calc(100% - 54px);
+            height: calc(100% - 50px);
+            background-color: #24292e;
+        }
+    }
     .m-jx3box {
         .pa;
         .rt(0);
         .h(100%);
     }
 }
+@media screen and(min-width:3840) {
+    .m-tv-content {
+        padding: 60px 0;
+        .wp {
+            .w(2000px);
+            gap: 60px;
+        }
+        .m-box {
+            .h(560px);
+            .u-img {
+                margin-left: -1000px;
+            }
+        }
+    }
+}
 
+@media screen and(max-width:@ipad) {
+    .m-tv-content {
+        .m-jx3box {
+            .none;
+        }
+        .wp {
+            max-width: 800px;
+        }
+        .m-box {
+            .u-img {
+                margin-left: -400px;
+            }
+        }
+    }
+}
 @media screen and(max-width:@phone) {
     .m-tv-content {
         background: url(../../img/tv/bg-m.png) top center no-repeat;
         background-size: cover;
+        height: 100%;
+        padding: 30px 0;
         .m-jx3box {
             .none;
+        }
+        .wp {
+            .w(340px);
+        }
+        .m-box {
+            .size(100%,180px);
+            .pr(20px);
+            .u-img {
+                .r(14px);
+                .lt(50%,0);
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                border: 2px solid #24292e;
+                margin-left: -170px;
+            }
+            &::after {
+                .r(14px);
+                .lt(20px,20px);
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+            }
         }
     }
 }
