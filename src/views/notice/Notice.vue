@@ -5,7 +5,7 @@
         <div class="p-notice-container wp">
             <div class="m-left m-sidebar">
                 <div class="m-left-box">
-                    <assistant />
+                    <!-- <assistant /> -->
                     <!-- <calendar /> -->
                     <jx3code />
                     <!-- <servers /> -->
@@ -33,7 +33,7 @@ import { theme } from "../../../setting.json";
 import NoticeList from "@/views/notice/components/NoticeList.vue";
 import NoticeSingle from "@/views/notice/components/NoticeSingle.vue";
 // 左侧
-import assistant from "@/components/v2/assistant.vue";
+// import assistant from "@/components/v2/assistant.vue";
 import calendar from "@/components/v2/calendar.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
@@ -49,7 +49,7 @@ export default {
         NoticeList,
         NoticeSingle,
         // 左侧
-        assistant,
+        // assistant,
         // calendar,
         jx3code,
         gamenews,

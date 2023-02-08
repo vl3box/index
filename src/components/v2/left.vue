@@ -1,7 +1,7 @@
 <template>
     <div class="m-left m-sidebar">
         <div class="m-left-box">
-            <assistant />
+            <!-- <assistant /> -->
             <calendar />
             <jx3code />
             <servers />
@@ -15,7 +15,7 @@
     </div>
 </template>
 <script>
-import assistant from "@/components/v2/assistant.vue";
+// import assistant from "@/components/v2/assistant.vue";
 import calendar from "@/components/v2/calendar.vue";
 import jx3code from "@/components/index/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
@@ -26,7 +26,7 @@ import qrcode from "@/components/v2/qrcode.vue";
 export default {
     name: "left",
     components: {
-        assistant,
+        // assistant,
         calendar,
         jx3code,
         gamenews,

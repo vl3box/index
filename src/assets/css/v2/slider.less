@@ -281,6 +281,7 @@
 
 .m-tv-right {
     .flex;
+    gap: 10px;
 
     .u-tv-link {
         img,
@@ -289,37 +290,29 @@
             .mr(3px);
             .size(14px);
         }
+
         line-height: 18px;
-        // transition:0.15s ease-in-out;
-        // opacity: 0.6;
-        // &:hover {
-        //     opacity: 1;
-        // }
+        overflow: hidden;
+
+        .box();
+        color: #fff;
+        border: 1px solid #fff;
+        transition: 0.2 ease-in-out;
     }
 
     .u-tv-bilibili {
         @bili: #e35f82;
-        overflow: hidden;
-
-        color: #fff;
         background-color: @bili;
-        border: 1px solid #fff;
-
-        .box();
-
-        transition: 0.2 ease-in-out;
         &:hover {
             background-color: lighten(@bili, 5%);
         }
     }
     .u-tv-weibo {
-        .box();
-        .mr(10px);
-        overflow: hidden;
-
-        color: #fff;
-        background-color: #e59501;
-        border: 1px solid #fff;
+        @weibo: #e59501;
+        background-color: @weibo;
+        &:hover {
+            background-color: lighten(@weibo, 5%);
+        }
     }
 }
 @media screen and (max-width: @phone) {

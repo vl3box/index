@@ -1,6 +1,7 @@
 import { $cms } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { css } from "jquery";
 // 今日财富
 function getCode(client) {
     return $cms({ mute: true }).get(`/api/cms/news/v2`, {
@@ -153,12 +154,13 @@ function getEventV2(params) {
     });
 }
 //获取装扮
-function getDecoration(params) {
+function getUserDecoration(params) {
+    console.log(1)
     return $cms().get(`/api/cms/user/decoration`, {
         params,
     });
 }
-function getDecorationJson() {
+function getPublicDecoration() {
     let url = __imgPath + "decoration/index.json";
     return axios.get(url);
 }
@@ -186,7 +188,7 @@ export {
     getCalendarCount,
     getEventV2,
     getRangeCalendar,
-    getDecoration,
-    getDecorationJson,
+    getUserDecoration,
+    getPublicDecoration,
     getHistoryHeadlines
 };
