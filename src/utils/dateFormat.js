@@ -6,12 +6,12 @@ import moment from 'moment'
  * @param {object} opt polished:是否补齐两位,separator:连接分隔符
  */
 function dateFormat(dt,separator='-',polished=true){
-    let year = dt.getFullYear()
+    // let year = dt.getFullYear()
     let month = dt.getMonth() + 1
     let date = dt.getDate()
-    let str = polished ? 
-        `${year}${separator}${polish(month)}${separator}${polish(date)}` :
-        `${year}${separator}${month}${separator}${date}`
+    let str = polished ?
+        `${polish(month)}${separator}${polish(date)}` :
+        `${month}${separator}${date}`
     return str
 }
 

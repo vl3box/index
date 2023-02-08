@@ -3,24 +3,14 @@
         <div class="m-sideblock-header">
             <i class="el-icon-message-solid"></i>
             <a class="u-title" :href="more_link" target="_blank">游戏更新</a>
-            <a
-                :href="more_link"
-                class="u-more"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="查看全部"
-            >
+            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>
         </div>
         <ul class="m-sideblock-list u-list" v-if="data.length">
-            <li v-for="(item,i) in data" :key="i">
-                <em>{{dateFormat(item.time)}}</em>
-                <a
-                    :href="item.url | linkFormat"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >{{item.title}}</a>
+            <li v-for="(item, i) in data" :key="i">
+                <em>{{ dateFormat(item.time) }}</em>
+                <a :href="item.url | linkFormat" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
         </ul>
     </div>
@@ -28,7 +18,7 @@
 
 <script>
 import { getGameNews } from "@/service/spider";
-import { simpledate } from "@/utils/simpledate.js";
+import dateFormat from "@/utils/dateFormat.js";
 export default {
     name: "gamenews",
     props: [],
@@ -54,7 +44,7 @@ export default {
             if (this.client == "std") {
                 return val.replace("/", "-");
             } else {
-                return simpledate(new Date(~~val * 1000));
+                return dateFormat(new Date(~~val * 1000));
             }
         },
     },

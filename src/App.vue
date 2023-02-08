@@ -31,6 +31,7 @@
             </div>
             <div class="m-left m-sidebar">
                 <welcome />
+                <news />
                 <feedback />
                 <qrcode />
             </div>
@@ -43,6 +44,8 @@
 <script>
 // 左侧
 import welcome from "@/components/v3/welcome.vue";
+import news from "@/components/v3/news.vue";
+
 import servers2 from "@/components/index/servers2.vue";
 import feedback from "@/components/v2/feedback.vue";
 import qrcode from "@/components/v2/qrcode.vue";
@@ -89,12 +92,8 @@ export default {
     },
     components: {
         // 左侧
-        // assistant,
-        // calendar,
-        // jx3code,
-        // gamenews,
-        // notice,
         welcome,
+        news,
 
         // servers,
         servers2,
@@ -162,5 +161,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "./assets/css/v2/app.less";
+@import "./assets/css/v3/app.less";
 </style>

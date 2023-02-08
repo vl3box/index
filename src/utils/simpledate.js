@@ -1,4 +1,4 @@
-function simpledate(str,separator = '-'){
+function dateFormat(str,separator = '-'){
     let dt = new Date(str)
     let month = dt.getMonth() + 1
     let date = dt.getDate()
@@ -9,4 +9,4 @@ function polish(val){
     return val<10 ? ('0' + val) : val
 }
 
-export {simpledate , polish}
+export {dateFormat , polish}
