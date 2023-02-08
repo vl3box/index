@@ -25,7 +25,7 @@
 
 <script>
 import { getPosts } from "@/service/index";
-import dateFormat from "@/utils/dateFormat";
+import { dateFormat } from "@/utils/simpledate";
 import User from "@jx3box/jx3box-common/js/user";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
 export default {

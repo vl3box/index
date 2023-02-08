@@ -136,7 +136,7 @@ export default {
             getPosts(this.client, "notice", 5).then((res) => {
                 this.box_data = res.data.data?.list?.map((item) => {
                     item.title = item.post_title;
-                    item.link = `/notice/${item.ID}`;
+                    item.url = `/notice/${item.ID}`;
                     item.time = new Date(item.post_modified);
                     item.type = "box";
                     return item;
