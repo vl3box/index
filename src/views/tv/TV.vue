@@ -3,7 +3,7 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-tv-main">
             <div class="m-tv-content">
-                <img src="../assets/img/tv/box.png" alt="盒子娘" class="m-jx3box">
+                <img src="@/assets/img/tv/box.png" alt="盒子娘" class="m-jx3box">
             </div>
         </div>
         <Footer></Footer>

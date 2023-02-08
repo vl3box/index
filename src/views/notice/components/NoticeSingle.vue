@@ -149,5 +149,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "../assets/css/notice/single.less";
+@import "../../../assets/css/notice/single.less";
 </style>

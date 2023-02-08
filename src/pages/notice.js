@@ -20,7 +20,7 @@ Vue.use(JX3BOX_UI);
 // import router from "./router";
 import store from "../store";
 
-import App from "./Notice.vue";
+import App from "../views/notice/Notice";
 new Vue({
     // router,
     store,

@@ -24,6 +24,12 @@ module.exports = {
             template: "public/index.html",
             filename: "tv/index.html",
         },
+        about: {
+            title: "关于我们" + Setting.suffix,
+            entry: "src/pages/about.js",
+            template: "public/index.html",
+            filename: "about/index.html",
+        },
     },
 
     //❤️ Porxy ~
