@@ -77,8 +77,8 @@
 <script>
 import _ from "lodash";
 import User from "@jx3box/jx3box-common/js/user";
-import { getPosts } from "../service/cms";
-import { getRelativeTime } from "../utils/dateFormat";
+import { getPosts } from "@/service/cms";
+import { getRelativeTime } from "@/utils/dateFormat";
 import {
     __ossMirror,
     __imgPath,
@@ -204,5 +204,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "../assets/css/notice/list.less";
+@import "../../../assets/css/notice/list.less";
 </style>

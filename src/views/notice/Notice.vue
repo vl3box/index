@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import { theme } from "../../setting.json";
-import NoticeList from "@/views/NoticeList.vue";
-import NoticeSingle from "@/views/NoticeSingle.vue";
+import { theme } from "../../../setting.json";
+import NoticeList from "@/views/notice/components/NoticeList.vue";
+import NoticeSingle from "@/views/notice/components/NoticeSingle.vue";
 // 左侧
 import assistant from "@/components/v2/assistant.vue";
 import calendar from "@/components/v2/calendar.vue";
@@ -103,8 +103,8 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../assets/css/kv.less";
-    @import "../assets/css/v2/sideblock.less";
-    @import "../assets/css/v2/responsive.less";
-    @import "../assets/css/notice/common.less";
+    @import "~@/assets/css/kv.less";
+    @import "~@/assets/css/v2/sideblock.less";
+    @import "~@/assets/css/v2/responsive.less";
+    @import "~@/assets/css/notice/common.less";
 </style>
