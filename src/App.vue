@@ -2,6 +2,13 @@
     <div id="app">
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
+            <div class="m-left m-sidebar">
+                <welcome />
+                <news />
+                <jx3code />
+                <feedback />
+                <qrcode />
+            </div>
             <div class="m-primary">
                 <live />
                 <slider />
@@ -28,13 +35,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="m-left m-sidebar">
-                <welcome />
-                <news />
-                <jx3code />
-                <feedback />
-                <qrcode />
             </div>
         </div>
         <festival />
@@ -124,19 +124,7 @@ export default {
         joke,
         festival,
     },
-    methods: {
-        handleScroll() {
-            $(document).scroll(function () {
-                let scrollTop = $(document).scrollTop();
-                let height = $(".m-left-box").outerHeight();
-                if (scrollTop >= height) {
-                    $(".m-fixed-box").addClass("m-fixed");
-                } else {
-                    $(".m-fixed-box").removeClass("m-fixed");
-                }
-            });
-        },
-    },
+    methods: {},
     created: function () {
         if (User.isLogin()) {
             getProfile().then((data) => {
@@ -157,9 +145,7 @@ export default {
             this.$store.state.config = _data;
         });
     },
-    mounted() {
-        window.addEventListener("scroll", this.handleScroll);
-    },
+    mounted() {},
 };
 </script>
 

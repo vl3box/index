@@ -1,72 +1,74 @@
 <template>
     <div class="m-box">
         <div class="m-sideblock-header">
-            <i class="el-icon-box"></i>
-            <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
-            <mini-bread class="u-bread" name="index_notification" />
+            <div class="u-left">
+                <i class="el-icon-box"></i>
+                <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
+                <mini-bread class="u-bread" name="index_notification" />
+            </div>
         </div>
         <!-- <div class="m-box-content"> -->
-            <draggable
-                class="u-list"
-                :class="{ isEditMode: !options.disabled }"
-                element="ul"
-                v-model="data"
-                @change="update"
-                :options="options"
+        <draggable
+            class="u-list"
+            :class="{ isEditMode: !options.disabled }"
+            element="ul"
+            v-model="data"
+            @change="update"
+            :options="options"
+        >
+            <li
+                v-for="(item, key) in data"
+                :key="key"
+                class="u-item-wrapper"
+                :class="{
+                    'u-lf': isLF(item.uuid),
+                    hidden: !canSee(item.uuid),
+                }"
+                v-show="item.status"
             >
-                <li
-                    v-for="(item, key) in data"
-                    :key="key"
-                    class="u-item-wrapper"
-                    :class="{
-                        'u-lf': isLF(item.uuid),
-                        hidden: !canSee(item.uuid),
-                    }"
-                    v-show="item.status"
+                <el-tooltip
+                    class="item"
+                    effect="dark"
+                    :content="item.name"
+                    :disabled="options.disabled"
+                    placement="top"
+                    :open-delay="50"
                 >
-                    <el-tooltip
-                        class="item"
-                        effect="dark"
-                        :content="item.name"
-                        :disabled="options.disabled"
-                        placement="top"
-                        :open-delay="50"
+                    <a
+                        :href="!options.disabled ? '' : item.href"
+                        :target="item.href.startsWith('/') ? target : '_blank'"
+                        class="u-item"
+                        :class="{ 'u-doing': !item.status }"
                     >
-                        <a
-                            :href="!options.disabled ? '' : item.href"
-                            :target="item.href.startsWith('/') ? target : '_blank'"
-                            class="u-item"
-                            :class="{ 'u-doing': !item.status }"
-                        >
-                            <img class="u-pic" :src="item.img | getBoxIcon" :class="{ hidden: !canSee(item.uuid) }" />
-                            <img class="u-pic-hover" svg-inline :src="item.hover | getBoxIcon" />
-                            <span class="u-txt">{{ showAbbr ? item.abbr : item.name }}</span>
-                            <i v-if="item.hasMark" class="u-mark" :class="item.markcls">{{ item.mark }}</i>
-                            <span class="u-control">
-                                <i
-                                    class="u-break el-icon-scissors"
-                                    title="换行"
-                                    :class="{ on: isLF(item) }"
-                                    @click.prevent="cut(item.uuid)"
-                                ></i>
-                                <i
-                                    class="u-hide el-icon-delete"
-                                    title="隐藏"
-                                    v-if="canSee(item.uuid)"
-                                    @click.prevent="hideIt(item.uuid)"
-                                ></i>
-                                <i
-                                    class="u-show el-icon-view"
-                                    title="显示"
-                                    v-if="!canSee(item.uuid)"
-                                    @click.prevent="showIt(item.uuid)"
-                                ></i>
-                            </span>
-                            <i class="u-pop" v-if="isEditor && pop[item.uuid]"></i>
-                        </a>
-                    </el-tooltip>
-                </li>
-            </draggable>
+                        <img class="u-pic" :src="item.img | getBoxIcon" :class="{ hidden: !canSee(item.uuid) }" />
+                        <img class="u-pic-hover" svg-inline :src="item.hover | getBoxIcon" />
+                        <span class="u-txt">{{ showAbbr ? item.abbr : item.name }}</span>
+                        <i v-if="item.hasMark" class="u-mark" :class="item.markcls">{{ item.mark }}</i>
+                        <span class="u-control">
+                            <i
+                                class="u-break el-icon-scissors"
+                                title="换行"
+                                :class="{ on: isLF(item) }"
+                                @click.prevent="cut(item.uuid)"
+                            ></i>
+                            <i
+                                class="u-hide el-icon-delete"
+                                title="隐藏"
+                                v-if="canSee(item.uuid)"
+                                @click.prevent="hideIt(item.uuid)"
+                            ></i>
+                            <i
+                                class="u-show el-icon-view"
+                                title="显示"
+                                v-if="!canSee(item.uuid)"
+                                @click.prevent="showIt(item.uuid)"
+                            ></i>
+                        </span>
+                        <i class="u-pop" v-if="isEditor && pop[item.uuid]"></i>
+                    </a>
+                </el-tooltip>
+            </li>
+        </draggable>
         <!-- </div> -->
         <div class="m-box-op">
             <el-button plain class="u-reset" size="mini" icon="el-icon-refresh-left" v-if="defined" @click="reset"

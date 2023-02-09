@@ -1,13 +1,17 @@
 <template>
     <div class="m-index-transaction m-sideblock" v-if="isReady">
         <div class="m-sideblock-header">
-            <a class="u-title" href="/item" target="_blank"><i class="el-icon-s-shop"></i>交易价格</a>
-            <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
-                <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
-            </el-select>
-            <a href="/item" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
-                <i class="el-icon-more"></i>
-            </a>
+            <div class="u-left">
+                <a class="u-title" href="/item" target="_blank"><i class="el-icon-s-shop"></i>交易价格</a>
+                <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
+                    <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
+                </el-select>
+            </div>
+            <div class="u-right">
+                <a href="/item" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                    <i class="el-icon-more"></i>
+                </a>
+            </div>
         </div>
         <div class="m-transaction-box">
             <div class="m-price-list" v-if="data && data.length">

@@ -1,11 +1,12 @@
 <template>
     <div class="m-v2-post m-sideblock">
         <div class="m-guide-header m-sideblock-header">
-            <i class="el-icon-s-management"></i>
-            <span class="u-title">最新百科</span>
-            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
-                <i class="el-icon-more"></i>
-            </a>
+            <div class="u-left"><i class="el-icon-s-management"></i> <span class="u-title">最新百科</span></div>
+            <div class="u-right">
+                <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                    <i class="el-icon-more"></i>
+                </a>
+            </div>
         </div>
         <div class="m-v2-post-box" v-loading="loading">
             <div class="m-v2-post-header m-sideblock-header">
@@ -13,23 +14,34 @@
                     <el-tab-pane name="all">
                         <span slot="label">全部</span>
                     </el-tab-pane>
-                    <el-tab-pane :label="item.label" :name="item.slug" v-for="(item, i) in links" :key="i"></el-tab-pane>
+                    <el-tab-pane
+                        :label="item.label"
+                        :name="item.slug"
+                        v-for="(item, i) in links"
+                        :key="i"
+                    ></el-tab-pane>
                 </el-tabs>
             </div>
             <template v-if="type === 'calendar'">
                 <div class="m-v2-post-content">
-                    <a class="u-post" v-for="(item, i) in data" :key="i" :href="getLink('calendar', item.id)" :target="target">
+                    <a
+                        class="u-post"
+                        v-for="(item, i) in data"
+                        :key="i"
+                        :href="getLink('calendar', item.id)"
+                        :target="target"
+                    >
                         <el-image class="u-avatar" :src="showAvatar(item)" fit="cover"></el-image>
                         <div class="u-info">
                             <i class="el-icon-collection-tag"></i>
-                            <span class="u-type" target="_blank">{{ formatTypeName(type)  }}</span>
+                            <span class="u-type" target="_blank">{{ formatTypeName(type) }}</span>
                             ／
                             <span class="u-author" :href="authorLink(item.user_id)" target="_blank">{{
                                 (item.user_info && item.user_info.display_name) || "匿名"
                             }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>
-                                {{ dateFormat(item.created_at)  }}
+                                {{ dateFormat(item.created_at) }}
                             </span>
                         </div>
                         <span class="u-title">
@@ -40,15 +52,21 @@
                 </div>
             </template>
             <div v-else class="m-v2-post-content">
-                <a class="u-post" v-for="(item, i) in data" :key="i" :href="getLink(item.type, item.source_id)" :target="target">
+                <a
+                    class="u-post"
+                    v-for="(item, i) in data"
+                    :key="i"
+                    :href="getLink(item.type, item.source_id)"
+                    :target="target"
+                >
                     <el-image class="u-avatar" :src="showAvatar(item)" fit="cover"></el-image>
                     <div class="u-info">
                         <i class="el-icon-collection-tag"></i>
                         <span class="u-type" target="_blank">{{ formatTypeName(item.type) }}</span>
                         ／
                         <span class="u-author" :href="authorLink(item.user_id)" target="_blank">{{
-                                item.user_nickname || "匿名"
-                            }}</span>
+                            item.user_nickname || "匿名"
+                        }}</span>
                         <span class="u-date">
                             <i class="el-icon-refresh"></i>
                             {{ wikiDate(item.updated) }}
@@ -174,5 +192,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../../assets/css/v2/posts.less";
+@import "../../assets/css/v2/posts.less";
 </style>

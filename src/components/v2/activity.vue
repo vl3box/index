@@ -1,13 +1,17 @@
 <template>
     <div class="m-daily-activity m-sideblock" v-if="client == 'std'">
         <div class="m-sideblock-header">
-            <a class="u-title" href="/calendar" target="_blank"> <i class="el-icon-s-order"></i> 日常活动</a>
+            <div class="u-left">
+                <a class="u-title" href="/calendar" target="_blank"> <i class="el-icon-s-order"></i> 日常活动</a>
+            </div>
             <!-- <el-select class="u-select" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
             </el-select> -->
-            <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
-                <i class="el-icon-more"></i>
-            </a>
+            <div class="u-right">
+                <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                    <i class="el-icon-more"></i>
+                </a>
+            </div>
         </div>
         <div class="m-daily-content">
             <table>
@@ -68,8 +72,10 @@ export default {
 
         date() {
             // 当7点以前，请求前面一天的日常 当7~24点，请求当天的日常
-            const hour = dayjs().get('hours')
-            return (0 <= hour && hour < 7) ? dayjs().subtract(1, 'day').format("YYYY-MM-DD") : dayjs().format("YYYY-MM-DD");
+            const hour = dayjs().get("hours");
+            return 0 <= hour && hour < 7
+                ? dayjs().subtract(1, "day").format("YYYY-MM-DD")
+                : dayjs().format("YYYY-MM-DD");
         },
         client() {
             return this.$store.state.client;
@@ -99,8 +105,8 @@ export default {
     },
     watch: {
         myServer(val) {
-            if (val) this.server = val
-        }
+            if (val) this.server = val;
+        },
     },
     mounted: function () {
         this.loadDaily();
@@ -108,5 +114,5 @@ export default {
 };
 </script>
 <style lang="less">
-    @import "~@/assets/css/v2/daily.less";
+@import "~@/assets/css/v2/daily.less";
 </style>

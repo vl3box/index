@@ -1,11 +1,14 @@
 <template>
     <div class="m-face m-sideblock">
         <div class="m-face-header m-sideblock-header">
-            <i class="el-icon-camera-solid"></i>
-            <a class="u-title" href="/face" target="_blank">最新捏脸</a>
-            <a href="/face" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
-                <i class="el-icon-more"></i>
-            </a>
+            <div class="u-left">
+                <i class="el-icon-camera-solid"></i> <a class="u-title" href="/face" target="_blank">最新捏脸</a>
+            </div>
+            <div class="u-right">
+                <a href="/face" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                    <i class="el-icon-more"></i>
+                </a>
+            </div>
         </div>
         <div class="m-face-content" v-loading="loading">
             <ul class="m-face-list" v-if="data && data.length">
@@ -66,7 +69,7 @@ export default {
         showThumb: function (item) {
             let url = item.images[0];
             if (url) {
-                return getThumbnail(url,200);
+                return getThumbnail(url, 200);
             } else {
                 return __imgPath + "image/face/null2.png";
             }

@@ -1,8 +1,12 @@
 <template>
     <div class="m-servers m-sideblock">
         <div class="m-servers-header m-sideblock-header">
-            <i class="el-icon-s-platform"></i><a class="u-title" href="/app/servers2" target="_blank">开服状态</a>
-            <a href="/app/servers2" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
+            <div class="u-left">
+                <i class="el-icon-s-platform"></i><a class="u-title" href="/app/servers2" target="_blank">开服状态</a>
+            </div>
+            <div class="u-right">
+                <a href="/app/servers2" class="u-more" title="查看更多" target="_blank"><i class="el-icon-more"></i></a>
+            </div>
         </div>
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">
@@ -19,8 +23,8 @@
 
 <script>
 import { getServers } from "@/service/spider2";
-import servers_std from '@jx3box/jx3box-data/data/server/server_std.json'
-import servers_origin from '@jx3box/jx3box-data/data/server/server_origin.json'
+import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
+import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 export default {
     name: "servers",
     props: [],
@@ -31,29 +35,29 @@ export default {
     },
     computed: {
         client: function () {
-            return this.$store.state.client
+            return this.$store.state.client;
         },
         servers: function () {
-            if (this.client == 'origin') {
-                return servers_origin
+            if (this.client == "origin") {
+                return servers_origin;
             } else {
-                return servers_std
+                return servers_std;
             }
-        }
+        },
     },
     methods: {
         cansee: function (item) {
-            return this.servers.includes(item.serverName)
-        }
+            return this.servers.includes(item.serverName);
+        },
     },
     mounted: function () {
         getServers().then((res) => {
-            this.data = res.data.map(item => {
+            this.data = res.data.map((item) => {
                 return {
                     ...item,
-                    serverName: item.main_server
-                }
-            })
+                    serverName: item.main_server,
+                };
+            });
         });
     },
 };

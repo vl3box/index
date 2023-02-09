@@ -1,14 +1,18 @@
 <template>
     <div v-loading="loading" class="m-celebrity m-sideblock" v-if="client == 'std'">
         <div class="m-sideblock-header celebrity-header">
-            <span class="u-title"> <i class="el-icon-s-help"></i> 名望·楚天社 </span>
-            <div class="desc">
+            <div class="u-left">
+                <span class="u-title"> <i class="el-icon-s-help"></i> 名望·楚天社 </span>
+            </div>
+            <div class="u-right desc">
                 <span class="map"
                     >{{ currentMap.map }}
                     <!--({{ currentMap.tasks }})-->
                 </span>
                 <span class="arrow">»</span>
-                <span class="next-map">{{ nextMap.map }}{{ nextMap.stages ? "(" + nextMap.stages[0].site + ")" : "" }}</span>
+                <span class="next-map"
+                    >{{ nextMap.map }}{{ nextMap.stages ? "(" + nextMap.stages[0].site + ")" : "" }}</span
+                >
             </div>
         </div>
         <div class="m-celebrity-content">
