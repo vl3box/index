@@ -5,7 +5,7 @@
             <div class="m-tv-content">
                 <div class="wp">
                     <a :href="item.link" class="m-box" v-for="(item, i) in list" :key="i" target="_blank">
-                        <img class="u-img" :src="item.img" />
+                        <el-image class="u-img" :src="item.img" fit="cover"></el-image>
                     </a>
                 </div>
                 <img src="../../assets/img/tv/box.png" alt="盒子娘" class="m-jx3box" />

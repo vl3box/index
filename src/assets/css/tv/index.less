@@ -1,6 +1,25 @@
 .m-tv-main {
     .pt(64px);
 }
+.scrollbar() {
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+        border-radius: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #24292e;
+        border-radius: 6px;
+    }
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-corner,
+    &::-webkit-resizer {
+        display: none;
+    }
+}
 .m-tv-content {
     padding: 30px 0;
     position: relative;
@@ -12,6 +31,7 @@
         .flex;
         .size(100%,100%);
         .auto(x);
+        .scrollbar();
         max-width: 1200px;
         overflow: auto;
         flex-direction: column;
@@ -29,10 +49,13 @@
             .lt(50%,0);
             .z(3);
             .r(18px);
+            .clip;
+            background-color: #24292e;
+            box-sizing: border-box;
             width: calc(100% - 54px);
             height: calc(100% - 50px);
             border: 2px solid #24292e;
-            margin-left: -600px;
+            margin-left: -590px;
             max-width: auto;
         }
         &::after {
@@ -62,7 +85,7 @@
         .m-box {
             .h(560px);
             .u-img {
-                margin-left: -1000px;
+                margin-left: -990px;
             }
         }
     }
@@ -78,7 +101,7 @@
         }
         .m-box {
             .u-img {
-                margin-left: -400px;
+                margin-left: -390px;
             }
         }
     }
@@ -104,7 +127,7 @@
                 width: calc(100% - 20px);
                 height: calc(100% - 20px);
                 border: 2px solid #24292e;
-                margin-left: -170px;
+                margin-left: -160px;
             }
             &::after {
                 .r(14px);
