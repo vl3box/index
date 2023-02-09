@@ -120,14 +120,31 @@ body {
 .m-sideblock-header {
     border-bottom: 1px dashed #eee;
     padding: 8px 10px;
-    i {
-        .mr(5px);
-        .fz(16px);
+
+    .flex;
+    justify-content: space-between;
+
+    .u-left,
+    .u-right {
+        .flex;
+        align-items: center;
     }
+
     .u-title {
+        .flex;
+        align-items: center;
+        gap: 5px;
+
         .fz(13px);
         .bold;
         color: @color;
+    }
+    .u-icon {
+        .size(16px);
+    }
+    i {
+        .mr(5px);
+        .fz(16px);
     }
 
     .u-more {

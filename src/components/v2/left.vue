@@ -17,7 +17,7 @@
 <script>
 // import assistant from "@/components/v2/assistant.vue";
 import calendar from "@/components/v2/calendar.vue";
-import jx3code from "@/components/index/jx3code.vue";
+import jx3code from "@/components/v3/jx3code.vue";
 import gamenews from "@/components/index/gamenews.vue";
 import servers from "@/components/index/servers.vue";
 import notice from "@/components/index/notice.vue";

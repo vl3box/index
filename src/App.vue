@@ -32,12 +32,13 @@
             <div class="m-left m-sidebar">
                 <welcome />
                 <news />
+                <jx3code />
                 <feedback />
                 <qrcode />
             </div>
         </div>
         <festival />
-        <Footer></Footer>
+        <Footer darkMode></Footer>
     </div>
 </template>
 
@@ -45,6 +46,7 @@
 // 左侧
 import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
+import jx3code from "@/components/v3/jx3code.vue";
 
 import servers2 from "@/components/index/servers2.vue";
 import feedback from "@/components/v2/feedback.vue";
@@ -94,6 +96,7 @@ export default {
         // 左侧
         welcome,
         news,
+        jx3code,
 
         // servers,
         servers2,

@@ -8,10 +8,10 @@
                         <el-image class="u-img" :src="item.img" fit="cover"></el-image>
                     </a>
                 </div>
-                <img src="../../assets/img/tv/box.png" alt="盒子娘" class="m-jx3box" />
+                <img src="@/assets/img/tv/box.png" alt="盒子娘" class="m-jx3box" />
             </div>
         </div>
-        <Footer></Footer>
+        <Footer darkMode></Footer>
     </div>
 </template>
 
@@ -34,8 +34,9 @@ export default {
             return {
                 client: this.client,
                 type: "slider",
-                status: 1,
+                status: 0,
                 per: 8,
+                page : 1,
             };
         },
     },
@@ -43,7 +44,7 @@ export default {
     methods: {
         load() {
             getHistoryHeadlines(this.params).then((res) => {
-                this.list = res.data.data.list;
+                this.list = res.data.data.list || [];
             });
         },
     },
