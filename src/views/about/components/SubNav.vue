@@ -7,28 +7,20 @@
             </router-link>
         </div>
         <ul class="sub-nav-list" :class="{ 'is-open': isOpen }">
-            <router-link to="/" v-slot="{ navigate, isExactActive, route }" custom>
-                <li class="sub-nav-item" :class="isExactActive && 'sub-active'" @click="navigate">
+            <router-link
+                :to="route.path"
+                v-slot="{ navigate, isActive, isExactActive }"
+                v-for="route in $router.options.routes"
+                :key="route.path"
+                custom
+            >
+                <li
+                    class="sub-nav-item hvr-underline-from-center"
+                    :class="(route.path === '/' ? isExactActive : isActive) && 'sub-active'"
+                    @click="navigate"
+                >
                     {{ route.meta.title }}
                 </li>
-            </router-link>
-            <router-link to="/group" v-slot="{ navigate, isActive, route }" custom>
-                <li class="sub-nav-item" :class="isActive && 'sub-active'" @click="navigate">{{ route.meta.title }}</li>
-            </router-link>
-            <router-link to="/team" v-slot="{ navigate, isActive, route }" custom>
-                <li class="sub-nav-item" :class="isActive && 'sub-active'" @click="navigate">{{ route.meta.title }}</li>
-            </router-link>
-            <router-link to="/author" v-slot="{ navigate, isActive, route }" custom>
-                <li class="sub-nav-item" :class="isActive && 'sub-active'" @click="navigate">{{ route.meta.title }}</li>
-            </router-link>
-            <router-link to="/privacy" v-slot="{ navigate, isActive, route }" custom>
-                <li class="sub-nav-item" :class="isActive && 'sub-active'" @click="navigate">{{ route.meta.title }}</li>
-            </router-link>
-            <router-link to="/license" v-slot="{ navigate, isActive, route }" custom>
-                <li class="sub-nav-item" :class="isActive && 'sub-active'" @click="navigate">{{ route.meta.title }}</li>
-            </router-link>
-            <router-link to="/creation" v-slot="{ navigate, isActive, route }" custom>
-                <li class="sub-nav-item" :class="isActive && 'sub-active'" @click="navigate">{{ route.meta.title }}</li>
             </router-link>
         </ul>
     </nav>
@@ -91,13 +83,15 @@ export default {
             height: 50px;
             line-height: 50px;
             text-align: center;
-            border-radius: 30px;
             color: #fff;
             cursor: pointer;
-            &.sub-active,
-            &:hover {
+            &.sub-active {
                 color: #24292e;
                 background-color: #fff;
+                font-weight: 700;
+                border-radius: 30px;
+            }
+            &:hover {
                 font-weight: 700;
             }
         }
@@ -134,5 +128,37 @@ export default {
             display: block;
         }
     }
+}
+/* Underline From Center */
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+}
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #fff;
+    height: 4px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
 }
 </style>

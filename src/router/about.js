@@ -26,20 +26,20 @@ const routes = [
         },
     },
     {
-        path: "/team",
-        component: Team,
-        name: "Team",
-        meta: {
-            title: "团队成员",
-            cache: true,
-        },
-    },
-    {
         path: "/group",
         component: Group,
         name: "Group",
         meta: {
             title: "社区群体",
+            cache: true,
+        },
+    },
+    {
+        path: "/team",
+        component: Team,
+        name: "Team",
+        meta: {
+            title: "团队成员",
             cache: true,
         },
     },

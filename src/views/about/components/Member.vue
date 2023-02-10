@@ -77,11 +77,6 @@ export default {
                 font-weight: bold;
                 margin-right: 5px;
             }
-            &:hover {
-                .name {
-                    color: @primary;
-                }
-            }
         }
         .desc,
         .hover-desc {
@@ -107,6 +102,9 @@ export default {
     }
     &:hover {
         .u-info {
+            .name {
+                color: @primary;
+            }
             .hover-detail,
             .hover-desc {
                 display: inline-block;
