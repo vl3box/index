@@ -1,7 +1,7 @@
 <template>
     <div class="p-tv">
         <Header :overlayEnable="true"></Header>
-        <div class="m-tv-main">
+        <div class="m-tv-main" v-loading="loading">
             <div class="m-tv-content">
                 <!-- 头图列表 -->
                 <div class="wp">
@@ -13,7 +13,7 @@
                     <div class="m-no-list" v-else>~ 暂无对应头条 ~</div>
                 </div>
                 <!-- 盒子娘 -->
-                <img src="@/assets/img/tv/box.png" alt="盒子娘" class="m-jx3box" />
+                <img src="@/assets/img/tv/box2.png" alt="盒子娘" class="m-jx3box" />
             </div>
             <!-- 筛选和跳转 -->
             <div class="m-tv-nav">
@@ -23,7 +23,7 @@
                     <div class="m-nav-show" v-show="filter">
                         <div class="m-nav" v-for="(item, i) in nav" :key="i" :class="{ active: source_type == i }">
                             <template v-if="!item.list">
-                                <span class="u-title" @click="change(i)"> {{ item }}</span>
+                                <span class="u-title u-all" @click="change(i)"> {{ item }}</span>
                             </template>
                             <div class="m-nav-box" v-else>
                                 <span class="u-title">{{ item.name }}</span>
@@ -90,6 +90,8 @@ export default {
             filter: false,
             jump: false,
             index: "",
+
+            loading: false,
         };
     },
     computed: {
@@ -139,11 +141,16 @@ export default {
     },
     methods: {
         load() {
-            getHistoryHeadlines(this.params).then((res) => {
-                this.list = res.data.data.list || [];
-                this.total = res.data.data.total;
-                this.pages = res.data.data.pages;
-            });
+            this.loading = true;
+            getHistoryHeadlines(this.params)
+                .then((res) => {
+                    this.list = res.data.data.list || [];
+                    this.total = res.data.data.total;
+                    this.pages = res.data.data.pages;
+                })
+                .finally(() => {
+                    this.loading = false;
+                });
         },
         // 筛选
         change(i) {
@@ -170,7 +177,7 @@ export default {
             let index = 1;
             if (key == "next") index = this.pageIndex < this.pages ? this.pageIndex + 1 : this.pages;
             if (key == "per") index = this.pageIndex > 1 ? this.pageIndex - 1 : 1;
-            console.log(key, index, this.pages);
+            // console.log(key, index, this.pages);
             this.changePage(~~index);
         },
     },
