@@ -89,4 +89,7 @@ export default {
     },
 };
 </script>
+<style lang="less">
+@import "~@/assets/css/about/animation.less";
+</style>
 

@@ -62,9 +62,9 @@ export default {
             this.changeTitles(title);
         },
         changeTitles(title) {
-            const others = this.titles.filter((item) => item !== title);
-            others.splice(Math.floor(others.length / 2), 0, title);
-            this.titles = others;
+            // const others = this.titles.filter((item) => item !== title);
+            // others.splice(Math.floor(others.length / 2), 0, title);
+            // this.titles = others;
             this.list = this.members.filter((item) => item.group === title);
         },
     },
