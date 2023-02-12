@@ -46,7 +46,7 @@ export default {
         },
         backgroundImage() {
             // return "/temp/about/" + this.$route.name + ".png";
-            return __cdn + "/design/about/" + this.$route.name + ".png";
+            return __cdn + "/design/about/" + this.$route.name + ".jpg";
         },
     },
     watch: {},
