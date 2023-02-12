@@ -1,7 +1,8 @@
 .about-detail-wrapper {
     position: relative;
     margin: 0 auto;
-    max-width: 1120px;
+    max-width: 1024px;
+    overflow-x: hidden;
     .detail-title {
         margin-bottom: 30px;
         text-align: center;
@@ -17,7 +18,8 @@
             padding: 10px 20px;
             color: #ccc;
             cursor: pointer;
-            &.title-active {
+            &.title-active,
+            &.router-link-exact-active {
                 font-size: 50px;
                 font-weight: bold;
                 color: #fff;
@@ -29,7 +31,8 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
-        width: calc(100% + 20px);
+        // width: calc(100% + 20px);
+        box-sizing: border-box;
         // height: 626px;
         padding: 5px 15px 15px 15px;
         overflow-x: hidden;
@@ -51,7 +54,7 @@
             background-color: #fff;
             color: #000;
             overflow: hidden;
-            .right{
+            .right {
                 overflow: hidden;
             }
             .name {
@@ -123,4 +126,3 @@
         }
     }
 }
-

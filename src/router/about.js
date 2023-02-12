@@ -11,103 +11,103 @@ const routes = [
     {
         path: "/",
         component: () => import("@/views/about/Index.vue"),
-        name: "About",
+        name: "index",
         meta: {
-            title: "首页",
+            title: "关于我们",
             cache: true,
-            key: 'index'
         },
     },
     {
         path: "/group",
-        component: () => import("@/views/about/Contact.vue"),
-        name: "Group",
+        component: () => import("@/views/about/Group.vue"),
+        name: "group",
         meta: {
             title: "联系我们",
             cache: true,
-            key: 'group'
         },
     },
     {
         path: "/team",
         component: () => import("@/views/about/Team.vue"),
-        name: "Team",
+        name: "team",
         meta: {
             title: "加入团队",
             cache: true,
-            key: 'team'
         },
     },
     {
         path: "/author",
         component: () => import("@/views/about/Author.vue"),
-        name: "Author",
+        name: "author",
         meta: {
             title: "签约作者",
             cache: true,
-            key: 'superauthor'
         },
     },
     {
         path: "/terms",
-        component: () => import("@/views/about/Index.vue"),
-        name: "Terms",
+        component: () => import("@/views/about/Article.vue"),
+        redirect: "/license",
+        name: "terms",
         meta: {
             title: "服务条款",
             cache: true,
-            key: 'terms'
         },
         children: [
             {
                 path: "/license",
                 component: () => import("@/views/about/Article.vue"),
-                name: "License",
+                name: "license",
                 meta: {
                     title: '用户协议',
                     cache: true,
-                    key: 'license'
+                    belongs: 'terms',
+                    article_id: 21020
                 }
             },
             {
                 path: "/privacy",
                 component: () => import("@/views/about/Article.vue"),
-                name: "Privacy",
+                name: "privacy",
                 meta: {
                     title: '隐私政策',
                     cache: true,
-                    key: 'privacy'
+                    belongs: 'terms',
+                    article_id: 21021
                 }
             }
         ]
     },
     {
         path: "/creation",
-        component: () => import("@/views/about/Index.vue"),
-        name: "Creation",
+        component: () => import("@/views/about/Article.vue"),
+        redirect: "/treaty",
+        name: "creation",
         meta: {
             title: "创作扶持",
             cache: true,
-            key: 'creation'
         },
         children: [
             {
                 path: "/treaty",
                 component: () => import("@/views/about/Article.vue"),
-                name: "Treaty",
+                name: "treaty",
                 meta: {
                     title: '创作公约',
                     cache: true,
-                    key: 'treaty'
+                    belongs: 'creation',
+                    article_id: 21022
                 }
             },
             {
                 path: "/incentives",
                 component: () => import("@/views/about/Article.vue"),
-                name: "Incentives",
+                name: "incentives",
                 meta: {
                     title: '创作激励',
                     cache: true,
-                    key: 'incentives'
+                    belongs: 'creation',
+                    article_id: 28917
                 }
             }
         ]

@@ -1,6 +1,6 @@
 <template>
-    <nav class="a-sub-nav" :class="{ 'a-sub-nav-phone': isPhone }">
-        <div v-if="!isPhone" class="nav-logo-wrap">
+    <nav class="a-sub-nav" :class="{ 'is--phone': side }">
+        <div class="nav-logo-wrap">
             <router-link to="/">
                 <img class="u-logo" svg-inline fill="white" src="@/assets/img/logo.svg" />
                 <span class="about-title">关于我们</span>
@@ -8,19 +8,13 @@
         </div>
         <ul class="sub-nav-list" :class="{ 'is-open': isOpen }">
             <router-link
-                :to="route.path"
-                v-slot="{ navigate, isActive, isExactActive }"
+                :to="route.children ? route.children[0].path : route.path"
                 v-for="route in $router.options.routes"
                 :key="route.path"
                 custom
+                class="sub-nav-item hvr-underline-from-center"
             >
-                <li
-                    class="sub-nav-item hvr-underline-from-center"
-                    :class="(route.path === '/' ? isExactActive : isActive) && 'sub-active'"
-                    @click="navigate"
-                >
-                    {{ route.meta.title }}
-                </li>
+                {{ route.meta.title }}
             </router-link>
         </ul>
     </nav>
@@ -29,15 +23,16 @@
 <script>
 export default {
     name: "SubNav",
+    props: ["side"],
     data() {
         return {
             isOpen: false,
         };
     },
     computed: {
-        isPhone() {
-            return this.$utils.isPhone();
-        },
+        // isPhone() {
+        //     return this.$utils.isPhone();
+        // },
     },
 };
 </script>
@@ -53,7 +48,6 @@ export default {
     height: 50px;
     overflow: hidden;
     .nav-logo-wrap {
-        display: none;
         min-width: 200px;
         padding-left: 54px;
         a {
@@ -85,7 +79,7 @@ export default {
             text-align: center;
             color: #fff;
             cursor: pointer;
-            &.sub-active {
+            &.router-link-exact-active {
                 color: #24292e;
                 background-color: #fff;
                 font-weight: 700;
@@ -96,36 +90,38 @@ export default {
             }
         }
     }
-}
-.a-sub-nav-phone {
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    align-items: flex-start;
-    .sub-nav-list {
-        flex-direction: column;
-        align-items: flex-start;
+
+    &.is--phone {
         padding: 0;
-        margin: 0;
         width: 100%;
-        .sub-nav-item {
-            color: #24292e;
-            width: calc(100% - 30px);
-            border-radius: 10px;
-            text-align: left;
-            padding-left: 30px;
+        height: 100%;
+        overflow: hidden;
+        align-items: flex-start;
+        .sub-nav-list {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
             margin: 0;
-            &.sub-active {
-                color: #0366d6;
+            width: 100%;
+            .sub-nav-item {
+                color: #24292e;
+                width: calc(100% - 30px);
+                border-radius: 10px;
+                text-align: left;
+                padding-left: 30px;
+                margin: 0;
+                &.router-link-exact-active {
+                    color: #0366d6;
+                }
             }
         }
     }
 }
-@media screen and (min-width: @notebook) {
+
+@media screen and (max-width: @ipad) {
     .a-sub-nav {
         .nav-logo-wrap {
-            display: block;
+            display: none;
         }
     }
 }

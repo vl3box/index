@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { getConfig, getArticle } from "@/service/about.js";
+import { getArticle } from "@/service/about.js";
 import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "AboutText",
@@ -23,40 +23,33 @@ export default {
         return {
             data: "",
             loading: false,
-            id: 0,
             isSuperAdmin: User.isSuperAdmin(),
         };
     },
     computed: {
-        type: function () {
-            return this.customType || this.$route.path.split("/")[1];
+        id: function () {
+            return this.$route.meta.article_id;
         },
-        // label: function () {
-        //     return this.$route.meta.title;
-        // },
     },
     methods: {
         loadData: function () {
             this.loading = true;
             this.data = "";
-            getConfig(this.type)
-                .then((id) => {
-                    this.id = id;
-                    id &&
-                        getArticle(id).then((data) => {
-                            this.data = data;
-                        });
-                })
-                .finally(() => {
-                    this.loading = false;
-                });
+            this.id &&
+                getArticle(this.id)
+                    .then((data) => {
+                        this.data = data;
+                    })
+                    .finally(() => {
+                        this.loading = false;
+                    });
         },
     },
     watch: {
-        type: {
+        "$route.name": {
             immediate: true,
-            handler: function (type) {
-                type && this.loadData();
+            handler: function () {
+                this.loadData();
             },
         },
     },

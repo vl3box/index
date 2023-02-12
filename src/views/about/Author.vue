@@ -55,7 +55,7 @@ export default {
         .flex;
         flex-wrap: wrap;
         gap: 20px;
-        max-width: @ipad-y;
+        max-width: 1024px;
         justify-content: center;
         margin: 0 auto;
         background-color: #f6e8e6b5;
@@ -66,6 +66,7 @@ export default {
         .size(38px);
         .r(50%);
         border: 2px solid #fff;
+        background-color:#fff;
     }
     .u-name {
         // .db;

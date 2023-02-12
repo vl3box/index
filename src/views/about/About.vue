@@ -1,15 +1,19 @@
 <template>
     <div class="about-wrapper">
         <Header :overlayEnable="true"></Header>
-        <div class="m-about-main" :style="{backgroundImage:`url('${backgroundImage}')`}">
-            <!-- <template v-if="isPhone">
-                <Breadcrumb :name="name" slug="about" root="/about" :publishEnable="false"></Breadcrumb>
-                <LeftSidebar>
-                    <SubNav></SubNav>
-                </LeftSidebar>
-            </template> -->
-            <SubNav></SubNav>
-            <div class="m-about-content" :class="{ 'm-about-content-phone': isPhone }">
+        <div class="m-about-main" :style="{ backgroundImage: `url('${backgroundImage}')` }">
+            <Breadcrumb
+                class="m-about-bread"
+                :name="name"
+                slug="about"
+                root="/about"
+                :publishEnable="false"
+            ></Breadcrumb>
+            <LeftSidebar class="m-about-nav--left">
+                <SubNav :side="true"></SubNav>
+            </LeftSidebar>
+            <SubNav class="m-about-nav--top"></SubNav>
+            <div class="m-about-content">
                 <transition duration="550" name="nested" mode="out-in">
                     <keep-alive>
                         <router-view v-if="$route.meta.cache" class="inner"></router-view>
@@ -30,7 +34,6 @@ export default {
     data: function () {
         return {
             isPhone: false,
-
         };
     },
     computed: {
@@ -40,9 +43,9 @@ export default {
         name() {
             return this.$route.meta.title === "首页" ? "关于我们" : this.$route.meta.title;
         },
-        backgroundImage(){
-            return '/temp/about/' + this.$route.meta.key + '.png'
-        }
+        backgroundImage() {
+            return "/temp/about/" + this.$route.name + ".png";
+        },
     },
     watch: {},
     methods: {},

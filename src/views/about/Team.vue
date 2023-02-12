@@ -79,9 +79,9 @@ export default {
 .p-team {
     .u-join {
         background-color: @bg-black;
+        color:#fff;
         &:hover {
-            background-color: #fff;
-            color: @bg-black;
+            background-color: #000;
         }
     }
 }
