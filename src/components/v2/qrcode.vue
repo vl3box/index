@@ -8,7 +8,7 @@
 <template>
     <div class="m-qrcode m-sideblock">
         <div class="m-qrcode-header m-sideblock-header">
-            <div class="u-left"><i class="el-icon-full-screen"></i><a class="u-title">二维码矩阵</a></div>
+            <div class="u-left"><i class="u-icon el-icon-full-screen"></i><a class="u-title">二维码矩阵</a></div>
         </div>
         <div class="m-qrcode-content">
             <div class="u-code" v-for="(item, index) in codes" :key="index">

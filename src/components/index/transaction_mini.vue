@@ -2,7 +2,7 @@
     <div class="m-index-transaction m-sideblock" v-if="isReady">
         <div class="m-sideblock-header">
             <div class="u-left">
-                <a class="u-title" href="/item" target="_blank"><i class="el-icon-s-shop"></i>交易价格</a>
+                <a class="u-title" href="/item" target="_blank"><i class="u-icon el-icon-s-shop"></i>交易价格</a>
                 <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
                     <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
                 </el-select>

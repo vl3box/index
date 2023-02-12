@@ -1,7 +1,7 @@
 <template>
     <div class="m-rank-collection m-rank m-sideblock">
         <div class="m-sideblock-header">
-            <i class="el-icon-s-data"></i>
+            <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/bbs/#/namespace" target="_blank"
                 >热点铭牌</a
             >

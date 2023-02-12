@@ -2,7 +2,7 @@
     <div class="m-daily-activity m-sideblock" v-if="client == 'std'">
         <div class="m-sideblock-header">
             <div class="u-left">
-                <a class="u-title" href="/calendar" target="_blank"> <i class="el-icon-s-order"></i> 日常活动</a>
+                <a class="u-title" href="/calendar" target="_blank"> <i class="u-icon el-icon-s-order"></i> 日常活动</a>
             </div>
             <!-- <el-select class="u-select" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>

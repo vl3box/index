@@ -1,7 +1,7 @@
 <template>
     <div class="m-rank-cj m-rank m-sideblock">
         <div class="m-sideblock-header">
-            <i class="el-icon-s-data"></i>
+            <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/cj" target="_blank">热门成就榜</a>
             <a href="/cj" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i

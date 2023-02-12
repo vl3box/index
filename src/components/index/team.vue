@@ -3,7 +3,7 @@
         <el-tabs v-model="tab" class="u-recruit-tab">
             <el-tab-pane name="recruit">
                 <div slot="label">
-                    <i class="el-icon-data-analysis"></i> 团队招募
+                    <i class="u-icon el-icon-data-analysis"></i> 团队招募
                 </div>
                 <div class="m-index-recruit-header m-sideblock-header">
                     <div class="u-condition">

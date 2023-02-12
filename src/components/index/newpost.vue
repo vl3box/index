@@ -1,7 +1,7 @@
 <template>
     <div class="m-newpost m-sideblock">
         <div class="m-guide-header m-sideblock-header">
-            <i class="el-icon-discover"></i>
+            <i class="u-icon el-icon-discover"></i>
             <span class="u-title">游戏指南</span>
             <a
                 href="/knowledge"

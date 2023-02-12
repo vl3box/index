@@ -3,7 +3,7 @@
     <div class="m-database m-sideblock">
         <div class="m-database-header m-sideblock-header">
             <div class="u-left">
-                <i class="el-icon-s-grid"></i><a class="u-title" href="/app/database" target="_blank">数据库版本</a>
+                <i class="u-icon el-icon-s-grid"></i><a class="u-title" href="/app/database" target="_blank">数据库版本</a>
             </div>
             <div class="u-right">
                 <a href="/app/database" class="u-more" title="访问数据库" target="_blank"

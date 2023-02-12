@@ -1,7 +1,7 @@
 <template>
     <div class="m-contact m-sideblock">
         <div class="m-sideblock-header">
-            <i class="el-icon-s-promotion"></i
+            <i class="u-icon el-icon-s-promotion"></i
             ><span class="u-title">关注我们</span>
         </div>
         <div class="m-contact-content">

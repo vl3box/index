@@ -1,7 +1,7 @@
 <template>
     <div class="m-guide m-sideblock">
         <div class="m-guide-header m-sideblock-header">
-            <i class="el-icon-discover"></i>
+            <i class="u-icon el-icon-discover"></i>
             <span class="u-title">门派指南</span>
             <a href="/bps" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>

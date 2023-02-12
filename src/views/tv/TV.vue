@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <Footer darkMode></Footer>
+        <!-- <Footer darkMode></Footer> -->
         <div class="m-mark" v-show="mark" @click="hide"></div>
     </div>
 </template>

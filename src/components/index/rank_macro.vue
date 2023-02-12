@@ -1,7 +1,7 @@
 <template>
     <div class="m-rank-macro m-rank m-sideblock">
         <div class="m-sideblock-header">
-            <i class="el-icon-s-data"></i>
+            <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/macro" target="_blank">云端宏热榜</a>
             <a
                 href="/macro/#/rank"

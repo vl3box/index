@@ -2,7 +2,7 @@
     <div v-loading="loading" class="m-celebrity m-sideblock" v-if="client == 'std'">
         <div class="m-sideblock-header celebrity-header">
             <div class="u-left">
-                <span class="u-title"> <i class="el-icon-s-help"></i> 名望·楚天社 </span>
+                <span class="u-title"><i class="u-icon el-icon-s-help"></i> 名望·楚天社 </span>
             </div>
             <div class="u-right desc">
                 <span class="map"

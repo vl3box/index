@@ -1,7 +1,7 @@
 <template>
     <div class="m-rank-wiki m-rank m-sideblock">
         <div class="m-sideblock-header">
-            <i class="el-icon-s-data"></i>
+            <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/knowledge" target="_blank"
                 >百科词条热榜</a
             >
