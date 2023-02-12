@@ -1,8 +1,12 @@
 <template>
-    <div class="p-notice-v2" :class="theme_cls">
+    <div class="p-notice-v2">
         <Header :overlayEnable="true"></Header>
-        <div class="p-notice-container wp">
-            <router-view></router-view>
+        <div class="p-notice-container" :class="theme">
+            <div class="wp">
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
+            </div>
         </div>
         <div class="p-notice-footer">
             <div class="wp">
@@ -13,25 +17,14 @@
 </template>
 
 <script>
-// import NoticeList from "@/views/notice/components/NoticeList.vue";
-// import NoticeSingle from "@/views/notice/components/NoticeSingle.vue";
-// 左侧
-// import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "Notice",
-    props: [],
-    components: {},
     data: function () {
-        return {};
+        return {
+            theme: "white",
+        };
     },
-    computed: {
-        theme_cls() {
-            return "";
-        },
-    },
-    watch: {},
     methods: {},
-    mounted() {},
 };
 </script>
 

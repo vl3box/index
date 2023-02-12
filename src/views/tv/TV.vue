@@ -19,15 +19,27 @@
             <div class="m-tv-nav">
                 <div class="m-nav-box">
                     <span class="u-label">筛选</span>
-                    <span class="u-filter" @click="filter = !filter">ALL全部</span>
+                    <span class="u-filter" @click="open('filter')">ALL全部</span>
                     <div class="m-nav-show" v-show="filter">
                         <div class="m-nav" v-for="(item, i) in nav" :key="i" :class="{ active: source_type == i }">
                             <template v-if="!item.list">
-                                <span class="u-title u-all" @click="change(i)"> {{ item }}</span>
+                                <span
+                                    class="u-title u-all"
+                                    @click="change(i)"
+                                    :class="{ active: source_type == 'all' }"
+                                >
+                                    {{ item }}</span
+                                >
                             </template>
                             <div class="m-nav-box" v-else>
                                 <span class="u-title">{{ item.name }}</span>
-                                <span v-for="(child, k) in item.list" :key="k" @click="change(k)" class="u-nav">
+                                <span
+                                    v-for="(child, k) in item.list"
+                                    :key="k"
+                                    @click="change(k)"
+                                    class="u-nav"
+                                    :class="k == source_type ? 'active' : ''"
+                                >
                                     {{ child }}</span
                                 >
                             </div>
@@ -37,7 +49,7 @@
                 <div class="m-nav-box m-nav-pagination" v-show="list.length">
                     <span class="u-turn u-per" @click="turnPages('per')">上一页</span>
                     <span class="u-turn u-next" @click="turnPages('next')">下一页</span>
-                    <span class="u-label u-jump" @click="jump = !jump">页面跳转</span>
+                    <span class="u-label u-jump" @click="open('jump')">页面跳转</span>
                     <el-pagination
                         class="m-tv-pagination"
                         :current-page="pageIndex"
@@ -67,6 +79,7 @@
             </div>
         </div>
         <Footer darkMode></Footer>
+        <div class="m-mark" v-show="mark" @click="hide"></div>
     </div>
 </template>
 
@@ -89,6 +102,7 @@ export default {
 
             filter: false,
             jump: false,
+            mark: false,
             index: "",
 
             loading: false,
@@ -179,6 +193,14 @@ export default {
             if (key == "per") index = this.pageIndex > 1 ? this.pageIndex - 1 : 1;
             // console.log(key, index, this.pages);
             this.changePage(~~index);
+        },
+        open(key) {
+            this[key] = !this[key];
+            this.mark = true;
+        },
+        hide() {
+            this.filter = false;
+            this.jump = false;
         },
     },
     mounted() {

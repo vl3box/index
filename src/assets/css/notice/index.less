@@ -1,0 +1,101 @@
+.p-notice-container {
+    &.black {
+        background: url(../../img//notice/bg.png) #000 center top;
+    }
+    &.white {
+        background: url(../../img//notice/bg-white.png) #fff center top no-repeat;
+        background-size: 100% 100%;
+    }
+    .wp {
+        max-width: 1200px;
+        .auto(x);
+    }
+}
+// 分页
+.p-notice-pagination {
+    .flex;
+    gap: 10px;
+    padding: 20px 0;
+    justify-content: flex-end;
+    .el-pager {
+        .flex;
+        gap: 10px;
+        li {
+            .size(42px);
+            .r(100%);
+            .lh(42px);
+            background-color: #282c31;
+            color: #fff;
+            &:hover,
+            &.active {
+                background-color: #277ccc;
+            }
+        }
+    }
+    // 跳转
+    .m-jump {
+        .flex;
+        .size(auto,42px);
+        .r(20px);
+        .lh(42px);
+        align-items: center;
+        padding: 0 12px;
+        gap: 10px;
+        background-color: #282c31;
+        .u-input {
+            .w(98px);
+        }
+        .u-jump {
+            .r(20px);
+            .fz(14px,28px);
+            .h(28px);
+            .pointer;
+            .bold;
+            color: #282c31;
+            padding: 0 12px;
+            background-color: #fff;
+        }
+        .el-input__inner {
+            .r(20px);
+        }
+    }
+}
+// 列表容器
+.m-notice-content {
+    .pt(100px);
+    min-height: calc(100vh - 54px);
+    box-sizing: border-box;
+}
+// 搜索
+.m-notice-toolbar {
+    .pt(60px);
+} 
+// 详情
+.m-detail-toolbar {
+    .m-back {
+        .flex;
+        .r(20px);
+        .pointer;
+        .size(90px,42px);
+        background-color: #282c31;
+        color: #fff;
+        padding: 0 16px;
+        align-items: center;
+        justify-content: space-between;
+        .u-arr {
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+.m-notice-content {
+    .m-notice-box {
+        padding: 20px 0;
+    }
+    .m-notice-single {
+        .r(20px);
+        padding: 30px;
+        border: 1px solid #282c31;
+        box-shadow: 0px 0px 30px #282c31;
+    }
+}
