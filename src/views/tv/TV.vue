@@ -1,17 +1,17 @@
 <template>
-    <div class="p-tv">
+    <div class="p-tv" @click="closeFilter">
         <Header :overlayEnable="true"></Header>
         <div class="m-tv-main" v-loading="loading">
             <div class="m-tv-title"></div>
             <div class="m-tv-content">
                 <!-- 头图列表 -->
-                <div class="wp">
+                <div class="wp" ref="banner-list">
                     <template v-if="list && list.length">
                         <a :href="item.link" class="m-box" v-for="(item, i) in list" :key="i" target="_blank">
-                            <el-image class="u-img" :src="item.img" fit="cover"></el-image>
+                            <el-image class="u-img" :src="resolveImagePath(item.img)" fit="cover"></el-image>
                         </a>
                     </template>
-                    <div class="m-no-list" v-else>~ 暂无对应头条 ~</div>
+                    <div class="m-tv-null" v-else>~ 暂无对应头条 ~</div>
                 </div>
                 <!-- 盒子娘 -->
                 <img src="@/assets/img/tv/box2.png" alt="盒子娘" class="m-jx3box" />
@@ -20,12 +20,12 @@
             <div class="m-tv-nav">
                 <div class="m-nav-box">
                     <span class="u-label">筛选</span>
-                    <span class="u-filter" @click="open('filter')">ALL全部</span>
+                    <span class="u-filter" @click.stop="open('filter')">ALL全部</span>
                     <div class="m-nav-show" v-show="filter">
                         <div class="m-nav" v-for="(item, i) in nav" :key="i" :class="{ active: source_type == i }">
                             <template v-if="!item.list">
                                 <span
-                                    class="u-title u-all"
+                                    class="u-title u-all u-nav"
                                     @click="change(i)"
                                     :class="{ active: source_type == 'all' }"
                                 >
@@ -80,11 +80,12 @@
             </div>
         </div>
         <!-- <Footer darkMode></Footer> -->
-        <div class="m-mark" v-show="mark" @click="hide"></div>
+        <!-- <div class="m-mark" v-show="mark" @click="hide"></div> -->
     </div>
 </template>
 
 <script>
+import { resolveImagePath } from "@jx3box/jx3box-common/js/utils.js";
 import { getHistoryHeadlines } from "@/service/cms";
 import { __postType, __wikiType, __appType, __gameType } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
@@ -172,10 +173,14 @@ export default {
             this.source_type = i;
             this.pageIndex = 1;
             this.filter = false;
+
+            this.$refs['banner-list'].scrollTo(0, 0);
         },
         // element切换页面
         changePage(i) {
             this.pageIndex = i;
+
+            this.$refs['banner-list'].scrollTo(0, 0);
         },
         // 跳转页面
         toJump() {
@@ -202,6 +207,10 @@ export default {
         hide() {
             this.filter = false;
             this.jump = false;
+        },
+        resolveImagePath,
+        closeFilter() {
+            this.filter = false;
         },
     },
     mounted() {
