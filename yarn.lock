@@ -1278,10 +1278,10 @@
     "moment" "^2.29.1"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.6.2", "@jx3box/jx3box-common@^7.6.6":
-  "integrity" "sha512-8bKRziN6sKJ7U+6MQQaUQnMlBPqaGyOcEyHN+oOhS2oSSt/Hr3re84GMigtIoa3RB7PfzxDnUL7TJpCMYZKs1Q=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.6.6.tgz"
-  "version" "7.6.6"
+"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.6.2", "@jx3box/jx3box-common@^7.6.6", "@jx3box/jx3box-common@^7.6.7":
+  "integrity" "sha512-0F2WQ+pAnfCK+bCgcbhS+UggbzkaicAHaHFJsj71oNOPZ3O6EMzIE8VWsPRS+9qQND6MvtwBxCWZvF7MRvHZMw=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.6.7.tgz"
+  "version" "7.6.7"
   dependencies:
     "axios" "^0.20.0"
     "cheerio" "1.0.0-rc.10"

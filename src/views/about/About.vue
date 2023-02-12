@@ -27,6 +27,7 @@
 
 <script>
 import SubNav from "./components/SubNav.vue";
+import {__cdn} from '@jx3box/jx3box-common/data/jx3box.json'
 export default {
     name: "About",
     props: [],
@@ -44,7 +45,8 @@ export default {
             return this.$route.meta.title === "首页" ? "关于我们" : this.$route.meta.title;
         },
         backgroundImage() {
-            return "/temp/about/" + this.$route.name + ".png";
+            // return "/temp/about/" + this.$route.name + ".png";
+            return __cdn + "/design/about/" + this.$route.name + ".png";
         },
     },
     watch: {},
