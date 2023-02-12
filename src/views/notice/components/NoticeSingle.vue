@@ -7,10 +7,9 @@
                 <div class="m-single-info">
                     <span class="u-modate u-sub-block" title="发布时间">
                         <i class="el-icon-collection-tag"></i>
-                        <a
-                            :href="'/notice?subtype=' + post.post_subtype"
-                            target="_blank"
-                        >{{ post.post_subtype | showType }}</a>
+                        <a :href="'/notice?subtype=' + post.post_subtype" target="_blank">{{
+                            post.post_subtype | showType
+                        }}</a>
                     </span>
 
                     <span class="u-modate u-sub-block" title="发布时间">
@@ -57,7 +56,7 @@
                 <el-alert title="作者没有开启评论功能" type="warning" show-icon v-else></el-alert>
             </div>
         </div>
-        <Admin class="p-notice-admin"/>
+        <Admin class="p-notice-admin" />
     </div>
 </template>
 
@@ -95,7 +94,13 @@ export default {
     },
     computed: {
         id: function () {
-            return getAppID();
+            let _list = location.pathname.split("/");
+            if (_list.length > 2) {
+                return ~~_list[2];
+            }
+            return false;
+
+            // return getAppID();
         },
         user_id: function () {
             return this.post?.post_author || 0;

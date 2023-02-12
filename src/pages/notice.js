@@ -17,12 +17,12 @@ Vue.use(JX3BOX_UI);
 // Vue.use(Comments)
 
 // 数据与路由
-// import router from "./router";
+import router from "../router/notice";
 import store from "../store";
 
-import App from "../views/notice/Notice";
+import App from "../views/notice/NoticeV2";
 new Vue({
-    // router,
+    router,
     store,
     render: h => h(App),
 }).$mount("#app");
