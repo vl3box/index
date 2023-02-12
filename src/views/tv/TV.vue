@@ -2,6 +2,7 @@
     <div class="p-tv">
         <Header :overlayEnable="true"></Header>
         <div class="m-tv-main" v-loading="loading">
+            <div class="m-tv-title"></div>
             <div class="m-tv-content">
                 <!-- 头图列表 -->
                 <div class="wp">

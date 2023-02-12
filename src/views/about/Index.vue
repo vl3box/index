@@ -1,5 +1,6 @@
 <template>
     <div class="about-detail-wrapper">
+        <div class="m-about-title">剑三真好玩 魔盒真好用</div>
         <!-- <div class="index-title">
             <div>游戏生活</div>
             <div>由我亲手来掌控</div>
@@ -26,6 +27,14 @@ export default {
 </script>
 
 <style lang="less">
+.m-about-title{
+    background:url('@{cdn}design/about/title.png') no-repeat 0 0;
+    background-size:100% auto;
+    width:1095px / 2;
+    height: 641px / 2;
+    margin:0 auto;
+    text-indent: -200%;
+}
 .about-detail-wrapper {
     color: #fff;
     .index-title {
