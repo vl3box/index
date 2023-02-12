@@ -1,6 +1,5 @@
 <template>
     <div class="m-about-text" :class="'m-about-' + type" v-loading="loading">
-        <!-- <h1>{{ label }}</h1> -->
         <div class="m-about-meta">
             <a :href="'/notice/' + id" target="_blank" v-if="isSuperAdmin">编辑</a>
         </div>
