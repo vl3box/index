@@ -11,7 +11,7 @@
                     <span class="desc">{{ item.remark }}</span>
                     <div class="hover-detail">
                         <div class="u-tags">
-                            <el-tag class="u-tag" size="small" v-for="key in item.duty" :key="key">
+                            <el-tag class="u-tag" size="mini" v-for="key in item.duty" :key="key" >
                                 {{ showTag(key) }}
                             </el-tag>
                         </div>
@@ -32,7 +32,13 @@ export default {
     data: function () {
         return {
             data: [],
-            tag: this.usergroups,
+            duty: {
+                production: "产品",
+                designer: "设计",
+                mp: "运营",
+                developer: "开发",
+                editor: "编审",
+            },
         };
     },
     methods: {
@@ -45,7 +51,7 @@ export default {
         authorLink,
         showDate,
         showTag(key) {
-            return this.tag[key] || key;
+            return this.duty[key] || key;
         },
     },
 
@@ -72,7 +78,7 @@ export default {
         color: @color;
         .u-name {
             .name {
-                color: #000;
+                color: #000 !important;
                 font-size: 20px !important;
                 font-weight: bold;
                 margin-right: 5px;
@@ -80,8 +86,8 @@ export default {
         }
         .desc,
         .hover-desc {
-            color: #000;
-            font-size: 16px;
+            color: #888;
+            font-size: 13px;
             font-weight: normal;
         }
         .hover-detail,
@@ -120,6 +126,14 @@ export default {
                 display: none;
             }
         }
+    }
+}
+@media screen and (max-width:@phone){
+    .m-about-content .detail-content-wrap{
+        margin:0 auto !important;
+    }
+    .about-detail-wrapper .detail-content-wrap .detail-item{
+        .ml(0);
     }
 }
 </style>

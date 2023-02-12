@@ -1,6 +1,6 @@
 <template>
     <div class="about-detail-wrapper">
-        <div class="detail-title">欢迎加入我们，共建美好社区。</div>
+        <div class="detail-title">幸甚有你，共建美好社区。</div>
         <el-row class="detail-content-wrap" :gutter="20">
             <el-col v-for="(item, index) in group" :key="index" :xs="24" :sm="12" :md="8" :lg="8" :xl="8">
                 <div class="detail-item hvr-float-shadow">
@@ -43,18 +43,6 @@ export default {
                     icon: "el-icon-service",
                 },
                 {
-                    name: "百科小分队（成就党）",
-                    qq: 614370825,
-                    link: "https://jq.qq.com/?_wv=1027&k=MFwMNVRb",
-                    icon: "el-icon-trophy",
-                },
-                {
-                    name: "休闲交流群（捏脸/家园等）",
-                    qq: 658035079,
-                    link: "https://jq.qq.com/?_wv=1027&k=mA07EfW3",
-                    icon: "el-icon-place",
-                },
-                {
                     name: "正式服团长群（副本/赛事）",
                     qq: 785597424,
                     link: "https://jq.qq.com/?_wv=1027&k=bpNtDAzA",
@@ -73,10 +61,22 @@ export default {
                     icon: "el-icon-position",
                 },
                 {
-                    name: "插件作者群（插件/数据/工具）",
+                    name: "数据作者群（技术帝）",
                     qq: 608303480,
                     link: "https://jq.qq.com/?_wv=1027&k=uSHHxdmd",
                     icon: "el-icon-setting",
+                },
+                {
+                    name: "百科小分队（资历党）",
+                    qq: 614370825,
+                    link: "https://jq.qq.com/?_wv=1027&k=MFwMNVRb",
+                    icon: "el-icon-trophy",
+                },
+                {
+                    name: "休闲交流群（颜控党）",
+                    qq: 658035079,
+                    link: "https://jq.qq.com/?_wv=1027&k=mA07EfW3",
+                    icon: "el-icon-sugar",
                 },
                 // {
                 //     name: "PVP交流群",
@@ -90,6 +90,3 @@ export default {
 };
 </script>
 
-<style lang="less">
-@import "~@/assets/css/about/index.less";
-</style>

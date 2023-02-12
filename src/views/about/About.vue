@@ -1,14 +1,14 @@
 <template>
     <div class="about-wrapper">
         <Header :overlayEnable="true"></Header>
-        <div class="m-about-main">
-            <template v-if="isPhone">
+        <div class="m-about-main" :style="{backgroundImage:`url('${backgroundImage}')`}">
+            <!-- <template v-if="isPhone">
                 <Breadcrumb :name="name" slug="about" root="/about" :publishEnable="false"></Breadcrumb>
                 <LeftSidebar>
                     <SubNav></SubNav>
                 </LeftSidebar>
-            </template>
-            <SubNav v-else></SubNav>
+            </template> -->
+            <SubNav></SubNav>
             <div class="m-about-content" :class="{ 'm-about-content-phone': isPhone }">
                 <transition duration="550" name="nested" mode="out-in">
                     <keep-alive>
@@ -30,6 +30,7 @@ export default {
     data: function () {
         return {
             isPhone: false,
+
         };
     },
     computed: {
@@ -39,6 +40,9 @@ export default {
         name() {
             return this.$route.meta.title === "首页" ? "关于我们" : this.$route.meta.title;
         },
+        backgroundImage(){
+            return '/temp/about/' + this.$route.meta.key + '.png'
+        }
     },
     watch: {},
     methods: {},
@@ -62,4 +66,5 @@ export default {
 
 <style lang="less">
 @import "~@/assets/css/about/about.less";
+@import "~@/assets/css/about/index.less";
 </style>

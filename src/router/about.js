@@ -7,77 +7,110 @@ VueRouter.prototype.push = function push(to) {
     return VueRouterPush.call(this, to).catch((err) => err);
 };
 
-import Index from "@/views/about/Index.vue";
-import Team from "@/views/about/Team.vue";
-import Group from "@/views/about/Group.vue";
-import Author from "@/views/about/Author.vue";
-import License from "@/views/about/License.vue";
-import Privacy from "@/views/about/Privacy.vue";
-import Creation from "@/views/about/Creation.vue";
-
 const routes = [
     {
         path: "/",
-        component: Index,
+        component: () => import("@/views/about/Index.vue"),
         name: "About",
         meta: {
             title: "首页",
             cache: true,
+            key: 'index'
         },
     },
     {
         path: "/group",
-        component: Group,
+        component: () => import("@/views/about/Contact.vue"),
         name: "Group",
         meta: {
-            title: "社区群体",
+            title: "联系我们",
             cache: true,
+            key: 'group'
         },
     },
     {
         path: "/team",
-        component: Team,
+        component: () => import("@/views/about/Team.vue"),
         name: "Team",
         meta: {
-            title: "团队成员",
+            title: "加入团队",
             cache: true,
+            key: 'team'
         },
     },
     {
         path: "/author",
-        component: Author,
+        component: () => import("@/views/about/Author.vue"),
         name: "Author",
         meta: {
             title: "签约作者",
             cache: true,
+            key: 'superauthor'
         },
     },
     {
-        path: "/privacy",
-        component: Privacy,
-        name: "Privacy",
+        path: "/terms",
+        component: () => import("@/views/about/Index.vue"),
+        name: "Terms",
         meta: {
-            title: "隐私政策",
+            title: "服务条款",
             cache: true,
+            key: 'terms'
         },
-    },
-    {
-        path: "/license",
-        component: License,
-        name: "License",
-        meta: {
-            title: "用户协议",
-            cache: true,
-        },
+        children: [
+            {
+                path: "/license",
+                component: () => import("@/views/about/Article.vue"),
+                name: "License",
+                meta: {
+                    title: '用户协议',
+                    cache: true,
+                    key: 'license'
+                }
+            },
+            {
+                path: "/privacy",
+                component: () => import("@/views/about/Article.vue"),
+                name: "Privacy",
+                meta: {
+                    title: '隐私政策',
+                    cache: true,
+                    key: 'privacy'
+                }
+            }
+        ]
     },
     {
         path: "/creation",
-        component: Creation,
+        component: () => import("@/views/about/Index.vue"),
         name: "Creation",
         meta: {
-            title: "创作公约",
+            title: "创作扶持",
             cache: true,
+            key: 'creation'
         },
+        children: [
+            {
+                path: "/treaty",
+                component: () => import("@/views/about/Article.vue"),
+                name: "Treaty",
+                meta: {
+                    title: '创作公约',
+                    cache: true,
+                    key: 'treaty'
+                }
+            },
+            {
+                path: "/incentives",
+                component: () => import("@/views/about/Article.vue"),
+                name: "Incentives",
+                meta: {
+                    title: '创作激励',
+                    cache: true,
+                    key: 'incentives'
+                }
+            }
+        ]
     },
 ];
 

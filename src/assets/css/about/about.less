@@ -1,63 +1,34 @@
+@import "./animation.less";
+
 .m-about-main {
     position: relative;
     .pt(64px);
     height: calc(100vh - 64px);
-    background: url(../../img/about/about_bg.png) center center no-repeat;
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
-    .m-jx3box {
-        .pa;
-        .rt(0);
-        .h(100%);
-    }
+    overflow: auto;
+    transition: 0.15s ease-in-out;
 }
 
-@media screen and(max-width:@phone) {
-    .m-about-main {
-        .m-jx3box {
-            .none;
+.m-about-content {
+    padding-top: 20px; //calc(100vh - @header-height - 20px);
+    padding-bottom: 20px; //calc(100vh - @header-height - 20px);
+}
+
+
+.m-about-button{
+    .x;
+    .mt(20px);
+    padding-bottom: 40px;
+    a{
+        display: inline-flex;
+        padding:20px 40px;
+        .r(4px);
+        transition: 0.1s ease-in-out;
+        align-items: center;
+        i{
+            .mr(5px);
         }
-        .m-about-content {
-            padding-top: 48px;
-            height: calc(100vh - 112px);
-            background: url(../../img/about/about_bg.png) top right repeat;
-            background-size: cover;
-            overflow-y: auto;
-        }
     }
-}
-.nested-enter-active,
-.nested-leave-active {
-    transition: all 0.3s ease-in-out;
-}
-/* delay leave of parent element */
-.nested-leave-active {
-    transition-delay: 0.25s;
-}
-
-.nested-enter-from,
-.nested-leave-to {
-    transform: translateY(30px);
-    opacity: 0;
-}
-
-/* we can also transition nested elements using nested selectors */
-.nested-enter-active .inner,
-.nested-leave-active .inner {
-    transition: all 0.3s ease-in-out;
-}
-/* delay enter of nested element */
-.nested-enter-active .inner {
-    transition-delay: 0.25s;
-}
-
-.nested-enter-from .inner,
-.nested-leave-to .inner {
-    transform: translateX(30px);
-    /*
-  Hack around a Chrome 96 bug in handling nested opacity transitions.
-  This is not needed in other browsers or Chrome 99+ where the bug
-  has been fixed.
-*/
-    opacity: 0.001;
 }

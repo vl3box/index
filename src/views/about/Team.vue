@@ -1,5 +1,5 @@
 <template>
-    <div class="about-detail-wrapper">
+    <div class="p-team about-detail-wrapper">
         <div class="detail-title-list">
             <div
                 class="title-item hvr-grow"
@@ -12,6 +12,9 @@
             </div>
         </div>
         <Member class="detail-content-wrap" :list="list" :usergroups="usergroups"></Member>
+        <div class="m-about-button">
+            <a class="u-join" href="/notice/21899" target="_blank"><i class="el-icon-right"></i>加入我们</a>
+        </div>
     </div>
 </template>
 
@@ -28,10 +31,10 @@ export default {
             members: [],
             list: [],
             usergroups: {
-                designer: "设计",
-                mp: "运营",
-                developer: "开发",
-                editor: "编审",
+                designer: "创意部",
+                mp: "运营部",
+                developer: "研发部",
+                editor: "编辑部",
                 contributors: "贡献名单",
             },
         };
@@ -73,5 +76,13 @@ export default {
 </script>
 
 <style lang="less">
-@import "~@/assets/css/about/index.less";
+.p-team {
+    .u-join {
+        background-color: @bg-black;
+        &:hover {
+            background-color: #fff;
+            color: @bg-black;
+        }
+    }
+}
 </style>

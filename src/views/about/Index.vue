@@ -1,16 +1,16 @@
 <template>
     <div class="about-detail-wrapper">
-        <div class="index-title">
+        <!-- <div class="index-title">
             <div>游戏生活</div>
             <div>由我亲手来掌控</div>
-        </div>
-        <div class="about-index-btn-list">
+        </div> -->
+        <!-- <div class="about-index-btn-list">
             <a href="">用文章了解门派</a>
             <a href="">用数据解决未知</a>
             <a href="">用工具辅助开荒</a>
             <a href="">带着友善分享讨论</a>
             <a href="">带着和谐展现自我</a>
-        </div>
+        </div> -->
     </div>
 </template>
 

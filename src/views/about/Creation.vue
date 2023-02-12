@@ -40,6 +40,3 @@ export default {
 };
 </script>
 
-<style lang="less">
-@import "~@/assets/css/about/index.less";
-</style>

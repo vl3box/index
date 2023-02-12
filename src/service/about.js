@@ -36,12 +36,16 @@ function getUsers(list) {
         });
 }
 
-function getTeammates(){
-    return $cms().get(`/api/cms/config/teammates`,{
-        params : {
-            status : 1
+function getSuperAuthor() {
+    return $cms().get(`/api/cms/user/list/super_author`).then((res) => { return res.data?.data })
+}
+
+function getTeammates() {
+    return $cms().get(`/api/cms/config/teammates`, {
+        params: {
+            status: 1
         }
     })
 }
 
-export { getConfig, getArticle, getUsers, getTeammates };
+export { getConfig, getArticle, getUsers, getTeammates, getSuperAuthor };
