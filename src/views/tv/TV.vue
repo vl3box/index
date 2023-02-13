@@ -1,10 +1,15 @@
 <template>
     <div class="p-tv">
         <Header :overlayEnable="true"></Header>
-        <!-- 列表 -->
-        <List :data="list" :loading="loading" />
-        <!-- 操作条 -->
-        <Toolbar :total="total" :pages="pages" @update="update" />
+        <!-- logo -->
+        <div class="m-tv-title"></div>
+        <!-- 内容 -->
+        <div class="m-tv-content" :loading="loading">
+            <!-- 列表 -->
+            <List :data="list" />
+            <!-- 操作条 -->
+            <Toolbar :total="total" :pages="pages" @update="update" />
+        </div>
         <!-- 盒子娘 -->
         <div class="m-jx3box">
             <img class="u-img" src="@/assets/img/tv/box.png" alt="盒子娘" />
@@ -31,7 +36,6 @@ export default {
             pages: 0,
         };
     },
-
     watch: {
         params: {
             deep: true,

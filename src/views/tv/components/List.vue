@@ -1,5 +1,5 @@
 <template>
-    <div class="m-tv-list" v-loading="loading">
+    <div class="m-tv-list">
         <div class="wp">
             <template v-if="data && data.length">
                 <a :href="item.link" class="m-item" v-for="(item, i) in data" :key="i" target="_blank">
@@ -18,7 +18,7 @@
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils.js";
 export default {
     name: "List",
-    props: ["data", "loading"],
+    props: ["data"],
     data: function () {
         return {};
     },

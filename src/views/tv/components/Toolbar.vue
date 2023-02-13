@@ -1,5 +1,6 @@
 <template>
     <div class="m-tv-toolbar">
+        <!-- 工具条 -->
         <div class="m-nav-bar">
             <!-- 筛选 -->
             <div class="m-filter">
@@ -12,6 +13,7 @@
                 <span class="u-turn u-next" @click="turnPages('next')">下一页</span>
                 <span class="u-jump" :class="{ active: jump }" @click="open('jump')">页面跳转</span>
                 <el-pagination
+                    class="u-pagination"
                     :current-page="pageIndex"
                     :page-size.sync="pageSize"
                     @current-change="changePage"
@@ -71,7 +73,7 @@ export default {
     name: "Toolbar",
     props: ["total", "pages"],
     data: function () {
-        return { 
+        return {
             source_type: "all",
 
             pageIndex: 1,
@@ -135,6 +137,7 @@ export default {
             this.source_type = i;
             this.pageIndex = 1;
             this.filter = false;
+            this.mark = false;
         },
         // element切换页面
         changePage(i) {
@@ -148,6 +151,7 @@ export default {
             if (index < 1) _index = 1;
             this.changePage(~~_index);
             this.jump = false;
+            this.mark = false;
             this.index = "";
         },
         // 上下翻页
@@ -159,7 +163,7 @@ export default {
         },
         // 打开弹窗
         open(key) {
-            this[key] = !this[key]; 
+            this[key] = !this[key];
             if (this.filter || this.jump) this.mark = true;
         },
         // 隐藏弹窗

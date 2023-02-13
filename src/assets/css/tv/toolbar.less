@@ -23,18 +23,21 @@
         .color(#fff);
         .u-button {
             .pointer;
+            flex-shrink: 0;
             color: #ab7fce;
             &.active {
-                color: #fa9b21;
+                color: #fba524;
             }
         }
     }
     // 分页
     .m-pagination {
         .flex;
+        .bold;
         align-items: center;
         .u-turn {
             .none;
+            .mr(10px);
             color: #ab7fce;
             flex-shrink: 0;
         }
@@ -44,7 +47,7 @@
             flex-shrink: 0;
             &:hover,
             &.active {
-                color: #fa9b21;
+                color: #fba524;
             }
         }
         // 覆盖element样式
@@ -88,7 +91,7 @@
                 .pointer;
                 &:hover,
                 &.active {
-                    color: #fa9b21;
+                    color: #fba524;
                 }
             }
             .u-title {
