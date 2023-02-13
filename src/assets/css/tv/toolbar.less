@@ -50,17 +50,6 @@
                 color: #fba524;
             }
         }
-        // 覆盖element样式
-        .el-pagination .btn-next,
-        .el-pagination .btn-prev,
-        .el-dialog,
-        .el-pager li {
-            background: none;
-            color: #ab7fce;
-            &.active {
-                color: #fff;
-            }
-        }
     }
     // 弹出窗
     .m-popup {
@@ -126,8 +115,20 @@
         .u-button {
             .pointer;
             .r(3px);
+            flex-shrink: 0;
             padding: 0 10px;
             background-color: #ab7fce;
+        }
+    }
+    // 覆盖element样式
+    .el-pagination .btn-next,
+    .el-pagination .btn-prev,
+    .el-dialog,
+    .el-pager li {
+        background: none;
+        color: #ab7fce;
+        &.active {
+            color: #fff;
         }
     }
     // 遮罩

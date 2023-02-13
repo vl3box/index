@@ -92,7 +92,7 @@
             .m-null {
                 .h(160px);
                 .u-text {
-                    .fz(20px);
+                    .fz(18px);
                 }
             }
         }
@@ -111,6 +111,35 @@
             }
             .m-pagination .u-turn {
                 .db;
+            }
+            .m-popup_jump {
+                margin: 0;
+                width: 100%;
+                padding: 5px 5px 5px 0;
+                gap: 6px;
+                justify-content: space-between;
+                .u-label {
+                    .none;
+                }
+                .u-input {
+                    .w(auto);
+                    .el-input__inner {
+                        padding: 0 6px;
+                    }
+                }
+                .u-button{
+                    padding: 3px 10px;
+                }
+                .u-pagination {
+                    .db;
+                }
+            }
+            .el-pagination .btn-next,
+            .el-pagination .btn-prev,
+            .el-dialog,
+            .el-pager li {
+                .fz(12px);
+                min-width: 24px;
             }
         }
     }
