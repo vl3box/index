@@ -24,7 +24,7 @@
                 </el-pagination>
             </div>
             <!-- 筛选弹出窗 -->
-            <div class="m-popup m-popup_filter" v-show="filter">
+            <div class="m-popup m-popup-filter" v-show="filter">
                 <div class="m-item" v-for="(item, i) in nav" :key="i" :class="{ active: source_type == i }">
                     <template v-if="!item.list">
                         <span class="u-title u-all" @click="change(i)" :class="{ active: source_type == 'all' }">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <!-- 跳转弹出窗 -->
-            <div class="m-popup m-popup_jump" v-show="jump">
+            <div class="m-popup m-popup-jump" v-show="jump">
                 <span class="u-label">跳转页数</span>
                 <el-pagination
                     class="u-pagination"
