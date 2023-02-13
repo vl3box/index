@@ -1,14 +1,14 @@
 <template>
     <div class="m-tv-toolbar">
         <!-- 工具条 -->
-        <div class="m-nav-bar">
+        <div class="m-toolbar">
             <!-- 筛选 -->
-            <div class="m-filter">
+            <div class="m-toolbar-filter">
                 <span class="u-label">筛选</span>
                 <span class="u-button" :class="{ active: filter }" @click.stop="open('filter')">ALL全部</span>
             </div>
             <!-- 分页 -->
-            <div class="m-pagination">
+            <div class="m-toolbar-pagination">
                 <span class="u-turn u-per" @click="turnPages('per')">上一页</span>
                 <span class="u-turn u-next" @click="turnPages('next')">下一页</span>
                 <span class="u-jump" :class="{ active: jump }" @click="open('jump')">页面跳转</span>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <!-- 遮罩 -->
-        <div class="m-nav-mark" v-show="mark" @click="hide"></div>
+        <div class="m-toolbar-mark" v-show="mark" @click="hide"></div>
     </div>
 </template>
 
