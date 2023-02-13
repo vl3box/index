@@ -1,16 +1,35 @@
 <template>
-    <div class="m-tv-nav">
-        <div class="m-nav-box">
-            <span class="u-label">筛选</span>
-            <span class="u-filter" @click.stop="open('filter')">ALL全部</span>
-            <div class="m-nav-show" v-show="filter">
-                <div class="m-nav" v-for="(item, i) in nav" :key="i" :class="{ active: source_type == i }">
+    <div class="m-tv-toolbar">
+        <div class="m-nav-bar">
+            <!-- 筛选 -->
+            <div class="m-filter">
+                <span class="u-label">筛选</span>
+                <span class="u-button" :class="{ active: filter }" @click.stop="open('filter')">ALL全部</span>
+            </div>
+            <!-- 分页 -->
+            <div class="m-pagination">
+                <span class="u-turn u-per" @click="turnPages('per')">上一页</span>
+                <span class="u-turn u-next" @click="turnPages('next')">下一页</span>
+                <span class="u-jump" :class="{ active: jump }" @click="open('jump')">页面跳转</span>
+                <el-pagination
+                    :current-page="pageIndex"
+                    :page-size.sync="pageSize"
+                    @current-change="changePage"
+                    :pager-count="9"
+                    layout="pager"
+                    :total="total"
+                >
+                </el-pagination>
+            </div>
+            <!-- 筛选弹出窗 -->
+            <div class="m-popup m-popup_filter" v-show="filter">
+                <div class="m-item" v-for="(item, i) in nav" :key="i" :class="{ active: source_type == i }">
                     <template v-if="!item.list">
-                        <span class="u-title u-all u-nav" @click="change(i)" :class="{ active: source_type == 'all' }">
-                            {{ item }}</span
-                        >
+                        <span class="u-title u-all" @click="change(i)" :class="{ active: source_type == 'all' }">
+                            {{ item }}
+                        </span>
                     </template>
-                    <div class="m-nav-box" v-else>
+                    <template v-else>
                         <span class="u-title">{{ item.name }}</span>
                         <span
                             v-for="(child, k) in item.list"
@@ -19,30 +38,16 @@
                             class="u-nav"
                             :class="k == source_type ? 'active' : ''"
                         >
-                            {{ child }}</span
-                        >
-                    </div>
+                            {{ child }}
+                        </span>
+                    </template>
                 </div>
             </div>
-        </div>
-        <div class="m-nav-box m-nav-pagination" v-show="list.length">
-            <span class="u-turn u-per" @click="turnPages('per')">上一页</span>
-            <span class="u-turn u-next" @click="turnPages('next')">下一页</span>
-            <span class="u-label u-jump" @click="open('jump')">页面跳转</span>
-            <el-pagination
-                class="m-tv-pagination"
-                :current-page="pageIndex"
-                :page-size.sync="pageSize"
-                @current-change="changePage"
-                :pager-count="9"
-                layout="pager"
-                :total="total"
-            >
-            </el-pagination>
-            <div class="m-nav-show m-nav-jump" v-show="jump">
+            <!-- 跳转弹出窗 -->
+            <div class="m-popup m-popup_jump" v-show="jump">
                 <span class="u-label">跳转页数</span>
                 <el-pagination
-                    class="m-tv-pagination"
+                    class="u-pagination"
                     :current-page="pageIndex"
                     :page-size.sync="pageSize"
                     @current-change="changePage"
@@ -51,37 +56,31 @@
                     :total="total"
                 >
                 </el-pagination>
-                <el-input v-model="index" size="mini" />
+                <el-input class="u-input" v-model="index" size="mini" />
                 <span class="u-button" @click="toJump">确认</span>
             </div>
         </div>
-
-                <!-- <div class="m-mark" v-show="mark" @click="hide"></div> -->
+        <!-- 遮罩 -->
+        <div class="m-nav-mark" v-show="mark" @click="hide"></div>
     </div>
 </template>
 
 <script>
-import { resolveImagePath } from "@jx3box/jx3box-common/js/utils.js";
-import { getHistoryHeadlines } from "@/service/cms";
 import { __postType, __wikiType, __appType, __gameType } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "Toolbar",
+    props: ["total", "pages"],
     data: function () {
-        return {
-            list: [],
+        return { 
             source_type: "all",
 
             pageIndex: 1,
             pageSize: 10,
-            total: 0,
-            pages: 0,
 
             filter: false,
             jump: false,
             mark: false,
             index: "",
-
-            loading: false,
         };
     },
     computed: {
@@ -124,37 +123,22 @@ export default {
     watch: {
         params: {
             deep: true,
-            handler: function () {
-                this.load();
+            immediate: true,
+            handler: function (obj) {
+                this.$emit("update", obj);
             },
         },
     },
     methods: {
-        load() {
-            this.loading = true;
-            getHistoryHeadlines(this.params)
-                .then((res) => {
-                    this.list = res.data.data.list || [];
-                    this.total = res.data.data.total;
-                    this.pages = res.data.data.pages;
-                })
-                .finally(() => {
-                    this.loading = false;
-                });
-        },
         // 筛选
         change(i) {
             this.source_type = i;
             this.pageIndex = 1;
             this.filter = false;
-
-            this.$refs["banner-list"].scrollTo(0, 0);
         },
         // element切换页面
         changePage(i) {
             this.pageIndex = i;
-
-            this.$refs["banner-list"].scrollTo(0, 0);
         },
         // 跳转页面
         toJump() {
@@ -171,28 +155,23 @@ export default {
             let index = 1;
             if (key == "next") index = this.pageIndex < this.pages ? this.pageIndex + 1 : this.pages;
             if (key == "per") index = this.pageIndex > 1 ? this.pageIndex - 1 : 1;
-            // console.log(key, index, this.pages);
             this.changePage(~~index);
         },
+        // 打开弹窗
         open(key) {
-            this[key] = !this[key];
-            this.mark = true;
+            this[key] = !this[key]; 
+            if (this.filter || this.jump) this.mark = true;
         },
+        // 隐藏弹窗
         hide() {
             this.filter = false;
             this.jump = false;
+            this.mark = false;
         },
-        resolveImagePath,
-        closeFilter() {
-            this.filter = false;
-        },
-    },
-    mounted() {
-        this.load();
     },
 };
 </script>
 
 <style lang="less">
-@import "~@/assets/css/tv/index.less";
+@import "~@/assets/css/tv/toolbar.less";
 </style>
