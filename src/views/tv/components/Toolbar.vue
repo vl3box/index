@@ -5,7 +5,9 @@
             <!-- 筛选 -->
             <div class="m-toolbar-filter">
                 <span class="u-label">筛选</span>
-                <span class="u-button" :class="{ active: filter }" @click.stop="open('filter')">ALL全部</span>
+                <span class="u-button" :class="{ active: filter }" @click.stop="open('filter')">
+                    {{ filterName }}
+                </span>
             </div>
             <!-- 分页 -->
             <div class="m-toolbar-pagination">
@@ -58,7 +60,7 @@
                     :total="total"
                 >
                 </el-pagination>
-                <el-input class="u-input" v-model="index" size="mini" />
+                <el-input class="u-input" v-model="index" type="number" @keyup.enter.native="toJump" size="mini" />
                 <span class="u-button" @click="toJump">确认</span>
             </div>
         </div>
@@ -88,7 +90,7 @@ export default {
     computed: {
         nav() {
             return {
-                all: "全部",
+                all: "ALL全部",
                 post: {
                     name: "常用",
                     list: { ...__postType },
@@ -106,6 +108,13 @@ export default {
                     list: { ...__appType },
                 },
             };
+        },
+        filterName() {
+            const names = Object.values(this.nav).reduce((acc, cur) => {
+                if (cur.list) acc = { ...acc, ...cur.list };
+                return acc;
+            }, {});
+            return this.source_type == "all" ? this.nav[this.source_type] : names[this.source_type] || "";
         },
         client() {
             return this.$store.state.client;
@@ -141,25 +150,22 @@ export default {
         },
         // element切换页面
         changePage(i) {
-            this.pageIndex = i;
+            this.pageIndex = ~~i;
         },
         // 跳转页面
         toJump() {
-            const index = this.index.replace(/\D/g, "");
-            let _index = index;
-            if (index > this.pages) _index = this.pages;
-            if (index < 1) _index = 1;
-            this.changePage(~~_index);
+            if (this.index > this.pages) this.index = this.pages;
+            if (this.index < 1) this.index = 1;
+            this.changePage(this.index);
             this.jump = false;
             this.mark = false;
             this.index = "";
         },
         // 上下翻页
         turnPages(key) {
-            let index = 1;
-            if (key == "next") index = this.pageIndex < this.pages ? this.pageIndex + 1 : this.pages;
-            if (key == "per") index = this.pageIndex > 1 ? this.pageIndex - 1 : 1;
-            this.changePage(~~index);
+            if (key == "next") this.index = this.pageIndex < this.pages ? this.pageIndex + 1 : this.pages;
+            if (key == "per") this.index = this.pageIndex > 1 ? this.pageIndex - 1 : 1;
+            this.changePage(this.index);
         },
         // 打开弹窗
         open(key) {
