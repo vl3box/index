@@ -71,7 +71,6 @@ export default {
             .r(20px);
             .bold;
             .pointer;
-            box-shadow: 0 0 8px #ddd;
             color: #fff;
             padding: 0 20px;
             letter-spacing: 2px;
@@ -83,6 +82,7 @@ export default {
             }
             &.message {
                 background-color: #fff;
+                box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
                 color: #888;
             }
         }
@@ -91,6 +91,8 @@ export default {
         .w(380px);
         .el-input__inner {
             .r(20px);
+            border: 0;
+            box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
         }
     }
 }

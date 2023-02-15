@@ -135,6 +135,7 @@ export default {
         box-sizing: border-box;
         padding: 0 68px;
         letter-spacing: 1px;
+        box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
         &.post {
             background: url("~@/assets/img/notice/post.svg") 10px -3px #fff no-repeat;
         }
@@ -161,6 +162,7 @@ export default {
             .lh(42px);
             background-color: #fff;
             color: #282c31;
+            box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
             &:hover,
             &.active {
                 background-color: #282c31;
@@ -178,6 +180,7 @@ export default {
         padding: 0 12px;
         gap: 10px;
         background-color: #fff;
+        box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
         .u-input {
             .w(98px);
         }
@@ -194,7 +197,7 @@ export default {
         .el-input__inner {
             .r(20px);
             box-sizing: border-box;
-            border: 1px solid #282c31;
+            box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
         }
     }
 }

@@ -1,5 +1,6 @@
 <template>
     <div class="m-notice-box">
+        <!-- 内容 -->
         <div class="m-notice-single" v-loading="loading">
             <header class="m-single-header">
                 <h1 class="m-single-title">{{ post.post_title }}</h1>
