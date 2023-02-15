@@ -14,15 +14,20 @@ export default {
     data: function () {
         return {
             buttons: [
-                {
-                    name: "功能更新",
-                    key: "update",
-                    value: 3,
-                },
+                // {
+                //     name: "游戏资讯",
+                //     key: "information",
+                //     value: 1,
+                // },
                 {
                     name: "魔盒公告",
                     key: "notice",
                     value: 2,
+                },
+                {
+                    name: "功能更新",
+                    key: "update",
+                    value: 3,
                 },
                 {
                     name: "兑换通知",
