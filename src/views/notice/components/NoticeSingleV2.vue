@@ -1,22 +1,21 @@
 <template>
     <div class="m-notice-content">
-        <!-- 返回按钮 -->
+        <!-- 返回列表 -->
         <div class="m-backList" @click="goBack">
             <img class="u-arr" src="@/assets/img/notice/arr.svg" />
             <span>返回列表</span>
         </div>
-        <!-- 内容 -->
-        <NoticeSingle />
         <!-- 返回顶部 -->
         <div class="m-backTop" @click="goTop" v-show="show" :style="style">
             <img class="u-arr" src="@/assets/img/notice/arr.svg" />
             <span>返回顶部</span>
         </div>
+        <!-- 内容 -->
+        <NoticeSingle />
     </div>
 </template>
 
 <script>
-import { Backtop } from "element-ui";
 import NoticeSingle from "./NoticeSingle.vue";
 export default {
     name: "NoticeSingleV2",

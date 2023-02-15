@@ -3,14 +3,15 @@
         <NoticeToolbar @update="update" />
         <div class="m-notice-box">
             <div class="m-notice-list" v-loading="loading">
-                <div
-                    class="u-list"
-                    v-for="(item, i) in list"
-                    :key="i"
-                    :class="showIcons(item.post_subtype)"
-                    @click="toDetail(item.ID)"
-                >
-                    {{ item.post_title }}
+                <div class="m-list" v-for="(item, i) in list" :key="i" @click="toDetail(item.ID)">
+                    <img
+                        class="u-icon"
+                        svg-inline
+                        src="../../../assets/img/notice/post.svg"
+                        v-if="item.post_subtype == 2"
+                    />
+                    <img class="u-icon" svg-inline src="../../../assets/img/notice/up.svg" v-else />
+                    <span class="u-title"> {{ item.post_title }}</span>
                 </div>
             </div>
             <div class="p-notice-pagination">
@@ -85,10 +86,6 @@ export default {
                     this.loading = false;
                 });
         },
-        // 公告icon
-        showIcons(i) {
-            return i == 2 ? "post" : "up";
-        },
         // 去详情页
         toDetail(id) {
             this.$router.push({ name: "single", params: { id } });
@@ -124,26 +121,37 @@ export default {
 .m-notice-list {
     .flex;
     flex-direction: column;
-    gap: 20px;
-    .u-list {
+    gap: 27px;
+    .m-list {
         .pointer;
         .color(#282c31);
-        .size(100%,42px);
-        .lh(42px);
-        .break(1);
+        .size(100%,43px);
+        .lh(43px);
         .r(20px);
+        position: relative;
         box-sizing: border-box;
         padding: 0 68px;
         letter-spacing: 1px;
+        background-color: #fff;
         box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
-        &.post {
-            background: url("~@/assets/img/notice/post.svg") 10px -3px #fff no-repeat;
-        }
-        &.up {
-            background: url("~@/assets/img/notice/up.svg") 10px -3px #fff no-repeat;
-        }
+
         &:hover {
-            background-color: #fff;
+            color: #fff;
+            background-color: #282c31;
+            .u-icon path {
+                fill: #fff;
+            }
+        }
+        .u-title {
+            .db;
+            .break(1);
+        }
+        .u-icon {
+            .pa;
+            .lt(10px, -2px);
+            path {
+                fill: #282c31;
+            }
         }
     }
 }
@@ -200,5 +208,11 @@ export default {
             box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
         }
     }
+}
+.m-notice-content {
+    .pt(84px + @header-height);
+    .flex;
+    flex-direction: column;
+    gap: 24px;
 }
 </style>
