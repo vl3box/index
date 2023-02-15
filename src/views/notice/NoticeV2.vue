@@ -1,18 +1,14 @@
 <template>
-    <div class="p-notice-v2">
+    <div class="p-notice-v2" :class="theme">
         <Header :overlayEnable="true"></Header>
-        <div class="p-notice-container" :class="theme">
+        <div class="p-notice-container">
             <div class="wp">
                 <keep-alive>
                     <router-view></router-view>
                 </keep-alive>
             </div>
         </div>
-        <div class="p-notice-footer">
-            <div class="wp">
-                <Footer></Footer>
-            </div>
-        </div>
+        <Footer darkMode></Footer>
     </div>
 </template>
 

@@ -121,15 +121,17 @@
         }
     }
     // 覆盖element样式
-
     .el-pagination .btn-next,
     .el-pagination .btn-prev,
     .el-dialog,
     .el-pager li {
         background: none;
         color: #ab7fce;
-        &.active {
+        &:hover {
             color: #fff;
+        }
+        &.active {
+            .color(#fba524,#fba524);
         }
     }
     // 遮罩

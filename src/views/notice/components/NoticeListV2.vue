@@ -1,8 +1,8 @@
 <template>
     <div class="m-notice-content">
         <NoticeToolbar @update="update" />
-        <div class="m-notice-box" v-loading="loading">
-            <div class="m-notice-list">
+        <div class="m-notice-box">
+            <div class="m-notice-list" v-loading="loading">
                 <div
                     class="u-list"
                     v-for="(item, i) in list"
@@ -127,7 +127,7 @@ export default {
     gap: 20px;
     .u-list {
         .pointer;
-        .color(#fff);
+        .color(#282c31);
         .size(100%,42px);
         .lh(42px);
         .break(1);
@@ -136,13 +136,65 @@ export default {
         padding: 0 68px;
         letter-spacing: 1px;
         &.post {
-            background: url("~@/assets/img/notice/post.svg") 10px -3px #282c31 no-repeat;
+            background: url("~@/assets/img/notice/post.svg") 10px -3px #fff no-repeat;
         }
         &.up {
-            background: url("~@/assets/img/notice/up.svg") 10px -3px #282c31 no-repeat;
+            background: url("~@/assets/img/notice/up.svg") 10px -3px #fff no-repeat;
         }
         &:hover {
-            background-color: #000;
+            background-color: #fff;
+        }
+    }
+}
+// 分页
+.p-notice-pagination {
+    .flex;
+    gap: 10px;
+    padding: 20px 0;
+    justify-content: flex-end;
+    .el-pager {
+        .flex;
+        gap: 10px;
+        li {
+            .size(42px);
+            .r(100%);
+            .lh(42px);
+            background-color: #fff;
+            color: #282c31;
+            &:hover,
+            &.active {
+                background-color: #282c31;
+                color: #fff;
+            }
+        }
+    }
+    // 跳转
+    .m-jump {
+        .flex;
+        .size(auto,42px);
+        .r(20px);
+        .lh(42px);
+        align-items: center;
+        padding: 0 12px;
+        gap: 10px;
+        background-color: #fff;
+        .u-input {
+            .w(98px);
+        }
+        .u-jump {
+            .r(20px);
+            .fz(14px,28px);
+            .h(28px);
+            .pointer;
+            .bold;
+            color: #fff;
+            padding: 0 12px;
+            background-color: #282c31;
+        }
+        .el-input__inner {
+            .r(20px);
+            box-sizing: border-box;
+            border: 1px solid #282c31;
         }
     }
 }

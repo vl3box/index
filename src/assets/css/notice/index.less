@@ -1,65 +1,39 @@
-.p-notice-container {
+.p-notice-v2 {
     &.black {
         background: url(../../img//notice/bg.png) #000 center top;
     }
     &.white {
         background: url(../../img//notice/bg-white.png) #fff center top no-repeat;
-        background-size: 100% 100%;
+        background-size: cover;
+    }
+    .p-notice-container {
+        backdrop-filter: blur(20px);
     }
     .wp {
         max-width: 1200px;
         .auto(x);
     }
 }
-// 分页
-.p-notice-pagination {
-    .flex;
-    gap: 10px;
-    padding: 20px 0;
-    justify-content: flex-end;
-    .el-pager {
+// 底部
+.c-footer {
+    .r(0);
+    .size(100%,48px);
+    margin: 0;
+    background-color: #24292e;
+    box-sizing: border-box;
+    .c-footer-inner {
         .flex;
-        gap: 10px;
-        li {
-            .size(42px);
-            .r(100%);
-            .lh(42px);
-            background-color: #282c31;
-            color: #fff;
-            &:hover,
-            &.active {
-                background-color: #277ccc;
-            }
-        }
-    }
-    // 跳转
-    .m-jump {
-        .flex;
-        .size(auto,42px);
-        .r(20px);
-        .lh(42px);
+        .h(100%);
         align-items: center;
-        padding: 0 12px;
-        gap: 10px;
-        background-color: #282c31;
-        .u-input {
-            .w(98px);
-        }
-        .u-jump {
-            .r(20px);
-            .fz(14px,28px);
-            .h(28px);
-            .pointer;
-            .bold;
-            color: #282c31;
-            padding: 0 12px;
-            background-color: #fff;
-        }
-        .el-input__inner {
-            .r(20px);
-        }
+        justify-content: space-between;
+    }
+    a:hover,
+    .c-footer-left a:hover {
+        color: #eee;
+        box-shadow: 0 1px #eee;
     }
 }
+
 // 列表容器
 .m-notice-content {
     .pt(100px);
@@ -69,7 +43,7 @@
 // 搜索
 .m-notice-toolbar {
     .pt(60px);
-} 
+}
 // 详情
 .m-detail-toolbar {
     .m-back {
@@ -77,8 +51,8 @@
         .r(20px);
         .pointer;
         .size(90px,42px);
-        background-color: #282c31;
-        color: #fff;
+        background-color: #fff;
+        color: #282c31;
         padding: 0 16px;
         align-items: center;
         justify-content: space-between;
