@@ -223,7 +223,7 @@ export default {
         downBoxSetting: function () {
             // 手动从服务器读取
             getMeta(KEY).then((res) => {
-                let val = res.data.data.value;
+                let val = res.data.data;
                 if (val) {
                     try {
                         let data = JSON.parse(val);
