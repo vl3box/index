@@ -150,7 +150,7 @@ export default {
         box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
         transition: all 0.5s ease-in-out;
         &:hover {
-            color: #fff; 
+            color: #fff;
             background-color: #282c31;
             .u-icon path {
                 fill: #fff;
@@ -172,8 +172,8 @@ export default {
 // 分页
 .p-notice-pagination {
     .flex;
+    .pt(20px);
     gap: 10px;
-    padding: 20px 0;
     justify-content: flex-end;
     .el-pager {
         .flex;
@@ -224,8 +224,10 @@ export default {
     }
 }
 .m-notice-content {
-    .pt(84px + @header-height);
     .flex;
+    box-sizing: border-box;
+    min-height: calc(100vh - @header-height + 16px);
+    padding: 84px + @header-height 0 30px 0;
     flex-direction: column;
     gap: 24px;
 }
