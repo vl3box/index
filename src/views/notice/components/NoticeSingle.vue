@@ -9,13 +9,13 @@
                     <span class="u-modate u-sub-block" title="发布时间">
                         <i class="el-icon-collection-tag"></i>
                         <a :href="'/notice?subtype=' + post.post_subtype" target="_blank">{{
-                            post.post_subtype | showType
+                            showType(post.post_subtype)
                         }}</a>
                     </span>
 
                     <span class="u-modate u-sub-block" title="发布时间">
                         <i class="el-icon-date"></i>
-                        <time>最后更新 : {{ post.post_modified | showDate }}</time>
+                        <time>最后更新 : {{ showDate(post.post_modified) }}</time>
                     </span>
 
                     <span class="u-views u-sub-block" v-if="isAdmin">
@@ -77,7 +77,7 @@ import Admin from "@jx3box/jx3box-common-ui/src/bread/Admin.vue";
 
 export default {
     name: "NoticeSingle",
-    props: [],
+    props: ["id"],
     components: {
         Article,
         Comment,
@@ -94,15 +94,13 @@ export default {
         };
     },
     computed: {
-        id: function () {
-            let _list = location.pathname.split("/");
-            if (_list.length > 2) {
-                return ~~_list[2];
-            }
-            return false;
-
-            // return getAppID();
-        },
+        // id: function () {
+        //     let _list = location.pathname.split("/");
+        //     if (_list.length > 2) {
+        //         return ~~_list[2];
+        //     }
+        //     return false;
+        // },
         user_id: function () {
             return this.post?.post_author || 0;
         },
@@ -122,16 +120,21 @@ export default {
             return this.$store.state.client || "std";
         },
     },
-    watch: {},
-    methods: {},
-    filters: {
-        showDate,
-        showType: function (val) {
-            return types[val];
+    watch: {
+        id: {
+            immediate: true,
+            deep: true,
+            handler: function (id) {
+                if (id) this.load();
+            },
         },
     },
-    created: function () {
-        if (this.id) {
+    methods: {
+        showDate,
+        showType(val) {
+            return types[val];
+        },
+        load() {
             this.loading = true;
             getPost(this.id, this)
                 .then((res) => {
@@ -146,7 +149,7 @@ export default {
                 this.stat = res.data;
             });
             postStat("notice", this.id);
-        }
+        },
     },
     mounted: function () {
         this.isAdmin = User.isAdmin();

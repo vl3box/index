@@ -21,6 +21,7 @@
                     :current-page.sync="page"
                     :page-size="per"
                     :total="total"
+                    :pager-count="5"
                     @current-change="changePage"
                     :hide-on-single-page="true"
                 />
@@ -96,6 +97,7 @@ export default {
         // 去详情页
         toDetail(id) {
             this.$router.push({ name: "single", params: { id } });
+            window.scrollTo(0, 0);
         },
         changePage(i) {
             this.page = ~~i;
@@ -109,8 +111,8 @@ export default {
         },
         // 搜索
         update({ search, subtype }) {
-            if (search) this.search = search;
-            if (subtype) this.subtype = subtype;
+            this.search = search;
+            this.subtype = subtype;
         },
     },
 

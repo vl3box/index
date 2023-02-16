@@ -11,7 +11,7 @@
                 {{ item.name }}
             </span>
         </div>
-        <el-input class="u-search" v-model="search" placeholder="请输入关键词搜索"></el-input>
+        <el-input class="u-search" v-model="search" placeholder="请输入关键词搜索" clearable></el-input>
     </div>
 </template>
 <script>

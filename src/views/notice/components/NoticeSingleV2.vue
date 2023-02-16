@@ -11,7 +11,7 @@
             <span>返回顶部</span>
         </div>
         <!-- 内容 -->
-        <NoticeSingle />
+        <NoticeSingle :id="singleId" />
     </div>
 </template>
 
@@ -32,11 +32,14 @@ export default {
                 top: this.top + "px",
             };
         },
+        singleId() {
+            return this.$route.params.id;
+        },
     },
 
     methods: {
         goBack() {
-            this.$router.go(-1) ? this.$router.go(-1) : this.$router.push({ path: "/" });
+            this.$router.push({ name: "list" });
         },
         goTop() {
             const self = this;
@@ -94,6 +97,7 @@ export default {
     .z(2);
     .size(40px,134px);
     .pointer;
+    .x;
     right: -50px;
     flex-direction: column;
     align-items: center;
@@ -118,6 +122,24 @@ export default {
         .r(20px);
         padding: 30px;
         box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
+    }
+}
+@media screen and (max-width: @phone) {
+    .m-backTop {
+        right: -10px;
+    }
+    .m-backList {
+        .w(72px);
+    }
+    .m-notice-content {
+        .pt(100px);
+        .fz(12px);
+        .m-notice-single {
+            padding: 30px 5px;
+        }
+        .m-single-title {
+            font-size: 18px;
+        }
     }
 }
 </style>

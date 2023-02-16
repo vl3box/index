@@ -10,7 +10,7 @@
         backdrop-filter: blur(20px);
     }
     .wp {
-        max-width: 1200px;
+        max-width: 1160px;
         .auto(x);
     }
     input::-webkit-outer-spin-button,
@@ -46,6 +46,8 @@
         .p-notice-container {
             box-sizing: border-box;
             padding: 0 10px;
+            max-width: 100%;
+            .clip;
         }
         .m-notice-toolbar .m-buttons .u-button {
             .fz(14px);
@@ -71,9 +73,12 @@
                 box-sizing: border-box;
                 width: 100%;
             }
-            .el-pager li {
-                .size(35px);
-                .lh(35px);
+            .el-pager {
+                gap: 7px;
+                li {
+                    .size(35px);
+                    .lh(35px);
+                }
             }
             flex-wrap: wrap;
         }
