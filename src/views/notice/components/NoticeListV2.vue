@@ -1,6 +1,8 @@
 <template>
     <div class="m-notice-content">
+        <!-- 功能条 -->
         <NoticeToolbar @update="update" />
+        <!-- 列表 -->
         <div class="m-notice-box">
             <div class="m-notice-list" v-loading="loading">
                 <div class="m-list" v-for="(item, i) in list" :key="i" @click="toDetail(item.ID)">
@@ -14,6 +16,7 @@
                     <span class="u-title"> {{ item.post_title }}</span>
                 </div>
             </div>
+            <!-- 分页和跳转 -->
             <div class="p-notice-pagination" v-if="pages > 1">
                 <el-pagination
                     class="m-pagination"
@@ -113,6 +116,7 @@ export default {
         update({ search, subtype }) {
             this.search = search;
             this.subtype = subtype;
+            this.page = 1;
         },
     },
 
