@@ -102,12 +102,6 @@ export default {
         },
         // 跳转
         toJump() {
-            // const index = this.index.replace(/\D/g, "");
-            // let _index = index;
-            // if (index > this.pages) _index = this.pages;
-            // if (index < 1) _index = 1;
-            // this.page = ~~_index;
-            // this.index = "";
             if (this.index > this.pages) this.index = this.pages;
             if (this.index < 1) this.index = 1;
             this.changePage(this.index);
