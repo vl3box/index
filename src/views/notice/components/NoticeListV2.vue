@@ -148,9 +148,9 @@ export default {
         letter-spacing: 1px;
         background-color: #fff;
         box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
-
+        transition: all 0.5s ease-in-out;
         &:hover {
-            color: #fff;
+            color: #fff; 
             background-color: #282c31;
             .u-icon path {
                 fill: #fff;
