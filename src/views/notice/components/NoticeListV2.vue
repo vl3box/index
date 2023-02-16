@@ -14,18 +14,25 @@
                     <span class="u-title"> {{ item.post_title }}</span>
                 </div>
             </div>
-            <div class="p-notice-pagination">
+            <div class="p-notice-pagination" v-if="pages > 1">
                 <el-pagination
                     class="m-pagination"
                     layout="pager"
                     :current-page.sync="page"
                     :page-size="per"
                     :total="total"
+                    @current-change="changePage"
                     :hide-on-single-page="true"
                 />
                 <div class="m-jump">
-                    <el-input v-model="index" class="u-input" size="mini"></el-input>
-                    <span class="u-jump" @click="tuJump">跳转</span>
+                    <el-input
+                        v-model="index"
+                        type="number"
+                        class="u-input"
+                        size="mini"
+                        @keyup.enter.native="toJump"
+                    ></el-input>
+                    <span class="u-jump" @click="toJump">跳转</span>
                 </div>
             </div>
         </div>
@@ -90,13 +97,20 @@ export default {
         toDetail(id) {
             this.$router.push({ name: "single", params: { id } });
         },
+        changePage(i) {
+            this.page = ~~i;
+        },
         // 跳转
-        tuJump() {
-            const index = this.index.replace(/\D/g, "");
-            let _index = index;
-            if (index > this.pages) _index = this.pages;
-            if (index < 1) _index = 1;
-            this.page = ~~_index;
+        toJump() {
+            // const index = this.index.replace(/\D/g, "");
+            // let _index = index;
+            // if (index > this.pages) _index = this.pages;
+            // if (index < 1) _index = 1;
+            // this.page = ~~_index;
+            // this.index = "";
+            if (this.index > this.pages) this.index = this.pages;
+            if (this.index < 1) this.index = 1;
+            this.changePage(this.index);
             this.index = "";
         },
         // 搜索

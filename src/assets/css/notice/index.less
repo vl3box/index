@@ -13,6 +13,13 @@
         max-width: 1200px;
         .auto(x);
     }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
 }
 // 底部
 .c-footer {
@@ -32,4 +39,46 @@
         color: #eee;
         box-shadow: 0 1px #eee;
     }
-} 
+}
+
+@media screen and (max-width: @phone) {
+    .p-notice-v2 {
+        .p-notice-container {
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+        .m-notice-toolbar .m-buttons .u-button {
+            .fz(14px);
+            .x;
+            padding: 0;
+            min-width: 92px;
+        }
+        .m-notice-content {
+            min-height: calc(100vh - @header-height + 15px);
+            box-sizing: border-box;
+            padding: 100px 0 30px 0;
+
+            .m-notice-box {
+                .pt(7px);
+            }
+        }
+        .m-notice-list .m-list .u-title {
+            .fz(13px);
+        }
+        .p-notice-pagination {
+            padding-bottom: 0;
+            .m-pagination {
+                box-sizing: border-box;
+                width: 100%;
+            }
+            .el-pager li {
+                .size(35px);
+                .lh(35px);
+            }
+            flex-wrap: wrap;
+        }
+    }
+    .c-footer .c-footer-inner {
+        justify-content: center;
+    }
+}

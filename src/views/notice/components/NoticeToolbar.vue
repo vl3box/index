@@ -1,7 +1,13 @@
 <template>
     <div class="m-notice-toolbar">
         <div class="m-buttons">
-            <span class="u-button" v-for="(item, i) in buttons" :key="i" @click="change(item.value)" :class="item.key">
+            <span
+                class="u-button"
+                v-for="(item, i) in buttons"
+                :key="i"
+                @click="change(item.value)"
+                :class="[{ active: subtype == item.value }, item.key]"
+            >
                 {{ item.name }}
             </span>
         </div>
@@ -36,7 +42,7 @@ export default {
                 },
             ],
             search: "",
-            subtype: 0,
+            subtype: 2,
         };
     },
     computed: {
@@ -63,42 +69,5 @@ export default {
 };
 </script>
 <style lang="less">
-.m-notice-toolbar {
-    .flex;
-    justify-content: space-between;
-    align-items: center;
-    .m-buttons {
-        .flex;
-        gap: 10px;
-        .u-button {
-            .size(100%,42px);
-            .lh(42px);
-            .r(20px);
-            .bold;
-            .pointer;
-            color: #fff;
-            padding: 0 20px;
-            letter-spacing: 2px;
-            &.update {
-                background-color: #c92888;
-            }
-            &.notice {
-                background-color: #277ccc;
-            }
-            &.message {
-                background-color: #fff;
-                box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
-                color: #888;
-            }
-        }
-    }
-    .u-search {
-        .w(380px);
-        .el-input__inner {
-            .r(20px);
-            border: 0;
-            box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
-        }
-    }
-}
+@import "~@/assets/css/notice/toolbar.less";
 </style>
