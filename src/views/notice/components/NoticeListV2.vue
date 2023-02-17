@@ -19,13 +19,8 @@
         <div class="m-notice-box">
             <div class="m-notice-list" v-loading="loading">
                 <div class="m-list" v-for="(item, i) in list" :key="i" @click="toDetail(item.ID)">
-                    <img
-                        class="u-icon"
-                        svg-inline
-                        src="../../../assets/img/notice/up.svg"
-                        v-if="item.post_subtype == 3"
-                    />
-                    <img class="u-icon" svg-inline src="../../../assets/img/notice/post.svg" v-else />
+                    <img class="u-icon" svg-inline src="/src/assets/img/notice/up.svg" v-if="item.post_subtype == 3" />
+                    <img class="u-icon" svg-inline src="/src/assets/img/notice/post.svg" v-else />
                     <span class="u-title"> {{ item.post_title }}</span>
                 </div>
             </div>
@@ -112,10 +107,10 @@ export default {
                 page: ~~this.page || 1,
                 sticky: 1,
                 type: "notice",
+                ...this.query,
             };
-            const optionalParams = this.query;
-            Object.keys(optionalParams).forEach((item) => {
-                if (this[item]) params[item] = this[item];
+            Object.keys(params).forEach((item) => {
+                if (!params[item]) delete params[item];
             });
             return params;
         },
@@ -153,7 +148,6 @@ export default {
             this.subtype = value;
         },
     },
-
     watch: {
         params: {
             deep: true,
