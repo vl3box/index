@@ -9,6 +9,7 @@
             </div>
         </div>
         <Footer darkMode></Footer>
+        <div class="m-bg-blur"></div>
     </div>
 </template>
 

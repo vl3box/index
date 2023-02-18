@@ -8,7 +8,7 @@
                     v-for="(item, i) in buttons"
                     :key="i"
                     @click="change(item.value)"
-                    :class="[{ active: subtype == item.value || subtype == 0 }, item.key]"
+                    :class="[{ active: showSubtype(item.value) }, item.key]"
                 >
                     {{ item.name }}
                 </span>
@@ -52,6 +52,7 @@
 </template>
 <script>
 import { getPosts } from "@/service/cms";
+import { join, pull, cloneDeep, concat } from "lodash";
 export default {
     name: "NoticeList",
     data: function () {
@@ -67,7 +68,7 @@ export default {
 
             client: this.$store.state.client, //版本选择
             search: "",
-            subtype: 0,
+            subtype: [2, 3, 4],
 
             buttons: [
                 // {
@@ -98,7 +99,7 @@ export default {
             return {
                 client: this.client,
                 search: this.search,
-                subtype: this.subtype,
+                subtype: join(this.subtype, ","),
             };
         },
         params: function () {
@@ -143,9 +144,18 @@ export default {
             this.changePage(this.index);
             this.index = "";
         },
+        // 显示选中的类型
+        showSubtype(value) {
+            return this.subtype.includes(value);
+        },
         // 切换类型
         change(value) {
-            this.subtype = value;
+            const list = cloneDeep(this.subtype);
+            if (list.length > 1) {
+                this.subtype = list.includes(value) ? pull(list, value) : concat(list, value);
+            } else {
+                if (!list.includes(value)) this.subtype = concat(list, value);
+            }
         },
     },
     watch: {

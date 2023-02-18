@@ -4,7 +4,7 @@
             <div class="m-notice-types">
                 <el-radio-group v-model="subtype">
                     <el-radio label="">全部</el-radio>
-                    <el-radio v-for="(label,key) in notice_types" :key="key" :label="key">{{label}}</el-radio>
+                    <el-radio v-for="(label, key) in notice_types" :key="key" :label="key">{{ label }}</el-radio>
                 </el-radio-group>
             </div>
             <div class="m-notice-filter">
@@ -18,23 +18,17 @@
                     <li class="u-item" v-for="(item, i) in data" :key="i">
                         <!-- Banner -->
                         <a class="u-banner" :href="'/notice/' + item.ID" :target="target">
-                            <img
-                                :src="
-                                showBanner(
-                                    item.post_banner,
-                                    item.post_subtype
-                                )
-                            "
-                            />
+                            <img :src="showBanner(item.post_banner, item.post_subtype)" />
                         </a>
 
                         <h3 class="u-post" :class="{ isSticky: item.sticky }">
                             <a
                                 class="u-title"
-                                :style="item.color | isHighlight"
+                                :style="isHighlight(item.color)"
                                 :href="'/notice/' + item.ID"
                                 :target="target"
-                            >{{ item.post_title || "无标题" }}</a>
+                                >{{ item.post_title || "无标题" }}</a
+                            >
                         </h3>
 
                         <!-- 字段 -->
@@ -45,23 +39,19 @@
                             <span class="u-author" v-if="isAdmin">
                                 <img
                                     class="u-author-avatar"
-                                    :src="item.author_info.user_avatar | showAvatar"
+                                    :src="showAvatar(item.author_info.user_avatar)"
                                     :alt="item.author_info.display_name"
                                 />
-                                <a
-                                    class="u-author-name"
-                                    :href="item.post_author | authorLink"
-                                    target="_blank"
-                                >{{ item.author_info.display_name }}</a>
+                                <a class="u-author-name" :href="authorLink(item.post_author)" target="_blank">{{
+                                    item.author_info.display_name
+                                }}</a>
                             </span>
-                            <time class="u-time">{{item.post_modified | dateFormat}}</time>
+                            <time class="u-time">{{ dateFormat(item.post_modified) }}</time>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="m-archive-null" v-else>
-                <i class="el-icon-warning-outline"></i> 暂时还没有相关内容
-            </div>
+            <div class="m-archive-null" v-else><i class="el-icon-warning-outline"></i> 暂时还没有相关内容</div>
             <el-pagination
                 class="m-archive-pages"
                 background
@@ -79,12 +69,7 @@ import _ from "lodash";
 import User from "@jx3box/jx3box-common/js/user";
 import { getPosts } from "@/service/cms";
 import { getRelativeTime } from "@/utils/dateFormat";
-import {
-    __ossMirror,
-    __imgPath,
-    __ossRoot,
-    __Root,
-} from "@jx3box/jx3box-common/data/jx3box";
+import { __ossMirror, __imgPath, __ossRoot, __Root } from "@jx3box/jx3box-common/data/jx3box";
 import {
     showAvatar,
     authorLink,
@@ -112,7 +97,7 @@ export default {
             client: this.$store.state.client, //版本选择
             isAdmin: false,
             notice_types,
-            subtype : ''
+            subtype: "",
         };
     },
     computed: {
@@ -123,7 +108,7 @@ export default {
                 sticky: 1,
                 type: "notice",
             };
-            let optionalParams = ["search", "client","subtype"];
+            let optionalParams = ["search", "client", "subtype"];
             optionalParams.forEach((item) => {
                 if (this[item]) {
                     params[item] = this[item];
@@ -162,8 +147,7 @@ export default {
                 return __imgPath + "image/banner/notice" + subtype + ".png?v=1";
             }
         },
-    },
-    filters: {
+
         dateFormat: function (val) {
             return getRelativeTime(new Date(val));
         },
@@ -195,7 +179,7 @@ export default {
     created: function () {
         let params = new URLSearchParams(location.search);
         this.page = params.get("page") || 1;
-        this.subtype = params.get('subtype') || ''
+        this.subtype = params.get("subtype") || "";
     },
     mounted: function () {
         this.isAdmin = User.isAdmin();

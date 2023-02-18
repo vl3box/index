@@ -6,13 +6,20 @@
         background: url(../../img//notice/bg-white.png) #fff center fixed;
         background-size: cover;
     }
-    .p-notice-container {
+    .m-bg-blur {
+        .pf;
+        .lt(0);
+        .rb(0);
+        .full;
         backdrop-filter: blur(20px);
     }
     .wp {
+        position: relative;
         max-width: 1160px;
         .auto(x);
+        .z(1);
     }
+
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none !important;
@@ -24,10 +31,12 @@
 // 底部
 .c-footer {
     .r(0);
+    .z(1);
     .size(100%,48px);
     margin: 0;
     background-color: #24292e;
     box-sizing: border-box;
+    position: relative;
     .c-footer-inner {
         .flex;
         .h(100%);
@@ -38,6 +47,41 @@
     .c-footer-left a:hover {
         color: #eee;
         box-shadow: 0 1px #eee;
+    }
+}
+@media screen and (min-width: 2048px) and (max-width: 4096px) {
+    .p-notice-v2 {
+        .wp {
+            max-width: 2000px;
+        }
+        .m-notice-content {
+            gap: 40px;
+        }
+        .m-notice-list {
+            gap: 47px;
+            .m-list {
+                height: 63px;
+                .lh(63px);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 2048px) {
+    .p-notice-v2 {
+        .wp {
+            max-width: 1440px;
+        }
+        .m-notice-content {
+            gap: 30px;
+        }
+        .m-notice-list {
+            gap: 37px;
+            .m-list {
+                height: 57px;
+                .lh(57px);
+            }
+        }
     }
 }
 
