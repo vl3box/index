@@ -61,7 +61,7 @@ export default {
             var osTop = document.documentElement.scrollTop || document.body.scrollTop;
             if (osTop >= clientHeight) {
                 self.show = true;
-                self.top = osTop + clientHeight - 200;
+                self.top = osTop + clientHeight - 210;
             }
             if (!self.isTop) {
                 clearInterval(self.scrollToptimer);
