@@ -1,5 +1,5 @@
 <template>
-    <div class="m-notice-content">
+    <div class="m-notice-content m-notice-content-single">
         <!-- 返回列表 -->
         <div class="m-backList" @click="goBack">
             <img class="u-arr" src="@/assets/img/notice/arr.svg" />
@@ -42,32 +42,19 @@ export default {
             this.$router.push({ name: "list" });
         },
         goTop() {
-            const self = this;
-            this.scrollToptimer = setInterval(function () {
-                var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-                var ispeed = Math.floor(-osTop / 7);
-                document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-                if (osTop === 0) {
-                    clearInterval(self.scrollToptimer);
-                }
-                self.isTop = true;
-            }, 30);
+            document.documentElement.scrollTop = 0;
+        },
+        handlerScroll() {
+            let clientHeight = document.documentElement.clientHeight;
+            let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if (osTop >= clientHeight) {
+                this.show = true;
+                this.top = osTop + clientHeight - 220;
+            }
         },
     },
     mounted() {
-        var clientHeight = document.documentElement.clientHeight;
-        const self = this;
-        window.addEventListener("scroll", function () {
-            var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-            if (osTop >= clientHeight) {
-                self.show = true;
-                self.top = osTop + clientHeight - 210;
-            }
-            if (!self.isTop) {
-                clearInterval(self.scrollToptimer);
-            }
-            self.isTop = false;
-        });
+        window.addEventListener("scroll", this.handlerScroll);
     },
 };
 </script>
@@ -111,22 +98,26 @@ export default {
 }
 // 内容区域
 .m-notice-content {
-    .pt(160px);
     position: relative;
     min-height: calc(100vh - 54px);
     box-sizing: border-box;
+    .pt(160px);
+    &.m-notice-content-single {
+        padding: 160px 20px 0 20px;
+    }
     .m-notice-box {
         padding: 20px 0 60px 0;
     }
     .m-notice-single {
         .r(20px);
         padding: 30px;
+        background-color: #fff;
         box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.1);
     }
 }
-@media screen and (max-width: @phone) {
+@media screen and (max-width: @ipad) {
     .m-backTop {
-        right: -10px;
+        right: 0;
     }
     .m-backList {
         .w(72px);

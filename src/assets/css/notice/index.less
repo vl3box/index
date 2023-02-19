@@ -6,6 +6,7 @@
         background: url(../../img//notice/bg-white.png) #fff center fixed;
         background-size: cover;
     }
+
     .m-bg-blur {
         .pf;
         .lt(0);
@@ -15,7 +16,7 @@
     }
     .wp {
         position: relative;
-        max-width: 1160px;
+        max-width: 1200px;
         .auto(x);
         .z(1);
     }
@@ -99,9 +100,11 @@
     .p-notice-v2 {
         .p-notice-container {
             box-sizing: border-box;
-            padding: 0 10px;
             max-width: 100%;
             .clip;
+            .wp {
+                padding: 0 10px;
+            }
         }
         .m-notice-toolbar .m-buttons .u-button {
             .fz(14px);
@@ -111,6 +114,9 @@
         }
         .m-notice-content {
             padding: 100px 0 30px 0;
+            &.m-notice-content-single {
+                padding: 100px 0 30px 0;
+            }
             .m-notice-box {
                 .pt(7px);
             }
