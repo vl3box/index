@@ -51,7 +51,6 @@ export default {
                 this.show = true;
                 this.top = osTop + clientHeight - 220;
             }
-            console.log("???");
         },
     },
     mounted() {
