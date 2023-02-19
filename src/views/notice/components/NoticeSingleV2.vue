@@ -51,10 +51,14 @@ export default {
                 this.show = true;
                 this.top = osTop + clientHeight - 220;
             }
+            console.log("???");
         },
     },
     mounted() {
-        window.addEventListener("scroll", this.handlerScroll);
+        document.addEventListener("scroll", this.handlerScroll);
+    },
+    beforeDestroy() {
+        document.removeEventListener("scroll", this.handlerScroll);
     },
 };
 </script>

@@ -6,8 +6,14 @@ const Single = () => import("@/views/notice/components/NoticeSingleV2.vue");
 
 Vue.use(VueRouter);
 
-const routes = [
-    { name: "list", path: "/", component: List },
+const routes = [{
+        name: "list",
+        path: "/",
+        component: List,
+        meta: {
+            keepAlive: true
+        }
+    },
     { name: "single", path: "/:id", component: Single },
 ];
 
