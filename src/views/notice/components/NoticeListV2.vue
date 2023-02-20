@@ -18,12 +18,18 @@
         <!-- 列表 -->
         <div class="m-notice-box">
             <div class="m-notice-list" v-loading="loading">
-                <div class="m-list" v-for="(item, i) in list" :key="i" @click="toDetail(item.ID)">
+                <router-link
+                    class="m-list"
+                    v-for="(item, i) in list"
+                    :key="i"
+                    :to="{ name: 'single', params: { id: item.ID } }"
+                    target="_blank"
+                >
                     <img class="u-icon" svg-inline src="/src/assets/img/notice/up.svg" v-if="item.post_subtype == 3" />
                     <img class="u-icon" svg-inline src="/src/assets/img/notice/post.svg" v-else />
                     <span class="u-title"> {{ item.post_title }}</span>
                     <span class="u-time"> {{ showDate(item.post_modified) }}</span>
-                </div>
+                </router-link>
             </div>
             <!-- 分页和跳转 -->
             <div class="p-notice-pagination" v-if="pages > 1">
@@ -54,7 +60,7 @@
 <script>
 import { getPosts } from "@/service/cms";
 import { join, pull, cloneDeep, concat } from "lodash";
-import {   showDate } from "@/utils/moment";
+import { showDate } from "@/utils/moment";
 export default {
     name: "NoticeList",
     data: function () {
@@ -159,7 +165,7 @@ export default {
                 if (!list.includes(value)) this.subtype = concat(list, value);
             }
         },
-        showDate
+        showDate,
     },
     watch: {
         params: {
