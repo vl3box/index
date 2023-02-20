@@ -10,7 +10,8 @@
                         :content="item.serverName"
                         placement="bottom"
                     >
-                        <svg-icon icon-class="world" />
+                        <!-- <svg-icon icon-class="world" /> -->
+                        <span></span>
                     </el-tooltip>
                     <span class="u-name">{{ item.serverName }}</span>
                 </div>
