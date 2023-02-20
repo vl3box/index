@@ -3,9 +3,11 @@
         <div class="m-news-header m-sideblock-header">
             <!-- <i class="el-icon-message-solid"></i> -->
             <div class="u-left">
-                <a class="u-title" :href="more_link" target="_blank"
-                    ><img class="u-icon" svg-inline src="@/assets/img/left/news.svg" />动态</a
-                >
+                <a class="u-title" :href="more_link" target="_blank">
+                    <!-- <img class="u-icon" svg-inline src="@/assets/img/left/news.svg" /> -->
+                    <svg-icon class-name="u-icon" icon-class="news" />
+                    动态
+                </a>
                 <div class="u-mode-list">
                     <span
                         :class="`u-mode u-mode-${mode} ${item.value == mode ? 'is-active' : ''}`"
