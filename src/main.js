@@ -16,6 +16,8 @@ Vue.use(JX3BOX_UI);
 // import Comments from "@jx3box/jx3box-comment-ui"
 // Vue.use(Comments)
 
+import './icons' // svgicon
+
 // 数据与路由
 // import router from "./router";
 import store from "./store";
