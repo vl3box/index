@@ -3,83 +3,88 @@ const pkg = require("./package.json");
 const { JX3BOX, SEO } = require("@jx3box/jx3box-common");
 const Setting = require("./setting.json");
 
+function resolve(dir) {
+    return path.join(__dirname, dir);
+}
+const pages = {
+    index: {
+        title: "剑网3" + Setting.suffix,
+        entry: "src/main.js",
+        template: "public/index.html",
+        filename: "index.html",
+    },
+    notice: {
+        title: "公告资讯" + Setting.suffix,
+        entry: "src/pages/notice.js",
+        template: "public/index.html",
+        filename: "notice/index.html",
+    },
+    tv: {
+        title: "魔盒电视台" + Setting.suffix,
+        entry: "src/pages/tv.js",
+        template: "public/index.html",
+        filename: "tv/index.html",
+    },
+    about: {
+        title: "关于我们" + Setting.suffix,
+        entry: "src/pages/about.js",
+        template: "public/index.html",
+        filename: "about/index.html",
+    },
+};
+
 module.exports = {
     //❤️ Multiple pages ~
-    pages: {
-        index: {
-            title: "剑网3" + Setting.suffix,
-            entry: "src/main.js",
-            template: "public/index.html",
-            filename: "index.html",
-        },
-        notice: {
-            title: "公告资讯" + Setting.suffix,
-            entry: "src/pages/notice.js",
-            template: "public/index.html",
-            filename: "notice/index.html",
-        },
-        tv: {
-            title: "魔盒电视台" + Setting.suffix,
-            entry: "src/pages/tv.js",
-            template: "public/index.html",
-            filename: "tv/index.html",
-        },
-        about: {
-            title: "关于我们" + Setting.suffix,
-            entry: "src/pages/about.js",
-            template: "public/index.html",
-            filename: "about/index.html",
-        },
-    },
+    pages: pages,
 
     //❤️ Porxy ~
     devServer: {
         proxy: {
             "/api/vip": {
                 target: "https://pay.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
             "/api/event": {
                 target: "https://pay.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
-            "/api/inspire":{
+            "/api/inspire": {
                 target: "https://pay.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
             "/api/messages": {
                 target: "https://helper.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
             "/api/summary": {
                 target: "https://next2.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
             "/api/comment": {
                 target: "https://next2.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
             "/api/team": {
                 target: "https://team.api.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
             "/xoyo/daily": {
                 target: "https://team.api.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
@@ -88,7 +93,7 @@ module.exports = {
             },
             "/api": {
                 target: "https://next2.jx3box.com",
-                onProxyReq: function(request) {
+                onProxyReq: function (request) {
                     request.setHeader("origin", "");
                 },
             },
@@ -184,8 +189,42 @@ module.exports = {
         (process.env.STATIC_PATH == "root" && "/") ||
         //for lost
         "/",
-
     chainWebpack: (config) => {
+        // // it can improve the speed of the first screen, it is recommended to turn on preload
+        // Object.keys(pages).forEach((name) => {
+        //     config.plugin(`preload-${name}`).tap(() => [
+        //         {
+        //             rel: "preload",
+        //             // to ignore runtime.js
+        //             fileBlacklist: [/\.map$/, /hot-update\.js$/, /runtime\..*\.js$/],
+        //             include: "initial",
+        //         },
+        //     ]);
+        // });
+
+        // // when there are many pages, it will cause too many meaningless requests
+        // config.plugins.delete("prefetch");
+
+        // use svg locally
+        // set svg-sprite-loader
+        config.module.rule("svg").exclude.add(resolve("src/icons")).end();
+        config.module
+            .rule("icons")
+            .test(/\.svg$/)
+            .include.add(resolve("src/icons"))
+            .end()
+            .use("svg-sprite-loader")
+            .loader("svg-sprite-loader")
+            .options({
+                symbolId: "icon-[name]",
+            })
+            .end();
+
+        // // drop console.log
+        // config.optimization.minimizer("terser").tap((args) => {
+        //     args[0].terserOptions.compress.drop_console = true;
+        //     return args;
+        // });
 
         //💝 in-line small imgs ~
         config.module
@@ -195,10 +234,7 @@ module.exports = {
             .tap((options) => Object.assign(options, { limit: 10240 }));
 
         //💝 in-line svg imgs ~
-        config.module
-            .rule("vue")
-            .use("vue-svg-inline-loader")
-            .loader("vue-svg-inline-loader");
+        config.module.rule("vue").use("vue-svg-inline-loader").loader("vue-svg-inline-loader");
 
         //💖 import common less var * mixin ~
         const types = ["vue-modules", "vue", "normal-modules", "normal"];
@@ -210,11 +246,9 @@ module.exports = {
         );
 
         function addStyleResource(rule) {
-            rule.use("style-resource")
-                .loader("style-resources-loader")
-                .options({
-                    patterns: preload_styles,
-                });
+            rule.use("style-resource").loader("style-resources-loader").options({
+                patterns: preload_styles,
+            });
         }
         types.forEach((type) => addStyleResource(config.module.rule("less").oneOf(type)));
     },

@@ -5,6 +5,7 @@
             <div class="m-left m-sidebar">
                 <welcome />
                 <news />
+                <jx3world />
                 <jx3code />
                 <feedback />
                 <qrcode />
@@ -26,9 +27,9 @@
                             <database />
                             <banner />
                             <!-- <servers /> -->
-                            <servers2 />
-                            <activity />
-                            <celebrity />
+                            <!-- <servers2 /> -->
+                            <!-- <activity /> -->
+                            <!-- <celebrity /> -->
                             <price />
                             <transaction />
                             <face />
@@ -46,9 +47,10 @@
 // 左侧
 import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
+import jx3world from "@/components/v3/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
 
-import servers2 from "@/components/index/servers2.vue";
+// import servers2 from "@/components/index/servers2.vue";
 import feedback from "@/components/v2/feedback.vue";
 import qrcode from "@/components/v2/qrcode.vue";
 
@@ -65,8 +67,8 @@ import face from "@/components/index/face.vue";
 
 // v2 右侧
 import banner from "@/components/v2/banner.vue";
-import activity from "@/components/v2/activity.vue";
-import celebrity from "@/components/v2/celebrity.vue";
+// import activity from "@/components/v2/activity.vue";
+// import celebrity from "@/components/v2/celebrity.vue";
 import price from "@/components/index/price.vue";
 import transaction from "@/components/index/transaction_mini.vue";
 import database from "@/components/index/database.vue";
@@ -96,10 +98,11 @@ export default {
         // 左侧
         welcome,
         news,
+        jx3world,
         jx3code,
 
         // servers,
-        servers2,
+        // servers2,
 
         feedback,
         qrcode,
@@ -116,8 +119,8 @@ export default {
 
         // 右侧
         banner,
-        activity,
-        celebrity,
+        // activity,
+        // celebrity,
         database,
         price,
         transaction,
