@@ -3,9 +3,10 @@
     <div class="m-world m-sideblock">
         <div class="m-sideblock-header">
             <div class="u-left">
-                <el-tooltip :class="is_open ? 'open' : 'closed'" effect="dark" content="开服监控" placement="top">
+                <el-tooltip effect="dark" content="开服监控" placement="top">
                     <a href="/app/servers2" target="_blank">
-                        <svg-icon class-name="u-icon" icon-class="world" />
+                        <i class="u-status" :class="is_open ? 'open' : 'closed'" ></i>
+                        <!-- <svg-icon class-name="u-icon" icon-class="world" /> -->
                     </a>
                 </el-tooltip>
                 <span class="u-title">江湖</span>
@@ -22,9 +23,9 @@
             <div class="u-right">
                 <span class="world-tip">{{ world_tip }}</span>
                 <!-- <el-tooltip effect="dark" :content="more_title" placement="top"> -->
-                <a :href="more_link" title="查看全部" class="u-more" target="_blank" rel="noopener noreferrer">
+                <!-- <a :href="more_link" title="查看全部" class="u-more" target="_blank" rel="noopener noreferrer">
                     <i class="el-icon-more"></i>
-                </a>
+                </a> -->
                 <!-- </el-tooltip> -->
             </div>
         </div>

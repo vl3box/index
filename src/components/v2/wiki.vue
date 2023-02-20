@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="m-v2-post-box" v-loading="loading">
-            <div class="m-v2-post-header m-sideblock-header">
+            <div class="m-v2-post-header">
                 <el-tabs v-model="type">
                     <el-tab-pane name="all">
                         <span slot="label">全部</span>
