@@ -8,7 +8,6 @@
                 <jx3world />
                 <jx3code />
                 <feedback />
-                <qrcode />
             </div>
             <div class="m-primary">
                 <live />
@@ -35,11 +34,10 @@ import jx3world from "@/components/v3/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
 
 import feedback from "@/components/v2/feedback.vue";
-import qrcode from "@/components/v2/qrcode.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
-import slider from "@/components/v2/slider.vue";
+import slider from "@/components/v3/slider.vue";
 
 import box from "@/components/index/box.vue";
 

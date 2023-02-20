@@ -5,8 +5,8 @@
  * @Description:
 -->
 <template>
-    <div class="m-banner-wrapper m-v2-banner" v-if="data && data.length">
-        <el-carousel class="m-banner" trigger="click" height="180px" v-loading="loading">
+    <div class="m-banner" v-if="data && data.length">
+        <el-carousel class="m-banner-box" trigger="click" height="180px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank" @click="handleClick(item, $event)"
                     ><img :src="resolveImagePath(item.img)"
@@ -72,6 +72,3 @@ export default {
     },
 };
 </script>
-<style lang="less">
-@import "../../assets/css/v2/banner.less";
-</style>
