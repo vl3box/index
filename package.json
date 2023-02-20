@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint",
     "inspect": "vue inspect > output.js",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
+    "color-svgo": "svgo -f src/icons/color-svg --config=src/icons/color-svgo.yml",
     "update": "npm install --registry https://registry.npmjs.org @jx3box/jx3box-common-ui@latest @jx3box/jx3box-common@latest @jx3box/jx3box-data@latest @jx3box/jx3box-comment-ui@latest @jx3box/jx3box-editor@latest @jx3box/jx3box-emotion@latest"
   },
   "dependencies": {
