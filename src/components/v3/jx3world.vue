@@ -1,6 +1,6 @@
 <!-- 江湖模块 包含开服、日常、周常、买卖入口等 -->
 <template>
-    <div class="m-world m-sideblock">
+    <div class="m-world m-sideblock" v-if="isStd">
         <div class="m-sideblock-header">
             <div class="u-left">
                 <el-tooltip effect="dark" content="开服监控" placement="top">
@@ -92,6 +92,9 @@ export default {
     computed: {
         client() {
             return this.$store.state.client;
+        },
+        isStd() {
+            return this.$store.state.client === "std";
         },
         world_tip() {
             const date = new Date();

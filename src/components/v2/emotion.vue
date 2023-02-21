@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         loadData() {
-            getEmotions().then((res) => {
+            getEmotions({limit:12}).then((res) => {
                 this.list = res?.data?.data || [];
             });
         },
