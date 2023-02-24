@@ -19,7 +19,9 @@
                     <div>{{ info.nextMap }}·{{ info.nextSite }}·{{ info.nextStage }}</div>
                 </div>
                 <template v-if="info.nowMap === info.nextMap">
-                    <span v-if="info.nowSite === info.nextSite">{{ info.nextStage }}</span>
+                    <span v-if="info.nowSite === info.nextSite">{{
+                        info.nextStage.indexOf("·") > -1 ? info.nextStage.split("·")[1] : info.nextStage
+                    }}</span>
                     <span v-else>{{ info.nextSite }}</span>
                 </template>
                 <span v-else>{{ info.nextMap }}·{{ info.nextSite }}</span>
