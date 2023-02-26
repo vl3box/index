@@ -5,7 +5,7 @@
             <div class="u-left">
                 <el-tooltip effect="dark" content="开服监控" placement="top">
                     <a href="/app/servers2" target="_blank">
-                        <i class="u-status" :class="is_open ? 'open' : 'closed'" ></i>
+                        <i class="u-status" :class="is_open ? 'open' : 'closed'"></i>
                         <!-- <svg-icon class-name="u-icon" icon-class="world" /> -->
                     </a>
                 </el-tooltip>
@@ -34,9 +34,9 @@
             <servers v-if="is_first" v-loading="serverLoading" :list="serverList"></servers>
             <!-- 其它 日常 名望 休闲 -->
             <div class="other-list" v-if="client == 'std'">
+                <celebrity v-show="mode === 'celebrity'"></celebrity>
                 <daily v-show="mode === 'daily'"></daily>
                 <leisure v-show="mode === 'leisure'"></leisure>
-                <celebrity v-show="mode === 'celebrity'"></celebrity>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
 
 <script>
 import { getServers } from "@/service/spider2";
-import { getCelebrities } from "@/service/node";
+// import { getCelebrities } from "@/service/node";
 import servers from "@/components/v3/world/servers.vue";
 import daily from "@/components/v3/world/daily.vue";
 import leisure from "@/components/v3/world/leisure.vue";
@@ -59,16 +59,16 @@ export default {
     },
     data() {
         return {
-            mode: "daily",
+            mode: "celebrity",
             mode_list: [
-                {
-                    value: "daily",
-                    label: "日常",
-                    link: "/calendar",
-                },
                 {
                     value: "celebrity",
                     label: "名望",
+                    link: "/calendar",
+                },
+                {
+                    value: "daily",
+                    label: "日常",
                     link: "/calendar",
                 },
                 {
@@ -160,15 +160,15 @@ export default {
                     this.serverLoading = false;
                 });
         },
-        getCelebrities() {
-            getCelebrities().then((res) => {
-                this.celebrityData.list = res.data;
-            });
-        },
+        // getCelebrities() {
+        //     getCelebrities().then((res) => {
+        //         this.celebrityData.list = res.data;
+        //     });
+        // },
     },
     created() {
         this.getServerList();
-        this.getCelebrities();
+        // this.getCelebrities();
     },
     mounted() {
         setInterval(() => {

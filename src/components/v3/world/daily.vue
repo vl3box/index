@@ -5,17 +5,17 @@
                 <thead>
                     <tr>
                         <th>活动</th>
-                        <!-- <th>区服</th> -->
+                        <th>区服</th>
                         <th>项目</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, i) in daily" :key="i">
                         <td>{{ item.type }}</td>
-                        <!-- <td>{{ item.zone }}</td> -->
+                        <td>{{ item.zone }}</td>
                         <td>{{ item.name }}</td>
                     </tr>
-                    <SimpleCelebrity></SimpleCelebrity>
+                    <!-- <SimpleCelebrity></SimpleCelebrity> -->
                 </tbody>
             </table>
         </div>
@@ -26,13 +26,13 @@ import { getDaily } from "@/service/spider";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import isoWeek from "dayjs/plugin/isoWeek";
-import SimpleCelebrity from "./simple_celebrity";
+// import SimpleCelebrity from "./simple_celebrity";
 dayjs.extend(isoWeek);
 dayjs.extend(isToday);
 export default {
     name: "Daily",
     components: {
-        SimpleCelebrity,
+        // SimpleCelebrity,
     },
     data: function () {
         return {
