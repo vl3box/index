@@ -109,6 +109,7 @@ export default {
             data: [],
             target: buildTarget(),
             type: "all",
+            length: 7,
             links: [
                 {
                     label: "宏库",
@@ -195,7 +196,7 @@ export default {
             return showRecently(new Date(val * 1000));
         },
         loadPost: function (type) {
-            getPosts(this.client, type, 8)
+            getPosts(this.client, type, this.length)
                 .then((res) => {
                     this.data = res.data.data.list || [];
                 })
@@ -206,7 +207,7 @@ export default {
         loadWiki: function (type) {
             getWikiPosts({
                 type,
-                limit: 8,
+                limit: this.length,
                 client: this.client,
             })
                 .then((res) => {

@@ -8,10 +8,11 @@ body {
     background-color: #f6f8fa;
     .auto(x);
 }
-@media screen and (max-width: @ipad-y) {
+@media screen and (max-width: @ipad) {
     .m-main {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
+        // flex-direction: column-reverse;
     }
 }
 
@@ -30,6 +31,7 @@ body {
         position: static;
         padding-top:0;
         .w(auto);
+        order: 2;
     }
 }
 
@@ -41,6 +43,15 @@ body {
     .m-primary {
         margin-left: 0;
         padding:20px;
+        order: 1;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: @ipad) {
+    .c-footer {
+        order: 99;
     }
 }
 

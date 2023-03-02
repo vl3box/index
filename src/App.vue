@@ -3,10 +3,10 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-left m-sidebar">
-                <welcome />
+                <!-- <welcome /> -->
+                <banner />
                 <news />
                 <jx3code />
-                <banner />
                 <jx3world />
             </div>
             <div class="m-primary">
@@ -14,7 +14,7 @@
                 <slider />
                 <box />
 
-                <joke />
+                <!-- <joke /> -->
                 <posts />
                 <Footer></Footer>
             </div>
@@ -25,7 +25,7 @@
 
 <script>
 // 左侧
-import welcome from "@/components/v3/welcome.vue";
+// import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
 import jx3world from "@/components/v3/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
@@ -36,7 +36,7 @@ import live from "@/components/index/live.vue";
 import slider from "@/components/v3/slider.vue";
 
 import box from "@/components/index/box.vue";
-import joke from "@/components/index/joke.vue";
+// import joke from "@/components/index/joke.vue";
 import posts from "@/components/v3/posts.vue";
 // import emotion from "@/components/v2/emotion.vue";
 
@@ -63,7 +63,7 @@ export default {
     },
     components: {
         // 左侧
-        welcome,
+        // welcome,
         news,
         jx3world,
         jx3code,
@@ -73,7 +73,7 @@ export default {
         live,
         slider,
         box,
-        joke,
+        // joke,
         posts,
 
         festival,
@@ -99,7 +99,13 @@ export default {
             this.$store.state.config = _data;
         });
     },
-    mounted() {},
+    mounted() {
+        if (window.innerWidth <= 1133) {
+            const main = document.querySelector(".m-main");
+            const footer = document.querySelector(".c-footer");
+            main.appendChild(footer);
+        }
+    },
 };
 </script>
 
