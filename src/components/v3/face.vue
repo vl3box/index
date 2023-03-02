@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import banner from "@/components/v2/banner.vue";
+import banner from "@/components/v3/banner.vue";
 import { $cms } from "@jx3box/jx3box-common/js/https.js";
 import { getThumbnail } from "@jx3box/jx3box-common/js/utils";
 export default {

@@ -5,24 +5,21 @@
             <div class="m-left m-sidebar">
                 <welcome />
                 <news />
-                <jx3world />
                 <jx3code />
-                <feedback />
+                <banner />
+                <jx3world />
             </div>
             <div class="m-primary">
                 <live />
                 <slider />
                 <box />
-                <face />
 
                 <joke />
                 <posts />
-                <emotion />
-                <wiki />
+                <Footer></Footer>
             </div>
         </div>
         <festival />
-        <Footer darkMode></Footer>
     </div>
 </template>
 
@@ -32,21 +29,16 @@ import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
 import jx3world from "@/components/v3/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
-
-import feedback from "@/components/v2/feedback.vue";
+import banner from "@/components/v3/banner.vue";
 
 // 首屏
 import live from "@/components/index/live.vue";
 import slider from "@/components/v3/slider.vue";
 
 import box from "@/components/index/box.vue";
-
-import posts from "@/components/v2/posts.vue";
-import emotion from "@/components/v2/emotion.vue";
-import wiki from "@/components/v2/wiki.vue";
 import joke from "@/components/index/joke.vue";
-
-import face from "@/components/v3/face.vue";
+import posts from "@/components/v3/posts.vue";
+// import emotion from "@/components/v2/emotion.vue";
 
 // 系统
 import festival from "@/components/festival/index.vue";
@@ -75,21 +67,14 @@ export default {
         news,
         jx3world,
         jx3code,
-
-        feedback,
+        banner,
 
         // 右侧
         live,
         slider,
-
         box,
-
-        face,
-
         joke,
         posts,
-        emotion,
-        wiki,
 
         festival,
     },

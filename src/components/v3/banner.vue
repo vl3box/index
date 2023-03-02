@@ -9,7 +9,7 @@
         <el-carousel class="m-banner-box" trigger="click" height="180px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank" @click="handleClick(item, $event)"
-                    ><img :src="resolveImagePath(item.img)"
+                    ><img :src="showBanner(item.img)"
                 /></a>
             </el-carousel-item>
         </el-carousel>
@@ -17,7 +17,7 @@
 </template>
 <script>
 import { getEventV2 } from "@/service/cms";
-import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
+import { getThumbnail } from "@jx3box/jx3box-common/js/utils";
 import { recordBannerClick } from "@/service/setting";
 export default {
     name: "banner",
@@ -54,7 +54,9 @@ export default {
                     this.loading = false;
                 });
         },
-        resolveImagePath,
+        showBanner: function (url) {
+            return getThumbnail(url, [320 * 2, 180 * 2]);
+        },
         handleClick(item, e) {
             recordBannerClick({
                 a: item.ID, //  广告id
@@ -72,3 +74,7 @@ export default {
     },
 };
 </script>
+
+<style lang="less">
+@import "~@/assets/css/v3/banner.less";
+</style>
