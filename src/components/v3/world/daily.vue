@@ -1,7 +1,7 @@
 <template>
     <div class="m-world-daily">
         <div class="m-daily-content">
-            <table>
+            <!-- <table>
                 <thead>
                     <tr>
                         <th>活动</th>
@@ -15,9 +15,14 @@
                         <td>{{ item.zone }}</td>
                         <td>{{ item.name }}</td>
                     </tr>
-                    <!-- <SimpleCelebrity></SimpleCelebrity> -->
                 </tbody>
-            </table>
+            </table> -->
+        </div>
+        <div class="m-world-block">
+            <div class="u-item" v-for="(item, i) in daily" :key="i">
+                <div>{{ item.type }}</div>
+                <div>{{ item.name }}</div>
+            </div>
         </div>
     </div>
 </template>

@@ -1,20 +1,7 @@
 <template>
     <div class="m-world-leisure">
-        <div class="m-leisure-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>活动</th>
-                        <th>区服</th>
-                        <th>项目</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <lucky-pet :date="date" :client="client"></lucky-pet>
-                    <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
-                </tbody>
-            </table>
-        </div>
+        <lucky-pet :date="date" :client="client"></lucky-pet>
+        <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
     </div>
 </template>
 

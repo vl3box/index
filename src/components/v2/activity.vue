@@ -18,14 +18,14 @@
                 <thead>
                     <tr>
                         <th>活动</th>
-                        <th>区服</th>
+                        <!-- <th>区服</th> -->
                         <th>项目</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, i) in daily" :key="i">
                         <td>{{ item.type }}</td>
-                        <td>{{ item.zone }}</td>
+                        <!-- <td>{{ item.zone }}</td> -->
                         <td>{{ item.name }}</td>
                     </tr>
                     <!-- <meirentu :server="server"></meirentu> -->

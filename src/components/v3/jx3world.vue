@@ -1,7 +1,7 @@
 <!-- 江湖模块 包含开服、日常、周常、买卖入口等 -->
 <template>
     <div class="m-world m-sideblock" v-if="isStd">
-        <div class="m-sideblock-header">
+        <div class="m-world-header m-sideblock-header">
             <div class="u-left">
                 <!-- <el-tooltip effect="dark" content="开服监控" placement="top">
                     <a href="/app/servers2" target="_blank">
@@ -11,7 +11,7 @@
                 </el-tooltip> -->
                 <i class="u-icon el-icon-s-flag"></i>
                 <span class="u-title">江湖快报</span>
-                <div class="u-mode-list">
+                <!-- <div class="u-mode-list">
                     <span
                         :class="`u-mode u-mode-${mode} ${item.value == mode ? 'is-active' : ''}`"
                         v-for="item in mode_list"
@@ -19,7 +19,7 @@
                         @click="switchMode(item.value)"
                         >{{ item.label }}</span
                     >
-                </div>
+                </div> -->
             </div>
             <div class="u-right">
                 <span class="world-tip">{{ world_tip }}</span>
@@ -30,14 +30,14 @@
                 <!-- </el-tooltip> -->
             </div>
         </div>
-        <div class="m-sideblock-list">
+        <div class="m-world-content m-sideblock-list">
             <!-- 开服监控 -->
-            <servers v-if="is_first" v-loading="serverLoading" :list="serverList"></servers>
+            <!-- <servers v-if="is_first" v-loading="serverLoading" :list="serverList"></servers> -->
             <!-- 其它 日常 名望 休闲 -->
             <div class="other-list" v-if="client == 'std'">
-                <celebrity v-show="mode === 'celebrity'"></celebrity>
-                <daily v-show="mode === 'daily'"></daily>
-                <leisure v-show="mode === 'leisure'"></leisure>
+                <celebrity></celebrity>
+                <daily></daily>
+                <leisure></leisure>
             </div>
         </div>
     </div>
@@ -46,14 +46,19 @@
 <script>
 import { getServers } from "@/service/spider2";
 // import { getCelebrities } from "@/service/node";
-import servers from "@/components/v3/world/servers.vue";
+// import servers from "@/components/v3/world/servers.vue";
 import daily from "@/components/v3/world/daily.vue";
 import leisure from "@/components/v3/world/leisure.vue";
 import celebrity from "@/components/v3/world/celebrity.vue";
 import dayjs from "dayjs";
 export default {
     name: "JX3World",
-    components: { servers, daily, leisure, celebrity },
+    components: {
+        //  servers,
+        daily,
+        leisure,
+        celebrity,
+    },
     provide() {
         return {
             celebrity: () => this.celebrityData,
@@ -175,7 +180,7 @@ export default {
         // },
     },
     created() {
-        this.getServerList();
+        // this.getServerList();
         // this.getCelebrities();
     },
     mounted() {

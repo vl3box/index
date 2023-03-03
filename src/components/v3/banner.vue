@@ -6,7 +6,7 @@
 -->
 <template>
     <div class="m-banner" v-if="data && data.length">
-        <el-carousel class="m-banner-box" trigger="click" height="180px" v-loading="loading">
+        <el-carousel class="m-banner-box" trigger="click" height="160px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank" @click="handleClick(item, $event)"
                     ><img :src="showBanner(item.img)"
@@ -55,7 +55,7 @@ export default {
                 });
         },
         showBanner: function (url) {
-            return getThumbnail(url, [320 * 2, 180 * 2]);
+            return getThumbnail(url, [320 * 2, 160 * 2]);
         },
         handleClick(item, e) {
             recordBannerClick({
