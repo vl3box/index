@@ -7,6 +7,7 @@
                 <banner />
                 <news />
                 <jx3code />
+                <jx3servers />
                 <jx3world />
             </div>
             <div class="m-primary">
@@ -29,6 +30,7 @@
 import news from "@/components/v3/news.vue";
 import jx3world from "@/components/v3/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
+import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
 
 // 首屏
@@ -67,6 +69,7 @@ export default {
         news,
         jx3world,
         jx3code,
+        jx3servers,
         banner,
 
         // 右侧

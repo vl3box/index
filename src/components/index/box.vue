@@ -2,7 +2,7 @@
     <div class="m-box">
         <div class="m-sideblock-header">
             <div class="u-left">
-                <i class="u-icon el-icon-box"></i>
+                <i class="u-icon el-icon-menu"></i>
                 <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
                 <mini-bread class="u-bread" name="index_notification" />
             </div>

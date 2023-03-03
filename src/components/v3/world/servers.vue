@@ -50,5 +50,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "~@/assets/css/v3/world/servers.less";
+// @import "~@/assets/css/v3/world/servers.less";
 </style>

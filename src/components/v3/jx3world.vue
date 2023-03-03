@@ -3,13 +3,14 @@
     <div class="m-world m-sideblock" v-if="isStd">
         <div class="m-sideblock-header">
             <div class="u-left">
-                <el-tooltip effect="dark" content="开服监控" placement="top">
+                <!-- <el-tooltip effect="dark" content="开服监控" placement="top">
                     <a href="/app/servers2" target="_blank">
                         <i class="u-status" :class="is_open ? 'open' : 'closed'"></i>
-                        <!-- <svg-icon class-name="u-icon" icon-class="world" /> -->
+                        <svg-icon class-name="u-icon" icon-class="world" />
                     </a>
-                </el-tooltip>
-                <span class="u-title">江湖</span>
+                </el-tooltip> -->
+                <i class="u-icon el-icon-s-flag"></i>
+                <span class="u-title">江湖快报</span>
                 <div class="u-mode-list">
                     <span
                         :class="`u-mode u-mode-${mode} ${item.value == mode ? 'is-active' : ''}`"

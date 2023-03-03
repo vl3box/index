@@ -4,9 +4,10 @@
             <!-- <i class="el-icon-message-solid"></i> -->
             <div class="u-left">
                 <a class="u-title" :href="more_link" target="_blank">
-                    <img class="u-icon" svg-inline src="@/assets/img/left/news.svg" />
+                    <i class="u-icon el-icon-message-solid"></i>
+                    <!-- <img class="u-icon" svg-inline src="@/assets/img/left/news.svg" /> -->
                     <!-- <svg-icon class-name="u-icon" icon-class="news" /> -->
-                    动态
+                    最新动态
                 </a>
                 <div class="u-mode-list">
                     <span
