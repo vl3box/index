@@ -34,16 +34,13 @@ import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
 
 // 首屏
-import live from "@/components/index/live.vue";
+import live from "@/components/v3/live.vue";
 import slider from "@/components/v3/slider.vue";
-
-import box from "@/components/index/box.vue";
-// import joke from "@/components/index/joke.vue";
+import box from "@/components/v3/box.vue";
 import posts from "@/components/v3/posts.vue";
-// import emotion from "@/components/v2/emotion.vue";
+import festival from "@/components/festival/index.vue";
 
 // 系统
-import festival from "@/components/festival/index.vue";
 import User from "@jx3box/jx3box-common/js/user";
 import { getProfile } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
