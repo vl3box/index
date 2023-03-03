@@ -49,6 +49,7 @@ import servers from "@/components/v3/world/servers.vue";
 import daily from "@/components/v3/world/daily.vue";
 import leisure from "@/components/v3/world/leisure.vue";
 import celebrity from "@/components/v3/world/celebrity.vue";
+import dayjs from "dayjs";
 export default {
     name: "JX3World",
     components: { servers, daily, leisure, celebrity },
@@ -87,6 +88,7 @@ export default {
                     m: new Date().getMinutes(),
                 },
             },
+            world_tip: dayjs().format("YYYY-MM-DD HH:mm"),
         };
     },
     computed: {
@@ -96,21 +98,26 @@ export default {
         isStd() {
             return this.$store.state.client === "std";
         },
-        world_tip() {
-            const date = new Date();
-            const month = date.getMonth() + 1;
-            const dateFormat = date.getFullYear() + "-" + (month < 10 ? "0" + month : month) + "-" + date.getDate();
-            const time =
-                " " +
-                (this.celebrityData.currentDate.h < 10
-                    ? "0" + this.celebrityData.currentDate.h
-                    : this.celebrityData.currentDate.h) +
-                ":" +
-                (this.celebrityData.currentDate.m < 10
-                    ? "0" + this.celebrityData.currentDate.m
-                    : this.celebrityData.currentDate.m);
-            return dateFormat + time;
-        },
+        // world_tip() {
+        // const date = new Date();
+        // const month = date.getMonth() + 1;
+        // const dateFormat =
+        //     date.getFullYear() +
+        //     "-" +
+        //     (month < 10 ? "0" + month : month) +
+        //     "-" +
+        //     (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
+        // const time =
+        //     " " +
+        //     (this.celebrityData.currentDate.h < 10
+        //         ? "0" + this.celebrityData.currentDate.h
+        //         : this.celebrityData.currentDate.h) +
+        //     ":" +
+        //     (this.celebrityData.currentDate.m < 10
+        //         ? "0" + this.celebrityData.currentDate.m
+        //         : this.celebrityData.currentDate.m);
+        // return dateFormat + time;
+        // },
         more_link() {
             return this.mode_list.find((item) => item.value === this.mode).link;
         },
@@ -181,6 +188,7 @@ export default {
                     h: new Date().getHours(),
                     m: new Date().getMinutes(),
                 };
+                this.world_tip = dayjs().format("YYYY-MM-DD HH:mm");
             }
         }, 1000);
     },
