@@ -1,18 +1,20 @@
 .p-notice-v2 {
-    &.black {
-        background: url(../../img//notice/bg.png) #000 fixed;
-    }
-    &.white {
-        background: url(../../img//notice/bg-white.png) #fff center fixed;
-        background-size: cover;
-    }
+    background: url(../../img//notice/bg.jpg) #000 fixed;
+    background-size: cover;
 
-    .m-bg-blur {
+    .m-bg {
         .pf;
         .lt(0);
         .rb(0);
         .full;
-        backdrop-filter: blur(20px);
+        &.m-bg-left {
+            background: url(../../img//notice/left.png) left top no-repeat;
+            background-size: auto 100%;
+        }
+        &.m-bg-right {
+            background: url(../../img//notice/right.png) right top no-repeat;
+            background-size: auto 100%;
+        }
     }
     .wp {
         position: relative;
@@ -58,18 +60,18 @@
         .m-notice-content {
             gap: 40px;
         }
-        .m-notice-list {
-            gap: 47px;
-            .m-list {
-                height: 63px;
-                .lh(63px);
-                .r(30px);
-                padding: 0 88px;
-                .u-icon {
-                    .size(50px);
-                }
-            }
-        }
+        // .m-notice-list {
+        //     gap: 47px;
+        //     .m-list {
+        //         height: 63px;
+        //         .lh(63px);
+        //         .r(30px);
+        //         padding: 0 88px;
+        //         .u-icon {
+        //             .size(50px);
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -81,23 +83,26 @@
         .m-notice-content {
             gap: 30px;
         }
-        .m-notice-list {
-            gap: 37px;
-            padding: 0 78px;
-            .m-list {
-                height: 57px;
-                .lh(57px);
-                .r(25px);
-                .u-icon {
-                    .size(45px);
-                }
-            }
-        }
+        // .m-notice-list {
+        //     gap: 37px;
+        //     padding: 0 78px;
+        //     .m-list {
+        //         height: 57px;
+        //         .lh(57px);
+        //         .r(25px);
+        //         .u-icon {
+        //             .size(45px);
+        //         }
+        //     }
+        // }
     }
 }
 
-@media screen and (max-width: @phone) {
+@media screen and (max-width: @ipad) {
     .p-notice-v2 {
+        .m-bg {
+            .none;
+        }
         .p-notice-container {
             box-sizing: border-box;
             max-width: 100%;

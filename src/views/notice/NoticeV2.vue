@@ -1,5 +1,5 @@
 <template>
-    <div class="p-notice-v2" :class="theme">
+    <div class="p-notice-v2">
         <Header :overlayEnable="true"></Header>
         <div class="p-notice-container">
             <div class="wp">
@@ -10,7 +10,8 @@
             </div>
         </div>
         <Footer darkMode></Footer>
-        <div class="m-bg-blur"></div>
+        <div class="m-bg m-bg-left"></div>
+        <div class="m-bg m-bg-right"></div>
     </div>
 </template>
 
@@ -18,9 +19,7 @@
 export default {
     name: "Notice",
     data: function () {
-        return {
-            theme: "white",
-        };
+        return {};
     },
     methods: {},
 };

@@ -110,6 +110,9 @@ export default {
                 subtype: join(this.subtype, ","),
             };
         },
+        clientHeight() {
+            return document.documentElement.clientHeight;
+        },
         params: function () {
             let params = {
                 per: this.per,
@@ -178,7 +181,17 @@ export default {
         query() {
             this.page = 1;
         },
+        clientHeight: {
+            immediate: true,
+            handler: function (height) {
+                if (height > 1024) {
+                    this.per = 20;
+                    this.page = 1;
+                }
+            },
+        },
     },
+    mounted() {},
 };
 </script>
 <style lang="less">
