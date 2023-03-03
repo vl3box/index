@@ -83,7 +83,6 @@ export default {
             const isEqualMinute = this.celebrityList.findIndex((item) => {
                 return item.key === currentKey && item.time === date.m;
             });
-            console.log(isEqualMinute, currentKey, this.celebrityList);
             let index = 0;
             if (isEqualMinute !== -1) {
                 // 包含当前时间
@@ -100,17 +99,14 @@ export default {
                     index = nIndex - 1;
                 }
             }
-            console.log(index);
             // 13: 57
             let list = this.celebrityList.slice(index, index + 3);
-            console.log(list);
             let newList = [];
             if (list.length < 3) {
                 newList = list.concat(this.celebrityList.slice(0, 3 - list.length));
             } else {
                 newList = [].concat(list);
             }
-            console.log(newList);
             this.list = newList.map((item) => {
                 // 当前时间
                 let h = this.currentDate.h;
