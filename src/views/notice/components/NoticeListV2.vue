@@ -76,14 +76,9 @@ export default {
 
             client: this.$store.state.client, //版本选择
             search: "",
-            subtype: [2, 3, 4],
+            subtype: [1,2, 3, 4],
 
             buttons: [
-                // {
-                //     name: "游戏资讯",
-                //     key: "information",
-                //     value: 1,
-                // },
                 {
                     name: "魔盒公告",
                     key: "notice",
@@ -93,6 +88,11 @@ export default {
                     name: "功能更新",
                     key: "update",
                     value: 3,
+                },
+                {
+                    name: "魔盒出品",
+                    key: "information",
+                    value: 1,
                 },
                 {
                     name: "兑换通知",
