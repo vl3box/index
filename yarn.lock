@@ -1214,28 +1214,28 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@jx3box/jx3box-comment-ui@^1.7.8":
-  "integrity" "sha512-qnn+v5Q8+Bd+f9luaZ4MXdYB2+PtKZmOFYYdviH4YcfuF/cF07fuQdqSx+B3Zyg1OO+0Gj/ikTUHdFHhH7YUCw=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-comment-ui/-/jx3box-comment-ui-1.7.8.tgz"
-  "version" "1.7.8"
+"@jx3box/jx3box-comment-ui@^1.7.8", "@jx3box/jx3box-comment-ui@^1.7.9":
+  "integrity" "sha512-VpL1MuFgwtkeepjP7laoPNSKyVFwhcPDkrqTc2AZoGxx7PWQ9lSB5O+/og3SCsxr1hti0CTHBe2pOOjvpl+nvw=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-comment-ui/-/jx3box-comment-ui-1.7.9.tgz"
+  "version" "1.7.9"
   dependencies:
-    "@jx3box/jx3box-common" "^7.6.2"
-    "@jx3box/jx3box-emotion" "^1.1.5"
+    "@jx3box/jx3box-common" "^7.7.6"
+    "@jx3box/jx3box-emotion" "^1.1.9"
     "core-js" "^3.6.4"
     "element-ui" "^2.13.1"
     "hevue-img-preview" "^5.0.0"
     "vue" "^2.6.11"
     "vuex" "^3.6.2"
 
-"@jx3box/jx3box-common-ui@^6.9.4":
-  "integrity" "sha512-D++fQ7JJNHa1vFwnbSpkYendmO8X8hB2YDcSj/+mpEEH1PGNyYKzkWqXEuyws9o74kb67z1ueFwp1Tt8U+cRZA=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.9.4.tgz"
-  "version" "6.9.4"
+"@jx3box/jx3box-common-ui@^7.1.2":
+  "integrity" "sha512-fzpAn4Yd9TOd2gcDRIR+znnCnj5SlBKxU3ZkB64pbRbzQbzjMrGv92bLUbSCg5eiWiqgRcUm9zrlrYsDlXdJjQ=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-7.1.2.tgz"
+  "version" "7.1.2"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.7.8"
-    "@jx3box/jx3box-common" "^7.6.6"
+    "@jx3box/jx3box-common" "^7.7.6"
     "@jx3box/jx3box-data" "^3.0.4"
-    "@jx3box/jx3box-editor" "^1.7.1"
+    "@jx3box/jx3box-editor" "^1.7.5"
     "axios" "^0.26.1"
     "dayjs" "^1.11.0"
     "element-ui" "^2.13.2"
@@ -1278,10 +1278,10 @@
     "moment" "^2.29.1"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.6.2", "@jx3box/jx3box-common@^7.6.6", "@jx3box/jx3box-common@^7.6.8", "@jx3box/jx3box-common@^7.7.0":
-  "integrity" "sha512-O39Ab6uN4c/FbvE1NyA04Ywrk49TpZvkqXc3j9hps0OJcD1XerB0sCccGqMffWsjdpwjNeuRxuDz0bY6R/hrRQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.7.0.tgz"
-  "version" "7.7.0"
+"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.7.3", "@jx3box/jx3box-common@^7.7.6", "@jx3box/jx3box-common@^7.8.0":
+  "integrity" "sha512-Wxbk+m2trTnPZa6Hekzl5Gx53BxOhPwy0zBScb6EMvPoe3ThizKRVA5YawDguPWrmFCmbRmaZqfDYZB3+4/aiQ=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.8.0.tgz"
+  "version" "7.8.0"
   dependencies:
     "axios" "^0.20.0"
     "cheerio" "1.0.0-rc.10"
@@ -1308,19 +1308,19 @@
     "fs" "0.0.1-security"
     "path" "^0.12.7"
 
-"@jx3box/jx3box-data@^3.0.4":
-  "integrity" "sha512-2bk0i7tHXqL1Ahsq5v/oCUpCy/GH6rvU9OAynT5urTzdddnvl3CGcdk06X/52YIgsnYFNH/o/Ylg+BRmf9eCmQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.0.4.tgz"
-  "version" "3.0.4"
+"@jx3box/jx3box-data@^3.0.4", "@jx3box/jx3box-data@^3.0.8":
+  "integrity" "sha512-uaJo4bT39FiX4/HxXcLrHEcTvrhwPyB4pL+o+129WiOoEilYYlHuE41oedMy9VelvHwxFYxaNpdl9fg6TAbVXQ=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.0.8.tgz"
+  "version" "3.0.8"
 
-"@jx3box/jx3box-editor@^1.7.1", "@jx3box/jx3box-editor@^1.7.3":
-  "integrity" "sha512-caV26aJSJg/GsxA/3DqKlfELIX39MFQLdjj17drXLGl6npS1w2bQaPvusP0tVGM1P6Rm+oVRKrSv43CHgCVJdQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-1.7.3.tgz"
-  "version" "1.7.3"
+"@jx3box/jx3box-editor@^1.7.5":
+  "integrity" "sha512-o6H0Ta+hj1wQfp9RDhFAoNQn/e1qcuPg6TdlUqC73fgOCIzlMi4VofDvwAQsujVz0WSbCDEO0Pn0634QVEnQ2A=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-1.7.5.tgz"
+  "version" "1.7.5"
   dependencies:
-    "@jx3box/jx3box-common" "^7.6.8"
+    "@jx3box/jx3box-common" "^7.7.3"
     "@jx3box/jx3box-data" "^3.0.4"
-    "@jx3box/jx3box-emotion" "^1.1.5"
+    "@jx3box/jx3box-emotion" "^1.1.8"
     "@jx3box/jx3box-macro" "^1.0.1"
     "@jx3box/jx3box-talent" "^1.1.9"
     "@jx3box/markdown" "^0.1.5"
@@ -1343,10 +1343,10 @@
     "vue-photoswipe.js" "^2.0.23"
     "xss" "^1.0.8"
 
-"@jx3box/jx3box-emotion@^1.1.5":
-  "integrity" "sha512-VT7re1IM60Om5zLtLigAom4LIXLNtmUuRukUVGpphK0Hg754UhbgPHPpPo55Gfot0xVvOB5AEtwjzJcZLNPQWw=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-emotion/-/jx3box-emotion-1.1.5.tgz"
-  "version" "1.1.5"
+"@jx3box/jx3box-emotion@^1.1.8", "@jx3box/jx3box-emotion@^1.1.9":
+  "integrity" "sha512-r7rnlL8b9G5wNe+Neh/Cm7HE9BeaUcMhY9gGJ8n4AniQm7xYl5ZxERh1F3jNthUJo04N+664k9loKIwaupQCmg=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-emotion/-/jx3box-emotion-1.1.9.tgz"
+  "version" "1.1.9"
   dependencies:
     "@jx3box/jx3box-common" "^5.9.8"
     "@jx3box/jx3box-data" "^1.0.9"
@@ -3742,9 +3742,9 @@
   "version" "3.0.11"
 
 "csv-parse@^5.3.0":
-  "integrity" "sha512-f2E4NzkIX4bVIx5Ff2gKT1BlVwyFQ+2iFy+QrqgUXaFLUo7vSzN6XQ8LV5V/T/p/9g7mJdtYHKLkwG5PiG82fg=="
-  "resolved" "https://registry.npmjs.org/csv-parse/-/csv-parse-5.3.4.tgz"
-  "version" "5.3.4"
+  "integrity" "sha512-WI330GjCuEioK/ii8HM2YE/eV+ynpeLvU+RXw4R8bRU8R0laK5zO3fDsc4gH8s472e3Ga38rbIjCAiQh+tEHkw=="
+  "resolved" "https://registry.npmjs.org/csv-parse/-/csv-parse-5.3.6.tgz"
+  "version" "5.3.6"
 
 "cyclist@^1.0.1":
   "integrity" "sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A=="
@@ -6096,9 +6096,9 @@
   "version" "2.6.4"
 
 "js-base64@^3.6.1":
-  "integrity" "sha512-wpM/wi20Tl+3ifTyi0RdDckS4YTD4Lf953mBRrpG8547T7hInHNPEj8+ck4gB8VDcGyeAWFK++Wb/fU1BeavKQ=="
-  "resolved" "https://registry.npmjs.org/js-base64/-/js-base64-3.7.4.tgz"
-  "version" "3.7.4"
+  "integrity" "sha512-3MEt5DTINKqfScXKfJFrRbxkrnk2AxPWGBL/ycjz4dK8iqiSJ06UxD8jh8xuh6p10TX4t2+7FsBYVxxQbMg+qA=="
+  "resolved" "https://registry.npmjs.org/js-base64/-/js-base64-3.7.5.tgz"
+  "version" "3.7.5"
 
 "js-md5@^0.7.3":
   "integrity" "sha512-ZC41vPSTLKGwIRjqDh8DfXoCrdQIyBgspJVPXHBGu4nZlAEvG3nf+jO9avM9RmLiGakg7vz974ms99nEV0tmTQ=="
@@ -7375,9 +7375,9 @@
   "version" "1.0.11"
 
 "papaparse@^5.3.2":
-  "integrity" "sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw=="
-  "resolved" "https://registry.npmjs.org/papaparse/-/papaparse-5.3.2.tgz"
-  "version" "5.3.2"
+  "integrity" "sha512-ZBQABWG09p+u8rFoJVl/GhgxZ5zy9Zh1Lu/LVc7VX5T4nljjC14/YTcpebYwqP218B9X307eBOP7Tuhoqv7v7w=="
+  "resolved" "https://registry.npmjs.org/papaparse/-/papaparse-5.4.0.tgz"
+  "version" "5.4.0"
 
 "parallel-transform@^1.1.0":
   "integrity" "sha512-P2vSmIu38uIlvdcU7fDkyrxj33gTUy/ABO5ZUbGowxNCopBq/OoD42bP4UmMrJoPyk4Uqf0mu3mtWBhHCZD8yg=="
