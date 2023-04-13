@@ -2,11 +2,17 @@
     <div class="m-world-horse">
         <div class="u-horse" v-if="list.length">
             <div class="u-label">
-                <span>抓马播报</span><span>{{ params.server }}</span>
+                <a href="/horse">抓马播报</a><span>{{ params.server }}</span>
             </div>
             <div class="u-item" v-for="item in list" :key="item.id">
                 <div class="u-horse-name-wrap">
-                    <div class="u-horse-name" v-for="horse in item.horses" :key="horse">
+                    <a
+                        class="u-horse-name"
+                        :href="getLink(horse)"
+                        target="_blank"
+                        v-for="horse in item.horses"
+                        :key="horse"
+                    >
                         <el-tooltip class="item" effect="dark" :content="horse" placement="top">
                             <el-image :src="getImgSrc(horse)" class="u-image">
                                 <div slot="error" class="image-slot">
@@ -14,7 +20,7 @@
                                 </div>
                             </el-image>
                         </el-tooltip>
-                    </div>
+                    </a>
                 </div>
                 <div class="u-times-info">
                     <div class="u-map-name">{{ item.map_name }}</div>
@@ -64,7 +70,19 @@ export default {
             }
         },
     },
+    watch: {
+        "params.server"() {
+            this.list = []; // 需要置空后重新计算cross的scrollWidth
+            this.getGameReporter();
+        },
+    },
     methods: {
+        getLink(horseName) {
+            const itemId = horseBroadcast[horseName]?.itemId || 0;
+            // 2 马具 1 坐骑
+            const type = 1;
+            return `/horse/${itemId}?type=${type}`;
+        },
         getImgSrc(horseName) {
             const id = horseBroadcast[horseName]?.id || 0;
             return __imgPath + `horse/${this.client}/` + id + ".png";
@@ -185,7 +203,6 @@ export default {
         } else {
             this.params.server = "梦江南";
         }
-        this.getGameReporter();
         this.timer = setInterval(() => {
             this.getGameReporter();
         }, 30 * 1000);
@@ -207,6 +224,16 @@ export default {
         .u-label {
             .flex;
             justify-content: space-between;
+            margin-bottom: 5px;
+            a {
+                color: #777;
+                &:hover {
+                    color: #fba524;
+                    box-shadow: none;
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
         }
         .u-item {
             .flex;
@@ -214,11 +241,19 @@ export default {
         }
         .u-horse-name-wrap {
             .flex;
-            flex-wrap: wrap;
-            gap: 2px;
+            width: 110px;
+            overflow: hidden;
+            overflow-x: auto;
+            .scrollbar();
             .u-horse-name {
                 .size(30px, 30px);
                 flex-shrink: 0;
+                cursor: pointer;
+                border-radius: 3px;
+                &:hover {
+                    background-color: #eee;
+                    box-shadow: none;
+                }
             }
         }
         .u-times-info {
@@ -229,7 +264,7 @@ export default {
             justify-content: flex-end;
             align-items: center;
             .u-times-lately {
-                color: #f94343;
+                color: #fba524;
             }
         }
     }
