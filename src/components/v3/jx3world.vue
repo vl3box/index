@@ -37,6 +37,7 @@
             <div class="other-list" v-if="client == 'std'">
                 <celebrity></celebrity>
                 <daily></daily>
+                <horse></horse>
                 <leisure></leisure>
             </div>
         </div>
@@ -50,6 +51,7 @@ import { getServers } from "@/service/spider2";
 import daily from "@/components/v3/world/daily.vue";
 import leisure from "@/components/v3/world/leisure.vue";
 import celebrity from "@/components/v3/world/celebrity.vue";
+import horse from "@/components/v3/world/horse.vue";
 import dayjs from "dayjs";
 export default {
     name: "JX3World",
@@ -58,6 +60,7 @@ export default {
         daily,
         leisure,
         celebrity,
+        horse
     },
     provide() {
         return {
