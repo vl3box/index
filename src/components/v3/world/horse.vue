@@ -173,7 +173,7 @@ export default {
                     .sort(function (a, b) {
                         return dayjs(b.created_at).valueOf() - dayjs(a.created_at).valueOf();
                     });
-                console.log(this.list);
+                // console.log(this.list);
             });
         },
     },
