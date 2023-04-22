@@ -120,12 +120,12 @@ export default {
                     slug: "bps",
                 },
                 {
-                    label: "副本",
-                    slug: "fb",
+                    label: "竞技",
+                    slug: "pvp",
                 },
                 {
-                    label: "插件",
-                    slug: "jx3dat",
+                    label: "副本",
+                    slug: "fb",
                 },
                 {
                     label: "工具",
