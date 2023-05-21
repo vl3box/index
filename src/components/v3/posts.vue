@@ -128,7 +128,7 @@ export default {
                     slug: "fb",
                 },
                 {
-                    label: "工具",
+                    label: "资源",
                     slug: "tool",
                 },
                 {
