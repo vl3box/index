@@ -10,7 +10,7 @@
                     </a>
                 </el-tooltip> -->
                 <i class="u-icon el-icon-s-flag"></i>
-                <span class="u-title">江湖快报</span>
+                <a class="u-title" href="/pvg/gonggao/daily" target="_blank">江湖快报</a>
                 <!-- <div class="u-mode-list">
                     <span
                         :class="`u-mode u-mode-${mode} ${item.value == mode ? 'is-active' : ''}`"
