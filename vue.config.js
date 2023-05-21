@@ -31,6 +31,12 @@ const pages = {
         template: "public/index.html",
         filename: "about/index.html",
     },
+    post: {
+        title: "作品" + Setting.suffix,
+        entry: "src/pages/post.js",
+        template: "public/index.html",
+        filename: "post/index.html",
+    },
 };
 
 module.exports = {

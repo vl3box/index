@@ -6,11 +6,12 @@
 
 <script>
 import {getPost} from "@/service/cms"
+import { getAppID } from "@jx3box/jx3box-common/js/utils";
 export default {
     name : "post",
     computed: {
         id() {
-            return this.$route.params.id;
+            return getAppID();
         }
     },
     watch: {
