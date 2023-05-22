@@ -10,14 +10,14 @@
             </div>
         </div>
         <div class="u-item">
-            <div>园宅会赛</div>
+            <div>评审分类</div>
             <div class="u-furniture">
                 <a class="u-pet" href="/furniture?match=1" target="_blank">{{
                     formatContent(furnitureCategory && furnitureCategory.content)
                 }}</a>
             </div>
         </div>
-        <div class="u-item" v-html="nextMatch"></div>
+        <!-- <div class="u-item" v-html="nextMatch"></div> -->
     </div>
 </template>
 
