@@ -5,11 +5,11 @@ function getConfig() {
 }
 
 function getMenuGroup(name) {
-    return $helper({ mute: true }).get(`/api/menu_group/${name}`, {});
+    return $cms({ mute: true }).get(`/api/cms/menu-group/${name}`, {});
 }
 
 function getMenuGroups(params) {
-    return $helper({ mute: true }).get(`/api/menu_groups`, {
+    return $cms({ mute: true }).get(`/api/cms/menu-group`, {
         params: params,
     });
 }
