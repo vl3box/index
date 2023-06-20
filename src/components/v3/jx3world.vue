@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { getServers } from "@/service/spider2";
+import { getServers } from "@/service/spider";
 // import { getCelebrities } from "@/service/node";
 // import servers from "@/components/v3/world/servers.vue";
 import daily from "@/components/v3/world/daily.vue";

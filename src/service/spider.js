@@ -1,10 +1,8 @@
-import { $team, $cms } from "@jx3box/jx3box-common/js/https";
+import { $cms, $node } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
-import { __spider } from "@jx3box/jx3box-common/data/jx3box.json";
-import { __dataPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { $node } from "@jx3box/jx3box-common/js/https";
+import { __spider2, __dataPath } from "@jx3box/jx3box-common/data/jx3box.json";
 const $spider = axios.create({
-    baseURL: __spider,
+    baseURL: __spider2,
 });
 
 // 日常
@@ -16,7 +14,7 @@ function getDaily(params) {
 
 // 美人图
 function getMeirentu(server = "蝶恋花") {
-    return $spider.get("/meirentu", {
+    return $spider.get("/api/spider/meirentu", {
         params: {
             server: server,
         },
@@ -25,7 +23,7 @@ function getMeirentu(server = "蝶恋花") {
 
 // 游戏公告
 function getGameNews(client) {
-    return $spider.get("/jx3news", {
+    return $spider.get("/api/spider/jx3news", {
         params: {
             client: client,
         },
@@ -34,7 +32,7 @@ function getGameNews(client) {
 
 // 开服监控
 function getServers() {
-    return $spider.get("/jx3servers");
+    return $spider.get("api/spider/server/server_state");
 }
 
 // 金价走势

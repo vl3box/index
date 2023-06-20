@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { getServers } from "@/service/spider2";
+import { getServers } from "@/service/spider";
 import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
 import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 export default {

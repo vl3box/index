@@ -111,10 +111,10 @@ export default {
             }
         },
         nl2br(str) {
-            return this.formatContent(str.replace(/\\n|\n/g, "<br>"));
+            return str ? this.formatContent(str.replace(/\\n|\n/g, "<br>")) : '';
         },
         formatContent(str) {
-            return str.replace("+", "");
+            return str ? str.replace("+", "") : '';
         },
     },
 };
