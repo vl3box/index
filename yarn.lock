@@ -1379,6 +1379,11 @@
     "vue" "^2.3.4"
     "xss" "^1.0.6"
 
+"@jx3box/reporter@^0.0.4":
+  "integrity" "sha512-CwSf7rkdn4GNhV896rxmxbVju3aTGTIbluDp6cLdJtk5Qii6xzFHvPw2I67ad7qsm3lVqnpkXvIOOhJcfP4PJg=="
+  "resolved" "https://registry.npmjs.org/@jx3box/reporter/-/reporter-0.0.4.tgz"
+  "version" "0.0.4"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   "integrity" "sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g=="
   "resolved" "https://registry.npmmirror.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz"

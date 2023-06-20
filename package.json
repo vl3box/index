@@ -20,6 +20,7 @@
     "@jx3box/jx3box-data": "^3.3.0",
     "@jx3box/jx3box-editor": "^1.9.9",
     "@jx3box/jx3box-emotion": "^1.2.3",
+    "@jx3box/reporter": "^0.0.4",
     "animate.css": "^4.1.1",
     "axios": "^0.26.1",
     "core-js": "^3.21.1",

@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="m-slider" v-if="ready" id="m-home-slider">
-                <div class="u-slider" v-for="(item, i) in data" :key="i" :style="{ backgroundColor: item.bgcolor }">
+                <div class="u-slider" v-for="(item, i) in data" :key="i" :style="{ backgroundColor: item.bgcolor }" v-reporter="{ id: item.ID, user_id: userId, caller: 'index_slider' }">
                     <a class="u-pic" :href="item.link" :target="target">
                         <img :src="showSlider(item.img)" />
                     </a>
@@ -63,6 +63,7 @@
 import { buildTarget, resolveImagePath, getThumbnail } from "@jx3box/jx3box-common/js/utils";
 import { getSliders } from "@/service/cms";
 import Mini_bread from "../content/mini_bread.vue";
+import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "slider",
     components: {
@@ -94,6 +95,9 @@ export default {
         },
         target: function () {
             return buildTarget();
+        },
+        userId: function () {
+            return User.getInfo().uid;
         },
     },
     methods: {
