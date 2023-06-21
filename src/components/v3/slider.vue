@@ -35,7 +35,13 @@
                 </div>
             </div>
             <div class="m-slider" v-if="ready" id="m-home-slider">
-                <div class="u-slider" v-for="(item, i) in data" :key="i" :style="{ backgroundColor: item.bgcolor }" v-reporter="{ id: item.ID, user_id: userId, caller: 'index_slider' }">
+                <div
+                    class="u-slider"
+                    v-for="(item, i) in data"
+                    :key="i"
+                    :style="{ backgroundColor: item.bgcolor }"
+                    v-reporter="{ data: { url: item.link }, user_id: userId, caller: 'index_slider' }"
+                >
                     <a class="u-pic" :href="item.link" :target="target">
                         <img :src="showSlider(item.img)" />
                     </a>

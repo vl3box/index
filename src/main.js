@@ -16,7 +16,8 @@ Vue.use(JX3BOX_UI);
 // import Comments from "@jx3box/jx3box-comment-ui"
 // Vue.use(Comments)
 
-import "./utils/reporter.js";
+import reporter from "@jx3box/jx3box-common/js/reporter";
+reporter.install(Vue);
 
 import './icons' // svgicon
 
