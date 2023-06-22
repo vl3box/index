@@ -1,4 +1,4 @@
-import { $next, $helper } from "@jx3box/jx3box-common/js/https";
+import { $next, $helper, $cms } from "@jx3box/jx3box-common/js/https";
 import { getStatRank } from "@jx3box/jx3box-common/js/stat.js";
 
 function getRank(type, days = "30days") {
@@ -30,7 +30,7 @@ function getCollections(params) {
     });
 }
 function getNamespaces(params) {
-    return $helper({ mute: true }).get(`/api/namespaces`, {
+    return $cms({ mute: true }).get(`/api/cms/namespace`, {
         params: params,
     });
 }
