@@ -40,7 +40,11 @@
                     v-for="(item, i) in data"
                     :key="i"
                     :style="{ backgroundColor: item.bgcolor }"
-                    v-reporter="{ data: { href: `/${item.source_type}/${item.source_id}` }, user_id: userId, caller: 'index_slider' }"
+                    v-reporter="{
+                        data: { url: convertUrlToProtocol(item.link) },
+                        user_id: userId,
+                        caller: 'index_slider',
+                    }"
                 >
                     <a class="u-pic" :href="item.link" :target="target">
                         <img :src="showSlider(item.img)" />
@@ -66,7 +70,7 @@
 </template>
 
 <script>
-import { buildTarget, resolveImagePath, getThumbnail } from "@jx3box/jx3box-common/js/utils";
+import { buildTarget, resolveImagePath, getThumbnail, convertUrlToProtocol } from "@jx3box/jx3box-common/js/utils";
 import { getSliders } from "@/service/cms";
 import Mini_bread from "../content/mini_bread.vue";
 import User from "@jx3box/jx3box-common/js/user";
@@ -148,6 +152,7 @@ export default {
         resetAni(key) {
             this.ani[key] = "";
         },
+        convertUrlToProtocol,
     },
     mounted: function () {
         this.init();
