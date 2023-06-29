@@ -40,7 +40,7 @@
                     v-for="(item, i) in data"
                     :key="i"
                     :style="{ backgroundColor: item.bgcolor }"
-                    v-reporter="{ data: { url: item.link }, user_id: userId, caller: 'index_slider' }"
+                    v-reporter="{ data: { href: `/${item.source_type}/${item.source_id}` }, user_id: userId, caller: 'index_slider' }"
                 >
                     <a class="u-pic" :href="item.link" :target="target">
                         <img :src="showSlider(item.img)" />
