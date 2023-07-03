@@ -102,37 +102,39 @@ export default {
         loadGameData: function () {
             getGameNews(this.client).then((res) => {
                 // 正式服
-                if (this.client == "std") {
-                    this.game_data = res?.data
-                        .map((item) => {
-                            item.url = this.linkFormat(item.url);
-                            // 如果当前为1月，且新闻时间为12月，则年份-1
-                            item.time =
-                                !new Date().getMonth() && item.item.split("/")[0] == 12
-                                    ? (item.time = new Date(new Date().getFullYear() - 1 + "/" + item.time))
-                                    : new Date(new Date().getFullYear() + "/" + item.time);
-                            item.type = "game";
-                            return item;
-                        })
-                        .slice(0, 5);
-                } else {
-                    // 怀旧服
-                    let data = res.data.data;
-                    let list = [];
-                    for (let group in data) {
-                        list.push(...data[group].list);
-                    }
-                    this.game_data = list
-                        .map((item) => {
-                            item.time = new Date(Number(item.inputtime * 1000));
-                            item.type = "game";
-                            return item;
-                        })
-                        .sort((a, b) => {
-                            return ~~b.inputtime - ~~a.inputtime;
-                        })
-                        .slice(0, 5);
-                }
+                // if (this.client == "std") {
+                const data = this.client == 'std' ? res?.data : res?.data?.reverse();
+                this.game_data = res?.data
+                    .map((item) => {
+                        item.url = this.linkFormat(item.url);
+                        // 如果当前为1月，且新闻时间为12月，则年份-1
+                        item.time =
+                            !new Date().getMonth() && item.item.split("/")[0] == 12
+                                ? (item.time = new Date(new Date().getFullYear() - 1 + "/" + item.time))
+                                : new Date(new Date().getFullYear() + "/" + item.time);
+                        item.type = "game";
+                        return item;
+                    })
+                    .slice(0, 5);
+                // }
+                // else {
+                //     // 怀旧服
+                //     let data = res?.data;
+                //     let list = [];
+                //     for (let group in data) {
+                //         list.push(...data[group].list);
+                //     }
+                //     this.game_data = list
+                //         .map((item) => {
+                //             item.time = new Date(Number(item.inputtime * 1000));
+                //             item.type = "game";
+                //             return item;
+                //         })
+                //         .sort((a, b) => {
+                //             return ~~b.inputtime - ~~a.inputtime;
+                //         })
+                //         .slice(0, 5);
+                // }
             });
         },
         loadBoxData: function () {
