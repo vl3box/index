@@ -42,7 +42,6 @@
                     :style="{ backgroundColor: item.bgcolor }"
                     v-reporter="{
                         data: { url: convertUrlToProtocol(item.link) },
-                        user_id: userId,
                         caller: 'index_slider',
                     }"
                 >
@@ -73,7 +72,6 @@
 import { buildTarget, resolveImagePath, getThumbnail, convertUrlToProtocol } from "@jx3box/jx3box-common/js/utils";
 import { getSliders } from "@/service/cms";
 import Mini_bread from "../content/mini_bread.vue";
-import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "slider",
     components: {
@@ -105,9 +103,6 @@ export default {
         },
         target: function () {
             return buildTarget();
-        },
-        userId: function () {
-            return User.getInfo().uid;
         },
     },
     methods: {

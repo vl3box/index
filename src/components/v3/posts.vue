@@ -27,13 +27,20 @@
                 </el-tabs>
             </div>
             <div class="m-v2-post-wrapper" v-loading="loading">
-                <div class="m-v2-post-content" v-if="isPost">
+                <div
+                    class="m-v2-post-content"
+                    v-if="isPost"
+                >
                     <a
                         class="u-post"
                         v-for="(item, i) in data"
                         :key="i"
                         :href="getLink(item.post_type, item.ID)"
                         :target="target"
+                        v-reporter="{
+                            data: { href: getLink(item.post_type, item.ID), category: item.post_type, aggregate: aggregate },
+                            caller: 'index_lastest_artwork',
+                        }"
                     >
                         <el-image
                             class="u-avatar"
@@ -66,6 +73,10 @@
                         :key="i"
                         :href="getLink(item.type, item.source_id)"
                         :target="target"
+                        v-reporter="{
+                            data: { href: getLink(item.type, item.source_id), category: item.type, aggregate: aggregate },
+                            caller: 'index_lastest_artwork',
+                        }"
                     >
                         <el-image class="u-avatar" :src="showWikiAvatar(item)" fit="cover"></el-image>
                         <div class="u-info">
@@ -101,6 +112,7 @@ import { buildTarget, authorLink, showAvatar, getLink, getTypeLabel } from "@jx3
 import { __postType } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "@/utils/moment";
 import Mini_bread from "../content/mini_bread.vue";
+import { reportNow } from "@jx3box/jx3box-common/js/reporter"
 export default {
     name: "v2-post",
     props: [],
@@ -153,6 +165,7 @@ export default {
                 },
             ],
             loading: false,
+            aggregate: []
         };
     },
     computed: {
@@ -164,6 +177,9 @@ export default {
         },
         isPost: function () {
             return Object.keys(__postType).includes(this.type) || this.type == "all";
+        },
+        userId: function () {
+            return User.getInfo().uid;
         },
     },
     methods: {
@@ -199,6 +215,9 @@ export default {
             getPosts(this.client, type, this.length)
                 .then((res) => {
                     this.data = res.data.data.list || [];
+
+                    this.aggregate = this.data.map(item => getLink(item.post_type, item.ID))
+                    this.sendReporter();
                 })
                 .finally(() => {
                     this.loading = false;
@@ -212,11 +231,20 @@ export default {
             })
                 .then((res) => {
                     this.data = res.data.data.newest || [];
+
+                    this.aggregate = this.data.map(item => getLink(item.type, item.source_id));
+                    this.sendReporter();
                 })
                 .finally(() => {
                     this.loading = false;
                 });
         },
+        sendReporter() {
+            reportNow({ caller: "index_lastest_artwork_initial", data: {
+                aggregate: this.aggregate,
+                category: this.type
+            }});
+        }
     },
     watch: {
         type: function () {

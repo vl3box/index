@@ -41,7 +41,6 @@
                         :class="{ 'u-doing': !item.status }"
                         v-reporter="{
                             data: { item: item.href },
-                            user_id: userId,
                             caller: 'index_matrix',
                         }"
                     >
