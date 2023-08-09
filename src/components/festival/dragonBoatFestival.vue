@@ -19,7 +19,7 @@
 <script>
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
-    name: "christmas",
+    name: "dragonBoatFestival",
     props: ["fontCount"],
     computed: {
         imgLink() {

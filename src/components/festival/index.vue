@@ -2,7 +2,7 @@
     <div class="m-index-popup" v-if="success" v-show="visible">
         <!-- 2屏贺卡 -->
         <!-- <flipScreen :username="username" :fontCount="fontCount" @close="closePop" fontCount/> -->
-        <dragonBoatFestival :fontCount="count" @close="closePop" />
+        <sevenFestival :fontCount="count" @close="closePop" />
     </div>
 </template>
 
@@ -10,25 +10,25 @@
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getBoxCoin } from "@/service/index";
 import User from "@jx3box/jx3box-common/js/user";
-import dragonBoatFestival from "@/components/festival/dragonBoatFestival.vue";
+import sevenFestival from "@/components/festival/sevenFestival.vue";
 export default {
     name: "Festival",
     data: function () {
         return {
             success: false,
             visible: true,
-            count: 66,
+            count: 36,
             data: {},
             done: sessionStorage.getItem("festival_id"),
         };
     },
-    components: { dragonBoatFestival },
+    components: { sevenFestival },
     computed: {
         imgLink: function ({ event_id }) {
             return __imgPath + `topic/festival/`;
         },
         fontCount() {
-            if (this.count == 0) return "贰零伍";
+            if (this.count == 0) return "零";
             return this.toChineseBig(this.count);
         },
         username() {
