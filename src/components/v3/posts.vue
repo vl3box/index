@@ -39,7 +39,7 @@
                         :target="target"
                         v-reporter="{
                             data: { href: getLink(item.post_type, item.ID), category: item.post_type, aggregate: aggregate },
-                            caller: 'index_lastest_artwork',
+                            caller: 'index_lastest_artwork_click',
                         }"
                     >
                         <el-image
@@ -75,7 +75,7 @@
                         :target="target"
                         v-reporter="{
                             data: { href: getLink(item.type, item.source_id), category: item.type, aggregate: aggregate },
-                            caller: 'index_lastest_artwork',
+                            caller: 'index_lastest_artwork_click',
                         }"
                     >
                         <el-image class="u-avatar" :src="showWikiAvatar(item)" fit="cover"></el-image>
@@ -240,7 +240,7 @@ export default {
                 });
         },
         sendReporter() {
-            reportNow({ caller: "index_lastest_artwork_initial", data: {
+            reportNow({ caller: "index_lastest_artwork_load", data: {
                 aggregate: this.aggregate,
                 category: this.type
             }});
