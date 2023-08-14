@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-popup" v-if="!success" v-show="visible" @click="close">
+    <div class="m-index-popup" v-if="success" v-show="visible" @click="close">
         <!-- 贺卡 -->
         <sevenFestival :fontCount="count" @close="closePop" @checked="checked" />
     </div>
