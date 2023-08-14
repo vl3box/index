@@ -31,6 +31,7 @@ export default {
         },
         open() {
             this.active = true;
+            this.$emit("checked");
         },
     },
 };

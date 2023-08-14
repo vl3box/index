@@ -1,8 +1,7 @@
 <template>
-    <div class="m-index-popup" v-if="success" v-show="visible">
-        <!-- 2屏贺卡 -->
-        <!-- <flipScreen :username="username" :fontCount="fontCount" @close="closePop" fontCount/> -->
-        <sevenFestival :fontCount="count" @close="closePop" />
+    <div class="m-index-popup" v-if="!success" v-show="visible" @click="close">
+        <!-- 贺卡 -->
+        <sevenFestival :fontCount="count" @close="closePop" @checked="checked" />
     </div>
 </template>
 
@@ -20,6 +19,7 @@ export default {
             count: 36,
             data: {},
             done: sessionStorage.getItem("festival_id"),
+            check: false,
         };
     },
     components: { sevenFestival },
@@ -47,6 +47,12 @@ export default {
     methods: {
         closePop() {
             this.visible = false;
+        },
+        checked() {
+            this.check = true;
+        },
+        close() {
+            if (this.check) this.visible = false;
         },
         init() {
             if ((this.event_status && this.event_id) || (this.event_test && User.isSuperAdmin())) {
