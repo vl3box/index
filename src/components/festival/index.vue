@@ -1,5 +1,5 @@
 <template>
-    <div class="m-index-popup" v-if="success" v-show="visible" @click="close">
+    <div class="m-index-popup" v-if="!success" v-show="visible" @click="close">
         <!-- 贺卡 -->
         <sevenFestival :fontCount="count" @close="closePop" @checked="checked" />
     </div>
@@ -16,7 +16,7 @@ export default {
         return {
             success: false,
             visible: true,
-            count: 36,
+            count: 0,
             data: {},
             done: sessionStorage.getItem("festival_id"),
             check: false,
@@ -28,7 +28,7 @@ export default {
             return __imgPath + `topic/festival/`;
         },
         fontCount() {
-            if (this.count == 0) return "零";
+            // if (this.count == 0) return "零";
             return this.toChineseBig(this.count);
         },
         username() {

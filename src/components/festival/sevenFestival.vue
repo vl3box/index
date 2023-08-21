@@ -1,9 +1,11 @@
 <template>
     <div class="sevenFestival" @click.stop>
         <div
+            v-if="fontCount"
             :class="['u-count', { active }]"
             :style="{ backgroundImage: `url('${imgLink}${fontCount}.png')` }"
         ></div>
+        <div v-else :class="['u-count', { active }]">零</div>
         <img :src="`${imgLink}text.png`" class="u-img u-text" :class="{ active }" @click="close" />
         <img :src="`${imgLink}bg.png`" class="u-img u-bg" :class="{ active }" />
         <img :src="`${imgLink}line.png`" class="u-img u-line" @click="open" />
@@ -48,11 +50,15 @@ export default {
         .z(3);
         .mt(100px);
         .ml(56px);
+        .x;
+        .lh(86px);
+        .fz(22px);
         opacity: 0;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 23px auto;
         transition: all 0.5s ease-in-out;
+        color: #ff236b;
         &.active {
             opacity: 1;
         }
