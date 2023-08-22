@@ -38,7 +38,7 @@
                         :href="getLink(item.post_type, item.ID)"
                         :target="target"
                         v-reporter="{
-                            data: { href: getLink(item.post_type, item.ID), category: item.post_type, aggregate: aggregate },
+                            data: { href: reportLink(getLink(item.post_type, item.ID)), category: item.post_type, aggregate: aggregate },
                             caller: 'index_lastest_artwork_click',
                         }"
                     >
@@ -74,7 +74,7 @@
                         :href="getLink(item.type, item.source_id)"
                         :target="target"
                         v-reporter="{
-                            data: { href: getLink(item.type, item.source_id), category: item.type, aggregate: aggregate },
+                            data: { href: reportLink(getLink(item.type, item.source_id)), category: item.type, aggregate: aggregate },
                             caller: 'index_lastest_artwork_click',
                         }"
                     >
@@ -216,7 +216,7 @@ export default {
                 .then((res) => {
                     this.data = res.data.data.list || [];
 
-                    this.aggregate = this.data.map(item => getLink(item.post_type, item.ID))
+                    this.aggregate = this.data.map(item => this.reportLink(getLink(item.post_type, item.ID)))
                     this.sendReporter();
                 })
                 .finally(() => {
