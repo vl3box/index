@@ -232,7 +232,7 @@ export default {
                 .then((res) => {
                     this.data = res.data.data.newest || [];
 
-                    this.aggregate = this.data.map(item => getLink(item.type, item.source_id));
+                    this.aggregate = this.data.map(item => this.reportLink(getLink(item.type, item.source_id)));
                     this.sendReporter();
                 })
                 .finally(() => {
@@ -244,6 +244,10 @@ export default {
                 aggregate: this.aggregate,
                 category: this.type
             }});
+        },
+        reportLink(link) {
+            const prefix = this.client == 'std' ? 'www' : 'origin';
+            return `${prefix}:${link}`
         }
     },
     watch: {
