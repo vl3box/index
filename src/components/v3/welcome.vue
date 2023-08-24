@@ -1,6 +1,6 @@
 <template>
     <div class="m-welcome" :style="{ backgroundImage: `url(${bg})` }">
-        <!-- <div class="m-code" v-for="(item, i) in data" :key="i">
+        <div class="m-code" v-for="(item, i) in data" :key="i">
             <div class="u-code" @click="copy(item.title)" v-if="item.title">
                 <span :style="{ backgroundColor: preset.buttoncolor, color: item.color || preset.buttontextcolor }">{{
                     item.title
@@ -9,7 +9,7 @@
             <div class="u-desc" v-if="item.desc">
                 <span>{{ item.desc }}</span>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 

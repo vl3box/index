@@ -3,13 +3,13 @@
         <Header :overlayEnable="true"></Header>
         <div class="m-main">
             <div class="m-left m-sidebar">
-                <banner />
-                <!-- <welcome /> -->
+                <welcome />
                 <news />
                 <jx3code />
                 <jx3servers />
-                <jx3world />
                 <feedback />
+                <banner />
+                <jx3world />
             </div>
             <div class="m-primary">
                 <live />
@@ -27,7 +27,7 @@
 
 <script>
 // 左侧
-// import welcome from "@/components/v3/welcome.vue";
+import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
 import jx3world from "@/components/v3/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
@@ -64,7 +64,7 @@ export default {
     },
     components: {
         // 左侧
-        // welcome,
+        welcome,
         news,
         jx3world,
         jx3code,
