@@ -7,9 +7,9 @@
                 <news />
                 <jx3code />
                 <jx3servers />
+                <jx3world />
                 <feedback />
                 <banner />
-                <jx3world />
             </div>
             <div class="m-primary">
                 <live />
