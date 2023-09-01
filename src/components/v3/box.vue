@@ -25,6 +25,10 @@
                     hidden: !canSee(item.uuid),
                 }"
                 v-show="item.status"
+                v-reporter="{
+                    data: { item: item.href },
+                    caller: 'index_matrix',
+                }"
             >
                 <el-tooltip
                     class="item"
@@ -39,10 +43,6 @@
                         :target="item.href.startsWith('/') ? target : '_blank'"
                         class="u-item"
                         :class="{ 'u-doing': !item.status }"
-                        v-reporter="{
-                            data: { item: item.href },
-                            caller: 'index_matrix',
-                        }"
                     >
                         <img class="u-pic" :src="item.img | getBoxIcon" :class="{ hidden: !canSee(item.uuid) }" />
                         <img class="u-pic-hover" svg-inline :src="item.hover | getBoxIcon" />
