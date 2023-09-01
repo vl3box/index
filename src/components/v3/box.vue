@@ -1,5 +1,5 @@
 <template>
-    <div class="m-box">
+    <div class="m-box" v-if="data && data.length">
         <div class="m-sideblock-header">
             <div class="u-left">
                 <i class="u-icon el-icon-menu"></i>
@@ -25,10 +25,7 @@
                     hidden: !canSee(item.uuid),
                 }"
                 v-show="item.status"
-                v-reporter="{
-                    data: { item: item.href },
-                    caller: 'index_matrix',
-                }"
+                @click="onReport(item.href)"
             >
                 <el-tooltip
                     class="item"
@@ -110,6 +107,7 @@ import User from "@jx3box/jx3box-common/js/user";
 import { getMeta, setMeta } from "@/service/user.js";
 import { getHelperPnt, getMenu } from "@/service/setting.js";
 import Mini_bread from "../content/mini_bread.vue";
+import { reportNow } from "@jx3box/jx3box-common/js/reporter";
 // ==============================
 
 const KEY = "boxmatrix";
@@ -377,6 +375,14 @@ export default {
                 }
             });
         },
+        onReport(href) {
+            reportNow({
+                caller: "index_matrix",
+                data: {
+                    item: href,
+                },
+            })
+        }
     },
     filters: {
         getBoxIcon: function (val) {
