@@ -23,7 +23,7 @@
                         {{ stat.views || "-" }}
                     </span>
 
-                    <a class="u-edit u-sub-block" :href="edit_link" v-if="isAdmin">
+                    <a class="u-edit u-sub-block" :href="edit_link" v-if="isEditor">
                         <i class="u-icon-edit el-icon-edit-outline"></i>
                         <span>编辑</span>
                     </a>
@@ -91,6 +91,7 @@ export default {
             author: {},
             stat: {},
             isAdmin: false,
+            isEditor : false,
         };
     },
     computed: {
@@ -153,6 +154,7 @@ export default {
     },
     mounted: function () {
         this.isAdmin = User.isAdmin();
+        this.isEditor = User.isEditor();
     },
 };
 </script>
