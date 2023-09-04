@@ -74,9 +74,8 @@ export default {
                 });
         },
         toFormatTime(h, m) {
-            const hF = h < 0 ? "23" : h < 10 ? "0" + h : h > 23 ? "00" : h;
-            const hM = m < 10 ? "0" + m : m;
-            return hF + ":" + hM;
+            const formatM = m.toString().padStart(2, "00");
+            return `${h}:${formatM}`.padStart(5, "00:00");
         },
         getList(date) {
             const currentKey = "c" + (date.h % 2 === 0 ? "0" : "1") + (date.m < 30 ? "0" : "1");
@@ -93,8 +92,10 @@ export default {
                     return item.key === currentKey && item.time > date.m;
                 });
                 if (nIndex === -1) {
-                    // 最后一个
-                    index = this.celebrityList.length - 1;
+                    // 当前key中最后一个
+                    index = this.celebrityList.findLastIndex((item) => {
+                        return item.key === currentKey;
+                    });
                 } else {
                     index = nIndex - 1;
                 }
