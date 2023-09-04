@@ -74,12 +74,11 @@ export default {
                 });
         },
         toFormatTime(h, m) {
-            const hM = m.toString().padStart(2, "00");
-            return `${h}:${hM}`.padStart(5, "00:00");
+            const formatM = m.toString().padStart(2, "00");
+            return `${h}:${formatM}`.padStart(5, "00:00");
         },
         getList(date) {
             const currentKey = "c" + (date.h % 2 === 0 ? "0" : "1") + (date.m < 30 ? "0" : "1");
-            console.log(currentKey);
             const isEqualMinute = this.celebrityList.findIndex((item) => {
                 return item.key === currentKey && item.time === date.m;
             });
