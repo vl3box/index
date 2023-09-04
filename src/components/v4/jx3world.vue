@@ -18,7 +18,7 @@
                 <horse></horse>
                 <leisure></leisure>
             </div>
-            <div class="m-baizhan-map"></div>
+            <baizhan-map></baizhan-map>
         </div>
     </div>
 </template>
@@ -28,6 +28,7 @@ import daily from "@/components/v4/world/daily.vue";
 import leisure from "@/components/v4/world/leisure.vue";
 import celebrity from "@/components/v4/world/celebrity.vue";
 import horse from "@/components/v4/world/horse.vue";
+import BaizhanMap from "@/components/v4/world/map.vue";
 import dayjs from "dayjs";
 export default {
     name: "JX3World",
@@ -36,6 +37,7 @@ export default {
         leisure,
         celebrity,
         horse,
+        BaizhanMap,
     },
     provide() {
         return {
