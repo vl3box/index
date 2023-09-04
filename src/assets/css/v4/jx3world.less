@@ -9,24 +9,16 @@
         transform: scale(0.9);
         .r(2px);
     }
-
-    .other-list {
-        .flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        & > div {
-            width: 300px;
-            &:not(:last-child) {
-                border-right: 1px solid #eee;
-            }
-        }
-    }
 }
 .m-world-content {
+    .flex;
+    gap: 20px;
     color: #777;
-    // .h(160px);
-    // overflow: auto;
-    // .scrollbar();
+    .m-other-list {
+        padding: 10px;
+        width: 300px;
+        border-right: 1px dotted #eee;
+    }
 }
 
 .m-world-block {

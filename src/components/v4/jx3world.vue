@@ -11,20 +11,19 @@
             </div>
         </div>
         <div class="m-world-content m-sideblock-list">
-            <!-- 其它 日常 名望 休闲 -->
-            <div class="other-list" v-if="client == 'std'">
+            <!-- 日常 名望 休闲 -->
+            <div class="m-other-list">
                 <celebrity></celebrity>
                 <daily></daily>
                 <horse></horse>
                 <leisure></leisure>
             </div>
+            <div class="m-baizhan-map"></div>
         </div>
     </div>
 </template>
 
 <script>
-import { getServers } from "@/service/spider";
-// import { getCelebrities } from "@/service/node";
 import daily from "@/components/v4/world/daily.vue";
 import leisure from "@/components/v4/world/leisure.vue";
 import celebrity from "@/components/v4/world/celebrity.vue";
@@ -45,26 +44,6 @@ export default {
     },
     data() {
         return {
-            mode: "celebrity",
-            mode_list: [
-                {
-                    value: "celebrity",
-                    label: "名望",
-                    link: "/calendar",
-                },
-                {
-                    value: "daily",
-                    label: "日常",
-                    link: "/calendar",
-                },
-                {
-                    value: "leisure",
-                    label: "休闲",
-                    link: "/calendar",
-                },
-            ],
-            serverLoading: false,
-            serverList: [],
             celebrityData: {
                 list: [],
                 currentDate: {
@@ -83,84 +62,9 @@ export default {
         isStd() {
             return this.$store.state.client === "std";
         },
-        // world_tip() {
-        // const date = new Date();
-        // const month = date.getMonth() + 1;
-        // const dateFormat =
-        //     date.getFullYear() +
-        //     "-" +
-        //     (month < 10 ? "0" + month : month) +
-        //     "-" +
-        //     (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
-        // const time =
-        //     " " +
-        //     (this.celebrityData.currentDate.h < 10
-        //         ? "0" + this.celebrityData.currentDate.h
-        //         : this.celebrityData.currentDate.h) +
-        //     ":" +
-        //     (this.celebrityData.currentDate.m < 10
-        //         ? "0" + this.celebrityData.currentDate.m
-        //         : this.celebrityData.currentDate.m);
-        // return dateFormat + time;
-        // },
-        more_link() {
-            return this.mode_list.find((item) => item.value === this.mode).link;
-        },
-        more_title() {
-            return "更多" + this.mode_list.find((item) => item.value === this.mode).label;
-        },
-        is_first() {
-            // 暂定周一周四7点到12点 显示开服。
-            let is_first = false;
-            const dayArr = [1, 4];
-            const day = this.celebrityData.currentDate.d;
-            const hour = this.celebrityData.currentDate.h;
-            if (dayArr.includes(day) && hour >= 7 && hour < 12) {
-                is_first = true;
-            }
-            return is_first;
-        },
-        is_open() {
-            let bol = false;
-            const sLen = this.serverList.length;
-            if (sLen) {
-                const openLen = this.serverList.filter((item) => item.connect_state).length;
-                if (openLen / sLen > 0.8) {
-                    bol = true;
-                }
-            }
-            return bol;
-        },
     },
-    methods: {
-        switchMode(val) {
-            this.mode = val;
-        },
-        getServerList() {
-            this.serverLoading = true;
-            getServers()
-                .then((res) => {
-                    this.serverLoading = false;
-                    this.serverList = res.data.map((item) => {
-                        return {
-                            ...item,
-                            serverName: item.main_server,
-                        };
-                    });
-                })
-                .catch(() => {
-                    this.serverLoading = false;
-                });
-        },
-        // getCelebrities() {
-        //     getCelebrities().then((res) => {
-        //         this.celebrityData.list = res.data;
-        //     });
-        // },
-    },
-    created() {
-        // this.getCelebrities();
-    },
+    methods: {},
+    created() {},
     mounted() {
         setInterval(() => {
             if (
