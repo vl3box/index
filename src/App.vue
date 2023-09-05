@@ -7,7 +7,7 @@
                 <news />
                 <jx3code />
                 <jx3servers />
-                <jx3world />
+                <!-- <jx3world /> -->
                 <feedback />
                 <banner />
             </div>
@@ -16,6 +16,7 @@
                 <slider />
                 <box />
 
+                <jx3world />
                 <!-- <joke /> -->
                 <posts />
                 <Footer></Footer>
@@ -29,7 +30,7 @@
 // 左侧
 import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
-import jx3world from "@/components/v3/jx3world.vue";
+import jx3world from "@/components/v4/jx3world.vue";
 import jx3code from "@/components/v3/jx3code.vue";
 import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
