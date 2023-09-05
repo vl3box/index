@@ -18,6 +18,7 @@
 
                 <jx3world />
                 <!-- <joke /> -->
+                <face />
                 <posts />
                 <Footer></Footer>
             </div>
@@ -41,6 +42,7 @@ import live from "@/components/v3/live.vue";
 import slider from "@/components/v3/slider.vue";
 import box from "@/components/v3/box.vue";
 import posts from "@/components/v3/posts.vue";
+import face from "@/components/v3/face.vue";
 import festival from "@/components/festival/index.vue";
 
 // 系统
@@ -78,6 +80,7 @@ export default {
         slider,
         box,
         // joke,
+        face,
         posts,
 
         festival,

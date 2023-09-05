@@ -1,18 +1,9 @@
-.m-index-face {
-    .mb(20px);
-    .mt(20px);
-    .flex;
-    gap:10px;
-    overflow:auto;
-    .scrollbar(4px);
-    padding-bottom: 6px;
-}
-
 .m-face-list {
+    padding:20px;
     .flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 20px;
 
     // 每行4个，2行
     display:grid;
@@ -21,7 +12,7 @@
 
     .u-face {
         .db;
-        .size(280px,85px);
+        .size(320px,160px);
         // flex-basis: 280px;
         // flex-shrink: 1;
         // flex-grow: 1;
@@ -34,22 +25,4 @@
         }
     }
 }
-.m-banner{
-    height: 180px;
-}
-.m-banner-box {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.08);
-    .r(5px);
-    .size(380px,180px);
-    a,
-    img {
-        .db;
-        .size(100%);
-    }
-}
 
-// @media screen and (max-width:@mininote){
-//     .m-banner{
-//         .none;
-//     }
-// }
