@@ -2,35 +2,35 @@
     .m-pet {
         .flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     }
     .u-item {
         .flex;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: flex-start !important;
+        // gap:10px !important;
+    }
+    .u-npc{
+        color:#999;
     }
     .u-pet {
         display: flex;
         gap: 10px;
         align-items: center;
+        color:rgb(119,119,119);
     }
     .u-pet-icon {
-        .size(48px);
-        .r(4px);
+        @s:24px;
+        .size(@s);
+        .r(100%);
         overflow: hidden;
         img {
-            .size(50px);
+            .size(100%);
             .db;
-            .r(4px);
+            .r(100%);
 
             &:hover {
                 filter: brightness(110%) saturate(110%);
-            }
-        }
-        @media screen and (max-width: @phone) {
-            .size(30px);
-            img {
-                .size(32px);
             }
         }
         .db;
@@ -41,8 +41,9 @@
             .size(100%);
             .pa;
             .lt(0);
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             box-sizing: border-box;
+            .r(100%);
         }
 
         &.u-quality-2:after {

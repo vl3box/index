@@ -1,6 +1,6 @@
 <template>
     <div class="m-world-block m-world-pet">
-        <el-divider>福缘宠物</el-divider>
+        <el-divider content-position="left">福缘宠物</el-divider>
         <div class="m-pet">
             <div class="u-item" v-for="item in luckyList" :key="item.Index">
                 <a class="u-pet" :href="getPetLink(item.Index)" target="_blank">
@@ -9,7 +9,7 @@
                     </div>
                     <span class="u-pet-name">{{ item.Name }}</span>
                 </a>
-                <span class="u-npc">{{ item.szTip }}</span>
+                <span class="u-npc">&lt;{{ item.szTip }}&gt;</span>
             </div>
         </div>
     </div>

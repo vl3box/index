@@ -1,6 +1,6 @@
 <template>
     <div class="m-world-block m-world-furniture">
-        <el-divider>园宅会赛</el-divider>
+        <el-divider content-position="left">园宅会赛</el-divider>
         <div class="u-item">
             <div>加分属性</div>
             <div class="u-furniture">
@@ -13,7 +13,7 @@
         <div class="u-item">
             <div>评审分类</div>
             <div class="u-furniture">
-                <a class="u-pet" href="/furniture?match=1" target="_blank">{{
+                <a href="/furniture?match=1" target="_blank">{{
                     formatContent(furnitureCategory && furnitureCategory.content)
                 }}</a>
             </div>
@@ -120,3 +120,13 @@ export default {
     },
 };
 </script>
+
+<style lang="less">
+.m-world-furniture {
+    .u-furniture {
+        a {
+            color: rgb(119, 119, 119);
+        }
+    }
+}
+</style>

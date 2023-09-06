@@ -22,12 +22,17 @@
     }
     .m-world-left,
     .m-world-right {
-        padding: 0 10px 10px;
         flex: 1;
+    }
+    .m-world-left{
+        padding-left:10px;
+    }
+    .m-world-right{
+        padding-right: 10px;
     }
     .m-baizhan {
         min-width: 637px;
-        margin: 0 10px;
+        // margin: 0 10px;
     }
     @media screen and (max-width: @phone) {
         gap: 0;
@@ -43,6 +48,11 @@
     }
 }
 
+.m-world{
+    .el-divider{
+        .mb(20px);
+    }
+}
 .m-world-block {
     .fz(12px,28px);
     .u-item {

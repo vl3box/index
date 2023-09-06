@@ -1,12 +1,9 @@
 <template>
     <div class="m-world-horse">
         <div class="u-horse" v-if="list.length">
-            <el-divider>
-                <a href="/horse">抓马播报</a> <span>·</span> <span>{{ params.server }}</span>
+            <el-divider content-position="left">
+                抓马播报 <span>·</span> <span>{{ params.server }}</span>
             </el-divider>
-            <!-- <div class="u-label">
-                <a href="/horse">抓马播报</a><span>{{ params.server }}</span>
-            </div> -->
             <div class="u-item" v-for="item in list" :key="item.id">
                 <div class="u-horse-name-wrap">
                     <a

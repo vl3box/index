@@ -1,6 +1,6 @@
 <template>
     <div class="m-celebrity-content">
-        <el-divider>名望 · 楚天社</el-divider>
+        <el-divider content-position="left">名望 · 楚天社</el-divider>
         <table>
             <thead>
                 <tr>
