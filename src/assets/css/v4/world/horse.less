@@ -1,0 +1,53 @@
+.m-world-horse {
+    .u-horse {
+        padding: 10px;
+        font-size: 12px;
+        line-height: 28px;
+        .u-label {
+            .flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            a {
+                color: #777;
+                &:hover {
+                    color: #fba524;
+                    box-shadow: none;
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .u-item {
+            .flex;
+            justify-content: space-between;
+        }
+        .u-horse-name-wrap {
+            .flex;
+            width: 110px;
+            overflow: hidden;
+            overflow-x: auto;
+            .scrollbar();
+            .u-horse-name {
+                .size(30px, 30px);
+                flex-shrink: 0;
+                cursor: pointer;
+                border-radius: 3px;
+                &:hover {
+                    background-color: #eee;
+                    box-shadow: none;
+                }
+            }
+        }
+        .u-times-info {
+            .u-map-name {
+                margin-right: 5px;
+            }
+            .flex;
+            justify-content: flex-end;
+            align-items: center;
+            .u-times-lately {
+                color: #fba524;
+            }
+        }
+    }
+}

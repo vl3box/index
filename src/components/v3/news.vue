@@ -25,7 +25,7 @@
         </div>
         <ul class="m-news-list m-sideblock-list" v-if="data">
             <li v-for="(item, i) in data" :key="i">
-                <em>{{ dateFormat(item.time) }}</em>
+                <em v-if="item.time">{{ dateFormat(item.time) }}</em>
                 <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
         </ul>
@@ -36,6 +36,7 @@
 import { getGameNews } from "@/service/spider";
 import { getPosts } from "@/service/index";
 import dateFormat from "@/utils/dateFormat.js";
+import { getMenu } from "@jx3box/jx3box-common/js/api_misc";
 export default {
     name: "IndexNews",
     components: {},
@@ -45,6 +46,7 @@ export default {
             mode_list: [
                 { label: "全部", value: "all" },
                 { label: "游戏", value: "game" },
+                { label: "技改", value: "skill_change" },
                 { label: "魔盒", value: "box" },
             ],
 
@@ -65,6 +67,9 @@ export default {
                 origin: "/notice",
             },
             box_data: [],
+
+            // 技改
+            skill_change_data: [],
         };
     },
     computed: {
@@ -72,7 +77,7 @@ export default {
             return this.$store.state.client;
         },
         more_link: function () {
-            return this[this.mode + "_links"][this.client];
+            return this[this.mode + "_links"]?.[this.client] || '/';
         },
         all_data: function () {
             let list = [...this.game_data.slice(0, 3), ...this.box_data.slice(0, 2)];
@@ -148,10 +153,23 @@ export default {
                 });
             });
         },
+        loadSkillChangeData: function (){
+            getMenu('bps_skill_change').then(res => {
+                console.log(res)
+                this.skill_change_data = res.map(item => {
+                    item.title = item.label;
+                    item.url = item.link;
+                    item.time = new Date(item.icon)
+                    item.type = "skill_change";
+                    return item;
+                })
+            })
+        }
     },
     mounted: function () {
         this.loadGameData();
         this.loadBoxData();
+        this.loadSkillChangeData();
     },
 };
 </script>
