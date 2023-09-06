@@ -1,7 +1,7 @@
 <template>
     <div class="m-world-leisure">
-        <lucky-pet :date="date" :client="client"></lucky-pet>
         <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
+        <lucky-pet :date="date" :client="client"></lucky-pet>
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
-    <div class="m-world-daily">
+    <div v-if="daily.length" class="m-world-daily">
+        <el-divider>日常</el-divider>
         <div class="m-daily-content">
             <table>
                 <thead>

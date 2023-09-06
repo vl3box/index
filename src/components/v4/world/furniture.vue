@@ -1,7 +1,8 @@
 <template>
     <div class="m-world-block m-world-furniture">
+        <el-divider>园宅会赛</el-divider>
         <div class="u-item">
-            <div>园宅会赛</div>
+            <div>加分属性</div>
             <div class="u-furniture">
                 <!-- <el-tooltip popper-class="m-next-match" v-if="furnitureCategory || furnitureProperty"> -->
                 <!-- <div :class="{ 'u-next-match': furnitureNextMatch }" slot="content" v-html="nextMatch"></div> -->
@@ -17,7 +18,7 @@
                 }}</a>
             </div>
         </div>
-        <!-- <div class="u-item" v-html="nextMatch"></div> -->
+        <div class="u-item" v-html="nextMatch"></div>
     </div>
 </template>
 
@@ -111,10 +112,10 @@ export default {
             }
         },
         nl2br(str) {
-            return str ? this.formatContent(str.replace(/\\n|\n/g, "<br>")) : '';
+            return str ? this.formatContent(str.replace(/\\n|\n/g, "<br>")) : "";
         },
         formatContent(str) {
-            return str ? str.replace("+", "") : '';
+            return str ? str.replace("+", "") : "";
         },
     },
 };

@@ -1,28 +1,25 @@
 .m-face-list {
-    padding:20px;
-    .flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-
-    // 每行4个，2行
-    display:grid;
-    grid-template-columns: repeat(5, 1fr);
-
-
+    padding: 20px;
+    box-sizing: border-box;
     .u-face {
         .db;
         .size(320px,160px);
-        // flex-basis: 280px;
-        // flex-shrink: 1;
-        // flex-grow: 1;
-        box-shadow: 0 0 2px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
         .r(5px);
         .clip;
         transition: 0.15s ease-in-out;
-        &:hover{
+        &:hover {
             transform: scale(110%);
+            border: none;
+        }
+        .u-more {
+            cursor: pointer;
+        }
+    }
+    @media screen and (max-width: @phone) {
+        .u-face {
+            width: calc(100vw - 80px);
         }
     }
 }
-

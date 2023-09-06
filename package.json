@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@antv/g2plot": "^1.1.28",
-        "@jx3box/jx3box-bmap": "^0.1.1",
+        "@jx3box/jx3box-bmap": "^0.1.4",
         "@jx3box/jx3box-comment-ui": "^1.7.16",
         "@jx3box/jx3box-common": "^7.9.15",
         "@jx3box/jx3box-common-ui": "^7.5.7",

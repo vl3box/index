@@ -11,23 +11,47 @@
     }
 }
 .m-world-content {
+    position: relative;
     .flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
     color: #777;
-    .m-other-list {
-        padding: 10px;
-        width: 300px;
-        border-right: 1px dotted #eee;
+    gap: 20px;
+    .el-divider__text {
+        font-size: 12px;
+    }
+    .m-world-left,
+    .m-world-right {
+        padding: 0 10px 10px;
+        flex: 1;
+    }
+    .m-baizhan {
+        min-width: 637px;
+        margin: 0 10px;
+    }
+    @media screen and (max-width: @phone) {
+        gap: 0;
+        .m-baizhan {
+            min-width: 354px;
+            margin: 0;
+            width: 100%;
+        }
+    }
+    .m-bmap-simple {
+        padding-top: 0;
+        flex: 1;
     }
 }
 
 .m-world-block {
-    padding: 10px;
-    // .mt(10px);
     .fz(12px,28px);
     .u-item {
         .flex;
         gap: 20px;
         justify-content: space-between;
+    }
+    a:hover {
+        box-shadow: none !important;
+        color: #fba524 !important;
     }
 }

@@ -12,13 +12,22 @@
         </div>
         <div class="m-world-content m-sideblock-list">
             <!-- 日常 名望 休闲 -->
-            <div class="m-other-list">
-                <celebrity></celebrity>
+            <div class="m-world-left">
                 <daily></daily>
+                <celebrity></celebrity>
+                <template v-if="isSpc">
+                    <horse></horse>
+                    <leisure></leisure>
+                </template>
+            </div>
+            <div class="m-baizhan">
+                <el-divider>本周百战地图</el-divider>
+                <baizhan-map :class="isPhone && 'is-map-phone'" mode="simple"></baizhan-map>
+            </div>
+            <div v-if="!isSpc" class="m-world-right">
                 <horse></horse>
                 <leisure></leisure>
             </div>
-            <baizhan-map mode="simple"></baizhan-map>
         </div>
     </div>
 </template>
@@ -55,6 +64,8 @@ export default {
                 },
             },
             world_tip: dayjs().format("YYYY-MM-DD HH:mm"),
+            isSpc: false,
+            isPhone: false,
         };
     },
     computed: {
@@ -68,6 +79,13 @@ export default {
     methods: {},
     created() {},
     mounted() {
+        console.log(123);
+        this.isPhone = document.documentElement.clientWidth <= 768;
+        this.isSpc = document.documentElement.clientWidth <= 1680;
+        window.onresize = () => {
+            this.isPhone = document.documentElement.clientWidth <= 768;
+            this.isSpc = document.documentElement.clientWidth <= 1680;
+        };
         setInterval(() => {
             if (
                 this.celebrityData.currentDate.h !== new Date().getHours() ||

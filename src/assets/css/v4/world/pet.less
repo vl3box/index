@@ -1,0 +1,61 @@
+.m-world-pet {
+    .m-pet {
+        .flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .u-item {
+        .flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .u-pet {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .u-pet-icon {
+        .size(48px);
+        .r(4px);
+        overflow: hidden;
+        img {
+            .size(50px);
+            .db;
+            .r(4px);
+
+            &:hover {
+                filter: brightness(110%) saturate(110%);
+            }
+        }
+        @media screen and (max-width: @phone) {
+            .size(30px);
+            img {
+                .size(32px);
+            }
+        }
+        .db;
+        .pr;
+        &:after {
+            content: "";
+            .db;
+            .size(100%);
+            .pa;
+            .lt(0);
+            border: 2px solid transparent;
+            box-sizing: border-box;
+        }
+
+        &.u-quality-2:after {
+            border-color: #00d24b;
+        }
+        &.u-quality-3:after {
+            border-color: #007eff;
+        }
+        &.u-quality-4:after {
+            border-color: #ff2dff;
+        }
+        &.u-quality-5:after {
+            border-color: #ffa500;
+        }
+    }
+}

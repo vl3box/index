@@ -11,29 +11,39 @@
                 </a>
             </div>
         </div>
-        <div class="m-face-list">
+
+        <list-cross v-if="list.length" class="m-face-list" :list="list" :radius="0" :width="20">
+            <template v-slot="data">
+                <a :href="data.item.link" class="u-face" target="_blank"><img :src="showFacePic(data.item.img)" /></a>
+            </template>
+        </list-cross>
+        <!-- <div class="m-face-list">
             <a v-for="(item, i) in data" :key="i" :href="item.link" class="u-face" target="_blank"
                 ><img :src="showFacePic(item.img)"
             /></a>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
 import { $cms } from "@jx3box/jx3box-common/js/https.js";
 import { getThumbnail } from "@jx3box/jx3box-common/js/utils";
+import ListCross from "@/components/common/ListCross.vue";
 export default {
     name: "v3-face",
     props: [],
-    components: {},
+    components: { ListCross },
     data: function () {
         return {
-            data: [],
+            list: [],
         };
     },
     computed: {
         client() {
             return this.$store.state.client;
+        },
+        more_link() {
+            return "https://www.jx3box.com/face";
         },
     },
     watch: {},
@@ -49,11 +59,11 @@ export default {
                     type: "slider",
                     source_type: "face",
                     client: this.client,
-                    per: 4,
+                    per: 8,
                 },
             })
             .then((res) => {
-                this.data = res.data.data.list;
+                this.list = res.data.data.list;
             });
     },
 };

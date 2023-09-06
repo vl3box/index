@@ -1,16 +1,15 @@
 <template>
     <div class="m-world-block m-world-pet">
-        <div class="u-item">
-            <div>福缘宠物</div>
-            <div>
-                <a
-                    v-for="item in luckyList"
-                    :key="item.Index"
-                    class="u-pet"
-                    :href="getPetLink(item.Index)"
-                    target="_blank"
-                    >{{ item.Name }}</a
-                >
+        <el-divider>福缘宠物</el-divider>
+        <div class="m-pet">
+            <div class="u-item" v-for="item in luckyList" :key="item.Index">
+                <a class="u-pet" :href="getPetLink(item.Index)" target="_blank">
+                    <div class="u-pet-icon" :class="`u-quality-${item.Quality}`">
+                        <img :src="iconLink(item.IconID)" :alt="item.Name" />
+                    </div>
+                    <span class="u-pet-name">{{ item.Name }}</span>
+                </a>
+                <span class="u-npc">{{ item.szTip }}</span>
             </div>
         </div>
     </div>
@@ -19,6 +18,7 @@
 <script>
 import { getPets, getPetLucky } from "@/service/spider";
 import dayjs from "dayjs";
+import { iconLink } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "lucky-pet",
     props: {
@@ -45,6 +45,7 @@ export default {
         },
     },
     methods: {
+        iconLink,
         // 获取福缘宠物
         loadPetLucky: function () {
             getPetLucky().then((res) => {
@@ -65,15 +66,5 @@ export default {
 </script>
 
 <style lang="less">
-.m-world-pet {
-    a {
-        &:after {
-            content: "、";
-            color: #aaa !important;
-        }
-        &:last-child::after {
-            content: "";
-        }
-    }
-}
+@import "~@/assets/css/v4/world/pet.less";
 </style>

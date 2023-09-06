@@ -1,6 +1,5 @@
 .m-world-horse {
     .u-horse {
-        padding: 10px;
         font-size: 12px;
         line-height: 28px;
         .u-label {
@@ -17,13 +16,23 @@
                 }
             }
         }
+        .el-divider__text {
+            a {
+                color: #0366d6;
+                &:hover {
+                    color: #fba524;
+                    box-shadow: none;
+                    cursor: pointer;
+                }
+            }
+        }
         .u-item {
             .flex;
             justify-content: space-between;
         }
         .u-horse-name-wrap {
             .flex;
-            width: 110px;
+            // width: 110px;
             overflow: hidden;
             overflow-x: auto;
             .scrollbar();
