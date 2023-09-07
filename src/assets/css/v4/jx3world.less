@@ -14,16 +14,10 @@
     position: relative;
     .flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     color: #777;
-    // gap: 20px;
     .el-divider__text {
         font-size: 12px;
     }
-    // .m-world-left,
-    // .m-world-right {
-    //     flex: 1;
-    // }
     .m-world-left {
         padding: 0 20px;
         .w(320px);
@@ -34,33 +28,16 @@
         min-width: 320px;
     }
     .m-baizhan {
-        // min-width: 740px;
-        // margin: 0 10px;
         .w(780px);
     }
     @media screen and (max-width: 1680px) {
         .m-world-left {
-            .w(100%);
-            .flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            & > div {
-                flex: none;
-                width: calc(33% - 20px);
-                min-width: 320px;
-            }
+            order: 0;
         }
         .m-baizhan {
+            order: 2;
             margin: 0;
             width: 100%;
-        }
-    }
-    @media screen and (max-width: @notebook) {
-        .m-world-left {
-            & > div {
-                width: calc(50% - 20px);
-            }
         }
     }
     @media screen and (max-width: @phone) {

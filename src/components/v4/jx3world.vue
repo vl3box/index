@@ -15,17 +15,12 @@
             <div class="m-world-left">
                 <daily></daily>
                 <celebrity></celebrity>
-                <template v-if="isSpc">
-                    <horse></horse>
-                    <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
-                    <lucky-pet :date="date" :client="client"></lucky-pet>
-                </template>
             </div>
             <div class="m-baizhan">
                 <el-divider>本周百战地图</el-divider>
                 <baizhan-map :class="isPhone && 'is-map-phone'" mode="simple"></baizhan-map>
             </div>
-            <div v-if="!isSpc" class="m-world-right">
+            <div class="m-world-right">
                 <horse></horse>
                 <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
                 <lucky-pet :date="date" :client="client"></lucky-pet>
