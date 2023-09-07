@@ -17,7 +17,8 @@
                 <celebrity></celebrity>
                 <template v-if="isSpc">
                     <horse></horse>
-                    <leisure></leisure>
+                    <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
+                    <lucky-pet :date="date" :client="client"></lucky-pet>
                 </template>
             </div>
             <div class="m-baizhan">
@@ -26,7 +27,8 @@
             </div>
             <div v-if="!isSpc" class="m-world-right">
                 <horse></horse>
-                <leisure></leisure>
+                <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
+                <lucky-pet :date="date" :client="client"></lucky-pet>
             </div>
         </div>
     </div>
@@ -34,16 +36,18 @@
 
 <script>
 import daily from "@/components/v4/world/daily.vue";
-import leisure from "@/components/v4/world/leisure.vue";
 import celebrity from "@/components/v4/world/celebrity.vue";
 import horse from "@/components/v4/world/horse.vue";
+import luckyPet from "@/components/v4/world/lucky_pet";
+import furniture from "@/components/v4/world/furniture";
 import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
 import dayjs from "dayjs";
 export default {
     name: "JX3World",
     components: {
         daily,
-        leisure,
+        luckyPet,
+        furniture,
         celebrity,
         horse,
         BaizhanMap,
@@ -75,11 +79,22 @@ export default {
         isStd() {
             return this.$store.state.client === "std";
         },
+        date() {
+            // 当7点以前，请求前面一天的日常 当7~24点，请求当天的日常
+            const hour = dayjs().get("hours");
+            return 0 <= hour && hour < 7
+                ? dayjs().subtract(1, "day").format("YYYY-MM-DD")
+                : dayjs().format("YYYY-MM-DD");
+        },
+        isCurrentWeek() {
+            let week = dayjs(this.date).isoWeek();
+            let currentWeek = dayjs().isoWeek();
+            return week === currentWeek;
+        },
     },
     methods: {},
     created() {},
     mounted() {
-        console.log(123);
         this.isPhone = document.documentElement.clientWidth <= 768;
         this.isSpc = document.documentElement.clientWidth <= 1680;
         window.onresize = () => {

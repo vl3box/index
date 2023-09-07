@@ -134,8 +134,6 @@ export default {
             const list = this.$refs.list;
             const cWidth = list.clientWidth;
             const sWidth = list.scrollWidth;
-            console.log(this.$refs.wrap.scrollWidth);
-            console.log(cWidth, sWidth);
             if (sWidth > cWidth) {
                 this.isShow = true;
             }

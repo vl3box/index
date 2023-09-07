@@ -1,4 +1,7 @@
 .m-world-horse {
+    i::after {
+        content: "" !important;
+    }
     .u-horse {
         font-size: 12px;
         line-height: 28px;
@@ -17,18 +20,37 @@
             }
         }
         .el-divider__text {
-            a {
-                color: #0366d6;
-                &:hover {
-                    color: #fba524;
-                    box-shadow: none;
-                    cursor: pointer;
+            .flex;
+            align-items: center;
+            .el-select {
+                max-width: 70px;
+                .el-input .el-select__caret {
+                    font-size: 12px;
+                    margin: 0;
+                }
+                .el-input__icon {
+                    width: 20px;
+                    height: 28px;
+                    line-height: 28px;
+                }
+                .el-input__inner {
+                    border: none;
+                    padding: 0;
+                    height: 28px;
+                    line-height: 28px;
+                }
+                input {
+                    font-size: 12px;
+                    padding: 0;
                 }
             }
         }
         .u-item {
             .flex;
             justify-content: space-between;
+        }
+        .u-no-item {
+            text-align: center;
         }
         .u-horse-name-wrap {
             .flex;

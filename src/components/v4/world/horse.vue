@@ -1,8 +1,11 @@
 <template>
     <div class="m-world-horse">
-        <div class="u-horse" v-if="list.length">
+        <div class="u-horse">
             <el-divider content-position="left">
-                抓马播报 <span>·</span> <span>{{ params.server }}</span>
+                <span>抓马播报&nbsp;·&nbsp;</span>
+                <el-select v-model="params.server">
+                    <el-option v-for="server in servers" :key="server" :label="server" :value="server"></el-option>
+                </el-select>
             </el-divider>
             <div class="u-item" v-for="item in list" :key="item.id">
                 <div class="u-horse-name-wrap">
@@ -31,6 +34,7 @@
                     </div>
                 </div>
             </div>
+            <div class="u-no-item" v-if="!list.length">暂无播报</div>
         </div>
     </div>
 </template>
