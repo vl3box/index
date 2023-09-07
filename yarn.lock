@@ -1214,10 +1214,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@jx3box/jx3box-bmap@^0.1.8":
-  "integrity" "sha512-FtnWbYgvXzeLSe/RsGLMnagEIZCx5misuwINVRXVATetSt9d9r79XSGxghVcgUJ6gIC5VCXsnTgt5bD1MuqW7w=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-bmap/-/jx3box-bmap-0.1.8.tgz"
-  "version" "0.1.8"
+"@jx3box/jx3box-bmap@^0.1.9":
+  "integrity" "sha512-5LiSK+/Oyzpl0mvGe+pL6ATOr1DJq9G4b+tFx673zkf0yejLtwltZqP2yqKtnx3MfqXAl/EUg7hJPB4NNVIF1w=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-bmap/-/jx3box-bmap-0.1.9.tgz"
+  "version" "0.1.9"
   dependencies:
     "@jx3box/jx3box-common" "^7.4.2"
     "@jx3box/jx3box-common-ui" "^6.1.9"
