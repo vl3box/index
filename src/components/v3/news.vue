@@ -59,6 +59,10 @@ export default {
                 std: "https://jx3.xoyo.com/allnews/",
                 origin: "https://jx3yq.xoyo.com/index/#/latest",
             },
+            skill_change_links: {
+                std: "/bps/?search=技改",
+                origin: "/bps/?search=技改",
+            },
             game_data: [],
 
             // 魔盒
