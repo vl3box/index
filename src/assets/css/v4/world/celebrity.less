@@ -1,103 +1,49 @@
-.m-celebrity-content {
-    .fz(12px);
-    .lh(20px);
-    thead{
-        background-color:@bg-gray;
-    }
+.m-celebrity-wrap {
+    .m-celebrity-content {
+        .fz(12px, 20px);
+        .mt(0);
+        .u-table-header {
+            background-color: @bg-gray;
+            border-radius: 5px;
+        }
+        .u-row {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 2fr;
+            padding: 5px 0;
+            .u-item {
+                position: relative;
+                text-align: center;
+                .x;
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .u-icon {
+                    position: absolute;
+                    left: 0;
+                    top: -4.5px;
+                    display: inline-block;
+                    height: 20px;
+                    line-height: 21px;
+                    padding: 4px 0;
+                    &::after {
+                        content: "»";
+                        color: #fba524;
+                    }
+                }
 
-    table {
-        .w(100%);
-        border-collapse: collapse;
-    }
-
-    th {
-        .mb(5px);
+                img {
+                    margin-right: 3px;
+                    height: 18px;
+                }
+            }
+        }
     }
 
     .current-item {
         font-weight: bold;
         color: #fba524;
-    }
-
-    .pre-item {
-        color: #ccc;
-    }
-
-    th,
-    td {
-        position: relative;
-        padding: 4px 0;
-        .x;
-
-        span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .el-icon-caret-right {
-            position: absolute;
-            left: -6px;
-            top: 0;
-            display: inline-block;
-            height: 20px;
-            line-height: 21px;
-            padding: 4px 0;
-        }
-
-        img {
-            margin-right: 3px;
-            height: 18px;
-        }
-        &:first-of-type {
-            // padding-left: 10px;
-            width: 16%;
-        }
-        &:nth-child(2) {
-            width: 34%;
-        }
-        &:last-of-type {
-            // padding-right: 10px;
-            width: 50%;
-        }
-        .el-icon-caret-right {
-            margin-right: 0;
-            &::after {
-                content: "";
-            }
-        }
-    }
-}
-
-.m-celebrity {
-    .celebrity-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .desc {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .fz(12px, 20px);
-
-            .map {
-                color: #fba524;
-            }
-            .arrow {
-                margin: 0 5px;
-            }
-
-            .el-icon-info,
-            .el-icon-right {
-                .fz(16px, 20px);
-                .ml(5px);
-                .mr(5px);
-            }
-        }
-    }
-
-    .u-title i {
-        .mr(0);
     }
 }
 

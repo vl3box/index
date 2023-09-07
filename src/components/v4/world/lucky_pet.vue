@@ -2,15 +2,21 @@
     <div class="m-world-block m-world-pet">
         <el-divider content-position="left">福缘宠物</el-divider>
         <div class="m-pet">
-            <div class="u-item" v-for="item in luckyList" :key="item.Index">
-                <a class="u-pet" :href="getPetLink(item.Index)" target="_blank">
+            <a
+                class="u-item"
+                v-for="item in luckyList"
+                :key="item.Index"
+                :href="getPetLink(item.Index)"
+                target="_blank"
+            >
+                <div class="u-pet">
                     <div class="u-pet-icon" :class="`u-quality-${item.Quality}`">
                         <img :src="iconLink(item.IconID)" :alt="item.Name" />
                     </div>
                     <span class="u-pet-name">{{ item.Name }}</span>
-                </a>
+                </div>
                 <span class="u-npc">&lt;{{ item.szTip }}&gt;</span>
-            </div>
+            </a>
         </div>
     </div>
 </template>

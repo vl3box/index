@@ -2,29 +2,21 @@
     <div v-if="daily.length" class="m-world-daily">
         <el-divider content-position="left">日常</el-divider>
         <div class="m-daily-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>活动</th>
-                        <th>区服</th>
-                        <th>项目</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item, i) in daily" :key="i">
-                        <td>{{ item.type }}</td>
-                        <td>{{ item.zone }}</td>
-                        <td>{{ item.name }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- <div class="m-world-block">
-            <div class="u-item" v-for="(item, i) in daily" :key="i">
-                <div>{{ item.type }}</div>
-                <div>{{ item.name }}</div>
+            <div class="u-table-header">
+                <div class="u-row">
+                    <div class="u-item">活动</div>
+                    <div class="u-item">区服</div>
+                    <div class="u-item">项目</div>
+                </div>
             </div>
-        </div> -->
+            <div class="u-table-body">
+                <div class="u-row" v-for="(item, i) in daily" :key="i">
+                    <div class="u-item">{{ item.type }}</div>
+                    <div class="u-item">{{ item.zone }}</div>
+                    <div class="u-item">{{ item.name }}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -32,14 +24,10 @@ import { getDaily } from "@/service/spider";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import isoWeek from "dayjs/plugin/isoWeek";
-// import SimpleCelebrity from "./simple_celebrity";
 dayjs.extend(isoWeek);
 dayjs.extend(isToday);
 export default {
     name: "Daily",
-    components: {
-        // SimpleCelebrity,
-    },
     data: function () {
         return {
             daily: [],

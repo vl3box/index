@@ -1,13 +1,11 @@
 <template>
     <div class="m-world-block m-world-furniture">
         <el-divider content-position="left">园宅会赛</el-divider>
+        <div class="u-title">本期</div>
         <div class="u-item">
             <div>加分属性</div>
             <div class="u-furniture">
-                <!-- <el-tooltip popper-class="m-next-match" v-if="furnitureCategory || furnitureProperty"> -->
-                <!-- <div :class="{ 'u-next-match': furnitureNextMatch }" slot="content" v-html="nextMatch"></div> -->
                 {{ furnitureProperty && furnitureProperty.content }}
-                <!-- </el-tooltip> -->
             </div>
         </div>
         <div class="u-item">
@@ -18,7 +16,21 @@
                 }}</a>
             </div>
         </div>
-        <div class="u-item" v-html="nextMatch"></div>
+        <div class="u-title">下期</div>
+        <div class="u-item">
+            <div>加分属性</div>
+            <div class="u-furniture">
+                {{ nextCategory }}
+            </div>
+        </div>
+        <div class="u-item">
+            <div>评审分类</div>
+            <div class="u-furniture">
+                <a href="/furniture?match=1" target="_blank">
+                    {{ nextProperty }}
+                </a>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -55,13 +67,28 @@ export default {
         },
         furnitureNextMatch: function () {
             return this.furniture?.find((item) => item?.subtype === "next_match");
-            // return ''
         },
-        nextMatch: function () {
-            return `
-                下期园宅会赛：</br>
-                ${this.nl2br(this.furnitureNextMatch && this.furnitureNextMatch.content) || "暂无数据"}
-            `;
+        nextCategory: function () {
+            const content = this.furnitureNextMatch?.content || "";
+            let str = "";
+            if (content) {
+                str = content.split("\n")?.[0];
+                if (str) {
+                    str = str.split("：")?.[1];
+                }
+            }
+            return str;
+        },
+        nextProperty: function () {
+            const content = this.furnitureNextMatch?.content || "";
+            let str = "";
+            if (content) {
+                str = content.split("\n")?.[1];
+                if (str) {
+                    str = str.split("：")?.[1];
+                }
+            }
+            return str;
         },
     },
     watch: {
@@ -122,11 +149,5 @@ export default {
 </script>
 
 <style lang="less">
-.m-world-furniture {
-    .u-furniture {
-        a {
-            color: rgb(119, 119, 119);
-        }
-    }
-}
+@import "~@/assets/css/v4/world/furniture.less";
 </style>

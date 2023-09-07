@@ -7,20 +7,24 @@
     .u-item {
         .flex;
         align-items: center;
-        // justify-content: flex-start !important;
-        // gap:10px !important;
+        &:hover {
+            background: @bg-gray;
+            .u-pet-name {
+                color: #ffa500;
+            }
+        }
     }
-    .u-npc{
-        color:#999;
+    .u-npc {
+        color: #999;
     }
     .u-pet {
         display: flex;
         gap: 10px;
         align-items: center;
-        color:rgb(119,119,119);
+        color: rgb(119, 119, 119);
     }
     .u-pet-icon {
-        @s:24px;
+        @s: 24px;
         .size(@s);
         .r(100%);
         overflow: hidden;

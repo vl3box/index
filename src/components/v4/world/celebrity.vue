@@ -1,38 +1,36 @@
 <template>
-    <div class="m-celebrity-content">
+    <div class="m-celebrity-wrap">
         <el-divider content-position="left">名望 · 楚天社</el-divider>
-        <table>
-            <thead>
-                <tr>
-                    <th>时间</th>
-                    <!-- <th>地图</th> -->
-                    <th>地点</th>
-                    <th>阶段</th>
-                </tr>
-            </thead>
-            <tbody v-if="list.length">
+        <div class="m-celebrity-content">
+            <div class="u-table-header">
+                <div class="u-row">
+                    <div class="u-item">时间</div>
+                    <div class="u-item">地点</div>
+                    <div class="u-item">阶段</div>
+                </div>
+            </div>
+            <div v-if="list.length" class="u-table-body">
                 <el-tooltip v-for="(item, i) in list" :key="i" placement="top" popper-class="celebrity-notice-tooltip">
                     <div slot="content">
                         <div>{{ item.desc }}</div>
                     </div>
-                    <tr :class="!i && 'current-item'">
-                        <td>
-                            <i v-if="!i" class="el-icon-caret-right"></i>
+                    <div class="u-row" :class="!i && 'current-item'">
+                        <div class="u-item">
+                            <i v-if="!i" class="u-icon"></i>
                             <span>{{ item.timeFormat }}</span>
-                        </td>
-                        <!-- <td>{{ item.map }}</td> -->
-                        <td>{{ item.map + "·" + item.site }}</td>
-                        <td>
+                        </div>
+                        <div class="u-item">{{ item.map + "·" + item.site }}</div>
+                        <div class="u-item">
                             <span
                                 ><img :src="require(`@/assets/img/icon/minimap_${item.icon || 6}.png`)" />{{
                                     item.stage
                                 }}</span
                             >
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 </el-tooltip>
-            </tbody>
-        </table>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -43,6 +41,7 @@ export default {
         return {
             loading: false,
             list: [],
+            showNum: 5,
             celebrityList: [],
             currentDate: {
                 h: new Date().getHours(),
@@ -75,6 +74,10 @@ export default {
                 });
         },
         toFormatTime(h, m) {
+            if (h >= 24) {
+                const day = Math.floor(h / 24);
+                h = h - 24 * day;
+            }
             const formatM = m.toString().padStart(2, "00");
             return `${h}:${formatM}`.padStart(5, "00:00");
         },
@@ -102,10 +105,10 @@ export default {
                 }
             }
             // 13: 57
-            let list = this.celebrityList.slice(index, index + 3);
+            let list = this.celebrityList.slice(index, index + this.showNum);
             let newList = [];
-            if (list.length < 3) {
-                newList = list.concat(this.celebrityList.slice(0, 3 - list.length));
+            if (list.length < this.showNum) {
+                newList = list.concat(this.celebrityList.slice(0, this.showNum - list.length));
             } else {
                 newList = [].concat(list);
             }
