@@ -63,7 +63,7 @@ export default {
                             console.log("成功触发贺卡事件");
                             this.data = res.data?.data;
                             let boxcoin = res.data?.data?.boxcoin;
-                            this.count = boxcoin;
+                            this.count = boxcoin ? boxcoin : 0;
                             this.success = true;
                             sessionStorage.setItem("festival_id", this.event_id);
                         })

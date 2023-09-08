@@ -1,6 +1,9 @@
 <template>
     <div class="midAutumn">
-        <img :src="`${imgLink}202302.png`" class="u-img" @click="close" />
+        <div class="m-count">
+            <img :src="`${imgLink}${item}.png`" v-for="(item, index) in number" :key="index" class="u-count" />
+        </div>
+        <img :src="`${imgLink}202302.jpg`" class="u-img" @click="close" />
         <img :src="`${imgLink}202301.png`" class="u-img-cover" :class="{ active }" @click.stop="hide" />
     </div>
 </template>
@@ -13,12 +16,17 @@ export default {
         imgLink() {
             return __imgPath + `topic/festival/midAutumn/`;
         },
+        number() {
+            const str = this.fontCount + "";
+            return str.split("") || [0];
+        },
     },
     data() {
         return {
             active: false,
         };
     },
+
     methods: {
         close() {
             this.active = false;
@@ -40,19 +48,6 @@ export default {
     .auto(x);
     .mt(80px);
 
-    @media screen and(max-width:@ipad) {
-        .w(500px);
-    }
-    @media screen and(max-width:@phone) {
-        .w(80%);
-    }
-    @media screen and (max-height: 820px) and (max-width: 1280px) {
-        .w(360px);
-    }
-    @media screen and (max-height: 820px) and (max-width: @phone) {
-        .w(80%);
-        max-width: 320px;
-    }
     .u-img-cover {
         .pa;
         .lt(0);
@@ -62,6 +57,28 @@ export default {
         }
         &.active {
             .none;
+        }
+    }
+    .m-count {
+        .flex;
+        .size(100px);
+        .ct(o,100px,100px);
+        justify-content: center;
+        align-items: center;
+        margin: 64px 0 0 -60px;
+        .u-count {
+            .h(24px);
+        }
+    }
+    @media screen and(max-width:@ipad) {
+        .size(300px,514px);
+        min-height: 565px;
+        .m-count {
+            .h(50px);
+            margin:5px 0 0 -54px;
+            .u-count {
+                .h(13px);
+            }
         }
     }
 }
