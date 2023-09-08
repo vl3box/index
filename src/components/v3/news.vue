@@ -81,7 +81,7 @@ export default {
             return this.$store.state.client;
         },
         more_link: function () {
-            return this[this.mode + "_links"]?.[this.client] || '/';
+            return this[this.mode + "_links"]?.[this.client] || "/";
         },
         all_data: function () {
             let list = [...this.game_data.slice(0, 3), ...this.box_data.slice(0, 2)];
@@ -112,7 +112,7 @@ export default {
             getGameNews(this.client).then((res) => {
                 // 正式服
                 // if (this.client == "std") {
-                const data = this.client == 'std' ? res?.data : res?.data?.reverse();
+                const data = this.client == "std" ? res?.data : res?.data?.reverse();
                 this.game_data = res?.data
                     .map((item) => {
                         item.url = this.linkFormat(item.url);
@@ -157,18 +157,17 @@ export default {
                 });
             });
         },
-        loadSkillChangeData: function (){
-            getMenu('bps_skill_change').then(res => {
-                console.log(res)
-                this.skill_change_data = res.map(item => {
+        loadSkillChangeData: function () {
+            getMenu("bps_skill_change").then((res) => {
+                this.skill_change_data = res.map((item) => {
                     item.title = item.label;
                     item.url = item.link;
-                    item.time = new Date(item.icon)
+                    item.time = new Date(item.icon);
                     item.type = "skill_change";
                     return item;
-                })
-            })
-        }
+                });
+            });
+        },
     },
     mounted: function () {
         this.loadGameData();

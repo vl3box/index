@@ -38,7 +38,7 @@ function searchRaids(params) {
 }
 
 function getBoxCoin(id) {
-    return $pay({ mute: true }).get(`api/event/${id}/boxcoin/trigger`);
+    return $pay({ mute: true }).get(`api/event/${id}/trigger`);
 }
 
 function getFaceList(params) {
