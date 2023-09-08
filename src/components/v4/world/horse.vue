@@ -1,5 +1,5 @@
 <template>
-    <div class="m-world-horse">
+    <div class="m-world-block m-world-horse">
         <div class="u-horse">
             <el-divider content-position="left">
                 <span>抓马播报&nbsp;·&nbsp;</span>
