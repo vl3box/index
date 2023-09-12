@@ -17,7 +17,10 @@
                 <div class="u-code" @click="copy(item.title)" :style="{ color: item.color || '#f98003' }">
                     {{ item.title }}
                 </div>
-                <div class="u-desc">{{ item.desc }}</div>
+                <a v-if="item.remark" :href="item.remark" target="_blank">
+                    {{ item.desc }}
+                </a>
+                <div class="u-desc" v-else>{{ item.desc }}</div>
             </div>
         </div>
     </div>
