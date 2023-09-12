@@ -61,7 +61,7 @@ export default {
             },
             skill_change_links: {
                 std: "/bps/?search=技改",
-                origin: "/bps/?search=技改",
+                origin: "/bps/?search=技改&client=origin",
             },
             game_data: [],
 
@@ -158,7 +158,8 @@ export default {
             });
         },
         loadSkillChangeData: function () {
-            getMenu("bps_skill_change").then((res) => {
+            const key = this.client === 'std' ? 'bps_skill_change' : 'bps_skill_change_origin'
+            getMenu(key).then((res) => {
                 this.skill_change_data = res.map((item) => {
                     item.title = item.label;
                     item.url = item.link;
