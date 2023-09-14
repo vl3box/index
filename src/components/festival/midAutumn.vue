@@ -4,7 +4,7 @@
             <img :src="`${imgLink}${item}.png`" v-for="(item, index) in number" :key="index" class="u-count" />
         </div>
         <img :src="`${imgLink}202302.jpg`" class="u-img" @click="close" />
-        <img :src="`${imgLink}202301.png`" class="u-img-cover" :class="{ active }" @click.stop="hide" />
+        <img :src="`${imgLink}202301.png`" class="u-img u-img-cover" :class="{ active }" @click.stop="hide" />
     </div>
 </template>
 <script>
@@ -44,10 +44,12 @@ export default {
 .midAutumn {
     .pr;
     .pointer;
-    .size(600px,auto);
     .auto(x);
-    .mt(80px);
-
+    .ct(o,420px,720px);
+    .size(420px,720px);
+    .u-img {
+        .full;
+    }
     .u-img-cover {
         .pa;
         .lt(0);
@@ -60,26 +62,18 @@ export default {
         }
     }
     .m-count {
+        .pa;
+        .lt(152px,430px);
         .flex;
-        .size(100px);
-        .ct(o,100px,100px);
+        .w(100px);
         justify-content: center;
-        align-items: center;
-        margin: 64px 0 0 -60px;
+        gap: 2px;
         .u-count {
-            .h(24px);
+            .h(16px);
         }
     }
-    @media screen and(max-width:@ipad) {
-        .size(300px,514px);
-        min-height: 565px;
-        .m-count {
-            .h(50px);
-            margin:5px 0 0 -54px;
-            .u-count {
-                .h(13px);
-            }
-        }
+    @media screen and (max-width: @phone) {
+        zoom: 0.8;
     }
 }
 </style>
