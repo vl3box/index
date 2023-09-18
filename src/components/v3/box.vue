@@ -177,6 +177,9 @@ export default {
         userId: function () {
             return User.getInfo().uid;
         },
+        prefix: function (){
+            return this.client === 'std' ? 'www' : 'origin'
+        }
     },
     methods: {
         buildRawData(raw) {
@@ -379,7 +382,7 @@ export default {
             reportNow({
                 caller: "index_matrix",
                 data: {
-                    item: href,
+                    item: `${this.prefix}:${href}`,
                 },
             })
         }
