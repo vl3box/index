@@ -8,7 +8,7 @@
                     v-for="(item, i) in buttons"
                     :key="i"
                     @click="change(item.value)"
-                    :class="[{ active: showSubtype(item.value) }, item.key]"
+                    :class="[{ active: type == item.value }, item.key]"
                 >
                     {{ item.name }}
                 </span>
@@ -76,24 +76,30 @@ export default {
 
             client: this.$store.state.client, //版本选择
             search: "",
-            subtype: [1,2, 3, 4],
+            subtype: [1, 2, 3, 4],
+            type: "",
 
             buttons: [
                 {
-                    name: "魔盒公告",
-                    key: "notice",
-                    value: 2,
+                    name: "魔盒通知",
+                    key: "",
+                    value: "",
                 },
                 {
-                    name: "功能更新",
-                    key: "update",
-                    value: 3,
+                    name: "公告动态",
+                    key: "notice",
+                    value: 2,
                 },
                 {
                     name: "魔盒出品",
                     key: "information",
                     value: 1,
                 },
+                {
+                    name: "功能更新",
+                    key: "update",
+                    value: 3,
+                }, 
                 {
                     name: "兑换通知",
                     key: "message",
@@ -107,7 +113,7 @@ export default {
             return {
                 client: this.client,
                 search: this.search,
-                subtype: join(this.subtype, ","),
+                subtype: !this.type ? join(this.subtype, ",") : this.type,
             };
         },
         clientHeight() {
@@ -118,8 +124,8 @@ export default {
                 per: this.per,
                 page: ~~this.page || 1,
                 sticky: 1,
-                type: "notice",
                 ...this.query,
+                type: "notice",
             };
             Object.keys(params).forEach((item) => {
                 if (!params[item]) delete params[item];
@@ -155,18 +161,11 @@ export default {
             this.changePage(this.index);
             this.index = "";
         },
-        // 显示选中的类型
-        showSubtype(value) {
-            return this.subtype.includes(value);
-        },
         // 切换类型
-        change(value) {
-            const list = cloneDeep(this.subtype);
-            if (list.length > 1) {
-                this.subtype = list.includes(value) ? pull(list, value) : concat(list, value);
-            } else {
-                if (!list.includes(value)) this.subtype = concat(list, value);
-            }
+        change(key) {
+            this.type = key;
+            this.page = 1;
+            console.log(key);
         },
         showDate,
     },
