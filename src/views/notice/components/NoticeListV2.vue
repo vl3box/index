@@ -81,7 +81,7 @@ export default {
 
             buttons: [
                 {
-                    name: "魔盒通知",
+                    name: "全部",
                     key: "",
                     value: "",
                 },
@@ -91,7 +91,7 @@ export default {
                     value: 2,
                 },
                 {
-                    name: "魔盒出品",
+                    name: "运营活动",
                     key: "information",
                     value: 1,
                 },
@@ -99,7 +99,7 @@ export default {
                     name: "功能更新",
                     key: "update",
                     value: 3,
-                }, 
+                },
                 {
                     name: "兑换通知",
                     key: "message",
