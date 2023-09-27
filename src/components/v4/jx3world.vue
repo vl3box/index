@@ -36,7 +36,8 @@ import horse from "@/components/v4/world/horse.vue";
 import luckyPet from "@/components/v4/world/lucky_pet";
 import furniture from "@/components/v4/world/furniture";
 import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
-import dayjs from "dayjs";
+import dayjs from "@/utils/day";
+import { formatTime } from "@/utils";
 export default {
     name: "JX3World",
     components: {
@@ -57,12 +58,12 @@ export default {
             celebrityData: {
                 list: [],
                 currentDate: {
-                    d: new Date().getDay(),
-                    h: new Date().getHours(),
-                    m: new Date().getMinutes(),
+                    d: dayjs.tz().day(),
+                    h: dayjs.tz().hour(),
+                    m: dayjs.tz().minute(),
                 },
             },
-            world_tip: dayjs().format("YYYY-MM-DD HH:mm"),
+            world_tip: formatTime(),
             isSpc: false,
             isPhone: false,
         };
@@ -76,14 +77,14 @@ export default {
         },
         date() {
             // 当7点以前，请求前面一天的日常 当7~24点，请求当天的日常
-            const hour = dayjs().get("hours");
+            const hour = dayjs.tz().get("hours");
             return 0 <= hour && hour < 7
-                ? dayjs().subtract(1, "day").format("YYYY-MM-DD")
-                : dayjs().format("YYYY-MM-DD");
+                ? dayjs.tz().subtract(1, "day").format("YYYY-MM-DD")
+                : dayjs.tz().format("YYYY-MM-DD");
         },
         isCurrentWeek() {
-            let week = dayjs(this.date).isoWeek();
-            let currentWeek = dayjs().isoWeek();
+            let week = dayjs.tz(this.date).isoWeek();
+            let currentWeek = dayjs.tz().isoWeek();
             return week === currentWeek;
         },
     },
@@ -98,15 +99,15 @@ export default {
         };
         setInterval(() => {
             if (
-                this.celebrityData.currentDate.h !== new Date().getHours() ||
-                this.celebrityData.currentDate.m !== new Date().getMinutes()
+                this.celebrityData.currentDate.h !== dayjs.tz().hour() ||
+                this.celebrityData.currentDate.m !== dayjs.tz().minute()
             ) {
                 this.celebrityData.currentDate = {
-                    d: new Date().getDay(),
-                    h: new Date().getHours(),
-                    m: new Date().getMinutes(),
+                    d: dayjs.tz().day(),
+                    h: dayjs.tz().hour(),
+                    m: dayjs.tz().minute(),
                 };
-                this.world_tip = dayjs().format("YYYY-MM-DD HH:mm");
+                this.world_tip = formatTime();
             }
         }, 1000);
     },

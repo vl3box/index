@@ -15,10 +15,6 @@ Vue.use(JX3BOX_UI);
 import router from "@/router/about";
 import store from "@/store";
 
-// utils
-import utils from "@/utils/index";
-Vue.prototype.$utils = utils;
-
 import App from "@/views/about/About.vue";
 new Vue({
     router,

@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 let store = {
     state: {
-        client : location.href.includes('origin') ? 'origin' : 'std',
+        client: location.href.includes("origin") ? "origin" : "std",
         profile: {
             server: "蝶恋花",
         },
@@ -16,6 +16,7 @@ let store = {
             index_live_url: "",
             index_video_url: "",
         },
+        timezone: "Asia/Shanghai", // 时区
     },
     mutations: {},
     getters: {},

@@ -46,7 +46,7 @@ import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 import horseSites from "@/assets/data/horse_sites.json";
 import horseBroadcast from "@/assets/data/horse_broadcast.json";
 import { getGameReporter, getUserInfo } from "@/service/horse";
-import dayjs from "dayjs";
+import dayjs from "@/utils/day";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "WorldHorse",
@@ -175,15 +175,15 @@ export default {
                         let fromTime = "";
                         let toTime = "";
                         if (!!("minute" in item)) {
-                            fromTime = dayjs(
-                                new Date(item.created_at).valueOf() + (item.minute + 5) * 60 * 1000
-                            ).format("HH:mm");
-                            toTime = dayjs(new Date(item.created_at).valueOf() + (item.minute + 10) * 60 * 1000).format(
-                                "HH:mm"
-                            );
+                            fromTime = dayjs
+                                .tz(new Date(item.created_at).valueOf() + (item.minute + 5) * 60 * 1000)
+                                .format("HH:mm");
+                            toTime = dayjs
+                                .tz(new Date(item.created_at).valueOf() + (item.minute + 10) * 60 * 1000)
+                                .format("HH:mm");
                         } else {
-                            fromTime = dayjs(new Date(item.created_at).valueOf() + 5 * 60 * 1000).format("HH:mm");
-                            toTime = dayjs(new Date(item.created_at).valueOf() + 10 * 60 * 1000).format("HH:mm");
+                            fromTime = dayjs.tz(new Date(item.created_at).valueOf() + 5 * 60 * 1000).format("HH:mm");
+                            toTime = dayjs.tz(new Date(item.created_at).valueOf() + 10 * 60 * 1000).format("HH:mm");
                         }
                         return {
                             ...item,
@@ -193,7 +193,7 @@ export default {
                         };
                     })
                     .sort(function (a, b) {
-                        return dayjs(b.created_at).valueOf() - dayjs(a.created_at).valueOf();
+                        return dayjs.tz(b.created_at).valueOf() - dayjs.tz(a.created_at).valueOf();
                     });
                 // console.log(this.list);
             });

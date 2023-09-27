@@ -35,6 +35,7 @@
 </template>
 <script>
 import { getCelebrities } from "@/service/node";
+import dayjs from "@/utils/day";
 export default {
     name: "celebrity",
     data: function () {
@@ -44,8 +45,8 @@ export default {
             showNum: 5,
             celebrityList: [],
             currentDate: {
-                h: new Date().getHours(),
-                m: new Date().getMinutes(),
+                h: dayjs.tz().hour(),
+                m: dayjs.tz().minute(),
             },
         };
     },
@@ -148,10 +149,10 @@ export default {
     },
     mounted() {
         setInterval(() => {
-            if (this.currentDate.h !== new Date().getHours() || this.currentDate.m !== new Date().getMinutes()) {
+            if (this.currentDate.h !== dayjs.tz().hour() || this.currentDate.m !== dayjs.tz().minute()) {
                 this.currentDate = {
-                    h: new Date().getHours(),
-                    m: new Date().getMinutes(),
+                    h: dayjs.tz().hour(),
+                    m: dayjs.tz().minute(),
                 };
             }
         }, 1000);

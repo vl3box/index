@@ -29,11 +29,7 @@ export default {
             isOpen: false,
         };
     },
-    computed: {
-        // isPhone() {
-        //     return this.$utils.isPhone();
-        // },
-    },
+    computed: {},
 };
 </script>
 

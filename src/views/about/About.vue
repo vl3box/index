@@ -27,7 +27,8 @@
 
 <script>
 import SubNav from "./components/SubNav.vue";
-import {__cdn} from '@jx3box/jx3box-common/data/jx3box.json'
+import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
+import { isPhone } from "@/utils/index";
 export default {
     name: "About",
     props: [],
@@ -54,12 +55,12 @@ export default {
     created: function () {},
     mounted() {
         const self = this;
-        self.isPhone = self.$utils.isPhone();
+        self.isPhone = isPhone();
         let timer = null;
         window.addEventListener("resize", () => {
             if (timer === null) {
                 timer = setTimeout(() => {
-                    self.isPhone = self.$utils.isPhone();
+                    self.isPhone = isPhone();
                     clearTimeout(timer);
                     timer = null;
                 }, 0);

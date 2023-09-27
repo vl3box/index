@@ -18,21 +18,17 @@
 <script>
 export default {
     name: "Index",
-    computed: {
-        isPhone() {
-            return this.$utils.isPhone();
-        },
-    },
+    computed: {},
 };
 </script>
 
 <style lang="less">
-.m-about-title{
-    background:url('@{cdn}design/about/title.png') no-repeat 0 0;
-    background-size:100% auto;
-    width:1095px / 2;
+.m-about-title {
+    background: url("@{cdn}design/about/title.png") no-repeat 0 0;
+    background-size: 100% auto;
+    width: 1095px / 2;
     height: 641px / 2;
-    margin:0 auto;
+    margin: 0 auto;
     text-indent: -200%;
 }
 .about-detail-wrapper {

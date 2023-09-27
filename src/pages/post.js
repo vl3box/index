@@ -14,10 +14,6 @@ Vue.use(JX3BOX_UI);
 // 数据与路由
 import store from "@/store";
 
-// utils
-import utils from "@/utils/index";
-Vue.prototype.$utils = utils;
-
 import App from "@/views/Post.vue";
 new Vue({
     store,

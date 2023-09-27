@@ -21,11 +21,7 @@
 </template>
 <script>
 import { getDaily } from "@/service/spider";
-import dayjs from "dayjs";
-import isToday from "dayjs/plugin/isToday";
-import isoWeek from "dayjs/plugin/isoWeek";
-dayjs.extend(isoWeek);
-dayjs.extend(isToday);
+import dayjs from "@/utils/day";
 export default {
     name: "Daily",
     data: function () {
@@ -36,17 +32,17 @@ export default {
     computed: {
         date() {
             // 当7点以前，请求前面一天的日常 当7~24点，请求当天的日常
-            const hour = dayjs().get("hours");
+            const hour = dayjs.tz().get("hours");
             return 0 <= hour && hour < 7
-                ? dayjs().subtract(1, "day").format("YYYY-MM-DD")
-                : dayjs().format("YYYY-MM-DD");
+                ? dayjs.tz().subtract(1, "day").format("YYYY-MM-DD")
+                : dayjs.tz().format("YYYY-MM-DD");
         },
         client() {
             return this.$store.state.client;
         },
         isCurrentWeek() {
-            let week = dayjs(this.date).isoWeek();
-            let currentWeek = dayjs().isoWeek();
+            let week = dayjs.tz(this.date).isoWeek();
+            let currentWeek = dayjs.tz().isoWeek();
             return week === currentWeek;
         },
     },
