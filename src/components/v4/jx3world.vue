@@ -107,8 +107,8 @@ export default {
                     h: dayjs.tz().hour(),
                     m: dayjs.tz().minute(),
                 };
-                this.world_tip = formatTime();
             }
+            this.world_tip = formatTime();
         }, 1000);
     },
 };
