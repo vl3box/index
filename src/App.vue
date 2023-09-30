@@ -24,6 +24,8 @@
             </div>
         </div>
         <festival />
+
+        <forceAlert />
     </div>
 </template>
 
@@ -44,6 +46,7 @@ import box from "@/components/v3/box.vue";
 import posts from "@/components/v3/posts.vue";
 import face from "@/components/v3/face.vue";
 import festival from "@/components/festival/index.vue";
+import forceAlert from "@/components/index/force_alert.vue"
 
 // 系统
 import User from "@jx3box/jx3box-common/js/user";
@@ -84,6 +87,7 @@ export default {
         posts,
 
         festival,
+        forceAlert
     },
     methods: {},
     created: function () {

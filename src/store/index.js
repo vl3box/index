@@ -17,9 +17,16 @@ let store = {
             index_video_url: "",
         },
         timezone: "Asia/Shanghai", // 时区
+        showAlert: true,
     },
-    mutations: {},
-    getters: {},
+    mutations: {
+        setShowAlert(state, payload) {
+            state.showAlert = payload;
+        },
+    },
+    getters: {
+        showAlert: (state) => state.showAlert,
+    },
     actions: {},
     modules: {},
 };
