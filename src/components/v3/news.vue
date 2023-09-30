@@ -166,7 +166,7 @@ export default {
                     item.time = new Date(item.icon);
                     item.type = "skill_change";
                     return item;
-                });
+                }).slice(0, 5);
             });
         },
     },
