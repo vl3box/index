@@ -1,25 +1,61 @@
 <template>
     <el-dialog :visible="showAlert" custom-class="m-force-alert" :show-close="false">
-        <img class="u-main-img" src="https://cdn.jx3box.com/design/wallpaper/jdt7th/2560x1440/%E8%93%AC%E8%8E%B1.jpg" alt="">
+        <a :href="link" target="_blank">
+            <img class="u-main-img" :src="imgUrl" alt="">
+        </a>
         <img src="@/assets/img/close.svg" class="u-close" @click="onClose"/>
     </el-dialog>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
+import { getEventV2 } from "@/service/cms";
 export default {
     name: "force_alert",
     data: function () {
         return {
+            data: {},
+            imgUrl: "",
+            link: ""
         };
     },
     computed: {
         ...mapGetters(["showAlert"]),
+        params() {
+            return {
+                client: this.$store.state.client,
+                type: "common",
+                subtype: "alert",
+                per: 1,
+                status: 1,
+            };
+        },
+    },
+    mounted() {
+        this.loadEvent();
     },
     methods: {
         ...mapMutations(["setShowAlert"]),
         onClose() {
             this.setShowAlert(false);
+            const key = `force_alert_${this.data.ID}`
+            localStorage.setItem(key, 1)
+        },
+        loadEvent() {
+            getEventV2(this.params).then(res => {
+                const data = this.data = res.data.data.list?.[0]
+                if (data) {
+                    // 先判断是否已经弹过，如果弹过，就不再弹
+                    const key = `force_alert_${data.ID}`
+                    const isShow = localStorage.getItem(key)
+                    if (~~isShow) {
+                        return
+                    }
+                    this.imgUrl = data?.img;
+                    this.link = data?.link;
+                    this.setShowAlert(true);
+                }
+            })
         }
     },
 };
