@@ -50,10 +50,11 @@ import forceAlert from "@/components/index/force_alert.vue"
 
 // 系统
 import User from "@jx3box/jx3box-common/js/user";
-import { getProfile } from "@/service/user";
+import { getProfile, getMeta } from "@/service/user";
 import { getConfig } from "@/service/setting.js";
 import _ from "lodash";
 import "animate.css";
+import driver from "@/utils/driver.js";
 
 export default {
     name: "App",
@@ -66,6 +67,9 @@ export default {
     computed: {
         versions() {
             return "v2";
+        },
+        isLogin() {
+            return User.isLogin();
         },
     },
     components: {
@@ -116,6 +120,23 @@ export default {
             const footer = document.querySelector(".c-footer");
             main.appendChild(footer);
         }
+        this.$nextTick(() => {
+            if (this.isLogin) {
+                getMeta('new_user_guide').then(res => {
+                    let val = ~~res.data.data;
+                    if (!val) {
+                        driver.drive();
+                    }
+                })
+            } else {
+                const key = "new_user_guide";
+                const isShow = localStorage.getItem(key);
+                if (~~isShow) {
+                    return;
+                }
+                driver.drive();
+            }
+        });
     },
 };
 </script>
