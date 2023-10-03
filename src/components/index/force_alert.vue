@@ -1,9 +1,9 @@
 <template>
-    <el-dialog :visible="showAlert" custom-class="m-force-alert" :show-close="false">
+    <el-dialog :visible="showAlert" custom-class="m-force-alert" :show-close="false" :close-on-click-modal="false">
         <a :href="link" target="_blank">
             <img class="u-main-img" :src="imgUrl" alt="">
         </a>
-        <img src="@/assets/img/close.svg" class="u-close" @click="onClose"/>
+        <div class="u-close" @click="onClose"/>
     </el-dialog>
 </template>
 
