@@ -49,7 +49,10 @@ const driverObj = driver({
             },
         },
     ],
-    onCloseClick: handleClose,
+    onCloseClick: () => {
+        handleClose();
+        driverObj.destroy();
+    },
     onDestroyStarted: () => {
         handleClose();
         driverObj.destroy();
