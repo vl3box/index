@@ -19,26 +19,36 @@ jobs:
             - name: Install && Build
               run: |
                   npm install
-                  npm run preview
+                  npm run build
 
+            - name: Github Pages
+              uses: JamesIves/github-pages-deploy-action@releases/v3
+              with:
+                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                  BRANCH: preview
+                  FOLDER: dist
+                  CLEAN: true
 
-            ## TODO:下方修改两处
-            # - name: OSS
-            #   uses: manyuanrong/setup-ossutil@v2.0
-            #   with:
-            #       endpoint: "oss-cn-hangzhou.aliyuncs.com"
-            #       access-key-id: ${{secrets.AccessKey_ID}}
-            #       access-key-secret: ${{secrets.Access_Key_Secret}}
-            # - run: ossutil cp -rf index oss://jx3box/static/index
+            ## TODO:下方修改1处
+            - name: OSS
+              uses: manyuanrong/setup-ossutil@v2.0
+              with:
+                  endpoint: "oss-cn-hangzhou.aliyuncs.com"
+                  access-key-id: ${{secrets.AccessKey_ID}}
+                  access-key-secret: ${{secrets.Access_Key_Secret}}
+            - run: ossutil cp -rf dist oss://jx3box/static/index
 
 
             ## TODO:下方修改一处
-            - name: GrayEnv
-              uses: appleboy/scp-action@v0.1.4
+            - name: Deploy
+              uses: appleboy/ssh-action@master
               with:
-                  host: ${{ secrets.HOST_NANJING2 }}
-                  username: ${{ secrets.DEPLOY_USER }}
-                  key: ${{ secrets.DEPLOY_KEY }}
-                  source: index/*
-                  target: /www/wwwroot/jx3box/test
+                host: ${{ secrets.HOST_NANJING2 }}
+                username: ${{ secrets.DEPLOY_USER }}
+                key: ${{ secrets.DEPLOY_KEY }}
+                script: |
+                    cd /www/wwwroot/jx3box/test
+                    cd index
+                    git checkout preview
+                    git pull origin preview
 
