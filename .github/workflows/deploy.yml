@@ -36,6 +36,7 @@ jobs:
                   endpoint: "oss-cn-hangzhou.aliyuncs.com"
                   access-key-id: ${{secrets.AccessKey_ID}}
                   access-key-secret: ${{secrets.Access_Key_Secret}}
+              ## TODO:下方修改两处
             - run: ossutil cp -rf dist oss://jx3box/static/index
         #   - run: ossutil cp -rf dist oss://jx3box-www/index
 
@@ -46,6 +47,7 @@ jobs:
                 host: ${{ secrets.HOST_NANJING2 }}
                 username: ${{ secrets.DEPLOY_USER }}
                 key: ${{ secrets.DEPLOY_KEY }}
+                ## TODO:下方修改一处
                 script: |
                     cd /www/wwwroot/jx3box/jx3box-v2
                     cd index

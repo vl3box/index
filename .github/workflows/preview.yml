@@ -28,8 +28,8 @@ jobs:
                   endpoint: "oss-cn-hangzhou.aliyuncs.com"
                   access-key-id: ${{secrets.AccessKey_ID}}
                   access-key-secret: ${{secrets.Access_Key_Secret}}
-            - run: ossutil cp -rf dist oss://jx3box/static/index
-        #   - run: ossutil cp -rf dist oss://jx3box-www/index
+            ## TODO:下方修改两处
+            - run: ossutil cp -rf index oss://jx3box/static/index
 
 
             - name: GrayEnv
@@ -38,6 +38,7 @@ jobs:
                   host: ${{ secrets.HOST_NANJING2 }}
                   username: ${{ secrets.DEPLOY_USER }}
                   key: ${{ secrets.DEPLOY_KEY }}
+                  ## TODO:下方修改一处
                   source: index/*
                   target: /www/wwwroot/jx3box/test
 
