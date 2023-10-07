@@ -19,15 +19,7 @@ jobs:
             - name: Install && Build
               run: |
                   npm install
-                  npm run build
-
-            - name: Github Pages
-              uses: JamesIves/github-pages-deploy-action@releases/v3
-              with:
-                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                  BRANCH: preview
-                  FOLDER: dist
-                  CLEAN: true
+                  npm run preview
 
             ## TODO:下方修改1处
             - name: OSS
@@ -40,15 +32,12 @@ jobs:
 
 
             ## TODO:下方修改一处
-            - name: Deploy
-              uses: appleboy/ssh-action@master
+            - name: GrayEnv
+              uses: appleboy/scp-action@v0.1.4
               with:
-                host: ${{ secrets.HOST_NANJING2 }}
-                username: ${{ secrets.DEPLOY_USER }}
-                key: ${{ secrets.DEPLOY_KEY }}
-                script: |
-                    cd /www/wwwroot/jx3box/test
-                    cd index
-                    git checkout preview
-                    git pull origin preview
+                  host: ${{ secrets.HOST_NANJING2 }}
+                  username: ${{ secrets.DEPLOY_USER }}
+                  key: ${{ secrets.DEPLOY_KEY }}
+                  source: index/*
+                  target: /www/wwwroot/jx3box/test
 
