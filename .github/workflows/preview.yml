@@ -1,4 +1,4 @@
-name: Github Pages
+name: Preview Dev
 on:
     push:
         branches:
@@ -21,12 +21,23 @@ jobs:
                   npm install
                   npm run build
 
+
+            - name: OSS
+              uses: manyuanrong/setup-ossutil@v2.0
+              with:
+                  endpoint: "oss-cn-hangzhou.aliyuncs.com"
+                  access-key-id: ${{secrets.AccessKey_ID}}
+                  access-key-secret: ${{secrets.Access_Key_Secret}}
+            - run: ossutil cp -rf dist oss://jx3box/static/index
+        #   - run: ossutil cp -rf dist oss://jx3box-www/index
+
+
             - name: GrayEnv
               uses: appleboy/scp-action@v0.1.4
               with:
-                  host: ${{ secrets.GRAY_HOST }}
-                  username: ${{ secrets.GRAY_HOST_USERNAME }}
-                  key: ${{ secrets.GRAY_HOST_PRIVATEKEY }}
-                  source: dist/*
+                  host: ${{ secrets.HOST_NANJING2 }}
+                  username: ${{ secrets.DEPLOY_USER }}
+                  key: ${{ secrets.DEPLOY_KEY }}
+                  source: index/*
                   target: /www/wwwroot/jx3box/test
 
