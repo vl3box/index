@@ -17,7 +17,7 @@
                 <box />
 
                 <jx3world />
-                <!-- <joke /> -->
+                <joke />
                 <face />
                 <posts />
                 <Footer></Footer>
@@ -38,6 +38,7 @@ import jx3code from "@/components/v3/jx3code.vue";
 import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
 import feedback from "@/components/v3/feedback.vue";
+import joke from "@/components/index/joke.vue";
 
 // 首屏
 import live from "@/components/v3/live.vue";
@@ -86,7 +87,7 @@ export default {
         live,
         slider,
         box,
-        // joke,
+        joke,
         face,
         posts,
 
