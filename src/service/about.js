@@ -41,7 +41,7 @@ function getSuperAuthor() {
 }
 
 function getTeammates() {
-    return $cms().get(`/api/cms/config/teammates`, {
+    return $cms().get(`/api/cms/account/teammate`, {
         params: {
             status: 1
         }
