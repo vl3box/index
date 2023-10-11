@@ -109,80 +109,11 @@ module.exports = {
 
     outputDir: process.env["BUILD_MODE"] == "preview" ? path.resolve(__dirname, pkg.name) : 'dist', // 指定构建输出的目录
 
-    //webpack配置
-    // configureWebpack: (config) => {
-    //     // 开启分离js
-    //     config.optimization = {
-    //         runtimeChunk: "single",
-    //         splitChunks: {
-    //             chunks: "all",
-    //             maxInitialRequests: Infinity,
-    //             minSize: 200000,
-    //             cacheGroups: {
-    //                 common: {
-    //                     // 抽离自定义工具库
-    //                     name: "common",
-    //                     chunks: "initial",
-    //                     reuseExistingChunk: true,
-    //                     enforce: true,
-    //                     priority: 1,
-    //                 },
-    //                 vendors: {
-    //                     test: /[\\/]node_modules[\\/]/,
-    //                     // name(module) {
-    //                     //     // get the name. E.g. node_modules/packageName/not/this/part.js
-    //                     //     // or node_modules/packageName
-    //                     //     const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-    //                     //     // npm package names are URL-safe, but some servers don't like @ symbols
-    //                     //     return `npm.${packageName.replace("@", "")}`;
-    //                     // },
-    //                     name: "vendors",
-    //                     chunks: "initial",
-    //                     reuseExistingChunk: true,
-    //                     enforce: true,
-    //                     priority: 2,
-    //                 },
-    //                 element: {
-    //                     test: /[\\/]node_modules[\\/]element-ui[\\/]/,
-    //                     name: "element",
-    //                     chunks: "initial",
-    //                     reuseExistingChunk: true,
-    //                     enforce: true,
-    //                     priority: 3,
-    //                 },
-    //                 jx3box: {
-    //                     test: /[\\/]node_modules[\\/]@jx3box[\\/]/,
-    //                     name: "jx3box",
-    //                     chunks: "initial",
-    //                     reuseExistingChunk: true,
-    //                     enforce: true,
-    //                     priority: 4,
-    //                 },
-    //             },
-    //         },
-    //         // 为 webpack 运行时代码创建单独的chunk
-    //         runtimeChunk: {
-    //             name: "manifest",
-    //         },
-    //     };
-    //     // 取消webpack警告的性能提示
-    //     config.performance = {
-    //         hints: "warning",
-    //         //入口起点的最大体积
-    //         maxEntrypointSize: 50000000,
-    //         //生成文件的最大体积
-    //         maxAssetSize: 30000000,
-    //         //只给出 js 文件的性能提示
-    //         assetFilter: function(assetFilename) {
-    //             return assetFilename.endsWith(".js");
-    //         },
-    //     };
-    // },
-
     //❤️ define path for static files ~
     publicPath:
         //FOR Localhost => development
         (process.env.NODE_ENV === "development" && "/") ||
+        process.env.BUILD_MODE == "preview" && `/${pkg.name}/` ||
         //BY relative path
         (process.env.BUILD_MODE === "preview" && `/${pkg.name}/`) ||
         //BY origin
