@@ -1259,10 +1259,10 @@
     "url" "^0.11.0"
     "vue" "^2.6.11"
 
-"@jx3box/jx3box-common-ui@^7.7.6":
-  "integrity" "sha512-90L97YZ21H58HcFnf21ejYgDJ6itmsDxOhv8isA7ppg60iedI/cY7QZEc/ThdKcvkpK2M8Z3pg+didTlfNKXmA=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-7.7.6.tgz"
-  "version" "7.7.6"
+"@jx3box/jx3box-common-ui@^7.7.8":
+  "integrity" "sha512-DE4qWpzdr+5B66ZL5JtjCXk8xipD8QRsbtLPr0c2FeEfUR9JMIuv9AbZVkQPF0eSwO+4brbExZ2FzYVUzfPTgQ=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-7.7.8.tgz"
+  "version" "7.7.8"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.7.16"
     "@jx3box/jx3box-common" "^7.9.15"
