@@ -4,11 +4,13 @@
         <div class="m-about-main" :style="{ backgroundImage: `url('${backgroundImage}')` }">
             <Breadcrumb
                 class="m-about-bread"
+                icon="more"
                 :name="name"
                 slug="about"
                 root="/about"
                 :publishEnable="false"
-            ></Breadcrumb>
+            >
+            </Breadcrumb>
             <LeftSidebar class="m-about-nav--left">
                 <SubNav :side="true"></SubNav>
             </LeftSidebar>
@@ -47,7 +49,8 @@ export default {
         },
         backgroundImage() {
             // return "/temp/about/" + this.$route.name + ".png";
-            return __cdn + "/design/about/" + this.$route.name + ".jpg";
+            const name = this.$route.name || "index";
+            return __cdn + "design/about/" + name + ".png";
         },
     },
     watch: {},
