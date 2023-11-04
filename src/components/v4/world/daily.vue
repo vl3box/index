@@ -15,6 +15,13 @@
                     <div class="u-item">{{ item.zone }}</div>
                     <div class="u-item">{{ item.name }}</div>
                 </div>
+                <!-- <div class="u-row u-reputation">
+                    <div class="u-item">家园声望</div>
+                    <div class="u-item">全服</div>
+                    <el-tooltip class="u-item" effect="dark" placement="top" :content="`英雄九辩馆、尘归海·巨冥湾`">
+                        <div class="u-item">英雄九辩馆、尘归海·巨冥湾</div>
+                    </el-tooltip>
+                </div> -->
             </div>
         </div>
     </div>
