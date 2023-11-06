@@ -155,7 +155,7 @@ function getEventV2(params) {
 }
 //获取装扮
 function getUserDecoration(params) {
-    console.log(1)
+    console.log(1);
     return $cms().get(`/api/cms/user/decoration`, {
         params,
     });
@@ -166,8 +166,15 @@ function getPublicDecoration() {
 }
 
 // 历史头条
-function getHistoryHeadlines(params){
+function getHistoryHeadlines(params) {
     return $cms().get(`/api/cms/news/v2`, {
+        params,
+    });
+}
+
+// 名望
+function getCelebrities(params) {
+    return $cms().get(`/api/cms/game/celebrity`, {
         params,
     });
 }
@@ -190,5 +197,6 @@ export {
     getRangeCalendar,
     getUserDecoration,
     getPublicDecoration,
-    getHistoryHeadlines
+    getHistoryHeadlines,
+    getCelebrities,
 };

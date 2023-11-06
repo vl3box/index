@@ -34,7 +34,8 @@
     </div>
 </template>
 <script>
-import { getCelebrities } from "@/service/node";
+// import { getCelebrities } from "@/service/node";
+import { getCelebrities } from "@/service/cms";
 import dayjs from "@/utils/day";
 export default {
     name: "celebrity",
@@ -42,7 +43,7 @@ export default {
         return {
             loading: false,
             list: [],
-            showNum: 5,
+            showNum: 3,
             celebrityList: [],
             currentDate: {
                 h: dayjs.tz().hour(),
@@ -60,7 +61,8 @@ export default {
             this.loading = true;
             return getCelebrities()
                 .then((res) => {
-                    this.celebrityList = res.data.map((item) => {
+                    const data = res.data?.data || [];
+                    this.celebrityList = data.map((item) => {
                         item.icon = Number(item.icon);
                         item.time = Number(item.time);
                         return item;
