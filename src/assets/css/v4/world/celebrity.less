@@ -1,4 +1,33 @@
 .m-celebrity-wrap {
+    .el-select i::after {
+        content: "" !important;
+    }
+    .el-divider__text {
+        .flex;
+        align-items: center;
+        .el-select {
+            max-width: 70px;
+            .el-input .el-select__caret {
+                font-size: 12px;
+                margin: 0;
+            }
+            .el-input__icon {
+                width: 20px;
+                height: 28px;
+                line-height: 28px;
+            }
+            .el-input__inner {
+                border: none;
+                padding: 0;
+                height: 28px;
+                line-height: 28px;
+            }
+            input {
+                font-size: 12px;
+                padding: 0;
+            }
+        }
+    }
     .m-celebrity-content {
         .fz(12px, 20px);
         .mt(0);
@@ -6,7 +35,7 @@
             background-color: @bg-gray;
             border-radius: 5px;
         }
-        .u-table-body{
+        .u-table-body {
             .mt(6px);
         }
         .u-row {
