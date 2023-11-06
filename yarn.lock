@@ -2825,7 +2825,6 @@
   "resolved" "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   "version" "2.2.0"
 
-<<<<<<< Updated upstream
 "bindings@^1.5.0":
   "integrity" "sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ=="
   "resolved" "https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz"
@@ -2833,8 +2832,6 @@
   dependencies:
     "file-uri-to-path" "1.0.0"
 
-=======
->>>>>>> Stashed changes
 "bluebird@^3.1.1", "bluebird@^3.5.0", "bluebird@^3.5.5":
   "integrity" "sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg=="
   "resolved" "https://registry.npmjs.org/bluebird/-/bluebird-3.7.2.tgz"
@@ -7380,7 +7377,6 @@
     "object-assign" "^4.0.1"
     "thenify-all" "^1.0.0"
 
-<<<<<<< Updated upstream
 "nan@^2.12.1":
   "integrity" "sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ=="
   "resolved" "https://registry.npmjs.org/nan/-/nan-2.17.0.tgz"
@@ -7391,8 +7387,6 @@
   "resolved" "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
   "version" "3.3.6"
 
-=======
->>>>>>> Stashed changes
 "nanomatch@^1.2.1", "nanomatch@^1.2.9":
   "integrity" "sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA=="
   "resolved" "https://registry.npmjs.org/nanomatch/-/nanomatch-1.2.13.tgz"
@@ -10428,15 +10422,9 @@
     "clipboard" "^2.0.0"
 
 "vue-contextmenujs@^1.4.9":
-<<<<<<< Updated upstream
   "integrity" "sha512-Z3x3VBrwTwz7ow4YhbjMBPl4zz3uiwhyRIffQ/ZJl+A1Vg8B7e9bVOe2FNGqro+Opyhdf84enx4EgZNsCoPWZA=="
   "resolved" "https://registry.npmjs.org/vue-contextmenujs/-/vue-contextmenujs-1.4.9.tgz"
   "version" "1.4.9"
-=======
-  "integrity" "sha512-k8y0ExOL5yn7fRRCo6UDT81ekq/Ls1JBz70eBBpIgcf1p++84amDL6uCMmlt6D6WK5a9f0NhW2kc2pkCUb2bHA=="
-  "resolved" "https://registry.npmjs.org/vue-contextmenujs/-/vue-contextmenujs-1.4.11.tgz"
-  "version" "1.4.11"
->>>>>>> Stashed changes
 
 "vue-eslint-parser@^5.0.0":
   "integrity" "sha512-JlHVZwBBTNVvzmifwjpZYn0oPWH2SgWv5dojlZBsrhablDu95VFD+hriB1rQGwbD+bms6g+rAFhQHk6+NyiS6g=="
