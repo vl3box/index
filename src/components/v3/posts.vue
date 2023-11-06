@@ -99,7 +99,12 @@
                 </div>
             </div>
             <div class="m-v2-post-more">
-                <a :href="more_link" class="u-more">查看更多&raquo;</a>
+                <a :href="more_link" class="u-more" v-reporter="{
+                    data: {
+                        href: report_link,
+                    },
+                    caller: 'index_lastest_artwork_more'
+                }">查看更多&raquo;</a>
             </div>
         </div>
     </div>
@@ -180,6 +185,10 @@ export default {
         },
         userId: function () {
             return User.getInfo().uid;
+        },
+        report_link: function () {
+            const prefix = this.client == 'std' ? 'www' : 'origin';
+            return `${prefix}:${this.more_link}`
         },
     },
     methods: {
