@@ -25,7 +25,7 @@
                             <span>{{ item.timeFormat }}</span>
                         </div>
                         <div class="u-item" v-if="type === '1'">
-                            <template v-if="item.key === 'y8'"> 特殊事件 · </template>
+                            <template v-if="item.oldKey === 'y8'"> 特殊事件 · </template>
                             {{ item.site }}
                         </div>
                         <div class="u-item" v-else>{{ item.map + "·" + item.site }}</div>
@@ -53,10 +53,8 @@ export default {
             showNum: 3,
             celebrityList: [],
             currentDate: {
-                // h: dayjs.tz().hour(),
-                // m: dayjs.tz().minute(),
-                h: 18,
-                m: 40,
+                h: dayjs.tz().hour(),
+                m: dayjs.tz().minute(),
             },
             type: "1",
             types: [
@@ -162,6 +160,7 @@ export default {
         },
         // 处理云从社
         getYun(date) {
+            // console.log(date.h + ":" + date.m);
             // 循环事件
             const circleList = this.celebrityList.filter((item) => item.key !== "y8");
             const currentKey = "y" + (date.h % 2 === 0 ? "0" : "1");
@@ -186,6 +185,7 @@ export default {
                     index = nIndex - 1;
                 }
             }
+
             let list = circleList.slice(index, index + this.showNum);
             let newList = [];
             if (list.length < this.showNum) {
@@ -193,54 +193,55 @@ export default {
             } else {
                 newList = [].concat(list);
             }
-
-            // 8小时cd事件
-            const y8List = this.celebrityList.filter((item) => item.key === "y8");
-            const y8FormatList = [];
-            for (let i = 0; i < 24; i += 8) {
-                y8List.forEach((item) => {
-                    y8FormatList.push({
-                        ...item,
-                        id: item.id + "" + item.hour + i,
-                        timeFormat: `${item.hour + i < 24 ? item.hour + i : item.hour + i - 24}:${item.time}`,
-                        h: item.hour + i < 24 ? item.hour + i : item.hour + i - 24,
-                        m: item.time,
-                    });
-                });
-            }
-            const sortY8FormatList = y8FormatList.sort(sortBy("h", "m"));
-            // 将要发生的最近的8小时CD事件
-            const latelyY8 = sortY8FormatList
-                .filter((item) => {
-                    return item.h >= date.h;
-                })
-                .find((item) => item.h > date.h || item.m >= date.m);
-            const circleFormatList = newList.map((item) => {
+            const circleNumList = newList.map((item) => {
                 // 当前时间
                 let h = this.currentDate.h;
                 if (currentKey !== item.key) {
                     h = h + 1;
                 }
                 item.h = h;
+                item.m = item.time;
                 item.timeFormat = this.toFormatTime(h, item.time);
                 return item;
             });
-            // 最近8小时事件在显示循环中的时间位置
-            let y8InIndex = -1;
-            if (latelyY8) {
-                y8InIndex = newList
-                    .filter((item) => item.h === latelyY8.h)
-                    .findIndex((item) => {
-                        return latelyY8.m > item.time;
+
+            // 8小时cd事件
+            const y8List = this.celebrityList.filter((item) => item.key === "y8");
+            const y8FormatList = [];
+            for (let i = 0; i < 24; i += 8) {
+                y8List.forEach((item) => {
+                    const h = item.hour + i < 24 ? item.hour + i : item.hour + i - 24;
+                    const timeFormat = `${h.toString().padStart(2, "00")}:${item.time}`;
+                    y8FormatList.push({
+                        ...item,
+                        id: item.id + "" + item.hour + i,
+                        timeFormat: timeFormat,
+                        hour: h,
+                        h: h,
+                        m: item.time,
+                        oldKey: item.key,
+                        key: "y" + (h % 2 === 0 ? "0" : "1"),
                     });
+                });
             }
-            console.log(sortY8FormatList);
-            console.log(newList, latelyY8);
-            if (y8InIndex !== -1) {
-                circleFormatList.splice(y8InIndex, 1, latelyY8);
+            const y8FilterList = y8FormatList.filter((item) => {
+                const num = item.h * 60 + item.m;
+                const firstNum = circleNumList[0].h * 60 + circleNumList[0].m;
+                const lastNum =
+                    circleNumList[circleNumList.length - 1].h * 60 + circleNumList[circleNumList.length - 1].m;
+                return num >= firstNum && num <= lastNum;
+            });
+            let combineList = [];
+            if (y8FilterList.length) {
+                combineList = circleNumList.concat(y8FilterList).sort(sortBy("h", "time"));
+                if (combineList[0].h * 60 + combineList[0].m < date.h * 60 + date.m) {
+                    combineList.splice(0, 1);
+                }
+            } else {
+                combineList = circleNumList;
             }
-            console.log(y8InIndex);
-            this.list = circleFormatList;
+
+            this.list = combineList.slice(0, this.showNum);
         },
         getList(date) {
             if (this.type === "0") {
@@ -265,14 +266,14 @@ export default {
         this.loadData();
     },
     mounted() {
-        // setInterval(() => {
-        //     if (this.currentDate.h !== dayjs.tz().hour() || this.currentDate.m !== dayjs.tz().minute()) {
-        //         this.currentDate = {
-        //             h: dayjs.tz().hour(),
-        //             m: dayjs.tz().minute(),
-        //         };
-        //     }
-        // }, 1000);
+        setInterval(() => {
+            if (this.currentDate.h !== dayjs.tz().hour() || this.currentDate.m !== dayjs.tz().minute()) {
+                this.currentDate = {
+                    h: dayjs.tz().hour(),
+                    m: dayjs.tz().minute(),
+                };
+            }
+        }, 1000);
     },
 };
 </script>
