@@ -59,6 +59,9 @@
             overflow-x: auto;
             .scrollbar();
             .u-horse-name {
+                .flex;
+                align-items: center;
+                justify-content: center;
                 .size(30px, 30px);
                 flex-shrink: 0;
                 cursor: pointer;
@@ -67,6 +70,23 @@
                     background-color: #eee;
                     box-shadow: none;
                 }
+                &.no-link {
+                    cursor: default;
+                    &:hover {
+                        background-color: transparent;
+                        box-shadow: none;
+                    }
+                }
+            }
+            i {
+                .flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+            }
+            .el-icon-refresh {
+                cursor: pointer;
+                color: #fba524;
             }
         }
         .u-times-info {
@@ -78,6 +98,9 @@
             align-items: center;
             .u-times-lately {
                 color: #fba524;
+            }
+            .is-exist {
+                opacity: 0.5;
             }
         }
     }

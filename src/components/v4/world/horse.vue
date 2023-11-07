@@ -3,10 +3,32 @@
         <div class="u-horse">
             <el-divider content-position="left">
                 <span>抓马播报&nbsp;·&nbsp;</span>
-                <el-select v-model="params.server">
+                <el-select v-model="server">
                     <el-option v-for="server in servers" :key="server" :label="server" :value="server"></el-option>
                 </el-select>
             </el-divider>
+            <div class="u-item" key="chitu">
+                <div class="u-horse-name-wrap">
+                    <a class="u-horse-name" :href="getLink('赤兔')" target="_blank">
+                        <el-image :src="getImgSrc('赤兔')" class="u-image"></el-image>
+                    </a>
+                    <span class="u-horse-name no-link">赤兔</span>
+                    <el-tooltip effect="dark" placement="top" popper-class="u-chitu-tip">
+                        <template #content>
+                            <div v-html="chituTip"></div>
+                        </template>
+                        <i class="el-icon-question"></i>
+                    </el-tooltip>
+                    <i :class="chituLoading ? 'el-icon-loading' : 'el-icon-refresh'" @click="loadChituData"></i>
+                </div>
+                <div class="u-times-info">
+                    <span v-if="!hasExist" class="u-times-lately">本CD尚未刷新</span>
+                    <template v-else>
+                        <div class="u-map-name is-exist">{{ existData.map }}</div>
+                        <div class="u-times is-exist">{{ existData.time }}</div>
+                    </template>
+                </div>
+            </div>
             <div class="u-item" v-for="item in list" :key="item.id">
                 <div class="u-horse-name-wrap">
                     <a
@@ -34,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="u-no-item" v-if="!list.length">暂无播报</div>
+            <!-- <div class="u-no-item" v-if="!list.length">暂无播报</div> -->
         </div>
     </div>
 </template>
@@ -45,7 +67,7 @@ import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
 import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 import horseSites from "@/assets/data/horse_sites.json";
 import horseBroadcast from "@/assets/data/horse_broadcast.json";
-import { getGameReporter, getUserInfo } from "@/service/horse";
+import { getGameReporter, getUserInfo, getChituHorse } from "@/service/horse";
 import dayjs from "@/utils/day";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
@@ -53,13 +75,25 @@ export default {
     data() {
         return {
             list: [],
-            params: {
-                pageIndex: 1,
-                pageSize: 50,
-                server: "",
-                type: "horse",
-            },
+            server: "",
             timer: null,
+            chituMap: {
+                方问: "鲲鹏岛",
+                小赤: "阴山大草原",
+                杨新: "黑戈壁",
+            },
+            // 本cd是否刷新
+            hasExist: false,
+            existData: {
+                map: "",
+                time: "",
+            },
+            chituTip: `
+             <p>CD: 周二7点 ~ 下周一7点。</p>
+             <p>地图: 黑戈壁、阴山大草原、鲲鹏岛。</p>
+             <p>必备: <卦文龟甲>交大战时有几率获得，赤兔刷新后再到信使处领取，有效期7天。</p>
+            `,
+            chituLoading: false,
         };
     },
     computed: {
@@ -73,14 +107,61 @@ export default {
                 return servers_origin;
             }
         },
+        params() {
+            return {
+                pageIndex: 1,
+                pageSize: 50,
+                server: this.server,
+                type: "horse",
+            };
+        },
     },
     watch: {
-        "params.server"() {
+        server() {
             this.list = []; // 需要置空后重新计算cross的scrollWidth
             this.getGameReporter();
+            this.loadChituData();
         },
     },
     methods: {
+        loadChituData() {
+            const server = this.server;
+            // 周二7点到下周一7点为一个CD， 7天内随机刷一只，地图为黑戈壁、阴山大草原、鲲鹏岛
+            this.chituLoading = true;
+            getChituHorse(server)
+                .then((res) => {
+                    const list = res.data?.data?.list || [];
+                    if (!list.length) {
+                        return;
+                    }
+                    // 最近刷新时间
+                    const created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
+                    const now = dayjs.tz();
+                    const now_day = now.day();
+                    const now_hour = now.hour();
+                    let cd_from_time = now.day(2).hour(7).minute(0).second(0).millisecond(0);
+                    let cd_to_time = cd_from_time.add(1, "week").add(-1, "millisecond");
+                    if (now_day === 1 || (now_day === 2 && now_hour < 7)) {
+                        // 周一到周二7点之前的CD为上一个CD
+                        cd_from_time = dayjs.tz(cd_from_time).add(-1, "week");
+                        cd_to_time = dayjs.tz(cd_to_time).add(-1, "week");
+                    }
+                    // 最近刷新时间是否在当前CD中
+                    const isBetween = dayjs.tz(created_at).isBetween(cd_from_time, cd_to_time);
+                    this.hasExist = isBetween;
+                    if (isBetween) {
+                        const content = list?.[0]?.content || "";
+                        const npc = /\]\[(.*)\]大声喊/.exec(content)[1].trim();
+                        this.existData = {
+                            map: this.chituMap[npc] || "",
+                            time: dayjs.tz(created_at).format("YYYY-MM-DD HH:mm:ss"),
+                        };
+                    }
+                })
+                .finally(() => {
+                    this.chituLoading = false;
+                });
+        },
         getLink(horseName) {
             const itemId = horseBroadcast[horseName]?.itemId || 0;
             // 2 马具 1 坐骑
@@ -202,10 +283,10 @@ export default {
     mounted() {
         if (User.isLogin()) {
             getUserInfo().then((res) => {
-                this.params.server = res.data?.data?.jx3_server || "梦江南";
+                this.server = res.data?.data?.jx3_server || "梦江南";
             });
         } else {
-            this.params.server = "梦江南";
+            this.server = "梦江南";
         }
         this.timer = setInterval(() => {
             this.getGameReporter();
@@ -220,4 +301,8 @@ export default {
 
 <style lang="less">
 @import "~@//assets/css/v4/world/horse.less";
+
+.u-chitu-tip {
+    max-width: 200px;
+}
 </style>
