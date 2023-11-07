@@ -41,12 +41,16 @@
                 target="_blank"
             >
                 <div class="u-reputation">
-                    <div class="u-reputation-icon" :class="`u-quality-${item.Quality}`">
-                        <img :src="iconLink(item.IconID)" :alt="item.Name" />
-                    </div>
-                    <span class="u-reputation-name">{{ item.Name }}</span>
+                    <el-tooltip class="box-item" effect="dark" :content="item.Desc" placement="top">
+                        <div class="u-reputation-item">
+                            <div class="u-reputation-icon" :class="`u-quality-${item.Quality}`">
+                                <img :src="iconLink(item.IconID)" :alt="item.Name" />
+                            </div>
+                            <span class="u-reputation-name">{{ item.Name }}</span>
+                        </div>
+                    </el-tooltip>
                 </div>
-                <span class="u-reputation-desc">{{ item.Desc }}</span>
+                <!-- <span class="u-reputation-desc">{{ item.Desc }}</span> -->
             </a>
         </div>
     </div>

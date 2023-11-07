@@ -1,6 +1,6 @@
 <template>
     <div class="m-world-block m-world-pet">
-        <el-divider content-position="left">福缘宠物</el-divider>
+        <el-divider content-position="left">宠物</el-divider>
         <div class="m-pet">
             <a
                 class="u-item"

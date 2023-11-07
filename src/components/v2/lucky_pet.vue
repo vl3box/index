@@ -1,6 +1,6 @@
 <template>
     <tr>
-        <td>福缘宠物</td>
+        <td>宠物</td>
         <td>全服</td>
         <td>
             <a v-for="item in luckyList" :key="item.Index" class="u-pet" :href="getPetLink(item.Index)" target="_blank">{{ item.Name }}</a>
