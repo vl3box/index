@@ -34,3 +34,21 @@
         .none;
     }
 }
+
+@media screen and (max-width: @phone) {
+    .m-force-alert {
+        width: 99%;
+        .el-dialog__body {
+            max-width: 95%;
+            height: 267px;
+        }
+
+        .u-main-img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .u-close {
+            height: 40px;
+        }
+    }
+}

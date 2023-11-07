@@ -1,6 +1,6 @@
 <template>
     <el-dialog :visible="showAlert" custom-class="m-force-alert" :show-close="false" :close-on-click-modal="false">
-        <el-carousel :interval="4000" height="600px" arrow="always">
+        <el-carousel :interval="4000" :height="height" :arrow="data.length > 1 ? 'always' : 'never'">
             <el-carousel-item v-for="item in data" :key="item.ID">
                 <a :href="item.link" target="_blank">
                     <img class="u-main-img" :src="item.img" alt="">
@@ -19,6 +19,7 @@ export default {
     data: function () {
         return {
             data: [],
+            height: "300px",
         };
     },
     computed: {
@@ -35,6 +36,12 @@ export default {
     },
     mounted() {
         this.loadEvent();
+
+        if (window.innerWidth < 768) {
+            this.height = "300px";
+        } else {
+            this.height = "600px";
+        }
     },
     methods: {
         ...mapMutations(["setShowAlert"]),
