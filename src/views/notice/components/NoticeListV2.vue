@@ -113,7 +113,7 @@ export default {
             return {
                 client: this.client,
                 search: this.search,
-                subtype: !this.type ? join(this.subtype, ",") : this.type,
+                subtype: !this.type ? "" : this.type,
             };
         },
         clientHeight() {
