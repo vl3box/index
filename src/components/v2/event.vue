@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { getEventV2 } from "@/service/cms";
+import { getConfigBanner } from "@/service/cms";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "event",
@@ -36,15 +36,15 @@ export default {
                 client: this.client,
                 type:"common",
                 subtype: "event",
-                per: 6,
-                status: 1,
+                per: 6, 
+                status: 1 
             };
         },
     },
     methods: {
         loadData: function () {
             this.loading = true;
-            return getEventV2(this.params)
+            return getConfigBanner(this.params)
                 .then((res) => {
                     this.data = res.data.data.list || [];
                 })

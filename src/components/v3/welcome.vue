@@ -17,8 +17,7 @@
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 import User from "@jx3box/jx3box-common/js/user";
-import { getEventV2, getUserDecoration, getPublicDecoration } from "@/service/cms.js";
-import { getCode } from "@/service/cms";
+import { getConfigBanner, getUserDecoration, getPublicDecoration } from "@/service/cms.js";
 
 const DECORATION_KEY = "user_decoration_calendar";
 const DECORATION_LIST = "public_decoration";
@@ -77,7 +76,8 @@ export default {
         },
         // 加载
         loadCode() {
-            getCode(this.client).then((res) => {
+            // 激活码
+            getConfigBanner({ client: this.client, type: "code", status: 1, _valid: 1 }).then((res) => {
                 this.data = res?.data?.data?.list || [];
             });
         },
@@ -86,12 +86,12 @@ export default {
         // ========================
         // A.加载公共主题
         loadDecoration: function () {
-            // 1.是否存在活动
-            getEventV2({
+            // 1.是否存在活动-日历背景图
+            getConfigBanner({
                 type: "common",
                 subtype: "jba",
-                status: 1,
                 client: this.client,
+                status: 1,
             }).then((res) => {
                 // 2.存在活动，使用活动主题
                 const url = resolveImagePath(res.data.data.list[0]?.img);

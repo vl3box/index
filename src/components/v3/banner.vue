@@ -5,7 +5,7 @@
  * @Description:
 -->
 <template>
-    <div class="m-banner" v-if="data && data.length">
+    <div class="m-banner" v-if="data && data.length"> 
         <el-carousel class="m-banner-box" trigger="click" height="160px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank" @click="handleClick(item, $event)"
@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import { getEventV2 } from "@/service/cms";
+import { getConfigBanner } from "@/service/cms";
 import { getThumbnail } from "@jx3box/jx3box-common/js/utils";
 import { recordBannerClick } from "@/service/setting";
 export default {
@@ -37,8 +37,8 @@ export default {
                 client: this.client,
                 type: "common",
                 subtype: "banner",
-                per: 5,
-                status: 1,
+                per: 5, 
+                status: 1 
             };
         },
     },
@@ -46,7 +46,8 @@ export default {
     methods: {
         loadData: function () {
             this.loading = true;
-            return getEventV2(this.params)
+            // 左侧小轮播图
+            return getConfigBanner(this.params)
                 .then((res) => {
                     this.data = res.data.data.list || [];
                 })

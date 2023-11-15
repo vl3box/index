@@ -20,7 +20,7 @@
 import calendar from "@/components/v2/calendar.vue";
 import { theme } from "../../../setting.json";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { getEventV2, getDecoration, getDecorationJson } from "@/service/cms.js";
+import { getConfigBanner, getDecoration, getDecorationJson } from "@/service/cms.js";
 import { getBreadcrumb } from "@jx3box/jx3box-common/js/api_misc";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 import User from "@jx3box/jx3box-common/js/user";
@@ -59,11 +59,12 @@ export default {
             });
         },
         loadBackGround: function () {
-            getEventV2({
+            // 日历背景图
+            getConfigBanner({
                 type: "common",
-                subtype: "jba",
-                status: 1,
+                subtype: "jba", 
                 client: this.client,
+                status: 1 
             }).then((res) => {
                 const url = resolveImagePath(res.data.data.list[0]?.img);
                 if (url) {

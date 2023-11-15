@@ -1,47 +1,14 @@
 import { $cms } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-import { css } from "jquery";
-// 今日财富
-function getCode(client) {
-    return $cms({ mute: true }).get(`/api/cms/news/v2`, {
-        params: {
-            client: client,
-            type: "code",
-            status: 1,
-        },
+
+// 新接口2023.11.15
+function getConfigBanner(params) {
+    return $cms().get(`api/cms/config/banner`, {
+        params
     });
 }
 
-// 海报
-function getSliders(type, client, per = 10) {
-    let _params = {
-        client: client,
-        type: type,
-        status: 1,
-    };
-    if (per) {
-        _params.per = per;
-    }
-    return $cms({ mute: true }).get(`/api/cms/news/v2`, {
-        params: _params,
-    });
-}
-
-// 通知
-function getNews(type, client = "std", limit) {
-    let _params = {
-        client: client,
-        type: type,
-        status: 1,
-    };
-    if (limit) {
-        _params.per = limit;
-    }
-    return $cms({ mute: true }).get(`/api/cms/news/v2`, {
-        params: _params,
-    });
-}
 
 // 骚话
 function getGossip(limit) {
@@ -70,10 +37,6 @@ function getPost(id) {
     return $cms().get(`/api/cms/post/${id}`);
 }
 
-// 管理
-// function push(data) {
-//     return $cms().post(`/api/cms/post`, data);
-// }
 
 // 配装
 function getPz(params) {
@@ -147,12 +110,7 @@ function getMenus(key) {
     return $cms().get(`/api/cms/config/menu/${key}`);
 }
 
-// 近期活动v2
-function getEventV2(params) {
-    return $cms().get(`api/cms/news/v2`, {
-        params,
-    });
-}
+
 //获取装扮
 function getUserDecoration(params) {
     console.log(1);
@@ -160,17 +118,12 @@ function getUserDecoration(params) {
         params,
     });
 }
+
 function getPublicDecoration() {
     let url = __imgPath + "decoration/index.json";
     return axios.get(url);
 }
 
-// 历史头条
-function getHistoryHeadlines(params) {
-    return $cms().get(`/api/cms/news/v2`, {
-        params,
-    });
-}
 
 // 名望
 function getCelebrities(params) {
@@ -179,9 +132,6 @@ function getCelebrities(params) {
     });
 }
 export {
-    getCode,
-    getNews,
-    getSliders,
     getPosts,
     getGossip,
     getPost,
@@ -193,10 +143,9 @@ export {
     getCalendarSlogansExact,
     getHistory,
     getCalendarCount,
-    getEventV2,
     getRangeCalendar,
     getUserDecoration,
     getPublicDecoration,
-    getHistoryHeadlines,
     getCelebrities,
+    getConfigBanner
 };

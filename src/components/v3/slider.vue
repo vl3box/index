@@ -70,7 +70,7 @@
 
 <script>
 import { buildTarget, resolveImagePath, getThumbnail, convertUrlToProtocol } from "@jx3box/jx3box-common/js/utils";
-import { getSliders } from "@/service/cms";
+import { getConfigBanner } from "@/service/cms";
 import Mini_bread from "../content/mini_bread.vue";
 export default {
     name: "slider",
@@ -122,7 +122,13 @@ export default {
             $("#m-home-slider").slick("slickGoTo", index);
         },
         loadData: function () {
-            return getSliders("slider", this.client, 8).then((res) => {
+            // banner轮播图
+            return getConfigBanner({
+                client: this.client,
+                type: "slider",
+                per: 8,
+                status: 1,
+            }).then((res) => {
                 this.data = res.data.data.list;
             });
         },

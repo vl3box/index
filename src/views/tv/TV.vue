@@ -22,7 +22,7 @@
 <script>
 import List from "./components/List.vue";
 import Toolbar from "./components/Toolbar.vue";
-import { getHistoryHeadlines } from "@/service/cms";
+import { getConfigBanner } from "@/service/cms";
 export default {
     name: "TV",
     components: { List, Toolbar },
@@ -47,8 +47,8 @@ export default {
     },
     methods: {
         load(params = this.params) {
-            this.loading = true;
-            getHistoryHeadlines(params)
+            this.loading = true; 
+            getConfigBanner(params)
                 .then((res) => {
                     this.list = res.data.data.list || [];
                     this.total = res.data.data.total;

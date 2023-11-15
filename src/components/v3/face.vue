@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { $cms } from "@jx3box/jx3box-common/js/https.js";
+import { getConfigBanner } from "@/service/cms";
 import { getThumbnail } from "@jx3box/jx3box-common/js/utils";
 import ListCross from "@/components/common/ListCross.vue";
 export default {
@@ -53,18 +53,15 @@ export default {
         },
     },
     mounted: function () {
-        $cms({ mute: true })
-            .get(`/api/cms/news/v2`, {
-                params: {
-                    type: "slider",
-                    source_type: "face",
-                    client: this.client,
-                    per: 8,
-                },
-            })
-            .then((res) => {
-                this.list = res.data.data.list;
-            });
+        getConfigBanner({
+            type: "slider",
+            source_type: "face",
+            client: this.client,
+            per: 8,
+            status: 1 
+        }).then((res) => {
+            this.list = res.data.data.list;
+        });
     },
 };
 </script>

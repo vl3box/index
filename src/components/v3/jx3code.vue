@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { getCode } from "@/service/cms";
+import { getConfigBanner } from "@/service/cms";
 import { showTime } from "@jx3box/jx3box-common/js/moment";
 export default {
     props: [],
@@ -55,7 +55,7 @@ export default {
         showTime,
     },
     created: function () {
-        getCode(this.client).then((res) => {
+        getConfigBanner({ client: this.client, type: "code", status: 1, _valid: 1 }).then((res) => {
             this.data = res.data.data.list || [];
         });
     },

@@ -122,8 +122,7 @@ export default {
         params() {
             const _params = {
                 client: this.client,
-                type: "slider",
-                status: 0,
+                type: "slider", 
                 per: this.pageSize,
                 page: this.pageIndex,
             };
