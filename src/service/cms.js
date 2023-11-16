@@ -131,6 +131,14 @@ function getCelebrities(params) {
         params,
     });
 }
+
+// 获取技改
+function getChangelog(params) {
+    return $cms().get(`/api/cms/pve/skill/changelog`, {
+        params,
+    });
+}
+
 export {
     getPosts,
     getGossip,
@@ -147,5 +155,6 @@ export {
     getUserDecoration,
     getPublicDecoration,
     getCelebrities,
-    getConfigBanner
+    getConfigBanner,
+    getChangelog,
 };

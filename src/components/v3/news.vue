@@ -37,6 +37,9 @@ import { getGameNews } from "@/service/spider";
 import { getPosts } from "@/service/index";
 import dateFormat from "@/utils/dateFormat.js";
 import { getMenu } from "@jx3box/jx3box-common/js/api_misc";
+import { getChangelog } from "@/service/cms";
+import { getLink } from "@jx3box/jx3box-common/js/utils";
+import dayjs from "dayjs";
 export default {
     name: "IndexNews",
     components: {},
@@ -158,16 +161,18 @@ export default {
             });
         },
         loadSkillChangeData: function () {
-            const key = this.client === 'std' ? 'bps_skill_change' : 'bps_skill_change_origin'
-            getMenu(key).then((res) => {
-                this.skill_change_data = res.map((item) => {
-                    item.title = item.label;
-                    item.url = item.link;
-                    item.time = new Date(item.icon);
+            const params = {
+                client: this.client,
+            }
+            getChangelog(params).then(res => {
+                this.skill_change_data = (res.data.data?.list || []).slice(0, 5).map(item => {
+                    item.title = `【${item.zlp}】${item.title}`;
+                    item.url = item.link || getLink("bps", item.post_id);
+                    item.time = new Date(item.date);
                     item.type = "skill_change";
                     return item;
-                }).slice(0, 5);
-            });
+                })
+            })
         },
     },
     mounted: function () {
