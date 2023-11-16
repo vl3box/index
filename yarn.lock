@@ -1430,10 +1430,10 @@
     "uuid" "^9.0.0"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^8.0.0", "@jx3box/jx3box-common@^8.0.3", "@jx3box/jx3box-common@^8.0.5":
-  "integrity" "sha512-nSepQWWIn0bIjc/iykD5F9TDXGL2ZqOSdl1urFBj01eILzZO1YmWApyGue1aUBTg2olhI40BpaPEQJRX9XhT1Q=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.0.5.tgz"
-  "version" "8.0.5"
+"@jx3box/jx3box-common@^8.0.0", "@jx3box/jx3box-common@^8.0.3", "@jx3box/jx3box-common@^8.0.6":
+  "integrity" "sha512-FAR00/136MOr/mCYadys9M51fhN4lfcvsBliHJrlKdd0ugRek0qXkxY6G6n7NolTbi4oxnUfZVNcBZF65+4JuQ=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.0.6.tgz"
+  "version" "8.0.6"
   dependencies:
     "@jx3box/reporter" "^0.0.5"
     "axios" "^1.6.1"

@@ -36,10 +36,9 @@
 import { getGameNews } from "@/service/spider";
 import { getPosts } from "@/service/index";
 import dateFormat from "@/utils/dateFormat.js";
-import { getMenu } from "@jx3box/jx3box-common/js/api_misc";
 import { getChangelog } from "@/service/cms";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
-import dayjs from "dayjs";
+import {all_map} from "@jx3box/jx3box-common/data/jx3_zlp.json";
 export default {
     name: "IndexNews",
     components: {},
@@ -96,6 +95,13 @@ export default {
         data: function () {
             return this.mode == "all" ? this.all_data : this[this.mode + "_data"];
         },
+        zlp_map() {
+            // 生成对象 {key: value}
+            return all_map.reduce((obj, item) => {
+                obj[item.value] = item.label;
+                return obj;
+            }, {});
+        }
     },
     methods: {
         dateFormat: function (val) {
@@ -166,7 +172,7 @@ export default {
             }
             getChangelog(params).then(res => {
                 this.skill_change_data = (res.data.data?.list || []).slice(0, 5).map(item => {
-                    item.title = `【${item.zlp}】${item.title}`;
+                    item.title = `【${this.zlp_map[item.zlp]}】${item.title}`;
                     item.url = item.link || getLink("bps", item.post_id);
                     item.time = new Date(item.date);
                     item.type = "skill_change";
