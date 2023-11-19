@@ -27,7 +27,7 @@
     </div>
 </template>
 <script>
-import { getDaily } from "@/service/spider";
+import { getDaily, getDailyFromOs } from "@/service/spider";
 import dayjs from "@/utils/day";
 export default {
     name: "Daily",
@@ -65,6 +65,14 @@ export default {
                     };
                 });
             });
+        },
+        // 武林通鉴
+        loadZc() {
+            const params = {
+                client: this.client,
+                _search: "wltj",
+            };
+            getDailyFromOs(params);
         },
     },
     mounted: function () {

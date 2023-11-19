@@ -5,6 +5,14 @@ const $spider = axios.create({
     baseURL: __spider2,
 });
 
+// 日常 - os
+function getDailyFromOs(params = {}) {
+    params.status = 1;
+    return $cms().get(`/api/cms/pvx/activity`, {
+        params,
+    });
+}
+
 // 日常
 function getDaily(params) {
     return $cms({ mute: true }).get(`/api/cms/game/daily`, {
@@ -103,6 +111,7 @@ export {
     getServers,
     getPrice,
     getMeirentu,
+    getDailyFromOs,
     getDaily,
     getPetLucky,
     getPets,
