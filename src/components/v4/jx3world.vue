@@ -39,7 +39,7 @@ import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
 import dayjs from "@/utils/day";
 import { formatTime } from "@/utils";
 export default {
-    name: "JX3World",
+    name: "JX3WorldV4",
     components: {
         daily,
         luckyPet,
