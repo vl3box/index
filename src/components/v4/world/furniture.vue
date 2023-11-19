@@ -1,57 +1,65 @@
 <template>
     <div class="m-world-block m-world-furniture">
         <el-divider content-position="left">家园</el-divider>
-        <div class="u-title">园宅会赛·本期</div>
-        <div class="u-item">
-            <div>加分属性</div>
-            <div class="u-furniture">
-                {{ furnitureProperty && furnitureProperty.content }}
-            </div>
-        </div>
-        <div class="u-item">
-            <div>评审分类</div>
-            <div class="u-furniture">
-                <a href="/furniture?match=1" target="_blank">{{
-                    formatContent(furnitureCategory && furnitureCategory.content)
-                }}</a>
-            </div>
-        </div>
-        <div class="u-title">园宅会赛·下期</div>
-        <div class="u-item">
-            <div>加分属性</div>
-            <div class="u-furniture">
-                {{ nextCategory }}
-            </div>
-        </div>
-        <div class="u-item">
-            <div>评审分类</div>
-            <div class="u-furniture">
-                <a href="/furniture?match=1" target="_blank">
-                    {{ nextProperty }}
-                </a>
-            </div>
-        </div>
-        <div class="u-title">家园声望</div>
-        <div class="m-reputation">
-            <a
-                class="u-reputation-item"
-                v-for="item in reputationList"
-                :key="item.id"
-                :href="getItemLink(item.id)"
-                target="_blank"
-            >
-                <div class="u-reputation">
-                    <el-tooltip class="box-item" effect="dark" :content="item.Desc" placement="top">
-                        <div class="u-reputation-item">
-                            <div class="u-reputation-icon" :class="`u-quality-${item.Quality}`">
-                                <img :src="iconLink(item.IconID)" :alt="item.Name" />
-                            </div>
-                            <span class="u-reputation-name">{{ item.Name }}</span>
-                        </div>
-                    </el-tooltip>
+        <div class="m-furniture-list">
+            <div class="m-furniture-item">
+                <div class="u-title">园宅会赛·本期</div>
+                <div class="u-item">
+                    <div>加分属性</div>
+                    <div class="u-furniture">
+                        {{ furnitureProperty && furnitureProperty.content }}
+                    </div>
                 </div>
-                <!-- <span class="u-reputation-desc">{{ item.Desc }}</span> -->
-            </a>
+                <div class="u-item">
+                    <div>评审分类</div>
+                    <div class="u-furniture">
+                        <a href="/furniture?match=1" target="_blank">{{
+                            formatContent(furnitureCategory && furnitureCategory.content)
+                        }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="m-furniture-item">
+                <div class="u-title">园宅会赛·下期</div>
+                <div class="u-item">
+                    <div>加分属性</div>
+                    <div class="u-furniture">
+                        {{ nextCategory }}
+                    </div>
+                </div>
+                <div class="u-item">
+                    <div>评审分类</div>
+                    <div class="u-furniture">
+                        <a href="/furniture?match=1" target="_blank">
+                            {{ nextProperty }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="m-furniture-item">
+                <div class="u-title">家园声望</div>
+                <div class="m-reputation">
+                    <a
+                        class="u-reputation-item"
+                        v-for="item in reputationList"
+                        :key="item.id"
+                        :href="getItemLink(item.id)"
+                        target="_blank"
+                    >
+                        <div class="u-reputation">
+                            <el-tooltip class="box-item" effect="dark" :content="item.Desc" placement="top">
+                                <div class="u-reputation-item">
+                                    <div class="u-reputation-icon" :class="`u-quality-${item.Quality}`">
+                                        <img :src="iconLink(item.IconID)" :alt="item.Name" />
+                                    </div>
+                                    <span class="u-reputation-name">{{ item.Name }}</span>
+                                </div>
+                            </el-tooltip>
+                        </div>
+                        <!-- <span class="u-reputation-desc">{{ item.Desc }}</span> -->
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </template>

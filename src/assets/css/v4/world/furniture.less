@@ -82,4 +82,21 @@
             border-color: #ffa500;
         }
     }
+    @media screen and (max-width: @pc) {
+        width: 100%;
+        .m-furniture-list {
+            width: 100%;
+            .flex;
+            flex-wrap: wrap;
+            .m-furniture-item {
+                flex: 1;
+                min-width: 300px;
+            }
+        }
+    }
+    @media screen and (max-width: 1880px) {
+        .m-furniture-list {
+            gap: 20px;
+        }
+    }
 }

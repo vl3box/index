@@ -26,9 +26,29 @@
         padding: 0 20px;
         flex: 1;
         min-width: 320px;
+        box-sizing: border-box;
     }
     .m-baizhan {
         .w(780px);
+    }
+    @media screen and (max-width: @pc) {
+        .m-world-right {
+            .flex;
+            flex-wrap: wrap;
+            .m-world-block {
+                flex: none;
+                min-width: 300px;
+            }
+        }
+    }
+    @media screen and (max-width: 1880px) {
+        .m-world-right {
+            gap: 20px;
+            .m-world-horse,
+            .m-world-pet {
+                width: calc(50% - 20px);
+            }
+        }
     }
     @media screen and (max-width: 1680px) {
         .m-world-left {
@@ -37,6 +57,11 @@
         .m-baizhan {
             order: 2;
             margin: 0;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: @notebook) {
+        .m-world-block {
             width: 100%;
         }
     }
@@ -51,7 +76,7 @@
                 flex: none;
                 .w(100%);
             }
-            padding:0;
+            padding: 0;
         }
         gap: 0;
         .m-baizhan {
@@ -59,8 +84,13 @@
             margin: 0;
             width: 100%;
         }
-        .m-world-right{
-            padding:0;
+        .m-world-right {
+            padding: 0;
+            gap: 0;
+            .m-world-horse,
+            .m-world-pet {
+                width: 100%;
+            }
         }
     }
     .m-bmap-simple {
