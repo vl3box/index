@@ -1,15 +1,9 @@
 <template>
-    <div v-if="daily.length" class="m-world-daily">
-        <el-divider content-position="left">日常&nbsp;·&nbsp;武林通鉴</el-divider>
+    <div v-if="today.length" class="m-world-daily">
+        <el-divider content-position="left">{{ dailyToday }}</el-divider>
         <div class="m-daily-content">
-            <!-- <div class="u-table-header">
-                <div class="u-row">
-                    <div class="u-item">活动</div>
-                    <div class="u-item">项目</div>
-                </div>
-            </div> -->
             <div class="u-table-body">
-                <div class="u-row" v-for="(item, i) in daily" :key="i">
+                <div class="u-row" v-for="(item, i) in today" :key="i">
                     <div class="u-item">{{ item.key }}</div>
                     <el-tooltip
                         v-if="getLen(item.val) > 36"
@@ -30,34 +24,31 @@
 import { getDailyFromOs } from "@/service/spider";
 import dayjs from "@/utils/day";
 import dailyKeys from "@/assets/data/daily_keys.json";
+import dailyDays from "@/assets/data/daily_days.json";
 export default {
-    name: "Daily",
+    name: "Today",
     data: function () {
         return {
-            daily: [],
             today: [],
         };
     },
     computed: {
-        date() {
+        day() {
             // 当7点以前，请求前面一天的日常 当7~24点，请求当天的日常
             const hour = dayjs.tz().get("hours");
-            return 0 <= hour && hour < 7
-                ? dayjs.tz().subtract(1, "day").format("YYYY-MM-DD")
-                : dayjs.tz().format("YYYY-MM-DD");
+            const day = 0 <= hour && hour < 7 ? dayjs.tz().subtract(1, "day").day() : dayjs.tz().day();
+            return day === 0 ? 7 : day;
         },
         client() {
             return this.$store.state.client;
-        },
-        isCurrentWeek() {
-            let week = dayjs.tz(this.date).isoWeek();
-            let currentWeek = dayjs.tz().isoWeek();
-            return week === currentWeek;
         },
         dailyKeyMap() {
             return dailyKeys.reduce((acc, cur) => {
                 return { ...acc, [cur["key"]]: cur.name };
             }, {});
+        },
+        dailyToday() {
+            return dailyDays.find((item) => item.key === this.day)?.name;
         },
     },
     methods: {
@@ -68,29 +59,14 @@ export default {
             }
             return str.replace(/[^\x00-\xff]/g, "01").length;
         },
-        loadDaily() {
-            getDaily({ date: this.date }).then((res) => {
-                let list = res.data.data || [];
-                this.daily = list.map((item) => {
-                    return {
-                        type: item.task_type,
-                        zone: "全服",
-                        name: item.activity_name,
-                    };
-                });
-            });
-        },
-        loadDailyNew() {
+        loadToday() {
             const params = {
                 client: this.client,
+                day: this.day,
             };
             getDailyFromOs(params).then((res) => {
-                let list = res.data.data || [];
-                const keys = ["dz", "zyrc", "zc", "wltj5", "wltj10"];
-                const daily = list.filter((item) => {
-                    return item.client === this.client && keys.includes(item.key);
-                });
-                this.daily = daily.map((item) => {
+                const list = res.data.data || [];
+                this.today = list.map((item) => {
                     return {
                         key: this.dailyKeyMap[item.key],
                         val: item.val,
@@ -100,8 +76,7 @@ export default {
         },
     },
     mounted: function () {
-        // this.loadDaily();
-        this.loadDailyNew();
+        this.loadToday();
     },
 };
 </script>

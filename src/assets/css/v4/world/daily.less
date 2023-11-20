@@ -9,16 +9,20 @@
         }
         .u-row {
             display: grid;
-            grid-template-columns: 1fr 1.5fr 2fr;
+            grid-template-columns: 1fr 2fr;
             padding: 5px 0;
             .u-item {
-                text-align: center;
                 .x;
+                .nobreak;
             }
-            &.u-reputation {
-                .u-item:last-child {
-                    height: 20px;
-                    .nobreak;
+        }
+        .u-table-body {
+            padding: 5px;
+            .u-item {
+                text-align: left;
+                .nobreak;
+                &:last-child {
+                    text-align: right;
                 }
             }
         }

@@ -15,6 +15,7 @@
             <div class="m-world-left">
                 <daily></daily>
                 <celebrity></celebrity>
+                <today></today>
             </div>
             <div class="m-baizhan">
                 <el-divider>本周百战地图</el-divider>
@@ -35,6 +36,7 @@ import celebrity from "@/components/v4/world/celebrity.vue";
 import horse from "@/components/v4/world/horse.vue";
 import luckyPet from "@/components/v4/world/lucky_pet";
 import furniture from "@/components/v4/world/furniture";
+import today from "@/components/v4/world/today"
 import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
 import dayjs from "@/utils/day";
 import { formatTime } from "@/utils";
@@ -46,6 +48,7 @@ export default {
         furniture,
         celebrity,
         horse,
+        today,
         BaizhanMap,
     },
     provide() {
