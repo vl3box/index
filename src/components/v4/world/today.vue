@@ -1,6 +1,6 @@
 <template>
     <div v-if="today.length" class="m-world-daily">
-        <el-divider content-position="left">{{ dailyToday }}</el-divider>
+        <el-divider content-position="left">活动&nbsp;·&nbsp;{{ dailyToday }}</el-divider>
         <div class="m-daily-content">
             <div class="u-table-body">
                 <div class="u-row" v-for="(item, i) in today" :key="i">
