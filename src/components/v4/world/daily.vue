@@ -12,7 +12,7 @@
                 <div class="u-row" v-for="(item, i) in daily" :key="i">
                     <div class="u-item">{{ item.name }}</div>
                     <el-tooltip
-                        v-if="getLen(item.val) > 36"
+                        v-if="getLen(item.val) > 30"
                         class="box-item"
                         effect="dark"
                         :content="item.val"

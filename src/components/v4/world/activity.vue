@@ -7,11 +7,11 @@
                     <div class="u-row" v-for="(item, i) in weekActivities" :key="i">
                         <div class="u-item">{{ item.name }}</div>
                         <el-tooltip
-                            v-if="getLen(item.val) > 36"
+                            v-if="getLen(item.val) > 30"
                             class="box-item"
                             effect="dark"
                             :content="item.val"
-                            placement="top"
+                            placement="top-end"
                         >
                             <div class="u-item">{{ item.val }}</div>
                         </el-tooltip>
@@ -27,7 +27,7 @@
                     <div class="u-row" v-for="(item, i) in todayActivities" :key="i">
                         <div class="u-item">{{ item.name }}</div>
                         <el-tooltip
-                            v-if="getLen(item.val) > 36"
+                            v-if="getLen(item.val) > 30"
                             class="box-item"
                             effect="dark"
                             :content="item.val"
