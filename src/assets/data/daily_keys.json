@@ -1,106 +1,42 @@
 [
     {
         "name": "大战",
-        "key": "dz"
-    },
-    {
-        "name": "茶馆",
-        "key": "cg"
-    },
-    {
-        "name": "勤修不缀",
-        "key": "qxbz"
-    },
-    {
-        "name": "武林通鉴·秘境",
-        "key": "wltj5"
-    },
-    {
-        "name": "武林通鉴·团队秘境",
-        "key": "wltj10"
-    },
-    {
-        "name": "公共事件",
-        "key": "ggsj"
-    },
-    {
-        "name": "世界首领",
-        "key": "sjsl"
-    },
-    {
-        "name": "铁血宝箱",
-        "key": "txbx"
+        "key": "dz",
+        "type": 1
     },
     {
         "name": "战场",
-        "key": "zc"
+        "key": "zc",
+        "type": 1
     },
     {
-        "name": "阵营日常",
-        "key": "zyrc"
+        "name": "声望日常",
+        "key": "swrc",
+        "type": 1
     },
     {
-        "name": "阵营祭天",
-        "key": "zyjt"
+        "name": "武林通鉴·秘境",
+        "key": "wltj5",
+        "type": 2
     },
     {
-        "name": "阴山商路",
-        "key": "yssl"
+        "name": "武林通鉴·团队秘境",
+        "key": "wltj10",
+        "type": 2
     },
     {
-        "name": "据点争夺战",
-        "key": "jdzdz"
-    },
-    {
-        "name": "攻防前置·地图",
-        "key": "zyqz"
-    },
-    {
-        "name": "大攻防·地图",
-        "key": "dgf"
-    },
-    {
-        "name": "竞技场",
-        "key": "jjc"
-    },
-    {
-        "name": "绝境战场",
-        "key": "jjzc"
-    },
-    {
-        "name": "浪客行",
-        "key": "lkx"
-    },
-    {
-        "name": "美人图·画画",
-        "key": "hh"
-    },
-    {
-        "name": "美人图·闯关",
-        "key": "cg"
-    },
-    {
-        "name": "瞿塘峡采仙草",
-        "key": "cxc"
-    },
-    {
-        "name": "寻龙脉",
-        "key": "xlm"
-    },
-    {
-        "name": "门派事件",
-        "key": "mpsj"
+        "name": "世界首领",
+        "key": "sjsl",
+        "type": 3
     },
     {
         "name": "节日活动",
-        "key": "jrhd"
+        "key": "jrhd",
+        "type": 3
     },
     {
-        "name": "周期活动",
-        "key": "zqhd"
-    },
-    {
-        "name": "杀猪提醒",
-        "key": "sztx"
+        "name": "特殊活动",
+        "key": "tshd",
+        "type": 3
     }
 ]

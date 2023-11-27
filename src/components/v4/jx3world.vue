@@ -13,9 +13,9 @@
         <div class="m-world-content m-sideblock-list">
             <!-- 日常 名望 休闲 -->
             <div class="m-world-left">
-                <daily></daily>
+                <daily :activities="activities"></daily>
                 <celebrity></celebrity>
-                <today></today>
+                <activity :activities="activities"></activity>
             </div>
             <div class="m-baizhan">
                 <el-divider>本周百战地图</el-divider>
@@ -36,10 +36,12 @@ import celebrity from "@/components/v4/world/celebrity.vue";
 import horse from "@/components/v4/world/horse.vue";
 import luckyPet from "@/components/v4/world/lucky_pet";
 import furniture from "@/components/v4/world/furniture";
-import today from "@/components/v4/world/today"
+import activity from "@/components/v4/world/activity";
 import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
 import dayjs from "@/utils/day";
 import { formatTime } from "@/utils";
+import { getDailyFromOs } from "@/service/spider";
+import dailyKeys from "@/assets/data/daily_keys.json";
 export default {
     name: "JX3WorldV4",
     components: {
@@ -48,7 +50,7 @@ export default {
         furniture,
         celebrity,
         horse,
-        today,
+        activity,
         BaizhanMap,
     },
     provide() {
@@ -69,6 +71,7 @@ export default {
             world_tip: formatTime(),
             isSpc: false,
             isPhone: false,
+            activities: [], // 日常配置列表
         };
     },
     computed: {
@@ -90,9 +93,34 @@ export default {
             let currentWeek = dayjs.tz().isoWeek();
             return week === currentWeek;
         },
+        dailyKeyMap() {
+            return dailyKeys.reduce((acc, cur) => {
+                return { ...acc, [cur["key"]]: cur.name };
+            }, {});
+        },
     },
-    methods: {},
-    created() {},
+    methods: {
+        loadDailyNew() {
+            const params = {
+                client: this.client,
+            };
+            getDailyFromOs(params).then((res) => {
+                let list = res.data.data || [];
+                const activities = list.filter((item) => {
+                    return item.client === this.client;
+                });
+                this.activities = activities.map((item) => {
+                    return {
+                        ...item,
+                        name: this.dailyKeyMap[item.key],
+                    };
+                });
+            });
+        },
+    },
+    created() {
+        this.loadDailyNew();
+    },
     mounted() {
         this.isPhone = document.documentElement.clientWidth <= 768;
         this.isSpc = document.documentElement.clientWidth <= 1680;
