@@ -1,4 +1,4 @@
-.m-world-daily {
+.m-world-daily-new {
     .m-daily-content {
         .fz(12px, 20px);
         .mt(0);
@@ -9,16 +9,20 @@
         }
         .u-row {
             display: grid;
-            grid-template-columns: 1fr 1.5fr 2fr;
-            padding: 5px 0;
+            grid-template-columns: 1fr 1.2fr;
+            padding: 5px;
             .u-item {
-                text-align: center;
                 .x;
+                .nobreak;
             }
-            &.u-reputation {
-                .u-item:last-child {
-                    height: 20px;
-                    .nobreak;
+        }
+        .u-table-body {
+            padding: 0 5px;
+            .u-item {
+                text-align: left;
+                .nobreak;
+                &:last-child {
+                    text-align: right;
                 }
             }
         }
