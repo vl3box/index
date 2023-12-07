@@ -1338,10 +1338,10 @@
     "uuid" "^9.0.0"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^8.0.3", "@jx3box/jx3box-common@^8.0.8":
-  "integrity" "sha512-eaCFHo7/HlnF/Mu7LhBHDSkTE+Kp0mwByFfoG8W6f+zwquJhm0d6mHjj91Cu7/CrUDvJqIUSmQFa0Vy9HyMaWQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.0.8.tgz"
-  "version" "8.0.8"
+"@jx3box/jx3box-common@^8.0.3", "@jx3box/jx3box-common@^8.0.8", "@jx3box/jx3box-common@^8.1.1":
+  "integrity" "sha512-mYib/IWlizjPz1I2CvQHDJFLpqWyl/c2oAveSCwwezsWCgRWo6u3mVwljEvNmf4lPM2ECVCPLIYkTDInI+d45w=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.1.1.tgz"
+  "version" "8.1.1"
   dependencies:
     "@jx3box/reporter" "^0.0.5"
     "axios" "^1.6.1"
@@ -1390,10 +1390,10 @@
     "vue-plugin-load-script" "^1.3.6"
     "xss" "^1.0.8"
 
-"@jx3box/jx3box-editor@^2.0.7":
-  "integrity" "sha512-JWDj6nL5evfjgrQoPZkzczvPujW10arSwArMMuHoMe9JqQax/r/6e57yZLnLJjquKdaOpnLHCC6TuzgI6i3cYQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-2.0.7.tgz"
-  "version" "2.0.7"
+"@jx3box/jx3box-editor@^2.0.8":
+  "integrity" "sha512-JogPuJeEm1HlwdObdzkpRZZdlgXxYp2gWU5wK33CRKyXFlK7i84fTAZf1kP4LxI3MKE3yZnyUiYsVykkrEZZ4A=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-2.0.8.tgz"
+  "version" "2.0.8"
   dependencies:
     "@jx3box/jx3box-common" "^7.7.3"
     "@jx3box/jx3box-data" "^3.0.4"
