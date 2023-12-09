@@ -5,7 +5,7 @@
  * @Description:
 -->
 <template>
-    <div class="m-banner" v-if="data && data.length"> 
+    <div class="m-banner" v-if="data && data.length">
         <el-carousel class="m-banner-box" trigger="click" height="160px" v-loading="loading">
             <el-carousel-item v-for="(item, index) in data" :key="index">
                 <a :href="item.link" target="_blank" @click="handleClick(item, $event)"
@@ -37,8 +37,8 @@ export default {
                 client: this.client,
                 type: "common",
                 subtype: "banner",
-                per: 5, 
-                status: 1 
+                per: 8,
+                status: 1
             };
         },
     },
