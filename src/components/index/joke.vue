@@ -19,7 +19,7 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <a class="u-publish" target="_blank" href="/publish/#/joke"><i class="el-icon-s-promotion"></i>JUST SAO!</a>
+        <a class="u-publish" target="_blank" href="/joke"><i class="el-icon-s-promotion"></i>JUST SAO!</a>
     </div>
 </template>
 

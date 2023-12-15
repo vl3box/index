@@ -16,8 +16,8 @@
                 <slider />
                 <box />
 
-                <jx3world />
                 <joke />
+                <jx3world />
                 <posts />
                 <Footer></Footer>
             </div>
