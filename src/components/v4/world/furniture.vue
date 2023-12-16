@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="m-furniture-item">
+            <!-- <div class="m-furniture-item">
                 <div class="u-title">家园声望</div>
                 <div class="m-reputation">
                     <a
@@ -56,10 +56,9 @@
                                 </div>
                             </el-tooltip>
                         </div>
-                        <!-- <span class="u-reputation-desc">{{ item.Desc }}</span> -->
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -130,7 +129,7 @@ export default {
             handler() {
                 if (this.client === "std") {
                     this.loadFurniture();
-                    this.loadReputation();
+                    // this.loadReputation();
                 }
             },
         },

@@ -13,9 +13,11 @@
         <div class="m-world-content m-sideblock-list">
             <!-- 日常 名望 休闲 -->
             <div class="m-world-left">
-                <daily :activities="activities"></daily>
+                <!-- <daily :activities="activities"></daily> -->
+                <daily></daily>
                 <celebrity></celebrity>
-                <activity :activities="activities"></activity>
+                <reputation v-if="isCurrentWeek" :date="date" :client="client"></reputation>
+                <!-- <activity :activities="activities"></activity> -->
             </div>
             <div class="m-baizhan">
                 <el-divider>本周百战地图</el-divider>
@@ -36,7 +38,8 @@ import celebrity from "@/components/v4/world/celebrity.vue";
 import horse from "@/components/v4/world/horse.vue";
 import luckyPet from "@/components/v4/world/lucky_pet";
 import furniture from "@/components/v4/world/furniture";
-import activity from "@/components/v4/world/activity";
+// import activity from "@/components/v4/world/activity";
+import reputation from "@/components/v4/world/reputation";
 import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
 import dayjs from "@/utils/day";
 import { formatTime } from "@/utils";
@@ -50,7 +53,8 @@ export default {
         furniture,
         celebrity,
         horse,
-        activity,
+        // activity,
+        reputation,
         BaizhanMap,
     },
     provide() {
@@ -119,7 +123,7 @@ export default {
         },
     },
     created() {
-        this.loadDailyNew();
+        // this.loadDailyNew();
     },
     mounted() {
         this.isPhone = document.documentElement.clientWidth <= 768;
