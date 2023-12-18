@@ -7,14 +7,14 @@
                 <div class="u-item">
                     <div>加分属性</div>
                     <div class="u-furniture">
-                        {{ furnitureProperty && furnitureProperty.content }}
+                        {{ (furnitureProperty && furnitureProperty.content) || "-" }}
                     </div>
                 </div>
                 <div class="u-item">
                     <div>评审分类</div>
                     <div class="u-furniture">
                         <a href="/furniture?match=1" target="_blank">{{
-                            formatContent(furnitureCategory && furnitureCategory.content)
+                            formatContent(furnitureCategory && furnitureCategory.content) || "-"
                         }}</a>
                     </div>
                 </div>
@@ -24,14 +24,14 @@
                 <div class="u-item">
                     <div>加分属性</div>
                     <div class="u-furniture">
-                        {{ nextCategory }}
+                        {{ nextCategory || "-" }}
                     </div>
                 </div>
                 <div class="u-item">
                     <div>评审分类</div>
                     <div class="u-furniture">
                         <a href="/furniture?match=1" target="_blank">
-                            {{ nextProperty }}
+                            {{ nextProperty || "-" }}
                         </a>
                     </div>
                 </div>

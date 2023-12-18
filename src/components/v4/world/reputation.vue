@@ -1,5 +1,5 @@
 <template>
-    <div class="m-world-block m-world-furniture">
+    <div v-if="reputationList.length" class="m-world-block m-world-furniture">
         <el-divider content-position="left">家园声望</el-divider>
         <div class="m-furniture-item">
             <!-- <div class="u-title">家园声望</div> -->
