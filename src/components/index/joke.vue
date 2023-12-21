@@ -6,9 +6,9 @@
 -->
 <template>
     <div class="m-joke">
-        <h3 class="u-label">
+        <a class="u-label" href="/joke" target="_blank">
             <img class="u-icon" :src="icon" />今日骚话
-        </h3>
+        </a>
         <div class="u-content">
             <el-carousel height="20px" direction="vertical" :autoplay="true">
                 <el-carousel-item v-for="(item,i) in data" :key="i">
