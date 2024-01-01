@@ -62,6 +62,9 @@ export default {
                 .fz(12px);
                 color: #999;
             }
+            div{
+                .nobreak;
+            }
         }
     }
 </style>

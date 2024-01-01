@@ -7,7 +7,8 @@
 <template>
     <div class="m-joke">
         <a class="u-label" href="/joke" target="_blank">
-            <img class="u-icon" :src="icon" />今日骚话
+            <img class="u-icon" :src="icon" />
+            <span class="u-text">今日骚话</span>
         </a>
         <div class="u-content">
             <el-carousel height="20px" direction="vertical" :autoplay="true">
