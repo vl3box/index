@@ -26,7 +26,7 @@
             <div class="m-world-right">
                 <horse></horse>
                 <lucky-pet :date="date" :client="client"></lucky-pet>
-                <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture>
+                <!-- <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture> -->
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@ import daily from "@/components/v4/world/daily.vue";
 import celebrity from "@/components/v4/world/celebrity.vue";
 import horse from "@/components/v4/world/horse.vue";
 import luckyPet from "@/components/v4/world/lucky_pet";
-import furniture from "@/components/v4/world/furniture";
+// import furniture from "@/components/v4/world/furniture";
 // import activity from "@/components/v4/world/activity";
 import reputation from "@/components/v4/world/reputation";
 import BaizhanMap from "@jx3box/jx3box-bmap/src/components/BMap.vue";
@@ -50,7 +50,7 @@ export default {
     components: {
         daily,
         luckyPet,
-        furniture,
+        // furniture,
         celebrity,
         horse,
         // activity,
