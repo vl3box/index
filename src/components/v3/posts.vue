@@ -112,7 +112,7 @@
 
 <script>
 import { getPosts } from "@/service/index";
-import { getWikiPosts } from "@/service/helper";
+import { getWikiPosts } from "@/service/cms";
 import { buildTarget, authorLink, showAvatar, getLink, getTypeLabel } from "@jx3box/jx3box-common/js/utils";
 import { __postType } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "@/utils/moment";
@@ -213,8 +213,8 @@ export default {
             let val = item.author_info && item.author_info.user_avatar;
             return showAvatar(val);
         },
-        showWikiAvatar: function ({ user_avatar, user_info }) {
-            let val = user_info ? user_info.user_avatar : user_avatar;
+        showWikiAvatar: function ({ user }) {
+            let val = user ? user.user_avatar : "";
             return showAvatar(val);
         },
         wikiDate: function (val) {
@@ -235,11 +235,11 @@ export default {
         loadWiki: function (type) {
             getWikiPosts({
                 type,
-                limit: this.length,
+                per: this.length,
                 client: this.client,
             })
                 .then((res) => {
-                    this.data = res.data.data.newest || [];
+                    this.data = res.data.data.list || [];
 
                     this.aggregate = this.data.map(item => this.reportLink(getLink(item.type, item.source_id)));
                     this.sendReporter();
