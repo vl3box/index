@@ -11,11 +11,11 @@
             <span class="u-text">今日骚话</span>
         </a>
         <div class="u-content">
-            <el-carousel height="20px" direction="vertical" :autoplay="true" @change="onCarouselChange">
+            <el-carousel height="20px" direction="vertical" :autoplay="true">
                 <el-carousel-item v-for="(item,i) in data" :key="i">
                     <a class="u-item" :href="getLink(item.id)" target="_blank">
                         <span class="u-author">{{item.author || '匿名'}}：</span>
-                        <span class="u-joke" v-html="content"></span>
+                        <span class="u-joke" v-html="item.html"></span>
                     </a>
                 </el-carousel-item>
             </el-carousel>
@@ -38,8 +38,6 @@ export default {
         return {
             data: [],
             icon: __imgPath + "image/box/joke.svg",
-
-            content: "",
         };
     },
     computed: {},
@@ -48,20 +46,16 @@ export default {
             return getLink('joke',id)
         },
         init: function () {
-            getJokes().then(async (res) => {
+            getJokes().then((res) => {
                 this.data = res.data.data.list;
-                await this.render();
-                this.content = this.data[0].html;
+                this.render();
             });
         },
-        render: async function () {
-            this.data.forEach(async (item) => {
+        render: function () {
+            this.data.forEach((item) => {
                 const ins = new JX3_EMOTION(item.content)
-                item.html = await ins._renderHTML()
+                item.html = ins.code
             })
-        },
-        onCarouselChange: function (index) {
-            this.content = this.data[index].html;
         },
     },
     filters: {},
