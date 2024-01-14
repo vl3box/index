@@ -10,6 +10,9 @@
         .u-row {
             display: grid;
             grid-template-columns: 1fr 1.5fr 2fr;
+            @media screen and (max-width: 320px) {
+                grid-template-columns: 1fr 0.9fr 2fr;
+            }
             padding: 5px 0;
             .u-item {
                 text-align: center;

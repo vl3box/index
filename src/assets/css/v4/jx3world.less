@@ -84,15 +84,32 @@
             width: 100%;
         }
         .m-world-right {
+            .w(100%);
             padding: 0;
             gap: 0;
-            // min-width: 0;
+            min-width: 260px;
+            overflow-x: auto;
             .m-world-horse,
             .m-world-pet {
+                flex: none;
                 width: 100%;
             }
         }
     }
+    // @media screen and (max-width: 320px) {
+    //     .m-world-right {
+    //         gap: 20px;
+    //         .m-world-horse,
+    //         .m-world-pet {
+    //             width: 260px;
+    //             .u-horse,
+    //             .el-divider,
+    //             .m-pet {
+    //                 width: 260px;
+    //             }
+    //         }
+    //     }
+    // }
     .m-bmap-simple {
         padding-top: 0;
         flex: 1;
