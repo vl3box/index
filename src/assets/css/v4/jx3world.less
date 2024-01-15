@@ -48,9 +48,6 @@
             .m-world-pet {
                 width: calc(50% - 20px);
             }
-            .m-world-horse {
-                min-width: 320px;
-            }
         }
     }
     @media screen and (max-width: 1680px) {
@@ -66,6 +63,23 @@
     @media screen and (max-width: @notebook) {
         .m-world-block {
             width: 100%;
+        }
+        .m-world-right {
+            flex-direction: column;
+            .m-world-horse,
+            .m-world-pet {
+                width: 100%;
+            }
+        }
+    }
+    @media screen and (max-width: @ipad) {
+        .m-world-right {
+            gap: 20px;
+            flex-direction: row;
+            .m-world-horse,
+            .m-world-pet {
+                width: calc(50% - 20px);
+            }
         }
     }
     @media screen and (max-width: @phone) {
