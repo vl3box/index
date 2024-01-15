@@ -34,7 +34,7 @@
     @media screen and (max-width: @pc) {
         .m-world-right {
             .flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             .m-world-block {
                 flex: none;
                 min-width: 300px;
@@ -44,6 +44,7 @@
     @media screen and (max-width: 1880px) {
         .m-world-right {
             gap: 20px;
+            flex-direction: row;
             .m-world-horse,
             .m-world-pet {
                 width: calc(50% - 20px);
@@ -84,6 +85,7 @@
             width: 100%;
         }
         .m-world-right {
+            flex-direction: column;
             .w(100%);
             padding: 0;
             gap: 0;
