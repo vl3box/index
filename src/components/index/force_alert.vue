@@ -29,7 +29,7 @@ export default {
                 client: this.$store.state.client,
                 type: "common",
                 subtype: "alert",
-                per: 1,
+                per: 5,
                 status: 1,
             };
         },
