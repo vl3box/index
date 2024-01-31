@@ -1,6 +1,7 @@
 {
   "name": "index",
-  "private": true,
+  "private": false,
+  "version": "0.1.6",
   "scripts": {
     "dev": "cross-env DEV_SERVER=true vue-cli-service serve",
     "serve": "vue-cli-service serve",
