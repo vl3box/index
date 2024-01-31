@@ -9,6 +9,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      deployments: write
     steps:
       - uses: actions/checkout@v4
 
@@ -23,36 +24,36 @@ jobs:
           scope: "@jx3box"
       - run: |
           npm install && npm run build
+          mv dist index && mkdir -p dist/static/ && mv index dist/static/
         env:
           NODE_AUTH_TOKEN: ""
 
-      - name: Get Gitlab project id
-        run: |
-          GL_PROJECT_ID=$(curl -s -H "PRIVATE-TOKEN: ${{ secrets.GL_NPM_TOKEN }}" \
-            "https://gitlab.com/api/v4/projects?owned=true&search=${{ github.repository }}&search_namespaces=true" | \
-            jq -c '.[] | select(.path_with_namespace == "${{ env.GITHUB_REPO }}").id')
-          echo "GL_PROJECT_ID=$GL_PROJECT_ID" >>${GITHUB_ENV}
+      # - name: Publish to Cloudflare Pages
+      #   uses: cloudflare/pages-action@v1
+      #   with:
+      #     apiToken: ${{ secrets.CF_API_TOKEN }}
+      #     accountId: ${{ secrets.CF_ACCOUNT_ID }}
+      #     projectName: ${{ secrets.CF_PROJECT_NAME }}
+      #     directory: dist
+      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: master
+      #     wranglerVersion: '3'
 
-      - name: Get package version
-        run: echo "PACKAGE_VERSION=$(cat package.json|jq -c '.version')" >>${GITHUB_ENV}
-
-      - name: Delete package if existed
-        run: |
-          PACKAGE_ID=$(curl -s --header "PRIVATE-TOKEN: ${{ secrets.GL_NPM_TOKEN }}" \
-            "https://gitlab.com/api/v4/projects/${{ env.GL_PROJECT_ID }}/packages?package_type=npm" | \
-            jq '.[] | select(.version == ${{ env.PACKAGE_VERSION }}).id')
-
-          if [[ -n $PACKAGE_ID ]]; then 
-            curl --request DELETE --header "PRIVATE-TOKEN: ${{ secrets.GL_NPM_TOKEN }}" \
-            "https://gitlab.com/api/v4/projects/${{ env.GL_PROJECT_ID }}/packages/${PACKAGE_ID}"
-          fi
-
-      - uses: actions/setup-node@v3
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          node-version: "16.x"
-          registry-url: "https://gitlab.com/api/v4/projects/${{ env.GL_PROJECT_ID }}/packages/npm/"
-          scope: ""
+          branch: gh-pages
+          repository-name: vl3box/vl3box
+          folder: dist
+          target-folder: ./
+          token: ${{ secrets.GH_REPO_TOKEN }}
+          clean: true
+          clean-exclude: |
+            **/*.map
 
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GL_NPM_TOKEN }}
+      - name: Upload to Cloudflare R2
+        uses: AnimMouse/setup-rclone@v1
+        with:
+          rclone_config: ${{ secrets.CF_RCLONE_CONFIG }}
+          
+      - run: rclone sync dist/ r2:/vl3box/static/index/
