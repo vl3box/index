@@ -1,4 +1,4 @@
-name: Publish NPM package to GitHub registry
+name: Build and deploy to GitHub pages
 on:
   push:
     branches:
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-          registry-url: "https://gitlab.com/api/v4/groups/81599786/-/packages/npm/"
+          registry-url: "https://gitlab.com/api/v4/groups/${{ secrets.GL_GROUP_ID }}/-/packages/npm/"
           scope: "@jx3box"
       - run: |
           npm install && npm run build
@@ -51,9 +51,9 @@ jobs:
           clean-exclude: |
             **/*.map
 
-      - name: Upload to Cloudflare R2
-        uses: AnimMouse/setup-rclone@v1
-        with:
-          rclone_config: ${{ secrets.CF_RCLONE_CONFIG }}
+      # - name: Upload to Cloudflare R2
+      #   uses: AnimMouse/setup-rclone@v1
+      #   with:
+      #     rclone_config: ${{ secrets.CF_RCLONE_CONFIG }}
           
-      - run: rclone sync dist/ r2:/vl3box/static/index/
+      # - run: rclone sync dist/ r2:/vl3box/static/index/
