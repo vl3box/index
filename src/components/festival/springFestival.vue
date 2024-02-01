@@ -76,13 +76,16 @@ export default {
                 top: 5%;
             }
         }
+        .u-cover {
+            transition: all 1.5s;
+            box-shadow: 0px 2px 2px rgba(66, 1, 0, 1);
+            &.click {
+                transform: rotate(5deg);
+            }
+        }
         .u-letter.fadeInDownBig {
             .z(1);
             top: 0 !important;
-        }
-        .u-cover.click {
-            transition: all 1.5s;
-            transform: rotate(5deg);
         }
     }
 }
