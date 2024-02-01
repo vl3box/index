@@ -77,8 +77,7 @@ export default {
             }
         }
         .u-cover {
-            transition: all 1.5s;
-            box-shadow: 0px 2px 2px rgba(66, 1, 0, 1);
+            transition: all 1.5s; 
             &.click {
                 transform: rotate(5deg);
             }
