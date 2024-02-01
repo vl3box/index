@@ -1,7 +1,7 @@
 <template>
     <div class="m-index-popup" v-if="success" v-show="visible" @click="close">
         <!-- 贺卡 -->
-        <newYearsDay :fontCount="count" @checked="checked" @close="close" />
+        <springFestival :fontCount="count" @checked="checked" @close="close" />
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getBoxCoin } from "@/service/index";
 import User from "@jx3box/jx3box-common/js/user";
-import newYearsDay from "@/components/festival/newYearsDay.vue";
+import springFestival from "@/components/festival/springFestival.vue";
 export default {
     name: "Festival",
     data: function () {
@@ -22,7 +22,7 @@ export default {
             check: false,
         };
     },
-    components: { newYearsDay },
+    components: { springFestival },
     computed: {
         imgLink() {
             return __imgPath + `topic/festival/`;
