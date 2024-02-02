@@ -8,7 +8,7 @@
                 class="u-more"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="查看全部"
+                :title="$t('查看全部')"
             >
                 <i class="el-icon-more"></i>
             </a>

@@ -3,7 +3,7 @@
         <div class="m-guide-header m-sideblock-header">
             <div class="u-left"><i class="u-icon el-icon-s-management"></i> <span class="u-title">{{ $t('最新百科') }}</span></div>
             <div class="u-right">
-                <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" :title="$t('查看全部')">
                     <i class="el-icon-more"></i>
                 </a>
             </div>

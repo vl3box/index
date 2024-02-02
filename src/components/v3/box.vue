@@ -48,19 +48,19 @@
                         <span class="u-control">
                             <i
                                 class="u-break el-icon-scissors"
-                                title="换行"
+                                :title="$t('换行')"
                                 :class="{ on: isLF(item) }"
                                 @click.prevent="cut(item.uuid)"
                             ></i>
                             <i
                                 class="u-hide el-icon-delete"
-                                title="隐藏"
+                                :title="$t('隐藏')"
                                 v-if="canSee(item.uuid)"
                                 @click.prevent="hideIt(item.uuid)"
                             ></i>
                             <i
                                 class="u-show el-icon-view"
-                                title="显示"
+                                :title="$t('显示')"
                                 v-if="!canSee(item.uuid)"
                                 @click.prevent="showIt(item.uuid)"
                             ></i>

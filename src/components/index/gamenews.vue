@@ -3,7 +3,7 @@
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-message-solid"></i>
             <a class="u-title" :href="more_link" target="_blank">{{ $t('游戏更新') }}</a>
-            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" :title="$t('查看全部')">
                 <i class="el-icon-more"></i>
             </a>
         </div>

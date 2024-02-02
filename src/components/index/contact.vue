@@ -8,13 +8,13 @@
             <img class="u-wechat" src="../../assets/img/right/qrcode.png" alt="" />
             <div class="u-list">
                 <span class="u-weibo u-item"
-                    ><em>官方微博：</em
+                    ><em> {{ $t('官方微博') }}：</em
                     ><a href="https://weibo.com/jx3box" target="_blank"
                         >JX3BOX魔盒</a
                     ></span
                 >
                 <span class="u-weixin u-item"
-                    ><em>微信公众号：</em><b>{{ $t('剑三魔盒') }}</b></span
+                    ><em> {{ $t('微信公众号') }}：</em><b>{{ $t('剑三魔盒') }}</b></span
                 >
             </div>
         </div>

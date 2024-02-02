@@ -8,7 +8,7 @@
             <a
                 href="/bbs/#/namespace"
                 class="u-more"
-                title="查看更多"
+                :title="$t('查看更多')"
                 target="_blank"
                 ><i class="el-icon-more"></i
             ></a>

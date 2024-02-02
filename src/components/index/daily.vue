@@ -6,14 +6,14 @@
             <div class="u-list">
                 <span class="u-weibo u-item">
                     <img svg-inline src="../../assets/img/weibo.svg" />
-                    <em>官方微博：</em>
+                    <em> {{ $t('官方微博') }}：</em>
                     <a href="https://weibo.com/jx3box" target="_blank">
                         <b>JX3BOX魔盒</b>
                     </a>
                 </span>
                 <span class="u-weixin u-item">
                     <img svg-inline src="../../assets/img/wechat.svg" />
-                    <em>微信公众号：</em>
+                    <em>{{ $t('微信公众号') }}：</em>
                     <b>{{ $t('剑三魔盒') }}</b>
                 </span>
             </div>
@@ -42,7 +42,7 @@
                     <tr>
                         <td>{{ $t('美人图') }}</td>
                         <td>
-                            <el-select v-model="server" placeholder="区服" size="mini" class="u-select-meirentu">
+                            <el-select v-model="server" :placeholder="$t('区服')" size="mini" class="u-select-meirentu">
                                 <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
                             </el-select>
                         </td>

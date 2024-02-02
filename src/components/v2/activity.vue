@@ -4,11 +4,11 @@
             <div class="u-left">
                 <a class="u-title" href="/calendar" target="_blank"> <i class="u-icon el-icon-s-order"></i> {{ $t('日常活动') }}</a>
             </div>
-            <!-- <el-select class="u-select" v-model="server" placeholder="请选择服务器" size="mini">
+            <!-- <el-select class="u-select" v-model="server" :placeholder="$t('请选择服务器')" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
             </el-select> -->
             <div class="u-right">
-                <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+                <a href="/calendar" class="u-more" target="_blank" rel="noopener noreferrer" :title="$t('查看全部')">
                     <i class="el-icon-more"></i>
                 </a>
             </div>

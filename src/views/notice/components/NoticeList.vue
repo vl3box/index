@@ -8,7 +8,7 @@
                 </el-radio-group>
             </div>
             <div class="m-notice-filter">
-                <el-input placeholder="请输入搜索内容" v-model="search" class="m-notice-search">
+                <el-input :placeholder="$t('请输入搜索内容')" v-model="search" class="m-notice-search">
                     <span slot="prepend">{{ $t('关键词') }}</span>
                     <el-button slot="append" icon="el-icon-search"></el-button>
                 </el-input>

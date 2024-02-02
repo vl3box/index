@@ -12,7 +12,7 @@
         </div>
         <!-- 盒子娘 -->
         <div class="m-jx3box">
-            <img class="u-img" src="@/assets/img/tv/box.png" alt="盒子娘" />
+            <img class="u-img" src="@/assets/img/tv/box.png" :alt="$t('盒子娘')" />
         </div>
         <!-- 底部 -->
         <Footer darkMode></Footer>

@@ -3,13 +3,13 @@
         <div class="m-price-header m-sideblock-header">
             <div class="u-left">
                 <i class="el-icon-s-marketing"></i> <a class="u-title" href="/app/price" target="_blank">{{ $t('金价走势') }}</a
-                ><el-select class="u-select" v-model="server" filterable placeholder="选择服务器" size="mini">
+                ><el-select class="u-select" v-model="server" filterable :placeholder="$t('选择服务器')" size="mini">
                     <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
                 </el-select>
             </div>
 
             <div class="u-right">
-                <a href="/app/price" class="u-more" title="查看更多" target="_blank">
+                <a href="/app/price" class="u-more" :title="$t('查看更多')" target="_blank">
                     <i class="el-icon-more"></i>
                 </a>
             </div>

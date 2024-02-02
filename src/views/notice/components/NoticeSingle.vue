@@ -6,14 +6,14 @@
                 <h1 class="m-single-title">{{ post.post_title }}</h1>
 
                 <div class="m-single-info">
-                    <span class="u-modate u-sub-block" title="发布时间">
+                    <span class="u-modate u-sub-block" :title="$t('发布时间')">
                         <i class="el-icon-collection-tag"></i>
                         <a :href="'/notice?subtype=' + post.post_subtype" target="_blank">{{
                             showType(post.post_subtype)
                         }}</a>
                     </span>
 
-                    <span class="u-modate u-sub-block" title="发布时间">
+                    <span class="u-modate u-sub-block" :title="$t('发布时间')">
                         <i class="el-icon-date"></i>
                         <time>最后更新 : {{ showDate(post.post_modified) }}</time>
                     </span>
@@ -54,7 +54,7 @@
             <div class="m-single-comment">
                 <el-divider content-position="left">{{ $t('评论') }}</el-divider>
                 <Comment :id="id" category="post" v-if="id && !post.comment" />
-                <el-alert title="作者没有开启评论功能" type="warning" show-icon v-else></el-alert>
+                <el-alert :title="$t('作者没有开启评论功能')" type="warning" show-icon v-else></el-alert>
             </div>
         </div>
         <Admin class="p-notice-admin" />

@@ -5,7 +5,7 @@
             <a class="u-title" href="/knowledge" target="_blank"
                 >{{ $t('百科词条热榜') }}</a
             >
-            <a href="/knowledge" class="u-more" title="查看更多" target="_blank"
+            <a href="/knowledge" class="u-more" :title="$t('查看更多')" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
         </div>

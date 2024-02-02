@@ -4,7 +4,7 @@
             <i class="u-icon el-icon-collection"></i>
             <span class="u-title">{{ $t('最新作品') }}</span>
             <mini-bread class="u-bread" name="index_topics" />
-            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
+            <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" :title="$t('查看全部')">
                 <i class="el-icon-more"></i>
             </a>
         </div>

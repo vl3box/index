@@ -4,7 +4,7 @@
         <div class="m-feedback-header m-sideblock-header">
             <i class="u-icon el-icon-s-opportunity">
             </i><a class="u-title">{{ $t('反馈建议') }}</a>
-            <a href="/bbs/#/feedback" class="u-more" title="查看更多" target="_blank"
+            <a href="/bbs/#/feedback" class="u-more" :title="$t('查看更多')" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
         </div>
@@ -30,7 +30,7 @@
                     :on-error="fail"
                     :on-exceed="exceed"
                     :limit="max"
-                    title="上传图片"
+                    :title="$t('上传图片')"
                     with-credentials
                     accept="image/jpg, image/jpeg, image/gif, image/png, image/bmp"
                 >

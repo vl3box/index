@@ -8,7 +8,7 @@
                 class="u-more"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="查看更多"
+                :title="$t('查看更多')"
             >
                 <i class="el-icon-more"></i>
             </a>
@@ -32,7 +32,7 @@
                 </a>
             </li>
         </ul>
-        <el-alert v-else title="近日无瓜" type="info" center show-icon :closable="false"></el-alert>
+        <el-alert v-else :title="$t('近日无瓜')" type="info" center show-icon :closable="false"></el-alert>
     </div>
 </template>
 

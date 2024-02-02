@@ -3,9 +3,9 @@
         <div @click="change" class="newYearsDay-card" :class="show?'newYearsDay-card__on':'newYearsDay-card__off'">
             <!-- v-if="!show" -->
             <img class="newYearsDay-card__img newYearsDay-card__cover" :src="`${imgLink}/newYearsDay2023/P1-BG.jpg`"
-                alt="元旦节快乐">
+                :alt="$t('元旦节快乐')">
             <img class="newYearsDay-card__img newYearsDay-card__content" :src="`${imgLink}/newYearsDay2023/p2-01.jpg`"
-                alt="元旦节快乐">
+                :alt="$t('元旦节快乐')">
             <img class="newYearsDay-card__click" v-if="!show" :src="`${imgLink}/newYearsDay2023/ClickButton-1.png`" alt="">
             <img class="newYearsDay-card__close" @click.stop="close" :src="`${imgLink}/newYearsDay2023/CloseButton-1.png`"
                 alt="">

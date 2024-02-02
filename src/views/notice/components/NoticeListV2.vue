@@ -13,7 +13,7 @@
                     {{ item.name }}
                 </span>
             </div>
-            <el-input class="u-search" v-model.lazy="search" placeholder="请输入关键词搜索" clearable></el-input>
+            <el-input class="u-search" v-model.lazy="search" :placeholder="$t('请输入关键词搜索')" clearable></el-input>
         </div>
         <!-- 列表 -->
         <div class="m-notice-box">

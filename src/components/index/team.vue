@@ -10,11 +10,11 @@
                         <el-select
                             class="u-server u-select"
                             v-model="server"
-                            placeholder="选择服务器"
+                            :placeholder="$t('选择服务器')"
                             size="mini"
                             filterable
                         >
-                            <el-option key="all" label="全部" value></el-option>
+                            <el-option key="all" :label="$t('全部')" value></el-option>
                             <el-option
                                 v-for="item in serversWithClient"
                                 :key="item"
@@ -22,17 +22,17 @@
                                 :value="item"
                             ></el-option>
                         </el-select>
-                        <el-input class="u-name" v-model="name" placeholder="查找团队" size="mini">
+                        <el-input class="u-name" v-model="name" :placeholder="$t('查找团队')" size="mini">
                             <i class="el-icon-search" slot="append" @click="loadData"></i>
                         </el-input>
                         <el-select
                             class="u-type"
                             v-model="tag"
                             multiple
-                            placeholder="过滤类型"
+                            :placeholder="$t('过滤类型')"
                             size="mini"
                         >
-                            <el-option label="全部类型" value></el-option>
+                            <el-option :label="$t('全部类型')" value></el-option>
                             <el-option v-for="item in tags" :key="item" :label="item" :value="item"></el-option>
                         </el-select>
                         <el-checkbox class="u-isVerified" v-model="isVerified">{{ $t('已认证') }}</el-checkbox>
@@ -56,7 +56,7 @@
                                         <i
                                             class="u-status"
                                             v-if="item.status"
-                                            title="已认证"
+                                            :title="$t('已认证')"
                                         >
                                             <img svg-inline src="../../assets/img/center/verify.svg" />
                                         </i>
@@ -83,7 +83,7 @@
                     <i class="el-icon-d-arrow-right"></i> 查看更多
                 </a>
             </el-tab-pane>
-            <el-tab-pane label="活动大厅" name="hall">
+            <el-tab-pane :label="$t('活动大厅')" name="hall">
                 <div slot="label">
                     <i class="el-icon-date"></i> 活动大厅
                 </div>
@@ -92,11 +92,11 @@
                         <el-select
                             class="u-server u-select u-filter"
                             v-model="server"
-                            placeholder="选择服务器"
+                            :placeholder="$t('选择服务器')"
                             size="mini"
                             filterable
                         >
-                            <el-option key="all" label="全部服务器" value></el-option>
+                            <el-option key="all" :label="$t('全部服务器')" value></el-option>
                             <el-option
                                 v-for="item in serversWithClient"
                                 :key="item"
@@ -107,7 +107,7 @@
                         <el-input
                             class="u-name u-filter"
                             v-model="raidName"
-                            placeholder="查找活动"
+                            :placeholder="$t('查找活动')"
                             size="mini"
                         >
                             <i class="el-icon-search" slot="append" @click="loadRaids"></i>
@@ -120,9 +120,9 @@
                     </div>
                     <div v-loading="raidLoading">
                         <template v-if="raidData && raidData.length">
-                            <raid-list :data="raidData" time="全部" :isIndex="true" />
+                            <raid-list :data="raidData" :time="$t('全部')" :isIndex="true" />
                         </template>
-                        <el-alert v-else title="没有找到符合条件的记录" type="info" show-icon></el-alert>
+                        <el-alert v-else :title="$t('没有找到符合条件的记录')" type="info" show-icon></el-alert>
                     </div>
                 </div>
             </el-tab-pane>

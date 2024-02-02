@@ -6,7 +6,7 @@
                 <i class="u-icon el-icon-s-grid"></i><a class="u-title" href="/app/database" target="_blank">{{ $t('数据库版本') }}</a>
             </div>
             <div class="u-right">
-                <a href="/app/database" class="u-more" title="访问数据库" target="_blank"
+                <a href="/app/database" class="u-more" :title="$t('访问数据库')" target="_blank"
                     ><i class="el-icon-more"></i
                 ></a>
             </div>
