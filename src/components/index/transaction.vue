@@ -1,7 +1,7 @@
 <template>
     <div class="m-index-transaction m-sideblock">
         <div class="m-sideblock-header">
-            <a class="u-title" href="/item" target="_blank"><i class="u-icon el-icon-coin"></i> 全服交易行</a>
+            <a class="u-title" href="/item" target="_blank"><i class="u-icon el-icon-coin"></i> {{ $t('全服交易行') }}</a>
             <el-select class="u-server" v-model="server" placeholder="请选择服务器" size="mini">
                 <el-option v-for="serve in servers" :key="serve" :label="serve" :value="serve"></el-option>
             </el-select>

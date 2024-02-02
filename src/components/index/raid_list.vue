@@ -16,7 +16,7 @@
                     <td class="u-name u-sp">
                         <em class="u-placeholder">{{ $t('活动') }}</em>
                         <span class="u-displayname" :title="item.name">{{item.name}}</span>
-                        <span class="u-today" v-if="isToday(item.start_time)">★ 今天</span>
+                        <span class="u-today" v-if="isToday(item.start_time)">★ {{ $t('今天') }}</span>
                     </td>
                     <td class="u-team">
                         <em class="u-placeholder">{{ $t('团队') }}</em>
@@ -66,7 +66,7 @@
                             class="el-button el-button--primary el-button--mini"
                             :href="'/team/raid/' + item.id"
                             target="_blank"
-                        ><i class="el-icon-s-flag"></i> 预约</a>
+                        ><i class="el-icon-s-flag"></i> {{ $t('预约') }}</a>
                     </td>
                 </tr>
             </tbody>

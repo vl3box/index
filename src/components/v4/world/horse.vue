@@ -2,7 +2,7 @@
     <div class="m-world-block m-world-horse">
         <div class="u-horse">
             <el-divider content-position="left">
-                <span>抓马&nbsp;·&nbsp;</span>
+                <span>{{ $t('抓马') }}&nbsp;·&nbsp;</span>
                 <el-select v-model="server">
                     <el-option v-for="server in servers" :key="server" :label="server" :value="server"></el-option>
                 </el-select>

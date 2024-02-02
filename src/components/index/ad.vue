@@ -5,7 +5,7 @@
                 <a :href="item.link" rel="noopener" target="_blank"><img :src="item.img" /></a>
             </el-carousel-item>
         </el-carousel>
-        <span class="u-mark"><i class="el-icon-info"></i> 推广</span>
+        <span class="u-mark"><i class="el-icon-info"></i> {{ $t('推广') }}</span>
     </div>
 </template>
 
