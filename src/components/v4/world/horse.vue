@@ -12,7 +12,7 @@
                     <a class="u-horse-name" :href="getLink('赤兔')" target="_blank">
                         <el-image :src="getImgSrc('赤兔')" class="u-image"></el-image>
                     </a>
-                    <span class="u-horse-name no-link">赤兔</span>
+                    <span class="u-horse-name no-link">{{ $t('赤兔') }}</span>
                     <el-tooltip effect="dark" placement="top" popper-class="u-chitu-tip">
                         <template #content>
                             <div v-html="chituTip"></div>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="u-no-item" v-if="!list.length">暂无播报</div> -->
+            <!-- <div class="u-no-item" v-if="!list.length">{{ $t('暂无播报') }}</div> -->
         </div>
     </div>
 </template>

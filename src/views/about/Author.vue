@@ -15,7 +15,7 @@
                 </a>
             </el-tooltip>
         </div>
-        <div class="m-about-button"><a class="u-join" href="/dashboard/cooperation" target="_blank"><i class="el-icon-right"></i>成为签约作者</a></div>
+        <div class="m-about-button"><a class="u-join" href="/dashboard/cooperation" target="_blank"><i class="el-icon-right"></i>{{ $t('成为签约作者') }}</a></div>
     </div>
 </template>
 <script>

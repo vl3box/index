@@ -3,7 +3,7 @@
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/collection" target="_blank"
-                >剑三小册热榜</a
+                >{{ $t('剑三小册热榜') }}</a
             >
             <a
                 href="/collection"

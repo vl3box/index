@@ -2,7 +2,7 @@
     <div class="m-rank-exam m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-s-data"></i>
-            <a class="u-title" href="/exam" target="_blank">题库试卷热榜</a>
+            <a class="u-title" href="/exam" target="_blank">{{ $t('题库试卷热榜') }}</a>
             <a href="/exam/" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>

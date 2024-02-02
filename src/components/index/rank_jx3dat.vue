@@ -2,7 +2,7 @@
     <div class="m-rank-jx3dat m-rank m-sideblock">
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-s-data"></i>
-            <a class="u-title" href="/jx3dat" target="_blank">团控订阅号热榜</a>
+            <a class="u-title" href="/jx3dat" target="_blank">{{ $t('团控订阅号热榜') }}</a>
             <a
                 href="/jx3dat/#/rank"
                 class="u-more"

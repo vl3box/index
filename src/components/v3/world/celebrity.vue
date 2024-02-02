@@ -3,10 +3,10 @@
         <table>
             <thead>
                 <tr>
-                    <th>时间</th>
-                    <!-- <th>地图</th> -->
-                    <th>地点</th>
-                    <th>阶段</th>
+                    <th>{{ $t('时间') }}</th>
+                    <!-- <th>{{ $t('地图') }}</th> -->
+                    <th>{{ $t('地点') }}</th>
+                    <th>{{ $t('阶段') }}</th>
                 </tr>
             </thead>
             <tbody v-if="list.length">

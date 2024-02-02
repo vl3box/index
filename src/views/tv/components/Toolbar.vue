@@ -4,16 +4,16 @@
         <div class="m-toolbar">
             <!-- 筛选 -->
             <div class="m-toolbar-filter">
-                <span class="u-label">筛选</span>
+                <span class="u-label">{{ $t('筛选') }}</span>
                 <span class="u-button" :class="{ active: filter }" @click.stop="open('filter')">
                     {{ filterName }}
                 </span>
             </div>
             <!-- 分页 -->
             <div class="m-toolbar-pagination">
-                <span class="u-turn u-per" @click="turnPages('per')">上一页</span>
-                <span class="u-turn u-next" @click="turnPages('next')">下一页</span>
-                <span class="u-jump" :class="{ active: jump }" @click="open('jump')">页面跳转</span>
+                <span class="u-turn u-per" @click="turnPages('per')">{{ $t('上一页') }}</span>
+                <span class="u-turn u-next" @click="turnPages('next')">{{ $t('下一页') }}</span>
+                <span class="u-jump" :class="{ active: jump }" @click="open('jump')">{{ $t('页面跳转') }}</span>
                 <el-pagination
                     class="u-pagination"
                     :current-page="pageIndex"
@@ -49,7 +49,7 @@
             </div>
             <!-- 跳转弹出窗 -->
             <div class="m-popup m-popup-jump" v-show="jump">
-                <span class="u-label">跳转页数</span>
+                <span class="u-label">{{ $t('跳转页数') }}</span>
                 <el-pagination
                     class="u-pagination"
                     :current-page="pageIndex"
@@ -61,7 +61,7 @@
                 >
                 </el-pagination>
                 <el-input class="u-input" v-model="index" type="number" @keyup.enter.native="toJump" size="mini" />
-                <span class="u-button" @click="toJump">确认</span>
+                <span class="u-button" @click="toJump">{{ $t('确认') }}</span>
             </div>
         </div>
         <!-- 遮罩 -->

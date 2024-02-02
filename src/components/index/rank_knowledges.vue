@@ -3,7 +3,7 @@
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/knowledge" target="_blank"
-                >百科词条热榜</a
+                >{{ $t('百科词条热榜') }}</a
             >
             <a href="/knowledge" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i

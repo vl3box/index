@@ -2,7 +2,7 @@
     <div class="m-sideblock m-notice">
         <div class="m-sideblock-header">
             <i class="el-icon-s-opportunity"></i>
-            <span class="u-title">魔盒更新</span>
+            <span class="u-title">{{ $t('魔盒更新') }}</span>
             <a href="/notice" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
             </a>

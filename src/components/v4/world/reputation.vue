@@ -1,8 +1,8 @@
 <template>
     <div v-if="reputationList.length" class="m-world-block m-world-furniture">
-        <el-divider content-position="left">家园声望</el-divider>
+        <el-divider content-position="left">{{ $t('家园声望') }}</el-divider>
         <div class="m-furniture-item">
-            <!-- <div class="u-title">家园声望</div> -->
+            <!-- <div class="u-title">{{ $t('家园声望') }}</div> -->
             <div class="m-reputation">
                 <a
                     class="u-reputation-item"

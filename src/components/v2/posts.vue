@@ -3,7 +3,7 @@
         <div class="m-guide-header m-sideblock-header">
             <div class="u-left">
                 <i class="u-icon el-icon-s-management"></i>
-            <span class="u-title">最新作品</span>
+            <span class="u-title">{{ $t('最新作品') }}</span>
             <mini-bread class="u-bread" name="index_topics" />
             </div>
             <div class="u-right"><a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
@@ -14,7 +14,7 @@
             <div class="m-v2-post-header">
                 <el-tabs v-model="type">
                     <el-tab-pane name="all">
-                        <span slot="label">全部</span>
+                        <span slot="label">{{ $t('全部') }}</span>
                     </el-tab-pane>
                     <el-tab-pane :label="item.label" :name="item.slug" v-for="(item, i) in links" :key="i"></el-tab-pane>
                 </el-tabs>

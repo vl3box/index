@@ -3,13 +3,13 @@
         <div class="m-notice-list" v-loading="loading">
             <div class="m-notice-types">
                 <el-radio-group v-model="subtype">
-                    <el-radio label="">全部</el-radio>
+                    <el-radio label="">{{ $t('全部') }}</el-radio>
                     <el-radio v-for="(label, key) in notice_types" :key="key" :label="key">{{ label }}</el-radio>
                 </el-radio-group>
             </div>
             <div class="m-notice-filter">
                 <el-input placeholder="请输入搜索内容" v-model="search" class="m-notice-search">
-                    <span slot="prepend">关键词</span>
+                    <span slot="prepend">{{ $t('关键词') }}</span>
                     <el-button slot="append" icon="el-icon-search"></el-button>
                 </el-input>
             </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="m-world-block m-world-furniture">
         <div class="u-item">
-            <div>园宅会赛</div>
+            <div>{{ $t('园宅会赛') }}</div>
             <div class="u-furniture">
                 <!-- <el-tooltip popper-class="m-next-match" v-if="furnitureCategory || furnitureProperty"> -->
                 <!-- <div :class="{ 'u-next-match': furnitureNextMatch }" slot="content" v-html="nextMatch"></div> -->
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="u-item">
-            <div>评审分类</div>
+            <div>{{ $t('评审分类') }}</div>
             <div class="u-furniture">
                 <a class="u-pet" href="/furniture?match=1" target="_blank">{{
                     formatContent(furnitureCategory && furnitureCategory.content)

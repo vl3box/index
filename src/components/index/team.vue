@@ -35,7 +35,7 @@
                             <el-option label="全部类型" value></el-option>
                             <el-option v-for="item in tags" :key="item" :label="item" :value="item"></el-option>
                         </el-select>
-                        <el-checkbox class="u-isVerified" v-model="isVerified">已认证</el-checkbox>
+                        <el-checkbox class="u-isVerified" v-model="isVerified">{{ $t('已认证') }}</el-checkbox>
                     </div>
                 </div>
                 <div class="u-list" v-if="data && data.length">

@@ -17,9 +17,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th>活动</th>
-                        <!-- <th>区服</th> -->
-                        <th>项目</th>
+                        <th>{{ $t('活动') }}</th>
+                        <!-- <th>{{ $t('区服') }}</th> -->
+                        <th>{{ $t('项目') }}</th>
                     </tr>
                 </thead>
                 <tbody>

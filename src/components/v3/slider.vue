@@ -9,7 +9,7 @@
                         target="_blank"
                         @mouseenter="addAni('tv', 'animate__flash')"
                         @mouseleave="resetAni('tv')"
-                        ><i :class="ani.tv"></i>魔盒电视台</a
+                        ><i :class="ani.tv"></i>{{ $t('魔盒电视台') }}</a
                     >
                     <mini-bread class="u-tv-notice" name="index_events" />
                 </div>

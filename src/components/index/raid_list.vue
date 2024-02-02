@@ -2,35 +2,35 @@
     <div class="m-raid-table" :class="{isIndex}">
         <table>
             <thead>
-                <th width="150px">活动</th>
-                <th width="160px">团队</th>
-                <th width="80px">服务器</th>
-                <th :width="time == '全部' ? '200px' : '60px'">时间</th>
-                <th width="300px">活动</th>
-                <!-- <th width="160px">队长</th> -->
-                <th width="60px">状态</th>
-                <th width="80px">操作</th>
+                <th width="150px">{{ $t('活动') }}</th>
+                <th width="160px">{{ $t('团队') }}</th>
+                <th width="80px">{{ $t('服务器') }}</th>
+                <th :width="time == '全部' ? '200px' : '60px'">{{ $t('时间') }}</th>
+                <th width="300px">{{ $t('活动') }}</th>
+                <!-- <th width="160px">{{ $t('队长') }}</th> -->
+                <th width="60px">{{ $t('状态') }}</th>
+                <th width="80px">{{ $t('操作') }}</th>
             </thead>
             <tbody>
                 <tr class="u-item" v-for="(item,i) in data" :key="i">
                     <td class="u-name u-sp">
-                        <em class="u-placeholder">活动</em>
+                        <em class="u-placeholder">{{ $t('活动') }}</em>
                         <span class="u-displayname" :title="item.name">{{item.name}}</span>
                         <span class="u-today" v-if="isToday(item.start_time)">★ 今天</span>
                     </td>
                     <td class="u-team">
-                        <em class="u-placeholder">团队</em>
+                        <em class="u-placeholder">{{ $t('团队') }}</em>
                         <a :href="'/team/org/' + item.team_id" target="_blank">
                             <i class="el-icon-link"></i>
                             {{item.team_name}}
                         </a>
                     </td>
                     <td class="u-server">
-                        <em class="u-placeholder">服务器</em>
+                        <em class="u-placeholder">{{ $t('服务器') }}</em>
                         <span>{{item.server}}</span>
                     </td>
                     <td class="u-t">
-                        <em class="u-placeholder">时间</em>
+                        <em class="u-placeholder">{{ $t('时间') }}</em>
                         <span
                             class="u-date u-blue"
                             v-if="time == '全部'"
@@ -41,7 +41,7 @@
                         >{{item.start_time | showRaidTime}}</span>
                     </td>
                     <td>
-                        <em class="u-placeholder">招募</em>
+                        <em class="u-placeholder">{{ $t('招募') }}</em>
                         <a
                             class="u-title"
                             :href="'/team/raid/' + item.id"
@@ -49,11 +49,11 @@
                         >{{item.title}}</a>
                     </td>
                     <!-- <td class="u-leader">
-                        <em class="u-placeholder">队长</em>
+                        <em class="u-placeholder">{{ $t('队长') }}</em>
                         {{item.leader || '未知'}}
                     </td> -->
                     <td class="u-count">
-                        <em class="u-placeholder">状态</em>
+                        <em class="u-placeholder">{{ $t('状态') }}</em>
                         <span>
                             <b
                                 :class="showCountColor(item.count_normal,item.count_total)"

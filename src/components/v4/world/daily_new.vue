@@ -1,11 +1,11 @@
 <template>
     <div v-if="daily.length" class="m-world-daily">
-        <el-divider content-position="left">日常</el-divider>
+        <el-divider content-position="left">{{ $t('日常') }}</el-divider>
         <div class="m-daily-content">
             <!-- <div class="u-table-header">
                 <div class="u-row">
-                    <div class="u-item">活动</div>
-                    <div class="u-item">项目</div>
+                    <div class="u-item">{{ $t('活动') }}</div>
+                    <div class="u-item">{{ $t('项目') }}</div>
                 </div>
             </div> -->
             <div class="u-table-body">

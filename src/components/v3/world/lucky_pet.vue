@@ -1,7 +1,7 @@
 <template>
     <div class="m-world-block m-world-pet">
         <div class="u-item">
-            <div>宠物</div>
+            <div>{{ $t('宠物') }}</div>
             <div>
                 <a
                     v-for="item in luckyList"

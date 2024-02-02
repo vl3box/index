@@ -3,12 +3,12 @@
         <!-- 返回列表 -->
         <div class="m-backList" @click="goBack">
             <img class="u-arr" src="@/assets/img/notice/arr.svg" />
-            <span>返回列表</span>
+            <span>{{ $t('返回列表') }}</span>
         </div>
         <!-- 返回顶部 -->
         <div class="m-backTop" @click="goTop" v-show="show" :style="style">
             <img class="u-arr" src="@/assets/img/notice/arr.svg" />
-            <span>返回顶部</span>
+            <span>{{ $t('返回顶部') }}</span>
         </div>
         <!-- 内容 -->
         <NoticeSingle :id="singleId" />

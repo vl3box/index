@@ -3,7 +3,7 @@
         <div class="m-sideblock-header">
             <div class="u-left">
                 <i class="u-icon el-icon-menu"></i>
-                <a class="u-title" href="/app" target="_blank">魔盒矩阵</a>
+                <a class="u-title" href="/app" target="_blank">{{ $t('魔盒矩阵') }}</a>
                 <mini-bread class="u-bread" name="index_notification" />
             </div>
         </div>
@@ -73,10 +73,10 @@
         <!-- </div> -->
         <div class="m-box-op">
             <el-button plain class="u-reset" size="mini" icon="el-icon-refresh-left" v-if="defined" @click="reset"
-                >恢复默认</el-button
+                >{{ $t('恢复默认') }}</el-button
             >
             <el-button plain class="u-reset" size="mini" icon="el-icon-download" @click="downBoxSetting" v-if="isLogin"
-                >重新同步</el-button
+                >{{ $t('重新同步') }}</el-button
             >
             <el-button
                 plain
@@ -85,10 +85,10 @@
                 icon="el-icon-setting"
                 @click="active"
                 v-if="!!options.disabled"
-                >自定义</el-button
+                >{{ $t('自定义') }}</el-button
             >
             <el-button plain class="u-custom" size="mini" icon="el-icon-check" @click="save" v-if="!options.disabled"
-                >保存</el-button
+                >{{ $t('保存') }}</el-button
             >
         </div>
     </div>

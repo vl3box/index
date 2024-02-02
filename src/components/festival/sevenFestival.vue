@@ -5,7 +5,7 @@
             :class="['u-count', { active }]"
             :style="{ backgroundImage: `url('${imgLink}${fontCount}.png')` }"
         ></div>
-        <div v-else :class="['u-count', { active }]">零</div>
+        <div v-else :class="['u-count', { active }]">{{ $t('零') }}</div>
         <img :src="`${imgLink}text.png`" class="u-img u-text" :class="{ active }" @click="close" />
         <img :src="`${imgLink}bg.png`" class="u-img u-bg" :class="{ active }" />
         <img :src="`${imgLink}line.png`" class="u-img u-line" @click="open" />

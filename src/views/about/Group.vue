@@ -9,8 +9,8 @@
                         <div class="name">{{ item.name }}</div>
                         <div class="qq">
                             <span>{{ item.qq || item.email }}</span>
-                            <a v-if="item.link" class="btn" :href="item.link">加入</a>
-                            <a v-if="item.email" class="btn" :href="`mailto:` + item.email">发送</a>
+                            <a v-if="item.link" class="btn" :href="item.link">{{ $t('加入') }}</a>
+                            <a v-if="item.email" class="btn" :href="`mailto:` + item.email">{{ $t('发送') }}</a>
                         </div>
                     </div>
                 </div>

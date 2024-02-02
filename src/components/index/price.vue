@@ -2,7 +2,7 @@
     <div class="m-price m-sideblock" v-if="client == 'std'">
         <div class="m-price-header m-sideblock-header">
             <div class="u-left">
-                <i class="el-icon-s-marketing"></i> <a class="u-title" href="/app/price" target="_blank">金价走势</a
+                <i class="el-icon-s-marketing"></i> <a class="u-title" href="/app/price" target="_blank">{{ $t('金价走势') }}</a
                 ><el-select class="u-select" v-model="server" filterable placeholder="选择服务器" size="mini">
                     <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
                 </el-select>
@@ -29,7 +29,7 @@
                 </el-col>
             </el-row>
         </div>
-        <div class="m-price-null" v-else>暂无数据</div>
+        <div class="m-price-null" v-else>{{ $t('暂无数据') }}</div>
     </div>
 </template>
 

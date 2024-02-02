@@ -3,7 +3,7 @@
         <div class="m-jx3code-header m-sideblock-header">
             <div class="u-left">
                 <span class="u-title"
-                    ><img class="u-icon" svg-inline src="@/assets/img/left/coupon.svg" />今日福利</span
+                    ><img class="u-icon" svg-inline src="@/assets/img/left/coupon.svg" />{{ $t('今日福利') }}</span
                 >
             </div>
             <div class="u-right">

@@ -2,7 +2,7 @@
     <div class="m-newpost m-sideblock">
         <div class="m-guide-header m-sideblock-header">
             <i class="u-icon el-icon-collection"></i>
-            <span class="u-title">最新作品</span>
+            <span class="u-title">{{ $t('最新作品') }}</span>
             <mini-bread class="u-bread" name="index_topics" />
             <a :href="more_link" class="u-more" target="_blank" rel="noopener noreferrer" title="查看全部">
                 <i class="el-icon-more"></i>
@@ -12,7 +12,7 @@
             <div class="m-newpost-header m-sideblock-header">
                 <el-tabs v-model="type">
                     <el-tab-pane name="all">
-                        <span slot="label">全部</span>
+                        <span slot="label">{{ $t('全部') }}</span>
                     </el-tab-pane>
                     <el-tab-pane
                         :label="item.label"

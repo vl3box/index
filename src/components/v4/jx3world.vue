@@ -4,7 +4,7 @@
         <div class="m-world-header m-sideblock-header">
             <div class="u-left">
                 <i class="u-icon el-icon-s-flag"></i>
-                <a class="u-title" href="/pvg/gonggao/daily" target="_blank">江湖快报</a>
+                <a class="u-title" href="/pvg/gonggao/daily" target="_blank">{{ $t('江湖快报') }}</a>
             </div>
             <div class="u-right">
                 <span class="world-tip">{{ world_tip }}</span>
@@ -20,7 +20,7 @@
                 <!-- <activity :activities="activities"></activity> -->
             </div>
             <div class="m-baizhan">
-                <el-divider>本周百战地图</el-divider>
+                <el-divider>{{ $t('本周百战地图') }}</el-divider>
                 <baizhan-map :class="isPhone && 'is-map-phone'" mode="simple"></baizhan-map>
             </div>
             <div class="m-world-right">

@@ -7,7 +7,7 @@
                     target="_blank"
                     class="u-btn button button-primary button-rounded"
                     :style="btnStyle.assistant"
-                    ><i class="el-icon-download"></i>魔盒助手</a
+                    ><i class="el-icon-download"></i>{{ $t('魔盒助手') }}</a
                 >
                 <span class="u-label" :style="btnStyle.assistantText"> {{ label }}</span>
             </div>

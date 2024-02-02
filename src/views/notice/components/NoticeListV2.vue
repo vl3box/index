@@ -51,7 +51,7 @@
                         size="mini"
                         @keyup.enter.native="toJump"
                     ></el-input>
-                    <span class="u-jump" @click="toJump">跳转</span>
+                    <span class="u-jump" @click="toJump">{{ $t('跳转') }}</span>
                 </div>
             </div>
         </div>

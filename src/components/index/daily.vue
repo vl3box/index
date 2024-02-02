@@ -14,7 +14,7 @@
                 <span class="u-weixin u-item">
                     <img svg-inline src="../../assets/img/wechat.svg" />
                     <em>微信公众号：</em>
-                    <b>剑三魔盒</b>
+                    <b>{{ $t('剑三魔盒') }}</b>
                 </span>
             </div>
         </div>
@@ -28,9 +28,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th>活动</th>
-                        <th>区服</th>
-                        <th>项目</th>
+                        <th>{{ $t('活动') }}</th>
+                        <th>{{ $t('区服') }}</th>
+                        <th>{{ $t('项目') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                         <td>{{ item.name }}</td>
                     </tr>
                     <tr>
-                        <td>美人图</td>
+                        <td>{{ $t('美人图') }}</td>
                         <td>
                             <el-select v-model="server" placeholder="区服" size="mini" class="u-select-meirentu">
                                 <el-option v-for="item in servers" :key="item" :label="item" :value="item"></el-option>
@@ -55,8 +55,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>福缘宠物</td>
-                        <td>全服</td>
+                        <td>{{ $t('福缘宠物') }}</td>
+                        <td>{{ $t('全服') }}</td>
                         <td>
                             <a v-for="item in luckyList" :key="item.Index" class="u-pet" :href="getPetLink(item.Index)" target="_blank">{{ item.Name }}</a>
                         </td>
@@ -64,7 +64,7 @@
                     <el-tooltip popper-class="m-next-match" v-if="furnitureCategory || furnitureProperty">
                         <div :class="{'u-next-match': furnitureNextMatch}" slot="content" v-html="nl2br(furnitureNextMatch && furnitureNextMatch.content) || '无'"></div>
                         <tr>
-                            <td>园宅会赛</td>
+                            <td>{{ $t('园宅会赛') }}</td>
                             <td>{{ furnitureProperty && furnitureProperty.content }}</td>
                             <td class="u-furniture">
                                 <a class="u-pet" href="/furniture?match=1" target="_blank">{{ furnitureCategory && furnitureCategory.content }}</a>

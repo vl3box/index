@@ -6,7 +6,7 @@
                 <img class="u-img" :src="showEmotion(item.url)" :alt="item.name" />
             </a>
         </div>
-        <a class="m-emotion-more" href="/emotion"><i class="el-icon-s-promotion"></i>发张骚图</a>
+        <a class="m-emotion-more" href="/emotion"><i class="el-icon-s-promotion"></i>{{ $t('发张骚图') }}</a>
     </div>
 </template>
 

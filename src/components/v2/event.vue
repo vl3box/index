@@ -11,7 +11,7 @@
                 <img :src="resolveImagePath(item.img)" :alt="item.title" />
             </a>
         </div>
-        <!-- <a class="u-more" href="/notice?subtype=2" target="_blank"><span>往期活动</span></a> -->
+        <!-- <a class="u-more" href="/notice?subtype=2" target="_blank"><span>{{ $t('往期活动') }}</span></a> -->
     </div>
 </template>
 

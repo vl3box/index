@@ -1,12 +1,12 @@
 <template>
     <div v-if="daily.length" class="m-world-daily">
-        <el-divider content-position="left">日常</el-divider>
+        <el-divider content-position="left">{{ $t('日常') }}</el-divider>
         <div class="m-daily-content">
             <div class="u-table-header">
                 <div class="u-row">
-                    <div class="u-item">活动</div>
-                    <div class="u-item">区服</div>
-                    <div class="u-item">项目</div>
+                    <div class="u-item">{{ $t('活动') }}</div>
+                    <div class="u-item">{{ $t('区服') }}</div>
+                    <div class="u-item">{{ $t('项目') }}</div>
                 </div>
             </div>
             <div class="u-table-body">
@@ -16,8 +16,8 @@
                     <div class="u-item">{{ item.name }}</div>
                 </div>
                 <!-- <div class="u-row u-reputation">
-                    <div class="u-item">家园声望</div>
-                    <div class="u-item">全服</div>
+                    <div class="u-item">{{ $t('家园声望') }}</div>
+                    <div class="u-item">{{ $t('全服') }}</div>
                     <el-tooltip class="u-item" effect="dark" placement="top" :content="`英雄九辩馆、尘归海·巨冥湾`">
                         <div class="u-item">英雄九辩馆、尘归海·巨冥湾</div>
                     </el-tooltip>

@@ -9,9 +9,9 @@
         <div class="m-celebrity-content">
             <div class="u-table-header">
                 <div class="u-row">
-                    <div class="u-item">时间</div>
-                    <div class="u-item">地点</div>
-                    <div class="u-item">阶段</div>
+                    <div class="u-item">{{ $t('时间') }}</div>
+                    <div class="u-item">{{ $t('地点') }}</div>
+                    <div class="u-item">{{ $t('阶段') }}</div>
                 </div>
             </div>
             <div v-if="list.length" class="u-table-body">

@@ -1,17 +1,17 @@
 <template>
     <div class="m-world-block m-world-furniture">
-        <el-divider content-position="left">家园</el-divider>
+        <el-divider content-position="left">{{ $t('家园') }}</el-divider>
         <div class="m-furniture-list">
             <div class="m-furniture-item">
                 <div class="u-title">园宅会赛·本期</div>
                 <div class="u-item">
-                    <div>加分属性</div>
+                    <div>{{ $t('加分属性') }}</div>
                     <div class="u-furniture">
                         {{ (furnitureProperty && furnitureProperty.content) || "-" }}
                     </div>
                 </div>
                 <div class="u-item">
-                    <div>评审分类</div>
+                    <div>{{ $t('评审分类') }}</div>
                     <div class="u-furniture">
                         <a href="/furniture?match=1" target="_blank">{{
                             formatContent(furnitureCategory && furnitureCategory.content) || "-"
@@ -22,13 +22,13 @@
             <div class="m-furniture-item">
                 <div class="u-title">园宅会赛·下期</div>
                 <div class="u-item">
-                    <div>加分属性</div>
+                    <div>{{ $t('加分属性') }}</div>
                     <div class="u-furniture">
                         {{ nextCategory || "-" }}
                     </div>
                 </div>
                 <div class="u-item">
-                    <div>评审分类</div>
+                    <div>{{ $t('评审分类') }}</div>
                     <div class="u-furniture">
                         <a href="/furniture?match=1" target="_blank">
                             {{ nextProperty || "-" }}
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <!-- <div class="m-furniture-item">
-                <div class="u-title">家园声望</div>
+                <div class="u-title">{{ $t('家园声望') }}</div>
                 <div class="m-reputation">
                     <a
                         class="u-reputation-item"

@@ -2,7 +2,7 @@
     <div class="m-world-horse">
         <div class="u-horse" v-if="list.length">
             <div class="u-label">
-                <a href="/horse">抓马</a><span>{{ params.server }}</span>
+                <a href="/horse">{{ $t('抓马') }}</a><span>{{ params.server }}</span>
             </div>
             <div class="u-item" v-for="item in list" :key="item.id">
                 <div class="u-horse-name-wrap">

@@ -25,7 +25,7 @@
 
                     <a class="u-edit u-sub-block" :href="edit_link" v-if="isEditor">
                         <i class="u-icon-edit el-icon-edit-outline"></i>
-                        <span>编辑</span>
+                        <span>{{ $t('编辑') }}</span>
                     </a>
                     <Adminbutton />
                 </div>
@@ -52,7 +52,7 @@
             />
 
             <div class="m-single-comment">
-                <el-divider content-position="left">评论</el-divider>
+                <el-divider content-position="left">{{ $t('评论') }}</el-divider>
                 <Comment :id="id" category="post" v-if="id && !post.comment" />
                 <el-alert title="作者没有开启评论功能" type="warning" show-icon v-else></el-alert>
             </div>

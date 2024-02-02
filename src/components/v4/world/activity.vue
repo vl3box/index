@@ -1,7 +1,7 @@
 <template>
     <div class="m-world-daily-new">
         <template v-if="weekActivities.length">
-            <el-divider content-position="left">周常</el-divider>
+            <el-divider content-position="left">{{ $t('周常') }}</el-divider>
             <div class="m-daily-content">
                 <div class="u-table-body">
                     <div class="u-row" v-for="(item, i) in weekActivities" :key="i">

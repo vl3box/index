@@ -13,7 +13,7 @@
         </div>
         <Member class="detail-content-wrap" :list="list" :usergroups="usergroups"></Member>
         <div class="m-about-button">
-            <a class="u-join" href="/notice/21899" target="_blank"><i class="el-icon-right"></i>加入我们</a>
+            <a class="u-join" href="/notice/21899" target="_blank"><i class="el-icon-right"></i>{{ $t('加入我们') }}</a>
         </div>
     </div>
 </template>

@@ -3,7 +3,7 @@
     <div class="m-feedback m-sideblock">
         <div class="m-feedback-header m-sideblock-header">
             <i class="u-icon el-icon-s-opportunity">
-            </i><a class="u-title">反馈建议</a>
+            </i><a class="u-title">{{ $t('反馈建议') }}</a>
             <a href="/bbs/#/feedback" class="u-more" title="查看更多" target="_blank"
                 ><i class="el-icon-more"></i
             ></a>
@@ -43,7 +43,7 @@
                         icon="el-icon-s-promotion"
                         plain
                         size="small"
-                    >提交</el-button>
+                    >{{ $t('提交') }}</el-button>
                 </div>
             </div>
         </div>
@@ -170,8 +170,8 @@ export default {
                     this.$notify.success({
                         title: "消息",
                         dangerouslyUseHTMLString: true,
-                        message: `<div>反馈提交成功</div>
-                                <div style="margin-top: 5px;"><a href="/bbs/#feedback/${result.ID}">点击查看</a></div>`,
+                        message: `<div>{{ $t('反馈提交成功') }}</div>
+                                <div style="margin-top: 5px;"><a href="/bbs/#feedback/${result.ID}">{{ $t('点击查看') }}</a></div>`,
                         duration: 6000
                     });
                     // 清空表单

@@ -1,7 +1,7 @@
 <template>
     <tr>
-        <td>宠物</td>
-        <td>全服</td>
+        <td>{{ $t('宠物') }}</td>
+        <td>{{ $t('全服') }}</td>
         <td>
             <a v-for="item in luckyList" :key="item.Index" class="u-pet" :href="getPetLink(item.Index)" target="_blank">{{ item.Name }}</a>
         </td>

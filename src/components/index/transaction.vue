@@ -60,7 +60,7 @@
                                                 <!-- <span>前日：</span> -->
                                                 <GamePrice :price="item.sub_days_2_price" />
                                             </template>
-                                            <span v-else>暂无价目</span>
+                                            <span v-else>{{ $t('暂无价目') }}</span>
                                         </span>
                                     </div>
                                 </a>

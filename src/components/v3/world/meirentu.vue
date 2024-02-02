@@ -1,6 +1,6 @@
 <template>
     <tr>
-        <td>美人图</td>
+        <td>{{ $t('美人图') }}</td>
         <td :title="server">
             {{ server }}
         </td>

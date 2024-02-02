@@ -3,7 +3,7 @@
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-s-data"></i>
             <a class="u-title" href="/bbs/#/namespace" target="_blank"
-                >热点铭牌</a
+                >{{ $t('热点铭牌') }}</a
             >
             <a
                 href="/bbs/#/namespace"

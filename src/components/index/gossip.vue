@@ -2,7 +2,7 @@
     <div class="m-sideblock m-gossip">
         <div class="m-sideblock-header">
             <i class="u-icon el-icon-watermelon"></i>
-            <span class="u-title">近日吃瓜</span>
+            <span class="u-title">{{ $t('近日吃瓜') }}</span>
             <a
                 href="/knowledge/#/type/gossip"
                 class="u-more"
