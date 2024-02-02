@@ -77,10 +77,14 @@ export default {
             }
         }
         .u-cover {
-            transition: all 1.5s; 
+            transition: all 1.5s;
             &.click {
                 transform: rotate(5deg);
             }
+        }
+        .u-letter {
+            .size(calc(100% - 8px));
+            .ml(4px);
         }
         .u-letter.fadeInDownBig {
             .z(1);
