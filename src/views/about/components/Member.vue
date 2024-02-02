@@ -10,11 +10,6 @@
                     </span>
                     <span class="desc">{{ item.remark }}</span>
                     <div class="hover-detail">
-                        <div class="u-tags">
-                            <el-tag class="u-tag" size="mini" v-for="key in item.duty" :key="key" >
-                                {{ showTag(key) }}
-                            </el-tag>
-                        </div>
                         <div class="u-desc" v-html="item.desc || '暂无介绍'"></div>
                     </div>
                 </div>
@@ -115,11 +110,9 @@ export default {
             .hover-desc {
                 display: inline-block;
                 .u-desc {
-                    p {
-                        margin: 0;
-                        padding-right: 10px;
-                        font-size: 13px;
-                    }
+                    .fz(13px,1.8);
+                    padding:5px 10px 5px 0;
+                    p{margin:0;}
                 }
             }
             .desc {
