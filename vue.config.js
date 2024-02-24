@@ -1,40 +1,40 @@
 const path = require("path");
 const pkg = require("./package.json");
 const { JX3BOX, SEO } = require("@jx3box/jx3box-common");
-const Setting = require("./setting.json");
+const Setting = require("./setting.vi.json");
 
 function resolve(dir) {
     return path.join(__dirname, dir);
 }
 const pages = {
     index: {
-        title: "剑网3" + Setting.suffix,
+        title: "Võ lâm 3D" + Setting.suffix,
         entry: "src/main.js",
-        template: "public/index.html",
+        template: "public/index.vi.html",
         filename: "index.html",
     },
     notice: {
-        title: "公告资讯" + Setting.suffix,
+        title: "Thông báo và Tin tức" + Setting.suffix,
         entry: "src/pages/notice.js",
-        template: "public/index.html",
+        template: "public/index.vi.html",
         filename: "notice/index.html",
     },
     tv: {
-        title: "魔盒电视台" + Setting.suffix,
+        title: "TV" + Setting.suffix,
         entry: "src/pages/tv.js",
-        template: "public/index.html",
+        template: "public/index.vi.html",
         filename: "tv/index.html",
     },
     about: {
-        title: "关于我们" + Setting.suffix,
+        title: "Về chúng tôi" + Setting.suffix,
         entry: "src/pages/about.js",
-        template: "public/index.html",
+        template: "public/index.vi.html",
         filename: "about/index.html",
     },
     post: {
-        title: "作品" + Setting.suffix,
+        title: "Tác phẩm" + Setting.suffix,
         entry: "src/pages/post.js",
-        template: "public/index.html",
+        template: "public/index.vi.html",
         filename: "post/index.html",
     },
 };
@@ -107,13 +107,13 @@ module.exports = {
         disableHostCheck: true,
     },
 
-    outputDir: process.env["BUILD_MODE"] == "preview" ? path.resolve(__dirname, pkg.name) : 'dist', // 指定构建输出的目录
+    outputDir: process.env["BUILD_MODE"] == "preview" ? path.resolve(__dirname, pkg.name) : "dist", // 指定构建输出的目录
 
     //❤️ define path for static files ~
     publicPath:
         //FOR Localhost => development
         (process.env.NODE_ENV === "development" && "/") ||
-        process.env.BUILD_MODE == "preview" && `/${pkg.name}/` ||
+        (process.env.BUILD_MODE == "preview" && `/${pkg.name}/`) ||
         //BY relative path
         (process.env.BUILD_MODE === "preview" && `/${pkg.name}/`) ||
         //BY origin
