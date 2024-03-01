@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :visible="showAlert" custom-class="m-force-alert" :show-close="false" :close-on-click-modal="false">
+    <el-dialog :visible="showAlert" custom-class="m-force-alert" @close="onClose" :show-close="true" :close-on-click-modal="false">
         <el-carousel :interval="4000" :height="height" :arrow="data.length > 1 ? 'always' : 'never'">
             <el-carousel-item v-for="item in data" :key="item.ID">
                 <a :href="item.link" target="_blank">
@@ -47,10 +47,10 @@ export default {
         ...mapMutations(["setShowAlert"]),
         onClose() {
             this.setShowAlert(false);
-            this.data.forEach(item => {
+            this.data.forEach((item) => {
                 const key = `force_alert_${item.ID}`;
                 localStorage.setItem(key, 1);
-            })
+            });
         },
         loadEvent() {
             // 强制弹窗
@@ -58,11 +58,11 @@ export default {
                 this.data = res.data.data.list;
 
                 // 本地存储
-                this.data = this.data.filter(item => {
+                this.data = this.data.filter((item) => {
                     const key = `force_alert_${item.ID}`;
                     const value = localStorage.getItem(key);
                     return !value;
-                })
+                });
 
                 if (this.data?.length) {
                     this.setShowAlert(true);
