@@ -62,7 +62,7 @@
                         </div>
                         <span class="u-title">
                             <i class="el-icon-reading"></i>
-                            {{ item.post_title || "无标题" }}
+                            {{ item.post_title || $t('无标题') }}
                         </span>
                     </a>
                 </div>
@@ -93,7 +93,7 @@
                         </div>
                         <span class="u-title">
                             <i class="el-icon-reading"></i>
-                            {{ item.title || "无标题" }}
+                            {{ item.title || $t('无标题') }}
                         </span>
                     </a>
                 </div>
@@ -104,7 +104,7 @@
                         href: report_link,
                     },
                     caller: 'index_lastest_artwork_more'
-                }">查看更多&raquo;</a>
+                }">{{ $t('查看更多') }}&raquo;</a>
             </div>
         </div>
     </div>
@@ -118,10 +118,13 @@ import { __postType } from "@jx3box/jx3box-common/data/jx3box.json";
 import { showRecently } from "@/utils/moment";
 import Mini_bread from "../content/mini_bread.vue";
 import { reportNow } from "@jx3box/jx3box-common/js/reporter"
+
+
 export default {
     name: "v2-post",
     props: [],
     data: function () {
+        const t = this.$i18n.t.bind(this.$i18n);
         return {
             data: [],
             target: buildTarget(),
@@ -129,43 +132,43 @@ export default {
             length: 7,
             links: [
                 {
-                    label: "宏库",
+                    label: t("宏库"),
                     slug: "macro",
                 },
                 {
-                    label: "职业",
+                    label: t("职业"),
                     slug: "bps",
                 },
                 {
-                    label: "竞技",
+                    label: t("竞技"),
                     slug: "pvp",
                 },
                 {
-                    label: "副本",
+                    label: t("副本"),
                     slug: "fb",
                 },
                 {
-                    label: "资源",
+                    label: t("资源"),
                     slug: "tool",
                 },
                 {
-                    label: "茶馆",
+                    label: t("茶馆"),
                     slug: "bbs",
                 },
                 {
-                    label: "成就",
+                    label: t("成就"),
                     slug: "achievement",
                 },
                 {
-                    label: "物品",
+                    label: t("物品"),
                     slug: "item",
                 },
                 {
-                    label: "任务",
+                    label: t("任务"),
                     slug: "quest",
                 },
                 {
-                    label: "通识",
+                    label: t("通识"),
                     slug: "knowledge",
                 },
             ],

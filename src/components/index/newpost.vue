@@ -128,7 +128,7 @@
                                     </div>
                                     <span class="u-title">
                                         <i class="el-icon-reading"></i>
-                                        {{ item.title || "无标题" }}
+                                        {{ item.title || $t('无标题') }}
                                     </span>
                                 </a>
                             </div>
@@ -167,7 +167,7 @@
                                     </div>
                                     <span class="u-title">
                                         <i class="el-icon-reading"></i>
-                                        {{ item.post_title || "无标题" }}
+                                        {{ item.post_title || $t('无标题') }}
                                     </span>
                                 </a>
                             </div>

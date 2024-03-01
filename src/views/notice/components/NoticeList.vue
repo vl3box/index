@@ -27,7 +27,7 @@
                                 :style="isHighlight(item.color)"
                                 :href="'/notice/' + item.ID"
                                 :target="target"
-                                >{{ item.post_title || "无标题" }}</a
+                                >{{ item.post_title || $t('无标题') }}</a
                             >
                         </h3>
 

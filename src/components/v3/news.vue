@@ -7,7 +7,7 @@
                     <i class="u-icon el-icon-message-solid"></i>
                     <!-- <img class="u-icon" svg-inline src="@/assets/img/left/news.svg" /> -->
                     <!-- <svg-icon class-name="u-icon" icon-class="news" /> -->
-                    最新动态
+                    {{ $t('最新动态') }}
                 </a>
                 <div class="u-mode-list">
                     <span
@@ -43,13 +43,14 @@ export default {
     name: "IndexNews",
     components: {},
     data: function () {
+        const t = this.$i18n.t.bind(this.$i18n);
         return {
             mode: "all",
             mode_list: [
-                { label: "全部", value: "all" },
-                { label: "游戏", value: "game" },
-                { label: "技改", value: "skill_change" },
-                { label: "魔盒", value: "box" },
+                { label: t("全部"), value: "all" },
+                { label: t("游戏"), value: "game" },
+                { label: t("技改"), value: "skill_change" },
+                { label: t("魔盒"), value: "box" },
             ],
 
             // 游戏

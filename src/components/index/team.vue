@@ -80,12 +80,12 @@
                     </el-row>
                 </div>
                 <a class="u-all" href="/team" target="_blank">
-                    <i class="el-icon-d-arrow-right"></i> 查看更多
+                    <i class="el-icon-d-arrow-right"></i> {{ $t('查看更多') }}
                 </a>
             </el-tab-pane>
             <el-tab-pane :label="$t('活动大厅')" name="hall">
                 <div slot="label">
-                    <i class="el-icon-date"></i> 活动大厅
+                    <i class="el-icon-date"></i> {{ $t('活动大厅') }}
                 </div>
                 <div class="m-index-board" v-if="tab === 'hall'">
                     <div class="m-team-list-header">
@@ -116,7 +116,7 @@
                             class="u-more el-button el-button--primary is-plain el-button--mini"
                             href="/team/raid/list"
                             target="_blank"
-                        >查看更多&raquo;</a>
+                        >{{ $t('查看更多') }}&raquo;</a>
                     </div>
                     <div v-loading="raidLoading">
                         <template v-if="raidData && raidData.length">
@@ -129,10 +129,10 @@
         </el-tabs>
         <div class="u-misc">
             <a href="/team/org/add" class="u-more" target="_blank" rel="noopener noreferrer">
-                <i class="el-icon-office-building"></i>创建团队
+                <i class="el-icon-office-building"></i>{{ $t('创建团队') }}
             </a>
             <a href="/team/raid/add" class="u-more" target="_blank" rel="noopener noreferrer">
-                <i class="el-icon-microphone"></i>发布活动
+                <i class="el-icon-microphone"></i>{{ $t('发布活动') }}
             </a>
         </div>
     </div>

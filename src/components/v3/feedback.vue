@@ -13,8 +13,8 @@
         <a class="m-feedback-content" :href="feedback" target="_blank">
             <img class="u-avatar" :src="img" :alt="$t('盒子娘')" />
             <span class="u-info">
-                <div>Bug反馈、建议意见、投诉举报</div>
-                <span>→ 使劲戳盒子娘</span>
+                <div>{{ $t('Bug反馈、建议意见、投诉举报') }}</div>
+                <span>→ {{ $t('使劲戳盒子娘') }}</span>
                 <!-- <span><i class="el-icon-message"></i> admin@jx3box.com</span> -->
             </span>
         </a>

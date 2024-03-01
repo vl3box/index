@@ -21,7 +21,7 @@
                         @mouseenter="addAni('weibo', 'animate__rubberBand')"
                         @mouseleave="resetAni('weibo')"
                     >
-                        <img svg-inline src="@/assets/img/tv/weibo.svg" :class="ani.weibo" />JX3BOX魔盒
+                        <img svg-inline src="@/assets/img/tv/weibo.svg" :class="ani.weibo" />{{ $t('JX3BOX魔盒') }}
                     </a>
                     <a
                         class="u-tv-bilibili u-tv-link"
@@ -30,7 +30,7 @@
                         @mouseenter="addAni('bilibili', 'animate__swing')"
                         @mouseleave="resetAni('bilibili')"
                     >
-                        <img svg-inline src="@/assets/img/tv/bilibili.svg" :class="ani.bilibili" />魔盒tivi
+                        <img svg-inline src="@/assets/img/tv/bilibili.svg" :class="ani.bilibili" />{{ $t('魔盒tivi') }}
                     </a>
                 </div>
             </div>

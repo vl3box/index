@@ -46,7 +46,7 @@
                         </div>
                         <span class="u-title">
                             <i class="el-icon-reading"></i>
-                            {{ item.desc || "无标题" }}
+                            {{ item.desc || $t('无标题') }}
                         </span>
                     </a>
                 </div>
@@ -74,13 +74,13 @@
                     </div>
                     <span class="u-title">
                         <i class="el-icon-reading"></i>
-                        {{ item.title || "无标题" }}
+                        {{ item.title || $t('无标题') }}
                     </span>
                 </a>
             </div>
 
             <div class="m-v2-post-more">
-                <a :href="more_link" class="u-more">查看更多&raquo;</a>
+                <a :href="more_link" class="u-more">{{ $t('查看更多') }}&raquo;</a>
             </div>
         </div>
     </div>
