@@ -25,10 +25,10 @@
                         <el-image class="u-avatar" :src="showAvatar(item)" fit="cover" :alt="item.author_info && item.author_info.display_name"></el-image>
                         <div class="u-info">
                             <i class="el-icon-collection-tag"></i>
-                            <span class="u-type" target="_blank">{{ formatTypeName(item.post_type)   }}</span>
+                            <span class="u-type" target="_blank">{{ $t(formatTypeName(item.post_type))   }}</span>
                             ／
                             <span class="u-author" :href="authorLink(item.post_author)" target="_blank">{{
-                                (item.author_info && item.author_info.display_name) || "匿名"
+                                (item.author_info && item.author_info.display_name) || $t('匿名')
                             }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>

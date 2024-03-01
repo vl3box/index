@@ -11,10 +11,10 @@
         <div class="m-servers-content">
             <div class="u-list" v-if="data.length">
                 <div class="u-item" v-for="(item, i) in data" :key="i" v-show="cansee(item)">
-                    <el-tooltip class="item" effect="dark" :content="item.serverName" placement="top">
+                    <el-tooltip class="item" effect="dark" :content="item.server_name" placement="top">
                         <span class="u-status" :class="{ on: item.connect_state }"></span>
                     </el-tooltip>
-                    <span class="u-name">{{ item.serverName }}</span>
+                    <span class="u-name">{{ item.server_name }}</span>
                 </div>
             </div>
         </div>

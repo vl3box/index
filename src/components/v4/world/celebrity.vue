@@ -1,7 +1,7 @@
 <template>
     <div class="m-celebrity-wrap">
         <el-divider content-position="left">
-            名望&nbsp;·&nbsp;
+            {{ $t('名望') }}&nbsp;·&nbsp;
             <el-select v-model="type" @change="typeChange">
                 <el-option v-for="type in types" :key="type.value" :label="type.label" :value="type.value"></el-option>
             </el-select>

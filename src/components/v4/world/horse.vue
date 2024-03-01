@@ -4,7 +4,7 @@
             <el-divider content-position="left">
                 <span>{{ $t('抓马') }}&nbsp;·&nbsp;</span>
                 <el-select v-model="server">
-                    <el-option v-for="server in servers" :key="server" :label="server" :value="server"></el-option>
+                    <el-option v-for="server in servers" :key="server" :label="$t(server)" :value="server"></el-option>
                 </el-select>
             </el-divider>
             <div class="u-item" key="chitu">
@@ -22,7 +22,7 @@
                     <i :class="chituLoading ? 'el-icon-loading' : 'el-icon-refresh'" @click="loadChituData"></i>
                 </div>
                 <div class="u-times-info">
-                    <span v-if="!hasExist" class="u-times-lately">本CD尚未刷新</span>
+                    <span v-if="!hasExist" class="u-times-lately">{{ $t('本CD尚未刷新') }}</span>
                     <template v-else>
                         <div class="u-map-name is-exist">{{ existData.map }}</div>
                         <div class="u-times is-exist">{{ existData.time }}</div>
