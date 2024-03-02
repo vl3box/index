@@ -68,7 +68,7 @@ export default {
                 this.daily = list.map((item) => {
                     return {
                         type: item.task_type,
-                        zone: "全服",
+                        zone:  this.$i18n.t("全服"),
                         name: item.activity_name,
                     };
                 });

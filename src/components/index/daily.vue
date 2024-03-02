@@ -8,7 +8,7 @@
                     <img svg-inline src="../../assets/img/weibo.svg" />
                     <em> {{ $t('官方微博') }}：</em>
                     <a href="https://weibo.com/jx3box" target="_blank">
-                        <b>JX3BOX魔盒</b>
+                        <b>{{ $t('JX3BOX魔盒') }}</b>
                     </a>
                 </span>
                 <span class="u-weixin u-item">
@@ -161,7 +161,7 @@ export default {
                 this.daily = list?.map(item => {
                     return {
                         type: item.task_type,
-                        zone: "全服",
+                        zone:  this.$i18n.t("全服"),
                         name: item.activity_name
                     }
                 })
