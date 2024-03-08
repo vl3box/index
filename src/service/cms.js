@@ -113,7 +113,6 @@ function getMenus(key) {
 
 //获取装扮
 function getUserDecoration(params) {
-    console.log(1);
     return $cms().get(`/api/cms/user/decoration`, {
         params,
     });
