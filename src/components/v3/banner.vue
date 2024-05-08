@@ -35,8 +35,8 @@ export default {
         params: function () {
             return {
                 client: this.client,
-                type: "common",
-                subtype: "banner",
+                type: "banner",
+                subtype: "index",
                 per: 8,
                 status: 1
             };

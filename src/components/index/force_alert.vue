@@ -27,8 +27,8 @@ export default {
         params() {
             return {
                 client: this.$store.state.client,
-                type: "common",
-                subtype: "alert",
+                type: "alert",
+                subtype: "index",
                 per: 8,
                 status: 1,
             };
