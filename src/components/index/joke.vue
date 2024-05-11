@@ -12,10 +12,11 @@
         </a>
         <div class="u-content">
             <el-carousel height="20px" direction="vertical" :autoplay="true">
-                <el-carousel-item v-for="(item,i) in data" :key="i">
+                <el-carousel-item v-for="(item, i) in data" :key="i">
                     <a class="u-item" :href="getLink(item.id)" target="_blank">
-                        <span class="u-author">{{item.author || '匿名'}}：</span>
-                        <span class="u-joke" v-html="item.html"></span>
+                        <span class="u-author">{{ item.author || "匿名" }}：</span>
+                        <span class="u-joke" v-if="item.html" v-html="item.html"></span>
+                        <span class="u-joke" v-else>{{ item.content }}</span>
                     </a>
                 </el-carousel-item>
             </el-carousel>
@@ -42,8 +43,8 @@ export default {
     },
     computed: {},
     methods: {
-        getLink : function (id){
-            return getLink('joke',id)
+        getLink: function (id) {
+            return getLink("joke", id);
         },
         init: function () {
             getJokes().then((res) => {
@@ -53,15 +54,17 @@ export default {
         },
         render: function () {
             this.data.forEach((item) => {
-                const ins = new JX3_EMOTION(item.content)
-                item.html = ins.code
-            })
+                const ins = new JX3_EMOTION(item.content);
+                ins._renderHTML().then((html) => {
+                    this.$set(item, "html", html);
+                });
+            });
         },
     },
     filters: {},
     created: function () {},
     mounted: function () {
-        this.init()
+        this.init();
     },
 };
 </script>
