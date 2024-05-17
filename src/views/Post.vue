@@ -26,6 +26,9 @@ export default {
         loadPost() {
             getPost(this.id).then((res) => {
                 const data = res.data.data;
+                if (data?.post_status == 'migration') {
+                    location.href = `/community/${data.ID}`;
+                }
 
                 location.href = `/${data.post_type}/${data.ID}`;
             })
