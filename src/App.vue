@@ -19,6 +19,7 @@
                 <joke />
                 <jx3world />
                 <posts />
+                <community />
                 <Footer></Footer>
             </div>
         </div>
@@ -45,6 +46,8 @@ import live from "@/components/v3/live.vue";
 import slider from "@/components/v3/slider.vue";
 import box from "@/components/v3/box.vue";
 import posts from "@/components/v3/posts.vue";
+import community from "@/components/v3/community.vue";
+
 //import face from "@/components/v3/face.vue";
 import festival from "@/components/festival/index.vue";
 import forceAlert from "@/components/index/force_alert.vue";
@@ -92,10 +95,11 @@ export default {
         joke,
         //face,
         posts,
+        community,
 
         festival,
         forceAlert,
-        importantMsg
+        importantMsg,
     },
     methods: {},
     created: function () {
