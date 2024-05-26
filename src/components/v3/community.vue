@@ -2,7 +2,7 @@
     <div class="m-v2-post m-sideblock">
         <div class="m-guide-header m-sideblock-header">
             <div class="u-left">
-                <i class="u-icon el-icon-s-management"></i>
+                <i class="u-icon el-icon-chat-dot-square"></i>
                 <span class="u-title">最新讨论</span>
                 <mini-bread class="u-bread" name="index_topics" />
             </div>
