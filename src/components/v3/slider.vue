@@ -61,7 +61,7 @@
                 @click="setActive(i)"
             >
                 <a class="u-pic">
-                    <img :src="showThumbnail(item.img, item.remark)" />
+                    <img :src="showThumbnail(item.img, item.desc)" />
                 </a>
             </div>
         </div>
@@ -148,9 +148,9 @@ export default {
                 return getThumbnail(val, "index_slider");
             }
         },
-        showThumbnail(val, remark) {
+        showThumbnail(val, desc) {
             if (val.indexOf(".gif") > -1) {
-                val = remark ? remark : val;
+                val = desc ? desc : val;
             }
             return getThumbnail(val, "index_banner"); //[220, 60]
         },
