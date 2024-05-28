@@ -1,5 +1,5 @@
 <template>
-    <div class="m-v2-post m-sideblock">
+    <div class="m-v2-post m-sideblock m-v3-community">
         <div class="m-guide-header m-sideblock-header">
             <div class="u-left">
                 <i class="u-icon el-icon-s-comment"></i>
@@ -63,7 +63,7 @@
                         </div>
                         <span class="u-title">
                             <i class="el-icon-reading"></i>
-                            {{ item.content }}
+                            <p class="u-content" v-html="item.content"></p>
                         </span>
                     </a>
                 </div>
@@ -90,6 +90,7 @@ import { getTopicList, getTopicBucket, getMixLatest } from "@/service/community"
 import { buildTarget, authorLink, showAvatar, getLink } from "@jx3box/jx3box-common/js/utils";
 import { showRecently } from "@/utils/moment";
 import Mini_bread from "../content/mini_bread.vue";
+import JX3_EMOTION from "@jx3box/jx3box-emotion";
 export default {
     name: "community",
     props: [],
@@ -118,6 +119,10 @@ export default {
         },
     },
     methods: {
+        async renderContent() {
+            const ins = new JX3_EMOTION(val);
+            return await ins._renderHTML();
+        },
         // 获取分类
         getCategoryList() {
             getTopicBucket({ type: "community" }).then((res) => {
@@ -137,18 +142,24 @@ export default {
                 .then((res) => {
                     let data = [];
                     let topic_list = [];
-                    console.log(res);
                     // 不同的接口，处理数据返回统一的格式
                     if (this.category === "all") {
                         topic_list = res.data.data.topic_list || [];
                         const reply_list = res.data.data.reply_list || [];
-                        reply_list.forEach((item) => {
+                        reply_list.forEach(async (item) => {
+                            // 创建一个正则表达式来匹配<img>标签
+                            var imgTagRegex = /<img[^>]*>/g;
+                            // 使用正则表达式替换掉<img>标签
+                            var text = item.content.replace(imgTagRegex, "[图片]");
+                            // 加载表情包（回帖会有表情包）
+                            const ins = new JX3_EMOTION(text);
+                            const content = await ins._renderHTML();
                             data.push({
                                 id: item.topic.id,
                                 type: "reply",
                                 created_at: item.created_at,
                                 category: item.topic.category,
-                                content: item.content || "无内容",
+                                content: content || "无内容",
                                 user_name: item.ext_user_info.display_name,
                                 user_id: item.ext_user_info.user_id,
                                 avatar: item.ext_user_info.avatar,
@@ -207,4 +218,27 @@ export default {
 
 <style lang="less">
 @import "../../assets/css/v2/posts.less";
+.m-v3-community {
+    .u-title {
+        display: flex;
+        height: 28px;
+        align-items: center;
+        gap: 4px;
+        overflow: hidden;
+    }
+    .u-content {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        margin: 0;
+        align-items: center;
+        img {
+            vertical-align: middle;
+            position: relative;
+            top: -1.5px;
+            margin-right: 2px;
+        }
+    }
+}
 </style>
