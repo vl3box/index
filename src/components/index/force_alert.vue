@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :visible="showAlert" custom-class="m-force-alert" :show-close="false" :close-on-click-modal="false">
+    <el-dialog :visible="showAlert" custom-class="m-force-alert" @close="onClose" :show-close="true" :close-on-click-modal="false">
         <el-carousel :interval="4000" :height="height" :arrow="data.length > 1 ? 'always' : 'never'">
             <el-carousel-item v-for="item in data" :key="item.ID">
                 <a :href="item.link" target="_blank">
@@ -27,9 +27,9 @@ export default {
         params() {
             return {
                 client: this.$store.state.client,
-                type: "common",
-                subtype: "alert",
-                per: 1,
+                type: "alert",
+                subtype: "index",
+                per: 8,
                 status: 1,
             };
         },
@@ -47,20 +47,24 @@ export default {
         ...mapMutations(["setShowAlert"]),
         onClose() {
             this.setShowAlert(false);
-            const key = `force_alert_${this.data.map((item) => item.ID).join("_")}`;
-            localStorage.setItem(key, 1);
+            this.data.forEach((item) => {
+                const key = `force_alert_${item.ID}`;
+                localStorage.setItem(key, 1);
+            });
         },
         loadEvent() {
             // 强制弹窗
             getConfigBanner(this.params).then((res) => {
                 this.data = res.data.data.list;
+
+                // 本地存储
+                this.data = this.data.filter((item) => {
+                    const key = `force_alert_${item.ID}`;
+                    const value = localStorage.getItem(key);
+                    return !value;
+                });
+
                 if (this.data?.length) {
-                    // 先判断是否已经弹过，如果弹过，就不再弹
-                    const key = `force_alert_${this.data.map((item) => item.ID).join("_")}`;
-                    const isShow = localStorage.getItem(key);
-                    if (~~isShow) {
-                        return;
-                    }
                     this.setShowAlert(true);
                 }
             });

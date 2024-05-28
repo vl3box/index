@@ -113,7 +113,6 @@ function getMenus(key) {
 
 //获取装扮
 function getUserDecoration(params) {
-    console.log(1);
     return $cms().get(`/api/cms/user/decoration`, {
         params,
     });
@@ -139,6 +138,14 @@ function getChangelog(params) {
     });
 }
 
+// 获取最新wiki
+function getWikiPosts(params) {
+    return $cms().get(`/api/cms/wiki/post/latest`, {
+        params: params,
+    });
+}
+
+
 export {
     getPosts,
     getGossip,
@@ -157,4 +164,5 @@ export {
     getCelebrities,
     getConfigBanner,
     getChangelog,
+    getWikiPosts
 };

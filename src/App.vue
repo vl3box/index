@@ -16,15 +16,17 @@
                 <slider />
                 <box />
 
-                <jx3world />
                 <joke />
+                <jx3world />
                 <posts />
+                <community />
                 <Footer></Footer>
             </div>
         </div>
         <festival />
 
         <forceAlert />
+        <importantMsg />
     </div>
 </template>
 
@@ -44,9 +46,13 @@ import live from "@/components/v3/live.vue";
 import slider from "@/components/v3/slider.vue";
 import box from "@/components/v3/box.vue";
 import posts from "@/components/v3/posts.vue";
+import community from "@/components/v3/community.vue";
+
 //import face from "@/components/v3/face.vue";
 import festival from "@/components/festival/index.vue";
-import forceAlert from "@/components/index/force_alert.vue"
+import forceAlert from "@/components/index/force_alert.vue";
+
+import importantMsg from "@/components/v4/important_msg.vue";
 
 // 系统
 import User from "@jx3box/jx3box-common/js/user";
@@ -89,9 +95,11 @@ export default {
         joke,
         //face,
         posts,
+        community,
 
         festival,
-        forceAlert
+        forceAlert,
+        importantMsg,
     },
     methods: {},
     created: function () {
@@ -122,12 +130,12 @@ export default {
         }
         this.$nextTick(() => {
             if (this.isLogin) {
-                getMeta('new_user_guide').then(res => {
+                getMeta("new_user_guide").then((res) => {
                     let val = ~~res.data.data;
                     if (!val) {
                         driver.drive();
                     }
-                })
+                });
             } else {
                 const key = "new_user_guide";
                 const isShow = localStorage.getItem(key);

@@ -95,7 +95,7 @@ module.exports = {
                 },
             },
             "/api/cms": {
-                target: process.env["DEV_SERVER"] == "true" ? "http://localhost:5120" : "https://cms.jx3box.com",
+                target: process.env["DEV_SERVER"] == "true" ? "http://localhost:7100" : "https://cms.jx3box.com",
             },
             "/api": {
                 target: "https://next2.jx3box.com",
@@ -172,7 +172,7 @@ module.exports = {
             .rule("images")
             .use("url-loader")
             .loader("url-loader")
-            .tap((options) => Object.assign(options, { limit: 10240 }));
+            .tap((options) => Object.assign(options, { limit: 10240, esModule: false}));
 
         //💝 in-line svg imgs ~
         config.module.rule("vue").use("vue-svg-inline-loader").loader("vue-svg-inline-loader");

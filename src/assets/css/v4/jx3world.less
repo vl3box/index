@@ -34,16 +34,17 @@
     @media screen and (max-width: @pc) {
         .m-world-right {
             .flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             .m-world-block {
                 flex: none;
-                min-width: 300px;
             }
         }
     }
-    @media screen and (max-width: 1880px) {
+    // qq游览器下1863尺寸显示错误
+    @media screen and (max-width: 1863px) {
         .m-world-right {
             gap: 20px;
+            flex-direction: row;
             .m-world-horse,
             .m-world-pet {
                 width: calc(50% - 20px);
@@ -63,6 +64,23 @@
     @media screen and (max-width: @notebook) {
         .m-world-block {
             width: 100%;
+        }
+        .m-world-right {
+            flex-direction: column;
+            .m-world-horse,
+            .m-world-pet {
+                width: 100%;
+            }
+        }
+    }
+    @media screen and (max-width: @ipad) {
+        .m-world-right {
+            gap: 20px;
+            flex-direction: row;
+            .m-world-horse,
+            .m-world-pet {
+                width: calc(50% - 20px);
+            }
         }
     }
     @media screen and (max-width: @phone) {
@@ -84,14 +102,33 @@
             width: 100%;
         }
         .m-world-right {
+            flex-direction: column;
+            .w(100%);
             padding: 0;
             gap: 0;
+            min-width: 260px;
+            overflow-x: auto;
             .m-world-horse,
             .m-world-pet {
+                flex: none;
                 width: 100%;
             }
         }
     }
+    // @media screen and (max-width: 320px) {
+    //     .m-world-right {
+    //         gap: 20px;
+    //         .m-world-horse,
+    //         .m-world-pet {
+    //             width: 260px;
+    //             .u-horse,
+    //             .el-divider,
+    //             .m-pet {
+    //                 width: 260px;
+    //             }
+    //         }
+    //     }
+    // }
     .m-bmap-simple {
         padding-top: 0;
         flex: 1;

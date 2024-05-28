@@ -1,5 +1,5 @@
 <template>
-    <div class="m-world-daily">
+    <div class="m-world-daily-new">
         <template v-if="weekActivities.length">
             <el-divider content-position="left">周常</el-divider>
             <div class="m-daily-content">
@@ -94,5 +94,5 @@ export default {
 };
 </script>
 <style lang="less">
-@import "~@/assets/css/v4/world/daily.less";
+@import "~@/assets/css/v4/world/daily_new.less";
 </style>

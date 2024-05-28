@@ -7,14 +7,14 @@
                 <div class="u-item">
                     <div>加分属性</div>
                     <div class="u-furniture">
-                        {{ furnitureProperty && furnitureProperty.content }}
+                        {{ (furnitureProperty && furnitureProperty.content) || "-" }}
                     </div>
                 </div>
                 <div class="u-item">
                     <div>评审分类</div>
                     <div class="u-furniture">
                         <a href="/furniture?match=1" target="_blank">{{
-                            formatContent(furnitureCategory && furnitureCategory.content)
+                            formatContent(furnitureCategory && furnitureCategory.content) || "-"
                         }}</a>
                     </div>
                 </div>
@@ -24,19 +24,19 @@
                 <div class="u-item">
                     <div>加分属性</div>
                     <div class="u-furniture">
-                        {{ nextCategory }}
+                        {{ nextCategory || "-" }}
                     </div>
                 </div>
                 <div class="u-item">
                     <div>评审分类</div>
                     <div class="u-furniture">
                         <a href="/furniture?match=1" target="_blank">
-                            {{ nextProperty }}
+                            {{ nextProperty || "-" }}
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="m-furniture-item">
+            <!-- <div class="m-furniture-item">
                 <div class="u-title">家园声望</div>
                 <div class="m-reputation">
                     <a
@@ -56,10 +56,9 @@
                                 </div>
                             </el-tooltip>
                         </div>
-                        <!-- <span class="u-reputation-desc">{{ item.Desc }}</span> -->
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -130,7 +129,7 @@ export default {
             handler() {
                 if (this.client === "std") {
                     this.loadFurniture();
-                    this.loadReputation();
+                    // this.loadReputation();
                 }
             },
         },

@@ -2,12 +2,12 @@
     <div class="newYearsDay" @click.stop>
         <div @click="change" class="newYearsDay-card" :class="show?'newYearsDay-card__on':'newYearsDay-card__off'">
             <!-- v-if="!show" -->
-            <img class="newYearsDay-card__img newYearsDay-card__cover" :src="`${imgLink}/newYearsDay/P1-BG.jpg`"
+            <img class="newYearsDay-card__img newYearsDay-card__cover" :src="`${imgLink}/newYearsDay2023/P1-BG.jpg`"
                 alt="元旦节快乐">
-            <img class="newYearsDay-card__img newYearsDay-card__content" :src="`${imgLink}/newYearsDay/p2-01.jpg`"
+            <img class="newYearsDay-card__img newYearsDay-card__content" :src="`${imgLink}/newYearsDay2023/p2-01.jpg`"
                 alt="元旦节快乐">
-            <img class="newYearsDay-card__click" v-if="!show" :src="`${imgLink}/newYearsDay/ClickButton-1.png`" alt="">
-            <img class="newYearsDay-card__close" @click.stop="close" :src="`${imgLink}/newYearsDay/CloseButton-1.png`"
+            <img class="newYearsDay-card__click" v-if="!show" :src="`${imgLink}/newYearsDay2023/ClickButton-1.png`" alt="">
+            <img class="newYearsDay-card__close" @click.stop="close" :src="`${imgLink}/newYearsDay2023/CloseButton-1.png`"
                 alt="">
             <span class="newYearsDay-card__fontCount">{{ fontCount }}</span>
         </div>
@@ -20,7 +20,7 @@ export default {
     props: ['fontCount'],
     computed: {
         imgLink() {
-            return __imgPath + `topic/festival/`;
+            return __imgPath + `topic/festival`;
         },
     },
     data() {
@@ -38,3 +38,6 @@ export default {
     },
 }
 </script>
+<style lang="less">
+    @import "~@/assets/css/festival/newYearsDay.less";
+</style>

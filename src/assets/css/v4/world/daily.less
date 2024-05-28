@@ -9,20 +9,19 @@
         }
         .u-row {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            padding: 5px;
-            .u-item {
-                .x;
-                .nobreak;
+            grid-template-columns: 1fr 1.5fr 2fr;
+            @media screen and (max-width: 320px) {
+                grid-template-columns: 1fr 0.9fr 2fr;
             }
-        }
-        .u-table-body {
-            padding: 0 5px;
+            padding: 5px 0;
             .u-item {
-                text-align: left;
-                .nobreak;
-                &:last-child {
-                    text-align: right;
+                text-align: center;
+                .x;
+            }
+            &.u-reputation {
+                .u-item:last-child {
+                    height: 20px;
+                    .nobreak;
                 }
             }
         }

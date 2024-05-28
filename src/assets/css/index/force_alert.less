@@ -3,7 +3,29 @@
     box-shadow: none;
 
     .el-dialog__header {
-        .none;
+        // .none;
+        padding: 0;
+    }
+
+    .el-dialog__headerbtn {
+        z-index: 999;
+    }
+
+    .el-dialog__close {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        color: #fff;
+        background-color: #606266;
+        border-radius: 50%;
+        .flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: #909399;
+            color: #fff;
+        }
     }
 
     .el-dialog__body {

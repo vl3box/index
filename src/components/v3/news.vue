@@ -127,7 +127,7 @@ export default {
                         item.url = this.linkFormat(item.url);
                         // 如果当前为1月，且新闻时间为12月，则年份-1
                         item.time =
-                            !new Date().getMonth() && item.item.split("/")[0] == 12
+                            !new Date().getMonth() && item.item?.split("/")[0] == 12
                                 ? (item.time = new Date(new Date().getFullYear() - 1 + "/" + item.time))
                                 : new Date(new Date().getFullYear() + "/" + item.time);
                         item.type = "game";

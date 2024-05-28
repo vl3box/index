@@ -48,6 +48,11 @@
         .u-item {
             .flex;
             justify-content: space-between;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            // @media screen and (max-width: 320px) {
+            //     width: 260px;
+            // }
         }
         .u-no-item {
             text-align: center;
@@ -58,6 +63,9 @@
             overflow: hidden;
             overflow-x: auto;
             .scrollbar();
+            // @media screen and (max-width: 320px) {
+            //     max-width: 110px;
+            // }
             .u-horse-name {
                 .flex;
                 align-items: center;
@@ -90,6 +98,7 @@
             }
         }
         .u-times-info {
+            .nobreak;
             .u-map-name {
                 margin-right: 5px;
             }
@@ -101,6 +110,9 @@
             }
             .is-exist {
                 opacity: 0.5;
+            }
+            .u-times{
+                padding-right:5px;
             }
         }
     }
