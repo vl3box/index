@@ -61,7 +61,7 @@
                 @click="setActive(i)"
             >
                 <a class="u-pic">
-                    <img :src="showThumbnail(item.img)" />
+                    <img :src="showThumbnail(item.img, item.desc)" />
                 </a>
             </div>
         </div>
@@ -138,13 +138,20 @@ export default {
             });
         },
         showSlider(val) {
+            // 判断val是否是gif图片
+            if (val.indexOf(".gif") > -1) {
+                return val;
+            }
             if (this.ratio > 1 && this.w >= 1920) {
                 return resolveImagePath(val);
             } else {
                 return getThumbnail(val, "index_slider");
             }
         },
-        showThumbnail(val) {
+        showThumbnail(val, desc) {
+            if (val.indexOf(".gif") > -1) {
+                val = desc ? desc : val;
+            }
             return getThumbnail(val, "index_banner"); //[220, 60]
         },
         addAni(key, val) {
