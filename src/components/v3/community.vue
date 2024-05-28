@@ -2,7 +2,7 @@
     <div class="m-v2-post m-sideblock">
         <div class="m-guide-header m-sideblock-header">
             <div class="u-left">
-                <i class="u-icon el-icon-chat-dot-square"></i>
+                <i class="u-icon el-icon-s-comment"></i>
                 <span class="u-title">最新讨论</span>
                 <mini-bread class="u-bread" name="index_topics" />
             </div>
@@ -45,16 +45,16 @@
                     >
                         <el-image
                             class="u-avatar"
-                            :src="showPostAvatar(item)"
+                            :src="showPostAvatar(item.avatar)"
                             fit="cover"
-                            :alt="item.author_info && item.author_info.display_name"
+                            :alt="item.user_name"
                         ></el-image>
                         <div class="u-info">
                             <i class="el-icon-collection-tag"></i>
                             <span class="u-type" target="_blank">{{ item.category }}</span>
                             ／
-                            <span class="u-author" :href="authorLink(item.ext_user_info.id)" target="_blank">{{
-                                (item.ext_user_info && item.ext_user_info.display_name) || "匿名"
+                            <span class="u-author" :href="authorLink(item.user_id)" target="_blank">{{
+                                item.user_name || "匿名"
                             }}</span>
                             <span class="u-date">
                                 <i class="el-icon-refresh"></i>
@@ -63,7 +63,7 @@
                         </div>
                         <span class="u-title">
                             <i class="el-icon-reading"></i>
-                            {{ item.title || "无标题" }}
+                            {{ item.content }}
                         </span>
                     </a>
                 </div>
@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { getTopicList, getTopicBucket } from "@/service/community";
+import { getTopicList, getTopicBucket, getMixLatest } from "@/service/community";
 import { buildTarget, authorLink, showAvatar, getLink } from "@jx3box/jx3box-common/js/utils";
 import { showRecently } from "@/utils/moment";
 import Mini_bread from "../content/mini_bread.vue";
@@ -100,7 +100,7 @@ export default {
             categoryList: [],
             target: buildTarget(),
             category: "all",
-            length: 7,
+            length: 8,
             loading: false,
             aggregate: [],
         };
@@ -127,12 +127,50 @@ export default {
         loadData: function () {
             this.loading = true;
             const category = this.category === "all" ? "" : this.category;
-            getTopicList({
+            // 主页使用单独的接口
+            const fun = this.category === "all" ? getMixLatest : getTopicList;
+            // getMixLatest接口不需要参数，为了方便不做特殊处理
+            fun({
                 category,
                 pageSize: this.length,
             })
                 .then((res) => {
-                    this.data = res.data.data.list || [];
+                    let data = [];
+                    let topic_list = [];
+                    console.log(res);
+                    // 不同的接口，处理数据返回统一的格式
+                    if (this.category === "all") {
+                        topic_list = res.data.data.topic_list || [];
+                        const reply_list = res.data.data.reply_list || [];
+                        reply_list.forEach((item) => {
+                            data.push({
+                                id: item.topic.id,
+                                type: "reply",
+                                created_at: item.created_at,
+                                category: item.topic.category,
+                                content: item.content || "无内容",
+                                user_name: item.ext_user_info.display_name,
+                                user_id: item.ext_user_info.user_id,
+                                avatar: item.ext_user_info.avatar,
+                            });
+                        });
+                    } else {
+                        topic_list = res.data.data.list || [];
+                    }
+
+                    topic_list.forEach((item) => {
+                        data.push({
+                            id: item.id,
+                            created_at: item.created_at,
+                            type: "topic",
+                            category: item.category,
+                            content: item.title || "无内容",
+                            user_name: item.ext_user_info.display_name,
+                            user_id: item.ext_user_info.user_id,
+                            avatar: item.ext_user_info.avatar,
+                        });
+                    });
+                    this.data = data;
                     this.aggregate = this.data.map((item) => this.reportLink(getLink(this.appKey, item.id)));
                 })
                 .finally(() => {
@@ -142,9 +180,8 @@ export default {
         dateFormat: function (val) {
             return showRecently(val);
         },
-        showPostAvatar: function (item) {
-            let val = item.ext_user_info && item.ext_user_info.avatar;
-            return showAvatar(val);
+        showPostAvatar: function (avatar) {
+            return showAvatar(avatar);
         },
         reportLink(link) {
             const prefix = this.client == "std" ? "www" : "origin";

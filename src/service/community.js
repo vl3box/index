@@ -10,4 +10,10 @@ function getTopicBucket(params) {
 const getTopicList = (params) => {
     return $next().get(`${API_PREFIX}/community/discussion/topic/list`, { params });
 };
-export { getTopicList, getTopicBucket };
+
+// 获取最新讨论-主题帖和回复各4条
+const getMixLatest = () => {
+    return $next().get(`${API_PREFIX}/community/discussion/mix-latest`);
+};
+
+export { getTopicList, getTopicBucket, getMixLatest };
