@@ -151,6 +151,7 @@ export default {
                             var imgTagRegex = /<img[^>]*>/g;
                             // 使用正则表达式替换掉<img>标签
                             var text = item.content.replace(imgTagRegex, "[图片]");
+
                             // 加载表情包（回帖会有表情包）
                             const ins = new JX3_EMOTION(text);
                             const content = await ins._renderHTML();
@@ -233,6 +234,11 @@ export default {
         display: inline-block;
         margin: 0;
         align-items: center;
+        * > {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
         img {
             vertical-align: middle;
             position: relative;
