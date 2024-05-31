@@ -12,7 +12,12 @@
                 </div>
             </template>
             <div v-else @click.stop="close">
-                <img class="children-card__img animation" :src="`${imgLink}children2024/bg2.png`" alt="六一儿童节" />
+                <img
+                    class="children-card__img animation"
+                    :class="show ? 'flipInY' : ''"
+                    :src="`${imgLink}children2024/bg2.png`"
+                    alt="六一儿童节"
+                />
                 <img
                     class="animation children-card__content"
                     :class="show ? 'flipInY' : ''"
