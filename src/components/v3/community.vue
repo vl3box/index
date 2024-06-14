@@ -63,7 +63,7 @@
                         </div>
                         <span class="u-title">
                             <i class="el-icon-reading"></i>
-                            <p class="u-content" v-html="item.content"></p>
+                            <p class="u-content" v-html="br2nl(item.content)"></p>
                         </span>
                     </a>
                 </div>
@@ -201,6 +201,9 @@ export default {
         },
         getLink,
         authorLink,
+        br2nl: function (val) {
+            return val.replace(/<br>/g, "\n");
+        },
     },
     watch: {
         category: function () {
