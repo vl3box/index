@@ -115,7 +115,7 @@
     .m-buttons {
         .flex;
         gap: 10px;
-        overflow-x: auto;
+        // overflow-x: auto;
         .u-button {
             .size(auto,42px);
             .lh(42px);
@@ -160,5 +160,11 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         gap: 20px;
+
+        .m-buttons{
+            padding:10px 0;
+            overflow-x: auto;
+            overflow-y: visible;
+        }
     }
 }
