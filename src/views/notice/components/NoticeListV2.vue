@@ -7,7 +7,7 @@
                     class="u-button"
                     v-for="(item, i) in buttons"
                     :key="i"
-                    @click="change(item.value)"
+                    @click="change(item)"
                     :class="[{ active: type == item.value }, item.key]"
                 >
                     {{ item.name }}
@@ -97,7 +97,7 @@ export default {
                 },
                 {
                     name: "功能更新",
-                    key: "update",
+                    key: "feature",
                     value: 3,
                 },
                 {
@@ -162,10 +162,15 @@ export default {
             this.index = "";
         },
         // 切换类型
-        change(key) {
-            this.type = key;
+        change({key, value}) {
+            this.type = value;
             this.page = 1;
-            console.log(key);
+
+            this.$router.push({
+                query: {
+                    tab: key,
+                },
+            });
         },
         showDate,
     },
@@ -186,6 +191,18 @@ export default {
                 if (height > 1024) {
                     this.per = 20;
                     this.page = 1;
+                }
+            },
+        },
+        $route: {
+            immediate: true,
+            handler: function (val) {
+                let tab = val.query.tab;
+                let type = this.buttons.find((item) => item.key == tab);
+                if (type) {
+                    this.type = type.value;
+                } else {
+                    this.type = "";
                 }
             },
         },
