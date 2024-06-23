@@ -145,6 +145,11 @@ export default {
                 driver.drive();
             }
         });
+
+        // 如果路由包含index/feature
+        if (location.href.indexOf("index/feature") > -1){
+            location.href = "/notice?tab=feature";
+        }
     },
 };
 </script>
