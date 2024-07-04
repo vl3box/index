@@ -202,7 +202,8 @@ export default {
         getLink,
         authorLink,
         br2nl: function (val) {
-            return val.replace(/<br>/g, "\n");
+            // 将<br> <br />转换为换行
+            return val.replace(/<br\s*\/?>/g, "\n");
         },
     },
     watch: {
