@@ -24,9 +24,9 @@
             </a>
         </div>
         <ul class="m-news-list m-sideblock-list" v-if="data">
-            <li v-for="(item, i) in data" :key="i">
+            <li v-for="(item, i) in data" :key="i" :style="itemStyle(item)">
                 <em v-if="item.time">{{ dateFormat(item.time) }}</em>
-                <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                <a :href="item.url" target="_blank" rel="noopener noreferrer" :style="{ color: item.color }">{{ item.title }}</a>
             </li>
         </ul>
     </div>
@@ -180,6 +180,15 @@ export default {
                 })
             })
         },
+        itemStyle(item) {
+            if (item?.color) {
+                return {
+                    color: item.color,
+                    fontWeight: "bold",
+                }
+            }
+            return {}
+        }
     },
     mounted: function () {
         this.loadGameData();
