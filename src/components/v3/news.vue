@@ -24,9 +24,9 @@
             </a>
         </div>
         <ul class="m-news-list m-sideblock-list" v-if="data">
-            <li v-for="(item, i) in data" :key="i" :style="itemStyle(item)">
+            <li v-for="(item, i) in data" :key="i">
                 <em v-if="item.time">{{ dateFormat(item.time) }}</em>
-                <a :href="item.url" target="_blank" rel="noopener noreferrer" :style="{ color: item.color }">{{ item.title }}</a>
+                <a :href="item.url" target="_blank" rel="noopener noreferrer" :style="itemStyle(item)">{{ item.title }}</a>
             </li>
         </ul>
     </div>
