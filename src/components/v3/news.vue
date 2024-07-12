@@ -26,7 +26,9 @@
         <ul class="m-news-list m-sideblock-list" v-if="data">
             <li v-for="(item, i) in data" :key="i">
                 <em v-if="item.time">{{ dateFormat(item.time) }}</em>
-                <a :href="item.url" target="_blank" rel="noopener noreferrer" :style="itemStyle(item)">{{ item.title }}</a>
+                <a :href="item.url" target="_blank" rel="noopener noreferrer" :style="itemStyle(item)">{{
+                    item.title
+                }}</a>
             </li>
         </ul>
     </div>
@@ -34,11 +36,11 @@
 
 <script>
 import { getGameNews } from "@/service/spider";
-import { getPosts } from "@/service/index";
+import { getPostsFree } from "@/service/index";
 import dateFormat from "@/utils/dateFormat.js";
 import { getChangelog } from "@/service/cms";
 import { getLink } from "@jx3box/jx3box-common/js/utils";
-import {all_map} from "@jx3box/jx3box-common/data/jx3_zlp.json";
+import { all_map } from "@jx3box/jx3box-common/data/jx3_zlp.json";
 export default {
     name: "IndexNews",
     components: {},
@@ -101,7 +103,7 @@ export default {
                 obj[item.value] = item.label;
                 return obj;
             }, {});
-        }
+        },
     },
     methods: {
         dateFormat: function (val) {
@@ -156,7 +158,12 @@ export default {
             });
         },
         loadBoxData: function () {
-            getPosts(this.client, "notice", 5).then((res) => {
+            getPostsFree({
+                client: this.client,
+                type: "notice",
+                per: 5,
+                sticky: 1,
+            }).then((res) => {
                 this.box_data = res.data.data?.list?.map((item) => {
                     item.title = item.post_title;
                     item.url = `/notice/${item.ID}`;
@@ -169,26 +176,26 @@ export default {
         loadSkillChangeData: function () {
             const params = {
                 client: this.client,
-            }
-            getChangelog(params).then(res => {
-                this.skill_change_data = (res.data.data?.list || []).slice(0, 5).map(item => {
+            };
+            getChangelog(params).then((res) => {
+                this.skill_change_data = (res.data.data?.list || []).slice(0, 5).map((item) => {
                     item.title = `【${this.zlp_map[item.zlp]}】${item.title}`;
                     item.url = item.link || getLink("bps", item.post_id);
                     item.time = new Date(item.date);
                     item.type = "skill_change";
                     return item;
-                })
-            })
+                });
+            });
         },
         itemStyle(item) {
             if (item?.color) {
                 return {
                     color: item.color,
                     fontWeight: "bold",
-                }
+                };
             }
-            return {}
-        }
+            return {};
+        },
     },
     mounted: function () {
         this.loadGameData();

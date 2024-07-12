@@ -14,6 +14,12 @@ function getPosts(client = "std", type, per = 5, subtype) {
     });
 }
 
+function getPostsFree(params) {
+    return $cms({ mute: true }).get("/api/cms/posts/latest", {
+        params: params,
+    });
+}
+
 function getTeams(params) {
     return $team({ mute: true }).get("/api/team/public", {
         params: params,
@@ -52,4 +58,4 @@ function getEmotions(params) {
     })
 }
 
-export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin, getItemPrice, getFaceList, getEmotions };
+export { getPosts, getTeams, getJokes, searchRaids, getBoxCoin, getItemPrice, getFaceList, getEmotions,getPostsFree };
