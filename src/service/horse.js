@@ -5,12 +5,13 @@ export function getGameReporter(params) {
     });
 }
 
-export function getChituHorse(server) {
+// 赤兔 的卢
+export function getHorseReporter(type, server) {
     const params = {
         pageIndex: 1,
         pageSize: 50,
         server,
-        type: "chitu-horse",
+        type,
         subtype: "share_msg",
     };
     return $next().get("/api/game/reporter/horse", {

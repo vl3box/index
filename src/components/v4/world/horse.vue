@@ -7,6 +7,28 @@
                     <el-option v-for="server in servers" :key="server" :label="server" :value="server"></el-option>
                 </el-select>
             </el-divider>
+            <div class="u-item" key="dilu">
+                <div class="u-horse-name-wrap">
+                    <a class="u-horse-name" :href="getLink('的卢')" target="_blank">
+                        <el-image :src="getImgSrc('的卢')" class="u-image"></el-image>
+                    </a>
+                    <span class="u-horse-name no-link">的卢</span>
+                    <el-tooltip effect="dark" placement="top" popper-class="u-dilu-tip">
+                        <template #content>
+                            <div v-html="diluTip"></div>
+                        </template>
+                        <i class="el-icon-question"></i>
+                    </el-tooltip>
+                    <i :class="diluLoading ? 'el-icon-loading' : 'el-icon-refresh'" @click="loadDiluData"></i>
+                </div>
+                <div class="u-times-info">
+                    <span v-if="!diluHasExist" class="u-times-lately">本CD尚未刷新</span>
+                    <template v-else>
+                        <div class="u-map-name is-exist">{{ diluExistData.map }}</div>
+                        <div class="u-times is-exist">{{ diluExistData.time }}</div>
+                    </template>
+                </div>
+            </div>
             <div class="u-item" key="chitu">
                 <div class="u-horse-name-wrap">
                     <a class="u-horse-name" :href="getLink('赤兔')" target="_blank">
@@ -22,10 +44,10 @@
                     <i :class="chituLoading ? 'el-icon-loading' : 'el-icon-refresh'" @click="loadChituData"></i>
                 </div>
                 <div class="u-times-info">
-                    <span v-if="!hasExist" class="u-times-lately">本CD尚未刷新</span>
+                    <span v-if="!chituHasExist" class="u-times-lately">本CD尚未刷新</span>
                     <template v-else>
-                        <div class="u-map-name is-exist">{{ existData.map }}</div>
-                        <div class="u-times is-exist">{{ existData.time }}</div>
+                        <div class="u-map-name is-exist">{{ chituExistData.map }}</div>
+                        <div class="u-times is-exist">{{ chituExistData.time }}</div>
                     </template>
                 </div>
             </div>
@@ -67,7 +89,7 @@ import servers_std from "@jx3box/jx3box-data/data/server/server_std.json";
 import servers_origin from "@jx3box/jx3box-data/data/server/server_origin.json";
 import horseSites from "@/assets/data/horse_sites.json";
 import horseBroadcast from "@/assets/data/horse_broadcast.json";
-import { getGameReporter, getUserInfo, getChituHorse } from "@/service/horse";
+import { getGameReporter, getUserInfo, getHorseReporter } from "@/service/horse";
 import dayjs from "@/utils/day";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
@@ -82,9 +104,9 @@ export default {
                 小赤: "阴山大草原",
                 杨新: "黑戈壁",
             },
-            // 本cd是否刷新
-            hasExist: false,
-            existData: {
+            // 赤兔本cd是否刷新
+            chituHasExist: false,
+            chituExistData: {
                 map: "",
                 time: "",
             },
@@ -94,6 +116,18 @@ export default {
              <p>必备: <卦文龟甲>交大战时有几率获得，赤兔刷新后再到信使处领取，有效期8天。</p>
             `,
             chituLoading: false,
+
+            // 的卢本cd是否刷新
+            diluHasExist: false,
+            diluExistData: {
+                map: "",
+                time: "",
+            },
+            diluTip: `
+             <p>CD: 每周一次，周一、三、五、六、日 10点 ~ 24点期间随机开启。</p>
+             <p>地图: 随机刷新于某一野外场景。</p>
+            `,
+            diluLoading: false,
         };
     },
     computed: {
@@ -121,14 +155,60 @@ export default {
             this.list = []; // 需要置空后重新计算cross的scrollWidth
             this.getGameReporter();
             this.loadChituData();
+            this.loadDiluData();
         },
     },
     methods: {
-        loadChituData() {
+        loadDiluData() {
+            // 每周一、三、五、六、日 10：00-24：00期间随机开启
+            // 开启前60分钟及开启时均有系统公告提醒
+            // 同服务器每周只开启一次
+            // 【的卢】随机刷新于某一野外场景
             const server = this.server;
+            const type = "dilu-horse";
+            this.diluLoading = true;
+            getHorseReporter(type, server)
+                .then((res) => {
+                    const list = res.data?.data?.list || [];
+                    if (!list.length) {
+                        return;
+                    }
+                    // 最近刷新时间
+                    const created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
+                    const now = dayjs.tz();
+                    const now_day = now.day();
+                    let cd_from_time = now.day(1).hour(10).minute(0).second(0).millisecond(0);
+                    let cd_to_time = cd_from_time.add(1, "week").add(-10, "hour").add(-1, "millisecond");
+                    if (now_day < 1) {
+                        // 周日为0 / 为上一个CD
+                        cd_from_time = dayjs.tz(cd_from_time).add(-1, "week");
+                        cd_to_time = dayjs.tz(cd_to_time).add(-1, "week");
+                    }
+                    // 最近刷新时间是否在当前CD中
+                    const isBetween = dayjs.tz(created_at).isBetween(cd_from_time, cd_to_time);
+                    console.log(now, now_day, cd_from_time, cd_to_time, isBetween);
+                    this.diluHasExist = isBetween;
+                    if (isBetween) {
+                        const content = list?.[0]?.content || "";
+                        const mapName = content.match(/的卢已经出现在(\S*)中/)
+                            ? content.match(/的卢已经出现在(\S*)中/)[1]
+                            : "";
+                        this.diluExistData = {
+                            map: mapName,
+                            time: dayjs.tz(created_at).format("YYYY-MM-DD HH:mm:ss"),
+                        };
+                    }
+                })
+                .finally(() => {
+                    this.diluLoading = false;
+                });
+        },
+        loadChituData() {
             // 周二7点到下周一7点为一个CD， 7天内随机刷一只，地图为黑戈壁、阴山大草原、鲲鹏岛
+            const server = this.server;
+            const type = "chitu-horse";
             this.chituLoading = true;
-            getChituHorse(server)
+            getHorseReporter(type, server)
                 .then((res) => {
                     const list = res.data?.data?.list || [];
                     if (!list.length) {
@@ -148,11 +228,11 @@ export default {
                     }
                     // 最近刷新时间是否在当前CD中
                     const isBetween = dayjs.tz(created_at).isBetween(cd_from_time, cd_to_time);
-                    this.hasExist = isBetween;
+                    this.chituHasExist = isBetween;
                     if (isBetween) {
                         const content = list?.[0]?.content || "";
                         const npc = /\]\[(.*)\]大声喊/.exec(content)[1].trim();
-                        this.existData = {
+                        this.chituExistData = {
                             map: this.chituMap[npc] || "",
                             time: dayjs.tz(created_at).format("YYYY-MM-DD HH:mm:ss"),
                         };
@@ -302,7 +382,8 @@ export default {
 <style lang="less">
 @import "~@//assets/css/v4/world/horse.less";
 
-.u-chitu-tip {
+.u-chitu-tip,
+.u-dilu-tip {
     max-width: 200px;
 }
 </style>
