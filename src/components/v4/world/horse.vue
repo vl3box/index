@@ -186,7 +186,6 @@ export default {
                     }
                     // 最近刷新时间是否在当前CD中
                     const isBetween = dayjs.tz(created_at).isBetween(cd_from_time, cd_to_time);
-                    console.log(now, now_day, cd_from_time, cd_to_time, isBetween);
                     this.diluHasExist = isBetween;
                     if (isBetween) {
                         const content = list?.[0]?.content || "";
