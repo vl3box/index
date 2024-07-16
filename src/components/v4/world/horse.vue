@@ -149,6 +149,11 @@ export default {
                 type: "horse",
             };
         },
+        isAsia() {
+            // 是否是东八区
+            const _timezone = this.$store.state.timezone;
+            return _timezone === "Asia/Shanghai";
+        },
     },
     watch: {
         server() {
@@ -173,8 +178,11 @@ export default {
                     if (!list.length) {
                         return;
                     }
-                    // 最近刷新时间
-                    const created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
+                    // 最近刷新时间 返回的时间已经是东八区时间，其余对比时间同样需要换算到东八区时间
+                    let created_at = dayjs(list?.[0].created_at || dayjs.tz());
+                    if (!this.isAsia) {
+                        created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
+                    }
                     const now = dayjs.tz();
                     const now_day = now.day();
                     let cd_from_time = now.day(1).hour(10).minute(0).second(0).millisecond(0);
@@ -194,7 +202,7 @@ export default {
                             : "";
                         this.diluExistData = {
                             map: mapName,
-                            time: dayjs.tz(created_at).format("YYYY-MM-DD HH:mm:ss"),
+                            time: created_at.format("YYYY-MM-DD HH:mm:ss"),
                         };
                     }
                 })
@@ -213,8 +221,12 @@ export default {
                     if (!list.length) {
                         return;
                     }
-                    // 最近刷新时间
-                    const created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
+                    // 最近刷新时间 返回的时间已经是东八区时间，其余对比时间同样需要换算到东八区时间
+                    const _timezone = this.$store.state.timezone;
+                    let created_at = dayjs(list?.[0].created_at || dayjs.tz());
+                    if (_timezone !== "Asia/Shanghai") {
+                        created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
+                    }
                     const now = dayjs.tz();
                     const now_day = now.day();
                     const now_hour = now.hour();
@@ -335,15 +347,31 @@ export default {
                         let fromTime = "";
                         let toTime = "";
                         if (!!("minute" in item)) {
-                            fromTime = dayjs
-                                .tz(new Date(item.created_at).valueOf() + (item.minute + 5) * 60 * 1000)
-                                .format("HH:mm");
-                            toTime = dayjs
-                                .tz(new Date(item.created_at).valueOf() + (item.minute + 10) * 60 * 1000)
-                                .format("HH:mm");
+                            if (!this.isAsia) {
+                                fromTime = dayjs
+                                    .tz(new Date(item.created_at).valueOf() + (item.minute + 5) * 60 * 1000)
+                                    .format("HH:mm");
+                                toTime = dayjs
+                                    .tz(new Date(item.created_at).valueOf() + (item.minute + 10) * 60 * 1000)
+                                    .format("HH:mm");
+                            } else {
+                                fromTime = dayjs(
+                                    new Date(item.created_at).valueOf() + (item.minute + 5) * 60 * 1000
+                                ).format("HH:mm");
+                                toTime = dayjs(
+                                    new Date(item.created_at).valueOf() + (item.minute + 10) * 60 * 1000
+                                ).format("HH:mm");
+                            }
                         } else {
-                            fromTime = dayjs.tz(new Date(item.created_at).valueOf() + 5 * 60 * 1000).format("HH:mm");
-                            toTime = dayjs.tz(new Date(item.created_at).valueOf() + 10 * 60 * 1000).format("HH:mm");
+                            if (!this.isAsia) {
+                                fromTime = dayjs
+                                    .tz(new Date(item.created_at).valueOf() + 5 * 60 * 1000)
+                                    .format("HH:mm");
+                                toTime = dayjs.tz(new Date(item.created_at).valueOf() + 10 * 60 * 1000).format("HH:mm");
+                            } else {
+                                fromTime = dayjs(new Date(item.created_at).valueOf() + 5 * 60 * 1000).format("HH:mm");
+                                toTime = dayjs(new Date(item.created_at).valueOf() + 10 * 60 * 1000).format("HH:mm");
+                            }
                         }
                         return {
                             ...item,
@@ -353,7 +381,7 @@ export default {
                         };
                     })
                     .sort(function (a, b) {
-                        return dayjs.tz(b.created_at).valueOf() - dayjs.tz(a.created_at).valueOf();
+                        return dayjs(b.created_at).valueOf() - dayjs(a.created_at).valueOf();
                     });
                 // console.log(this.list);
             });
