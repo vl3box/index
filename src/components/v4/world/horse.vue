@@ -193,7 +193,7 @@ export default {
                         cd_to_time = dayjs.tz(cd_to_time).add(-1, "week");
                     }
                     // 最近刷新时间是否在当前CD中
-                    const isBetween = dayjs.tz(created_at).isBetween(cd_from_time, cd_to_time);
+                    const isBetween = created_at.isBetween(cd_from_time, cd_to_time);
                     this.diluHasExist = isBetween;
                     if (isBetween) {
                         const content = list?.[0]?.content || "";
@@ -222,9 +222,8 @@ export default {
                         return;
                     }
                     // 最近刷新时间 返回的时间已经是东八区时间，其余对比时间同样需要换算到东八区时间
-                    const _timezone = this.$store.state.timezone;
                     let created_at = dayjs(list?.[0].created_at || dayjs.tz());
-                    if (_timezone !== "Asia/Shanghai") {
+                    if (!this.isAsia) {
                         created_at = dayjs.tz(list?.[0].created_at || dayjs.tz());
                     }
                     const now = dayjs.tz();
@@ -238,14 +237,14 @@ export default {
                         cd_to_time = dayjs.tz(cd_to_time).add(-1, "week");
                     }
                     // 最近刷新时间是否在当前CD中
-                    const isBetween = dayjs.tz(created_at).isBetween(cd_from_time, cd_to_time);
+                    const isBetween = created_at.isBetween(cd_from_time, cd_to_time);
                     this.chituHasExist = isBetween;
                     if (isBetween) {
                         const content = list?.[0]?.content || "";
                         const npc = /\]\[(.*)\]大声喊/.exec(content)[1].trim();
                         this.chituExistData = {
                             map: this.chituMap[npc] || "",
-                            time: dayjs.tz(created_at).format("YYYY-MM-DD HH:mm:ss"),
+                            time: created_at.format("YYYY-MM-DD HH:mm:ss"),
                         };
                     }
                 })
@@ -380,11 +379,13 @@ export default {
                             toTime: toTime,
                         };
                     })
-                    .sort(function (a, b) {
-                        return dayjs(b.created_at).valueOf() - dayjs(a.created_at).valueOf();
-                    });
+                    .sort((a, b) => this.convertTime(a.fromTime) - this.convertTime(b.fromTime));
                 // console.log(this.list);
             });
+        },
+        convertTime(time) {
+            const [hour, minute] = time.split(":").map(Number);
+            return hour * 60 + minute;
         },
     },
     mounted() {
