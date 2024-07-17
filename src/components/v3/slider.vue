@@ -15,6 +15,15 @@
                 </div>
                 <div class="m-tv-right">
                     <a
+                        class="u-tv-douyin u-tv-link"
+                        href="https://www.douyin.com/user/MS4wLjABAAAAP3OHPy-BYsW6IMiPZfP1FP3J_zYAAYNVVlk9XyoKhOs"
+                        target="_blank"
+                        @mouseenter="addAni('douyin', 'animate__rubberBand')"
+                        @mouseleave="resetAni('douyin')"
+                    >
+                        <img svg-inline src="@/assets/img/tv/douyin.svg" :class="ani.douyin" />剑网3魔盒
+                    </a>
+                    <a
                         class="u-tv-weibo u-tv-link"
                         href="https://weibo.com/jx3box"
                         target="_blank"
@@ -88,6 +97,7 @@ export default {
                 tv: "",
                 bilibili: "",
                 weibo: "",
+                douyin: ""
             },
         };
     },
