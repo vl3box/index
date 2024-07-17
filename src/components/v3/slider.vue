@@ -18,7 +18,7 @@
                         class="u-tv-douyin u-tv-link"
                         href="https://www.douyin.com/user/MS4wLjABAAAAP3OHPy-BYsW6IMiPZfP1FP3J_zYAAYNVVlk9XyoKhOs"
                         target="_blank"
-                        @mouseenter="addAni('douyin', 'animate__rubberBand')"
+                        @mouseenter="addAni('douyin', 'animate__rotateIn')"
                         @mouseleave="resetAni('douyin')"
                     >
                         <img svg-inline src="@/assets/img/tv/douyin.svg" :class="ani.douyin" />剑网3魔盒
@@ -30,7 +30,7 @@
                         @mouseenter="addAni('weibo', 'animate__rubberBand')"
                         @mouseleave="resetAni('weibo')"
                     >
-                        <img svg-inline src="@/assets/img/tv/weibo.svg" :class="ani.weibo" />JX3BOX魔盒
+                        <img svg-inline src="@/assets/img/tv/weibo.svg" :class="ani.weibo" />剑网3魔盒
                     </a>
                     <a
                         class="u-tv-bilibili u-tv-link"
@@ -39,7 +39,7 @@
                         @mouseenter="addAni('bilibili', 'animate__swing')"
                         @mouseleave="resetAni('bilibili')"
                     >
-                        <img svg-inline src="@/assets/img/tv/bilibili.svg" :class="ani.bilibili" />魔盒tivi
+                        <img svg-inline src="@/assets/img/tv/bilibili.svg" :class="ani.bilibili" />剑网3魔盒
                     </a>
                 </div>
             </div>
