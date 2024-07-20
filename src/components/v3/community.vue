@@ -158,7 +158,7 @@ export default {
                             data.push({
                                 id: item.topic.id,
                                 type: "reply",
-                                created_at: item.created_at,
+                                created_at: item.latest_reply_at,
                                 category: item.topic.category,
                                 content: content || "无内容",
                                 user_name: item.ext_user_info.display_name,
@@ -173,7 +173,7 @@ export default {
                     topic_list.forEach((item) => {
                         data.push({
                             id: item.id,
-                            created_at: item.created_at,
+                            created_at: item.latest_reply_at || item.created_at,
                             type: "topic",
                             category: item.category,
                             content: item.title || "无内容",
