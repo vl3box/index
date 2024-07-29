@@ -29,6 +29,9 @@ export default {
                 if (data?.post_status == 'migration') {
                     location.href = `/community/${data.ID}`;
                 }
+                if (data.post_type == 'post') {
+                    location.href = `/bbs/${data.ID}`;
+                }
 
                 location.href = `/${data.post_type}/${data.ID}`;
             })
