@@ -1,7 +1,7 @@
 <template>
     <div class="midAutumn">
         <div class="m-count" :class="{ flipper }">
-            <img :src="`${imgLink}${item}.png`" v-for="(item, index) in number" :key="index" class="u-count" />
+            <img :src="`${imgLink}${item}.png`" class="u-count" />
         </div>
         <img :src="`${imgLink}202403.png`" class="u-img u-bg" :class="{ flipper }" @click="close" />
         <div class="u-img u-img-cover" @click.stop="hide" :class="{ active, flipper }">
