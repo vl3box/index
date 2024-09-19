@@ -1294,13 +1294,13 @@
     url "^0.11.0"
     vue "^2.6.11"
 
-"@jx3box/jx3box-common-ui@^8.9.19":
-  version "8.9.19"
-  resolved "https://registry.npmmirror.com/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.19.tgz#0c9629da0a5b207ffca9185be36630dd4501f6ba"
-  integrity sha512-JGVs4Zlp02cYjLojlMkCPqC55vz6w+rHxkJDsoJSEFThkHclNY9z7xsrFWx5opucd0+fy+DxKya/MgBCej5CCw==
+"@jx3box/jx3box-common-ui@^8.9.21":
+  version "8.9.21"
+  resolved "https://registry.npmmirror.com/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.21.tgz#8fe66be7af8c96910c77f2c4c6fc4c93ef743384"
+  integrity sha512-alKGoNaApgIzcadBmUtSSMiWvMwp585JrjY5fSM629OfXlZqN5y0GB8ALUSX3uEDXukSLDGeEiHv7X5IXIbfEg==
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.9.3"
-    "@jx3box/jx3box-common" "^8.2.18"
+    "@jx3box/jx3box-common" "^8.3.5"
     "@jx3box/jx3box-data" "^3.5.8"
     "@jx3box/jx3box-editor" "^2.1.9"
     "@jx3box/reporter" "^0.0.4"
