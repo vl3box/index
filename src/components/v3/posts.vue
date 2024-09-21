@@ -145,12 +145,8 @@ export default {
                     slug: "fb",
                 },
                 {
-                    label: "资源",
+                    label: "工具",
                     slug: "tool",
-                },
-                {
-                    label: "茶馆",
-                    slug: "bbs",
                 },
                 {
                     label: "成就",
