@@ -61,6 +61,7 @@ import { getConfig } from "@/service/setting.js";
 import _ from "lodash";
 import "animate.css";
 import driver from "@/utils/driver.js";
+import { isMiniProgram } from "@jx3box/jx3box-common/js/utils";
 
 export default {
     name: "App",
@@ -128,23 +129,25 @@ export default {
             const footer = document.querySelector(".c-footer");
             main.appendChild(footer);
         }
-        this.$nextTick(() => {
-            if (this.isLogin) {
-                getMeta("new_user_guide").then((res) => {
-                    let val = ~~res.data.data;
-                    if (!val) {
-                        driver.drive();
+        if (!isMiniProgram()) {
+            this.$nextTick(() => {
+                if (this.isLogin) {
+                    getMeta("new_user_guide").then((res) => {
+                        let val = ~~res.data.data;
+                        if (!val) {
+                            driver.drive();
+                        }
+                    });
+                } else {
+                    const key = "new_user_guide";
+                    const isShow = localStorage.getItem(key);
+                    if (~~isShow) {
+                        return;
                     }
-                });
-            } else {
-                const key = "new_user_guide";
-                const isShow = localStorage.getItem(key);
-                if (~~isShow) {
-                    return;
+                    driver.drive();
                 }
-                driver.drive();
-            }
-        });
+            });
+        }
 
         // 如果路由包含index/feature
         if (location.href.indexOf("index/feature") > -1){
