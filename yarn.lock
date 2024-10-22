@@ -1275,14 +1275,14 @@
     "vue" "^2.6.11"
     "vuex" "^3.6.2"
 
-"@jx3box/jx3box-common-ui@^8.0.13", "@jx3box/jx3box-common-ui@^8.7.0", "@jx3box/jx3box-common-ui@^8.9.28":
-  "integrity" "sha512-4BozFWpxEMuZBo7dJRM6MAV9T4gNkSjQFzcUwkItUjG4EbURMDYDl/8owV53BekwbsLFcw4Nks+/XpHA7hUMMg=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.28.tgz"
-  "version" "8.9.28"
+"@jx3box/jx3box-common-ui@^8.0.13", "@jx3box/jx3box-common-ui@^8.7.0", "@jx3box/jx3box-common-ui@^8.9.29":
+  "integrity" "sha512-Nr+fy3wzavKL7yJe1jwrwRKbtVFhzrEdKE/Ip9V60zON8cDRFUFGqy0FkU7d2FzKOp9caHLBaQbcKKpIE4NqbA=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.29.tgz"
+  "version" "8.9.29"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.9.9"
-    "@jx3box/jx3box-common" "^8.3.8"
-    "@jx3box/jx3box-data" "^3.6.8"
+    "@jx3box/jx3box-common" "^8.4.1"
+    "@jx3box/jx3box-data" "^3.6.9"
     "@jx3box/jx3box-editor" "^2.2.15"
     "@jx3box/reporter" "^0.0.4"
     "axios" "^0.26.1"
@@ -1330,10 +1330,10 @@
     "uuid" "^9.0.0"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^8.1.4", "@jx3box/jx3box-common@^8.2.18", "@jx3box/jx3box-common@^8.3.4", "@jx3box/jx3box-common@^8.3.8":
-  "integrity" "sha512-hGsTGNcbWcr1lWyDy/H1Ks7KuA+yD6/F/y3rM5fWoFJUzSL+U2ETeg4UyoG6v/Axxu+nAuZiSlqnTVULdMBawQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.3.8.tgz"
-  "version" "8.3.8"
+"@jx3box/jx3box-common@^8.1.4", "@jx3box/jx3box-common@^8.2.18", "@jx3box/jx3box-common@^8.3.4", "@jx3box/jx3box-common@^8.4.1":
+  "integrity" "sha512-EaWD37juB7mWRE8TJuQL24NU9JjX1arRBOaIXIQPlcat8MkoHLDeBaOXeONfZeDcvahcd2f6ZhgA8AjOjE/VdA=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.4.1.tgz"
+  "version" "8.4.1"
   dependencies:
     "@jx3box/reporter" "^0.0.5"
     "axios" "^1.6.8"
@@ -1345,10 +1345,10 @@
     "uuid" "^9.0.0"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-data@^3.3.0", "@jx3box/jx3box-data@^3.5.8", "@jx3box/jx3box-data@^3.6.6", "@jx3box/jx3box-data@^3.6.8":
-  "integrity" "sha512-5dpKw+fx9sZqIVkqsBMlF9NjSTjZvJMv99IHkUDP8PdFTKRT0AzS9dQsC8aVhgn9RgHYzw+wFEqLynCGzN5BnQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.6.8.tgz"
-  "version" "3.6.8"
+"@jx3box/jx3box-data@^3.3.0", "@jx3box/jx3box-data@^3.5.8", "@jx3box/jx3box-data@^3.6.6", "@jx3box/jx3box-data@^3.6.9":
+  "integrity" "sha512-KCWuruEb3nR5JpuAyT7V/L8hP5zFrR7OKNUZQkA6k4WreyqPqaHrMHmkEsFs0/kxS5K46QyF26rOr11lVrdsTA=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.6.9.tgz"
+  "version" "3.6.9"
 
 "@jx3box/jx3box-editor@^2.2.15":
   "integrity" "sha512-ZaR2H1wjj4H9jT16hpQ2emEdEVa6xfb9t2NGGus8PhstiBqhRmoIkJisD/fsk59liJefiCJgZebHq/cMIIwpSQ=="
