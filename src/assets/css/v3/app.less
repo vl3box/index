@@ -29,7 +29,27 @@ body {
     padding: 20px 20px 20px 0;
     // margin-left: @left;
 }
-
+.m-primary__main {
+    position: relative;
+    overflow-x: hidden;
+    .flex;
+    gap: 10px;
+    .m-primary__main-left {
+        flex: 1;
+        width: calc(100% - 330px);
+    }
+    .m-primary__main-right {
+        flex: 0;
+        width: 320px;
+    }
+    @media screen and (max-width: @phone) {
+        flex-direction: column;
+        .m-primary__main-left,
+        .m-primary__main-right {
+            width: 100%;
+        }
+    }
+}
 @media screen and (max-width: @ipad) {
     .m-main {
         .flex;
@@ -60,8 +80,6 @@ body {
     .c-footer {
         order: 99;
     }
-
-
 
     .wechat-miniprogram {
         .m-main {

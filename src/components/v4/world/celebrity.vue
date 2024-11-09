@@ -1,7 +1,9 @@
 <template>
     <div class="m-celebrity-wrap">
         <el-divider content-position="left">
-            名望&nbsp;·&nbsp;
+            名望
+            <template v-if="type === '2'"> &nbsp;·&nbsp;河西瀚漠 </template>
+            &nbsp;·&nbsp;
             <el-select v-model="type" @change="typeChange">
                 <el-option v-for="type in types" :key="type.value" :label="type.label" :value="type.value"></el-option>
             </el-select>

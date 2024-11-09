@@ -7,7 +7,6 @@
                 <news />
                 <jx3code />
                 <jx3servers />
-                <!-- <jx3world /> -->
                 <feedback />
                 <banner />
             </div>
@@ -17,9 +16,15 @@
                 <box />
 
                 <joke />
-                <jx3world />
-                <posts />
-                <community />
+                <div class="m-primary__main">
+                    <div class="m-primary__main-left">
+                        <posts />
+                        <community />
+                    </div>
+                    <div class="m-primary__main-right">
+                        <jx3world />
+                    </div>
+                </div>
                 <Footer></Footer>
             </div>
         </div>
@@ -34,7 +39,7 @@
 // 左侧
 import welcome from "@/components/v3/welcome.vue";
 import news from "@/components/v3/news.vue";
-import jx3world from "@/components/v4/jx3world.vue";
+import jx3world from "@/components/v4/jx3world_v4.vue";
 import jx3code from "@/components/v3/jx3code.vue";
 import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
@@ -150,7 +155,7 @@ export default {
         }
 
         // 如果路由包含index/feature
-        if (location.href.indexOf("index/feature") > -1){
+        if (location.href.indexOf("index/feature") > -1) {
             location.href = "/notice?tab=feature";
         }
     },
