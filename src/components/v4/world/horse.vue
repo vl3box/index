@@ -4,7 +4,7 @@
             <el-divider content-position="left">
                 <span>抓马&nbsp;·&nbsp;</span>
                 <el-select v-model="server">
-                    <el-option v-for="server in servers" :key="server" :label="server" :value="server"></el-option>
+                    <el-option v-for="(server, i) in servers" :key="i" :label="server" :value="server"></el-option>
                 </el-select>
             </el-divider>
             <div class="u-item" key="dilu">
