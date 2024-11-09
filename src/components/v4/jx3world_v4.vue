@@ -10,14 +10,8 @@
                 <span class="world-tip">{{ world_tip }}</span>
             </div>
         </div>
-        <div class="m-world-content m-sideblock-list">
-            <!-- 百战banner&按钮 -->
-            <el-image class="u-banner" :src="banner"></el-image>
-            <div class="m-btn-wrapper">
-                <el-button size="mini" @click="visible = true">快速预览</el-button>
-                <el-button size="mini" @click="toBaizhan">查看详情</el-button>
-            </div>
-            <!-- 日常 名望 休闲 -->
+        <div class="m-world-content">
+            <baizhan></baizhan>
             <daily></daily>
             <celebrity></celebrity>
             <horse></horse>
@@ -26,7 +20,6 @@
             <!-- <activity :activities="activities"></activity> -->
             <!-- <furniture v-if="isCurrentWeek" :date="date" :client="client"></furniture> -->
         </div>
-        <baizhan v-if="visible" :visible="visible" :isPhone="isPhone" @close="visible = false"></baizhan>
     </div>
 </template>
 
@@ -38,11 +31,11 @@ import luckyPet from "@/components/v4/world/lucky_pet";
 // import furniture from "@/components/v4/world/furniture";
 // import activity from "@/components/v4/world/activity";
 import reputation from "@/components/v4/world/reputation";
-import baizhan from "@/components/v4/world/baizhan.vue";
 import dayjs from "@/utils/day";
 import { formatTime } from "@/utils";
 import { getDailyFromOs } from "@/service/spider";
 import dailyKeys from "@/assets/data/daily_keys.json";
+import baizhan from "@/components/v4/world/baizhan_mini.vue";
 export default {
     name: "JX3WorldV4",
     components: {
@@ -74,8 +67,6 @@ export default {
             isSpc: false,
             isPhone: false,
             activities: [], // 日常配置列表
-            visible: false,
-            banner: "https://cdn.jx3box.com/upload/post/2024/11/7/294981_597969.png?x-oss-process=image/auto-orient,1/resize,m_fill,w_640,h_320/quality,Q_100",
         };
     },
     computed: {
@@ -104,9 +95,6 @@ export default {
         },
     },
     methods: {
-        toBaizhan() {
-            window.open("https://www.jx3box.com/fb/baizhan", "_blank");
-        },
         loadDailyNew() {
             const params = {
                 client: this.client,

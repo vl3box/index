@@ -36,11 +36,12 @@ body {
     gap: 10px;
     .m-primary__main-left {
         flex: 1;
-        width: calc(100% - 330px);
+        // width: calc(100% - 330px);
     }
     .m-primary__main-right {
         flex: 0;
         width: 320px;
+        min-width: 320px;
     }
     @media screen and (max-width: @phone) {
         flex-direction: column;

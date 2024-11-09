@@ -1,5 +1,5 @@
 <template>
-    <div class="m-celebrity-wrap">
+    <div class="m-world-block m-celebrity-wrap">
         <el-divider content-position="left">
             名望
             <template v-if="type === '2'"> &nbsp;·&nbsp;河西瀚漠 </template>

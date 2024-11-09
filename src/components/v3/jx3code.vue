@@ -8,7 +8,7 @@
             </div>
             <div class="u-right">
                 <span class="u-time">
-                    {{ showTime(time) }}
+                    <!-- {{ showTime(time) }} -->
                 </span>
             </div>
         </div>

@@ -8,7 +8,6 @@
                 <jx3code />
                 <jx3servers />
                 <feedback />
-                <banner />
             </div>
             <div class="m-primary">
                 <live />
@@ -22,6 +21,7 @@
                         <community />
                     </div>
                     <div class="m-primary__main-right">
+                        <banner />
                         <jx3world />
                     </div>
                 </div>

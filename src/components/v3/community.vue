@@ -226,7 +226,7 @@ export default {
 .m-v3-community {
     .u-title {
         display: flex;
-        height: 28px;
+        // height: 28px;
         align-items: center;
         gap: 4px;
         overflow: hidden;
