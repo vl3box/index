@@ -35,7 +35,7 @@ import dayjs from "@/utils/day";
 import { formatTime } from "@/utils";
 import { getDailyFromOs } from "@/service/spider";
 import dailyKeys from "@/assets/data/daily_keys.json";
-import baizhan from "@/components/v4/world/baizhan_mini.vue";
+import baizhan from "@/components/v4/world/baizhan.vue";
 export default {
     name: "JX3WorldV4",
     components: {

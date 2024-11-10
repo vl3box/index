@@ -111,7 +111,7 @@ export default {
             return this.$store.state.client;
         },
         more_link: function () {
-            return "/community";
+            return this.category === "all" ? "/community" : `/community?category=${this.category}`;
         },
         report_link: function () {
             const prefix = this.client == "std" ? "www" : "origin";

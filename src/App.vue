@@ -8,6 +8,8 @@
                 <jx3code />
                 <jx3servers />
                 <feedback />
+                <follow />
+                <banner v-if="!isStd" />
             </div>
             <div class="m-primary">
                 <live />
@@ -20,7 +22,7 @@
                         <posts />
                         <community />
                     </div>
-                    <div class="m-primary__main-right">
+                    <div v-if="isStd" class="m-primary__main-right">
                         <banner />
                         <jx3world />
                     </div>
@@ -44,6 +46,7 @@ import jx3code from "@/components/v3/jx3code.vue";
 import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
 import feedback from "@/components/v3/feedback.vue";
+import follow from "@/components/v3/follow.vue";
 import joke from "@/components/index/joke.vue";
 
 // 首屏
@@ -83,6 +86,9 @@ export default {
         isLogin() {
             return User.isLogin();
         },
+        isStd() {
+            return this.$store.state.client === "std";
+        },
     },
     components: {
         // 左侧
@@ -93,6 +99,7 @@ export default {
         jx3servers,
         banner,
         feedback,
+        follow,
 
         // 右侧
         live,
