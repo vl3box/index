@@ -5,8 +5,8 @@
             <div class="u-left"><i class="u-icon el-icon-info"></i><a class="u-title">关注我们</a></div>
         </div>
         <div class="m-follow-content">
-            <!-- <img class="u-img" src="@/assets/img/mobile/mp.jpg" alt="公众号码" />
-            <img class="u-img" src="@/assets/img/mobile/miniprogram.jpg" alt="小程序码" /> -->
+            <img class="u-img" src="@/assets/img/mobile/mp.jpg" alt="公众号码" />
+            <img class="u-img" src="@/assets/img/mobile/miniprogram.jpg" alt="小程序码" />
         </div>
     </div>
 </template>
@@ -29,10 +29,10 @@ export default {
     justify-content: space-evenly;
     align-items: center;
     gap: 20px;
-    padding: 10px;
+    padding: 20px 10px;
 
     .u-img {
-        .size(130px);
+        .size(100px);
         .r(6px);
     }
 }
