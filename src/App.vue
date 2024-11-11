@@ -9,22 +9,20 @@
                 <jx3servers />
                 <feedback />
                 <follow />
-                <banner v-if="!isStd" />
             </div>
             <div class="m-primary">
                 <live />
                 <slider />
                 <box />
-
                 <joke />
                 <div class="m-primary__main">
                     <div class="m-primary__main-left">
                         <posts />
                         <community />
                     </div>
-                    <div v-if="isStd" class="m-primary__main-right">
+                    <div class="m-primary__main-right">
                         <banner />
-                        <jx3world />
+                        <jx3world v-if="isStd" />
                     </div>
                 </div>
                 <Footer></Footer>
