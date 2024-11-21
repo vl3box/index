@@ -177,7 +177,7 @@ export default {
     watch: {
         params: {
             deep: true,
-            immediate: true,
+            // immediate: true,
             handler: function (val) {
                 this.loadPosts();
             },
