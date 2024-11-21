@@ -100,7 +100,7 @@ import _ from "lodash";
 // BOX设置
 import box from "@/assets/data/box.json";
 import { buildTarget } from "@jx3box/jx3box-common/js/utils";
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __imgPath, __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 import draggable from "vuedraggable";
 import User from "@jx3box/jx3box-common/js/user";
 
@@ -389,9 +389,11 @@ export default {
     },
     filters: {
         getBoxIcon: function (val) {
-            let web_url = __imgPath + "image/box/" + val;
             let local_url = "/box/" + val;
-            return process.env.NODE_ENV === "production" ? web_url : local_url;
+            val = val && val?.replace(".png", ".svg");
+            let web_url = __cdn + "logo-light/" + val;
+            return web_url;
+            // return process.env.NODE_ENV === "production" ? web_url : local_url;
         },
     },
     created: function () {
