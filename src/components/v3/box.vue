@@ -389,7 +389,7 @@ export default {
     },
     filters: {
         getBoxIcon: function (val) {
-            let local_url = "/box/" + val;
+            // let local_url = "/box/" + val;
             val = val && val?.replace(".png", ".svg");
             let web_url = __cdn + "logo-light/" + val;
             return web_url;
