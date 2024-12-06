@@ -37,7 +37,7 @@
 
 <script>
 // 左侧
-import welcome from "@/components/v3/welcome.vue";
+import welcome from "@/components/v4/welcome.vue";
 import news from "@/components/v3/news.vue";
 import jx3world from "@/components/v4/jx3world_v4.vue";
 import jx3code from "@/components/v3/jx3code.vue";
