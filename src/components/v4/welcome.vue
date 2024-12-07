@@ -1,6 +1,7 @@
 <template>
-    <div class="m-welcome" :style="{ backgroundImage: `url(${bg})` }">
-        <a :href="link" target="_blank" class="u-border"></a>
+    <div class="m-welcome">
+        <div class="u-pic" :style="{ backgroundImage: `url(${bg})` }"></div>
+        <a class="u-frame" :href="link" target="_blank"></a>
     </div>
 </template>
 
