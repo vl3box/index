@@ -1,6 +1,8 @@
 <template>
     <div class="m-welcome">
         <div class="u-pic" :style="{ backgroundImage: `url(${bg})` }"></div>
+        <i class="u-hook u-hook-left"><img src="@/assets/img/calendar/hook-2.png"></i>
+        <i class="u-hook u-hook-right"><img src="@/assets/img/calendar/hook-2.png"></i>
         <a class="u-frame" :href="link" target="_blank"></a>
     </div>
 </template>
