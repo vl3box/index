@@ -13,9 +13,9 @@
     z-index: 1;
     border-radius: 7.5px;
 
-    &:hover .u-pic::before {
-        animation: light-sweep 0.8s ease-in-out forwards;
-    }
+    // &:hover .u-pic::before {
+    //     animation: light-sweep 0.8s ease-in-out forwards;
+    // }
 
     .u-pic {
         .size(100%,100px);
@@ -23,21 +23,21 @@
         background-size: 100% auto;
         .pr;
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -150%; /* 光束初始位置 */
-            width: 120%;
-            height: 100%;
-            background: linear-gradient(
-                120deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.6) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: skewX(-30deg);
-        }
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     top: 0;
+        //     left: -150%; /* 光束初始位置 */
+        //     width: 120%;
+        //     height: 100%;
+        //     background: linear-gradient(
+        //         120deg,
+        //         rgba(255, 255, 255, 0) 0%,
+        //         rgba(255, 255, 255, 0.6) 50%,
+        //         rgba(255, 255, 255, 0) 100%
+        //     );
+        //     transform: skewX(-30deg);
+        // }
     }
 
     .u-frame {
