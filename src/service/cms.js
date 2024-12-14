@@ -116,7 +116,7 @@ function getUserDecoration(params) {
 }
 
 function getPublicDecoration() {
-    let url = __cdn + "decoration/index.json";
+    let url = __cdn + "design/decoration/index.json";
     return axios.get(url);
 }
 
