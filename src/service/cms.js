@@ -1,6 +1,6 @@
 import { $cms, $team } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 
 // 新接口2023.11.15
 function getConfigBanner(params) {
@@ -116,7 +116,7 @@ function getUserDecoration(params) {
 }
 
 function getPublicDecoration() {
-    let url = __imgPath + "decoration/index.json";
+    let url = __cdn + "decoration/index.json";
     return axios.get(url);
 }
 
