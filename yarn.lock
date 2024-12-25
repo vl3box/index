@@ -1405,10 +1405,10 @@
     "url" "^0.11.0"
     "vue" "^2.6.11"
 
-"@jx3box/jx3box-common-ui@^9.0.18":
-  "integrity" "sha512-aQRSc8c5YLIoyHhP5sYdMM9p9ck0m8CVxgwrffnM+JdkFLpPdNVshPo5hTCnxKIPuaoV7gm4HSp+NkVhb3X72Q=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-9.0.18.tgz"
-  "version" "9.0.18"
+"@jx3box/jx3box-common-ui@^9.0.19":
+  "integrity" "sha512-rJ1og2mdWt3K2tenJiwtV96BkmpnUU0FUI5SPUj9HNlvMHdmJBOHaz+tLa7CmxOnpV5FJGmn545CeiiVFTU0EA=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-9.0.19.tgz"
+  "version" "9.0.19"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.9.9"
     "@jx3box/jx3box-common" "^8.5.2"
