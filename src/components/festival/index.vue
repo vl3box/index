@@ -16,7 +16,7 @@ export default {
         return {
             success: false,
             visible: true,
-            count: 0,
+            count: 20,
             data: {},
             done: sessionStorage.getItem("festival_id"),
             check: false,

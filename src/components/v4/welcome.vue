@@ -1,8 +1,8 @@
 <template>
     <div class="m-welcome">
         <div class="u-pic" :style="{ backgroundImage: `url(${bg})` }"></div>
-        <i class="u-hook u-hook-left"><img src="@/assets/img/calendar/hook-2.png"></i>
-        <i class="u-hook u-hook-right"><img src="@/assets/img/calendar/hook-2.png"></i>
+        <i class="u-hook u-hook-left"><img src="@/assets/img/calendar/hook-2.png" /></i>
+        <i class="u-hook u-hook-right"><img src="@/assets/img/calendar/hook-2.png" /></i>
         <a class="u-frame" :href="link" target="_blank"></a>
     </div>
 </template>
@@ -38,7 +38,8 @@ export default {
         user_decoration(val) {
             // 如果设置值为空，则退回使用默认值
             if (val) {
-                this.bg = __imgPath + `decoration/images/${val}/calendar.png`;
+                const webp = ["jx3box-birthday-5"];
+                this.bg = __imgPath + `decoration/images/${val}/calendar.${webp.includes(val) ? "webp" : "png"}`;
                 this.renderDecoration(val);
             }
         },
