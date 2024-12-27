@@ -159,7 +159,7 @@ export default {
             }
         },
         showThumbnail(val) {
-            if (val.indexOf(".gif") > -1) {
+            if (val.includes('.gif') || val.includes('.webp')) {
                 return val;
             }
             return getThumbnail(val, "index_banner"); //[220, 60]
