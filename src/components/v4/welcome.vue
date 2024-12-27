@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
 import User from "@jx3box/jx3box-common/js/user";
 import { getConfigBanner, getUserDecoration, getPublicDecoration } from "@/service/cms.js";
@@ -21,7 +21,7 @@ export default {
     data: function () {
         return {
             // 主题背景
-            bg: `${__imgPath}decoration/images/0_TESTSAMPLE/calendar.png`,
+            bg: `${__cdn}design/decoration/images/0_TESTSAMPLE/calendar.png`,
             user_decoration: "",
 
             // 主题信息
@@ -39,7 +39,7 @@ export default {
             // 如果设置值为空，则退回使用默认值
             if (val) {
                 const webp = ["jx3box-birthday-5"];
-                this.bg = __imgPath + `decoration/images/${val}/calendar.${webp.includes(val) ? "webp" : "png"}`;
+                this.bg = __cdn + `design/decoration/images/${val}/calendar.${webp.includes(val) ? "webp" : "png"}`;
                 this.renderDecoration(val);
             }
         },

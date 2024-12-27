@@ -19,7 +19,7 @@
 <script>
 import calendar from "@/components/v2/calendar.vue";
 import { theme } from "../../../setting.json";
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getConfigBanner, getDecoration, getDecorationJson } from "@/service/cms.js";
 import { getBreadcrumb } from "@jx3box/jx3box-common/js/api_misc";
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
@@ -62,9 +62,9 @@ export default {
             // 日历背景图
             getConfigBanner({
                 type: "common",
-                subtype: "jba", 
+                subtype: "jba",
                 client: this.client,
-                status: 1 
+                status: 1
             }).then((res) => {
                 const url = resolveImagePath(res.data.data.list[0]?.img);
                 if (url) {
@@ -79,10 +79,10 @@ export default {
             });
         },
         showDecoration: function (val, type) {
-            return __imgPath + `decoration/images/${val}/${type}.png`;
+            return __cdn + `design/decoration/images/${val}/${type}.png`;
         },
         setDefaultCalendar() {
-            this.bg = `url(https://img.jx3box.com/decoration/images/0_TESTSAMPLE/calendar.png)`;
+            this.bg = `url(${__cdn}design/decoration/images/0_TESTSAMPLE/calendar.png)`;
         },
         getDecorationJson() {
             let decorationJson = sessionStorage.getItem("decoration_json");
