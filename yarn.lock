@@ -1144,12 +1144,12 @@
 
 "@colors/colors@^1.6.0", "@colors/colors@1.6.0":
   "integrity" "sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@colors/colors/-/colors-1.6.0.tgz"
+  "resolved" "https://registry.npmjs.org/@colors/colors/-/colors-1.6.0.tgz"
   "version" "1.6.0"
 
 "@dabh/diagnostics@^2.0.2":
   "integrity" "sha512-hrlQOIi7hAfzsMqlGSFyVucrx38O+j6wiGOf//H2ecvIEqYN4ADBSS2iLMh5UFyDunCNniUIPk/q3riFv45xRA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@dabh/diagnostics/-/diagnostics-2.0.3.tgz"
+  "resolved" "https://registry.npmjs.org/@dabh/diagnostics/-/diagnostics-2.0.3.tgz"
   "version" "2.0.3"
   dependencies:
     "colorspace" "1.1.x"
@@ -1244,7 +1244,7 @@
 
 "@jx3box/jx3box-build-common@^0.1.9":
   "integrity" "sha512-NtM1ZnSoW7RXmYNDqquq0m4n7QG4B/NOsSMZcfzFHPbVFJjKDFmJljVSnzAcboAdPUiF/2W60grh6aeUkXLxsA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-build-common/-/jx3box-build-common-0.1.10.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-build-common/-/jx3box-build-common-0.1.10.tgz"
   "version" "0.1.10"
   dependencies:
     "iconv-lite" "^0.6.3"
@@ -1275,9 +1275,26 @@
     "vue" "^2.6.11"
     "vuex" "^3.6.2"
 
-"@jx3box/jx3box-common-ui@^8.0.13":
+"@jx3box/jx3box-comment-ui@^2.0.1":
+  "integrity" "sha512-d2c1kmcm2DelxTmOgl/JF916+PVvxznfJftINWLIRlbGpkWAPfbY6yITW0aAGwN52c8Cc75Yt7JSKzRgGHCvMg=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-comment-ui/-/jx3box-comment-ui-2.0.1.tgz"
+  "version" "2.0.1"
+  dependencies:
+    "@jx3box/jx3box-common" "^8.2.18"
+    "@jx3box/jx3box-common-ui" "^8.7.0"
+    "@jx3box/jx3box-emotion" "^1.2.8"
+    "core-js" "^3.6.4"
+    "csslab" "^4.0.4"
+    "element-ui" "^2.13.1"
+    "hevue-img-preview" "^5.0.0"
+    "mitt" "^3.0.1"
+    "style-resources-loader" "^1.5.0"
+    "vue" "^2.6.11"
+    "vuex" "^3.6.2"
+
+"@jx3box/jx3box-common-ui@^8.0.13", "@jx3box/jx3box-common-ui@^8.7.0":
   "integrity" "sha512-VvnNKx1Jldys19II9CVyIRtPskvIFvVHzxyeG1P3flHW/K5BI0+ZOspz+n08ICmG+2dNDv4zYIb6W85DCIRgcA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.30.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.30.tgz"
   "version" "8.9.30"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.9.9"
@@ -1294,29 +1311,10 @@
     "url" "^0.11.0"
     "vue" "^2.6.11"
 
-"@jx3box/jx3box-common-ui@^8.7.0":
-  "integrity" "sha512-VvnNKx1Jldys19II9CVyIRtPskvIFvVHzxyeG1P3flHW/K5BI0+ZOspz+n08ICmG+2dNDv4zYIb6W85DCIRgcA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-common-ui/-/jx3box-common-ui-8.9.30.tgz"
-  "version" "8.9.30"
-  dependencies:
-    "@jx3box/jx3box-comment-ui" "^1.9.9"
-    "@jx3box/jx3box-common" "^8.4.2"
-    "@jx3box/jx3box-data" "^3.6.9"
-    "@jx3box/jx3box-editor" "^2.2.16"
-    "@jx3box/reporter" "^0.0.4"
-    "axios" "^0.26.1"
-    "dayjs" "^1.11.0"
-    "element-ui" "^2.13.2"
-    "jquery" "^3.5.1"
-    "lodash" "^4.17.15"
-    "qrcode.vue" "^1.7.0"
-    "url" "^0.11.0"
-    "vue" "^2.6.11"
-
-"@jx3box/jx3box-common-ui@^9.0.19":
-  "integrity" "sha512-rJ1og2mdWt3K2tenJiwtV96BkmpnUU0FUI5SPUj9HNlvMHdmJBOHaz+tLa7CmxOnpV5FJGmn545CeiiVFTU0EA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-common-ui/-/jx3box-common-ui-9.0.19.tgz"
-  "version" "9.0.19"
+"@jx3box/jx3box-common-ui@^9.0.23":
+  "integrity" "sha512-XBs2TRVvP5q91gkclfdwJoqmsjrGvlOAYW4ZOVWTYyiDpAZZRYu8N75Yx0s/DSGjOgK0AMgMYZ48tabOqY8WMg=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-9.0.23.tgz"
+  "version" "9.0.23"
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.9.9"
     "@jx3box/jx3box-common" "^8.5.2"
@@ -1334,7 +1332,7 @@
 
 "@jx3box/jx3box-common@^5.0.4":
   "integrity" "sha512-/Djw6yrGgyRDoFnvaDL/md5zJyBvxwlBCN8AEIaOcuMLyh8yZ0bO5wx68ny+S3QSVYKvkHfDwFav6KJffeJS5w=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-common/-/jx3box-common-5.9.8.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-5.9.8.tgz"
   "version" "5.9.8"
   dependencies:
     "axios" "^0.20.0"
@@ -1345,7 +1343,7 @@
 
 "@jx3box/jx3box-common@^6.7.8":
   "integrity" "sha512-UC/3mIyL+RzdPMn8artAInszWFZwpv7j3a0meBEuCnymtVXnWAc+DUJ3H15OE8WQ7HOmrPrF16/n+GTveMmhLQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-common/-/jx3box-common-6.8.2.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-6.8.2.tgz"
   "version" "6.8.2"
   dependencies:
     "axios" "^0.20.0"
@@ -1370,7 +1368,7 @@
 
 "@jx3box/jx3box-common@^8.1.4", "@jx3box/jx3box-common@^8.2.18", "@jx3box/jx3box-common@^8.3.4", "@jx3box/jx3box-common@^8.4.2", "@jx3box/jx3box-common@^8.5.2", "@jx3box/jx3box-common@^8.5.3":
   "integrity" "sha512-SiOPQaVC+mt2ENDCPyzBpw9YESr+bnw5KqZRrOkTIzqBEsE7loiCPvK8IcBMV4KGMib90fOkxW7g8YwCubPexQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-common/-/jx3box-common-8.5.3.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.5.3.tgz"
   "version" "8.5.3"
   dependencies:
     "@jx3box/reporter" "^0.0.5"
@@ -1385,13 +1383,13 @@
 
 "@jx3box/jx3box-data@^3.3.0", "@jx3box/jx3box-data@^3.5.8", "@jx3box/jx3box-data@^3.6.6", "@jx3box/jx3box-data@^3.6.9", "@jx3box/jx3box-data@^3.7.0", "@jx3box/jx3box-data@^3.7.5":
   "integrity" "sha512-DLiF8KOox9roc9yz1lLxnJVKQ113FdvdpG7yFJe/J+Y+y9wjj5S5qZZ4cLRjdCjy0uUwqPhftfnImOnB6SEsPA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-data/-/jx3box-data-3.7.5.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.7.5.tgz"
   "version" "3.7.5"
 
-"@jx3box/jx3box-editor@^2.2.16", "@jx3box/jx3box-editor@^2.2.18":
-  "integrity" "sha512-BnlvzNa7ts4qe7iOyXVpTaIS4Bj1hFqxFf1AE94sTA/ItaXYlOcDYshltSwY87T30YXwUTfekavTwtetmFw2sw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-editor/-/jx3box-editor-2.2.18.tgz"
-  "version" "2.2.18"
+"@jx3box/jx3box-editor@^2.2.16", "@jx3box/jx3box-editor@^2.2.19":
+  "integrity" "sha512-KSnR8ZVYKU5oRYNw1bRUjAAigLS1Xogk4AdMnZxoDawGnTnNuJ90v38/HwZiMKk32L98xa0n8FjC64iex3RLbw=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-editor/-/jx3box-editor-2.2.19.tgz"
+  "version" "2.2.19"
   dependencies:
     "@jx3box/jx3box-common" "^8.2.18"
     "@jx3box/jx3box-data" "^3.5.8"
@@ -1435,7 +1433,7 @@
 
 "@jx3box/jx3box-macro@^1.0.1":
   "integrity" "sha512-3s0KBeIXYs/RMc45TWReS4DzFtZVA9ZKLt/L5P7YiU+TbZvPZi3iLK3ehecxmMdpw2wFeu+xnSmi4C6lhr6wSw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-macro/-/jx3box-macro-1.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-macro/-/jx3box-macro-1.0.1.tgz"
   "version" "1.0.1"
   dependencies:
     "@jx3box/jx3box-common" "^5.0.4"
@@ -1443,7 +1441,7 @@
 
 "@jx3box/jx3box-talent@^1.3.1":
   "integrity" "sha512-t1AmqoGO6UuTaRO86aw2PoI7lonUACE0kewIEcgsgHFuZKatS8xezCT4ONZ3YVuoEr/whXs/bmlP6cg1ouPvXw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/jx3box-talent/-/jx3box-talent-1.3.2.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-talent/-/jx3box-talent-1.3.2.tgz"
   "version" "1.3.2"
   dependencies:
     "@jx3box/jx3box-build-common" "^0.1.9"
@@ -1459,7 +1457,7 @@
 
 "@jx3box/markdown@^0.1.5":
   "integrity" "sha512-Y79yOgJ93Ibjzpf92KTnxYl4bR2V5dY2wtftUNgtdpntwCJ+g27+1fsGgumLeLR4nlQ1/tM3CzS8NyLpK7Emlw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@jx3box/markdown/-/markdown-0.1.5.tgz"
+  "resolved" "https://registry.npmjs.org/@jx3box/markdown/-/markdown-0.1.5.tgz"
   "version" "0.1.5"
   dependencies:
     "@jx3box/jx3box-common" "^6.7.8"
@@ -1532,7 +1530,7 @@
 
 "@tinymce/tinymce-vue@^3.2.2":
   "integrity" "sha512-jEz+NZ0g+FZFz273OEUWz9QkwPMyjc5AJYyxOgu51O1Y5UaJ/6IUddXTX6A20mwCleEv5ebwNYdalviafx4fnA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@tinymce/tinymce-vue/-/tinymce-vue-3.2.8.tgz"
+  "resolved" "https://registry.npmjs.org/@tinymce/tinymce-vue/-/tinymce-vue-3.2.8.tgz"
   "version" "3.2.8"
 
 "@types/body-parser@*":
@@ -1662,7 +1660,7 @@
 
 "@types/triple-beam@^1.3.2":
   "integrity" "sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/@types/triple-beam/-/triple-beam-1.3.5.tgz"
+  "resolved" "https://registry.npmjs.org/@types/triple-beam/-/triple-beam-1.3.5.tgz"
   "version" "1.3.5"
 
 "@types/uglify-js@*":
@@ -2222,7 +2220,7 @@
 
 "ansi-escapes@^5.0.0":
   "integrity" "sha512-5GFMVX8HqE/TB+FuBJGuO5XG0WrsA6ptUqoODaT/n9mmUaZFkqnBueB4leqGBCmrUHnCnC4PCZTCd0E7QQ83bA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/ansi-escapes/-/ansi-escapes-5.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/ansi-escapes/-/ansi-escapes-5.0.0.tgz"
   "version" "5.0.0"
   dependencies:
     "type-fest" "^1.0.2"
@@ -2424,7 +2422,7 @@
 
 "async@^3.2.3":
   "integrity" "sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/async/-/async-3.2.6.tgz"
+  "resolved" "https://registry.npmjs.org/async/-/async-3.2.6.tgz"
   "version" "3.2.6"
 
 "asynckit@^0.4.0":
@@ -2439,7 +2437,7 @@
 
 "auto-textarea@^1.4.0":
   "integrity" "sha512-B3jjJgacjcRIPnxklC2cqecImCatWsKszok3G1TwZj79AKek7B+0o0DtIaeSzB/ci/XVGQjFFNtdPaIOrdAjZA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/auto-textarea/-/auto-textarea-1.4.0.tgz"
+  "resolved" "https://registry.npmjs.org/auto-textarea/-/auto-textarea-1.4.0.tgz"
   "version" "1.4.0"
   dependencies:
     "stylus" "^0.54.5"
@@ -2470,7 +2468,7 @@
 
 "axios@^0.19.2":
   "integrity" "sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/axios/-/axios-0.19.2.tgz"
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.19.2.tgz"
   "version" "0.19.2"
   dependencies:
     "follow-redirects" "1.5.10"
@@ -2484,15 +2482,15 @@
 
 "axios@^0.26.1":
   "integrity" "sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/axios/-/axios-0.26.1.tgz"
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.26.1.tgz"
   "version" "0.26.1"
   dependencies:
     "follow-redirects" "^1.14.8"
 
 "axios@^1.3.5":
-  "integrity" "sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-1.6.8.tgz"
-  "version" "1.6.8"
+  "integrity" "sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz"
+  "version" "1.7.7"
   dependencies:
     "follow-redirects" "^1.15.6"
     "form-data" "^4.0.0"
@@ -2625,7 +2623,7 @@
 
 "big.js@^3.1.3":
   "integrity" "sha512-+hN/Zh2D08Mx65pZ/4g5bsmNiZUuChDiQfTUQ7qJr4/kuopCr88xZsAXv6mBoZEsUI4OuGHlX59qE94K2mMW8Q=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/big.js/-/big.js-3.2.0.tgz"
+  "resolved" "https://registry.npmjs.org/big.js/-/big.js-3.2.0.tgz"
   "version" "3.2.0"
 
 "big.js@^5.2.2":
@@ -3179,7 +3177,7 @@
 
 "cli-color@^2.0.3":
   "integrity" "sha512-zlnpg0jNcibNrO7GG9IeHH7maWFeCz+Ja1wx/7tZNU5ASSSSZ+/qZciM0/LHCYxSdqv5h2sdbQ/PXYdOuetXvA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/cli-color/-/cli-color-2.0.4.tgz"
+  "resolved" "https://registry.npmjs.org/cli-color/-/cli-color-2.0.4.tgz"
   "version" "2.0.4"
   dependencies:
     "d" "^1.0.1"
@@ -3343,7 +3341,7 @@
 
 "colorspace@1.1.x":
   "integrity" "sha512-BgvKJiuVu1igBUF2kEjRCZXol6wiiGbY5ipL/oVPwm0BL9sIpMIzM8IK7vwuxIIzOXMV3Ey5w+vxhm0rR/TN8w=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/colorspace/-/colorspace-1.1.4.tgz"
+  "resolved" "https://registry.npmjs.org/colorspace/-/colorspace-1.1.4.tgz"
   "version" "1.1.4"
   dependencies:
     "color" "^3.1.3"
@@ -3368,12 +3366,12 @@
 
 "commander@^2.20.3":
   "integrity" "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/commander/-/commander-2.20.3.tgz"
+  "resolved" "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
   "version" "2.20.3"
 
 "commander@^8.0.0":
   "integrity" "sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/commander/-/commander-8.3.0.tgz"
+  "resolved" "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz"
   "version" "8.3.0"
 
 "commander@~2.19.0":
@@ -3708,7 +3706,7 @@
 
 "css-parse@~2.0.0":
   "integrity" "sha512-UNIFik2RgSbiTwIW1IsFwXWn6vs+bYdq83LKTSOsx7NJR7WII9dxewkHLltfTLVppoUApHV0118a4RZRI9FLwA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/css-parse/-/css-parse-2.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/css-parse/-/css-parse-2.0.0.tgz"
   "version" "2.0.0"
   dependencies:
     "css" "^2.0.0"
@@ -3799,7 +3797,7 @@
 
 "css@^2.0.0":
   "integrity" "sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/css/-/css-2.2.4.tgz"
+  "resolved" "https://registry.npmjs.org/css/-/css-2.2.4.tgz"
   "version" "2.2.4"
   dependencies:
     "inherits" "^2.0.3"
@@ -3814,7 +3812,7 @@
 
 "cssfilter@0.0.10":
   "integrity" "sha512-FAaLDaplstoRsDR8XGYH51znUN0UY7nMc6Z9/fvE8EXGwvJE9hu7W2vHwx1+bd6gCYnln9nLbzxFTrcO9YQDZw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/cssfilter/-/cssfilter-0.0.10.tgz"
+  "resolved" "https://registry.npmjs.org/cssfilter/-/cssfilter-0.0.10.tgz"
   "version" "0.0.10"
 
 "csslab@^4.0.3", "csslab@^4.0.4":
@@ -3916,7 +3914,7 @@
 
 "d@^1.0.1", "d@^1.0.2", "d@1":
   "integrity" "sha512-MOqHvMWF9/9MX6nza0KgvFH4HpMU0EF5uUDXqX/BtxtU8NfB0QzRtJ8Oe/6SuS4kbhyzVJwjd97EA4PKrzJ8bw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/d/-/d-1.0.2.tgz"
+  "resolved" "https://registry.npmjs.org/d/-/d-1.0.2.tgz"
   "version" "1.0.2"
   dependencies:
     "es5-ext" "^0.10.64"
@@ -4003,14 +4001,14 @@
 
 "debug@=3.1.0":
   "integrity" "sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/debug/-/debug-3.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz"
   "version" "3.1.0"
   dependencies:
     "ms" "2.0.0"
 
 "debug@~3.1.0":
   "integrity" "sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/debug/-/debug-3.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz"
   "version" "3.1.0"
   dependencies:
     "ms" "2.0.0"
@@ -4425,7 +4423,7 @@
 
 "emojis-list@^2.0.0":
   "integrity" "sha512-knHEZMgs8BB+MInokmNTg/OyPlAddghe1YBgNwJBc5zsJi/uyIcXoSDsL/W9ymOsBoBGdPIHXYJ9+qKFwRwDng=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/emojis-list/-/emojis-list-2.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/emojis-list/-/emojis-list-2.1.0.tgz"
   "version" "2.1.0"
 
 "emojis-list@^3.0.0":
@@ -4435,7 +4433,7 @@
 
 "enabled@2.0.x":
   "integrity" "sha512-AKrN98kuwOzMIdAizXGI86UFBoo26CL21UM763y1h/GMSJ4/OHU9k2YlsmBpyScFo/wbLzWQJBMCW4+IO3/+OQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/enabled/-/enabled-2.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/enabled/-/enabled-2.0.0.tgz"
   "version" "2.0.0"
 
 "encodeurl@~1.0.2":
@@ -4532,7 +4530,7 @@
 
 "es5-ext@^0.10.35", "es5-ext@^0.10.46", "es5-ext@^0.10.62", "es5-ext@^0.10.64", "es5-ext@~0.10.14", "es5-ext@~0.10.2":
   "integrity" "sha512-p2snDhiLaXe6dahss1LddxqEm+SkuDvV8dnIQG0MWjyHpcMNfXKPE+/Cc0y+PhxJX3A4xGNeFCj5oc0BUh6deg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/es5-ext/-/es5-ext-0.10.64.tgz"
+  "resolved" "https://registry.npmjs.org/es5-ext/-/es5-ext-0.10.64.tgz"
   "version" "0.10.64"
   dependencies:
     "es6-iterator" "^2.0.3"
@@ -4542,7 +4540,7 @@
 
 "es6-iterator@^2.0.3":
   "integrity" "sha512-zw4SRzoUkd+cl+ZoE15A9o1oQd920Bb0iOJMQkQhl3jNc03YqVjAhG7scf9C5KWRU/R13Orf588uCC6525o02g=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/es6-iterator/-/es6-iterator-2.0.3.tgz"
+  "resolved" "https://registry.npmjs.org/es6-iterator/-/es6-iterator-2.0.3.tgz"
   "version" "2.0.3"
   dependencies:
     "d" "1"
@@ -4551,7 +4549,7 @@
 
 "es6-symbol@^3.1.1", "es6-symbol@^3.1.3":
   "integrity" "sha512-U9bFFjX8tFiATgtkJ1zg25+KviIXpgRvRHS8sau3GfhVzThRQrOeksPeT0BWW2MNZs1OEWJ1DPXOQMn0KKRkvg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/es6-symbol/-/es6-symbol-3.1.4.tgz"
+  "resolved" "https://registry.npmjs.org/es6-symbol/-/es6-symbol-3.1.4.tgz"
   "version" "3.1.4"
   dependencies:
     "d" "^1.0.2"
@@ -4559,7 +4557,7 @@
 
 "es6-weak-map@^2.0.3":
   "integrity" "sha512-p5um32HOTO1kP+w7PRnB+5lQ43Z6muuMuIMffvDN8ZB4GcnjLBV6zGStpbASIMk4DCAvEaamhe2zhyCb/QXXsA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/es6-weak-map/-/es6-weak-map-2.0.3.tgz"
+  "resolved" "https://registry.npmjs.org/es6-weak-map/-/es6-weak-map-2.0.3.tgz"
   "version" "2.0.3"
   dependencies:
     "d" "1"
@@ -4664,7 +4662,7 @@
 
 "esniff@^2.0.1":
   "integrity" "sha512-kTUIGKQ/mDPFoJ0oVfcmyJn4iBDRptjNVIzwIFR7tqWXdVI9xfA2RMwY/gbSpJG3lkdWNEjLap/NqVHZiJsdfg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/esniff/-/esniff-2.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/esniff/-/esniff-2.0.1.tgz"
   "version" "2.0.1"
   dependencies:
     "d" "^1.0.1"
@@ -4736,7 +4734,7 @@
 
 "event-emitter@^0.3.5":
   "integrity" "sha512-D9rRn9y7kLPnJ+hMq7S/nhvoKwwvVJahBi2BPmx3bvbsEdK3W9ii8cBSGjP+72/LnM4n6fo3+dkCX5FeTQruXA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/event-emitter/-/event-emitter-0.3.5.tgz"
+  "resolved" "https://registry.npmjs.org/event-emitter/-/event-emitter-0.3.5.tgz"
   "version" "0.3.5"
   dependencies:
     "d" "1"
@@ -4866,7 +4864,7 @@
 
 "ext@^1.7.0":
   "integrity" "sha512-6hxeJYaL110a9b5TEJSj0gojyHQAmA2ch5Os+ySCiA1QGdS697XWY1pzsrSjqA9LDEEgdB/KypIlR59RcLuHYw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/ext/-/ext-1.7.0.tgz"
+  "resolved" "https://registry.npmjs.org/ext/-/ext-1.7.0.tgz"
   "version" "1.7.0"
   dependencies:
     "type" "^2.7.2"
@@ -5111,17 +5109,17 @@
 
 "fn.name@1.x.x":
   "integrity" "sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/fn.name/-/fn.name-1.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/fn.name/-/fn.name-1.1.0.tgz"
   "version" "1.1.0"
 
 "follow-redirects@^1.0.0", "follow-redirects@^1.10.0", "follow-redirects@^1.14.8", "follow-redirects@^1.15.6":
-  "integrity" "sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA=="
-  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.6.tgz"
-  "version" "1.15.6"
+  "integrity" "sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.9.tgz"
+  "version" "1.15.9"
 
 "follow-redirects@1.5.10":
   "integrity" "sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/follow-redirects/-/follow-redirects-1.5.10.tgz"
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.5.10.tgz"
   "version" "1.5.10"
   dependencies:
     "debug" "=3.1.0"
@@ -5278,7 +5276,7 @@
 
 "github-markdown-css@^2.6.0":
   "integrity" "sha512-RX5VUC54uX6Lvrm226M9kMzsNeOa81MnKyxb3J0G5KLjyoOySOZgwyKFkUpv6iUhooiUZdogk+OTwQPJ4WttYg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/github-markdown-css/-/github-markdown-css-2.10.0.tgz"
+  "resolved" "https://registry.npmjs.org/github-markdown-css/-/github-markdown-css-2.10.0.tgz"
   "version" "2.10.0"
 
 "gl-matrix@^3.0.0", "gl-matrix@^3.3.0", "gl-matrix@^3.4.3":
@@ -5530,9 +5528,9 @@
   "version" "10.7.3"
 
 "highlight.js@^11.3.1":
-  "integrity" "sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/highlight.js/-/highlight.js-11.11.1.tgz"
-  "version" "11.11.1"
+  "integrity" "sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ=="
+  "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-11.10.0.tgz"
+  "version" "11.10.0"
 
 "hmac-drbg@^1.0.1":
   "integrity" "sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg=="
@@ -5734,7 +5732,7 @@
   "resolved" "https://registry.npmmirror.com/human-signals/-/human-signals-1.1.1.tgz"
   "version" "1.1.1"
 
-"iconv-lite@^0.4.24":
+"iconv-lite@^0.4.24", "iconv-lite@0.4.24":
   "integrity" "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA=="
   "resolved" "https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.4.24.tgz"
   "version" "0.4.24"
@@ -5743,17 +5741,10 @@
 
 "iconv-lite@^0.6.3":
   "integrity" "sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/iconv-lite/-/iconv-lite-0.6.3.tgz"
+  "resolved" "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz"
   "version" "0.6.3"
   dependencies:
     "safer-buffer" ">= 2.1.2 < 3.0.0"
-
-"iconv-lite@0.4.24":
-  "integrity" "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA=="
-  "resolved" "https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.4.24.tgz"
-  "version" "0.4.24"
-  dependencies:
-    "safer-buffer" ">= 2.1.2 < 3"
 
 "icss-utils@^4.0.0", "icss-utils@^4.1.1":
   "integrity" "sha512-4aFq7wvWyMHKgxsH8QQtGpvbASCf+eM3wPRLI6R+MgAnTCZ6STYsRvttLvRWK0Nfif5piF394St3HeJDaljGPA=="
@@ -5870,7 +5861,7 @@
 
 "ini@^3.0.1":
   "integrity" "sha512-it4HyVAUTKBc6m8e1iXWvXSTdndF7HbdN713+kvLrymxTaU4AUBWrJ4vEooP+V7fexnVD3LKcBshjGGPefSMUQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/ini/-/ini-3.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/ini/-/ini-3.0.1.tgz"
   "version" "3.0.1"
 
 "inquirer@^6.2.2":
@@ -6247,7 +6238,7 @@
 
 "is-stream@^2.0.0":
   "integrity" "sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/is-stream/-/is-stream-2.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/is-stream/-/is-stream-2.0.1.tgz"
   "version" "2.0.1"
 
 "is-string@^1.0.5", "is-string@^1.0.7":
@@ -6349,7 +6340,7 @@
 
 "js-base64@^3.6.1":
   "integrity" "sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/js-base64/-/js-base64-3.7.7.tgz"
+  "resolved" "https://registry.npmjs.org/js-base64/-/js-base64-3.7.7.tgz"
   "version" "3.7.7"
 
 "js-md5@^0.7.3":
@@ -6422,7 +6413,7 @@
 
 "json5@^0.5.0":
   "integrity" "sha512-4xrs1aW+6N5DalkqSVA8fxh458CXvR99WU8WLKmq4v8eWAL86Xo3BVqyd3SkA9wEVjCMqyvvRRkshAdOnBp5rw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/json5/-/json5-0.5.1.tgz"
+  "resolved" "https://registry.npmjs.org/json5/-/json5-0.5.1.tgz"
   "version" "0.5.1"
 
 "json5@^1.0.1":
@@ -6456,7 +6447,7 @@
 
 "katex@^0.13.0":
   "integrity" "sha512-jZxYuKCma3VS5UuxOx/rFV1QyGSl3Uy/i0kTJF3HgQ5xMinCQVF8Zd4bMY/9aI9b9A2pjIBOsjSSm68ykTAr8w=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/katex/-/katex-0.13.24.tgz"
+  "resolved" "https://registry.npmjs.org/katex/-/katex-0.13.24.tgz"
   "version" "0.13.24"
   dependencies:
     "commander" "^8.0.0"
@@ -6504,7 +6495,7 @@
 
 "kuler@^2.0.0":
   "integrity" "sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/kuler/-/kuler-2.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/kuler/-/kuler-2.0.0.tgz"
   "version" "2.0.0"
 
 "launch-editor-middleware@^2.2.1":
@@ -6569,7 +6560,7 @@
 
 "linkify-it@^2.0.0":
   "integrity" "sha512-GnAl/knGn+i1U/wjBz3akz2stz+HrHLsxMwHQGofCDfPvlf+gDKN58UtfmUquTY4/MXeE2x7k19KQmeoZi94Iw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/linkify-it/-/linkify-it-2.2.0.tgz"
+  "resolved" "https://registry.npmjs.org/linkify-it/-/linkify-it-2.2.0.tgz"
   "version" "2.2.0"
   dependencies:
     "uc.micro" "^1.0.1"
@@ -6599,7 +6590,7 @@
 
 "loader-utils@^0.2.9":
   "integrity" "sha512-tiv66G0SmiOx+pLWMtGEkfSEejxvb6N6uRrQjfWJIT79W9GMpgKeCAmm9aVBKtd4WEgntciI8CsGqjpDoCWJug=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/loader-utils/-/loader-utils-0.2.17.tgz"
+  "resolved" "https://registry.npmjs.org/loader-utils/-/loader-utils-0.2.17.tgz"
   "version" "0.2.17"
   dependencies:
     "big.js" "^3.1.3"
@@ -6667,7 +6658,7 @@
 
 "lodash.clonedeep@^4.5.0":
   "integrity" "sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
+  "resolved" "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
   "version" "4.5.0"
 
 "lodash.debounce@^4.0.8":
@@ -6719,7 +6710,7 @@
 
 "logform@^2.7.0":
   "integrity" "sha512-TFYA4jnP7PVbmlBIfhlSe+WKxs9dklXMTEGcBCIvLhE/Tn3H6Gk1norupVW7m5Cnd4bLcr08AytbyV/xj7f/kQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/logform/-/logform-2.7.0.tgz"
+  "resolved" "https://registry.npmjs.org/logform/-/logform-2.7.0.tgz"
   "version" "2.7.0"
   dependencies:
     "@colors/colors" "1.6.0"
@@ -6771,19 +6762,19 @@
 
 "lru-queue@^0.1.0":
   "integrity" "sha512-BpdYkt9EvGl8OfWHDQPISVpcl5xZthb+XPsbELj5AQXxIC8IriDZIQYjBJPEm5rS420sjZ0TLEzRcq5KdBhYrQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/lru-queue/-/lru-queue-0.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/lru-queue/-/lru-queue-0.1.0.tgz"
   "version" "0.1.0"
   dependencies:
     "es5-ext" "~0.10.2"
 
 "luaparse@^0.3.0", "luaparse@^0.3.1":
   "integrity" "sha512-b21h2bFEbtGXmVqguHogbyrMAA0wOHyp9u/rx+w6Yc9pW1t9YjhGUsp87lYcp7pFRqSWN/PhFkrdIqKEUzRjjQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/luaparse/-/luaparse-0.3.1.tgz"
+  "resolved" "https://registry.npmjs.org/luaparse/-/luaparse-0.3.1.tgz"
   "version" "0.3.1"
 
 "luat2json@^0.0.2":
   "integrity" "sha512-jkOMnij4iFtK07etHgCrMk9wkjHDdbYKobZqSdYAeUgzYcwd3dvp/IRkIgggeL6Aa4yiDPTs+DojG44P+MsdTQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/luat2json/-/luat2json-0.0.2.tgz"
+  "resolved" "https://registry.npmjs.org/luat2json/-/luat2json-0.0.2.tgz"
   "version" "0.0.2"
   dependencies:
     "luaparse" "^0.3.0"
@@ -6825,82 +6816,82 @@
 
 "markdown-it-abbr@^1.0.4":
   "integrity" "sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-abbr/-/markdown-it-abbr-1.0.4.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-abbr/-/markdown-it-abbr-1.0.4.tgz"
   "version" "1.0.4"
 
 "markdown-it-container@^3.0.0":
   "integrity" "sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-container/-/markdown-it-container-3.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-container/-/markdown-it-container-3.0.0.tgz"
   "version" "3.0.0"
 
 "markdown-it-deflist@^2.0.0":
   "integrity" "sha512-3OuqoRUlSxJiuQYu0cWTLHNhhq2xtoSFqsZK8plANg91+RJQU1ziQ6lA2LzmFAEes18uPBsHZpcX6We5l76Nzg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-deflist/-/markdown-it-deflist-2.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-deflist/-/markdown-it-deflist-2.1.0.tgz"
   "version" "2.1.0"
 
 "markdown-it-emoji@^1.1.1":
   "integrity" "sha512-QCz3Hkd+r5gDYtS2xsFXmBYrgw6KuWcJZLCEkdfAuwzZbShCmCfta+hwAMq4NX/4xPzkSHduMKgMkkPUJxSXNg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-emoji/-/markdown-it-emoji-1.4.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-emoji/-/markdown-it-emoji-1.4.0.tgz"
   "version" "1.4.0"
 
 "markdown-it-footnote@^3.0.1":
   "integrity" "sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-footnote/-/markdown-it-footnote-3.0.3.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-footnote/-/markdown-it-footnote-3.0.3.tgz"
   "version" "3.0.3"
 
 "markdown-it-for-inline@~0.1.0":
   "integrity" "sha512-lLQuczOg90a9q9anIUbmq+M+FFrIYNN5TfpccLDRchQic8nj/uTqaJKoYr73FF2tR4O8mFfh2ZzCDAAB2MZJgA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-for-inline/-/markdown-it-for-inline-0.1.1.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-for-inline/-/markdown-it-for-inline-0.1.1.tgz"
   "version" "0.1.1"
 
 "markdown-it-highlightjs-external@^1.0.1":
   "integrity" "sha512-qkbrcWVhSmUzUmLNQBWDU1k/tHhhqPTRLXs54BIwk5L0N2RXj95jOt9wu78ehc/fpCX7bb/OHXtkBkavGkbcPQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-highlightjs-external/-/markdown-it-highlightjs-external-1.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-highlightjs-external/-/markdown-it-highlightjs-external-1.0.1.tgz"
   "version" "1.0.1"
 
 "markdown-it-images-preview@^1.0.0":
   "integrity" "sha512-wbu+ex/izUTHSxDXmlLIUL7ktNCdS4OoY82fGu7dNtGhBVthwBcDBcHO8ixL+zkGjE3kRk1lHrvs2co0JvAjlQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-images-preview/-/markdown-it-images-preview-1.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-images-preview/-/markdown-it-images-preview-1.0.1.tgz"
   "version" "1.0.1"
 
 "markdown-it-ins@^2.0.0":
   "integrity" "sha512-DhLLxseIg2C7+AULvoyVI+zMeufR0QFvXJ2o0oV013hN5HvBvNh2rbVtTdxZjI959+hgo2AA0aRdtEIUaKPbhg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-ins/-/markdown-it-ins-2.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-ins/-/markdown-it-ins-2.0.0.tgz"
   "version" "2.0.0"
 
 "markdown-it-katex-external@^1.0.0":
   "integrity" "sha512-vYZCxFH3FW9ViL/00FrcxxR/l8NiX2yXDtFA7hUEntzs+UII8TfdpjGCYRLUrgetHqZoJLMYO0Fs+u0H24nlWQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-katex-external/-/markdown-it-katex-external-1.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-katex-external/-/markdown-it-katex-external-1.0.0.tgz"
   "version" "1.0.0"
 
 "markdown-it-mark@^2.0.0":
   "integrity" "sha512-iT8ua0Bda8QrVwHDOUNw1eyCuL7irXeYch5n8zGS4tb7wsDIn7EjQZLjihKaijzBiL0ikfWL2zAvL/ECqTvsNA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-mark/-/markdown-it-mark-2.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-mark/-/markdown-it-mark-2.0.0.tgz"
   "version" "2.0.0"
 
 "markdown-it-sub@^1.0.0":
   "integrity" "sha512-z2Rm/LzEE1wzwTSDrI+FlPEveAAbgdAdPhdWarq/ZGJrGW/uCQbKAnhoCsE4hAbc3SEym26+W2z/VQB0cQiA9Q=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-sub/-/markdown-it-sub-1.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-sub/-/markdown-it-sub-1.0.0.tgz"
   "version" "1.0.0"
 
 "markdown-it-sup@^1.0.0":
   "integrity" "sha512-E32m0nV9iyhRR7CrhnzL5msqic7rL1juWre6TQNxsnApg7Uf+F97JOKxUijg5YwXz86lZ0mqfOnutoryyNdntQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz"
   "version" "1.0.0"
 
 "markdown-it-task-lists@^2.1.1":
   "integrity" "sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz"
   "version" "2.1.1"
 
 "markdown-it-toc@^1.1.0":
   "integrity" "sha512-75GJ7xGUE/G1goCUkXiAuOk1rGMRVYrCX5sQ4rnJLZiGbUJGdTfUfyWibLA0RpRzKgfpdIncz9Z4WwN84x0OJg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it-toc/-/markdown-it-toc-1.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it-toc/-/markdown-it-toc-1.1.0.tgz"
   "version" "1.1.0"
 
 "markdown-it@^10.0.0":
   "integrity" "sha512-YWOP1j7UbDNz+TumYP1kpwnP0aEa711cJjrAQrzd0UXlbJfc5aAq0F/PZHjiioqDC1NKgvIMX+o+9Bk7yuM2dg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/markdown-it/-/markdown-it-10.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/markdown-it/-/markdown-it-10.0.0.tgz"
   "version" "10.0.0"
   dependencies:
     "argparse" "^1.0.7"
@@ -6935,7 +6926,7 @@
 
 "mdurl@^1.0.1":
   "integrity" "sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/mdurl/-/mdurl-1.0.1.tgz"
+  "resolved" "https://registry.npmjs.org/mdurl/-/mdurl-1.0.1.tgz"
   "version" "1.0.1"
 
 "media-typer@0.3.0":
@@ -6945,7 +6936,7 @@
 
 "memoizee@^0.4.15":
   "integrity" "sha512-DGqD7Hjpi/1or4F/aYAspXKNm5Yili0QDAFAY4QYvpqpgiY6+1jOfqpmByzjxbWd/T9mChbCArXAbDAsTm5oXA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/memoizee/-/memoizee-0.4.17.tgz"
+  "resolved" "https://registry.npmjs.org/memoizee/-/memoizee-0.4.17.tgz"
   "version" "0.4.17"
   dependencies:
     "d" "^1.0.2"
@@ -7175,7 +7166,7 @@
 
 "mkdirp@~1.0.4":
   "integrity" "sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/mkdirp/-/mkdirp-1.0.4.tgz"
+  "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
 "moment@^2.29.1", "moment@^2.29.4":
@@ -7281,7 +7272,7 @@
 
 "next-tick@^1.1.0":
   "integrity" "sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/next-tick/-/next-tick-1.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/next-tick/-/next-tick-1.1.0.tgz"
   "version" "1.1.0"
 
 "nice-try@^1.0.4":
@@ -7530,7 +7521,7 @@
 
 "one-time@^1.0.0":
   "integrity" "sha512-5DXOiRKwuSEcQ/l0kGCF6Q3jcADFv5tSmRaJck/OqkVFcOzutB134KRSfF0xDrL39MNnqxbHBbUUcjZIhTgb2g=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/one-time/-/one-time-1.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/one-time/-/one-time-1.0.0.tgz"
   "version" "1.0.0"
   dependencies:
     "fn.name" "1.x.x"
@@ -7664,7 +7655,7 @@
 
 "papaparse@^5.3.2", "papaparse@^5.4.1":
   "integrity" "sha512-HipMsgJkZu8br23pW15uvo6sib6wne/4woLZPlFf3rpDyMe9ywEXUsuD7+6K9PRkJlVT51j/sCOYDKGGS3ZJrw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/papaparse/-/papaparse-5.4.1.tgz"
+  "resolved" "https://registry.npmjs.org/papaparse/-/papaparse-5.4.1.tgz"
   "version" "5.4.1"
 
 "parallel-transform@^1.1.0":
@@ -7848,7 +7839,7 @@
 
 "photoswipe@^4.1.2":
   "integrity" "sha512-89Z43IRUyw7ycTolo+AaiDn3W1EEIfox54hERmm9bI12IB9cvRfHSHez3XhAyU8XW2EAFrC+2sKMhh7SJwn0bA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/photoswipe/-/photoswipe-4.1.3.tgz"
+  "resolved" "https://registry.npmjs.org/photoswipe/-/photoswipe-4.1.3.tgz"
   "version" "4.1.3"
 
 "picocolors@^0.2.1":
@@ -8345,7 +8336,7 @@
 
 "prismjs@^1.20.0":
   "integrity" "sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/prismjs/-/prismjs-1.29.0.tgz"
+  "resolved" "https://registry.npmjs.org/prismjs/-/prismjs-1.29.0.tgz"
   "version" "1.29.0"
 
 "process-nextick-args@~2.0.0":
@@ -8566,7 +8557,7 @@
 
 "readable-stream@^3.4.0":
   "integrity" "sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/readable-stream/-/readable-stream-3.6.2.tgz"
+  "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz"
   "version" "3.6.2"
   dependencies:
     "inherits" "^2.0.3"
@@ -8584,7 +8575,7 @@
 
 "readable-stream@^3.6.2":
   "integrity" "sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/readable-stream/-/readable-stream-3.6.2.tgz"
+  "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz"
   "version" "3.6.2"
   dependencies:
     "inherits" "^2.0.3"
@@ -8891,7 +8882,7 @@
 
 "safe-stable-stringify@^2.3.1":
   "integrity" "sha512-b3rppTKm9T+PsVCBEOUR46GWI7fdOs00VKZ1+9c1EWDaDMvjQc6tUwuFyIprgGgTcWoVHSKrU8H31ZHA2e0RHA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/safe-stable-stringify/-/safe-stable-stringify-2.5.0.tgz"
+  "resolved" "https://registry.npmjs.org/safe-stable-stringify/-/safe-stable-stringify-2.5.0.tgz"
   "version" "2.5.0"
 
 "safer-buffer@^2.0.2", "safer-buffer@^2.1.0", "safer-buffer@^2.1.2", "safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", "safer-buffer@~2.1.0":
@@ -9187,9 +9178,9 @@
     "is-plain-obj" "^1.0.0"
 
 "sortablejs@^1.15.0":
-  "integrity" "sha512-aNfiuwMEpfBM/CN6LY0ibyhxPfPbyFeBTYJKCvzkJ2GkUpazIt3H+QIPAMHwqQ7tMKaHz1Qj+rJJCqljnf4p3A=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/sortablejs/-/sortablejs-1.15.6.tgz"
-  "version" "1.15.6"
+  "integrity" "sha512-zdK3/kwwAK1cJgy1rwl1YtNTbRmc8qW/+vgXf75A7NHag5of4pyI6uK86ktmQETyWRH7IGaE73uZOOBcGxgqZg=="
+  "resolved" "https://registry.npmjs.org/sortablejs/-/sortablejs-1.15.3.tgz"
+  "version" "1.15.3"
 
 "sortablejs@1.10.2":
   "integrity" "sha512-YkPGufevysvfwn5rfdlGyrGjt7/CRHwvRPogD/lC+TnvcN29jDpCifKP+rBqf+LRldfXSTh+0CGLcSg0VIxq3A=="
@@ -9342,7 +9333,7 @@
 
 "stack-trace@0.0.x":
   "integrity" "sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/stack-trace/-/stack-trace-0.0.10.tgz"
+  "resolved" "https://registry.npmjs.org/stack-trace/-/stack-trace-0.0.10.tgz"
   "version" "0.0.10"
 
 "stackframe@^1.1.1":
@@ -9556,7 +9547,7 @@
 
 "stylus-loader@^2.4.0":
   "integrity" "sha512-Q5r8F62gCLesyvmCra+pdYMc5q1RvXWg05bwnu+cMjvTJPpPeZePf5aguiXXCj0HIXXvZF8kXIXs3ZKACyoCaQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/stylus-loader/-/stylus-loader-2.5.1.tgz"
+  "resolved" "https://registry.npmjs.org/stylus-loader/-/stylus-loader-2.5.1.tgz"
   "version" "2.5.1"
   dependencies:
     "loader-utils" "^0.2.9"
@@ -9565,7 +9556,7 @@
 
 "stylus@^0.54.5", "stylus@>=0.52.4":
   "integrity" "sha512-vr54Or4BZ7pJafo2mpf0ZcwA74rpuYCZbxrHBsH8kbcXOwSfvBFwsRfpGO5OD5fhG5HDCFW737PKaawI7OqEAg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/stylus/-/stylus-0.54.8.tgz"
+  "resolved" "https://registry.npmjs.org/stylus/-/stylus-0.54.8.tgz"
   "version" "0.54.8"
   dependencies:
     "css-parse" "~2.0.0"
@@ -9704,7 +9695,7 @@
 
 "synchronous-promise@^2.0.16":
   "integrity" "sha512-AsS729u2RHUfEra9xJrE39peJcc2stq2+poBXX8bcM08Y6g9j/i/PUzwNQqkaJde7Ntg1TO7bSREbR5sdosQ+g=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/synchronous-promise/-/synchronous-promise-2.0.17.tgz"
+  "resolved" "https://registry.npmjs.org/synchronous-promise/-/synchronous-promise-2.0.17.tgz"
   "version" "2.0.17"
 
 "table@^5.2.3":
@@ -9748,7 +9739,7 @@
 
 "text-hex@1.0.x":
   "integrity" "sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/text-hex/-/text-hex-1.0.0.tgz"
+  "resolved" "https://registry.npmjs.org/text-hex/-/text-hex-1.0.0.tgz"
   "version" "1.0.0"
 
 "text-segmentation@^1.0.3":
@@ -9818,7 +9809,7 @@
 
 "timers-ext@^0.1.7":
   "integrity" "sha512-wFH7+SEAcKfJpfLPkrgMPvvwnEtj8W4IurvEyrKsDleXnKLCDw71w8jltvfLa8Rm4qQxxT4jmDBYbJG/z7qoww=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/timers-ext/-/timers-ext-0.1.8.tgz"
+  "resolved" "https://registry.npmjs.org/timers-ext/-/timers-ext-0.1.8.tgz"
   "version" "0.1.8"
   dependencies:
     "es5-ext" "^0.10.64"
@@ -9908,7 +9899,7 @@
 
 "triple-beam@^1.3.0":
   "integrity" "sha512-aZbgViZrg1QNcG+LULa7nhZpJTZSLm/mXnHXnbAbjmN5aSa0y7V+wvv6+4WaBtpISJzThKy+PIPxc1Nq1EJ9mg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/triple-beam/-/triple-beam-1.4.1.tgz"
+  "resolved" "https://registry.npmjs.org/triple-beam/-/triple-beam-1.4.1.tgz"
   "version" "1.4.1"
 
 "tryer@^1.0.1":
@@ -9942,14 +9933,14 @@
   "version" "2.4.0"
 
 "tslib@^2.2.0":
-  "integrity" "sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
-  "version" "2.6.2"
+  "integrity" "sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.7.0.tgz"
+  "version" "2.7.0"
 
 "tslib@^2.3.1":
-  "integrity" "sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
-  "version" "2.6.2"
+  "integrity" "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
+  "version" "2.8.1"
 
 "tty-browserify@0.0.0":
   "integrity" "sha512-JVa5ijo+j/sOoHGjw0sxw734b1LhBkQ3bvUGNdxnVXDCX81Yx7TFgnZygxrIIWn23hbfTaMYLwRmAxFyDuFmIw=="
@@ -9987,7 +9978,7 @@
 
 "type-fest@^1.0.2":
   "integrity" "sha512-yGSza74xk0UG8k+pLh5oeoYirvIiWo5t0/o3zHHAO2tRDiZcxWP7fywNlXhqb6/r6sWvwi+RsyQMWhVLe4BVuA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/type-fest/-/type-fest-1.4.0.tgz"
+  "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-1.4.0.tgz"
   "version" "1.4.0"
 
 "type-is@~1.6.18":
@@ -10000,7 +9991,7 @@
 
 "type@^2.7.2":
   "integrity" "sha512-8j+1QmAbPvLZow5Qpi6NCaN8FB60p/6x8/vfNqOk/hC+HuvFZhL4+WfekuhQLiqFZXOgQdrs3B+XxEmCc6b3FQ=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/type/-/type-2.7.3.tgz"
+  "resolved" "https://registry.npmjs.org/type/-/type-2.7.3.tgz"
   "version" "2.7.3"
 
 "typedarray@^0.0.6":
@@ -10010,7 +10001,7 @@
 
 "uc.micro@^1.0.1", "uc.micro@^1.0.5":
   "integrity" "sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/uc.micro/-/uc.micro-1.0.6.tgz"
+  "resolved" "https://registry.npmjs.org/uc.micro/-/uc.micro-1.0.6.tgz"
   "version" "1.0.6"
 
 "uglify-js@3.4.x":
@@ -10280,7 +10271,7 @@
 
 "vue-contextmenujs@^1.4.9":
   "integrity" "sha512-k8y0ExOL5yn7fRRCo6UDT81ekq/Ls1JBz70eBBpIgcf1p++84amDL6uCMmlt6D6WK5a9f0NhW2kc2pkCUb2bHA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/vue-contextmenujs/-/vue-contextmenujs-1.4.11.tgz"
+  "resolved" "https://registry.npmjs.org/vue-contextmenujs/-/vue-contextmenujs-1.4.11.tgz"
   "version" "1.4.11"
 
 "vue-eslint-parser@^5.0.0":
@@ -10297,7 +10288,7 @@
 
 "vue-gallery-slideshow@^1.5.2":
   "integrity" "sha512-P5u+H7ZL4MMx0uwmT9A76zQdeSX/m4/HoLWmUZxf7c/N0q5hnrG20/330xw049d5GnsBq91G3JUJadZOEqAUzw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/vue-gallery-slideshow/-/vue-gallery-slideshow-1.5.2.tgz"
+  "resolved" "https://registry.npmjs.org/vue-gallery-slideshow/-/vue-gallery-slideshow-1.5.2.tgz"
   "version" "1.5.2"
   dependencies:
     "vue-runtime-helpers" "^1.1.2"
@@ -10329,14 +10320,14 @@
 
 "vue-photoswipe.js@^2.0.23":
   "integrity" "sha512-W16CJFVSCUQ1gKwODKo6RhojO/JzXMp/HuaKNnYm4AmBbR0PZdYxT9xvZW0DBc+Sw2fN5lgfd/MtdH4bvz+t7w=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/vue-photoswipe.js/-/vue-photoswipe.js-2.0.23.tgz"
+  "resolved" "https://registry.npmjs.org/vue-photoswipe.js/-/vue-photoswipe.js-2.0.23.tgz"
   "version" "2.0.23"
   dependencies:
     "photoswipe" "^4.1.2"
 
 "vue-plugin-load-script@^1.3.6":
   "integrity" "sha512-O+mpw32dXY3tMBBNKm7/qIByJV1QbHJ+0CXI4GeXx4NHU/Rg+bv7bvzugkEWnYcB/43WvR8ZD2K9KQIeVng1bA=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/vue-plugin-load-script/-/vue-plugin-load-script-1.3.6.tgz"
+  "resolved" "https://registry.npmjs.org/vue-plugin-load-script/-/vue-plugin-load-script-1.3.6.tgz"
   "version" "1.3.6"
 
 "vue-router@^3.5.3":
@@ -10346,7 +10337,7 @@
 
 "vue-runtime-helpers@^1.1.2":
   "integrity" "sha512-pZfGp+PW/IXEOyETE09xQHR1CKkR9HfHZdnMD/FVLUNI+HxYTa82evx5WrF6Kz4s82qtqHvMZ8MZpbk2zT2E1Q=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/vue-runtime-helpers/-/vue-runtime-helpers-1.1.2.tgz"
+  "resolved" "https://registry.npmjs.org/vue-runtime-helpers/-/vue-runtime-helpers-1.1.2.tgz"
   "version" "1.1.2"
 
 "vue-style-loader@^4.1.0", "vue-style-loader@^4.1.2":
@@ -10583,7 +10574,7 @@
 
 "when@~3.6.x":
   "integrity" "sha512-d1VUP9F96w664lKINMGeElWdhhb5sC+thXM+ydZGU3ZnaE09Wv6FaS+mpM9570kcDs/xMfcXJBTLsMdHEFYY9Q=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/when/-/when-3.6.4.tgz"
+  "resolved" "https://registry.npmjs.org/when/-/when-3.6.4.tgz"
   "version" "3.6.4"
 
 "which-boxed-primitive@^1.0.2":
@@ -10618,7 +10609,7 @@
 
 "winston-transport@^4.9.0":
   "integrity" "sha512-8drMJ4rkgaPo1Me4zD/3WLfI/zPdA9o2IipKODunnGDcuqbHwjsbB79ylv04LCGGzU0xQ6vTznOMpQGaLhhm6A=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/winston-transport/-/winston-transport-4.9.0.tgz"
+  "resolved" "https://registry.npmjs.org/winston-transport/-/winston-transport-4.9.0.tgz"
   "version" "4.9.0"
   dependencies:
     "logform" "^2.7.0"
@@ -10627,7 +10618,7 @@
 
 "winston@^3.8.2":
   "integrity" "sha512-DLiFIXYC5fMPxaRg832S6F5mJYvePtmO5G9v9IgUFPhXm9/GkXarH/TUrBAVzhTCzAj9anE/+GjrgXp/54nOgw=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/winston/-/winston-3.17.0.tgz"
+  "resolved" "https://registry.npmjs.org/winston/-/winston-3.17.0.tgz"
   "version" "3.17.0"
   dependencies:
     "@colors/colors" "^1.6.0"
@@ -10702,7 +10693,7 @@
 
 "xss@^1.0.6", "xss@^1.0.8":
   "integrity" "sha512-FVdlVVC67WOIPvfOwhoMETV72f6GbW7aOabBC3WxN/oUdoEMDyLz4OgRv5/gck2ZeNqEQu+Tb0kloovXOfpYVg=="
-  "resolved" "https://mirrors.huaweicloud.com/repository/npm/xss/-/xss-1.0.15.tgz"
+  "resolved" "https://registry.npmjs.org/xss/-/xss-1.0.15.tgz"
   "version" "1.0.15"
   dependencies:
     "commander" "^2.20.3"
