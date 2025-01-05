@@ -1403,15 +1403,15 @@
     "url" "^0.11.0"
     "vue" "^2.6.11"
 
-"@jx3box/jx3box-common-ui@^9.0.26":
-  "integrity" "sha512-QM5Hin0BzmHILdaPc4ESQjeziyIsNDxZ6zGYRx6IeCqewuFRnzYDtR1rfcN7Iu9sphInWxfkuIV/UJ1AqZQebA=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-9.0.26.tgz"
-  "version" "9.0.26"
+"@jx3box/jx3box-common-ui@^9.0.27":
+  "integrity" "sha512-UAu2FJ8nTkTPluOP3FfZBKFm/RdwcebmpBYoLhbLXnNv/7CMNCq09InBB6phc2EVBq25FBdrdZI1PlfbAV646A=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-9.0.27.tgz"
+  "version" "9.0.27"
   dependencies:
-    "@jx3box/jx3box-comment-ui" "^1.9.9"
-    "@jx3box/jx3box-common" "^8.5.2"
-    "@jx3box/jx3box-data" "^3.7.0"
-    "@jx3box/jx3box-editor" "^2.2.16"
+    "@jx3box/jx3box-comment-ui" "^2.0.1"
+    "@jx3box/jx3box-common" "^8.5.4"
+    "@jx3box/jx3box-data" "^3.7.5"
+    "@jx3box/jx3box-editor" "^2.2.21"
     "@jx3box/reporter" "^0.0.4"
     "axios" "^0.26.1"
     "dayjs" "^1.11.0"
@@ -1458,10 +1458,10 @@
     "uuid" "^9.0.0"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-common@^8.1.4", "@jx3box/jx3box-common@^8.2.18", "@jx3box/jx3box-common@^8.3.4", "@jx3box/jx3box-common@^8.4.2", "@jx3box/jx3box-common@^8.5.2", "@jx3box/jx3box-common@^8.5.3":
-  "integrity" "sha512-SiOPQaVC+mt2ENDCPyzBpw9YESr+bnw5KqZRrOkTIzqBEsE7loiCPvK8IcBMV4KGMib90fOkxW7g8YwCubPexQ=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.5.3.tgz"
-  "version" "8.5.3"
+"@jx3box/jx3box-common@^8.1.4", "@jx3box/jx3box-common@^8.2.18", "@jx3box/jx3box-common@^8.3.4", "@jx3box/jx3box-common@^8.4.2", "@jx3box/jx3box-common@^8.5.4":
+  "integrity" "sha512-M0xBJ5VZom64Nt63MxLRCh6fsCDcARkiisPMHCHHIk/IzZobE1RHKLmQoqnVz0ecR2LarZRuxC5BpX6JGhUw2A=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-8.5.4.tgz"
+  "version" "8.5.4"
   dependencies:
     "@jx3box/reporter" "^0.0.5"
     "axios" "^1.6.8"
@@ -1473,7 +1473,7 @@
     "uuid" "^9.0.0"
     "vue" "^2.6.12"
 
-"@jx3box/jx3box-data@^3.3.0", "@jx3box/jx3box-data@^3.5.8", "@jx3box/jx3box-data@^3.6.6", "@jx3box/jx3box-data@^3.6.9", "@jx3box/jx3box-data@^3.7.0", "@jx3box/jx3box-data@^3.7.5":
+"@jx3box/jx3box-data@^3.3.0", "@jx3box/jx3box-data@^3.5.8", "@jx3box/jx3box-data@^3.6.6", "@jx3box/jx3box-data@^3.6.9", "@jx3box/jx3box-data@^3.7.5":
   "integrity" "sha512-DLiF8KOox9roc9yz1lLxnJVKQ113FdvdpG7yFJe/J+Y+y9wjj5S5qZZ4cLRjdCjy0uUwqPhftfnImOnB6SEsPA=="
   "resolved" "https://registry.npmjs.org/@jx3box/jx3box-data/-/jx3box-data-3.7.5.tgz"
   "version" "3.7.5"
