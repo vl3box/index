@@ -29,11 +29,11 @@ import { bodyMap } from "@jx3box/jx3box-data/data/role/body.json";
 import schoolMap from "@jx3box/jx3box-data/data/xf/schoolid.json";
 import dayjs from "@/utils/day";
 import { getMeirentuNew } from "@/service/spider";
+import { getUserInfo } from "@/service/horse";
 export default {
     data() {
         return {
-            meirentu: null,
-            server: "梦江南",
+            server: "",
             list: [],
         };
     },
