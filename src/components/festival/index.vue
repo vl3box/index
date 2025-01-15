@@ -42,8 +42,8 @@ export default {
         },
         eventStyle() {
             return {
-                width: this.data.meta?.width || "720px",
-                height: this.data.meta?.height || "671px",
+                width: this.data.meta?.width || "100%",
+                height: this.data.meta?.height || "100%",
             };
         },
     },
