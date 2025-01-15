@@ -1,7 +1,6 @@
 <template>
-    <div class="m-index-popup" v-if="success" v-show="visible" @click="close">
+    <div class="m-index-popup" v-if="success" v-show="visible">
         <!-- 贺卡 -->
-        <!-- <midAutumn :fontCount="count" @checked="checked" @close="close" /> -->
         <iframe class="m-holiday-iframe" :style="eventStyle" :src="url" frameborder="0"></iframe>
     </div>
 </template>
@@ -10,7 +9,6 @@
 import { __imgPath, __Root } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getBoxCoin, getEventDetail } from "@/service/index";
 import User from "@jx3box/jx3box-common/js/user";
-// import midAutumn from "@/components/festival/midAutumn.vue";
 export default {
     name: "Festival",
     data: function () {
@@ -25,7 +23,6 @@ export default {
             record_id: 0,
         };
     },
-    // components: { midAutumn },
     computed: {
         event_id() {
             return ~~this.$store.state.config.festival_id;
@@ -37,11 +34,11 @@ export default {
             return !!~~this.$store.state.config.festival_test;
         },
         url() {
-            let url = __Root + "author/" + User.getInfo().uid + `/holiday-card/${this.event_id}`
+            let url = __Root + "author/" + User.getInfo().uid + `/holiday-card/${this.event_id}`;
             if (this.record_id) {
-                url += `?id=${this.record_id}`
+                url += `?id=${this.record_id}`;
             }
-            return url
+            return url;
         },
         eventStyle() {
             return {
@@ -51,9 +48,6 @@ export default {
         },
     },
     methods: {
-        closePop() {
-            this.visible = false;
-        },
         checked() {
             this.check = true;
         },
@@ -63,6 +57,7 @@ export default {
         async init() {
             if ((this.event_status && this.event_id) || (this.event_test && User.isSuperAdmin())) {
                 console.log("尝试触发贺卡事件");
+                window.addEventListener("message", this.handleIframeMessage);
                 const res = await getEventDetail(this.event_id);
                 this.data = res.data.data;
                 if (!this.done) {
@@ -73,14 +68,25 @@ export default {
                             this.count = res.data?.data?.boxcoin || res.data?.data?.points || 0;
                             this.success = true;
                             sessionStorage.setItem("festival_id", this.event_id);
-
-                            this.record_id = res.data?.data?.id || 0;
+                            this.record_id = res.data?.data?.trigger_log_id || 0;
                         })
                         .catch((err) => {
                             console.log("贺卡触发失败", err);
+                            this.closeIframe();
                         });
+                } else {
+                    this.closeIframe();
                 }
             }
+        },
+        handleIframeMessage(event) {
+            if (event.data === "closeHolidayCard") {
+                this.closeIframe();
+            }
+        },
+        closeIframe() {
+            window.removeEventListener("message", this.handleIframeMessage);
+            this.close();
         },
     },
     watch: {
@@ -91,7 +97,9 @@ export default {
             deep: true,
         },
     },
-
+    beforeDestroy() {
+        window.removeEventListener("message", this.handleIframeMessage);
+    },
     mounted() {
         if (User.isLogin()) {
             this.init();
@@ -102,8 +110,4 @@ export default {
 
 <style lang="less">
 @import "../../assets/css/index/popup.less";
-
-.m-holiday-iframe {
-    border: none;
-}
 </style>
