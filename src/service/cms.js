@@ -1,14 +1,13 @@
-import { $cms } from "@jx3box/jx3box-common/js/https";
+import { $cms, $team } from "@jx3box/jx3box-common/js/https";
 import axios from "axios";
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 
 // 新接口2023.11.15
 function getConfigBanner(params) {
     return $cms().get(`api/cms/config/banner`, {
-        params
+        params,
     });
 }
-
 
 // 骚话
 function getGossip(limit) {
@@ -36,7 +35,6 @@ function getPosts(params) {
 function getPost(id) {
     return $cms().get(`/api/cms/post/${id}`);
 }
-
 
 // 配装
 function getPz(params) {
@@ -110,7 +108,6 @@ function getMenus(key) {
     return $cms().get(`/api/cms/config/menu/${key}`);
 }
 
-
 //获取装扮
 function getUserDecoration(params) {
     return $cms().get(`/api/cms/user/decoration`, {
@@ -119,10 +116,9 @@ function getUserDecoration(params) {
 }
 
 function getPublicDecoration() {
-    let url = __imgPath + "decoration/index.json";
+    let url = __cdn + "design/decoration/index.json";
     return axios.get(url);
 }
-
 
 // 名望
 function getCelebrities(params) {
@@ -145,6 +141,26 @@ function getWikiPosts(params) {
     });
 }
 
+// 获取dbm
+function getDbms(params) {
+    return $cms().get(`/api/cms/dbm/pkg`, {
+        params: params,
+    });
+}
+
+// 获取战斗统计/ jcl / battle
+function getBattles(params) {
+    return $team().get("/api/team/battle/public-list", {
+        params: params,
+    });
+}
+
+// 获取配装
+function getPzs(params) {
+    return $cms().get(`/api/cms/app/pz`, {
+        params: params,
+    });
+}
 
 export {
     getPosts,
@@ -164,5 +180,8 @@ export {
     getCelebrities,
     getConfigBanner,
     getChangelog,
-    getWikiPosts
+    getWikiPosts,
+    getDbms,
+    getBattles,
+    getPzs,
 };

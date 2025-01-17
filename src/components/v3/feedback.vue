@@ -8,7 +8,7 @@
 <template>
     <div class="m-feedback m-sideblock">
         <div class="m-feedback-header m-sideblock-header">
-            <div class="u-left"><i class="u-icon el-icon-info"></i><a class="u-title">反馈中心</a></div>
+            <div class="u-left"><i class="u-icon el-icon-s-opportunity"></i><a class="u-title">反馈中心</a></div>
         </div>
         <a class="m-feedback-content" :href="feedback" target="_blank">
             <img class="u-avatar" :src="img" alt="盒子娘" />

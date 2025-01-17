@@ -16,6 +16,9 @@ Vue.use(JX3BOX_UI);
 // import Comments from "@jx3box/jx3box-comment-ui"
 // Vue.use(Comments)
 
+import reporter from "@jx3box/jx3box-common/js/reporter";
+reporter.install(Vue);
+
 // 数据与路由
 import router from "../router/notice";
 import store from "../store";

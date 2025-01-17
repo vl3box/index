@@ -1,7 +1,9 @@
 <template>
-    <div class="m-celebrity-wrap">
+    <div class="m-world-block m-celebrity-wrap">
         <el-divider content-position="left">
-            名望&nbsp;·&nbsp;
+            名望
+            <template v-if="type === '2'"> &nbsp;·&nbsp;河西瀚漠 </template>
+            &nbsp;·&nbsp;
             <el-select v-model="type" @change="typeChange">
                 <el-option v-for="type in types" :key="type.value" :label="type.label" :value="type.value"></el-option>
             </el-select>
@@ -28,6 +30,7 @@
                             <template v-if="item.oldKey === 'y8'"> 特殊事件 · </template>
                             {{ item.site }}
                         </div>
+                        <div class="u-item" v-else-if="item.key === 'p3'">{{ item.site }}</div>
                         <div class="u-item" v-else>{{ item.map + "·" + item.site }}</div>
                         <div class="u-item">
                             <span><img :src="`${iconPath}/minimap_${item.icon}.png`" />{{ item.stage }}</span>
@@ -56,8 +59,12 @@ export default {
                 h: dayjs.tz().hour(),
                 m: dayjs.tz().minute(),
             },
-            type: "1",
+            type: "2",
             types: [
+                {
+                    label: "披风会",
+                    value: "2",
+                },
                 {
                     label: "云从社",
                     value: "1",
@@ -243,11 +250,65 @@ export default {
 
             this.list = combineList.slice(0, this.showNum);
         },
+        // 处理披风会
+        getPi(date) {
+            // 3小时循环事件
+            // 当前时间
+            const currentH = date.h % 3;
+            const preH = currentH === 0 ? 2 : currentH - 1;
+            const nextH = currentH === 2 ? 0 : currentH + 1;
+
+            const circleList = this.celebrityList.filter((item) => item.key === "p3" && Number(item.hour) === currentH);
+            const preList = this.celebrityList.filter((item) => item.key === "p3" && Number(item.hour) === preH);
+            const nextList = this.celebrityList.filter((item) => item.key === "p3" && Number(item.hour) === nextH);
+
+            let index = -1;
+            index = circleList.findIndex((item) => {
+                return item.time === date.m;
+            });
+            if (index === -1) {
+                index = circleList.findIndex((item) => {
+                    return item.time > date.m;
+                });
+                if (index > 0) {
+                    index = index - 1;
+                } else if (index === -1 && date.m > circleList[circleList.length - 1].time) {
+                    index = circleList.length - 1;
+                }
+            }
+            // 当前小时的第一项， 且当前时间大于当前项的时间时取上一小时的最后一项
+            let list =
+                index === 0 && circleList[0].time > date.m
+                    ? [preList[preList.length - 1]].concat(circleList.slice(0, this.showNum - 1))
+                    : circleList.slice(index, index + this.showNum);
+            let newList = [];
+            if (list.length < this.showNum) {
+                newList = list.concat(nextList.slice(0, this.showNum - list.length));
+            } else {
+                newList = [].concat(list);
+            }
+            const circleNumList = newList.map((item) => {
+                // 当前时间
+                let h = this.currentDate.h;
+                if (Number(item.hour) === preH) {
+                    h = h - 1;
+                }
+                if (Number(item.hour) === nextH) {
+                    h = h + 1;
+                }
+                item.m = item.time;
+                item.timeFormat = this.toFormatTime(h, item.time);
+                return item;
+            });
+            this.list = circleNumList;
+        },
         getList(date) {
             if (this.type === "0") {
                 this.getChu(date);
-            } else {
+            } else if (this.type === "1") {
                 this.getYun(date);
+            } else {
+                this.getPi(date);
             }
         },
     },

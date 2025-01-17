@@ -7,19 +7,24 @@
                 <news />
                 <jx3code />
                 <jx3servers />
-                <!-- <jx3world /> -->
                 <feedback />
-                <banner />
+                <follow />
             </div>
             <div class="m-primary">
                 <live />
                 <slider />
                 <box />
-
                 <joke />
-                <jx3world />
-                <posts />
-                <community />
+                <div class="m-primary__main">
+                    <div class="m-primary__main-left">
+                        <posts />
+                        <community />
+                    </div>
+                    <div class="m-primary__main-right">
+                        <banner />
+                        <jx3world v-if="isStd" />
+                    </div>
+                </div>
                 <Footer></Footer>
             </div>
         </div>
@@ -32,13 +37,14 @@
 
 <script>
 // 左侧
-import welcome from "@/components/v3/welcome.vue";
+import welcome from "@/components/v4/welcome.vue";
 import news from "@/components/v3/news.vue";
-import jx3world from "@/components/v4/jx3world.vue";
+import jx3world from "@/components/v4/jx3world_v4.vue";
 import jx3code from "@/components/v3/jx3code.vue";
 import jx3servers from "@/components/v3/jx3servers.vue";
 import banner from "@/components/v3/banner.vue";
 import feedback from "@/components/v3/feedback.vue";
+import follow from "@/components/v3/follow.vue";
 import joke from "@/components/index/joke.vue";
 
 // 首屏
@@ -78,6 +84,9 @@ export default {
         isLogin() {
             return User.isLogin();
         },
+        isStd() {
+            return this.$store.state.client === "std";
+        },
     },
     components: {
         // 左侧
@@ -88,6 +97,7 @@ export default {
         jx3servers,
         banner,
         feedback,
+        follow,
 
         // 右侧
         live,
@@ -150,7 +160,7 @@ export default {
         }
 
         // 如果路由包含index/feature
-        if (location.href.indexOf("index/feature") > -1){
+        if (location.href.indexOf("index/feature") > -1) {
             location.href = "/notice?tab=feature";
         }
     },

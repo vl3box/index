@@ -177,7 +177,7 @@ export default {
     watch: {
         params: {
             deep: true,
-            immediate: true,
+            // immediate: true,
             handler: function (val) {
                 this.loadPosts();
             },
@@ -194,20 +194,20 @@ export default {
                 }
             },
         },
-        $route: {
-            immediate: true,
-            handler: function (val) {
-                let tab = val.query.tab;
-                let type = this.buttons.find((item) => item.key == tab);
-                if (type) {
-                    this.type = type.value;
-                } else {
-                    this.type = "";
-                }
-            },
-        },
     },
-    mounted() {},
+    mounted() {
+        const tab = this.$route.query.tab;
+        if (tab) {
+            let type = this.buttons.find((item) => item.key == tab);
+            if (type) {
+                this.type = type.value;
+            }
+        } else {
+            this.type = "";
+            this.loadPosts();
+        }
+
+    },
 };
 </script>
 <style lang="less">

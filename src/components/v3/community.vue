@@ -111,7 +111,7 @@ export default {
             return this.$store.state.client;
         },
         more_link: function () {
-            return "/community";
+            return this.category === "all" ? "/community" : `/community?category=${this.category}`;
         },
         report_link: function () {
             const prefix = this.client == "std" ? "www" : "origin";
@@ -226,7 +226,7 @@ export default {
 .m-v3-community {
     .u-title {
         display: flex;
-        height: 28px;
+        // height: 28px;
         align-items: center;
         gap: 4px;
         overflow: hidden;
